@@ -62,11 +62,18 @@ jobs:
             if [ "$count" = "0" ] || [ -z "$count" ]; then
               echo "⚠️  $f: no JSON-LD"
             else
-              # Extract and validate JSON-LD block
-              json=$(sed -n '/<script type="application\/ld+json">/,/<\/script>/p' "$f" | sed '1d;$d')
+              # Extract all JSON-LD blocks (handles multi-line + attributes on script tag)
+              json=$(awk '/<script[^>]*application\/ld\+json/{flag=1;next}/<\/script>/{flag=0}flag' "$f")
               if [ -n "$json" ]; then
+                # Validate JSON syntax
                 if echo "$json" | jq empty 2>/dev/null; then
-                  echo "  ✅ $f ($count blocks, valid JSON)"
+                  # Check not empty object
+                  if [ "$(echo "$json" | jq 'length' 2>/dev/null)" -gt 0 ]; then
+                    echo "  ✅ $f ($count blocks, valid JSON-LD)"
+                  else
+                    echo "::error::$f JSON-LD is empty object"
+                    errors=$((errors+1))
+                  fi
                 else
                   echo "::error::$f contains invalid JSON-LD"
                   errors=$((errors+1))
