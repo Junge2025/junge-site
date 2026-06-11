@@ -416,6 +416,23 @@ jobs:
               fi
             '
 
+      - name: Generate AVIF images
+        run: |
+          sudo apt-get install -y libavif-bin
+          find . -type f \\( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \\) \\
+            -not -path "./.git/*" -not -path "./node_modules/*" -print0 | \\
+            xargs -0 -I{} bash -c '
+              file="{}"
+              base=$(basename "$file")
+              name="${base%.*}"
+              dir=$(dirname "$file")
+              avif_file="${dir}/${name}.avif"
+              if [ ! -f "$avif_file" ]; then
+                avifenc --min 20 --max 30 "$file" "$avif_file"
+                echo "Generated AVIF: $avif_file"
+              fi
+            '
+
       - name: Create image-optimize PR
         id: cpr
         uses: peter-evans/create-pull-request@v6
@@ -426,6 +443,7 @@ jobs:
           body: |
             - 大图检测（>300KB）
             - 自动生成 WebP（jpg/png → webp）
+            - 自动生成 AVIF（jpg/png → avif）
           labels: image, automation
           delete-branch: true
           base: main
@@ -438,10 +456,104 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # ═══════════════════════════════════════════════
-  # ⑬ 手动一键推送 (仅 workflow_dispatch)
+  # ⑬ 质量报告 Dashboard
+  # ═══════════════════════════════════════════════
+  quality-dashboard:
+    name: "⑬ 质量报告 Dashboard"
+    runs-on: ubuntu-latest
+    needs: [auto-fix-super, image-optimize-super]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate lint reports
+        run: |
+          npm run fix:html:report
+          npm run fix:css:report
+          npm run fix:js:report
+          mkdir -p optimize-report
+
+      - name: Build Dashboard
+        run: |
+          mkdir -p dashboard
+          cat > dashboard/index.html << 'DASHBOARD_EOF'
+          <!DOCTYPE html>
+          <html lang="zh-CN">
+          <head>
+          <meta charset="UTF-8">
+          <title>军鸽云链 Daily Quality Report</title>
+          <style>
+            body { font-family: -apple-system, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #0d1117; color: #c9d1d9; }
+            h1 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+            h2 { color: #f0883e; margin-top: 30px; }
+            pre { background: #161b22; padding: 15px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.5; }
+            .pass { color: #3fb950; }
+            .fail { color: #f85149; }
+            .meta { color: #8b949e; font-size: 12px; margin-top: 40px; }
+          </style>
+          </head>
+          <body>
+          <h1>📊 军鸽云链 Daily Quality Report</h1>
+          <p class="meta">Generated: REPLACE_DATE</p>
+
+          <h2>HTML Lint</h2>
+          <pre>REPLACE_HTML_LINT</pre>
+
+          <h2>CSS Lint</h2>
+          <pre>REPLACE_CSS_LINT</pre>
+
+          <h2>JS Lint</h2>
+          <pre>REPLACE_JS_LINT</pre>
+
+          <h2>Large Images (>300KB)</h2>
+          <pre>REPLACE_LARGE_IMAGES</pre>
+
+          <p class="meta">军鸽云链数智 · junge.中国 · 全自动质量巡检</p>
+          </body>
+          </html>
+          DASHBOARD_EOF
+
+          # Inject reports
+          DATE=$(date +%Y-%m-%d)
+          sed -i "s/REPLACE_DATE/$DATE/" dashboard/index.html
+
+          for report in html-lint css-lint js-lint; do
+            if [ -f "reports/$report.txt" ]; then
+              content=$(cat "reports/$report.txt" | head -100)
+              sed -i "s|REPLACE_${report^^}_LINT|${content//$'\\n'/\\\\n}|" dashboard/index.html
+            else
+              sed -i "s/REPLACE_${report^^}_LINT/(no data)/" dashboard/index.html
+            fi
+          done
+
+          if [ -f "optimize-report/large-images.txt" ]; then
+            content=$(cat "optimize-report/large-images.txt" | head -50)
+            sed -i "s/REPLACE_LARGE_IMAGES/${content//$'\\n'/\\\\n}/" dashboard/index.html
+          else
+            sed -i "s/REPLACE_LARGE_IMAGES/✔ No large images detected/" dashboard/index.html
+          fi
+
+      - name: Upload Dashboard
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-dashboard
+          path: dashboard/index.html
+
+  # ═══════════════════════════════════════════════
+  # ⑭ 手动一键推送 (仅 workflow_dispatch)
   # ═══════════════════════════════════════════════
   manual-auto-push:
-    name: "⑬ manual-auto-push (手动一键推送)"
+    name: "⑭ manual-auto-push (手动一键推送)"
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
     steps:
