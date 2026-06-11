@@ -2,16 +2,18 @@ name: Full Site Quality Check
 
 on:
   push:
-    paths: ['**.html', '**.htm', 'robots.txt', 'sitemap.xml']
+    paths: ['**.html', '**.htm', '**.css', '**.js', 'robots.txt', 'sitemap.xml']
   schedule:
     - cron: '0 0 * * *'  # UTC 00:00 = 北京时间 08:00
   workflow_dispatch:
 
 jobs:
+  # ═══════════════════════════════════════════════
+  # 1. 死链 + Sitemap + Robots
+  # ═══════════════════════════════════════════════
   link-check:
     name: Dead Link + Sitemap + Robots
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
@@ -24,10 +26,10 @@ jobs:
       - name: Check sitemap.xml
         run: |
           if [ ! -f sitemap.xml ]; then
-            echo "❌ sitemap.xml 不存在"
-            exit 1
+            echo "::warning::sitemap.xml 不存在，将由 sitemap-generate job 自动生成"
+          else
+            echo "✔ sitemap.xml 存在"
           fi
-          echo "✔ sitemap.xml 存在"
 
       - name: Check robots.txt
         run: |
@@ -79,6 +81,32 @@ jobs:
               labels: ['seo', 'bug']
             });
 
+  # ═══════════════════════════════════════════════
+  # 2. HTML 验证 (W3C 风格)
+  # ═══════════════════════════════════════════════
+  html-validate:
+    name: HTML Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install html-validate
+        run: npm install -g html-validate
+
+      - name: Run html-validate
+        run: |
+          html-validate "**/*.html" > /tmp/html-validate-report.txt || true
+
+      - name: Upload HTML Validation Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-validation-report
+          path: /tmp/html-validate-report.txt
+
+  # ═══════════════════════════════════════════════
+  # 3. Lighthouse 性能审计
+  # ═══════════════════════════════════════════════
   lighthouse:
     name: Lighthouse Performance Audit
     runs-on: ubuntu-latest
@@ -93,6 +121,9 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
 
+  # ═══════════════════════════════════════════════
+  # 4. 可访问性审计
+  # ═══════════════════════════════════════════════
   accessibility:
     name: HTML Accessibility Audit
     runs-on: ubuntu-latest
@@ -111,23 +142,149 @@ jobs:
           name: accessibility-report
           path: /tmp/a11y-report.md
 
+  # ═══════════════════════════════════════════════
+  # 5. CSS/JS 压缩检查
+  # ═══════════════════════════════════════════════
+  assets-check:
+    name: CSS/JS Minify Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check unminified CSS/JS
+        run: |
+          echo "Scanning for large, unminified CSS/JS..."
+          find . -name "*.css" ! -name "*.min.css" -size +50k -print > /tmp/unminified-assets.txt || true
+          find . -name "*.js"  ! -name "*.min.js"  -size +50k -print >> /tmp/unminified-assets.txt || true
+
+          if [ -s /tmp/unminified-assets.txt ]; then
+            echo "❌ Found potentially unminified assets:"
+            cat /tmp/unminified-assets.txt
+          else
+            echo "✔ No large unminified CSS/JS detected."
+          fi
+
+      - name: Upload Assets Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: assets-minify-report
+          path: /tmp/unminified-assets.txt
+
+  # ═══════════════════════════════════════════════
+  # 6. 图片死链检查
+  # ═══════════════════════════════════════════════
+  broken-images:
+    name: Broken Image Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Scan for broken images
+        run: |
+          base="https://junge.中国"
+          tmp=/tmp/broken-images.txt
+          : > "$tmp"
+
+          grep -Rho '<img[^>]*src="[^"]*"' . \
+            | sed -E 's/.*src="([^"]*)".*/\1/' \
+            | sort -u \
+            | while read -r src; do
+              if echo "$src" | grep -qE '^(data:|mailto:|tel:)'; then
+                continue
+              fi
+
+              if echo "$src" | grep -qE '^(https?://)'; then
+                url="$src"
+              else
+                url="$base/$src"
+              fi
+
+              code=$(curl -o /dev/null -s -w "%{http_code}" "$url" || echo "000")
+              if ! echo "$code" | grep -qE '^(200|301|302|304)$'; then
+                echo "$code $url" >> "$tmp"
+              fi
+            done
+
+          if [ -s "$tmp" ]; then
+            echo "❌ Broken images found:"
+            cat "$tmp"
+            exit 1
+          else
+            echo "✔ No broken images detected."
+          fi
+
+      - name: Upload Broken Image Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: broken-images-report
+          path: /tmp/broken-images.txt
+
+  # ═══════════════════════════════════════════════
+  # 7. Sitemap 自动生成
+  # ═══════════════════════════════════════════════
+  sitemap-generate:
+    name: Generate sitemap.xml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate sitemap.xml
+        run: |
+          base="https://junge.中国"
+          out="sitemap.xml"
+
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > "$out"
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> "$out"
+
+          find . -name "*.html" | sed 's|^\./||' | while read -r path; do
+            url="$base/${path}"
+            echo "  <url><loc>${url}</loc></url>" >> "$out"
+          done
+
+          echo '</urlset>' >> "$out"
+
+      - name: Upload sitemap.xml
+        uses: actions/upload-artifact@v4
+        with:
+          name: sitemap-generated
+          path: sitemap.xml
+
+      - name: Create PR for sitemap update
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "🤖 自动更新 sitemap.xml"
+          title: "🤖 自动更新 sitemap.xml"
+          body: "本 PR 由全站质量巡检自动生成，更新了 sitemap.xml。请审核合并。"
+          labels: seo, automated
+
+  # ═══════════════════════════════════════════════
+  # 8. 自动修复死链 (扩展规则)
+  # ═══════════════════════════════════════════════
   auto-fix:
     name: Auto Fix Dead Links (PR)
     needs: link-check
     if: failure()
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
       - name: Auto Fix Common Dead Links
         run: |
+          # http → https
           find . -name "*.html" -type f -exec sed -i 's/http:\/\//https:\/\//g' {} \;
+
+          # 去掉 /index.html（例如 https://junge.中国/index.html → https://junge.中国/）
+          find . -name "*.html" -type f -exec sed -i 's/\/index\.html"/"/g' {} \;
+
+          # 旧域名 → 新域名（按需取消注释）
+          # find . -name "*.html" -type f -exec sed -i 's/old-domain\.com/junge.中国/g' {} \;
 
       - name: Create PR
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: "🔧 自动修复部分死链"
-          title: "🔧 自动修复死链"
-          body: "本 PR 自动修复了部分死链（如 http→https）。请审核。"
+          commit-message: "🔧 自动修复死链与链接格式"
+          title: "🔧 自动修复死链与链接规范"
+          body: "本 PR 自动修复了部分死链（http→https、/index.html 等）。请审核。"
           labels: seo
