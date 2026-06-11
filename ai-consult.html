@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能咨询 - 军鸽云链</title>
+    <style>
+        :root {
+            --color-primary: #1E3A5F;
+            --color-secondary: #2E7D32;
+            --color-background: #f8fafc;
+            --color-card: #ffffff;
+            --color-border: #e5e7eb;
+            --color-text: #1f2937;
+            --color-muted: #6b7280;
+            --border-radius-lg: 12px;
+            --gradient-blue: linear-gradient(135deg, #1E3A5F, #2A4F7A);
+            --spacing-lg: 16px;
+            --spacing-xl: 20px;
+            --spacing-2xl: 24px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: var(--color-background);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-header {
+            background: var(--gradient-blue);
+            color: white;
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+        .chat-header h2 { font-size: 22px; }
+        .chat-container {
+            flex: 1;
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            padding: var(--spacing-xl);
+        }
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--spacing-lg);
+            background: var(--color-card);
+            border-radius: var(--border-radius-lg);
+            margin-bottom: var(--spacing-lg);
+            max-height: 500px;
+            min-height: 300px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+        .message {
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            gap: 8px;
+        }
+        .message.user { justify-content: flex-end; }
+        .message-avatar {
+            width: 36px; height: 36px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; flex-shrink: 0;
+        }
+        .message.user .message-avatar { background: #e3f2fd; color: var(--color-primary); }
+        .message.ai .message-avatar { background: #e8f5e9; color: var(--color-secondary); }
+        .message-content {
+            max-width: 75%; padding: 12px 16px; border-radius: 12px;
+            font-size: 14px; line-height: 1.6;
+        }
+        .message.user .message-content { background: #e3f2fd; color: var(--color-text); }
+        .message.ai .message-content { background: #f5f5f5; color: var(--color-text); }
+        .message-time { font-size: 10px; color: var(--color-muted); margin-top: 4px; }
+        
+        .quick-questions {
+            display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: var(--spacing-lg);
+        }
+        .quick-q {
+            padding: 8px 14px; background: white; border: 1px solid var(--color-border);
+            border-radius: 20px; font-size: 13px; cursor: pointer; transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .quick-q:hover { background: #e3f2fd; border-color: var(--color-primary); color: var(--color-primary); }
+        
+        .input-area {
+            display: flex; gap: 12px;
+        }
+        .chat-input {
+            flex: 1; padding: 14px 16px; border: 2px solid var(--color-border);
+            border-radius: 25px; font-size: 14px; font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        .chat-input:focus { outline: none; border-color: var(--color-primary); }
+        .send-btn {
+            width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-blue);
+            color: white; border: none; font-size: 20px; cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .send-btn:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(30,58,95,0.4); }
+        .typing-indicator {
+            display: none; padding: 12px 16px; background: #f5f5f5;
+            border-radius: 12px; font-size: 14px; color: var(--color-muted);
+        }
+    
+        /* 返回首页按钮 */
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 100;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background: rgba(30,58,95,0.85);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .back-home:hover {
+            background: #1E3A5F;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30,58,95,0.3);
+        }
+        @media (max-width: 768px) {
+            .back-home {
+                bottom: 20px;
+                left: 20px;
+                padding: 8px 14px;
+                font-size: 13px;
+            }
+        }
+
+    
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="AI智能咨询 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/ai-consult.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/ai-consult.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  
+  <span class="current">AI咨询</span>
+</nav>
+
+    <div class="chat-header">
+        <h2>🤖 AI智能咨询</h2>
+        <p style="font-size: 13px; opacity: 0.9;">军鸽云链智能助手，随时为您解答</p>
+    </div>
+    <div class="chat-container">
+        <div class="quick-questions">
+            <button class="quick-q" onclick="askQuick('如何注册成为会员？')">如何注册会员？</button>
+            <button class="quick-q" onclick="askQuick('退役军人有哪些优惠？')">退役军人优惠？</button>
+            <button class="quick-q" onclick="askQuick('如何申请创业扶持？')">如何申请创业扶持？</button>
+            <button class="quick-q" onclick="askQuick('区块链溯源怎么用？')">区块链溯源怎么用？</button>
+            <button class="quick-q" onclick="askQuick('如何加入分站？')">如何加入分站？</button>
+            <button class="quick-q" onclick="askQuick('退换货政策是什么？')">退换货政策？</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message ai">
+                <div class="message-avatar">🤖</div>
+                <div>
+                    <div class="message-content">您好！我是军鸽云链AI智能助手，很高兴为您服务。您可以问我关于平台使用、退役军人政策、创业就业、产品溯源等方面的问题。</div>
+                    <div class="message-time">刚刚</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" class="chat-input" id="chatInput" 
+                   placeholder="请输入您的问题..." 
+                   onkeydown="if(event.key==='Enter') sendMessage()">
+            <button class="send-btn" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+
+    <script>
+        const aiResponses = {
+            '注册': '您可以通过以下方式注册成为军鸽云链会员：\n1. 访问军鸽云链官网\n2. 点击"会员注册加盟入口"\n3. 选择用户类型（退役军人/家属/农户/企业/消费者）\n4. 填写基本信息并设置密码\n5. 完成手机验证即可注册\n\n🎖️ 退役军人请准备好相关证件，可享受专属优惠！',
+            '会员': '军鸽云链会员分为以下几种类型：\n• 退役军人会员 - 享受专属折扣\n• 家属会员 - 享受优惠价格\n• 合作农户 - 可发布产品\n• 企业会员 - 企业合作服务\n• 普通消费者 - 基础购物服务\n\n📌 注册完全免费！',
+            '创业': '退役军人创业扶持政策包括：\n1. 创业担保贷款最高50万元\n2. 3年税收减免\n3. 创业园区租金补贴\n4. 免费技能培训\n5. 一对一创业指导\n\n📞 详情请咨询：400-888-8888',
+            '溯源': '区块链溯源使用方法：\n1. 找到产品包装上的溯源码\n2. 在平台"溯源查询"页面输入溯源码\n3. 即可查看产品从种植到销售的全程信息\n\n包括：种植记录、施肥用药、采摘时间、运输轨迹、检测报告等全链条数据。',
+            '分站': '加入分站的方法：\n1. 在平台"AI智联-分站"模块\n2. 点击"会员注册加盟入口"\n3. 选择"分站合伙人"\n4. 填写申请信息\n5. 工作人员会在3个工作日内联系\n\n🌍 目前全国已有156个分站！',
+            '退换货': '退换货政策：\n• 7天无理由退换（未拆封）\n• 质量问题30天内包退换\n• 生鲜产品签收后24小时内可申请\n• 跨境商品支持7天退换\n\n📋 申请方式：联系客服或在线提交申请',
+            'default': '感谢您的咨询！如果您的问题未得到解答，请拨打客服热线 400-888-8888，或发送邮件至 service@junge.com，我们的客服团队将为您提供帮助。'
+        };
+
+        function getAIResponse(query) {
+            for (const [key, response] of Object.entries(aiResponses)) {
+                if (query.includes(key)) {
+                    return response;
+                }
+            }
+            return aiResponses['default'];
+        }
+
+        function addMessage(text, type) {
+            const messages = document.getElementById('chatMessages');
+            const avatar = type === 'user' ? '👤' : '🤖';
+            const time = new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+            
+            const div = document.createElement('div');
+            div.className = `message ${type}`;
+            div.innerHTML = `
+                <div class="message-avatar">${avatar}</div>
+                <div>
+                    <div class="message-content">${text.replace(/\n/g, '<br>')}</div>
+                    <div class="message-time">${time}</div>
+                </div>
+            `;
+            messages.appendChild(div);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const query = input.value.trim();
+            if (!query) return;
+
+            addMessage(query, 'user');
+            input.value = '';
+
+            // 模拟AI思考
+            setTimeout(() => {
+                const response = getAIResponse(query);
+                addMessage(response, 'ai');
+            }, 800);
+        }
+
+        function askQuick(question) {
+            document.getElementById('chatInput').value = question;
+            sendMessage();
+        }
+    </script>
+  <a href="/index.html" class="back-home">← 返回首页</a>
+  <!-- 停留分享奖励机制 -->
+  <script src="/js/game-pool.js"></script>
+  <script src="/js/share-reward.js"></script>
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

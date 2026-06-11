@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<title>全链路溯源 · 五常大米 | 环境→种子→生长→监管→餐桌 | 军鸽云链</title>
+<meta name="description" content="军鸽云链全链路食品安全溯源——从环境、种子、生长、监管到餐桌，区块链一物一码，退役军人信用背书。五常大米全流程透明追溯。">
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,.85);--text:#e8edf5;--dim:#8896b0;--muted:#4a5568;--border:rgba(255,255,255,.06);--gold:#d4af37;--cyan:#00d4ff;--green:#4d9460;--blue:#4b8ecf;--red:#b84045;--radius:12px;--radius-lg:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.65;padding-bottom:60px}
+.top-nav{position:sticky;top:0;z-index:1000;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,212,255,.12);padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top-nav a{color:var(--dim);text-decoration:none;font-size:11px;padding:5px 12px;border-radius:14px;border:1px solid transparent;transition:.2s}
+.top-nav a:hover{color:var(--cyan);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.06)}
+.top-nav .logo{font-size:15px;font-weight:700;color:var(--gold);text-decoration:none}
+.hero{position:relative;text-align:center;padding:48px 20px 32px;background:linear-gradient(135deg,rgba(77,148,96,.08),rgba(3,7,18,.97),rgba(75,142,201,.05));border-bottom:1px solid var(--border);overflow:hidden}
+.hero h1{font-size:28px;font-weight:900;margin-bottom:8px;position:relative;z-index:1}
+.hero .sub{font-size:13px;color:var(--dim);position:relative;z-index:1;max-width:600px;margin:0 auto 12px}
+.hero-tags{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
+.hero-tags span{padding:4px 14px;border-radius:14px;font-size:10px;font-weight:700}
+.chain-bar{display:flex;justify-content:center;gap:0;flex-wrap:wrap;margin:24px 0;position:relative;z-index:1}
+.chain-step{text-align:center;padding:10px 14px;min-width:70px;position:relative}
+.chain-step::after{content:'▸';position:absolute;right:-8px;top:50%;transform:translateY(-50%);color:var(--green);font-size:14px}
+.chain-step:last-child::after{content:''}
+.chain-step .cs-icon{font-size:28px;margin-bottom:4px}
+.chain-step .cs-label{font-size:9px;color:var(--dim)}
+.chain-step .cs-status{font-size:8px;color:var(--green)}
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+@media(max-width:600px){.kpi-row{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center}
+.kpi .k-icon{font-size:24px;margin-bottom:4px}
+.kpi .k-val{font-size:22px;font-weight:800;color:var(--green)}
+.kpi .k-lbl{font-size:10px;color:var(--dim)}
+.stage{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:16px;overflow:hidden}
+.stage-hd{display:flex;align-items:center;gap:12px;padding:16px 20px;cursor:pointer;border-bottom:1px solid transparent;transition:.2s}
+.stage-hd:hover{background:rgba(255,255,255,.02)}
+.stage-number{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;flex-shrink:0}
+.stage-icon{font-size:28px;flex-shrink:0}
+.stage-hd h2{font-size:17px;font-weight:700}
+.stage-hd .stage-sub{font-size:11px;color:var(--dim);margin-top:2px}
+.stage-body{padding:0 20px 16px}
+.stage-body .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(max-width:500px){.stage-body .info-grid{grid-template-columns:1fr}}
+.info-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12px}
+.info-item .lbl{color:var(--dim)}
+.info-item .val{font-weight:600;color:var(--text)}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+@media(max-width:500px){.cert-grid{grid-template-columns:repeat(2,1fr)}}
+.cert-card{background:rgba(77,148,96,.06);border:1px solid rgba(77,148,96,.12);border-radius:8px;padding:10px;text-align:center;font-size:10px}
+.cert-card .cert-icon{font-size:20px;margin-bottom:4px}
+.cert-card .cert-name{font-weight:700;color:var(--green)}
+.nutri-table{width:100%;font-size:11px;border-collapse:collapse;margin-top:8px}
+.nutri-table td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.04)}
+.nutri-table td:first-child{color:var(--dim)}
+.nutri-table td:last-child{text-align:right;font-weight:600}
+.footer-cta{text-align:center;padding:24px 0}
+.footer-cta a{display:inline-block;margin:4px 6px;padding:10px 24px;border-radius:24px;font-size:13px;font-weight:700;text-decoration:none;transition:.2s}
+.btn-primary{background:linear-gradient(135deg,rgba(77,148,96,.25),rgba(35,90,55,.5));color:#b0ddbc;border:1px solid rgba(77,148,96,.4)}
+.btn-secondary{background:rgba(0,212,255,.08);color:var(--cyan);border:1px solid rgba(0,212,255,.2)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="全链路溯源 · 五常大米 | 环境→种子→生长→监管→餐桌 | 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/traceability-detail.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/traceability-detail.html">
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="/" class="logo">🔗 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/value-layers.html">📊 八层价值</a>
+  <a href="/junge-shuzhi.html">⚔ 数智中心</a>
+</nav>
+
+<div class="hero">
+  <h1>🌾 五常大米 · 全链路溯源</h1>
+  <p class="sub">从黑土地到餐桌 · 五个阶段 · 全程区块链存证 · 一物一码可追溯</p>
+  <div class="hero-tags">
+    <span style="background:rgba(77,148,96,.12);color:#4d9460">国家地理标志</span>
+    <span style="background:rgba(75,142,201,.12);color:#4b8ecf">有机认证</span>
+    <span style="background:rgba(212,175,55,.12);color:#d4af37">退役军人信用背书</span>
+    <span style="background:rgba(0,212,255,.12);color:#00d4ff">区块链溯源</span>
+  </div>
+  <div class="chain-bar">
+    <div class="chain-step"><div class="cs-icon">🌍</div><div class="cs-label">环境</div><div class="cs-status">✅ 已验证</div></div>
+    <div class="chain-step"><div class="cs-icon">🌱</div><div class="cs-label">种子</div><div class="cs-status">✅ 已认证</div></div>
+    <div class="chain-step"><div class="cs-icon">🌿</div><div class="cs-label">生长</div><div class="cs-status">✅ 已记录</div></div>
+    <div class="chain-step"><div class="cs-icon">🔍</div><div class="cs-label">监管</div><div class="cs-status">✅ 已检测</div></div>
+    <div class="chain-step"><div class="cs-icon">🍚</div><div class="cs-label">餐桌</div><div class="cs-status">✅ 可溯源</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- KPI -->
+  <div class="kpi-row">
+    <div class="kpi"><div class="k-icon">📍</div><div class="k-val">45.7°N</div><div class="k-lbl">黑土地纬度</div></div>
+    <div class="kpi"><div class="k-icon">📅</div><div class="k-val">147天</div><div class="k-lbl">生长周期</div></div>
+    <div class="kpi"><div class="k-icon">🧪</div><div class="k-val">12项</div><div class="k-lbl">检测指标</div></div>
+    <div class="kpi"><div class="k-icon">🔗</div><div class="k-val">5节点</div><div class="k-lbl">区块链存证</div></div>
+  </div>
+
+  <!-- 阶段1: 环境 -->
+  <div class="stage">
+    <div class="stage-hd">
+      <div class="stage-number" style="background:rgba(75,142,201,.12);color:#4b8ecf">1</div>
+      <span class="stage-icon">🌍</span>
+      <div><h2 style="color:#4b8ecf">环境 · 黑土地</h2><div class="stage-sub">黑龙江省五常市 · 北纬45.7° · 世界三大黑土带之一</div></div>
+    </div>
+    <div class="stage-body">
+      <div class="info-grid">
+        <div class="info-item"><span class="lbl">📍 产地坐标</span><span class="val">N45°42′ E127°08′</span></div>
+        <div class="info-item"><span class="lbl">🏔️ 海拔高度</span><span class="val">180-220m</span></div>
+        <div class="info-item"><span class="lbl">🌡️ 年均气温</span><span class="val">3.5℃</span></div>
+        <div class="info-item"><span class="lbl">🌧️ 年降水量</span><span class="val">500-600mm</span></div>
+        <div class="info-item"><span class="lbl">🕳️ 土壤类型</span><span class="val">黑钙土·有机质≥3%</span></div>
+        <div class="info-item"><span class="lbl">💧 灌溉水源</span><span class="val">拉林河水系·天然矿泉</span></div>
+        <div class="info-item"><span class="lbl">🌤️ 日照时长</span><span class="val">年≥2600h</span></div>
+        <div class="info-item"><span class="lbl">🛰️ 卫星监测</span><span class="val">Sentinel-2·季度遥感</span></div>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card"><div class="cert-icon">📋</div><div class="cert-name">产地环境检测报告</div>2025-04 · 合格</div>
+        <div class="cert-card"><div class="cert-icon">💧</div><div class="cert-name">灌溉水质检测</div>2025-03 · 一级</div>
+        <div class="cert-card"><div class="cert-icon">🕳️</div><div class="cert-name">土壤重金属检测</div>2025-02 · 达标</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 阶段2: 种子 -->
+  <div class="stage">
+    <div class="stage-hd">
+      <div class="stage-number" style="background:rgba(212,175,55,.12);color:#d4af37">2</div>
+      <span class="stage-icon">🌱</span>
+      <div><h2 style="color:#d4af37">种子 · 优选良种</h2><div class="stage-sub">五优稻4号 · 非转基因 · 国家审定品种</div></div>
+    </div>
+    <div class="stage-body">
+      <div class="info-grid">
+        <div class="info-item"><span class="lbl">🌾 品种名称</span><span class="val">五优稻4号（稻花香2号）</span></div>
+        <div class="info-item"><span class="lbl">📜 审定编号</span><span class="val">国审稻20180001</span></div>
+        <div class="info-item"><span class="lbl">🧬 基因类型</span><span class="val">非转基因·常规育种</span></div>
+        <div class="info-item"><span class="lbl">🏢 供种单位</span><span class="val">五常市种子管理站</span></div>
+        <div class="info-item"><span class="lbl">📦 种子批次</span><span class="val">WC-2025-001</span></div>
+        <div class="info-item"><span class="lbl">🔬 发芽率</span><span class="val">≥95%</span></div>
+        <div class="info-item"><span class="lbl">🧪 种子处理</span><span class="val">温汤浸种·无化学包衣</span></div>
+        <div class="info-item"><span class="lbl">📅 播种日期</span><span class="val">2025-04-15</span></div>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card"><div class="cert-icon">📋</div><div class="cert-name">种子质量检验证</div>2025-04 · 一级</div>
+        <div class="cert-card"><div class="cert-icon">🧬</div><div class="cert-name">非转基因检测</div>2025-04 · 阴性</div>
+        <div class="cert-card"><div class="cert-icon">📜</div><div class="cert-name">品种审定证书</div>2018 · 国家级</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 阶段3: 生长 -->
+  <div class="stage">
+    <div class="stage-hd">
+      <div class="stage-number" style="background:rgba(77,148,96,.12);color:#4d9460">3</div>
+      <span class="stage-icon">🌿</span>
+      <div><h2 style="color:#4d9460">生长 · 生态种植</h2><div class="stage-sub">有机种植·人工除草·生物防虫·147天自然生长</div></div>
+    </div>
+    <div class="stage-body">
+      <div class="info-grid">
+        <div class="info-item"><span class="lbl">🌱 种植方式</span><span class="val">有机种植·无化学农药</span></div>
+        <div class="info-item"><span class="lbl">📅 生长周期</span><span class="val">147天（4月-9月）</span></div>
+        <div class="info-item"><span class="lbl">🌿 除草方式</span><span class="val">人工除草·3次/季</span></div>
+        <div class="info-item"><span class="lbl">🐞 防虫措施</span><span class="val">生物防治·赤眼蜂</span></div>
+        <div class="info-item"><span class="lbl">💩 施肥方案</span><span class="val">有机肥·农家肥·无化肥</span></div>
+        <div class="info-item"><span class="lbl">💧 灌溉次数</span><span class="val">8次·拉林河水</span></div>
+        <div class="info-item"><span class="lbl">🌡️ 积温要求</span><span class="val">≥2800℃</span></div>
+        <div class="info-item"><span class="lbl">📸 田间记录</span><span class="val">每周拍照+链上存证</span></div>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card"><div class="cert-icon">📸</div><div class="cert-name">田间管理日志</div>20条记录</div>
+        <div class="cert-card"><div class="cert-icon">🧪</div><div class="cert-name">土壤抽检报告</div>3次·合格</div>
+        <div class="cert-card"><div class="cert-icon">🌿</div><div class="cert-name">有机种植认证</div>2025 · 有效</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 阶段4: 监管 -->
+  <div class="stage">
+    <div class="stage-hd">
+      <div class="stage-number" style="background:rgba(184,64,69,.12);color:#b84045">4</div>
+      <span class="stage-icon">🔍</span>
+      <div><h2 style="color:#b84045">监管 · 多重检测</h2><div class="stage-sub">12项指标·第三方检测·区块链存证·退役军人监督</div></div>
+    </div>
+    <div class="stage-body">
+      <div class="info-grid">
+        <div class="info-item"><span class="lbl">🧪 检测机构</span><span class="val">SGS·中国食品安全检测中心</span></div>
+        <div class="info-item"><span class="lbl">📋 检测项目</span><span class="val">12项（农残·重金属·真菌毒素）</span></div>
+        <div class="info-item"><span class="lbl">🔬 农残检测</span><span class="val">189项·全部未检出</span></div>
+        <div class="info-item"><span class="lbl">⚖️ 重金属</span><span class="val">铅·镉·汞·砷·全部达标</span></div>
+        <div class="info-item"><span class="lbl">🦠 真菌毒素</span><span class="val">黄曲霉毒素B1·未检出</span></div>
+        <div class="info-item"><span class="lbl">📅 检测日期</span><span class="val">2025-09-20</span></div>
+        <div class="info-item"><span class="lbl">🔗 区块链存证</span><span class="val">TX:0x8a3f...e21d</span></div>
+        <div class="info-item"><span class="lbl">🎖️ 退役军人监督</span><span class="val">食品安全质询员·已核验</span></div>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card"><div class="cert-icon">📋</div><div class="cert-name">SGS检测报告</div>2025-09 · 合格</div>
+        <div class="cert-card"><div class="cert-icon">🛡️</div><div class="cert-name">有机认证证书</div>2025 · 有效</div>
+        <div class="cert-card"><div class="cert-icon">🔗</div><div class="cert-name">区块链存证</div>不可篡改</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 阶段5: 餐桌 -->
+  <div class="stage">
+    <div class="stage-hd">
+      <div class="stage-number" style="background:rgba(0,212,255,.12);color:#00d4ff">5</div>
+      <span class="stage-icon">🍚</span>
+      <div><h2 style="color:#00d4ff">餐桌 · 品质呈现</h2><div class="stage-sub">营养数据·烹饪建议·扫码溯源·消费者评价</div></div>
+    </div>
+    <div class="stage-body">
+      <div class="info-grid">
+        <div class="info-item"><span class="lbl">📦 包装规格</span><span class="val">5kg真空装·2.5kg礼盒装</span></div>
+        <div class="info-item"><span class="lbl">📅 加工日期</span><span class="val">2025-09-25</span></div>
+        <div class="info-item"><span class="lbl">⏳ 保质期</span><span class="val">12个月（阴凉干燥）</span></div>
+        <div class="info-item"><span class="lbl">🏷️ 质量标准</span><span class="val">GB/T 19266（五常大米）</span></div>
+        <div class="info-item"><span class="lbl">📱 溯源码</span><span class="val">WC20250925001</span></div>
+        <div class="info-item"><span class="lbl">⭐ 消费者评分</span><span class="val">4.9分 · 286条评价</span></div>
+      </div>
+      <table class="nutri-table">
+        <tr><td>能量</td><td>346kcal/100g</td><td>蛋白质</td><td>7.9g/100g</td></tr>
+        <tr><td>脂肪</td><td>0.9g/100g</td><td>碳水化合物</td><td>77.2g/100g</td></tr>
+        <tr><td>膳食纤维</td><td>0.7g/100g</td><td>钠</td><td>0mg/100g</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="footer-cta">
+    <a href="/product-buy-1.html" class="btn-primary">🛒 立即购买 · ¥68.00/5kg</a>
+    <a href="/wuchang-rice.html" class="btn-secondary">📋 查看完整详情</a>
+    <a href="/sy.html" class="btn-secondary">🔗 扫码溯源验证</a>
+  </div>
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a><a href="/shangcheng.html">🛒 商业生态</a><a href="/junge-shuzhi.html">⚔ 数智中心</a><a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+</body>
+</html>

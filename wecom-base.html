@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>企业微信基地 · junge.中国 全国社群作战体系</title>
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,.85);--cyan:#00d4ff;--gold:#f0c040;--red:#ef4444;--green:#22c55e;--purple:#a78bfa;--text:#e8edf5;--dim:#8896b0;--muted:#4a5568;--border:rgba(0,212,255,.08);--glow:rgba(0,212,255,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;padding-bottom:70px}
+.topbar{background:linear-gradient(135deg,rgba(3,7,18,.98),rgba(10,22,40,.95));border-bottom:1px solid var(--glow);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:100}
+.topbar .logo{font-size:15px;font-weight:900;background:linear-gradient(90deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.topbar .status{font-size:11px;color:var(--green);display:flex;align-items:center;gap:6px}
+.topbar .status .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.container{max-width:1100px;margin:0 auto;padding:20px 24px}
+
+.hero{text-align:center;padding:60px 20px 40px;background:linear-gradient(180deg,rgba(0,180,255,.05),rgba(3,7,18,.97));border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,255,.06),transparent 70%);pointer-events:none}
+.hero h1{font-size:30px;font-weight:900;background:linear-gradient(135deg,#e8edf5 20%,#7ab5db 50%,#f0c040 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;position:relative;z-index:1;margin-bottom:12px}
+.hero p{font-size:14px;color:var(--dim);position:relative;z-index:1}
+.hero .formula{display:inline-block;margin-top:20px;padding:14px 24px;background:rgba(8,20,44,.9);border:2px solid var(--glow);border-radius:14px;font-size:14px;font-weight:900;color:var(--gold);position:relative;z-index:1}
+
+h2{font-size:20px;font-weight:800;margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--glow);display:flex;align-items:center;gap:10px}
+h2 .n{font-size:12px;background:rgba(0,212,255,.12);color:var(--cyan);padding:2px 10px;border-radius:10px}
+h3{font-size:16px;font-weight:700;margin:24px 0 10px;color:#b8d8f0}
+p{font-size:13px;color:var(--dim);margin:8px 0}
+strong{color:var(--text)}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px}
+th{background:rgba(0,212,255,.06);color:var(--cyan);font-weight:700;padding:10px 14px;text-align:left;border-bottom:2px solid var(--glow)}
+td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--dim)}
+tr:hover td{background:rgba(0,212,255,.02);color:var(--text)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
+@media(max-width:768px){.grid2,.grid3{grid-template-columns:1fr}}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:.25s}
+.card:hover{border-color:var(--glow);box-shadow:0 0 20px rgba(0,212,255,.06)}
+.card .emoji{font-size:28px;margin-bottom:8px}
+.card h3{font-size:14px;margin:0 0 6px;color:var(--cyan)}
+.card p{font-size:12px;color:var(--dim);margin:0}
+.card .num{font-size:28px;font-weight:900;color:var(--gold);margin:8px 0}
+
+.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:16px;font-size:10px;font-weight:700;margin:3px}
+.badge-c{background:rgba(0,212,255,.08);color:var(--cyan);border:1px solid rgba(0,212,255,.2)}
+.badge-g{background:rgba(240,192,64,.08);color:var(--gold);border:1px solid rgba(240,192,64,.2)}
+.badge-r{background:rgba(239,68,68,.08);color:var(--red);border:1px solid rgba(239,68,68,.2)}
+.badge-p{background:rgba(167,139,250,.08);color:var(--purple);border:1px solid rgba(167,139,250,.2)}
+
+pre{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:10px;padding:18px;overflow-x:auto;margin:16px 0;font-size:12px;line-height:1.7}
+code{color:#94a3b8}
+
+.kpi-strip{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
+.kpi{flex:1;min-width:140px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+.kpi .v{font-size:28px;font-weight:900;color:var(--cyan)}
+.kpi .l{font-size:10px;color:var(--muted);margin-top:4px}
+
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;margin:20px 0;font-size:11px}
+.flow-node{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;min-width:100px}
+.flow-node .fn{font-weight:700;color:var(--cyan)}
+.flow-node .fd{color:var(--dim);font-size:9px;margin-top:2px}
+.flow-arrow{color:var(--gold);font-size:16px;font-weight:900}
+
+.tree{font-family:monospace;font-size:12px;line-height:1.8;color:var(--dim);padding:16px;background:rgba(0,0,0,.2);border-radius:10px}
+.tree .hl{color:var(--cyan);font-weight:700}
+.tree .gl{color:var(--gold)}
+.tree .rl{color:var(--red)}
+
+blockquote{background:rgba(0,212,255,.03);border-left:3px solid var(--cyan);padding:14px 20px;margin:16px 0;border-radius:0 10px 10px 0;font-size:13px;color:var(--dim)}
+
+.hl-box{background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(240,192,64,.04));border:1px solid rgba(240,192,64,.15);border-radius:14px;padding:20px 24px;margin:20px 0;text-align:center}
+.hl-box .big{font-size:20px;font-weight:900;color:var(--gold);margin-bottom:6px}
+.hl-box .sub{font-size:13px;color:var(--dim)}
+
+.btm-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid var(--glow);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.btm-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:10px;border-top:1px solid var(--border);margin-top:40px}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="企业微信基地 · junge.中国 全国社群作战体系">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/wecom-base.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/wecom-base.html">
+</head>
+<body>
+
+<div class="topbar">
+<div class="logo">🏛 junge.中国 · 企业微信基地</div>
+<div style="display:flex;align-items:center;gap:12px">
+<div class="status"><span class="dot"></span>桥接在线 · :8008</div>
+<div>CORP: ww7e002e7f7b114f4a</div>
+</div>
+</div>
+
+<div class="hero">
+<h1>企业微信 · 全国社群作战体系</h1>
+<p>告别微信群500人上限 → 企业微信客户群2000人 · API全自动 · AI无人值守</p>
+<div class="formula">1个企业微信基地 = 1000个微信群的服务能力 + 0个运营人力</div>
+<div style="margin-top:16px;position:relative;z-index:1">
+<span class="badge badge-c">👥 客户群2000人/群</span>
+<span class="badge badge-g">🤖 API全自动</span>
+<span class="badge badge-p">📊 客户管理</span>
+<span class="badge badge-r">🔗 小程序互通</span>
+</div>
+</div>
+
+<div class="container">
+
+<h2><span class="n">一</span>企业微信 vs 个人微信</h2>
+
+<table>
+<tr><th>能力</th><th>个人微信</th><th>企业微信</th><th>战力提升</th></tr>
+<tr><td>群人数上限</td><td style="color:var(--red)">500人</td><td style="color:var(--green)">2000人</td><td style="color:var(--gold);font-weight:900">4x</td></tr>
+<tr><td>群数量上限</td><td style="color:var(--red)">手动·受限制</td><td style="color:var(--green)">无限制·API管理</td><td style="color:var(--gold)">∞</td></tr>
+<tr><td>消息群发</td><td style="color:var(--red)">手动·易被封</td><td style="color:var(--green)">API自动·官方支持</td><td style="color:var(--gold)">∞</td></tr>
+<tr><td>欢迎语</td><td style="color:var(--red)">手动</td><td style="color:var(--green)">自动发送</td><td style="color:var(--gold)">∞</td></tr>
+<tr><td>客户标签</td><td style="color:var(--red)">仅备注</td><td style="color:var(--green)">多维度标签·自动打标</td><td style="color:var(--gold)">10x</td></tr>
+<tr><td>客户朋友圈</td><td style="color:var(--red)">个人号·有限</td><td style="color:var(--green)">企业身份·专业</td><td style="color:var(--gold)">3x</td></tr>
+<tr><td>离职继承</td><td style="color:var(--red)">群主无法转移</td><td style="color:var(--green)">客户资产不流失</td><td style="color:var(--gold)">∞</td></tr>
+<tr><td>数据统计</td><td style="color:var(--red)">无</td><td style="color:var(--green)">群活跃·转化·留存</td><td style="color:var(--gold)">∞</td></tr>
+<tr><td>合规存档</td><td style="color:var(--red)">无</td><td style="color:var(--green)">会话存档·合规</td><td style="color:var(--gold)">∞</td></tr>
+</table>
+
+<h2><span class="n">二</span>全国社群架构</h2>
+
+<div class="tree">
+<span class="hl">junge.中国 企业微信总部</span> (CORP: ww7e002e7f7b114f4a)
+├── <span class="gl">应用：军鸽云链服务</span> (AgentID: 1000002)
+│   ├── 客户联系 · 欢迎语自动发送
+│   ├── 客户群 · 2000人群 × N
+│   └── 客户朋友圈 · 每日推广
+│
+├── <span class="hl">省级群 (32个)</span>
+│   ├── 海南总群-海口
+│   ├── 广东总群-广州
+│   ├── 山东总群-济南
+│   └── ... (每个省1个核心群)
+│
+├── <span class="gl">市级群 (300+个)</span>
+│   ├── 海南-三亚群
+│   ├── 广东-深圳群
+│   └── ... 按需创建
+│
+└── <span class="rl">县级群 (2000+个)</span>
+    ├── 标杆县 VIP群 (2000人)
+    ├── 会员服务群 (2000人)
+    └── 合伙人培训群 (500人)
+</div>
+
+<div class="kpi-strip">
+<div class="kpi"><div class="v">32</div><div class="l">省级群</div></div>
+<div class="kpi"><div class="v">300+</div><div class="l">市级群</div></div>
+<div class="kpi"><div class="v">2000+</div><div class="l">县级群</div></div>
+<div class="kpi"><div class="v">400万+</div><div class="l">理论覆盖人数</div></div>
+</div>
+
+<h2><span class="n">三</span>AI自动化运营流水线</h2>
+
+<div class="flow">
+<div class="flow-node"><div class="fn">📱 扫码添加</div><div class="fd">活码·自动通过</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn">👋 自动欢迎</div><div class="fd">介绍平台+权益</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn">🏷 自动打标</div><div class="fd">省份·来源·等级</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn">👥 自动拉群</div><div class="fd">对应县域群</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn">🤖 AI运营</div><div class="fd">每日自动推送</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn">📊 自动转化</div><div class="fd">会员注册追踪</div></div>
+</div>
+
+<h3>每日AI自动推送时刻表</h3>
+<table>
+<tr><th>时间</th><th>内容</th><th>类型</th><th>AI引擎</th></tr>
+<tr><td>08:00</td><td>早安海报 + 今日心语</td><td>品牌建设</td><td>L0 Ollama ¥0</td></tr>
+<tr><td>10:00</td><td>食品安全资讯简报</td><td>价值内容</td><td>情报搜集cron</td></tr>
+<tr><td>12:00</td><td>退役军人创业故事</td><td>情感连接</td><td>Hermes生成</td></tr>
+<tr><td>14:00</td><td>爆品推荐 + 限时优惠</td><td>促销转化</td><td>AI选品</td></tr>
+<tr><td>16:00</td><td>战友成功案例分享</td><td>裂变激励</td><td>AI筛选</td></tr>
+<tr><td>18:00</td><td>当日佣金排行榜</td><td>竞争激活</td><td>value-engine</td></tr>
+<tr><td>20:00</td><td>15分钟培训微课</td><td>能力建设</td><td>AI生成+TTS</td></tr>
+<tr><td>22:00</td><td>晚安海报 + 明日预告</td><td>温度收尾</td><td>L0 Ollama ¥0</td></tr>
+</table>
+
+<h2><span class="n">四</span>企业微信API火力链</h2>
+
+<div class="grid3">
+<div class="card">
+<div class="emoji">📨</div>
+<h3>消息推送</h3>
+<div class="num" style="font-size:16px">POST /api/send</div>
+<p>已部署 :8008<br>单发/群发文本消息<br>支持@指定成员</p>
+</div>
+<div class="card">
+<div class="emoji">🏷</div>
+<h3>客户标签</h3>
+<div class="num" style="font-size:16px">自动打标</div>
+<p>扫码来源·意向等级<br>退役军人类别·地域<br>消费偏好·活跃度</p>
+</div>
+<div class="card">
+<div class="emoji">👥</div>
+<h3>客户群管理</h3>
+<div class="num" style="font-size:16px">2000人/群</div>
+<p>自动建群·自动拉人<br>群发消息·群公告<br>离职继承不丢客户</p>
+</div>
+<div class="card">
+<div class="emoji">📊</div>
+<h3>数据看板</h3>
+<div class="num" style="font-size:16px">实时追踪</div>
+<p>新增客户数·活跃度<br>消息触达率·转化率<br>群留存率·裂变K因子</p>
+</div>
+<div class="card">
+<div class="emoji">🔗</div>
+<h3>小程序互通</h3>
+<div class="num" style="font-size:16px">无缝跳转</div>
+<p>群内直接打开小程序<br>会员注册·商品购买<br>佣金查看·裂变海报</p>
+</div>
+<div class="card">
+<div class="emoji">🤖</div>
+<h3>AI智能客服</h3>
+<div class="num" style="font-size:16px">L0 ¥0</div>
+<p>Ollama自动应答<br>常见问题秒回<br>复杂问题转人工</p>
+</div>
+</div>
+
+<h2><span class="n">五</span>客户获取 → 全自动转化链路</h2>
+
+<div class="grid2">
+<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px">
+<h3 style="color:var(--cyan)">线上获客</h3>
+<table style="font-size:11px">
+<tr><td>🔗 公众号菜单</td><td>→ 联系客服 → 加企微</td></tr>
+<tr><td>📱 视频号主页</td><td>→ 添加企业微信</td></tr>
+<tr><td>🎵 抖音/快手</td><td>→ 私信自动回复企微码</td></tr>
+<tr><td>📕 小红书</td><td>→ 私信 → 企微活码</td></tr>
+<tr><td>🔍 微信搜一搜</td><td>→ 品牌官方区 → 联系</td></tr>
+<tr><td>💬 战友群转发</td><td>→ 裂变海报 → 扫码加企微</td></tr>
+<tr><td>📧 短信/邮件</td><td>→ 短链 → 落地页 → 加企微</td></tr>
+</table>
+</div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px">
+<h3 style="color:var(--gold)">线下获客</h3>
+<table style="font-size:11px">
+<tr><td>🏛 事务局服务大厅</td><td>→ 易拉宝 → 扫码加企微</td></tr>
+<tr><td>🎯 招聘会/创业展</td><td>→ 展位 → 活码立牌</td></tr>
+<tr><td>🏢 军创孵化基地</td><td>→ 驻点 → 桌牌活码</td></tr>
+<tr><td>🏪 合作商户门店</td><td>→ 收银台 → 台卡活码</td></tr>
+<tr><td>📦 产品包装</td><td>→ 溯源码 → 加企微查溯源</td></tr>
+<tr><td>🎤 线下培训/会议</td><td>→ PPT末页 → 全员扫码</td></tr>
+<tr><td>🤝 战友聚会/战友会</td><td>→ 现场面对面建群</td></tr>
+</table>
+</div>
+</div>
+
+<h2><span class="n">六</span>企业微信 vs 微信群 · 实战对比</h2>
+
+<blockquote>
+<strong>已有基建：</strong>企业微信桥接 :8008 在线 · CORP已注册 · /api/send 可用<br>
+<strong>一令启动：</strong>总指挥下令 → AI即刻接管全自动运营
+</blockquote>
+
+<table>
+<tr><th>场景</th><th>微信群方案</th><th>企业微信方案</th></tr>
+<tr><td>新会员入群</td><td>手动拉人·手动@欢迎</td><td style="color:var(--green)">扫码自动通过→自动欢迎→自动拉群</td></tr>
+<tr><td>每日推送</td><td>手动复制粘贴·易漏群</td><td style="color:var(--green)">API一键群发·定时自动</td></tr>
+<tr><td>裂变追踪</td><td>人工登记·容易出错</td><td style="color:var(--green)">自动记录推荐关系·佣金自动结算</td></tr>
+<tr><td>客户流失</td><td>群主退群=群解散</td><td style="color:var(--green)">离职继承·客户资产不丢</td></tr>
+<tr><td>敏感内容</td><td>被举报封群</td><td style="color:var(--green)">企业认证·合规运营</td></tr>
+<tr><td>数据分析</td><td>全靠人工统计</td><td style="color:var(--green)">自动报表·转化漏斗·K因子</td></tr>
+<tr><td>管理成本</td><td>50人管1000群</td><td style="color:var(--gold);font-weight:900">1人+AI管无上限群</td></tr>
+</table>
+
+<h2><span class="n">七</span>立即启动清单</h2>
+
+<table>
+<tr><th>优先级</th><th>行动</th><th>技术实现</th></tr>
+<tr><td style="color:var(--red)">P0</td><td>配置企业微信「联系我」活码</td><td>企微后台 → 客户联系 → 联系我 → 生成活码</td></tr>
+<tr><td style="color:var(--red)">P0</td><td>配置自动欢迎语</td><td>企微后台 → 客户联系 → 欢迎语 → 设置</td></tr>
+<tr><td style="color:var(--red)">P0</td><td>创建省级核心群（首批5个）</td><td>海南·广东·山东·河南·四川</td></tr>
+<tr><td style="color:var(--orange)">P1</td><td>AI自动推送cronjob上线</td><td>对接 /api/send · 每日8次推送</td></tr>
+<tr><td style="color:var(--orange)">P1</td><td>客户标签体系建立</td><td>退役军人类别·地域·意向等级</td></tr>
+<tr><td style="color:var(--orange)">P1</td><td>裂变海报嵌入企微活码</td><td>所有推广物料替换为企业微信码</td></tr>
+<tr><td style="color:var(--cyan)">P2</td><td>小程序嵌入企业微信</td><td>企微工作台 → 关联小程序</td></tr>
+<tr><td style="color:var(--cyan)">P2</td><td>会话存档+合规监控</td><td>API开通·敏感词过滤</td></tr>
+</table>
+
+<div class="hl-box">
+<div class="big">从微信群到企业微信：战力提升 ∞ 倍</div>
+<div class="sub">群容量 500→2000 · 运营 50人→1人+AI · 合规风险 高→低 · 数据 无→全</div>
+</div>
+
+</div>
+
+<footer>
+junge.中国 · 企业微信基地 · CORP: ww7e002e7f7b114f4a · 桥接 :8008 在线<br>
+食品安全 + 退役军人在服务综合平台 · 全国社群作战体系 V1.0
+</footer>
+
+<div class="btm-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/junge-shuzhi.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</div>
+</body>
+</html>

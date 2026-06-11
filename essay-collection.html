@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>副刊文集 · 军鸽云链数智</title>
+<meta name="description" content="军鸽云链副刊文集——退役军人文学作品集。老兵故事、军旅诗歌、散文随笔、摄影作品。铁血丹心聚英才，团结实干抒情怀。欢迎投稿您的军旅故事。">
+<style>
+:root {
+--bg-deep:#030712; --bg-base:#060d1a; --bg-card:rgba(8,20,44,0.85);
+--primary:#00d4ff; --accent:#ff2d78; --gold:#f0c040; --green:#6dab7e;
+--red:#b84045; --blue:#4b8ecf; --purple:#a78bfa;
+--text:#e8edf5; --text-dim:#8896b0; --text-muted:#4a5568;
+--border:rgba(255,255,255,.06); --border-glow:rgba(0,212,255,.15);
+--radius:12px; --radius-sm:8px; --radius-lg:18px;
+--shadow:0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg-deep);color:var(--text);line-height:1.65;overflow-x:hidden;
+min-height:100vh;
+background-image:
+radial-gradient(ellipse at 20% 0%,rgba(240,192,64,.03) 0%,transparent 55%),
+radial-gradient(ellipse at 80% 15%,rgba(184,64,69,.03) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:#1a2744;border-radius:2px}
+
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 20px;position:sticky;top:0;z-index:999;backdrop-filter:blur(20px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .2s;padding:3px 8px;border-radius:10px}
+.breadcrumb-bar a:hover{color:var(--primary);background:rgba(0,212,255,.08)}
+.breadcrumb-bar .sep{color:var(--text-muted);font-size:9px}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{text-align:center;padding:50px 20px 40px;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(240,192,64,.05) 0%,rgba(6,13,26,.95) 40%,rgba(184,64,69,.04) 100%);border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(240,192,64,.04),transparent 60%);pointer-events:none}
+.hero .icon{font-size:56px;margin-bottom:12px;position:relative;z-index:1;display:block}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:.06em;position:relative;z-index:1;background:linear-gradient(135deg,#f0c040,#d47a7e,#6dab7e);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:13px;color:var(--text-dim);margin-top:8px;position:relative;z-index:1;letter-spacing:.03em;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.8}
+
+.container{max-width:1000px;margin:0 auto;padding:20px 18px 90px}
+
+.section{margin-bottom:28px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(240,192,64,.15)}
+.section-hd .icon{font-size:20px}
+.section-hd .title{font-size:15px;font-weight:650;letter-spacing:.03em;color:var(--gold)}
+.section-hd .tag{font-size:9px;padding:3px 10px;border-radius:10px;background:rgba(240,192,64,.08);color:var(--gold);margin-left:auto;letter-spacing:.06em}
+
+/* Category Tabs */
+.cat-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.cat-tab{padding:6px 16px;border-radius:16px;font-size:11px;cursor:pointer;transition:all .2s;border:1px solid var(--border);background:transparent;color:var(--text-dim);user-select:none}
+.cat-tab:hover,.cat-tab.active{background:rgba(240,192,64,.1);border-color:rgba(240,192,64,.25);color:var(--gold)}
+.cat-tab .cnt{font-size:9px;color:var(--text-muted);margin-left:3px}
+
+/* Article Card */
+.article-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all .25s;margin-bottom:12px;cursor:pointer;position:relative}
+.article-card:hover{border-color:rgba(240,192,64,.2);box-shadow:var(--shadow);transform:translateY(-1px)}
+.article-card .ac-hd{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.article-card .ac-cat{padding:2px 8px;border-radius:6px;font-size:8px;font-weight:600;letter-spacing:.04em}
+.ac-cat.story{background:rgba(184,64,69,.12);color:#d47a7e}
+.ac-cat.poetry{background:rgba(0,212,255,.12);color:var(--primary)}
+.ac-cat.essay{background:rgba(109,171,126,.12);color:var(--green)}
+.ac-cat.photo{background:rgba(75,142,201,.12);color:#7ab5db}
+.ac-cat.thought{background:rgba(167,139,250,.12);color:var(--purple)}
+.ac-cat.serial{background:rgba(240,192,64,.12);color:var(--gold)}
+.article-card .ac-date{font-size:9px;color:var(--text-muted)}
+.article-card .ac-author{font-size:10px;color:var(--text-dim);display:flex;align-items:center;gap:4px}
+.article-card .ac-author .badge{font-size:8px;padding:1px 5px;border-radius:4px;background:rgba(0,212,255,.08);color:var(--primary)}
+.article-card h3{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--text)}
+.article-card p.excerpt{font-size:11px;color:var(--text-dim);line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.article-card .ac-meta{display:flex;gap:12px;align-items:center;margin-top:10px;font-size:9px;color:var(--text-muted);flex-wrap:wrap}
+.article-card .ac-meta span{display:inline-flex;align-items:center;gap:3px}
+
+/* Featured large */
+.article-featured{grid-column:1/-1}
+.article-featured .ac-card-inner{display:grid;grid-template-columns:1fr 200px;gap:18px}
+@media(max-width:650px){.article-featured .ac-card-inner{grid-template-columns:1fr}}
+.article-featured .ac-cover{background:linear-gradient(135deg,rgba(184,64,69,.15),rgba(100,30,35,.3));border-radius:var(--radius-sm);min-height:140px;display:flex;align-items:center;justify-content:center;font-size:48px;color:rgba(255,255,255,.1);position:relative;overflow:hidden}
+.article-featured .ac-cover .cover-label{position:absolute;top:8px;left:8px;padding:3px 8px;border-radius:6px;font-size:8px;font-weight:700;background:rgba(240,192,64,.85);color:#000}
+
+.articles-grid{display:flex;flex-direction:column;gap:12px}
+
+/* Submit CTA */
+.submit-cta{background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(8,20,44,.9),rgba(184,64,69,.04));border:1px solid rgba(240,192,64,.2);border-radius:var(--radius-lg);padding:24px;text-align:center}
+.submit-cta h3{font-size:16px;color:var(--gold);margin-bottom:8px}
+.submit-cta p{font-size:11px;color:var(--text-dim);line-height:1.8;margin-bottom:14px}
+.submit-cta .submit-types{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.submit-types span{padding:5px 14px;border-radius:14px;font-size:10px;border:1px solid rgba(240,192,64,.15);color:var(--gold)}
+
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:768px){.g2,.g3{grid-template-columns:1fr}}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .25s;backdrop-filter:blur(12px)}
+.card:hover{border-color:var(--border-glow)}
+
+/* Stats */
+.stat-strip{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.stat-badge{padding:6px 12px;border-radius:10px;font-size:10px;background:rgba(8,20,44,.6);border:1px solid var(--border);display:flex;align-items:center;gap:5px}
+.stat-badge .sn{font-weight:700;color:var(--gold)}
+.stat-badge .sl{color:var(--text-muted);font-size:8px}
+
+/* Pagination */
+.pagination{display:flex;gap:4px;justify-content:center;margin-top:20px}
+.pagination a,.pagination span{padding:6px 12px;border-radius:8px;font-size:10px;text-decoration:none;transition:all .2s;border:1px solid var(--border);color:var(--text-dim);background:transparent}
+.pagination a:hover{background:rgba(240,192,64,.1);border-color:rgba(240,192,64,.25);color:var(--gold)}
+.pagination .active{background:rgba(240,192,64,.15);border-color:rgba(240,192,64,.3);color:var(--gold);font-weight:600}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(20px);border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:all .2s;color:var(--text-dim);background:rgba(15,34,64,.6);border:1px solid rgba(0,212,255,.08)}
+.bottom-nav a:hover,.bottom-nav a.active{background:rgba(0,212,255,.12);color:var(--primary);border-color:rgba(0,212,255,.25)}
+
+footer{text-align:center;padding:16px 20px 10px;font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);line-height:1.8}
+
+@media(max-width:550px){
+.hero h1{font-size:22px}
+.article-card{padding:14px}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="副刊文集 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/essay-collection.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/essay-collection.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+<a href="/">🏠 首页</a><span class="sep">▸</span>
+<a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+<span class="current">📖 副刊文集</span>
+</nav>
+
+<div class="hero">
+<div class="icon">📖</div>
+<h1>副刊文集 · 军旅文学</h1>
+<p class="sub">铁血丹心聚英才 · 团结实干抒情怀<br>这里汇聚了退役军人的真实故事、军旅诗歌、人生感悟和摄影作品。每一篇文字背后，都是一段热血年华。</p>
+</div>
+
+<div class="container">
+
+<!-- Stats -->
+<div class="stat-strip">
+<div class="stat-badge"><span class="sn">286</span><span class="sl">篇文章</span></div>
+<div class="stat-badge"><span class="sn">142</span><span class="sl">位作者</span></div>
+<div class="stat-badge"><span class="sn">12,840</span><span class="sl">次阅读</span></div>
+<div class="stat-badge"><span class="sn">📬</span><span class="sl">持续征稿中</span></div>
+</div>
+
+<!-- Category Tabs -->
+<div class="section">
+<div class="cat-tabs">
+<span class="cat-tab active">📋 全部<span class="cnt">286</span></span>
+<span class="cat-tab">📖 老兵故事<span class="cnt">89</span></span>
+<span class="cat-tab">🎵 军旅诗歌<span class="cnt">64</span></span>
+<span class="cat-tab">✍️ 散文随笔<span class="cnt">52</span></span>
+<span class="cat-tab">📷 摄影作品<span class="cnt">38</span></span>
+<span class="cat-tab">💭 人生感悟<span class="cnt">31</span></span>
+<span class="cat-tab">📚 连载长篇<span class="cnt">12</span></span>
+</div>
+</div>
+
+<!-- Articles List -->
+<div class="section">
+<div class="section-hd"><span class="icon">🔥</span><span class="title">精选推荐</span><span class="tag">FEATURED</span></div>
+<div class="articles-grid">
+
+<!-- Featured Article -->
+<div class="article-card article-featured">
+<div class="ac-card-inner">
+<div>
+<div class="ac-hd">
+<span class="ac-cat serial">连载长篇</span>
+<span class="ac-date">2026-05-28 更新至第18章</span>
+</div>
+<h3>《南海之鹰》—— 一名海军航空兵退役后的三十年</h3>
+<p class="excerpt">1986年，我从南海舰队航空兵退役，带着一身的伤疤和一枚二等功勋章回到了海南老家。那一年，我刚满28岁。村里人都以为我会像其他退役军人那样，去县里找个安稳的工作，但我心里的那团火，从来没有熄灭过。三十年过去了，我从一个种植胡椒的农民，变成了拥有300亩热带水果种植基地的新农人。这一路走来，支撑我的，还是当兵时的那句话——「听党指挥、能打胜仗、作风优良」……</p>
+<div class="ac-meta">
+<span>👤 <span class="ac-author">张卫国 <span class="badge">退役军人</span></span></span>
+<span>👁 2,840 阅读</span>
+<span>💬 56 评论</span>
+<span>⭐ 4.9</span>
+</div>
+</div>
+<div class="ac-cover">
+<span class="cover-label">🔥 热门连载</span>
+🌊
+</div>
+</div>
+</div>
+
+<!-- Article 2 -->
+<div class="article-card">
+<div class="ac-hd">
+<span class="ac-cat story">老兵故事</span>
+<span class="ac-date">2026-05-25</span>
+</div>
+<h3>边关月色 —— 一位边防战士的二十年</h3>
+<p class="excerpt">夜深了，边关的风依旧凛冽。站在哨塔上望去，月光洒在戈壁上，像铺了一层银霜。二十年的军旅生涯，最难忘的还是这轮边关的月亮。它见证了我和战友们无数次巡逻、无数次紧急集合、无数次在零下40度的严寒中坚守岗位。现在退役了，我依然会在每个月圆之夜，想起那片戈壁，想起那些再也回不来的兄弟。</p>
+<div class="ac-meta">
+<span>👤 <span class="ac-author">李铁军 <span class="badge">退役军人</span></span></span>
+<span>👁 1,920 阅读</span>
+<span>💬 34 评论</span>
+<span>⭐ 4.8</span>
+</div>
+</div>
+
+<!-- Article 3 -->
+<div class="article-card">
+<div class="ac-hd">
+<span class="ac-cat poetry">军旅诗歌</span>
+<span class="ac-date">2026-05-22</span>
+</div>
+<h3>《军鸽飞过的地方》—— 组诗三首</h3>
+<p class="excerpt">军鸽飞过的地方 / 是故乡的方向 / 翅膀划过蓝天 / 带走思念一行行 // 哨所旁的白杨 / 站成永恒的守望 / 风沙磨砺的肩章 / 依然闪闪发亮 // 脱下军装的那天 / 我没让眼泪流淌 / 因为我知道 / 军魂早已刻进脊梁</p>
+<div class="ac-meta">
+<span>👤 <span class="ac-author">陈志远 <span class="badge">退役军人</span></span></span>
+<span>👁 1,560 阅读</span>
+<span>💬 28 评论</span>
+<span>⭐ 4.7</span>
+</div>
+</div>
+
+<!-- Article 4 -->
+<div class="article-card">
+<div class="ac-hd">
+<span class="ac-cat essay">散文随笔</span>
+<span class="ac-date">2026-05-20</span>
+</div>
+<h3>军旅十年，我最难忘的那个班长</h3>
+<p class="excerpt">我的班长姓王，河南人，个子不高，但嗓门大得出奇。第一次见到他是在新兵连，他站在队列前，像一棵老松树，一动不动。他教会了我打靶、叠被子、走正步，也教会了我做人的道理。十年过去了，我退役了，班长也转业了。去年我去河南看他，他在老家开了个小超市，还是那个大嗓门，但鬓角已经花白。</p>
+<div class="ac-meta">
+<span>👤 <span class="ac-author">王志强 <span class="badge">退役军人</span></span></span>
+<span>👁 1,380 阅读</span>
+<span>💬 42 评论</span>
+<span>⭐ 4.9</span>
+</div>
+</div>
+
+<!-- Article 5 -->
+<div class="article-card">
+<div class="ac-hd">
+<span class="ac-cat photo">摄影作品</span>
+<span class="ac-date">2026-05-18</span>
+</div>
+<h3>雪域高原上的退役军人护边队 —— 摄影纪实</h3>
+<p class="excerpt">在海拔4500米的西藏阿里地区，有一支全部由退役军人组成的志愿护边队。每年冬季，他们踏着齐膝的积雪，沿着边境线巡逻。我用镜头记录下了他们的日常——黝黑的脸庞、皲裂的手掌、坚定的眼神。他们不说苦，不说累，只说一句话：「当过兵的人，一辈子都是兵。」这组照片，献给他们。</p>
+<div class="ac-meta">
+<span>👤 <span class="ac-author">刘明辉 <span class="badge">摄影爱好者</span></span></span>
+<span>👁 2,100 阅读</span>
+<span>💬 63 评论</span>
+<span>⭐ 4.9</span>
+</div>
+</div>
+
+<!-- Article 6 -->
+<div class="article-card">
+<div class="ac-hd">
+<span class="ac-cat thought">人生感悟</span>
+<span class="ac-date">2026-05-15</span>
+</div>
+<h3>从军营到田间 —— 一名退役军人的转型之路</h3>
+<p class="excerpt">刚退役那会儿，我迷惘了很长时间。在部队待了12年，突然回到社会，感觉一切都变了。找工作，人家嫌我除了当兵什么都不会；做生意，第一年就赔光了退伍金。后来是军鸽云链的分站站长找到我，说：「战友，平台给你，你只管把家乡的好东西卖出去。」现在，我的有机蔬菜基地已经有12个品种通过了非转基因认证。</p>
+<div class="ac-meta">
+<span>👤 <span class="ac-author">赵永刚 <span class="badge">退役军人</span></span></span>
+<span>👁 1,760 阅读</span>
+<span>💬 38 评论</span>
+<span>⭐ 4.8</span>
+</div>
+</div>
+
+<!-- Article 7 -->
+<div class="article-card">
+<div class="ac-hd">
+<span class="ac-cat story">老兵故事</span>
+<span class="ac-date">2026-05-12</span>
+</div>
+<h3>一辈子都是兵 —— 记一位90岁抗美援朝老兵的口述</h3>
+<p class="excerpt">「那年我18岁，坐火车过了鸭绿江。零下40度，穿着单衣单裤，耳朵冻掉了半边……但我们没有一个后退的。」90岁的孙老爷子坐在藤椅上，眼神依然锐利。他说起当年的事，就像发生在昨天。我问他想对现在的年轻人说什么，他沉默了很久，说：「好好生活，因为你们的幸福，是很多人用命换来的。」</p>
+<div class="ac-meta">
+<span>👤 <span class="ac-author">军鸽云链采编组</span></span>
+<span>👁 3,250 阅读</span>
+<span>💬 128 评论</span>
+<span>⭐ 5.0</span>
+</div>
+</div>
+
+<!-- Article 8 -->
+<div class="article-card">
+<div class="ac-hd">
+<span class="ac-cat poetry">军旅诗歌</span>
+<span class="ac-date">2026-05-08</span>
+</div>
+<h3>《脱下军装我们还是兵》</h3>
+<p class="excerpt">脱下军装的那一天 / 我把肩章擦了又擦 / 不是不舍那身橄榄绿 / 是舍不得肩上的责任重如山 // 脱下军装我们还是兵 / 只不过换了战场 / 从保家卫国的哨所 / 到乡村振兴的田间 // 战友，别问我为什么坚持 / 因为军人的字典里 / 从来没有「放弃」这个词</p>
+<div class="ac-meta">
+<span>👤 <span class="ac-author">匿名战友</span></span>
+<span>👁 1,450 阅读</span>
+<span>💬 22 评论</span>
+<span>⭐ 4.6</span>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- Pagination -->
+<div class="pagination">
+<span class="active">1</span>
+<a href="#">2</a>
+<a href="#">3</a>
+<a href="#">4</a>
+<a href="#">5</a>
+<a href="#">…</a>
+<a href="#">29</a>
+<a href="#">下一页 →</a>
+</div>
+
+<!-- Submit CTA -->
+<div class="section" style="margin-top:28px">
+<div class="section-hd"><span class="icon">✒️</span><span class="title">投稿 · 分享您的故事</span><span class="tag">CONTRIBUTE</span></div>
+<div class="submit-cta">
+<h3>📮 副刊文集 · 持续征稿</h3>
+<p>如果您是退役军人，或者您身边有退役军人的感人故事——<br>无论是军旅回忆、创业经历、诗歌散文、摄影作品，<br>还是对食品安全和乡村振兴的思考与感悟，<br>都欢迎投稿至军鸽云链副刊文集。</p>
+<div class="submit-types">
+<span>📖 老兵故事</span><span>🎵 军旅诗歌</span><span>✍️ 散文随笔</span><span>📷 摄影作品</span><span>💭 人生感悟</span><span>📚 连载长篇</span>
+</div>
+<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+<a href="/contribute-guide.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:linear-gradient(135deg,rgba(240,192,64,.2),rgba(8,20,44,.8));border:1px solid rgba(240,192,64,.3);color:var(--gold);transition:all .2s">📝 查看投稿指南</a>
+<a href="/contribute-story.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:transparent;border:1px solid var(--border);color:var(--text-dim);transition:all .2s">📖 投稿故事</a>
+<a href="/contribute-article.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:transparent;border:1px solid var(--border);color:var(--text-dim);transition:all .2s">✍️ 投稿文章</a>
+<a href="/contribute-art.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:transparent;border:1px solid var(--border);color:var(--text-dim);transition:all .2s">🎨 投稿艺术</a>
+</div>
+</div>
+</div>
+
+<!-- Note -->
+<div style="background:rgba(240,192,64,.03);border:1px solid rgba(240,192,64,.1);border-radius:var(--radius);padding:14px 18px;font-size:11px;color:var(--text-dim);line-height:1.8;margin-top:20px">
+📌 <strong style="color:var(--gold)">投稿须知：</strong>（1）稿件须为原创，不得抄袭；（2）内容积极向上，弘扬军人精神；（3）投稿即视为授权军鸽云链平台发布；（4）优秀稿件将推荐至首页展示并获得DV数字赋能值奖励；（5）退役军人投稿优先审核。投稿邮箱：<strong style="color:var(--primary)">essay@junge.中国</strong>
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/taskforce.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+食品安全+退役军人在服务综合平台 · 铁血丹心聚英才 · 团结实干抒情怀
+</footer>
+
+</body>
+</html>

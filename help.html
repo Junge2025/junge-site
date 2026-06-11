@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.5,user-scalable=yes">
+<title>帮助中心 · 军鸽云链数智 | 退役军人创业平台</title>
+<meta name="description" content="军鸽云链数智帮助中心 — 账号问题、分站加盟、交易问题、技术问题、联系客服一站式解答。">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --primary:#0a1628; --secondary:#0f2a44;
+  --accent-cyan:#00d4ff; --accent-gold:#d4af37; --accent-red:#e53935;
+  --accent-green:#4caf50; --accent-purple:#7c3aed;
+  --text-primary:#e8edf5; --text-secondary:#8896b0; --text-muted:#5a6a85;
+  --card-bg:rgba(15,34,64,0.6); --card-border:rgba(0,212,255,0.08);
+  --shadow-card:0 8px 32px rgba(0,0,0,0.3);
+  --glass-bg:rgba(10,22,40,0.75);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{
+  font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
+  background:var(--primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;
+  background-image:radial-gradient(ellipse at 20% 30%,rgba(0,212,255,0.03) 0%,transparent 60%),
+                  radial-gradient(ellipse at 80% 70%,rgba(212,175,55,0.02) 0%,transparent 60%);
+}
+.container{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* ===== Header ===== */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:12px}
+.brandbox{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.brand-logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#00d4ff,#0088cc);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff}
+.brand-title .cn{font-size:16px;font-weight:700;color:#e8edf5;letter-spacing:1px}
+.brand-title .en{font-size:9px;color:#5a6a85;letter-spacing:1px}
+.nav-wrapper{overflow-x:auto;white-space:nowrap;scrollbar-width:none;-ms-overflow-style:none;flex:1}
+.nav-wrapper::-webkit-scrollbar{display:none}
+.navbar{display:flex;gap:4px;padding:4px 0}
+.navbar a{
+  color:#8896b0;padding:6px 10px;border-radius:6px;font-size:12px;
+  transition:all .25s;white-space:nowrap;text-decoration:none;
+}
+.navbar a:hover{color:#e8edf5;background:rgba(0,212,255,0.08)}
+.navbar a.active{color:#00d4ff;background:rgba(0,212,255,0.1)}
+.navbar a i{margin-right:4px}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.header-actions a{color:#8896b0;text-decoration:none;transition:all .25s;display:flex;align-items:center;gap:4px;font-size:13px}
+.header-actions a:hover{color:#00d4ff}
+.btn-cart{position:relative}
+.cart-badge{position:absolute;top:-6px;right:-8px;background:#e53935;color:#fff;font-size:10px;padding:1px 5px;border-radius:10px;min-width:16px;text-align:center}
+.btn-user{font-size:20px}
+.btn-did{border:1px solid rgba(212,175,55,0.2);padding:4px 10px;border-radius:20px;background:rgba(212,175,55,0.06);font-size:12px}
+.btn-did:hover{border-color:rgba(212,175,55,0.4);color:#d4af37}
+.did-text{display:inline}@media(max-width:480px){.did-text{display:none}}
+.btn-login{border:1px solid rgba(0,212,255,0.2);padding:4px 12px;border-radius:20px;background:rgba(0,212,255,0.06);font-size:12px}
+.login-text{display:inline}@media(max-width:480px){.login-text{display:none}}
+.mobile-toggle{display:none;background:none;border:none;color:#8896b0;font-size:22px;cursor:pointer;padding:4px}
+@media(max-width:768px){
+  .mobile-toggle{display:block}
+  .nav-wrapper{position:fixed;top:0;right:-300px;width:280px;height:100vh;background:rgba(10,22,40,0.98);backdrop-filter:blur(20px);border-left:1px solid rgba(255,255,255,0.06);z-index:1001;transition:right .35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;padding:60px 20px 20px;white-space:normal}
+  .nav-wrapper.open{right:0}
+  .nav-wrapper .navbar{flex-direction:column;gap:2px}
+  .nav-wrapper .navbar a{padding:10px 14px;font-size:14px;border-radius:8px;width:100%}
+  .mobile-toggle-close{position:fixed;top:14px;right:14px;z-index:1002;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:#8896b0;font-size:18px;width:36px;height:36px;border-radius:8px;cursor:pointer;display:none!important;align-items:center;justify-content:center}
+  .mobile-toggle-close.show{display:flex!important}
+  .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;opacity:0;pointer-events:none;transition:opacity .35s}
+  .nav-overlay.show{opacity:1;pointer-events:auto}
+}
+
+/* ===== Hero ===== */
+.page-hero{
+  position:relative;z-index:1;
+  background:linear-gradient(135deg,rgba(10,22,40,0.9),rgba(15,34,64,0.8)),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="none"/><circle cx="10%" cy="20%" r="80" fill="rgba(0,212,255,0.04)"/><circle cx="90%" cy="60%" r="120" fill="rgba(212,175,55,0.03)"/></svg>') center/cover;
+  padding:60px 0 50px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.page-hero h1{font-size:2.4rem;font-weight:800;margin-bottom:8px}
+.page-hero h1 span{color:#00d4ff}
+.page-hero p{font-size:1rem;color:#8896b0;max-width:600px;margin:0 auto}
+.page-hero .hero-badge{
+  display:inline-block;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:1px;
+  background:rgba(0,212,255,0.08);color:#00d4ff;border:1px solid rgba(0,212,255,0.12);margin-bottom:12px;
+}
+
+/* ===== Search Box ===== */
+.search-section{padding:30px 0;position:relative;z-index:1}
+.search-box{
+  max-width:580px;margin:0 auto;position:relative;
+}
+.search-box input{
+  width:100%;padding:14px 50px 14px 20px;border-radius:12px;font-size:15px;font-family:inherit;
+  background:rgba(15,34,64,0.5);border:1px solid rgba(0,212,255,0.1);color:#e8edf5;outline:none;transition:all .3s;
+}
+.search-box input:focus{border-color:#00d4ff;box-shadow:0 0 20px rgba(0,212,255,0.08)}
+.search-box input::placeholder{color:#5a6a85}
+.search-box .search-icon{
+  position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#00d4ff;font-size:18px;pointer-events:none;
+}
+
+/* ===== FAQ Categories ===== */
+.section{padding:40px 0;position:relative;z-index:1}
+.section-header{text-align:center;margin-bottom:30px}
+.section-header h2{font-size:1.6rem;font-weight:700;margin-bottom:8px}
+.section-header h2 span{color:#00d4ff}
+.section-header p{color:#8896b0;font-size:0.9rem}
+
+.faq-category{margin-bottom:40px}
+.faq-category-title{
+  display:flex;align-items:center;gap:10px;font-size:1.15rem;font-weight:700;
+  color:#00d4ff;margin-bottom:16px;padding-bottom:8px;
+  border-bottom:1px solid rgba(0,212,255,0.08);
+}
+.faq-category-title i{width:28px;text-align:center;font-size:1.2rem}
+.faq-list{max-width:100%;margin:0 auto}
+.faq-item{
+  background:rgba(15,34,64,0.4);border:1px solid rgba(0,212,255,0.05);border-radius:10px;
+  margin-bottom:10px;overflow:hidden;transition:all .3s;
+}
+.faq-item:hover{border-color:rgba(0,212,255,0.12)}
+.faq-q{
+  display:flex;align-items:center;gap:10px;padding:14px 18px;cursor:pointer;
+  font-size:0.92rem;color:#e8edf5;font-weight:600;user-select:none;transition:color .3s;
+}
+.faq-q i.fa-question-circle{color:#00d4ff;font-size:1rem;flex-shrink:0}
+.faq-q .faq-toggle{color:#5a6a85;margin-left:auto;transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-q .faq-toggle{transform:rotate(180deg);color:#00d4ff}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;
+  padding:0 18px 0 46px;font-size:0.85rem;color:#8896b0;line-height:1.7;
+}
+.faq-item.open .faq-a{
+  max-height:300px;padding:0 18px 16px 46px;
+}
+
+/* ===== Contact Section ===== */
+.contact-section{padding:40px 0;position:relative;z-index:1}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.contact-card{
+  background:rgba(15,34,64,0.4);border:1px solid rgba(0,212,255,0.06);border-radius:14px;
+  padding:28px 20px;text-align:center;transition:all .3s;
+}
+.contact-card:hover{border-color:rgba(0,212,255,0.2);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,212,255,0.06)}
+.contact-card .contact-icon{
+  width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 14px;font-size:22px;
+}
+.contact-card .contact-icon.cyan{background:rgba(0,212,255,0.1);color:#00d4ff;border:1px solid rgba(0,212,255,0.15)}
+.contact-card .contact-icon.gold{background:rgba(212,175,55,0.1);color:#d4af37;border:1px solid rgba(212,175,55,0.15)}
+.contact-card .contact-icon.green{background:rgba(76,175,80,0.1);color:#4caf50;border:1px solid rgba(76,175,80,0.15)}
+.contact-card h3{font-size:1rem;font-weight:700;margin-bottom:6px}
+.contact-card p{font-size:0.85rem;color:#8896b0;margin-bottom:4px}
+.contact-card .contact-value{font-size:1.1rem;font-weight:700;color:#00d4ff}
+.contact-card .btn-contact{
+  display:inline-block;margin-top:10px;padding:6px 20px;border-radius:20px;font-size:12px;font-weight:600;
+  text-decoration:none;transition:all .3s;
+}
+.contact-card .btn-contact.cyan{background:rgba(0,212,255,0.1);color:#00d4ff;border:1px solid rgba(0,212,255,0.2)}
+.contact-card .btn-contact.cyan:hover{background:#00d4ff;color:#0a1628}
+.contact-card .btn-contact.gold{background:rgba(212,175,55,0.1);color:#d4af37;border:1px solid rgba(212,175,55,0.2)}
+.contact-card .btn-contact.gold:hover{background:#d4af37;color:#0a1628}
+.contact-card .btn-contact.green{background:rgba(76,175,80,0.1);color:#4caf50;border:1px solid rgba(76,175,80,0.2)}
+.contact-card .btn-contact.green:hover{background:#4caf50;color:#0a1628}
+
+/* ===== Footer Nav ===== */
+.footer-nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin:20px 0}
+.footer-nav-links a{
+  color:#8896b0;text-decoration:none;font-size:13px;transition:color .3s;
+}
+.footer-nav-links a:hover{color:#00d4ff}
+.footer-nav-links a i{margin-right:4px}
+
+footer{background:rgba(10,22,40,0.9);border-top:1px solid rgba(255,255,255,0.04);padding:30px 0 16px;margin-top:20px}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.03);padding-top:14px;font-size:12px;color:#5a6a85}
+
+/* ===== Back Button (fixed bottom-left) ===== */
+.back-home{
+  position:fixed;bottom:30px;left:30px;z-index:999;
+  display:flex;align-items:center;justify-content:center;
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.2);color:#00d4ff;
+  text-decoration:none;font-size:20px;transition:all .3s;
+  backdrop-filter:blur(8px);
+}
+.back-home:hover{background:#00d4ff;color:#0a1628;transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,212,255,0.2)}
+.back-home .tooltip{
+  position:absolute;left:56px;top:50%;transform:translateY(-50%);
+  background:rgba(10,22,40,0.95);color:#e8edf5;font-size:12px;padding:6px 12px;
+  border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s;
+  border:1px solid rgba(0,212,255,0.1);
+}
+.back-home:hover .tooltip{opacity:1}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .contact-grid{grid-template-columns:1fr}
+  .page-hero h1{font-size:1.6rem}
+  .back-home{bottom:20px;left:20px;width:42px;height:42px;font-size:18px}
+}
+@media(max-width:480px){
+  .faq-q{font-size:0.85rem;padding:12px 14px}
+  .faq-a{font-size:0.82rem}
+}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="帮助中心 · 军鸽云链数智 | 退役军人创业平台">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/help.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/help.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">帮助中心</span>
+</nav>
+
+<header>
+  <div class="container topbar">
+    <div class="brandbox">
+      <div class="brand-logo">&#x1F426;</div>
+      <div class="brand-title"><div class="cn">军鸽云链数智</div><div class="en">JunGe CloudLink DI</div></div>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><i class="fas fa-bars"></i></button>
+    <div class="nav-wrapper" id="navWrapper">
+      <nav class="navbar" id="mainNav">
+        <a href="/index.html"><i class="fas fa-home"></i> 首页</a>
+        <a href="/junge-shuzhi.html"><i class="fas fa-crown"></i> junge数智</a>
+        <a href="/shangcheng.html"><i class="fas fa-store"></i> 军创商城</a>
+        <a href="/youpin.html"><i class="fas fa-star"></i> 军创优品</a>
+        <a href="/cross-border.html"><i class="fas fa-globe"></i> 跨境电商</a>
+        <a href="/zero-tariff.html"><i class="fas fa-tag"></i> 零关税</a>
+        <a href="game-center.html"><i class="fas fa-gamepad"></i> 🎮游戏池</a>
+        <a href="/fenzhan.html"><i class="fas fa-sitemap"></i> 分站</a>
+        <a href="enterprise-cooperation.html"><i class="fas fa-building"></i> 企业合作</a>
+        <a href="employment-service.html"><i class="fas fa-briefcase"></i> 就业服务</a>
+        <a href="culture-home.html"><i class="fas fa-book-open"></i> 文化家园</a>
+        <a href="mission-system.html"><i class="fas fa-bullseye"></i> 任务系统</a>
+        <a href="party-public.html"><i class="fas fa-flag"></i> 党建公益</a>
+        <a href="/about.html"><i class="fas fa-info-circle"></i> 关于我们</a>
+      </nav>
+    </div>
+    <div class="header-actions">
+      <a class="btn-cart" href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-badge">0</span></a>
+      <a class="btn-user" href="personal-center.html"><i class="fas fa-user-circle"></i></a>
+      <a class="btn-did" href="digital-id.html"><i class="fas fa-id-card"></i> <span class="did-text">数字ID</span></a>
+      <a class="btn-login" href="login.html"><i class="fas fa-sign-in-alt"></i> <span class="login-text">登录</span></a>
+      <button class="mobile-toggle-close" id="mobileClose" aria-label="关闭菜单"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-badge"><i class="fas fa-life-ring" style="margin-right:4px"></i> 帮助中心 · 全天候支持</div>
+    <h1><span>帮助中心</span> &#x1F6D1;</h1>
+    <p>常见问题分类检索 · 在线客服 · 一站式解答您的所有疑问</p>
+  </div>
+</section>
+
+<!-- Search Box -->
+<section class="search-section">
+  <div class="container">
+    <div class="search-box">
+      <input type="text" placeholder="搜索帮助问题，如：如何注册、分站怎么申请..." disabled>
+      <span class="search-icon"><i class="fas fa-search"></i></span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Categories -->
+<section class="section">
+  <div class="container">
+
+    <!-- 账号问题 -->
+    <div class="faq-category">
+      <div class="faq-category-title"><i class="fas fa-user-circle"></i> 账号问题</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 如何注册军鸽云链账号？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">点击页面右上角"登录"按钮，选择"注册账号"，填写手机号、设置密码，获取短信验证码后即可完成注册。注册即自动获得数字身份（数字ID）。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 忘记密码怎么办？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">在登录页面点击"忘记密码"，输入注册手机号，通过短信验证码即可重置密码。如手机号已变更，请联系在线客服进行人工验证后修改。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 如何修改个人资料？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">登录后进入"个人中心"，点击"编辑资料"即可修改头像、昵称、联系方式等信息。数字ID一经生成不可修改，请妥善保管。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 账号安全如何保障？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">平台采用金融级加密传输、双重身份验证（2FA）、登录异常检测等多重安全机制。建议定期修改密码，绑定数字ID，勿将账号信息告知他人。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 分站加盟 -->
+    <div class="faq-category">
+      <div class="faq-category-title"><i class="fas fa-sitemap"></i> 分站加盟</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 申请分站需要什么条件？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">退役军人优先，普通创业者亦可申请。需提供真实身份信息，具备本地化运营能力，认可军鸽云链数智发展理念。无加盟费用，零门槛启动。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 分站有哪些加盟模式？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">三种模式均免费开放：总站托管模式（¥0/月，推荐初创）、独立部署模式（¥0/月，推荐标准）、企业旗舰模式（¥0/月，推荐企业）。详情请查看<a href="join.html" style="color:#00d4ff;text-decoration:none">建站方案</a>。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 分站如何盈利？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">分站通过商品交易佣金（3%-15%）、本地服务收入、流量变现、junge币奖励、推荐奖励等多种方式获得收益。月均预期收入5000-50000元，上不封顶。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 分站审核需要多久？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">提交申请后，AI智能体将在24小时内进行初审，3个工作日内完成资质审核。审核通过后立即签约授牌，分配分站数字ID体系，即可上线运营。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 交易问题 -->
+    <div class="faq-category">
+      <div class="faq-category-title"><i class="fas fa-shopping-cart"></i> 交易问题</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 如何下单购买商品？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">浏览军创商城或军创优品，选择心仪商品加入购物车，提交订单后选择支付方式（微信/支付宝/银行转账）完成支付。订单状态可在"个人中心-我的订单"中查看。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 支持哪些支付方式？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">目前支持微信支付、支付宝、银联在线支付、银行转账。分站用户还可使用junge币抵扣部分金额，数字赋能值可用于兑换专属权益。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 如何申请退款/售后？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">在"个人中心-我的订单"中找到对应订单，点击"申请售后"填写原因。平台承诺7天无理由退换（特殊商品除外），售后专员将在48小时内处理。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> junge币和数字赋能值怎么用？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">junge币可在平台内抵扣消费、兑换商品、参与活动；数字赋能值反映您的生态贡献度，可用于解锁高级权限、优先参与新项目、获得平台分红资格等。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 技术问题 -->
+    <div class="faq-category">
+      <div class="faq-category-title"><i class="fas fa-cog"></i> 技术问题</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 网站无法访问或加载缓慢？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">请先检查本地网络连接。如网络正常但仍无法访问，建议清除浏览器缓存或更换Chrome/Edge等现代浏览器访问。若问题持续，请联系技术客服反馈。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 手机端显示异常怎么办？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">平台已适配移动端，建议使用微信内置浏览器或手机自带浏览器访问。如仍有显示异常，可尝试横竖屏切换刷新，或截图反馈至在线客服。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 数字ID如何绑定和使用？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">注册后自动分配数字ID，进入"个人中心-数字ID"可查看详情。数字ID是您在平台的唯一身份标识，可用于身份验证、交易记录查询、分站管理等场景。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> AI智能体如何为我服务？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">每个分站和用户都配属AI智能体助理，可通过右下角悬浮按钮唤起。AI智能体可帮助您完成商品上架、数据分析、客服应答、运营建议等任务。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 联系客服 -->
+    <div class="faq-category">
+      <div class="faq-category-title"><i class="fas fa-headset"></i> 联系客服</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 在线客服的办公时间是？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">AI智能体客服提供7×24小时全天候在线服务。人工客服专线服务时间为每天 08:00-22:00（含节假日）。非人工时段AI客服优先响应，紧急问题次日优先处理。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 如何反馈网站问题或建议？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">您可通过以下方式反馈：1）在线客服直接留言；2）发送邮件至 service@jungecloud.com；3）拨打客服热线。您的每一条反馈我们都会认真对待。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><i class="fas fa-question-circle"></i> 遇到紧急问题怎么快速求助？<span class="faq-toggle"><i class="fas fa-chevron-down"></i></span></div>
+          <div class="faq-a">紧急问题请直接拨打客服热线（24小时紧急专线），或通过在线客服输入"人工紧急"触发优先通道。涉及账号安全的紧急问题，请同时联系安全专线。</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>联系 <span>客服</span></h2>
+      <p>多种渠道，随时为您提供帮助</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon cyan"><i class="fas fa-phone-alt"></i></div>
+        <h3>联系电话</h3>
+        <p>客服热线</p>
+        <div class="contact-value">400-888-6789</div>
+        <p style="font-size:12px;color:#5a6a85">工作日 08:00-22:00</p>
+        <a class="btn-contact cyan" href="tel:4008886789"><i class="fas fa-phone"></i> 立即拨打</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon gold"><i class="fas fa-envelope"></i></div>
+        <h3>电子邮箱</h3>
+        <p>发送邮件</p>
+        <div class="contact-value" style="font-size:0.9rem">service@jungecloud.com</div>
+        <p style="font-size:12px;color:#5a6a85">24小时内回复</p>
+        <a class="btn-contact gold" href="mailto:service@jungecloud.com"><i class="fas fa-paper-plane"></i> 发送邮件</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon green"><i class="fas fa-comment-dots"></i></div>
+        <h3>在线客服</h3>
+        <p>AI智能体 · 人工客服</p>
+        <div class="contact-value" style="font-size:0.9rem">7×24小时在线</div>
+        <p style="font-size:12px;color:#5a6a85">智能陪同 · 随时响应</p>
+        <a class="btn-contact green" href="#" onclick="alert('在线客服已接入，AI智能体正在为您服务...');return false"><i class="fas fa-comment"></i> 开始咨询</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-nav-links">
+      <a href="/index.html"><i class="fas fa-home"></i> 首页</a>
+      <a href="/fenzhan.html"><i class="fas fa-sitemap"></i> 分站</a>
+      <a href="join.html"><i class="fas fa-handshake"></i> 申请建站</a>
+      <a href="/member-register.html"><i class="fas fa-user-plus"></i> 会员注册</a>
+      <a href="login.html"><i class="fas fa-sign-in-alt"></i> 登录</a>
+      <a href="/about.html"><i class="fas fa-info-circle"></i> 关于我们</a>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025-2026 军鸽云链数智 版权所有</span>
+      <span>琼ICP备2025063762号-2 | 技术支持：AI超级智能体编队</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Fixed Back Button (bottom-left) -->
+<a class="back-home" href="/index.html" title="返回首页">
+  <i class="fas fa-arrow-left"></i>
+  <span class="tooltip">返回首页</span>
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  // Mobile nav
+  var toggle=document.getElementById('mobileToggle');
+  var navWrap=document.getElementById('navWrapper');
+  var overlay=document.getElementById('navOverlay');
+  var closeBtn=document.getElementById('mobileClose');
+  function openNav(){if(navWrap)navWrap.classList.add('open');if(overlay)overlay.classList.add('show');if(closeBtn)closeBtn.classList.add('show');document.body.style.overflow='hidden'}
+  function closeNav(){if(navWrap)navWrap.classList.remove('open');if(overlay)overlay.classList.remove('show');if(closeBtn)closeBtn.classList.remove('show');document.body.style.overflow=''}
+  if(toggle)toggle.addEventListener('click',openNav);
+  if(closeBtn)closeBtn.addEventListener('click',closeNav);
+  if(overlay)overlay.addEventListener('click',closeNav);
+  if(navWrap)navWrap.querySelectorAll('a').forEach(function(l){l.addEventListener('click',closeNav)});
+
+  // FAQ accordion
+  var faqItems=document.querySelectorAll('.faq-item');
+  faqItems.forEach(function(item){
+    var q=item.querySelector('.faq-q');
+    if(q){
+      q.addEventListener('click',function(){
+        // Close siblings in same category
+        var parent=item.parentNode;
+        parent.querySelectorAll('.faq-item.open').forEach(function(sib){
+          if(sib!==item)sib.classList.remove('open');
+        });
+        // Toggle this
+        item.classList.toggle('open');
+      });
+    }
+  });
+});
+</script>
+<!-- 停留分享奖励机制 -->
+<script src="/js/share-reward.js"></script>
+<script src="/js/game-pool.js"></script>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

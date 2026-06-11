@@ -1,0 +1,162 @@
+<title>军鸽云链数智 - value products</title>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title id="pageTitle">价值分层 · 军鸽云链数智</title>
+<style>
+:root{--bg:#0a0f16;--card:rgba(16,24,36,.85);--text:#e7ecf2;--text2:#9daab8;--border:rgba(255,255,255,.06);--radius:14px;--gold:#c4a044;--red:#b84045;--green:#4d9460;--blue:#4b8ec9;--cyan:#00d4ff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.top{position:sticky;top:0;z-index:100;background:rgba(10,15,22,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:8px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.top a{color:var(--text2);text-decoration:none;font-size:11px;padding:4px 10px;border-radius:10px;transition:.2s}
+.top a:hover{color:var(--gold)}
+.top .back{font-weight:600}
+.container{max-width:1100px;margin:0 auto;padding:20px 18px}
+.hero{text-align:center;padding:36px 20px 28px;border-radius:var(--radius);margin-bottom:24px;position:relative;overflow:hidden}
+.hero .icon{font-size:48px;margin-bottom:10px}
+.hero h1{font-size:22px;margin-bottom:6px}
+.hero .desc{font-size:12px;color:var(--text2);max-width:600px;margin:0 auto;line-height:1.8}
+.hero .range{display:inline-block;padding:4px 14px;border-radius:12px;font-size:12px;font-weight:700;margin-top:10px}
+.hero .live{font-size:10px;color:var(--gold);margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.grid{grid-template-columns:1fr}}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:.25s;cursor:pointer;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
+.pcard:hover{border-color:rgba(196,160,68,.3);transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.4)}
+.pcard .pid{font-size:9px;color:var(--text2);margin-bottom:8px;font-family:monospace}
+.pcard h3{font-size:14px;margin-bottom:4px}
+.pcard .meta{font-size:10px;color:var(--text2);margin-bottom:10px}
+.pcard .scores{display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:10px;margin-bottom:10px}
+.pcard .scores span{color:var(--text2)}.pcard .scores b{font-variant-numeric:tabular-nums}
+.pcard .tv-big{font-size:28px;font-weight:800;margin-top:4px}
+.pcard .tv-label{font-size:9px;color:var(--text2)}
+.pcard .tv-bar{height:4px;background:rgba(255,255,255,.05);border-radius:2px;margin-top:8px;overflow:hidden}
+.pcard .tv-bar .fill{height:100%;border-radius:2px;transition:width .4s}
+.empty{text-align:center;padding:40px;color:var(--text2);font-size:13px}
+.footer{text-align:center;padding:24px;border-top:1px solid var(--border);font-size:10px;color:var(--text2);margin-top:32px}
+.wallet-pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:12px;background:rgba(16,24,36,.8);border:1px solid rgba(196,160,68,.2);font-size:10px}
+.wp-jc{color:#e8d5a0}.wp-jc b{color:var(--gold)}
+.wp-dv{padding:2px 6px;border-radius:6px;background:rgba(77,148,96,.12);color:#6dab7e;font-weight:600;font-size:9px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.pcard{animation:fadeUp .4s ease backwards}
+.og-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:8px;font-size:10px;font-weight:700;background:rgba(77,148,96,.1);color:#6dab7e;border:1px solid rgba(77,148,96,.2);margin-top:6px}
+.og-badge.cb{background:rgba(75,142,201,.1);color:#7ab5db;border:1px solid rgba(75,142,201,.2)}
+.og-note{font-size:10px;color:var(--text2);text-align:center;margin-top:8px;padding:6px 12px;background:rgba(77,148,96,.04);border-radius:8px;display:inline-block}
+
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链数智 - value products">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/value-products.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/value-products.html">
+</head>
+<body>
+<div class="top">
+  <a href="/shangcheng.html" class="back">← 商业生态</a>
+  <a href="/value-layers.html">📐 八层体系总览</a>
+  <span style="flex:1"></span>
+  <span class="wallet-pill" id="walletPill" style="display:none">
+    <span class="wp-jc">🪙 <b id="wpJcBal">--</b> JC</span>
+    <span class="wp-dv" id="wpDvLvl">--</span>
+  </span>
+</div>
+
+<div class="container" id="app">
+  <div class="empty">⏳ 加载中...</div>
+</div>
+
+<div style="text-align:center;margin-top:20px"><span class="og-note">🌱 本平台除跨境&零关税商品外，全部产商品均为<b style="color:#6dab7e">原产地直供+非转基因（种子）</b>，无一例外</span></div>
+<div class="footer">军鸽云链数智 · 生态品质价值分层体系 · 品质可追溯 · 价格透明 · 价值回归</div>
+
+<script>
+// ═══ TIER CONFIG ═══
+const TIERS={
+  1:{icon:'💎',name:'稀缺资源品区',color:'#d47a7e',bg:'rgba(184,64,69,.08)',desc:'全球限量供应 · 稀有原料 · 退役军人专属采购渠道。本区商品经平台严格筛选，每件均通过区块链溯源认证。',range:'TV ≥ 95'},
+  2:{icon:'👑',name:'溢价品区',color:'#e8a840',bg:'rgba(200,130,40,.08)',desc:'品牌溢价明显 · 文化附加值高 · 市场认可度强。品质消费与礼品场景首选，价值增长空间明确。',range:'85 ≤ TV < 95'},
+  3:{icon:'📈',name:'增值品区',color:'#c4a044',bg:'rgba(196,160,68,.08)',desc:'持有增值潜力 · 时间复利驱动 · 链上确权保障。年份茶、陈酿酒、限量工艺品聚集区。',range:'75 ≤ TV < 85'},
+  4:{icon:'🏷️',name:'自报价值品区',color:'#b84045',bg:'rgba(184,64,69,.08)',desc:'商家自主定价 · 平台公开核验 · 消费者知情选择。完整的成本结构与溯源链条透明公示。',range:'60 ≤ TV < 75'},
+  5:{icon:'🛡️',name:'保值品区',color:'#4b8ec9',bg:'rgba(75,142,201,.08)',desc:'价格稳定 · 需求刚性 · 退役军人信用背书。抗通胀属性突出，适合稳健消费与长期复购。',range:'45 ≤ TV < 60'},
+  6:{icon:'🌾',name:'优质农产品帮扶区',color:'#4d9460',bg:'rgba(77,148,96,.08)',desc:'乡村振兴 · 消费帮扶 · 产地直发。退役军人管理的生态农庄为核心供应源，消费即帮扶。',range:'30 ≤ TV < 45'},
+  7:{icon:'🚀',name:'新优品智推区',color:'#00d4ff',bg:'rgba(0,212,255,.08)',desc:'AI智能推荐 · 新品首发 · 数据驱动选品。新入驻商家快速建立市场认知，TV值随交易自动升级。',range:'15 ≤ TV < 30'},
+  8:{icon:'🔬',name:'食品安全潜在区',color:'#8896b0',bg:'rgba(100,100,100,.06)',desc:'新上架待评估 · 安全风险预警筛查。AI检测+人工抽检+区块链存证+消费者反馈，逐级上升。',range:'TV < 15'}
+};
+
+// ═══ ENGINE ═══
+const DID='a0000000-0000-0000-0000-000000000001',API='/api/value';
+function F(n,d){return Number(n||0).toLocaleString('zh-CN',{maximumFractionDigits:d||0})}
+async function G(p,o){try{const r=await fetch(API+p,o||{});const j=await r.json();return j.ok?j.data:null}catch(e){return null}}
+
+function earnDV(b,l){fetch(API+'/dv/action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({digital_id:DID,behavior_type:b,source_page:'/value-products.html',target_type:l}),keepalive:true}).catch(function(){})}
+
+async function init(){
+  const p=new URLSearchParams(location.search);
+  const tier=parseInt(p.get('tier'))||1;
+  const t=TIERS[tier]||TIERS[1];
+
+  document.title=t.name+' · 军鸽云链数智';
+  document.getElementById('pageTitle').textContent=t.name+' · 军鸽云链数智';
+
+  // Fetch products in this tier
+  const all=await G('/rank/tv?limit=50');
+  const products=(all||[]).filter(function(x){return x.tv_tier===tier});
+
+  // Build HTML
+  let html=`
+<div class="hero" style="background:linear-gradient(160deg,${t.bg},rgba(16,24,36,.9) 60%);border:1px solid ${t.color}20">
+  <div class="icon">${t.icon}</div>
+  <h1 style="color:${t.color}">L${tier} ${t.name}</h1>
+  <div class="range" style="background:${t.bg};color:${t.color};border:1px solid ${t.color}30">${t.range}</div>
+  <p class="desc">${t.desc}</p>
+  <div class="live">📦 本区商品: <b id="tierCount">${products.length}</b> 件 | TV池实时更新</div>
+</div>`;
+
+  if(products.length===0){
+    html+='<div class="empty">📭 本区暂无商品，新品持续上架中<br><small style="color:var(--text2)">商家可通过 <a href="/enterprise-portal.html" style="color:var(--gold)">企业入驻门户</a> 提交商品入列</small></div>';
+  }else{
+    html+='<div class="grid">';
+    products.forEach(function(p,i){
+      const pct=Math.min(p.tv_score,100);
+      const barColor=t.color;
+      html+=`
+      <div class="pcard" onclick="earnDV('browse_detail','${t.name}商品');location.href='/product-detail.html?id=${p.product_id}'" style="animation-delay:${i*0.06}s">
+        <div class="pid">ID: ${(p.product_id||'').substring(0,16)}...</div>
+        <h3>${t.name}商品 #${i+1}</h3>
+        <div class="meta">L${tier} · ${t.range}</div>
+        <div class="scores">
+          <span>质量 <b>${F(p.quality_score,1)}</b></span>
+          <span>交易量 <b>${F(p.volume_score,1)}</b></span>
+          <span>供需 <b>${F(p.supply_demand,1)}</b></span>
+          <span>评价 <b>${F(p.review_score,1)}</b></span>
+          <span>溯源 <b>${F(p.traceability,1)}</b></span>
+        </div>
+        <div class="tv-big" style="color:${t.color}">${F(p.tv_score,1)}</div>
+        <div class="tv-label">TV 交易值</div>
+        <div class="tv-bar"><div class="fill" style="width:${pct}%;background:${barColor}"></div></div>
+        <div class="og-badge">🌱 原产地 · 非转基因</div>
+      </div>`;
+    });
+    html+='</div>';
+  }
+
+  document.getElementById('app').innerHTML=html;
+
+  // Wallet
+  const dv=await G('/dv/'+DID),jc=await G('/jc/wallet/'+DID);
+  if(dv&&jc){
+    const pill=document.getElementById('walletPill');
+    pill.style.display='inline-flex';
+    document.getElementById('wpJcBal').textContent=F(jc.jc_balance,2);
+    document.getElementById('wpDvLvl').textContent=dv.dv_level;
+  }
+}
+
+init();
+</script>
+</body>
+</html>

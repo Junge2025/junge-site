@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>农旅体验 · 海南热带生态农庄 · 军鸽云链</title>
+<meta name="description" content="海南热带生态农庄农旅体验 — 热带水果采摘、椰林木屋生态民宿、有机农业研学课程、椰子鸡文昌鸡特色美食、季节活动日历，预约您的热带田园之旅。">
+<meta name="keywords" content="海南农旅,热带水果采摘,椰林木屋民宿,有机农业研学,椰子鸡,文昌鸡,三亚旅游,军鸽云链">
+<meta property="og:title" content="农旅体验 · 海南热带生态农庄">
+<meta property="og:description" content="采摘·民宿·研学·美食 — 北纬18°热带田园之旅">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://junge.中国/farm-hainan-experience.html">
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,0.85);--text:#e8edf5;--dim:#8896b0;--border:rgba(255,255,255,.06);--red:#b84045;--green:#6dab7e;--blue:#4b8ecf;--gold:#f0c040;--cyan:#00d4ff;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;line-height:1.7;min-height:100vh;padding-bottom:130px}
+.breadcrumb{position:sticky;top:0;z-index:101;background:rgba(3,7,18,.96);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:6px;font-size:11px;backdrop-filter:blur(12px)}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:.2s}
+.breadcrumb a:hover{color:var(--cyan)}
+.breadcrumb .sep{color:#4a5568}
+.breadcrumb .current{color:var(--cyan);font-weight:700}
+.top-nav{position:sticky;top:33px;z-index:100;background:linear-gradient(90deg,rgba(3,7,18,.98),rgba(10,22,40,.97));backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;overflow-x:auto}
+.top-nav .logo{font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;flex-shrink:0}
+.top-nav .divider{width:1px;height:16px;background:var(--border);flex-shrink:0}
+.top-nav a.nav-link{color:var(--dim);text-decoration:none;font-size:11px;padding:3px 9px;border-radius:10px;border:1px solid transparent;white-space:nowrap;flex-shrink:0;transition:.2s}
+.top-nav a.nav-link:hover,.top-nav a.nav-link.active{color:var(--cyan);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.05)}
+.container{max-width:1160px;margin:0 auto;padding:10px 20px 40px}
+.page-hero{text-align:center;padding:40px 20px 30px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.page-hero h1{font-size:32px;color:var(--gold);margin-bottom:8px}
+.page-hero .sub{font-size:13px;color:var(--dim)}
+.section-title{font-size:15px;color:var(--cyan);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.exp-card .exp-img{border-radius:10px;overflow:hidden;border:1px solid var(--border);height:240px}
+.exp-card .exp-img img{width:100%;height:100%;object-fit:cover}
+.exp-card .exp-info h3{font-size:16px;color:var(--gold);margin-bottom:10px}
+.exp-card .exp-info p{font-size:12px;color:var(--dim);line-height:1.9;margin-bottom:8px}
+.exp-card .exp-info .exp-meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.exp-card .exp-info .exp-meta span{font-size:10px;color:var(--dim);background:rgba(255,255,255,.03);padding:4px 10px;border-radius:6px;border:1px solid var(--border)}
+.exp-card .exp-info .exp-meta span.highlight{color:var(--gold);border-color:rgba(240,192,64,.15)}
+.exp-card .exp-info .exp-btn{display:inline-block;padding:8px 22px;border-radius:20px;font-size:12px;font-weight:600;color:#030712;background:linear-gradient(135deg,var(--cyan),var(--gold));text-decoration:none;transition:.25s;margin-top:4px}
+.exp-card .exp-info .exp-btn:hover{box-shadow:0 0 20px rgba(0,212,255,.4)}
+.season-table{width:100%;border-collapse:collapse;font-size:11px;margin:12px 0}
+.season-table th{background:rgba(0,212,255,.04);color:var(--cyan);font-weight:600;padding:10px 12px;text-align:center;border:1px solid var(--border);font-size:10px}
+.season-table td{padding:10px 12px;border:1px solid var(--border);color:var(--dim);text-align:center}
+.season-table .peak{color:var(--gold);font-weight:600;background:rgba(240,192,64,.04)}
+.season-table .avail{color:var(--green)}
+.calendar-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.cal-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;display:flex;gap:14px;align-items:flex-start;transition:.25s}
+.cal-item:hover{border-color:rgba(0,212,255,.15)}
+.cal-item .cal-date{flex-shrink:0;width:60px;height:60px;border-radius:10px;background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.12);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cal-item .cal-date .cal-day{font-size:20px;font-weight:700;color:var(--cyan);line-height:1}
+.cal-item .cal-date .cal-mon{font-size:9px;color:var(--dim)}
+.cal-item .cal-info h4{font-size:13px;color:var(--text);margin-bottom:4px}
+.cal-item .cal-info .cal-desc{font-size:10px;color:var(--dim);line-height:1.5;margin-bottom:6px}
+.cal-item .cal-info .cal-meta{font-size:9px;color:var(--dim);display:flex;gap:10px;flex-wrap:wrap}
+.cal-item .cal-book{flex-shrink:0;padding:6px 14px;border-radius:16px;font-size:10px;font-weight:600;color:var(--cyan);border:1px solid rgba(0,212,255,.3);background:rgba(0,212,255,.05);text-decoration:none;transition:.2s;white-space:nowrap}
+.cal-item .cal-book:hover{background:rgba(0,212,255,.15)}
+.booking-cta{background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(240,192,64,.04));border:1px solid rgba(0,212,255,.12);border-radius:var(--radius);padding:30px;text-align:center;margin-top:20px}
+.booking-cta h3{font-size:18px;color:var(--gold);margin-bottom:8px}
+.booking-cta p{font-size:12px;color:var(--dim);margin-bottom:16px}
+.booking-cta .bk-btn{display:inline-block;padding:12px 32px;border-radius:24px;font-size:14px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--gold),var(--cyan));text-decoration:none;transition:.25s;box-shadow:0 4px 20px rgba(0,212,255,.2)}
+.booking-cta .bk-btn:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(0,212,255,.4)}
+.footer{text-align:center;padding:20px 20px 30px;border-top:1px solid var(--border);font-size:10px;color:#4a5568;line-height:1.8}
+.footer a{color:var(--dim);text-decoration:none}
+.footer a:hover{color:var(--cyan)}
+.footer-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{padding:4px 12px;border-radius:12px;border:1px solid var(--border);font-size:10px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.1);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:4px 8px;border-radius:8px;transition:.2s}
+.bottom-nav a:hover{color:var(--cyan)}
+.bottom-nav a.highlight{color:var(--gold);border:1px solid rgba(240,192,64,.2);background:rgba(240,192,64,.05)}
+@media(max-width:768px){
+  .exp-card{grid-template-columns:1fr}
+  .exp-card .exp-img{height:180px}
+  .calendar-grid{grid-template-columns:1fr}
+  .page-hero h1{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🛡️ 情怀首页</a><span class="sep">▸</span>
+  <a href="/junge/eco-farm.html">🌿 生态农庄</a><span class="sep">▸</span>
+  <a href="/farm-hainan.html">海南热带生态农庄</a><span class="sep">▸</span>
+  <span class="current">农旅体验</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" class="logo">⚔ 军鸽云链</a>
+  <span class="divider"></span>
+  <a href="/index.html" class="nav-link">🛡️ 军鸽首页</a>
+  <a href="/shangcheng.html" class="nav-link">🛒 商业生态</a>
+  <a href="/taskforce.html" class="nav-link">⚡ 数智中心</a>
+  <a href="/fenzhan.html" class="nav-link">🌾 分站家园</a>
+  <span class="divider"></span>
+  <a href="/farm-hainan.html" class="nav-link">🌴 海南农庄</a>
+  <a href="/farm-hainan-products.html" class="nav-link">🍍 产品中心</a>
+  <a href="/farm-hainan-traceability.html" class="nav-link">🔗 溯源详情</a>
+  <a href="/farm-hainan-experience.html" class="nav-link active">🧺 农旅体验</a>
+</nav>
+
+<div class="page-hero">
+  <h1>🧺 海南农庄旅游体验</h1>
+  <div class="sub">采摘·民宿·研学·美食 — 北纬18°热带田园深度之旅</div>
+</div>
+
+<div class="container">
+
+<!-- 热带水果采摘 -->
+<div class="section" style="margin-top:0">
+  <div class="section-title"><span>🧺</span> 热带水果采摘体验</div>
+  <div class="exp-card">
+    <div class="exp-img"><img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&q=80" alt="水果采摘" loading="lazy"></div>
+    <div class="exp-info">
+      <h3>🥭 亲摘热带果王，感受田园乐趣</h3>
+      <p>走进1200亩热带果园，在专业果农的指导下亲手采摘芒果、凤梨、火龙果、百香果等时令水果。园区提供采摘工具、防晒帽和果篮，采摘的水果可现场品尝或打包带走。适合亲子家庭、情侣、团建活动。</p>
+      <div class="exp-meta">
+        <span class="highlight">🍓 草莓季: 12-5月</span>
+        <span class="highlight">🥭 芒果季: 3-6月</span>
+        <span>🍒 荔枝季: 6-8月</span>
+        <span>🐉 火龙果季: 6-12月</span>
+      </div>
+      <a href="/contact.html" class="exp-btn">🧺 预约采摘体验</a>
+    </div>
+  </div>
+</div>
+
+<!-- 生态民宿 -->
+<div class="section">
+  <div class="section-title"><span>🏡</span> 生态民宿 — 椰林木屋</div>
+  <div class="exp-card">
+    <div class="exp-img"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="椰林木屋" loading="lazy"></div>
+    <div class="exp-info">
+      <h3>🌴 栖居椰林之间，枕星入眠</h3>
+      <p>农庄内建有12栋生态椰林木屋，采用海南传统建筑风格与现代舒适设施相结合。每栋木屋均配有独立卫浴、空调、观景露台，推窗即见椰林、远眺海棠湾海景。夜晚星空璀璨、虫鸣伴眠，是远离城市喧嚣的理想隐居之所。</p>
+      <div class="exp-meta">
+        <span>🏡 12栋独立木屋</span>
+        <span>🛏️ 大床/双床可选</span>
+        <span>🌅 海景/椰林景</span>
+        <span class="highlight">💰 ¥398-698/晚</span>
+      </div>
+      <a href="/contact.html" class="exp-btn">🏡 预订椰林木屋</a>
+    </div>
+  </div>
+</div>
+
+<!-- 研学课程 -->
+<div class="section">
+  <div class="section-title"><span>📚</span> 研学课程</div>
+  <div class="exp-card">
+    <div class="exp-img"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=600&q=80" alt="研学课程" loading="lazy"></div>
+    <div class="exp-info">
+      <h3>🌿 热带农业科普 + 有机种植实践</h3>
+      <p>面向中小学生、亲子家庭和农业爱好者开设的专业研学课程。涵盖热带植物认知、有机种植技术、区块链溯源原理、土壤检测实验等内容。由农艺师和退役军人教官联合授课，寓教于乐，完成课程颁发实践证书。</p>
+      <div class="exp-meta">
+        <span>🌱 热带农业科普</span>
+        <span>🔬 土壤检测实验</span>
+        <span>🔗 区块链溯源课堂</span>
+        <span class="highlight">🎓 颁发实践证书</span>
+      </div>
+      <a href="/contact.html" class="exp-btn">📚 预约研学课程</a>
+    </div>
+  </div>
+</div>
+
+<!-- 特色美食 -->
+<div class="section">
+  <div class="section-title"><span>🍽️</span> 特色美食</div>
+  <div class="exp-card">
+    <div class="exp-img"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600&q=80" alt="特色美食" loading="lazy"></div>
+    <div class="exp-info">
+      <h3>🥥 椰子鸡火锅 · 文昌鸡宴 · 热带水果宴</h3>
+      <p>农庄有机餐厅选用自养文昌鸡和现摘青椰子，打造原汁原味的椰子鸡火锅。此外还提供海南文昌鸡白切、热带水果拼盘、椰子冻、芒果糯米饭等地道海南美食。所有食材均来自农庄自产，从田间到餐桌不超过2小时。</p>
+      <div class="exp-meta">
+        <span>🥥 椰子鸡火锅</span>
+        <span>🐔 文昌鸡白切</span>
+        <span>🥭 芒果糯米饭</span>
+        <span class="highlight">🌿 全有机食材</span>
+      </div>
+      <a href="/contact.html" class="exp-btn">🍽️ 预订农庄餐厅</a>
+    </div>
+  </div>
+</div>
+
+<!-- 季节采摘日历 -->
+<div class="section">
+  <div class="section-title"><span>📅</span> 季节采摘日历</div>
+  <div style="overflow-x:auto">
+  <table class="season-table">
+    <thead>
+      <tr><th>水果品种</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th><th>6月</th><th>7月</th><th>8月</th><th>9月</th><th>10月</th><th>11月</th><th>12月</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>🍓 草莓</td><td class="peak">●</td><td class="peak">●</td><td class="peak">●</td><td class="avail">●</td><td class="avail">●</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="peak">●</td></tr>
+      <tr><td>🥭 芒果</td><td></td><td></td><td class="avail">●</td><td class="peak">●</td><td class="peak">●</td><td class="avail">●</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>🍒 荔枝</td><td></td><td></td><td></td><td></td><td class="avail">●</td><td class="peak">●</td><td class="peak">●</td><td class="avail">●</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>🐉 火龙果</td><td></td><td></td><td></td><td></td><td></td><td class="avail">●</td><td class="peak">●</td><td class="peak">●</td><td class="peak">●</td><td class="peak">●</td><td class="avail">●</td><td class="avail">●</td></tr>
+      <tr><td>🍍 凤梨</td><td class="avail">●</td><td class="avail">●</td><td class="peak">●</td><td class="peak">●</td><td class="avail">●</td><td></td><td></td><td></td><td></td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td></tr>
+      <tr><td>🥥 椰子</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="peak">●</td><td class="peak">●</td><td class="peak">●</td><td class="peak">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td></tr>
+      <tr><td>🍈 木瓜</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td><td class="avail">●</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:10px;color:var(--dim);margin-top:4px">● 绿色=有产  ● 金色=盛产期（最佳采摘月份）</p>
+</div>
+
+<!-- 近期活动 -->
+<div class="section">
+  <div class="section-title"><span>📆</span> 近期活动安排</div>
+  <div class="calendar-grid">
+    <div class="cal-item">
+      <div class="cal-date"><div class="cal-day">15</div><div class="cal-mon">6月</div></div>
+      <div class="cal-info">
+        <h4>🧺 热带水果采摘节</h4>
+        <div class="cal-desc">亲手采摘芒果、凤梨、火龙果，含午餐+导览+带走5斤自摘水果。</div>
+        <div class="cal-meta"><span>⏰ 09:00-16:00</span><span>👥 限50人</span><span>💰 ¥198/人</span></div>
+      </div>
+      <a href="/contact.html" class="cal-book">📝 报名</a>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date"><div class="cal-day">22</div><div class="cal-mon">6月</div></div>
+      <div class="cal-info">
+        <h4>🌿 有机农业研学营</h4>
+        <div class="cal-desc">亲子+学校团体，学习有机种植、区块链溯源，含午餐+实践证书。</div>
+        <div class="cal-meta"><span>⏰ 08:30-15:00</span><span>👥 30组家庭</span><span>💰 ¥298/家庭</span></div>
+      </div>
+      <a href="/contact.html" class="cal-book">📝 报名</a>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date"><div class="cal-day">28</div><div class="cal-mon">6月</div></div>
+      <div class="cal-info">
+        <h4>🎖️ 退役军人创业分享会</h4>
+        <div class="cal-desc">创始人分享从军营到田园的创业故事，退役军人及家属优先免费。</div>
+        <div class="cal-meta"><span>⏰ 14:00-17:00</span><span>👥 限80人</span><span>💰 免费</span></div>
+      </div>
+      <a href="/contact.html" class="cal-book">📝 报名</a>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date"><div class="cal-day">5</div><div class="cal-mon">7月</div></div>
+      <div class="cal-info">
+        <h4>🥥 椰子文化美食节</h4>
+        <div class="cal-desc">椰子鸡火锅盛宴+椰子手工DIY+热带水果品鉴，美食文化之旅。</div>
+        <div class="cal-meta"><span>⏰ 10:00-18:00</span><span>👥 限100人</span><span>💰 ¥168/人</span></div>
+      </div>
+      <a href="/contact.html" class="cal-book">📝 报名</a>
+    </div>
+  </div>
+</div>
+
+<!-- 预订入口 -->
+<div class="section">
+  <div class="booking-cta">
+    <h3>🌴 开启您的热带田园之旅</h3>
+    <p>全年开放 · 建议提前3天预约 · 金卡会员每年2次免费体验 · 退役军人专属优惠</p>
+    <a href="/contact.html" class="bk-btn">📅 立即预约</a>
+    <p style="margin-top:12px;font-size:10px;color:var(--dim)">📍 海南省三亚市海棠湾 · 📞 咨询热线: 400-888-XXXX · ⏰ 开放时间: 每日08:00-18:00</p>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="/farm-hainan.html" style="border-color:rgba(109,171,126,.2);color:var(--green)">🌴 海南农庄</a>
+    <a href="/farm-hainan-products.html" style="border-color:rgba(0,212,255,.2);color:var(--cyan)">🍍 产品中心</a>
+    <a href="/farm-hainan-traceability.html" style="border-color:rgba(240,192,64,.2);color:var(--gold)">🔗 溯源详情</a>
+    <a href="/shangcheng.html" style="border-color:rgba(184,64,69,.2);color:var(--red)">🛒 商业生态</a>
+  </div>
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站: 175.178.55.90 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+  食品安全+退役军人在服务综合平台
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+</body>
+</html>

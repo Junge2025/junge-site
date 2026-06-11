@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="军鸽云链数智·企业合作——3种合作模式、12+合作企业展示、供应商品区、合作申请表。退役军人创业就业生态合作伙伴。">
+  <meta name="keywords" content="军鸽云链,企业合作,供应链,退役军人,军创生态,供应商入驻,战略合作,农庄基地">
+  <meta name="theme-color" content="#0a1628">
+  <title>军鸽云链数智·企业合作 | 退役军人食品安全服务平台</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/ai-styles.css">
+  <style>
+
+/* ====== CSS 变量和设计令牌 ====== */
+:root {
+  --primary: #0a1628;
+  --primary-light: #0f2240;
+  --primary-mid: #1a3a5f;
+  --accent-cyan: #00d4ff;
+  --accent-cyan-dim: rgba(0,212,255,0.15);
+  --accent-gold: #d4af37;
+  --accent-gold-dim: rgba(212,175,55,0.15);
+  --accent-red: #e53935;
+  --accent-red-dim: rgba(229,57,53,0.12);
+  --accent-green: #4caf50;
+  --accent-green-dim: rgba(76,175,80,0.12);
+  --accent-purple: #7c3aed;
+  --accent-orange: #fb8b24;
+  --text-primary: #e8edf5;
+  --text-secondary: #8896b0;
+  --text-muted: #5a6a85;
+  --card-bg: rgba(15,34,64,0.6);
+  --card-border: rgba(0,212,255,0.08);
+  --card-hover-border: rgba(0,212,255,0.25);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.3);
+  --shadow-glow-cyan: 0 0 20px rgba(0,212,255,0.15);
+  --shadow-glow-gold: 0 0 20px rgba(212,175,55,0.15);
+  --glass-bg: rgba(10,22,40,0.75);
+  --glass-border: rgba(255,255,255,0.06);
+  --font-family: 'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{
+  font-family:var(--font-family);
+  background:var(--primary);
+  color:var(--text-primary);
+  line-height:1.6;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+::selection{background:var(--accent-cyan);color:var(--primary)}
+a{color:inherit;text-decoration:none;transition:var(--transition)}
+button,.btn{cursor:pointer;font-family:inherit;border:none;outline:none;transition:var(--transition)}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
+
+/* ====== Particle Canvas ====== */
+#particle-canvas{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;opacity:0.6;
+}
+
+/* ====== Glow Effects ====== */
+.glow-cyan{box-shadow:0 0 30px rgba(0,212,255,0.08),0 0 60px rgba(0,212,255,0.04)}
+.glow-gold{box-shadow:0 0 30px rgba(212,175,55,0.08),0 0 60px rgba(212,175,55,0.04)}
+.glow-green{box-shadow:0 0 30px rgba(76,175,80,0.08),0 0 60px rgba(76,175,80,0.04)}
+
+/* ====== Section Titles ====== */
+.section-header{
+  text-align:center;margin-bottom:40px;position:relative;z-index:2;
+}
+.section-header .tag{
+  display:inline-block;padding:4px 16px;border-radius:20px;
+  font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  background:var(--accent-cyan-dim);color:var(--accent-cyan);
+  border:1px solid rgba(0,212,255,0.15);margin-bottom:12px;
+}
+.section-header h2{
+  font-size:2rem;font-weight:700;color:var(--text-primary);
+  margin-bottom:8px;
+}
+.section-header h2 span{color:var(--accent-cyan)}
+.section-header h2 .gold{color:var(--accent-gold)}
+.section-header p{color:var(--text-secondary);font-size:0.95rem;max-width:600px;margin:0 auto}
+.section-divider{
+  width:60px;height:3px;background:linear-gradient(90deg,var(--accent-cyan),var(--accent-gold));
+  border-radius:2px;margin:16px auto;
+}
+
+/* ====== Grid System ====== */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+/* ====== Glass Card ====== */
+.glass-card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-lg);
+  padding:24px;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  transition:var(--transition);
+  position:relative;overflow:hidden;
+}
+.glass-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent-cyan),transparent);
+  opacity:0.3;
+}
+.glass-card:hover{
+  border-color:var(--card-hover-border);
+  box-shadow:var(--shadow-glow-cyan);
+  transform:translateY(-2px);
+}
+
+/* ====== Header ====== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(10,22,40,0.88);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  transition:var(--transition);
+}
+header.scrolled{background:rgba(10,22,40,0.96);box-shadow:0 4px 30px rgba(0,0,0,0.35)}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 0;gap:8px;min-height:56px;
+}
+.brandbox{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.brand-logo{
+  width:36px;height:36px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));
+  font-size:16px;font-weight:800;color:#fff;
+}
+.brand-title .cn{font-size:15px;font-weight:700;color:var(--text-primary);letter-spacing:1px}
+.brand-title .en{font-size:9px;color:var(--text-secondary);letter-spacing:2px}
+.nav-wrapper{
+  flex:1;overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent);
+  mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent);
+}
+nav.navbar{
+  display:flex;gap:2px;overflow-x:auto;overflow-y:hidden;
+  scrollbar-width:none;-ms-overflow-style:none;
+  padding:0 4px;scroll-behavior:smooth;
+}
+nav.navbar::-webkit-scrollbar{display:none}
+nav.navbar a{
+  padding:6px 10px;border-radius:6px;font-size:12.5px;font-weight:500;
+  color:var(--text-secondary);white-space:nowrap;
+  border:1px solid transparent;transition:var(--transition);
+  display:flex;align-items:center;gap:4px;flex-shrink:0;
+}
+nav.navbar a i{font-size:12px;opacity:0.7}
+nav.navbar a:hover,nav.navbar a.active{
+  color:var(--accent-cyan);background:var(--accent-cyan-dim);
+  border-color:rgba(0,212,255,0.1);
+}
+nav.navbar a.active{color:#fff;background:rgba(0,212,255,0.12)}
+nav.navbar a:hover i,nav.navbar a.active i{opacity:1}
+.header-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.header-actions .btn-cart,.header-actions .btn-user{
+  width:34px;height:34px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:var(--text-secondary);
+  background:rgba(255,255,255,0.03);border:1px solid transparent;
+  position:relative;transition:var(--transition);
+}
+.header-actions .btn-cart:hover,.header-actions .btn-user:hover{
+  color:var(--accent-cyan);background:var(--accent-cyan-dim);
+  border-color:rgba(0,212,255,0.1);
+}
+.header-actions .cart-badge{
+  position:absolute;top:-2px;right:-2px;
+  min-width:16px;height:16px;padding:0 4px;
+  border-radius:10px;background:var(--accent-red);
+  color:#fff;font-size:9px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  line-height:1;box-shadow:0 0 6px rgba(229,57,53,0.4);
+}
+.header-actions .btn-did{
+  padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;
+  background:linear-gradient(135deg,var(--accent-gold-dim),var(--accent-gold-dim));
+  border:1px solid rgba(212,175,55,0.2);
+  color:var(--accent-gold);letter-spacing:0.5px;white-space:nowrap;
+}
+.header-actions .btn-did:hover{background:var(--accent-gold-dim);border-color:var(--accent-gold)}
+.header-actions .btn-login{
+  padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;
+  background:var(--accent-cyan-dim);border:1px solid rgba(0,212,255,0.15);
+  color:var(--accent-cyan);white-space:nowrap;
+}
+.header-actions .btn-login:hover{background:rgba(0,212,255,0.2)}
+.mobile-toggle,.mobile-toggle-close{display:none;color:var(--text-primary);font-size:20px;background:none;padding:6px;border-radius:6px}
+.mobile-toggle:hover{background:rgba(255,255,255,0.05)}
+
+/* ====== Policy Ticker ====== */
+.policy-ticker-container{
+  border-top:1px solid rgba(255,255,255,0.04);
+  overflow:hidden;font-size:12px;color:var(--text-muted);
+  max-height:0;transition:max-height 0.3s;
+}
+header.scrolled .policy-ticker-container{max-height:28px}
+.policy-ticker{
+  display:flex;align-items:center;gap:8px;padding:4px 0;
+  white-space:nowrap;overflow:hidden;
+}
+.ticker-content{display:inline-block;animation:ticker-scroll 40s linear infinite}
+@keyframes ticker-scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+
+/* ====== Hero Section ====== */
+.hero-section{
+  position:relative;z-index:1;
+  min-height:80vh;display:flex;align-items:center;
+  padding:100px 0 60px;overflow:hidden;
+}
+.hero-content{text-align:center;position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 20px;border-radius:30px;
+  background:var(--accent-cyan-dim);border:1px solid rgba(0,212,255,0.15);
+  font-size:12px;font-weight:600;color:var(--accent-cyan);
+  letter-spacing:2px;margin-bottom:20px;
+}
+.hero-badge .dot{
+  width:6px;height:6px;border-radius:50%;background:var(--accent-green);
+  animation:pulse-dot 2s infinite;
+}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-title{
+  font-size:3rem;font-weight:800;line-height:1.2;
+  margin-bottom:16px;background:linear-gradient(135deg,#e8edf5 30%,var(--accent-cyan) 70%,var(--accent-gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-subtitle{font-size:1.1rem;color:var(--text-secondary);margin-bottom:32px;max-width:700px;margin-left:auto;margin-right:auto}
+.hero-metrics{
+  display:flex;justify-content:center;gap:40px;margin-bottom:36px;flex-wrap:wrap;
+}
+.hero-metric{text-align:center}
+.hero-metric .num{
+  font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-metric .label{font-size:13px;color:var(--text-muted);margin-top:4px}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-hero{
+  padding:12px 28px;border-radius:10px;font-size:14px;font-weight:600;
+  letter-spacing:1px;position:relative;overflow:hidden;
+}
+.btn-hero.primary{
+  background:linear-gradient(135deg,var(--accent-cyan),rgba(0,212,255,0.7));
+  color:var(--primary);
+}
+.btn-hero.primary:hover{box-shadow:0 0 30px rgba(0,212,255,0.3);transform:translateY(-2px)}
+.btn-hero.secondary{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  color:var(--text-primary);
+}
+.btn-hero.secondary:hover{background:rgba(255,255,255,0.1);border-color:var(--accent-cyan);color:var(--accent-cyan)}
+.btn-hero.gold{
+  background:linear-gradient(135deg,var(--accent-gold),rgba(212,175,55,0.7));
+  color:var(--primary);
+}
+.btn-hero.gold:hover{box-shadow:0 0 30px rgba(212,175,55,0.3);transform:translateY(-2px)}
+.btn-hero.outline-cyan{
+  background:transparent;border:1px solid var(--accent-cyan);color:var(--accent-cyan);
+}
+.btn-hero.outline-cyan:hover{background:var(--accent-cyan-dim);box-shadow:0 0 20px rgba(0,212,255,0.15)}
+
+/* ====== Section ====== */
+.section{padding:60px 0;position:relative;z-index:1}
+.section.alt{background:rgba(15,34,64,0.3)}
+
+/* ====== Mode Cards ====== */
+.mode-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.mode-card{
+  text-align:center;padding:32px 20px;
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:var(--radius-lg);position:relative;overflow:hidden;
+  transition:var(--transition);
+}
+.mode-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+}
+.mode-card.supplier::before{background:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple))}
+.mode-card.farm::before{background:linear-gradient(90deg,var(--accent-green),var(--accent-cyan))}
+.mode-card.strategic::before{background:linear-gradient(90deg,var(--accent-gold),var(--accent-red))}
+.mode-card:hover{
+  border-color:var(--card-hover-border);
+  transform:translateY(-4px);box-shadow:var(--shadow-glow-cyan);
+}
+.mode-card .mode-icon{font-size:40px;margin-bottom:12px}
+.mode-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--text-primary)}
+.mode-card p{font-size:13px;color:var(--text-secondary);margin-bottom:12px;line-height:1.6}
+.mode-benefits{list-style:none;padding:0;margin-bottom:16px;text-align:left}
+.mode-benefits li{
+  padding:4px 0;font-size:12px;color:var(--text-muted);
+  display:flex;align-items:center;gap:6px;
+}
+.mode-benefits li i{color:var(--accent-green);font-size:11px}
+.mode-btn{
+  display:inline-block;padding:8px 20px;border-radius:8px;
+  font-size:13px;font-weight:600;cursor:pointer;border:none;
+  transition:var(--transition);
+}
+.mode-btn.cyan{
+  background:var(--accent-cyan-dim);color:var(--accent-cyan);
+  border:1px solid rgba(0,212,255,0.15);
+}
+.mode-btn.cyan:hover{background:rgba(0,212,255,0.2);box-shadow:0 0 12px rgba(0,212,255,0.1)}
+.mode-btn.green{
+  background:var(--accent-green-dim);color:var(--accent-green);
+  border:1px solid rgba(76,175,80,0.15);
+}
+.mode-btn.green:hover{background:rgba(76,175,80,0.2)}
+.mode-btn.gold{
+  background:var(--accent-gold-dim);color:var(--accent-gold);
+  border:1px solid rgba(212,175,55,0.15);
+}
+.mode-btn.gold:hover{background:rgba(212,175,55,0.2)}
+
+/* ====== Partner Enterprise Grid ====== */
+.partner-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;
+}
+.partner-card{
+  padding:20px 14px;text-align:center;
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:var(--radius-md);transition:var(--transition);cursor:pointer;
+}
+.partner-card:hover{
+  border-color:var(--card-hover-border);
+  transform:translateY(-3px);box-shadow:var(--shadow-glow-cyan);
+}
+.partner-card .plogo{
+  width:60px;height:60px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 10px;font-size:26px;
+  background:var(--accent-cyan-dim);border:1px solid rgba(0,212,255,0.1);
+}
+.partner-card .pname{font-size:13px;font-weight:600;color:var(--text-primary)}
+.partner-card .pdesc{font-size:11px;color:var(--text-muted);margin-top:4px}
+
+/* ====== Supplier Zone ====== */
+.supplier-zone{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;
+}
+.supplier-card{
+  padding:20px;background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:var(--radius-md);transition:var(--transition);
+  display:flex;gap:12px;align-items:flex-start;
+}
+.supplier-card:hover{
+  border-color:var(--card-hover-border);
+  transform:translateY(-2px);box-shadow:var(--shadow-glow-cyan);
+}
+.supplier-card .s-icon{
+  width:44px;height:44px;border-radius:var(--radius-sm);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.supplier-card .s-info{flex:1}
+.supplier-card .s-info h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.supplier-card .s-info p{font-size:12px;color:var(--text-muted);margin-bottom:6px}
+.supplier-card .s-tags{display:flex;gap:4px;flex-wrap:wrap}
+.supplier-card .s-tag{
+  padding:2px 8px;border-radius:10px;font-size:10px;
+  background:var(--accent-cyan-dim);color:var(--accent-cyan);
+  border:1px solid rgba(0,212,255,0.1);
+}
+.supplier-card .s-tag.gold{background:var(--accent-gold-dim);color:var(--accent-gold);border-color:rgba(212,175,55,0.1)}
+.supplier-card .s-tag.green{background:var(--accent-green-dim);color:var(--accent-green);border-color:rgba(76,175,80,0.1)}
+
+/* ====== Application Form Section ====== */
+.apply-section{
+  background:rgba(15,34,64,0.5);border:1px solid var(--card-border);
+  border-radius:var(--radius-xl);padding:40px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.apply-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent-cyan),var(--accent-gold),var(--accent-green));
+}
+.apply-form{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
+  max-width:700px;margin:24px auto 0;text-align:left;
+}
+.apply-form input,.apply-form select,.apply-form textarea{
+  padding:10px 14px;border-radius:var(--radius-sm);
+  background:rgba(255,255,255,0.04);border:1px solid var(--card-border);
+  color:var(--text-primary);font-size:13px;font-family:inherit;outline:none;transition:var(--transition);
+}
+.apply-form input:focus,.apply-form select:focus,.apply-form textarea:focus{
+  border-color:var(--accent-cyan);box-shadow:0 0 8px rgba(0,212,255,0.1);
+}
+.apply-form input::placeholder,.apply-form textarea::placeholder{color:var(--text-muted)}
+.apply-form textarea{
+  grid-column:span 2;min-height:100px;resize:vertical;
+}
+.apply-form .full-width{grid-column:span 2}
+.apply-form .btn-submit{
+  grid-column:span 2;padding:12px;border-radius:var(--radius-sm);
+  font-size:15px;font-weight:700;
+  background:linear-gradient(135deg,var(--accent-gold),rgba(212,175,55,0.7));
+  color:var(--primary);border:none;cursor:pointer;transition:var(--transition);
+}
+.apply-form .btn-submit:hover{box-shadow:0 0 20px rgba(212,175,55,0.3);transform:translateY(-1px)}
+
+/* ====== Footer ====== */
+footer{
+  position:relative;z-index:1;
+  background:rgba(10,22,40,0.9);border-top:1px solid rgba(255,255,255,0.04);
+  padding:40px 0 20px;margin-top:40px;
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
+.footer-brand .fb-icon{font-size:28px;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.7}
+.footer-col h4{font-size:13px;font-weight:600;margin-bottom:12px;color:var(--text-primary);letter-spacing:1px}
+.footer-col a{display:block;font-size:12px;color:var(--text-muted);margin-bottom:6px}
+.footer-col a:hover{color:var(--accent-cyan)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.04);padding-top:16px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  font-size:12px;color:var(--text-muted);
+}
+
+/* ====== Responsive ====== */
+@media(max-width:992px){
+  .mode-grid{grid-template-columns:repeat(3,1fr)}
+  .grid-4{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-title{font-size:2.2rem}
+}
+@media(max-width:768px){
+  .mobile-toggle{display:block;order:10}
+  .mobile-toggle-close{display:flex !important}
+  .nav-wrapper{position:fixed;top:0;right:-100%;width:300px;max-width:85vw;height:100vh;
+    background:rgba(8,16,32,0.98);backdrop-filter:blur(24px);
+    border-left:1px solid rgba(255,255,255,0.06);
+    z-index:2000;transition:right 0.35s cubic-bezier(0.4,0,0.2,1);
+    padding:70px 16px 24px;overflow-y:auto;
+    -webkit-mask-image:none;mask-image:none;
+    box-shadow:-10px 0 40px rgba(0,0,0,0.5);
+  }
+  .nav-wrapper.open{right:0}
+  .navbar{flex-direction:column;gap:2px;overflow:visible;padding:0}
+  .navbar a{
+    padding:12px 14px;font-size:14px;border-radius:8px;
+    border:1px solid transparent;gap:10px;
+  }
+  .navbar a i{font-size:16px;width:20px;text-align:center;opacity:1}
+  .navbar a:not(:last-child){border-bottom:1px solid rgba(255,255,255,0.03)}
+  .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.5);z-index:1999;
+    opacity:0;pointer-events:none;
+    transition:opacity 0.3s;
+  }
+  .nav-overlay.show{opacity:1;pointer-events:auto}
+  .did-text,.login-text{display:none}
+  .mobile-toggle-close{
+    position:fixed;top:12px;right:calc(300px + 12px);
+    max-width:85vw;z-index:2001;font-size:24px;
+    opacity:0;pointer-events:none;transition:opacity 0.3s;
+  }
+  .mobile-toggle-close.show{opacity:1;pointer-events:auto}
+  .mode-grid{grid-template-columns:1fr}
+  .apply-form{grid-template-columns:1fr}
+  .apply-form textarea,.apply-form .full-width,.apply-form .btn-submit{grid-column:span 1}
+  .hero-metrics{gap:20px}
+  .hero-title{font-size:1.8rem}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero-title{font-size:1.4rem}
+  .nav-wrapper{width:100%;max-width:100%;border-left:none}
+  .mobile-toggle-close{right:16px}
+}
+  
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链数智·企业合作 | 退役军人食品安全服务平台">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/enterprise-cooperation.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/enterprise-cooperation.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">企业合作</span>
+</nav>
+
+  <!-- 粒子背景Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ====== Header ====== -->
+  <header id="site-header" role="banner">
+    <div class="container topbar">
+      <div class="brandbox">
+        <div class="brand-logo">&#x1F426;</div>
+        <div class="brand-title">
+          <div class="cn">军鸽云链数智</div>
+          <div class="en">JunGe CloudLink DI</div>
+        </div>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><i class="fas fa-bars"></i></button>
+      <div class="nav-wrapper" id="navWrapper">
+        <nav class="navbar" id="mainNav" aria-label="主导航">
+          <a href="/index.html"><i class="fas fa-home"></i> 首页</a>
+          <a href="/junge-shuzhi.html"><i class="fas fa-crown"></i> junge数智</a>
+          <a href="/shangcheng.html"><i class="fas fa-store"></i> 军创商城</a>
+          <a href="/youpin.html"><i class="fas fa-star"></i> 军创优品</a>
+          <a href="/cross-border.html"><i class="fas fa-globe"></i> 跨境电商</a>
+          <a href="/zero-tariff.html"><i class="fas fa-tag"></i> 零关税</a>
+        <a href="game-center.html" class="nav-highlight" style="border-color:rgba(212,175,55,0.25);background:rgba(212,175,55,0.04)"><i class="fas fa-gamepad"></i> 🎮游戏池</a>
+          <a href="/fenzhan.html"><i class="fas fa-sitemap"></i> 分站</a>
+          <a href="enterprise-cooperation.html" class="active"><i class="fas fa-building"></i> 企业合作</a>
+          <a href="enterprise-portal.html"><i class="fas fa-tachometer-alt"></i> 企业门户</a>
+          <a href="enterprise-contact.html"><i class="fas fa-headset"></i> 联系客服</a>
+          <a href="enterprise-union.html"><i class="fas fa-handshake"></i> 企业联盟</a>
+          <a href="employment-service.html"><i class="fas fa-briefcase"></i> 就业服务</a>
+          <a href="culture-home.html"><i class="fas fa-book-open"></i> 文化家园</a>
+          <a href="mission-system.html"><i class="fas fa-bullseye"></i> 任务系统</a>
+          <a href="party-public.html"><i class="fas fa-flag"></i> 党建公益</a>
+          <a href="/about.html"><i class="fas fa-info-circle"></i> 关于我们</a>
+          <a href="join.html"><i class="fas fa-handshake"></i> 申请加盟</a>
+          <a href="/member-register.html"><i class="fas fa-user-plus"></i> 会员注册</a>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="btn-cart" href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-badge">0</span></a>
+        <a class="btn-user" href="personal-center.html"><i class="fas fa-user-circle"></i></a>
+        <a class="btn-did" href="digital-id.html"><i class="fas fa-id-card"></i> <span class="did-text">数字ID</span></a>
+        <a class="btn-login" href="login.html"><i class="fas fa-sign-in-alt"></i> <span class="login-text">登录</span></a>
+        <button class="mobile-toggle-close" id="mobileClose" aria-label="关闭菜单" style="display:none"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div class="container policy-ticker-container">
+      <div class="policy-ticker"><div class="ticker-content">&#x1F4F0; 退役军人创业贷款新政发布 · 乡村振兴示范区名单公布 · 企业合作生态持续扩大 · 军创供应链整合升级 · 跨境电商零关税政策落地</div></div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ====== Hero 企业合作战区 ====== -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>企业合作平台 · OPEN</span>
+      </div>
+      <h1 class="hero-title">军鸽云链数智<br>企业合作平台</h1>
+      <p class="hero-subtitle">携手退役军人 · 共创商业价值 · 共建诚信生态 · 共享数字红利</p>
+      <div class="hero-metrics">
+        <div class="hero-metric"><div class="num" id="hero-partners">0</div><div class="label">合作企业</div></div>
+        <div class="hero-metric"><div class="num" id="hero-products">0</div><div class="label">在售商品</div></div>
+        <div class="hero-metric"><div class="num" id="hero-satisfaction">0</div><div class="label">客户满意度</div></div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn-hero primary" href="#apply"><i class="fas fa-handshake"></i> 申请合作</a>
+        <a class="btn-hero gold" href="#supplier"><i class="fas fa-boxes"></i> 供应商品区</a>
+        <a class="btn-hero outline-cyan" href="#partners"><i class="fas fa-building"></i> 合作伙伴</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 3种合作模式 ====== -->
+  <section class="section alt" id="modes">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-handshake"></i> COOPERATION MODES</span>
+        <h2>三大 <span>合作模式</span></h2>
+        <p>灵活多样的合作方式，满足不同企业的需求</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="mode-grid">
+        <div class="mode-card supplier">
+          <div class="mode-icon">&#x1F6CD;</div>
+          <h3>供应商合作</h3>
+          <p>成为军鸽云链平台的优质供应商，享受流量支持和品牌曝光</p>
+          <ul class="mode-benefits">
+            <li><i class="fas fa-check-circle"></i> 入驻军创商城，触达百万用户</li>
+            <li><i class="fas fa-check-circle"></i> 区块链溯源技术支持</li>
+            <li><i class="fas fa-check-circle"></i> 退役军人信用背书</li>
+            <li><i class="fas fa-check-circle"></i> 专业运营团队支持</li>
+          </ul>
+          <button class="mode-btn cyan" onclick="scrollToForm('supplier')"><i class="fas fa-arrow-right"></i> 申请入驻</button>
+        </div>
+        <div class="mode-card farm">
+          <div class="mode-icon">&#x1F33F;</div>
+          <h3>农庄/基地合作</h3>
+          <p>整合退役军人农庄和基地资源，打造生态农业联盟</p>
+          <ul class="mode-benefits">
+            <li><i class="fas fa-check-circle"></i> 共享销售渠道和客户资源</li>
+            <li><i class="fas fa-check-circle"></i> 统一品牌推广和营销</li>
+            <li><i class="fas fa-check-circle"></i> 技术培训和经验交流</li>
+            <li><i class="fas fa-check-circle"></i> 获得创业扶持资金</li>
+          </ul>
+          <button class="mode-btn green" onclick="scrollToForm('farm')"><i class="fas fa-arrow-right"></i> 加入联盟</button>
+        </div>
+        <div class="mode-card strategic">
+          <div class="mode-icon">&#x1F91D;</div>
+          <h3>战略合作伙伴</h3>
+          <p>与行业龙头企业建立深度战略合作，共同开拓市场</p>
+          <ul class="mode-benefits">
+            <li><i class="fas fa-check-circle"></i> 独家合作权益和资源</li>
+            <li><i class="fas fa-check-circle"></i> 联合研发创新产品</li>
+            <li><i class="fas fa-check-circle"></i> 政企对接和政策支持</li>
+            <li><i class="fas fa-check-circle"></i> 品牌联合推广活动</li>
+          </ul>
+          <button class="mode-btn gold" onclick="scrollToForm('strategic')"><i class="fas fa-arrow-right"></i> 洽谈合作</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 12家合作企业展示 ====== -->
+  <section class="section" id="partners">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-award"></i> PARTNER ENTERPRISES</span>
+        <h2>合作企业 <span class="gold">展示</span></h2>
+        <p>携手行业优质企业，共建军创生态圈</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="partner-grid" id="partnerGrid"></div>
+    </div>
+  </section>
+
+  <!-- ====== 供应商品区 ====== -->
+  <section class="section alt" id="supplier">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-boxes"></i> SUPPLIER ZONE</span>
+        <h2>供应 <span>商品区</span></h2>
+        <p>优质供应商精选商品，退役军人信用背书 · 区块链全程溯源</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="supplier-zone" id="supplierZone"></div>
+    </div>
+  </section>
+
+  <!-- ====== 合作申请表 ====== -->
+  <section class="section" id="apply">
+    <div class="container">
+      <div class="apply-section">
+        <h2 style="font-size:1.6rem;font-weight:700;margin-bottom:6px">&#x1F4DD; 合作申请表</h2>
+        <p style="color:var(--text-secondary);font-size:14px">填写以下信息，我们的商务团队将在48小时内与您联系</p>
+        <form class="apply-form" id="cooperationForm" onsubmit="submitCooperation(event)">
+          <input type="text" placeholder="企业名称 *" required>
+          <input type="text" placeholder="联系人姓名 *" required>
+          <input type="tel" placeholder="联系电话 *" required>
+          <input type="email" placeholder="电子邮箱 *" required>
+          <select required class="full-width">
+            <option value="">选择合作模式 *</option>
+            <option value="supplier">供应商合作</option>
+            <option value="farm">农庄/基地合作</option>
+            <option value="strategic">战略合作伙伴</option>
+            <option value="other">其他合作模式</option>
+          </select>
+          <input type="text" placeholder="企业所在地区 *" required>
+          <input type="text" placeholder="企业规模（人数） *" required>
+          <textarea placeholder="请描述您的企业概况和合作意向（至少50字） *" required></textarea>
+          <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> 提交合作申请</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== Footer ====== -->
+  <!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+
+<footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="fb-icon">&#x1F426;</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:4px;letter-spacing:1px">军鸽云链数智</h3>
+          <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">JunGe CloudLink Digital Intelligence</p>
+          <p>以军人精神守护民生底线，以商业创新激活社会价值。退役军人创业就业服务平台 · 食品安全溯源 · 数字经济试验区。</p>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <a href="#" style="width:32px;height:32px;border-radius:8px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:14px"><i class="fab fa-weixin"></i></a>
+            <a href="#" style="width:32px;height:32px;border-radius:8px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:14px"><i class="fab fa-weibo"></i></a>
+            <a href="#" style="width:32px;height:32px;border-radius:8px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:14px"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>快速链接</h4>
+          <a href="/shangcheng.html">军创商城</a>
+          <a href="/youpin.html">军创优品</a>
+          <a href="/cross-border.html">跨境电商</a>
+          <a href="/zero-tariff.html">零关税专区</a>
+          <a href="/fenzhan.html">AI智联分站</a>
+          <a href="join.html">加入军创</a>
+        </div>
+        <div class="footer-col">
+          <h4>服务支持</h4>
+          <a href="/about.html">关于我们</a>
+          <a href="enterprise-contact.html">联系客服</a>
+          <a href="feedback.html">意见反馈</a>
+          <a href="complaint-process.html">投诉曝光台</a>
+          <a href="/contact.html">联系方式</a>
+          <a href="mission.html">使命愿景</a>
+        </div>
+        <div class="footer-col">
+          <h4>智能体服务</h4>
+          <a href="/ai-assistant.html">AI智能助手</a>
+          <a href="ai-consult.html">AI智能咨询</a>
+          <a href="ai-podcast.html">AI播客</a>
+          <a href="digital-id.html">数字ID中心</a>
+          <a href="personal-center.html">个人中心</a>
+          <a href="/member-register.html">会员注册</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025-2026 军鸽云链数智 版权所有</span>
+        <span>琼ICP备2025063762号-2 | 技术支持：AI超级智能体编队</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== 脚本 ====== -->
+  <script>
+  // === 粒子背景 Canvas ===
+  (function(){
+    var canvas = document.getElementById('particle-canvas');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var PARTICLE_COUNT = 80;
+
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function Particle(){
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.size = Math.random() * 2 + 0.5;
+      this.alpha = Math.random() * 0.5 + 0.1;
+    }
+    Particle.prototype.update = function(){
+      this.x += this.vx;
+      this.y += this.vy;
+      if(this.x < 0) this.x = canvas.width;
+      if(this.x > canvas.width) this.x = 0;
+      if(this.y < 0) this.y = canvas.height;
+      if(this.y > canvas.height) this.y = 0;
+    };
+    Particle.prototype.draw = function(){
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0, 212, 255, ' + this.alpha + ')';
+      ctx.fill();
+    };
+
+    for(var i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+    var mouseX = -1000, mouseY = -1000;
+    document.addEventListener('mousemove', function(e){
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for(var i = 0; i < particles.length; i++){
+        for(var j = i + 1; j < particles.length; j++){
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if(dist < 120){
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(0, 212, 255, ' + (0.08 * (1 - dist / 120)) + ')';
+            ctx.stroke();
+          }
+        }
+        var dx2 = particles[i].x - mouseX;
+        var dy2 = particles[i].y - mouseY;
+        var dist2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+        if(dist2 < 200){
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(mouseX, mouseY);
+          ctx.strokeStyle = 'rgba(0, 212, 255, ' + (0.12 * (1 - dist2 / 200)) + ')';
+          ctx.stroke();
+        }
+        particles[i].update();
+        particles[i].draw();
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+
+  // === 数字计数器动画 ===
+  function animateCounter(el, target, suffix, duration){
+    if(!el) return;
+    var start = 0;
+    var step = Math.ceil(target / 60);
+    var timer = setInterval(function(){
+      start += step;
+      if(start >= target){
+        start = target;
+        clearInterval(timer);
+      }
+      el.textContent = start.toLocaleString() + (suffix || '');
+    }, duration ? duration/60 : 30);
+  }
+
+  // === 12家合作企业数据 ===
+  document.addEventListener('DOMContentLoaded', function(){
+    var partners = [
+      {name:'退役军人事务部',icon:'&#x1F3DB;',desc:'官方合作·政策支持'},
+      {name:'农业农村部',icon:'&#x1F33E;',desc:'乡村振兴·农业合作'},
+      {name:'市场监管总局',icon:'&#x1F4CA;',desc:'食品安全·标准认证'},
+      {name:'全国工商联',icon:'&#x1F3E2;',desc:'民营企业·资源对接'},
+      {name:'中国农业银行',icon:'&#x1F4B3;',desc:'金融支持·创业贷款'},
+      {name:'顺丰速运',icon:'&#x1F69A;',desc:'智慧物流·冷链配送'},
+      {name:'华为云',icon:'&#x1F4BB;',desc:'云计算·AI技术支撑'},
+      {name:'蚂蚁区块链',icon:'&#x1F517;',desc:'区块链·溯源存证'},
+      {name:'京东物流',icon:'&#x1F69A;',desc:'仓储物流·极速配送'},
+      {name:'中粮集团',icon:'&#x1F33D;',desc:'粮油食品·供应链'},
+      {name:'中国电信',icon:'&#x1F4E1;',desc:'通信网络·5G技术'},
+      {name:'腾讯云',icon:'&#x2601;&#xFE0F;',desc:'云服务·数字化方案'}
+    ];
+    var grid = document.getElementById('partnerGrid');
+    if(grid){
+      partners.forEach(function(p){
+        var div = document.createElement('div');
+        div.className = 'partner-card';
+        div.innerHTML = '<div class="plogo">' + p.icon + '</div><div class="pname">' + p.name + '</div><div class="pdesc">' + p.desc + '</div>';
+        grid.appendChild(div);
+      });
+    }
+  });
+
+  // === 供应商品区 ===
+  document.addEventListener('DOMContentLoaded', function(){
+    var suppliers = [
+      {name:'海南热带水果基地',icon:'&#x1F34C;',color:'var(--accent-orange)',desc:'有机热带水果直供，产地直发，全程冷链运输。',tags:['有机认证','产地直供']},
+      {name:'云南高山茶叶合作社',icon:'&#x1F375;',color:'var(--accent-green)',desc:'古树茶·生态茶·退役军人创业示范基地。',tags:['有机认证','退役军人']},
+      {name:'东北绿色粮油基地',icon:'&#x1F33E;',color:'var(--accent-gold)',desc:'非转基因大豆·五常大米·绿色食品认证。',tags:['绿色食品','非转基因']},
+      {name:'山东海产供应链',icon:'&#x1F41F;',color:'var(--accent-cyan)',desc:'渤海湾海鲜·冷链直达·食品安全可溯源。',tags:['冷链直供','可溯源']},
+      {name:'四川调味品联盟',icon:'&#x1F336;',color:'var(--accent-red)',desc:'郫县豆瓣·花椒·辣椒·传统工艺制作。',tags:['传统工艺','地理标志']},
+      {name:'内蒙古畜牧产品基地',icon:'&#x1F404;',color:'var(--accent-purple)',desc:'草原牛羊肉·奶制品·退役军人牧场直供。',tags:['退役军人','草原直供']}
+    ];
+    var zone = document.getElementById('supplierZone');
+    if(zone){
+      suppliers.forEach(function(s){
+        var div = document.createElement('div');
+        div.className = 'supplier-card';
+        var tagsHtml = s.tags.map(function(t){
+          var cls = 's-tag';
+          if(t.indexOf('有机')>-1 || t.indexOf('绿色')>-1) cls += ' green';
+          else if(t.indexOf('地理')>-1 || t.indexOf('直供')>-1) cls += ' gold';
+          return '<span class="' + cls + '">' + t + '</span>';
+        }).join('');
+        div.innerHTML = '<div class="s-icon" style="background:' + s.color.replace('var(','').replace(')','').trim() + '15;color:' + s.color + '">' + s.icon + '</div><div class="s-info"><h4>' + s.name + '</h4><p>' + s.desc + '</p><div class="s-tags">' + tagsHtml + '</div></div>';
+        zone.appendChild(div);
+      });
+    }
+  });
+
+  // === Scroll to form with preset mode ===
+  function scrollToForm(mode) {
+    var form = document.getElementById('cooperationForm');
+    if(form){
+      form.scrollIntoView({behavior:'smooth'});
+      var select = form.querySelector('select');
+      if(select) select.value = mode;
+    }
+  }
+
+  // === Form Submit ===
+  function submitCooperation(event) {
+    event.preventDefault();
+    var formData = new FormData(event.target);
+    var data = Object.fromEntries(formData.entries());
+    console.log('合作申请提交:', data);
+    alert('合作申请已成功提交！\n\n我们的商务团队将在48小时内与您联系。\n\n申请编号：COOP-' + Date.now().toString(36).toUpperCase());
+    event.target.reset();
+  }
+
+  // === 数字滚动初始化 ===
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(function(){
+      animateCounter(document.getElementById('hero-partners'), 1520, '');
+      animateCounter(document.getElementById('hero-products'), 50000, '');
+      animateCounter(document.getElementById('hero-satisfaction'), 98.5, '%');
+    }, 500);
+  });
+
+  // === 移动端菜单（侧滑抽屉） ===
+  document.addEventListener('DOMContentLoaded', function(){
+    var toggle = document.getElementById('mobileToggle');
+    var navWrap = document.getElementById('navWrapper');
+    var overlay = document.getElementById('navOverlay');
+    var closeBtn = document.getElementById('mobileClose');
+
+    function openNav(){
+      if(navWrap) navWrap.classList.add('open');
+      if(overlay) overlay.classList.add('show');
+      if(closeBtn) closeBtn.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNav(){
+      if(navWrap) navWrap.classList.remove('open');
+      if(overlay) overlay.classList.remove('show');
+      if(closeBtn) closeBtn.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    if(toggle) toggle.addEventListener('click', openNav);
+    if(closeBtn) closeBtn.addEventListener('click', closeNav);
+    if(overlay) overlay.addEventListener('click', closeNav);
+
+    if(navWrap){
+      navWrap.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click', closeNav);
+      });
+    }
+
+    var header = document.getElementById('site-header');
+    if(header){
+      window.addEventListener('scroll', function(){
+        if(window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+    }
+  });
+  </script>
+  <script src="/js/ai-engine.js"></script>
+  <script src="/data/digital-id-system.js"></script>
+  <script src="/data/value-system.js"></script>
+  <script src="/js/digital-id-sync.js"></script>
+  <script src="/agents/orchestrator.js"></script>
+  <script src="/agents/station-manager.js"></script>
+  <script src="/agents/station-template-engine.js"></script>
+  <script src="/data/station-expansion.js"></script>
+<!-- 停留分享奖励机制 -->
+<script src="/js/game-pool.js"></script>
+  <script src="/js/share-reward.js"></script>
+<a href="/index.html" class="back-home" style="position:fixed;bottom:30px;left:20px;z-index:1000;display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:rgba(10,22,40,0.85);color:#e8edf5;border:1px solid rgba(0,212,255,0.15);border-radius:25px;font-size:13px;font-weight:600;text-decoration:none;backdrop-filter:blur(6px);transition:all .3s"><i class="fas fa-arrow-left"></i> 返回首页</a>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

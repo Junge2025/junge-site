@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.5,user-scalable=yes">
+<title>会员注册 · 军鸽云链数智 | 退役军人创业平台</title>
+<meta name="description" content="注册军鸽云链数智会员，获取数字ID，享受交易商用值、数字赋能值、junge币三大价值体系。">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --primary:#0a1628; --secondary:#0f2a44;
+  --accent-cyan:#00d4ff; --accent-gold:#d4af37; --accent-red:#e53935;
+  --accent-green:#4caf50; --accent-purple:#7c3aed;
+  --text-primary:#e8edf5; --text-secondary:#8896b0; --text-muted:#5a6a85;
+  --card-bg:rgba(15,34,64,0.6); --card-border:rgba(0,212,255,0.08);
+  --shadow-card:0 8px 32px rgba(0,0,0,0.3);
+  --glass-bg:rgba(10,22,40,0.75);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{
+  font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
+  background:var(--primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;
+  background-image:radial-gradient(ellipse at 30% 20%,rgba(0,212,255,0.03) 0%,transparent 60%),
+                  radial-gradient(ellipse at 70% 80%,rgba(212,175,55,0.02) 0%,transparent 60%);
+}
+.container{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* ===== Header (same as index.html) ===== */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:12px}
+.brandbox{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.brand-logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#00d4ff,#0088cc);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff}
+.brand-title .cn{font-size:16px;font-weight:700;color:#e8edf5;letter-spacing:1px}
+.brand-title .en{font-size:9px;color:#5a6a85;letter-spacing:1px}
+.nav-wrapper{overflow-x:auto;white-space:nowrap;scrollbar-width:none;-ms-overflow-style:none;flex:1}
+.nav-wrapper::-webkit-scrollbar{display:none}
+.navbar{display:flex;gap:4px;padding:4px 0}
+.navbar a{color:#8896b0;padding:6px 10px;border-radius:6px;font-size:12px;transition:all .25s;white-space:nowrap;text-decoration:none}
+.navbar a:hover{color:#e8edf5;background:rgba(0,212,255,0.08)}
+.navbar a.active{color:#00d4ff;background:rgba(0,212,255,0.1)}
+.navbar a i{margin-right:4px}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.header-actions a{color:#8896b0;text-decoration:none;transition:all .25s;display:flex;align-items:center;gap:4px;font-size:13px}
+.header-actions a:hover{color:#00d4ff}
+.btn-cart{position:relative}
+.cart-badge{position:absolute;top:-6px;right:-8px;background:#e53935;color:#fff;font-size:10px;padding:1px 5px;border-radius:10px;min-width:16px;text-align:center}
+.btn-user{font-size:20px}
+.btn-did{border:1px solid rgba(212,175,55,0.2);padding:4px 10px;border-radius:20px;background:rgba(212,175,55,0.06);font-size:12px}
+.btn-did:hover{border-color:rgba(212,175,55,0.4);color:#d4af37}
+.did-text{display:inline}@media(max-width:480px){.did-text{display:none}}
+.btn-login{border:1px solid rgba(0,212,255,0.2);padding:4px 12px;border-radius:20px;background:rgba(0,212,255,0.06);font-size:12px}
+.login-text{display:inline}@media(max-width:480px){.login-text{display:none}}
+.mobile-toggle{display:none;background:none;border:none;color:#8896b0;font-size:22px;cursor:pointer;padding:4px}
+@media(max-width:768px){
+  .mobile-toggle{display:block}
+  .nav-wrapper{position:fixed;top:0;right:-300px;width:280px;height:100vh;background:rgba(10,22,40,0.98);backdrop-filter:blur(20px);border-left:1px solid rgba(255,255,255,0.06);z-index:1001;transition:right .35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;padding:60px 20px 20px;white-space:normal}
+  .nav-wrapper.open{right:0}
+  .nav-wrapper .navbar{flex-direction:column;gap:2px}
+  .nav-wrapper .navbar a{padding:10px 14px;font-size:14px;border-radius:8px;width:100%}
+  .mobile-toggle-close{position:fixed;top:14px;right:14px;z-index:1002;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:#8896b0;font-size:18px;width:36px;height:36px;border-radius:8px;cursor:pointer;display:none!important;align-items:center;justify-content:center}
+  .mobile-toggle-close.show{display:flex!important}
+  .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;opacity:0;pointer-events:none;transition:opacity .35s}
+  .nav-overlay.show{opacity:1;pointer-events:auto}
+}
+
+/* ===== Page ===== */
+.page-hero{
+  position:relative;z-index:1;
+  background:linear-gradient(135deg,rgba(10,22,40,0.9),rgba(30,58,95,0.7)),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="none"/><circle cx="30%" cy="40%" r="100" fill="rgba(212,175,55,0.04)"/><circle cx="70%" cy="30%" r="60" fill="rgba(0,212,255,0.03)"/></svg>') center/cover;
+  padding:50px 0;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.page-hero h1{font-size:2rem;font-weight:800;margin-bottom:6px}
+.page-hero h1 span{color:#00d4ff}
+.page-hero p{font-size:0.95rem;color:#8896b0}
+
+/* ===== Register Form ===== */
+.auth-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin:40px 0}
+.auth-form-box{
+  background:rgba(15,34,64,0.5);border:1px solid rgba(0,212,255,0.06);border-radius:16px;
+  padding:36px 30px;
+}
+.auth-form-box h2{font-size:1.3rem;margin-bottom:4px}
+.auth-form-box .sub{font-size:13px;color:#8896b0;margin-bottom:20px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;color:#8896b0;margin-bottom:5px;font-weight:600}
+.form-group input,.form-group select{
+  width:100%;padding:10px 14px;border-radius:8px;font-size:14px;font-family:inherit;
+  background:rgba(10,22,40,0.6);border:1px solid rgba(255,255,255,0.06);color:#e8edf5;outline:none;transition:all .25s;
+}
+.form-group input:focus,.form-group select:focus{border-color:#00d4ff;box-shadow:0 0 12px rgba(0,212,255,0.08)}
+.form-group select option{background:#0a1628;color:#e8edf5}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* Agreement */
+.agreement{display:flex;align-items:flex-start;gap:8px;margin:16px 0;font-size:12px;color:#8896b0}
+.agreement input{margin-top:3px;width:14px;height:14px;accent-color:#00d4ff}
+.agreement a{color:#00d4ff;text-decoration:underline}
+
+.btn-register{
+  width:100%;padding:12px;border-radius:10px;font-size:16px;font-weight:700;font-family:inherit;
+  background:linear-gradient(135deg,#00d4ff,#0088cc);color:#0a1628;border:none;cursor:pointer;transition:all .3s;
+}
+.btn-register:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,212,255,0.2)}
+
+.login-link{text-align:center;margin-top:14px;font-size:13px;color:#8896b0}
+.login-link a{color:#00d4ff;text-decoration:underline}
+
+/* ===== Value System ===== */
+.value-side h2{font-size:1.3rem;margin-bottom:20px}
+.value-side h2 span{color:#d4af37}
+.value-card{
+  background:rgba(15,34,64,0.4);border:1px solid rgba(255,255,255,0.04);border-radius:12px;
+  padding:20px;margin-bottom:14px;transition:all .25s;
+}
+.value-card:hover{border-color:rgba(0,212,255,0.1)}
+.value-card .v-icon{font-size:28px;margin-bottom:8px}
+.value-card h3{font-size:1rem;font-weight:700;margin-bottom:4px}
+.value-card p{font-size:0.82rem;color:#8896b0;line-height:1.5}
+.value-card .v-tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600;margin-top:6px}
+
+/* ===== DID Benefits ===== */
+.benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0}
+.benefit-card{
+  background:rgba(15,34,64,0.3);border:1px solid rgba(255,255,255,0.04);border-radius:12px;
+  padding:20px 14px;text-align:center;transition:all .25s;
+}
+.benefit-card:hover{border-color:rgba(0,212,255,0.12);transform:translateY(-2px)}
+.benefit-card i{font-size:28px;margin-bottom:8px}
+.benefit-card h4{font-size:0.9rem;font-weight:700;margin-bottom:4px}
+.benefit-card p{font-size:0.78rem;color:#8896b0}
+
+/* ===== Footer ===== */
+footer{background:rgba(10,22,40,0.9);border-top:1px solid rgba(255,255,255,0.04);padding:30px 0 16px;margin-top:40px}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.03);padding-top:14px;font-size:12px;color:#5a6a85}
+
+@media(max-width:768px){
+  .auth-wrapper{grid-template-columns:1fr}
+  .benefits-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{grid-template-columns:1fr}
+  .page-hero h1{font-size:1.5rem}
+}
+@media(max-width:480px){
+  .benefits-grid{grid-template-columns:1fr}
+}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="会员注册 · 军鸽云链数智 | 退役军人创业平台">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/member-register.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/member-register.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">会员注册</span>
+</nav>
+
+<header>
+  <div class="container topbar">
+    <div class="brandbox">
+      <div class="brand-logo">&#x1F426;</div>
+      <div class="brand-title"><div class="cn">军鸽云链数智</div><div class="en">JunGe CloudLink DI</div></div>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><i class="fas fa-bars"></i></button>
+    <div class="nav-wrapper" id="navWrapper">
+      <nav class="navbar" id="mainNav">
+        <a href="/index.html"><i class="fas fa-home"></i> 首页</a>
+        <a href="junge-shuzhi.html"><i class="fas fa-crown"></i> junge数智</a>
+        <a href="shangcheng.html"><i class="fas fa-store"></i> 军创商城</a>
+        <a href="youpin.html"><i class="fas fa-star"></i> 军创优品</a>
+        <a href="cross-border.html"><i class="fas fa-globe"></i> 跨境电商</a>
+        <a href="zero-tariff.html"><i class="fas fa-tag"></i> 零关税</a>
+        <a href="game-center.html"><i class="fas fa-gamepad"></i> 🎮游戏池</a>
+        <a href="fenzhan.html"><i class="fas fa-sitemap"></i> 分站</a>
+        <a href="enterprise-cooperation.html"><i class="fas fa-building"></i> 企业合作</a>
+        <a href="employment-service.html"><i class="fas fa-briefcase"></i> 就业服务</a>
+        <a href="culture-home.html"><i class="fas fa-book-open"></i> 文化家园</a>
+        <a href="mission-system.html"><i class="fas fa-bullseye"></i> 任务系统</a>
+        <a href="party-public.html"><i class="fas fa-flag"></i> 党建公益</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> 关于我们</a>
+      </nav>
+    </div>
+    <div class="header-actions">
+      <a class="btn-cart" href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-badge">0</span></a>
+      <a class="btn-user" href="personal-center.html"><i class="fas fa-user-circle"></i></a>
+      <a class="btn-did" href="digital-id.html"><i class="fas fa-id-card"></i> <span class="did-text">数字ID</span></a>
+      <a class="btn-login" href="login.html"><i class="fas fa-sign-in-alt"></i> <span class="login-text">登录</span></a>
+      <button class="mobile-toggle-close" id="mobileClose" aria-label="关闭菜单"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <h1>会员<span>注册</span></h1>
+    <p>注册即获数字ID（DID），开启三大价值量体系。退役军人专属通道。</p>
+  </div>
+</section>
+
+<!-- 注册页核心 -->
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="auth-wrapper">
+      <!-- 注册表单 -->
+      <div class="auth-form-box">
+        <h2><i class="fas fa-user-plus" style="color:#00d4ff"></i> 注册新账号</h2>
+        <p class="sub">加入军鸽云链数智，获取专属数字身份</p>
+        <form onsubmit="alert('注册成功！您的数字ID已生成，请前往个人中心查看三大价值量。');return false">
+          <div class="form-row">
+            <div class="form-group">
+              <label>手机号</label>
+              <input type="tel" placeholder="11位手机号" required>
+            </div>
+            <div class="form-group">
+              <label>昵称</label>
+              <input type="text" placeholder="设置您的昵称" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>密码</label>
+            <input type="password" placeholder="至少8位，含字母和数字" required>
+          </div>
+          <div class="form-group">
+            <label>确认密码</label>
+            <input type="password" placeholder="再次输入密码" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>身份</label>
+              <select>
+                <option>退役军人</option>
+                <option>现役军属</option>
+                <option>退役军人创业者</option>
+                <option>普通消费者</option>
+                <option>企业/商户</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>推荐分站（选填）</label>
+              <input type="text" placeholder="分站名称或编号">
+            </div>
+          </div>
+          <div class="agreement">
+            <input type="checkbox" checked required>
+            <span>我已阅读并同意 <a href="#">《用户服务协议》</a> 和 <a href="#">《隐私政策》</a>，同意接收数字ID（DID）并与三大价值量体系绑定。</span>
+          </div>
+          <button class="btn-register"><i class="fas fa-fingerprint"></i> 立即注册 · 领取数字ID</button>
+          <div class="login-link">
+            已有账号？<a href="login.html">立即登录</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- 右侧：三大价值量介绍 -->
+      <div class="value-side">
+        <h2>数字ID · <span>三大价值量体系</span></h2>
+        <div class="value-card">
+          <div class="v-icon"><i class="fas fa-coins" style="color:#00d4ff"></i></div>
+          <h3>交易商用值</h3>
+          <p>基于用户在平台上的真实交易贡献量化计算，每笔消费和交易都会产生对应的交易商用值，反映用户的经济活跃度与贡献度。</p>
+          <span class="v-tag" style="background:rgba(0,212,255,0.08);color:#00d4ff">交易即贡献</span>
+        </div>
+        <div class="value-card">
+          <div class="v-icon"><i class="fas fa-chart-line" style="color:#d4af37"></i></div>
+          <h3>数字赋能值</h3>
+          <p>衡量用户在生态中的综合贡献，包括内容创作、社区建设、数据标注、用户推荐等非线性贡献，体现用户对平台生态的赋能价值。</p>
+          <span class="v-tag" style="background:rgba(212,175,55,0.08);color:#d4af37">生态共建共享</span>
+        </div>
+        <div class="value-card">
+          <div class="v-icon"><i class="fas fa-medal" style="color:#e53935"></i></div>
+          <h3>junge功勋币</h3>
+          <p>作为特殊奖励通证，授予在平台发展过程中做出突出贡献的用户，包括退役军人创业典范、优秀分站站长、公益活动积极份子等。</p>
+          <span class="v-tag" style="background:rgba(229,57,53,0.08);color:#e53935">功勋荣耀</span>
+        </div>
+        <div class="value-card" style="border-color:rgba(76,175,80,0.1)">
+          <div class="v-icon"><i class="fas fa-link" style="color:#4caf50"></i></div>
+          <h3>确权 · 永恒 · 透明</h3>
+          <p>三大价值量通过区块链技术确权，数据公开透明，用户拥有自主支配权。价值量可参与平台分红、兑换商品、投票治理等场景。</p>
+          <span class="v-tag" style="background:rgba(76,175,80,0.08);color:#4caf50">数据价值回归用户</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 注册即享 -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header">
+      <h2>注册即享 · <span>四大权益</span></h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <i class="fas fa-id-card" style="color:#00d4ff"></i>
+        <h4>数字身份</h4>
+        <p>唯一DID数字ID，区块链接入，确权保护</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fas fa-gift" style="color:#d4af37"></i>
+        <h4>新人礼包</h4>
+        <p>注册即送200交易值+50 junge币</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fas fa-handshake" style="color:#4caf50"></i>
+        <h4>创业扶持</h4>
+        <p>退役军人享专属创业培训+AI智能体支持</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fas fa-shield-alt" style="color:#e53935"></i>
+        <h4>食品安全</h4>
+        <p>药食同源智能体+区块链溯源，购物无忧</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:30px 0;padding:20px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px"><p style="margin-bottom:12px;color:var(--text-secondary)">想成为分站/企业合作伙伴？</p><a href="join.html" style="color:var(--accent-cyan);font-weight:600;text-decoration:none;padding:10px 28px;border:1px solid rgba(0,212,255,0.3);border-radius:8px;display:inline-block;transition:all .25s;background:rgba(0,212,255,0.04)">申请建站加盟 →</a></div>
+
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2025-2026 军鸽云链数智 版权所有</span>
+      <span>琼ICP备2025063762号-2 | 技术支持：AI超级智能体编队</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var toggle=document.getElementById('mobileToggle');
+  var navWrap=document.getElementById('navWrapper');
+  var overlay=document.getElementById('navOverlay');
+  var closeBtn=document.getElementById('mobileClose');
+  function openNav(){if(navWrap)navWrap.classList.add('open');if(overlay)overlay.classList.add('show');if(closeBtn)closeBtn.classList.add('show');document.body.style.overflow='hidden'}
+  function closeNav(){if(navWrap)navWrap.classList.remove('open');if(overlay)overlay.classList.remove('show');if(closeBtn)closeBtn.classList.remove('show');document.body.style.overflow=''}
+  if(toggle)toggle.addEventListener('click',openNav);
+  if(closeBtn)closeBtn.addEventListener('click',closeNav);
+  if(overlay)overlay.addEventListener('click',closeNav);
+  if(navWrap)navWrap.querySelectorAll('a').forEach(function(l){l.addEventListener('click',closeNav)});
+});
+</script>
+<!-- 停留分享奖励机制 -->
+<script src="/js/share-reward.js"></script>
+  <script src="/js/game-pool.js"></script>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

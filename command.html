@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>军鸽云链 · 指挥部</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0e14;color:#c8d6e5;font-family:system-ui,sans-serif;min-height:100vh}
+.header{background:#12171f;padding:16px 24px;border-bottom:1px solid #1e2a3a;display:flex;align-items:center;gap:12px}
+.header h1{font-size:18px;color:#C9A96E}
+.health-bar{display:flex;gap:12px;margin-left:auto;align-items:center}
+.health-node{display:flex;align-items:center;gap:6px;font-size:11px;padding:4px 10px;border-radius:12px;background:#1a2436}
+.health-node .dot{width:6px;height:6px;border-radius:50%}
+.health-node .dot.ok{background:#27ae60}
+.health-node .dot.degraded{background:#f59e0b}
+.health-node .dot.down{background:#b84045}
+.health-node .name{color:#8896b0}
+.health-node .latency{color:#6b7a8d}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#4DC9F6;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.main{max-width:1100px;margin:0 auto;padding:20px}
+.stat-bar{display:flex;gap:12px;margin-bottom:20px}
+.stat{background:#12171f;border:1px solid #1e2a3a;border-radius:8px;padding:12px 16px;flex:1;text-align:center}
+.stat .n{font-size:22px;font-weight:bold}
+.stat .l{font-size:10px;color:#6b7a8d;margin-top:4px}
+.stat.pending .n{color:#8896b0}
+.stat.running .n{color:#4DC9F6}
+.stat.done .n{color:#27ae60}
+.stat.failed .n{color:#b84045}
+.task-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.task-card{border-radius:8px;padding:12px 14px;background:#12171f;border:1px solid #1e2a3a;font-size:13px;transition:all .3s}
+.task-card:hover{border-color:#4DC9F6;transform:translateY(-1px)}
+.task-card .t-id{font-size:10px;color:#6b7a8d;margin-bottom:6px}
+.task-card .t-type{font-size:14px;font-weight:bold;margin-bottom:4px}
+.task-card .t-meta{font-size:11px;color:#8896b0}
+.task-card .t-time{font-size:10px;color:#3a4655;margin-top:6px}
+.status-pending{border-left:3px solid #8896b0}
+.status-running{border-left:3px solid #4DC9F6;box-shadow:0 0 12px rgba(77,201,246,.15)}
+.status-done{border-left:3px solid #27ae60}
+.status-failed{border-left:3px solid #b84045}
+.event-log{background:#12171f;border:1px solid #1e2a3a;border-radius:8px;padding:12px;max-height:300px;overflow-y:auto;margin-top:20px}
+.event-log .e{font-size:11px;padding:4px 0;border-bottom:1px solid #1e2a3a}
+.event-log .e .e-type{color:#C9A96E;margin-right:8px}
+.event-log .e .e-msg{color:#8896b0}
+.empty{text-align:center;color:#3a4655;padding:40px;font-size:14px}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链 · 指挥部">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/command.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/command.html">
+</head>
+<body>
+<div class="header">
+  <div class="status-dot"></div>
+  <div style="display:flex;align-items:center;gap:12px"><h1>军鸽云链 · 指挥部</h1><a href="/ai-dashboard.html" style="color:#4DC9F6;text-decoration:none;font-size:11px;padding:3px 10px;border-radius:10px;border:1px solid rgba(77,201,246,.25)">🤖 智慧仪表盘</a></div>
+  <span style="color:#6b7a8d;font-size:12px;">v2.0 实时战场</span>
+  <div class="health-bar" id="regions"></div>
+</div>
+
+<div class="main">
+  <div class="stat-bar">
+    <div class="stat pending"><div class="n" id="cnt-pending">0</div><div class="l">待处理</div></div>
+    <div class="stat running"><div class="n" id="cnt-running">0</div><div class="l">执行中</div></div>
+    <div class="stat done"><div class="n" id="cnt-done">0</div><div class="l">已完成</div></div>
+    <div class="stat failed"><div class="n" id="cnt-failed">0</div><div class="l">失败</div></div>
+  </div>
+
+  <div class="task-grid" id="tasks">
+    <div class="empty">等待任务… 发送一个试试</div>
+  </div>
+
+  <div id="timeline" style="background:#12171f;border:1px solid #1e2a3a;border-radius:8px;padding:12px;margin-top:16px">
+    <div style="color:#6b7a8d;font-size:11px;margin-bottom:8px">🔗 调用链时间线</div>
+  </div>
+
+  <div id="sys-metrics" style="background:#12171f;border:1px solid #1e2a3a;border-radius:8px;padding:12px;margin-top:16px;display:flex;gap:20px;font-size:12px">
+    <div style="color:#6b7a8d;width:100%">
+      <span style="color:#C9A96E">⚙ 系统指标</span>
+      <span id="cpu-load" style="margin-left:16px">CPU: -</span>
+      <span id="mem-usage" style="margin-left:16px">MEM: -</span>
+    </div>
+    <div id="models" style="color:#6b7a8d;white-space:nowrap;font-size:11px">模型耗时: -</div>
+  </div>
+
+  <div class="event-log" id="events">
+    <div style="color:#6b7a8d;font-size:11px;margin-bottom:8px">📡 实时事件流</div>
+  </div>
+</div>
+
+<script>
+const tasks = {};
+const container = document.getElementById("tasks");
+const eventLog = document.getElementById("events");
+const regionsDiv = document.getElementById("regions");
+const timeline = {};
+const modelStats = {};  // model → {count, total}
+const ws = new WebSocket(`ws://${location.host}/ws/events`);
+let firstEvent = true;
+
+function renderModelStats() {
+  const el = document.getElementById("models");
+  el.innerHTML = "";
+  Object.entries(modelStats).forEach(([name, s]) => {
+    const avg = (s.total / s.count).toFixed(1);
+    const div = document.createElement("div");
+    div.textContent = `${name}: ${avg}ms (${s.count})`;
+    el.appendChild(div);
+  });
+  if (!Object.keys(modelStats).length) el.textContent = '模型耗时: -';
+}
+
+function renderTimeline() {
+  const el = document.getElementById("timeline");
+  if (!Object.keys(timeline).length) {
+    el.innerHTML = '<div style=\"color:#6b7a8d;font-size:11px;margin-bottom:8px\">🔗 调用链时间线</div><div class=\"empty\">暂无调用链</div>';
+    return;
+  }
+  el.innerHTML = '<div style=\"color:#6b7a8d;font-size:11px;margin-bottom:8px\">🔗 调用链时间线</div>';
+  Object.entries(timeline).forEach(([tid, events]) => {
+    const block = document.createElement("div");
+    block.style.marginBottom = "8px";
+    block.style.fontSize = "12px";
+    block.innerHTML = `<b style=\"color:#C9A96E\">#${tid}</b>: ` +
+      events.map(e => {
+        const src = e.source || e.event;
+        const color = src.includes('hq') ? '#4DC9F6' : src.includes('orch') ? '#C9A96E' : src.includes('codex') ? '#27ae60' : '#8896b0';
+        return `<span style="color:${color}">${src}</span>`;
+      }).join(" → ");
+    el.appendChild(block);
+  });
+}
+
+function renderRegions(regions, metrics) {
+  if (!regions) return;
+  regionsDiv.innerHTML = '';
+  Object.entries(regions).forEach(([name, info]) => {
+    const m = metrics?.[name] || {};
+    const cls = info.status === 'ok' ? 'ok' : info.status === 'degraded' ? 'degraded' : 'down';
+    const div = document.createElement('div');
+    div.className = 'health-node';
+    div.innerHTML = `<div class=\"dot ${cls}\"></div><span class=\"name\">${name}</span><span class=\"latency\">${info.latency}ms</span>` +
+      ` | CPU:${m.cpu||'-'} MEM:${m.mem||'-'}% QPS:${m.qps||'-'}`;
+    regionsDiv.appendChild(div);
+  });
+}
+
+function updateCounts() {
+  const counts = {pending:0, running:0, done:0, failed:0};
+  Object.values(tasks).forEach(t => {
+    const s = t.status || 'pending';
+    counts[s] = (counts[s]||0) + 1;
+  });
+  Object.keys(counts).forEach(k => {
+    document.getElementById(`cnt-${k}`).textContent = counts[k];
+  });
+}
+
+function addEvent(type, msg) {
+  if (firstEvent) { eventLog.innerHTML = ''; firstEvent = false; }
+  const div = document.createElement('div');
+  div.className = 'e';
+  div.innerHTML = `<span class="e-type">[${type}]</span><span class="e-msg">${msg}</span>`;
+  eventLog.prepend(div);
+  if (eventLog.children.length > 80) eventLog.lastChild.remove();
+}
+
+function render() {
+  if (!Object.keys(tasks).length) {
+    container.innerHTML = '<div class="empty">等待任务…</div>';
+    return;
+  }
+  container.innerHTML = '';
+  Object.entries(tasks).forEach(([id, t]) => {
+    const div = document.createElement('div');
+    div.className = `task-card status-${t.status || 'pending'}`;
+    div.innerHTML = `
+      <div class="t-id">#${id}</div>
+      <div class="t-type">${t.type || '-'}</div>
+      <div class="t-meta">${t.status || 'pending'} ${t.model ? '· ' + t.model : ''} ${t.region ? '@' + t.region : ''}</div>
+      <div class="t-time">${t.time || ''}</div>
+    `;
+    container.appendChild(div);
+  });
+  updateCounts();
+}
+
+ws.onmessage = (event) => {
+  const data = JSON.parse(event.data);
+  if (data.type === 'connected' || data.event === 'connected') return;
+
+  const id = data.task_id;
+  const now = new Date().toLocaleTimeString();
+
+  if (!id) {
+    addEvent(data.event || data.type, JSON.stringify(data).slice(0,80));
+    return;
+  }
+
+  tasks[id] = tasks[id] || { id, status: 'pending', time: now };
+
+  if (data.event === 'task.received') {
+    tasks[id].type = data.task_type || tasks[id].type;
+    tasks[id].status = 'pending';
+    tasks[id].time = now;
+    addEvent('📥 received', `#${id} ${tasks[id].type}`);
+
+    // 时间线
+    timeline[id] = timeline[id] || [];
+    timeline[id].push({event: data.event, source: data.source || 'hq_brain', ts: Date.now()});
+    renderTimeline();
+  }
+  if (data.event === 'task.routed') {
+    tasks[id].status = 'running';
+    tasks[id].model = data.model || tasks[id].model;
+    tasks[id].region = data.region || tasks[id].region;
+    tasks[id].time = now;
+    addEvent('🔀 routed', `#${id} → ${data.model || '?'}${data.region ? ' @'+data.region : ''}`);
+
+    timeline[id] = timeline[id] || [];
+    timeline[id].push({event: data.event, source: data.source || 'orchestrator', ts: Date.now()});
+    renderTimeline();
+  }
+  if (data.event === 'task.codex.started' || data.event === 'task.codex.finished') {
+    timeline[id] = timeline[id] || [];
+    timeline[id].push({event: data.event, source: data.source || 'codex', ts: Date.now()});
+    renderTimeline();
+  }
+  if (data.event === 'task.completed') {
+    tasks[id].status = data.status === 'failed' ? 'failed' : 'done';
+    tasks[id].time = now;
+    addEvent('✅ completed', `#${id}`);
+
+    timeline[id] = timeline[id] || [];
+    timeline[id].push({event: data.event, source: data.source || 'orchestrator', ts: Date.now()});
+    renderTimeline();
+  }
+
+  render();
+  // 节点健康
+  if (data.event === 'region.health') {
+    renderRegions(data.regions, data.metrics);
+  }
+  // 模型调用耗时
+  if (data.event === 'model.call') {
+    const m = data.model || '?';
+    const d = data.duration_ms || 0;
+    modelStats[m] = modelStats[m] || {count: 0, total: 0};
+    modelStats[m].count += 1;
+    modelStats[m].total += d;
+    renderModelStats();
+  }
+};
+
+ws.onclose = () => addEvent('❌', 'WebSocket 断连，刷新重连');
+</script>
+</body>
+</html>

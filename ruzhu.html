@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>入驻招商 · 军鸽云链数智 — 参与者核心四循环</title>
+<meta name="description" content="军鸽云链数智入驻招商——全渠道分销、区块链溯源、数据赋能、品牌背书。四大循环：了解→申请入驻→便捷使用→系统管理，全程陪跑。">
+<style>
+:root {
+--red:#b84045; --red-bg:rgba(184,64,69,0.12); --red-glow:rgba(184,64,69,0.4);
+--green:#4d9460; --green-bg:rgba(77,148,96,0.12); --green-glow:rgba(77,148,96,0.4);
+--blue:#4b8ec9; --blue-bg:rgba(75,142,201,0.12); --blue-glow:rgba(75,142,201,0.4);
+--gold:#c4a044; --gold-bg:rgba(196,160,68,0.1);
+--bg:#0a0f16; --bg2:#101820; --bg-card:rgba(16,24,36,0.7);
+--text:#e7ecf2; --text2:#9daab8; --text3:#556070;
+--border:rgba(255,255,255,0.05); --border2:rgba(255,255,255,0.08);
+--radius:16px; --radius-sm:10px;
+--shadow:0 8px 32px rgba(0,0,0,.5);
+--trans:.25s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;
+background-image:
+radial-gradient(ellipse at 20% 0%,rgba(184,64,69,.05) 0%,transparent 55%),
+radial-gradient(ellipse at 80% 15%,rgba(75,142,201,.04) 0%,transparent 55%),
+radial-gradient(ellipse at 40% 70%,rgba(77,148,96,.04) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#253040;border-radius:2px}
+
+/* TOP BAR */
+.top-bar{position:sticky;top:0;z-index:10000;background:rgba(10,15,22,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,.6)}
+.top-inner{max-width:1400px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#c44,#822);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 0 18px var(--red-glow)}
+.brand-text .main{font-size:14px;font-weight:700;letter-spacing:.04em}
+.brand-text .sub{font-size:9px;color:var(--text3)}
+.nav-row{display:flex;gap:2px;flex-wrap:wrap}
+.nav-row a{padding:5px 10px;border-radius:14px;font-size:10px;color:var(--text2);text-decoration:none;transition:var(--trans);white-space:nowrap}
+.nav-row a:hover,.nav-row a.on{color:#d47a7e;background:var(--red-bg)}
+
+/* MAIN */
+main{max-width:1200px;margin:0 auto;padding:14px 18px 80px}
+
+/* HERO */
+.hero{position:relative;border-radius:var(--radius);padding:40px 24px 32px;margin-bottom:20px;overflow:hidden;text-align:center;
+background:linear-gradient(160deg,rgba(196,160,68,.08) 0%,rgba(16,24,32,.9) 40%,rgba(184,64,69,.06) 100%);
+border:1px solid var(--border2)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% -20%,rgba(255,210,150,.04),transparent 60%);pointer-events:none}
+.hero h1{font-size:28px;font-weight:700;margin-bottom:10px;position:relative;z-index:1;letter-spacing:.04em}
+.hero h1 .g{color:var(--gold);text-shadow:0 0 30px rgba(196,160,68,.4)}
+.hero h1 .r{color:#d47a7e}
+.hero .desc{font-size:13px;color:var(--text2);max-width:650px;margin:0 auto 18px;position:relative;z-index:1;line-height:1.9}
+.hero .desc strong{color:var(--gold)}
+.hero .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:28px;font-size:13px;font-weight:650;text-decoration:none;transition:var(--trans);letter-spacing:.04em;position:relative;overflow:hidden;min-width:160px;justify-content:center}
+.hero-btn:hover{transform:translateY(-2px)}
+.hero-btn.gold{background:linear-gradient(135deg,rgba(196,160,68,.25),rgba(150,115,40,.5));border:1px solid rgba(196,160,68,.4);color:#e8d9a0;box-shadow:0 0 24px rgba(196,160,68,.35),inset 0 1px 0 rgba(255,255,255,.05)}
+.hero-btn.gold:hover{box-shadow:0 0 40px rgba(196,160,68,.6),inset 0 1px 0 rgba(255,255,255,.1)}
+.hero-btn.red{background:linear-gradient(135deg,rgba(184,64,69,.25),rgba(130,35,40,.5));border:1px solid rgba(184,64,69,.4);color:#e8b0b4;box-shadow:0 0 24px var(--red-glow),inset 0 1px 0 rgba(255,255,255,.05)}
+.hero-btn.red:hover{box-shadow:0 0 40px rgba(184,64,69,.6),inset 0 1px 0 rgba(255,255,255,.1)}
+
+/* CYCLE OVERVIEW - 4 circles */
+.cycle-strip{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.cycle-node{text-align:center;padding:14px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);backdrop-filter:blur(12px);flex:1;min-width:130px;max-width:180px;transition:var(--trans);position:relative;cursor:pointer;text-decoration:none;color:inherit}
+.cycle-node:hover{border-color:var(--border2);box-shadow:var(--shadow);transform:translateY(-2px)}
+.cycle-node .cn-num{font-size:28px;font-weight:800;margin-bottom:4px}
+.cycle-node .cn-title{font-size:12px;font-weight:600;letter-spacing:.03em}
+.cycle-node .cn-sub{font-size:9px;color:var(--text3);margin-top:3px}
+.cycle-node::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;border-radius:1px}
+.cycle-node.n1 .cn-num{color:#d47a7e}.cycle-node.n1::after{background:rgba(184,64,69,.4)}
+.cycle-node.n2 .cn-num{color:#4b8ec9}.cycle-node.n2::after{background:rgba(75,142,201,.4)}
+.cycle-node.n3 .cn-num{color:#4d9460}.cycle-node.n3::after{background:rgba(77,148,96,.4)}
+.cycle-node.n4 .cn-num{color:var(--gold)}.cycle-node.n4::after{background:rgba(196,160,68,.4)}
+
+/* CYCLE SECTIONS - Accordion */
+.cycle-section{margin-bottom:16px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);
+background:var(--bg-card);backdrop-filter:blur(12px);transition:var(--trans)}
+.cycle-section:hover{border-color:var(--border2)}
+.cycle-header{cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;user-select:none;transition:background .2s}
+.cycle-header:hover{background:rgba(255,255,255,.015)}
+.cycle-header .ch-num{font-size:32px;font-weight:800;flex-shrink:0;width:44px;text-align:center}
+.cycle-header .ch-info{flex:1}
+.cycle-header .ch-title{font-size:15px;font-weight:650;letter-spacing:.03em}
+.cycle-header .ch-desc{font-size:10px;color:var(--text3);margin-top:2px}
+.cycle-header .ch-arrow{font-size:14px;color:var(--text3);transition:transform .3s;flex-shrink:0}
+.cycle-section.open .ch-arrow{transform:rotate(180deg)}
+.cycle-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.cycle-section.open .cycle-body{max-height:3000px}
+.cycle-inner{padding:0 20px 20px 76px}
+
+/* Cycle colors */
+.cs1 .ch-num{color:#d47a7e}.cs1{border-left:3px solid rgba(184,64,69,.25)}
+.cs2 .ch-num{color:#4b8ec9}.cs2{border-left:3px solid rgba(75,142,201,.25)}
+.cs3 .ch-num{color:#4d9460}.cs3{border-left:3px solid rgba(77,148,96,.25)}
+.cs4 .ch-num{color:var(--gold)}.cs4{border-left:3px solid rgba(196,160,68,.25)}
+
+/* BENEFIT CARDS inside cycles */
+.benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+@media(max-width:700px){.benefit-grid{grid-template-columns:1fr}}
+.b-card{background:rgba(255,255,255,.015);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;transition:var(--trans)}
+.b-card:hover{border-color:var(--border2);background:rgba(255,255,255,.025)}
+.b-card .bc-icon{font-size:24px;margin-bottom:6px}
+.b-card h4{font-size:12.5px;font-weight:600;margin-bottom:4px}
+.b-card p{font-size:10px;color:var(--text2);line-height:1.55}
+.b-card .bc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.b-card .bc-tags span{padding:2px 8px;border-radius:6px;font-size:8.5px;background:rgba(255,255,255,.04);color:var(--text3)}
+
+/* STEP LIST */
+.step-list{display:flex;flex-direction:column;gap:0}
+.step-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.step-item:last-child{border-bottom:none}
+.step-num{flex-shrink:0;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.step-info{flex:1}
+.step-info .si-title{font-size:12.5px;font-weight:600;margin-bottom:3px}
+.step-info .si-detail{font-size:10px;color:var(--text2);line-height:1.55}
+.step-info .si-time{font-size:9px;color:var(--text3);margin-top:4px;display:inline-block;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,.03)}
+.step-info .si-sub{display:flex;flex-direction:column;gap:3px;margin-top:6px}
+.step-info .si-sub li{font-size:10px;color:var(--text3);list-style:none;padding-left:12px;position:relative}
+.step-info .si-sub li::before{content:'›';position:absolute;left:0;color:var(--text3)}
+
+/* Step color variants */
+.s1 .step-num{background:rgba(184,64,69,.15);color:#d47a7e}
+.s2 .step-num{background:rgba(75,142,201,.15);color:#4b8ec9}
+.s3 .step-num{background:rgba(77,148,96,.15);color:#4d9460}
+.s4 .step-num{background:rgba(196,160,68,.15);color:var(--gold)}
+
+/* SERVICE TABLE */
+.svc-table{width:100%;border-collapse:collapse;font-size:10px;margin-top:10px}
+.svc-table td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text2)}
+.svc-table td:first-child{color:var(--text3);width:22%;font-weight:600;white-space:nowrap}
+.svc-table tr:hover td{background:rgba(255,255,255,.01)}
+
+/* STAT STRIP */
+.stat-strip{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.stat-item{flex:1;min-width:80px;text-align:center;padding:10px 12px;background:rgba(255,255,255,.02);border-radius:8px}
+.stat-item .sn{font-size:20px;font-weight:700}
+.stat-item .sl{font-size:8.5px;color:var(--text3);margin-top:2px}
+
+/* CTA BANNER */
+.cta-banner{text-align:center;padding:24px 20px;margin:20px 0;border-radius:var(--radius);
+background:linear-gradient(135deg,rgba(196,160,68,.1),rgba(184,64,69,.06),rgba(75,142,201,.05));
+border:1px solid rgba(196,160,68,.15)}
+.cta-banner h3{font-size:16px;font-weight:700;margin-bottom:6px;letter-spacing:.04em}
+.cta-banner h3 .g{color:var(--gold)}
+.cta-banner p{font-size:11px;color:var(--text2);margin-bottom:12px}
+.cta-banner .cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.cta-btn{display:inline-flex;align-items:center;gap:6px;padding:11px 24px;border-radius:22px;font-size:12px;font-weight:600;text-decoration:none;transition:var(--trans)}
+.cta-btn.primary{background:var(--gold);color:#0a0f16}
+.cta-btn.primary:hover{box-shadow:0 0 30px rgba(196,160,68,.5)}
+.cta-btn.secondary{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--border2)}
+.cta-btn.secondary:hover{background:rgba(255,255,255,.1)}
+
+/* BOTTOM NAV */
+.btm-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(10,15,22,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.btm-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:var(--trans)}
+.btm-nav a.act{background:var(--red-bg);color:#d47a7e;font-weight:600}
+.btm-nav a.gn{color:var(--green);border:1px solid rgba(77,148,96,.2)}.btm-nav a.gn:hover{background:var(--green-bg)}
+.btm-nav a.bl{color:var(--blue);border:1px solid rgba(75,142,201,.2)}.btm-nav a.bl:hover{background:var(--blue-bg)}
+.btm-nav a.gl{color:var(--gold);border:1px solid rgba(196,160,68,.2)}.btm-nav a.gl:hover{background:var(--gold-bg)}
+
+/* FOOTER */
+.ft{max-width:1200px;margin:0 auto;padding:10px 0 70px;font-size:9px;color:var(--text3);display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;border-top:1px solid var(--border)}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:10px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-size:11.5px;font-weight:600;color:var(--text);cursor:pointer;display:flex;align-items:center;gap:8px}
+.faq-q .q-mark{color:var(--gold);flex-shrink:0}
+.faq-a{font-size:10px;color:var(--text2);line-height:1.6;margin-top:6px;padding-left:20px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shine{0%,100%{box-shadow:0 0 14px rgba(196,160,68,.5),0 0 28px rgba(77,148,96,.3),0 0 42px rgba(75,142,201,.2);border-color:rgba(196,160,68,.55)}33%{box-shadow:0 0 16px rgba(75,142,201,.5),0 0 30px rgba(196,160,68,.3),0 0 44px rgba(77,148,96,.2);border-color:rgba(75,142,201,.55)}66%{box-shadow:0 0 16px rgba(77,148,96,.5),0 0 30px rgba(75,142,201,.3),0 0 44px rgba(196,160,68,.2);border-color:rgba(77,148,96,.55)}}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="入驻招商 · 军鸽云链数智 — 参与者核心四循环">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/ruzhu.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/ruzhu.html">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="top-bar">
+<div class="top-inner">
+<div class="brand"><div class="brand-logo">🕊</div><div class="brand-text"><div class="main">军鸽云链数智</div><div class="sub">军魂铸信 · 数智富民</div></div></div>
+<nav class="nav-row">
+<a href="/">🏠 首页</a><a href="/shangcheng.html">🛒 商业生态</a><a href="/junge-shuzhi.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌐 分站网络</a><a href="/ruzhu.html" class="on">🎯 入驻招商</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="top">
+<h1>🎯 <span class="g">军鸽云链</span> · <span class="r">品牌入驻</span></h1>
+<p class="desc">
+<strong>四大循环</strong>陪伴每一位参与者——从<strong>了解</strong>平台价值，到<strong>申请入驻</strong>完成签约，
+再到<strong>便捷使用</strong>全渠道销售工具，最终进入<strong>系统管理</strong>持续优化升级。<br>
+不是一次性的"填表入驻"，而是<strong>持续循环、不断进化</strong>的合作关系。
+</p>
+<div class="hero-btns">
+<a href="#cycle1" class="hero-btn gold">📖 了解平台</a>
+<a href="#cycle2" class="hero-btn red">📝 立即申请</a>
+</div>
+</section>
+
+<!-- ═══ 全方位服务体系 ═══ -->
+<section style="margin-bottom:20px">
+
+<!-- 标题 -->
+<div style="text-align:center;margin-bottom:18px">
+<span style="display:inline-block;padding:4px 18px;border-radius:20px;font-size:10px;letter-spacing:.08em;background:var(--gold-bg);color:var(--gold);border:1px solid rgba(196,160,68,.2);margin-bottom:8px">Full-Spectrum Service Ecosystem</span>
+<h2 style="font-size:22px;font-weight:700;letter-spacing:.04em;margin:0">
+军鸽云链 <span style="color:var(--gold)">全方位</span>服务体系
+</h2>
+<p style="font-size:12px;color:var(--text2);margin-top:6px;max-width:800px;margin-left:auto;margin-right:auto;line-height:1.8">
+覆盖<span style="color:#d47a7e">商家</span>·<span style="color:#7ab5db">消费者</span>·<span style="color:#6dab7e">退役军人</span>·<span style="color:var(--gold)">分站代理</span>·<span style="color:#7ab5db">政府监管</span>·<span style="color:#d47a7e">内容创作者</span>六大参与者 —— <strong style="color:#e7ecf2">一个平台，全部闭环</strong>
+</p>
+</div>
+
+<!-- 六大服务板块 3x2 -->
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:18px">
+<style>
+.pillar{cursor:default}
+.pillar:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.55)}
+</style>
+<!-- 1. 食品安全溯源 -->
+<div class="pillar" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .3s;border-top:3px solid #4d9460;position:relative;overflow:hidden">
+<div style="position:absolute;top:-20px;right:-20px;font-size:80px;opacity:.03">🛡</div>
+<div style="font-size:28px;margin-bottom:8px">🛡</div>
+<h4 style="font-size:13px;font-weight:650;color:#6dab7e;margin:0 0 4px">食品安全溯源</h4>
+<div style="font-size:9px;color:var(--text3);margin-bottom:8px;letter-spacing:.03em">Food Safety Traceability</div>
+<div style="font-size:9.5px;color:var(--text2);line-height:1.55;margin-bottom:8px">区块链一物一码 · 全链路追溯 · 质检报告公示 · 消费者扫码验真 · 政府监管数据对接</div>
+<div style="display:flex;flex-wrap:wrap;gap:3px">
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(77,148,96,.08);color:#6dab7e">👨‍🌾 商家</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(77,148,96,.08);color:#6dab7e">🛍 消费者</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(77,148,96,.08);color:#6dab7e">🏛 政府</span>
+</div>
+</div>
+
+<!-- 2. 全渠道商业 -->
+<div class="pillar" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .3s;border-top:3px solid #4b8ec9;position:relative;overflow:hidden">
+<div style="position:absolute;top:-20px;right:-20px;font-size:80px;opacity:.03">🛒</div>
+<div style="font-size:28px;margin-bottom:8px">🛒</div>
+<h4 style="font-size:13px;font-weight:650;color:#7ab5db;margin:0 0 4px">全渠道商业</h4>
+<div style="font-size:9px;color:var(--text3);margin-bottom:8px;letter-spacing:.03em">Omnichannel Commerce</div>
+<div style="font-size:9.5px;color:var(--text2);line-height:1.55;margin-bottom:8px">军鸽云链商城 · 3000县级分站 · 跨境电商(吉隆坡) · 社区团购 · 直播带货 · 天天抢/团购集中营</div>
+<div style="display:flex;flex-wrap:wrap;gap:3px">
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(75,142,201,.08);color:#7ab5db">👨‍🌾 商家</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(75,142,201,.08);color:#7ab5db">🛍 消费者</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(75,142,201,.08);color:#7ab5db">🏪 分站代理</span>
+</div>
+</div>
+
+<!-- 3. 退役军人在服务 -->
+<div class="pillar" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .3s;border-top:3px solid #b84045;position:relative;overflow:hidden">
+<div style="position:absolute;top:-20px;right:-20px;font-size:80px;opacity:.03">🎖</div>
+<div style="font-size:28px;margin-bottom:8px">🎖</div>
+<h4 style="font-size:13px;font-weight:650;color:#d47a7e;margin:0 0 4px">退役军人在服务</h4>
+<div style="font-size:9px;color:var(--text3);margin-bottom:8px;letter-spacing:.03em">Veteran Services</div>
+<div style="font-size:9.5px;color:var(--text2);line-height:1.55;margin-bottom:8px">就业创业园 · 战友驿站 · 军旅培训基地 · 红色文化基地 · 军地融合 · 军创品牌优先入驻</div>
+<div style="display:flex;flex-wrap:wrap;gap:3px">
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(184,64,69,.08);color:#d47a7e">🎖 退役军人</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(184,64,69,.08);color:#d47a7e">🏭 军创企业</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(184,64,69,.08);color:#d47a7e">🏛 政府</span>
+</div>
+</div>
+
+<!-- 4. 数智科技 -->
+<div class="pillar" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .3s;border-top:3px solid #00d4ff;position:relative;overflow:hidden">
+<div style="position:absolute;top:-20px;right:-20px;font-size:80px;opacity:.03">🤖</div>
+<div style="font-size:28px;margin-bottom:8px">🤖</div>
+<h4 style="font-size:13px;font-weight:650;color:#00d4ff;margin:0 0 4px">数智科技</h4>
+<div style="font-size:9px;color:var(--text3);margin-bottom:8px;letter-spacing:.03em">Digital Intelligence</div>
+<div style="font-size:9.5px;color:var(--text2);line-height:1.55;margin-bottom:8px">AI智能助手 · 数据看板/分析 · RED‑DUAL Ω智能体调度 · 数字ID体系(TV/DV/JC) · 价值量引擎 · 地域智搜</div>
+<div style="display:flex;flex-wrap:wrap;gap:3px">
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(0,212,255,.08);color:#00d4ff">👨‍🌾 商家</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(0,212,255,.08);color:#00d4ff">🛍 消费者</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(0,212,255,.08);color:#00d4ff">🏪 分站代理</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(0,212,255,.08);color:#00d4ff">🏛 政府</span>
+</div>
+</div>
+
+<!-- 5. 内容文化 -->
+<div class="pillar" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .3s;border-top:3px solid var(--gold);position:relative;overflow:hidden">
+<div style="position:absolute;top:-20px;right:-20px;font-size:80px;opacity:.03">📝</div>
+<div style="font-size:28px;margin-bottom:8px">📝</div>
+<h4 style="font-size:13px;font-weight:650;color:var(--gold);margin:0 0 4px">内容文化</h4>
+<div style="font-size:9px;color:var(--text3);margin-bottom:8px;letter-spacing:.03em">Content & Culture</div>
+<div style="font-size:9.5px;color:var(--text2);line-height:1.55;margin-bottom:8px">文化家园(投稿/发表/审核) · 国家政策/地方政策 · 药食同源 · AI播客 · 党建公益 · 投诉曝光台</div>
+<div style="display:flex;flex-wrap:wrap;gap:3px">
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(196,160,68,.08);color:var(--gold)">✍ 创作者</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(196,160,68,.08);color:var(--gold)">🛍 消费者</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(196,160,68,.08);color:var(--gold)">🏛 政府</span>
+</div>
+</div>
+
+<!-- 6. 分站网络 -->
+<div class="pillar" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .3s;border-top:3px solid #a78bfa;position:relative;overflow:hidden">
+<div style="position:absolute;top:-20px;right:-20px;font-size:80px;opacity:.03">🌐</div>
+<div style="font-size:28px;margin-bottom:8px">🌐</div>
+<h4 style="font-size:13px;font-weight:650;color:#a78bfa;margin:0 0 4px">分站网络</h4>
+<div style="font-size:9px;color:var(--text3);margin-bottom:8px;letter-spacing:.03em">Sub-station Network</div>
+<div style="font-size:9.5px;color:var(--text2);line-height:1.55;margin-bottom:8px">3000县级分站 · 区域运营管理 · 本地化配送 · 分站代理体系 · 线下体验点 · 属地化营销</div>
+<div style="display:flex;flex-wrap:wrap;gap:3px">
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(167,139,250,.08);color:#a78bfa">🏪 分站代理</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(167,139,250,.08);color:#a78bfa">🛍 本地消费者</span>
+<span style="padding:2px 7px;border-radius:4px;font-size:8px;background:rgba(167,139,250,.08);color:#a78bfa">👨‍🌾 本地商家</span>
+</div>
+</div>
+</div>
+
+<!-- 入驻商家入口卡片（服务矩阵中的一环） -->
+<div style="background:linear-gradient(135deg,rgba(196,160,68,.06),rgba(16,24,36,.9),rgba(75,142,201,.04));border:1px solid rgba(196,160,68,.15);border-radius:var(--radius);padding:18px 20px;margin-bottom:18px">
+<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+<div style="flex:1;min-width:200px">
+<h4 style="font-size:13px;font-weight:650;margin:0 0 4px">🏢 品牌/商家 — 入驻全链服务</h4>
+<p style="font-size:10px;color:var(--text2);line-height:1.6;margin:0">
+<b style="color:#4d9460">零成本入驻</b> · <b style="color:#4d9460">零保证金</b> · <b style="color:#4d9460">零技术服务费</b> &nbsp;
+入驻即开通：全渠道分销 + 区块链溯源 + 数据看板 + 品牌背书。产品直达全国3000分站。
+</p>
+</div>
+<div style="display:flex;gap:8px;flex-shrink:0">
+<a href="#cycle2" style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:22px;font-size:12px;font-weight:650;text-decoration:none;background:var(--gold);color:#0a0f16;transition:all .3s">📝 立即入驻</a>
+<a href="#cycle1" style="display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:22px;font-size:12px;font-weight:650;text-decoration:none;background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--border2);transition:all .3s">🤝 了解更多</a>
+</div>
+</div>
+</div>
+
+<!-- 参与者 × 服务 矩阵 -->
+<h3 style="font-size:14px;font-weight:650;margin:0 0 10px;letter-spacing:.03em">👥 六大参与者 · 服务矩阵</h3>
+<div style="overflow-x:auto;margin-bottom:16px">
+<table style="width:100%;border-collapse:collapse;font-size:10px;min-width:650px">
+<thead>
+<tr style="background:rgba(255,255,255,.02)">
+<th style="padding:8px 10px;text-align:left;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border);white-space:nowrap">参与者</th>
+<th style="padding:8px 6px;text-align:center;color:#6dab7e;border-bottom:1px solid var(--border);font-size:9px">🛡 食安溯源</th>
+<th style="padding:8px 6px;text-align:center;color:#7ab5db;border-bottom:1px solid var(--border);font-size:9px">🛒 全渠道商业</th>
+<th style="padding:8px 6px;text-align:center;color:#d47a7e;border-bottom:1px solid var(--border);font-size:9px">🎖 退役军人</th>
+<th style="padding:8px 6px;text-align:center;color:#00d4ff;border-bottom:1px solid var(--border);font-size:9px">🤖 数智科技</th>
+<th style="padding:8px 6px;text-align:center;color:var(--gold);border-bottom:1px solid var(--border);font-size:9px">📝 内容文化</th>
+<th style="padding:8px 6px;text-align:center;color:#a78bfa;border-bottom:1px solid var(--border);font-size:9px">🌐 分站网络</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-bottom:1px solid var(--border)">
+<td style="padding:8px 10px;font-weight:600;white-space:nowrap">👨‍🌾 商家/品牌方</td>
+<td style="text-align:center;color:#6dab7e;font-size:14px">●</td>
+<td style="text-align:center;color:#7ab5db;font-size:14px">●</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+<td style="text-align:center;color:#00d4ff;font-size:14px">●</td>
+<td style="text-align:center;color:var(--gold);font-size:14px">●</td>
+<td style="text-align:center;color:#a78bfa;font-size:14px">●</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border)">
+<td style="padding:8px 10px;font-weight:600;white-space:nowrap">🛍 消费者</td>
+<td style="text-align:center;color:#6dab7e;font-size:14px">●</td>
+<td style="text-align:center;color:#7ab5db;font-size:14px">●</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+<td style="text-align:center;color:#00d4ff;font-size:14px">●</td>
+<td style="text-align:center;color:var(--gold);font-size:14px">●</td>
+<td style="text-align:center;color:#a78bfa;font-size:14px">●</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border)">
+<td style="padding:8px 10px;font-weight:600;white-space:nowrap">🎖 退役军人</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+<td style="text-align:center;color:#d47a7e;font-size:14px">●</td>
+<td style="text-align:center;color:#00d4ff;font-size:14px">●</td>
+<td style="text-align:center;color:var(--gold);font-size:14px">●</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border)">
+<td style="padding:8px 10px;font-weight:600;white-space:nowrap">🏪 分站代理</td>
+<td style="text-align:center;color:#6dab7e;font-size:14px">●</td>
+<td style="text-align:center;color:#7ab5db;font-size:14px">●</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+<td style="text-align:center;color:#00d4ff;font-size:14px">●</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+<td style="text-align:center;color:#a78bfa;font-size:14px">●</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border)">
+<td style="padding:8px 10px;font-weight:600;white-space:nowrap">🏛 政府/监管</td>
+<td style="text-align:center;color:#6dab7e;font-size:14px">●</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+<td style="text-align:center;color:#d47a7e;font-size:14px">●</td>
+<td style="text-align:center;color:#00d4ff;font-size:14px">●</td>
+<td style="text-align:center;color:var(--gold);font-size:14px">●</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+</tr>
+<tr>
+<td style="padding:8px 10px;font-weight:600;white-space:nowrap">✍ 内容创作者</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+<td style="text-align:center;color:#00d4ff;font-size:14px">●</td>
+<td style="text-align:center;color:var(--gold);font-size:14px">●</td>
+<td style="text-align:center;color:var(--text3)">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- 服务触点说明 -->
+<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;font-size:9px;color:var(--text3);margin-bottom:12px">
+<span><span style="color:#6dab7e">●</span> 已覆盖</span>
+<span><span style="color:var(--text3)">—</span> 不直接服务</span>
+<span style="margin-left:12px">所有板块通过 <span style="color:#00d4ff">数智科技</span> 层统一调度 · RED‑DUAL Ω 双层AI指挥体系</span>
+</div>
+
+<!-- 页脚信息 -->
+<div style="text-align:center;padding:10px 0;border-top:1px solid var(--border);font-size:9px;color:var(--text3);line-height:1.7">
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+食品安全 + 退役军人在服务综合平台 · 海口总站 · 吉隆坡国际节点
+</div>
+
+</section>
+
+<!-- FOUR CYCLE NAV -->
+<nav class="cycle-strip">
+<a href="#cycle1" class="cycle-node n1">
+<div class="cn-num">①</div>
+<div class="cn-title">了解</div>
+<div class="cn-sub">认知平台价值</div>
+</a>
+<a href="#cycle2" class="cycle-node n2">
+<div class="cn-num">②</div>
+<div class="cn-title">申请入驻</div>
+<div class="cn-sub">提交审核签约</div>
+</a>
+<a href="#cycle3" class="cycle-node n3">
+<div class="cn-num">③</div>
+<div class="cn-title">便捷使用</div>
+<div class="cn-sub">上架运营销售</div>
+</a>
+<a href="#cycle4" class="cycle-node n4">
+<div class="cn-num">④</div>
+<div class="cn-title">系统管理</div>
+<div class="cn-sub">优化升级拓展</div>
+</a>
+</nav>
+
+<!-- CYCLE 1: 了解 -->
+<div class="cycle-section cs1 open" id="cycle1">
+<div class="cycle-header" onclick="toggleCycle(this)">
+<span class="ch-num">①</span>
+<div class="ch-info">
+<div class="ch-title">了解 — 认知平台价值，消除入驻疑虑</div>
+<div class="ch-desc">全渠道分销 · 区块链溯源 · 数据赋能 · 品牌背书 · 成功案例</div>
+</div>
+<span class="ch-arrow">▼</span>
+</div>
+<div class="cycle-body"><div class="cycle-inner">
+
+<!-- Platform Stats -->
+<div class="stat-strip">
+<div class="stat-item"><div class="sn" style="color:#d47a7e">3000+</div><div class="sl">县级分站覆盖</div></div>
+<div class="stat-item"><div class="sn" style="color:#4b8ec9">5大</div><div class="sl">销售渠道矩阵</div></div>
+<div class="stat-item"><div class="sn" style="color:#4d9460">一物一码</div><div class="sl">区块链溯源</div></div>
+<div class="stat-item"><div class="sn" style="color:var(--gold)">7×12h</div><div class="sl">专属运营陪跑</div></div>
+</div>
+
+<h4 style="font-size:13px;font-weight:600;margin:14px 0 10px;color:var(--gold)">🎁 四大核心入驻权益</h4>
+
+<div class="benefit-grid">
+<div class="b-card">
+<div class="bc-icon">🛒</div>
+<h4>全渠道分销</h4>
+<p>产品同步上架军鸽云链商城、3000+县级分站、跨境电商通道（吉隆坡节点）、社区团购网络、直播带货专区。一键分发，触达全国消费者，零额外渠道成本。</p>
+<div class="bc-tags"><span>商城直营</span><span>3000分站</span><span>跨境出海</span><span>社区团购</span><span>直播带货</span></div>
+</div>
+
+<div class="b-card">
+<div class="bc-icon">🔍</div>
+<h4>区块链溯源</h4>
+<p>免费接入食品安全区块链溯源系统。每件产品生成唯一溯源码，消费者扫码即可查看产地、生产流程、质检报告、物流轨迹。全链路透明，增强消费信任，降低选择成本。</p>
+<div class="bc-tags"><span>一物一码</span><span>全链路追溯</span><span>质检报告</span><span>消费者扫码可见</span></div>
+</div>
+
+<div class="b-card">
+<div class="bc-icon">📊</div>
+<h4>数据赋能</h4>
+<p>实时销售数据分析、用户画像洞察、区域市场热度地图、库存预警系统、智能定价建议。每月自动生成经营报告，精准指导生产计划和营销策略。</p>
+<div class="bc-tags"><span>销售分析</span><span>用户画像</span><span>库存预警</span><span>定价建议</span><span>月度报告</span></div>
+</div>
+
+<div class="b-card">
+<div class="bc-icon">🏅</div>
+<h4>品牌背书</h4>
+<p>授予"军鸽云链优选"认证标识，享受退役军人创业平台公信力加持。品牌故事定制包装、平台首页推荐位、季度优选商家评选，全方位提升品牌溢价。</p>
+<div class="bc-tags"><span>优选认证</span><span>退役军创背书</span><span>首页推荐</span><span>品牌故事</span></div>
+</div>
+</div>
+
+<h4 style="font-size:13px;font-weight:600;margin:16px 0 10px;color:var(--gold)">✅ 入驻条件（透明公开）</h4>
+<table class="svc-table">
+<tr><td>企业资质</td><td>具备合法经营资质（营业执照/生产许可证/食品经营许可证等），企业经营状态正常</td></tr>
+<tr><td>产品要求</td><td>产品符合国家质量标准，食品类需具备质检报告；优先绿色/有机/地理标志/非物质文化遗产产品</td></tr>
+<tr><td>品类范围</td><td>食品饮料、农特产品、日用消费品、文创产品、军创产品等（具体品类可咨询运营经理确认）</td></tr>
+<tr><td>合作意愿</td><td>认同平台"品质生活有保障"理念，愿意配合溯源体系建设，遵守平台运营规范</td></tr>
+<tr><td>费用说明</td><td>入驻免平台使用费，按实际销售额收取技术服务佣金（详询运营经理，价格透明无隐形收费）</td></tr>
+</table>
+
+<h4 style="font-size:13px;font-weight:600;margin:16px 0 10px;color:var(--gold)">🏆 标杆商家案例</h4>
+<div class="benefit-grid">
+<div class="b-card">
+<h4>🌶 贵州某辣椒酱品牌</h4>
+<p>入驻6个月，通过区块链溯源+全渠道分发，月销从300单增至1.2万单，消费者扫码溯源率达78%，复购率提升至45%。</p>
+</div>
+<div class="b-card">
+<h4>🍵 福建某有机茶企</h4>
+<p>依托"军鸽云链优选"品牌背书+跨境通道，成功进入马来西亚市场，3个月内完成3个海外订单，品牌溢价提升30%。</p>
+</div>
+<div class="b-card">
+<h4>🍚 东北某大米合作社</h4>
+<p>通过3000分站下沉渠道，覆盖23省县域市场。数据看板精准指导分区域定价，库存周转率提升60%。</p>
+</div>
+<div class="b-card">
+<h4>🧵 某退役军人文创品牌</h4>
+<p>平台品牌故事包装+首页推荐，从零起步3个月积累5000+粉丝，产品入驻15家军旅基地线下体验店。</p>
+</div>
+</div>
+
+<div style="text-align:center;margin-top:16px">
+<a href="#cycle2" class="cta-btn primary">📝 了解完了，开始申请 →</a>
+</div>
+
+</div></div>
+</div>
+
+<!-- CYCLE 2: 申请入驻 -->
+<div class="cycle-section cs2" id="cycle2">
+<div class="cycle-header" onclick="toggleCycle(this)">
+<span class="ch-num">②</span>
+<div class="ch-info">
+<div class="ch-title">申请入驻 — 四步完成，全程线上，进度透明</div>
+<div class="ch-desc">在线提交 → 初审反馈 → 核验确认 → 电子签约</div>
+</div>
+<span class="ch-arrow">▼</span>
+</div>
+<div class="cycle-body"><div class="cycle-inner">
+
+<div class="step-list">
+<div class="step-item s1">
+<div class="step-num">1</div>
+<div class="step-info">
+<div class="si-title">在线提交申请</div>
+<div class="si-detail">注册企业账号 → 填写企业基本信息（名称/地址/联系人/联系方式）→ 上传资质文件（营业执照、生产许可证、产品质检报告等扫描件）→ 提交产品清单及简介</div>
+<div class="si-time">⏱ 预计10-15分钟完成填写</div>
+<ul class="si-sub">
+<li style="color:#d47a7e">支持手机/电脑两端操作，可中途保存草稿</li>
+<li style="color:#d47a7e">资质文件支持 JPG/PNG/PDF 格式，单文件≤10MB</li>
+</ul>
+</div>
+</div>
+
+<div class="step-item s2">
+<div class="step-num">2</div>
+<div class="step-info">
+<div class="si-title">初审反馈</div>
+<div class="si-detail">平台运营团队在收到申请后1个工作日内完成初审。审核维度：资质完整性、产品合规性、品牌匹配度。初审结果通过短信+站内信双通道通知。</div>
+<div class="si-time">⏱ 1个工作日</div>
+<ul class="si-sub">
+<li style="color:#4b8ec9">通过 → 进入核验环节</li>
+<li style="color:#4b8ec9">需补充材料 → 系统标注缺失项，在线补交</li>
+<li style="color:#4b8ec9">暂不符合 → 说明原因，建议调整方向</li>
+</ul>
+</div>
+</div>
+
+<div class="step-item s3">
+<div class="step-num">3</div>
+<div class="step-info">
+<div class="si-title">核验确认</div>
+<div class="si-detail">初审通过后，平台安排远程视频核验或实地考察（根据产品类型和所在地决定）。核验内容：生产环境、产品质量、企业真实性。核验完成后出具核验报告。</div>
+<div class="si-time">⏱ 1-3个工作日（含预约排期）</div>
+<ul class="si-sub">
+<li style="color:#4d9460">远程核验：视频连线，30-60分钟</li>
+<li style="color:#4d9460">实地核验：提前3天预约，半天完成</li>
+</ul>
+</div>
+</div>
+
+<div class="step-item s4">
+<div class="step-num">4</div>
+<div class="step-info">
+<div class="si-title">电子签约 & 后台开通</div>
+<div class="si-detail">核验通过后，在线签署《军鸽云链入驻合作协议》（电子签约，具有法律效力）。签约完成后，系统自动开通商家后台账号，发放操作手册和培训视频。</div>
+<div class="si-time">⏱ 即时生效</div>
+<ul class="si-sub">
+<li style="color:var(--gold)">协议包含：权责条款、佣金标准、结算周期、退出机制</li>
+<li style="color:var(--gold)">后台功能：商品管理、订单管理、数据看板、营销工具</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div style="text-align:center;margin-top:14px">
+<a href="#" class="cta-btn primary">📋 开始提交申请 →</a>
+<a href="#cycle3" class="cta-btn secondary" style="margin-left:8px">查看便捷使用 →</a>
+</div>
+
+</div></div>
+</div>
+
+<!-- CYCLE 3: 便捷使用 -->
+<div class="cycle-section cs3" id="cycle3">
+<div class="cycle-header" onclick="toggleCycle(this)">
+<span class="ch-num">③</span>
+<div class="ch-info">
+<div class="ch-title">便捷使用 — 从产品上架到全渠道销售，工具齐全，上手即用</div>
+<div class="ch-desc">产品上架 · 一键分发 · 数据看板 · 营销工具 · 专属客服</div>
+</div>
+<span class="ch-arrow">▼</span>
+</div>
+<div class="cycle-body"><div class="cycle-inner">
+
+<h4 style="font-size:13px;font-weight:600;margin:10px 0 8px;color:#4d9460">📦 产品上架（5步走）</h4>
+<div class="step-list">
+<div class="step-item s3"><div class="step-num">1</div><div class="step-info"><div class="si-title">信息录入</div><div class="si-detail">登录商家后台 → 商品管理 → 新增商品 → 填写产品名称/规格/产地/保质期/储存方式等基础信息</div></div></div>
+<div class="step-item s3"><div class="step-num">2</div><div class="step-info"><div class="si-title">溯源对接</div><div class="si-detail">录入生产批次、原料来源、加工流程 → 系统自动生成区块链溯源码 → 打印贴码（平台提供标准模板）</div></div></div>
+<div class="step-item s3"><div class="step-num">3</div><div class="step-info"><div class="si-title">定价上架</div><div class="si-detail">参考平台智能定价建议 → 设置零售价/团购价/分销价 → 设定库存 → 提交上架审核</div></div></div>
+<div class="step-item s3"><div class="step-num">4</div><div class="step-info"><div class="si-title">图文美化</div><div class="si-detail">上传产品主图（≥800px）+ 详情图 → 编辑产品描述 → 可选：平台提供免费基础拍摄指导</div></div></div>
+<div class="step-item s3"><div class="step-num">5</div><div class="step-info"><div class="si-title">上架审核</div><div class="si-detail">运营团队24小时内完成审核 → 通过后产品即时上线 → 同步推送至关联分站和跨境通道</div></div></div>
+</div>
+
+<h4 style="font-size:13px;font-weight:600;margin:14px 0 8px;color:#4d9460">🚀 全渠道一键分发</h4>
+<div class="benefit-grid">
+<div class="b-card"><div class="bc-icon">🏪</div><h4>军鸽云链商城</h4><p>平台主商城，面向全国消费者。搜索排名+首页推荐+分类导航，多维度曝光。</p></div>
+<div class="b-card"><div class="bc-icon">🌐</div><h4>3000县级分站</h4><p>区域化精准投放，本地消费者就近购买，物流成本最低，复购率最高。</p></div>
+<div class="b-card"><div class="bc-icon">🌏</div><h4>跨境电商通道</h4><p>产品自动翻译+合规适配，通过吉隆坡节点进入东南亚市场，零关税政策红利。</p></div>
+<div class="b-card"><div class="bc-icon">👥</div><h4>社区团购</h4><p>接入分站团购网络，团长分销+社群裂变，适合高频消费品。</p></div>
+</div>
+
+<h4 style="font-size:13px;font-weight:600;margin:14px 0 8px;color:#4d9460">📊 数据看板 & 营销工具箱</h4>
+<table class="svc-table">
+<tr><td>实时销售</td><td>订单量/销售额/客单价实时更新，按日/周/月/年维度切换，支持分渠道/分区域对比</td></tr>
+<tr><td>用户画像</td><td>购买者年龄/性别/地域分布，消费偏好分析，帮助精准定位目标客群</td></tr>
+<tr><td>库存预警</td><td>智能库存阈值提醒，低库存自动通知补货，滞销品推荐促销方案</td></tr>
+<tr><td>营销工具</td><td>优惠券创建、限时秒杀、拼团活动、直播带货挂载、节日专题页一键生成</td></tr>
+<tr><td>经营月报</td><td>每月5日前自动生成上月经营报告：核心指标+同比环比+优化建议</td></tr>
+</table>
+
+<h4 style="font-size:13px;font-weight:600;margin:14px 0 8px;color:#4d9460">💬 专属服务保障</h4>
+<div class="benefit-grid">
+<div class="b-card">
+<h4>🎧 7×12h 在线客服</h4><p>工作日 9:00-21:00 在线响应，技术问题/订单异常/售后纠纷快速处理。紧急事项30分钟内响应。</p>
+</div>
+<div class="b-card">
+<h4>👤 运营经理 1v1</h4><p>每个入驻商家配备专属运营经理，手把手指导产品上架、活动策划、数据分析，季度回访复盘。</p>
+</div>
+</div>
+
+<div style="text-align:center;margin-top:14px">
+<a href="#cycle4" class="cta-btn primary">📈 查看系统管理 →</a>
+</div>
+
+</div></div>
+</div>
+
+<!-- CYCLE 4: 系统管理 -->
+<div class="cycle-section cs4" id="cycle4">
+<div class="cycle-header" onclick="toggleCycle(this)">
+<span class="ch-num">④</span>
+<div class="ch-info">
+<div class="ch-title">系统管理 — 持续优化、等级晋升、反哺平台、进入更高循环</div>
+<div class="ch-desc">店铺管理 · 经营分析 · 等级晋升 · 新渠道拓展 · 反馈闭环</div>
+</div>
+<span class="ch-arrow">▼</span>
+</div>
+<div class="cycle-body"><div class="cycle-inner">
+
+<h4 style="font-size:13px;font-weight:600;margin:10px 0 8px;color:var(--gold)">🏪 店铺管理</h4>
+<div class="benefit-grid">
+<div class="b-card"><div class="bc-icon">📋</div><h4>订单管理</h4><p>订单处理/发货/物流追踪/退款售后一体化，支持批量操作和自动化规则。</p></div>
+<div class="b-card"><div class="bc-icon">📦</div><h4>库存管理</h4><p>多仓库存同步、安全库存预警、入库出库记录、效期管理（食品类专属）。</p></div>
+<div class="b-card"><div class="bc-icon">⭐</div><h4>评价管理</h4><p>消费者评价实时查看、自动回复模板、差评预警通知、好评置顶展示。</p></div>
+<div class="b-card"><div class="bc-icon">🔧</div><h4>售后管理</h4><p>退款/退货/换货流程标准化，平台介入仲裁机制，保护商家合理权益。</p></div>
+</div>
+
+<h4 style="font-size:13px;font-weight:600;margin:14px 0 8px;color:var(--gold)">📈 经营分析与优化</h4>
+<table class="svc-table">
+<tr><td>品类优化</td><td>基于销售数据和用户反馈，智能推荐应扩充/缩减的品类方向</td></tr>
+<tr><td>定价优化</td><td>竞品价格监测 + 区域消费力分析 → 分区域差异化定价建议</td></tr>
+<tr><td>营销日历</td><td>平台年度营销节点日历（春节/618/双11/中秋等），提前30天推送活动策划模板</td></tr>
+<tr><td>消费者洞察</td><td>复购率、客单价、流失预警、好评率等多维度健康度评分</td></tr>
+</table>
+
+<h4 style="font-size:13px;font-weight:600;margin:14px 0 8px;color:var(--gold)">🏅 商家等级晋升体系</h4>
+<div class="step-list">
+<div class="step-item s4"><div class="step-num">⭐</div><div class="step-info"><div class="si-title">星级商家</div><div class="si-detail">入驻满3个月，月销≥100单，好评率≥95% → 获得"星级商家"标识，享受搜索加权+专属活动位</div></div></div>
+<div class="step-item s4"><div class="step-num">🏆</div><div class="step-info"><div class="si-title">优选商家</div><div class="si-detail">入驻满6个月，月销≥500单，溯源完整率100% → 获得"军鸽云链优选"金牌标识，首页品牌专区展示</div></div></div>
+<div class="step-item s4"><div class="step-num">👑</div><div class="step-info"><div class="si-title">战略合作伙伴</div><div class="si-detail">入驻满12个月，月销≥2000单，参与平台共建（如分站代理/区域仓储）→ 享受最低佣金+联合品牌推广+平台决策参与权</div></div></div>
+</div>
+
+<h4 style="font-size:13px;font-weight:600;margin:14px 0 8px;color:var(--gold)">🌍 新渠道拓展</h4>
+<div class="benefit-grid">
+<div class="b-card">
+<h4>跨境升级</h4><p>从基础跨境通道升级为海外仓直发模式，享受更低的国际物流成本和更快的配送时效。</p>
+</div>
+<div class="b-card">
+<h4>分站代理</h4><p>优质商家可申请成为所在区域的分站代理，拓展本地商家资源，享受分站收益分成。</p>
+</div>
+<div class="b-card">
+<h4>品牌联名</h4><p>与平台联合推出"军鸽云链 × 品牌"联名产品，平台提供设计+包装+营销全案支持。</p>
+</div>
+<div class="b-card">
+<h4>线下体验</h4><p>产品入驻军旅基地、战友驿站等线下体验点，打通线上线下全场景消费。</p>
+</div>
+</div>
+
+<h4 style="font-size:13px;font-weight:600;margin:14px 0 8px;color:var(--gold)">🔄 反馈闭环</h4>
+<div style="background:rgba(196,160,68,.05);border:1px solid rgba(196,160,68,.1);border-radius:var(--radius-sm);padding:14px;margin-top:8px">
+<p style="font-size:11px;color:var(--text2);line-height:1.7">
+<strong style="color:var(--gold)">你的声音推动平台进化。</strong><br>
+商家建议 → 运营经理收集整理 → 月度产品评审会 → 功能排期开发 → 更新通知推送 → 商家体验反馈。<br>
+<strong>已落地的商家建议示例：</strong>批量发货功能、分区域定价工具、直播带货挂载、库存效期提醒——均来自入驻商家的真实需求。
+</p>
+</div>
+
+<div style="text-align:center;margin-top:14px">
+<p style="font-size:11px;color:var(--text3);margin-bottom:8px">系统管理不是终点——优化升级后，重新发现平台新能力，回到「了解」循环，进入更高层级的合作</p>
+<a href="#cycle1" class="cta-btn secondary" style="color:var(--gold);border-color:rgba(196,160,68,.3)">🔄 回到「了解」— 发现更多平台能力</a>
+</div>
+
+</div></div>
+</div>
+
+<!-- FAQ -->
+<div class="cycle-section cs1" style="border-left:3px solid rgba(196,160,68,.25);margin-top:20px">
+<div class="cycle-header" onclick="toggleCycle(this)" style="cursor:pointer">
+<span class="ch-num" style="color:var(--gold)">❓</span>
+<div class="ch-info">
+<div class="ch-title">常见问题 FAQ</div>
+<div class="ch-desc">入驻前最关心的8个问题，答案都在这里</div>
+</div>
+<span class="ch-arrow">▼</span>
+</div>
+<div class="cycle-body"><div class="cycle-inner">
+
+<div class="faq-item">
+<div class="faq-q"><span class="q-mark">Q1</span> 入驻需要什么费用？</div>
+<div class="faq-a">入驻免平台使用费、免保证金（特殊品类除外）。仅按实际成交额收取技术服务佣金，费率公开透明，签约前明确告知。无任何隐形收费。</div>
+</div>
+<div class="faq-item">
+<div class="faq-q"><span class="q-mark">Q2</span> 没有线上运营经验怎么办？</div>
+<div class="faq-a">每个入驻商家配备专属运营经理 1v1 陪跑，从产品上架到活动策划全程指导。平台提供操作手册、视频教程、在线客服，无需担心技术门槛。</div>
+</div>
+<div class="faq-item">
+<div class="faq-q"><span class="q-mark">Q3</span> 产品溯源怎么接入？</div>
+<div class="faq-a">平台免费提供溯源系统，商家只需录入生产批次和原料信息，系统自动生成溯源码。平台提供标准打印模板，普通标签打印机即可使用。</div>
+</div>
+<div class="faq-item">
+<div class="faq-q"><span class="q-mark">Q4</span> 结算周期是多久？</div>
+<div class="faq-a">标准结算周期为 T+7（消费者确认收货后7天结算）。星级以上商家可申请 T+3 快速结算。支持对公账户/个人账户收款。</div>
+</div>
+<div class="faq-item">
+<div class="faq-q"><span class="q-mark">Q5</span> 如果产品卖不动怎么办？</div>
+<div class="faq-a">运营经理会定期复盘销售数据，提出优化建议：调整定价策略、优化产品描述、策划促销活动、更换推荐位等。连续3个月无销售的品类可申请免费调整。</div>
+</div>
+<div class="faq-item">
+<div class="faq-q"><span class="q-mark">Q6</span> 可以随时退出吗？</div>
+<div class="faq-a">可以。协议中明确退出条款：提前15天书面通知，完成在途订单处理，结清款项后即可退出。无违约金，无锁定期。</div>
+</div>
+<div class="faq-item">
+<div class="faq-q"><span class="q-mark">Q7</span> 个人/个体工商户可以入驻吗？</div>
+<div class="faq-a">可以。平台支持企业、个体工商户、合作社等多种主体入驻。个人（无营业执照）暂时需要通过所在区域的分站代理模式合作。</div>
+</div>
+<div class="faq-item">
+<div class="faq-q"><span class="q-mark">Q8</span> 跨境销售需要什么额外资质？</div>
+<div class="faq-a">平台提供一站式跨境合规服务：产品翻译、海关备案、国际物流对接。商家无需自行办理出口资质，平台以"军鸽云链"主体统一报关。</div>
+</div>
+
+</div></div>
+</div>
+
+<!-- CTA BANNER -->
+<div class="cta-banner" id="apply">
+<h3>🚀 准备好<span class="g">加入军鸽云链</span>了吗？</h3>
+<p>四大循环 · 全程陪跑 · 从入驻到壮大，我们并肩作战</p>
+<div class="cta-row">
+<a href="#" class="cta-btn primary">📝 立即申请入驻</a>
+<a href="tel:400-xxx-xxxx" class="cta-btn secondary">📞 电话咨询</a>
+<a href="#" class="cta-btn secondary">💬 微信咨询</a>
+</div>
+<p style="font-size:10px;color:var(--text3);margin-top:10px">或发送邮件至：ruzhupingpai@junge.中国 · 工作日 9:00-18:00 专人回复</p>
+</div>
+
+<!-- FOOTER -->
+<div class="ft">
+<span>© 2026 军鸽云链数智 · 琼ICP备2025063762号-2</span>
+<span>入驻咨询：ruzhupingpai@junge.中国</span>
+</div>
+
+</main>
+
+<!-- BOTTOM NAV -->
+<nav class="btm-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html" class="gn">🛒 商业生态</a>
+<a href="/junge-shuzhi.html" class="bl">⚔ 数智中心</a>
+<a href="/fenzhan.html" class="bl">🌾 分站家园</a>
+<a href="/shuzhi-zongbu.html" class="bl">🧠 数智总部</a>
+<a href="/ruzhu.html" class="act">📝 入驻招商</a>
+</nav>
+
+<script>
+// Accordion toggle
+function toggleCycle(header) {
+var section = header.parentElement;
+section.classList.toggle('open');
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+a.addEventListener('click', function(e) {
+var target = document.querySelector(this.getAttribute('href'));
+if (target) {
+e.preventDefault();
+// Open parent cycle section if closed
+var parent = target.closest('.cycle-section');
+if (parent && !parent.classList.contains('open')) {
+parent.classList.add('open');
+}
+target.scrollIntoView({behavior:'smooth',block:'start'});
+}
+});
+});
+
+// Open cycle section when navigating from cycle-node
+document.querySelectorAll('.cycle-node').forEach(function(node) {
+node.addEventListener('click', function(e) {
+e.preventDefault();
+var targetId = this.getAttribute('href').substring(1);
+var target = document.getElementById(targetId);
+if (target && !target.classList.contains('open')) {
+target.classList.add('open');
+}
+target.scrollIntoView({behavior:'smooth',block:'start'});
+});
+});
+</script>
+</body>
+</html>

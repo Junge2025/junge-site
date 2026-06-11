@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>愿景展望 · 军鸽云链数智</title>
+<meta name="description" content="军鸽云链数智平台愿景——2024至2030年发展路线图。从食品安全守护到全球供应链覆盖，从AI数智赋能到3000+分站协同，我们立志成为全球领先的食品安全+退役军人服务综合平台。">
+<style>
+:root {
+--bg-deep:#030712; --bg-base:#060d1a; --bg-card:rgba(8,20,44,0.85);
+--primary:#00d4ff; --accent:#ff2d78; --gold:#f0c040; --green:#6dab7e;
+--red:#b84045; --blue:#4b8ecf; --purple:#a78bfa; --yellow:#f59e0b;
+--text:#e8edf5; --text-dim:#8896b0; --text-muted:#4a5568;
+--border:rgba(255,255,255,.06); --border-glow:rgba(0,212,255,.15);
+--radius:12px; --radius-sm:8px; --radius-lg:18px;
+--shadow:0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg-deep);color:var(--text);line-height:1.65;overflow-x:hidden;
+min-height:100vh;
+background-image:
+radial-gradient(ellipse at 30% 0%,rgba(0,212,255,.05) 0%,transparent 55%),
+radial-gradient(ellipse at 70% 10%,rgba(240,192,64,.03) 0%,transparent 55%),
+radial-gradient(ellipse at 50% 80%,rgba(109,171,126,.03) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:#1a2744;border-radius:2px}
+
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 20px;position:sticky;top:0;z-index:999;backdrop-filter:blur(20px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .2s;padding:3px 8px;border-radius:10px}
+.breadcrumb-bar a:hover{color:var(--primary);background:rgba(0,212,255,.08)}
+.breadcrumb-bar .sep{color:var(--text-muted);font-size:9px}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{text-align:center;padding:50px 20px 40px;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(0,212,255,.06) 0%,rgba(6,13,26,.95) 40%,rgba(240,192,64,.05) 100%);border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% -10%,rgba(0,212,255,.08),transparent 60%);pointer-events:none}
+.hero .icon{font-size:56px;margin-bottom:12px;position:relative;z-index:1;display:block}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:.06em;position:relative;z-index:1;background:linear-gradient(135deg,#f0c040,#00d4ff,#6dab7e);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:13px;color:var(--text-dim);margin-top:8px;position:relative;z-index:1;letter-spacing:.03em;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.8}
+
+.container{max-width:1000px;margin:0 auto;padding:20px 18px 90px}
+
+.section{margin-bottom:30px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(240,192,64,.15)}
+.section-hd .icon{font-size:20px}
+.section-hd .title{font-size:15px;font-weight:650;letter-spacing:.03em;color:var(--gold)}
+.section-hd .tag{font-size:9px;padding:3px 10px;border-radius:10px;background:rgba(240,192,64,.08);color:var(--gold);margin-left:auto;letter-spacing:.06em}
+
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+.g4{grid-template-columns:1fr 1fr 1fr 1fr}
+@media(max-width:900px){.g4{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all .25s;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.card:hover{border-color:var(--border-glow);box-shadow:var(--shadow)}
+.card h3{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card p,.card .desc{font-size:11px;color:var(--text-dim);line-height:1.7}
+
+/* Timeline (major) */
+.major-timeline{display:flex;flex-direction:column;gap:0}
+.mt-phase{display:grid;grid-template-columns:80px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.03);align-items:start}
+.mt-phase:last-child{border-bottom:none}
+.mt-phase .mt-badge{text-align:center}
+.mt-badge .mt-year{font-size:20px;font-weight:900;display:block}
+.mt-badge .mt-label{font-size:8px;color:var(--text-muted);letter-spacing:.08em;margin-top:2px}
+.mt-badge .mt-dot{width:12px;height:12px;border-radius:50%;display:inline-block;margin-top:6px}
+.mt-phase .mt-content h4{font-size:14px;margin-bottom:6px}
+.mt-phase .mt-content p{font-size:10px;color:var(--text-dim);line-height:1.7}
+.mt-phase .mt-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+.mt-tag{padding:2px 8px;border-radius:6px;font-size:8px;font-weight:600}
+@media(max-width:550px){.mt-phase{grid-template-columns:1fr}.mt-badge{display:flex;gap:8px;align-items:center}.mt-badge .mt-year{font-size:16px}}
+
+/* Strategy Cards */
+.strat-card{text-align:center;padding:18px 12px}
+.strat-card .sicon{font-size:38px;margin-bottom:8px;display:block}
+
+/* Tech Grid */
+.tech-item{display:flex;align-items:flex-start;gap:10px;padding:12px;border-bottom:1px dotted rgba(255,255,255,.03)}
+.tech-item:last-child{border-bottom:none}
+.tech-item .tnum{font-size:9px;font-weight:700;color:var(--text-muted);min-width:28px;text-align:center;padding-top:3px}
+.tech-item .tinfo h4{font-size:12px;margin-bottom:3px}
+.tech-item .tinfo p{font-size:10px;color:var(--text-dim)}
+
+/* Progress Bars */
+.prog-item{margin-bottom:12px}
+.prog-item .prog-hd{display:flex;justify-content:space-between;font-size:10px;margin-bottom:4px}
+.prog-item .prog-hd .pl{color:var(--text-dim)}.prog-item .prog-hd .pr{color:var(--primary);font-weight:600}
+.prog-bar{height:6px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--primary),var(--green));transition:width 1s}
+
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+@media(max-width:600px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 10px;text-align:center}
+.kpi .kv{font-size:20px;font-weight:700;margin-bottom:3px}
+.kpi .kl{font-size:8px;color:var(--text-muted);letter-spacing:.04em}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(20px);border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:all .2s;color:var(--text-dim);background:rgba(15,34,64,.6);border:1px solid rgba(0,212,255,.08)}
+.bottom-nav a:hover,.bottom-nav a.active{background:rgba(0,212,255,.12);color:var(--primary);border-color:rgba(0,212,255,.25)}
+
+footer{text-align:center;padding:16px 20px 10px;font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);line-height:1.8}
+
+@media(max-width:550px){
+.hero h1{font-size:22px}
+.card{padding:14px}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="愿景展望 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/vision.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/vision.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+<a href="/">🏠 首页</a><span class="sep">▸</span>
+<a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+<span class="current">🔭 愿景展望</span>
+</nav>
+
+<div class="hero">
+<div class="icon">🔭</div>
+<h1>愿景展望 · 战略路线图</h1>
+<p class="sub">从2024年创立到2030年全球引领——军鸽云链数智平台「七年三步走」战略全景。以食品安全为基石，以退役军人为先锋，以AI数智为引擎，构建覆盖全国、辐射东盟的食品安全+退役军人服务超级网络。</p>
+</div>
+
+<div class="container">
+
+<!-- KPI Snapshot -->
+<div class="kpi-grid">
+<div class="kpi"><div class="kv" style="color:var(--primary)">2030</div><div class="kl">愿景目标年</div></div>
+<div class="kpi"><div class="kv" style="color:var(--green)">3,000+</div><div class="kl">县级分站全面覆盖</div></div>
+<div class="kpi"><div class="kv" style="color:var(--gold)">100万</div><div class="kl">数字ID认证用户</div></div>
+<div class="kpi"><div class="kv" style="color:#d47a7e">10国</div><div class="kl">东盟供应链覆盖</div></div>
+</div>
+
+<!-- Major Timeline -->
+<div class="section">
+<div class="section-hd"><span class="icon">⏳</span><span class="title">七年战略路线图</span><span class="tag">2024-2030</span></div>
+<div class="card" style="padding:24px">
+<div class="major-timeline">
+
+<div class="mt-phase">
+<div class="mt-badge">
+<span class="mt-year" style="color:var(--primary)">2024</span>
+<span class="mt-label">PHASE I</span>
+<span class="mt-dot" style="background:var(--primary);box-shadow:0 0 12px rgba(0,212,255,.4)"></span>
+</div>
+<div class="mt-content">
+<h4 style="color:var(--primary)">🌱 启航筑基 · 平台创立</h4>
+<p>创始人团队完成市场调研与顶层设计。确立「军魂铸信·数智富民」核心理念。海口总站智慧大脑落成。十不入网标准制定发布。首批天使用户入驻。平台MVP版本上线运营。</p>
+<div class="mt-tags"><span class="mt-tag" style="background:rgba(0,212,255,.1);color:var(--primary)">平台创立</span><span class="mt-tag" style="background:rgba(0,212,255,.1);color:var(--primary)">标准制定</span></div>
+</div>
+</div>
+
+<div class="mt-phase">
+<div class="mt-badge">
+<span class="mt-year" style="color:var(--green)">2025</span>
+<span class="mt-label">PHASE II</span>
+<span class="mt-dot" style="background:var(--green);box-shadow:0 0 12px rgba(109,171,126,.4)"></span>
+</div>
+<div class="mt-content">
+<h4 style="color:var(--green)">⚡ 数智筑基 · 技术引擎</h4>
+<p>SuperAgentX AI指挥系统全面上线，实现多智能体协同作战。广州RED-DUAL Ω指挥中心落成。TV/DV/JC三层价值体系正式运转。区块链溯源系统V1覆盖首批生态农庄。首批128个示范县级分站完成部署。AI全自动推广系统「铸剑行动」启动。</p>
+<div class="mt-tags"><span class="mt-tag" style="background:rgba(109,171,126,.1);color:var(--green)">AI系统</span><span class="mt-tag" style="background:rgba(109,171,126,.1);color:var(--green)">区块链</span><span class="mt-tag" style="background:rgba(109,171,126,.1);color:var(--green)">128分站</span></div>
+</div>
+</div>
+
+<div class="mt-phase">
+<div class="mt-badge">
+<span class="mt-year" style="color:var(--gold)">2026</span>
+<span class="mt-label">PHASE III</span>
+<span class="mt-dot" style="background:var(--gold);box-shadow:0 0 12px rgba(240,192,64,.4)"></span>
+</div>
+<div class="mt-content">
+<h4 style="color:var(--gold)">🌏 国际扩张 · 生态成型</h4>
+<p>吉隆坡国际出海节点投入运营，东盟跨境电商通道打通。海南自贸港零关税优势全面释放。分站网络扩展至1000+县级站。数字ID用户突破30万。药食同源知识库+AI智能咨询全面开放。企业微信全国社群作战体系覆盖主要城市。生态农庄联盟扩张至20个省份。</p>
+<div class="mt-tags"><span class="mt-tag" style="background:rgba(240,192,64,.1);color:var(--gold)">国际化</span><span class="mt-tag" style="background:rgba(240,192,64,.1);color:var(--gold)">1000分站</span><span class="mt-tag" style="background:rgba(240,192,64,.1);color:var(--gold)">跨境</span></div>
+</div>
+</div>
+
+<div class="mt-phase">
+<div class="mt-badge">
+<span class="mt-year" style="color:var(--accent)">2027</span>
+<span class="mt-label">PHASE IV</span>
+<span class="mt-dot" style="background:var(--accent);box-shadow:0 0 12px rgba(255,45,120,.4)"></span>
+</div>
+<div class="mt-content">
+<h4 style="color:var(--accent)">🏆 全面覆盖 · 价值爆发</h4>
+<p>完成3000+县级分站全国部署。数字ID用户突破100万。生态农庄联盟覆盖全国主要产区。TV交易商用值年交易额突破目标。退役军人就业创业突破万人。药食同源产品标准化认证体系完善。AI指挥舱实现3000分站自动化协同调度。</p>
+<div class="mt-tags"><span class="mt-tag" style="background:rgba(255,45,120,.1);color:var(--accent)">3000分站</span><span class="mt-tag" style="background:rgba(255,45,120,.1);color:var(--accent)">100万用户</span><span class="mt-tag" style="background:rgba(255,45,120,.1);color:var(--accent)">万人就业</span></div>
+</div>
+</div>
+
+<div class="mt-phase">
+<div class="mt-badge">
+<span class="mt-year" style="color:var(--purple)">2028-2030</span>
+<span class="mt-label">PHASE V</span>
+<span class="mt-dot" style="background:var(--purple);box-shadow:0 0 12px rgba(167,139,250,.4)"></span>
+</div>
+<div class="mt-content">
+<h4 style="color:var(--purple)">🌐 全球引领 · 标准输出</h4>
+<p>中国食品安全+退役军人服务模式全面出海，覆盖东盟10国全链路供应链。成为全球最大的非转基因食品区块链溯源平台。CGI-BTC（中国地理标志区块链信任链）国际互认。退役军人跨国创业支持体系建立。食品安全「中国标准」国际推广。平台估值目标进入全球独角兽行列。</p>
+<div class="mt-tags"><span class="mt-tag" style="background:rgba(167,139,250,.1);color:var(--purple)">全球引领</span><span class="mt-tag" style="background:rgba(167,139,250,.1);color:var(--purple)">标准输出</span><span class="mt-tag" style="background:rgba(167,139,250,.1);color:var(--purple)">东盟10国</span></div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- Strategic Pillars -->
+<div class="section">
+<div class="section-hd"><span class="icon">🎯</span><span class="title">三大战略支柱</span><span class="tag">STRATEGY</span></div>
+<div class="grid g3">
+<div class="card strat-card" style="border-top:2px solid rgba(0,212,255,.25)">
+<span class="sicon">🤖</span>
+<h4 style="color:var(--primary)">AI数智驱动</h4>
+<p>以SuperAgentX多智能体总指挥系统为核心，实现从内容生成、分站管理、用户服务到推广营销的全链路AI自动化。一人可调动AI特战队，运营成本压缩至传统模式的10%。</p>
+</div>
+<div class="card strat-card" style="border-top:2px solid rgba(109,171,126,.25)">
+<span class="sicon">⛓️</span>
+<h4 style="color:var(--green)">区块链信任底座</h4>
+<p>以区块链不可篡改特性构建食品安全信任基础设施。从种子到餐桌全链路溯源存证。TV/DV/JC三层代币化价值体系让每一笔交易产生真实价值锚定，消费者看得见、信得过。</p>
+</div>
+<div class="card strat-card" style="border-top:2px solid rgba(240,192,64,.25)">
+<span class="sicon">🪖</span>
+<h4 style="color:var(--gold)">退役军人先锋网络</h4>
+<p>以退役军人为主体构建全国3000+县级分站运营网络。退役军人以纪律性、执行力和使命感，成为食品安全守护的最前线力量。零费用创业降低参与门槛。</p>
+</div>
+</div>
+</div>
+
+<!-- Tech Roadmap -->
+<div class="section">
+<div class="section-hd"><span class="icon">⚙️</span><span class="title">技术路线图</span><span class="tag">TECH</span></div>
+<div class="grid g2">
+<div class="card" style="border-left:2px solid rgba(0,212,255,.25)">
+<h3 style="color:var(--primary)">🔧 核心技术堆栈</h3>
+<div class="tech-item"><span class="tnum" style="color:var(--primary)">01</span><div class="tinfo"><h4 style="color:var(--primary)">SuperAgentX 多智能体总指挥</h4><p>GPT-5.5 + DeepSeek-V4 + Cloudflare Workers 驱动，caveman压缩75%，自动完成架构、内容、分站管理。</p></div></div>
+<div class="tech-item"><span class="tnum" style="color:var(--green)">02</span><div class="tinfo"><h4 style="color:var(--green)">区块链溯源引擎</h4><p>Hyperledger Fabric + IPFS分布式存储，秒级上链确认，支持全链路追溯，不可篡改。</p></div></div>
+<div class="tech-item"><span class="tnum" style="color:var(--gold)">03</span><div class="tinfo"><h4 style="color:var(--gold)">TV/DV/JC 价值引擎</h4><p>三层代币化价值体系：TV交易商用值、DV数字赋能值、JC junge币流通，真实价值锚定。</p></div></div>
+<div class="tech-item"><span class="tnum" style="color:var(--accent)">04</span><div class="tinfo"><h4 style="color:var(--accent)">Cloudflare 全球加速</h4><p>300+边缘节点分发，DDoS防护，0ms冷启动，WebP/AVIF自适应图片优化。</p></div></div>
+</div>
+<div class="card" style="border-left:2px solid rgba(240,192,64,.25)">
+<h3 style="color:var(--gold)">📊 当前进展</h3>
+<div class="prog-item">
+<div class="prog-hd"><span class="pl">SuperAgentX AI系统</span><span class="pr">85%</span></div>
+<div class="prog-bar"><div class="prog-fill" style="width:85%"></div></div>
+</div>
+<div class="prog-item">
+<div class="prog-hd"><span class="pl">区块链溯源V2</span><span class="pr">60%</span></div>
+<div class="prog-bar"><div class="prog-fill" style="width:60%"></div></div>
+</div>
+<div class="prog-item">
+<div class="prog-hd"><span class="pl">3000分站部署</span><span class="pr">4.3%</span></div>
+<div class="prog-bar"><div class="prog-fill" style="width:4.3%"></div></div>
+</div>
+<div class="prog-item">
+<div class="prog-hd"><span class="pl">国际出海通道</span><span class="pr">35%</span></div>
+<div class="prog-bar"><div class="prog-fill" style="width:35%"></div></div>
+</div>
+<div class="prog-item">
+<div class="prog-hd"><span class="pl">AI全自动推广</span><span class="pr">70%</span></div>
+<div class="prog-bar"><div class="prog-fill" style="width:70%"></div></div>
+</div>
+<div class="prog-item">
+<div class="prog-hd"><span class="pl">药食同源知识库</span><span class="pr">90%</span></div>
+<div class="prog-bar"><div class="prog-fill" style="width:90%"></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Geographical Strategy -->
+<div class="section">
+<div class="section-hd"><span class="icon">🌐</span><span class="title">地理战略布局</span><span class="tag">GEOGRAPHY</span></div>
+<div class="grid g3">
+<div class="card" style="border-left:2px solid rgba(0,212,255,.25)">
+<h3 style="color:var(--primary)">🏙 海口 · 智慧大脑</h3>
+<p>总部所在地，平台运营中枢。海南自贸港政策优势，零关税贸易便利。药食同源研究与认证中心。全国数据汇聚与分析中心。</p>
+</div>
+<div class="card" style="border-left:2px solid rgba(240,192,64,.25)">
+<h3 style="color:var(--gold)">⚔ 广州 · 作战指挥</h3>
+<p>RED-DUAL Ω指挥中心，全平台数智运维总控。3000+分站调度中枢。区块链价值引擎核心节点。华南区域生态农庄联盟总部。</p>
+</div>
+<div class="card" style="border-left:2px solid rgba(109,171,126,.25)">
+<h3 style="color:var(--green)">🌏 吉隆坡 · 国际出海</h3>
+<p>东盟10国市场前哨。跨境电商物流枢纽。非转基因食品国际认证对接。中国食品安全标准国际化推广窗口。</p>
+</div>
+</div>
+</div>
+
+<!-- CTA -->
+<div style="text-align:center;padding:24px;margin-top:10px">
+<p style="color:var(--text-dim);font-size:12px;margin-bottom:16px">加入我们，一起见证军鸽云链从0到3000+分站的壮阔征程</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="/join-apply.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:linear-gradient(135deg,rgba(240,192,64,.2),rgba(8,20,44,.8));border:1px solid rgba(240,192,64,.3);color:var(--gold);transition:all .2s">📝 加入这场征程</a>
+<a href="/mission.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:transparent;border:1px solid var(--border);color:var(--text-dim);transition:all .2s">🎯 了解使命</a>
+<a href="/core-value.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:transparent;border:1px solid var(--border);color:var(--text-dim);transition:all .2s">💎 核心价值</a>
+</div>
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/taskforce.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+食品安全+退役军人在服务综合平台 · 军魂铸信 · 数智富民 · 愿景2030
+</footer>
+
+</body>
+</html>

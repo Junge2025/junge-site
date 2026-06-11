@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="军鸽云链数智·跨境电商 | 12国优品直供，全球溯源，免税直邮到家。退役军人专属跨境电商平台。">
+  <meta name="keywords" content="跨境电商,全球购,免税,军创,海外直邮,日本,韩国,德国,澳洲,保税仓">
+  <meta name="theme-color" content="#0a1628">
+  <title>军鸽云链数智·跨境电商 | 退役军人食品安全服务平台</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/ai-styles.css">
+  <style>
+    :root {
+      --primary: #0a1628;
+      --primary-light: #0f2240;
+      --primary-mid: #1a3a5f;
+      --accent-cyan: #00d4ff;
+      --accent-cyan-dim: rgba(0,212,255,0.15);
+      --accent-gold: #d4af37;
+      --accent-gold-dim: rgba(212,175,55,0.15);
+      --accent-red: #e53935;
+      --accent-red-dim: rgba(229,57,53,0.12);
+      --accent-green: #4caf50;
+      --accent-green-dim: rgba(76,175,80,0.12);
+      --accent-purple: #7c3aed;
+      --accent-orange: #fb8b24;
+      --text-primary: #e8edf5;
+      --text-secondary: #8896b0;
+      --text-muted: #5a6a85;
+      --card-bg: rgba(15,34,64,0.6);
+      --card-border: rgba(0,212,255,0.08);
+      --card-hover-border: rgba(0,212,255,0.25);
+      --shadow-card: 0 8px 32px rgba(0,0,0,0.3);
+      --shadow-glow-cyan: 0 0 20px rgba(0,212,255,0.15);
+      --glass-bg: rgba(10,22,40,0.75);
+      --glass-border: rgba(255,255,255,0.06);
+      --font-family: 'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:15px}
+    body{
+      font-family:var(--font-family);
+      background:var(--primary);
+      color:var(--text-primary);
+      line-height:1.6;
+      overflow-x:hidden;
+      min-height:100vh;
+    }
+    ::selection{background:var(--accent-cyan);color:var(--primary)}
+    a{color:inherit;text-decoration:none;transition:var(--transition)}
+    button,.btn{cursor:pointer;font-family:inherit;border:none;outline:none;transition:var(--transition)}
+    .container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
+
+    /* Glow Effects */
+    .glow-cyan{box-shadow:0 0 30px rgba(0,212,255,0.08),0 0 60px rgba(0,212,255,0.04)}
+    .glow-gold{box-shadow:0 0 30px rgba(212,175,55,0.08),0 0 60px rgba(212,175,55,0.04)}
+
+    /* Section Titles */
+    .section-header{text-align:center;margin-bottom:40px;position:relative;z-index:2}
+    .section-header .tag{
+      display:inline-block;padding:4px 16px;border-radius:20px;
+      font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+      background:var(--accent-cyan-dim);color:var(--accent-cyan);
+      border:1px solid rgba(0,212,255,0.15);margin-bottom:12px;
+    }
+    .section-header h2{font-size:2rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+    .section-header h2 span{color:var(--accent-cyan)}
+    .section-header h2 .gold{color:var(--accent-gold)}
+    .section-header p{color:var(--text-secondary);font-size:0.95rem;max-width:600px;margin:0 auto}
+    .section-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--accent-cyan),var(--accent-gold));border-radius:2px;margin:16px auto}
+
+    /* Grid System */
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+    /* Glass Card */
+    .glass-card{
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
+      border-radius:var(--radius-lg);
+      padding:24px;
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      transition:var(--transition);
+      position:relative;overflow:hidden;
+    }
+    .glass-card::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:1px;
+      background:linear-gradient(90deg,transparent,var(--accent-cyan),transparent);
+      opacity:0.3;
+    }
+    .glass-card:hover{
+      border-color:var(--card-hover-border);
+      box-shadow:var(--shadow-glow-cyan);
+      transform:translateY(-2px);
+    }
+    .glass-card .card-icon{
+      width:44px;height:44px;border-radius:var(--radius-sm);
+      display:flex;align-items:center;justify-content:center;
+      font-size:20px;margin-bottom:12px;
+    }
+    .card-icon.cyan{background:var(--accent-cyan-dim);color:var(--accent-cyan)}
+    .card-icon.gold{background:var(--accent-gold-dim);color:var(--accent-gold)}
+    .card-icon.green{background:var(--accent-green-dim);color:var(--accent-green)}
+    .card-icon.red{background:var(--accent-red-dim);color:var(--accent-red)}
+
+    /* Header */
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:rgba(10,22,40,0.88);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(255,255,255,0.04);
+      transition:var(--transition);
+    }
+    header.scrolled{background:rgba(10,22,40,0.96);box-shadow:0 4px 30px rgba(0,0,0,0.35)}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:10px 0;gap:8px;min-height:56px;
+    }
+    .brandbox{display:flex;align-items:center;gap:8px;flex-shrink:0}
+    .brand-logo{
+      width:36px;height:36px;border-radius:8px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));
+      font-size:16px;font-weight:800;color:#fff;
+    }
+    .brand-title .cn{font-size:15px;font-weight:700;color:var(--text-primary);letter-spacing:1px}
+    .brand-title .en{font-size:9px;color:var(--text-secondary);letter-spacing:2px}
+
+    /* Navigation Wrapper */
+    .nav-wrapper{
+      flex:1;overflow:hidden;position:relative;
+      -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent);
+      mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent);
+    }
+    nav.navbar{
+      display:flex;gap:2px;overflow-x:auto;overflow-y:hidden;
+      scrollbar-width:none;-ms-overflow-style:none;
+      padding:0 4px;scroll-behavior:smooth;
+    }
+    nav.navbar::-webkit-scrollbar{display:none}
+    nav.navbar a{
+      padding:6px 10px;border-radius:6px;font-size:12.5px;font-weight:500;
+      color:var(--text-secondary);white-space:nowrap;
+      border:1px solid transparent;transition:var(--transition);
+      display:flex;align-items:center;gap:4px;flex-shrink:0;
+    }
+    nav.navbar a i{font-size:12px;opacity:0.7}
+    nav.navbar a:hover,nav.navbar a.active{
+      color:var(--accent-cyan);background:var(--accent-cyan-dim);
+      border-color:rgba(0,212,255,0.1);
+    }
+    nav.navbar a.active{color:#fff;background:rgba(0,212,255,0.12)}
+
+    /* Header Actions */
+    .header-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+    .header-actions .btn-cart,.header-actions .btn-user{
+      width:34px;height:34px;border-radius:8px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:16px;color:var(--text-secondary);
+      background:rgba(255,255,255,0.03);border:1px solid transparent;
+      position:relative;transition:var(--transition);
+    }
+    .header-actions .btn-cart:hover,.header-actions .btn-user:hover{
+      color:var(--accent-cyan);background:var(--accent-cyan-dim);
+      border-color:rgba(0,212,255,0.1);
+    }
+    .header-actions .cart-badge{
+      position:absolute;top:-2px;right:-2px;
+      min-width:16px;height:16px;padding:0 4px;
+      border-radius:10px;background:var(--accent-red);
+      color:#fff;font-size:9px;font-weight:700;
+      display:flex;align-items:center;justify-content:center;
+      line-height:1;box-shadow:0 0 6px rgba(229,57,53,0.4);
+    }
+    .header-actions .btn-did{
+      padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;
+      background:linear-gradient(135deg,var(--accent-gold-dim),var(--accent-gold-dim));
+      border:1px solid rgba(212,175,55,0.2);
+      color:var(--accent-gold);letter-spacing:0.5px;white-space:nowrap;
+    }
+    .header-actions .btn-login{
+      padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;
+      background:var(--accent-cyan-dim);border:1px solid rgba(0,212,255,0.15);
+      color:var(--accent-cyan);white-space:nowrap;
+    }
+    .header-actions .btn-login:hover{background:rgba(0,212,255,0.2)}
+    .mobile-toggle,.mobile-toggle-close{display:none;color:var(--text-primary);font-size:20px;background:none;padding:6px;border-radius:6px}
+    .mobile-toggle:hover{background:rgba(255,255,255,0.05)}
+
+    /* Mobile Nav Overlay */
+    .mobile-nav-overlay{
+      position:fixed;top:0;right:-100%;width:280px;height:100vh;z-index:1100;
+      background:rgba(10,22,40,0.98);backdrop-filter:blur(24px);
+      border-left:1px solid var(--glass-border);
+      padding:20px;overflow-y:auto;
+      transition:right 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-nav-overlay.open{right:0}
+    .mobile-nav-overlay .mobile-nav-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .mobile-nav-overlay nav{display:flex;flex-direction:column;gap:4px}
+    .mobile-nav-overlay nav a{
+      padding:10px 12px;border-radius:8px;font-size:14px;font-weight:500;
+      color:var(--text-secondary);display:flex;align-items:center;gap:10px;
+      border:1px solid transparent;transition:var(--transition);
+    }
+    .mobile-nav-overlay nav a i{width:20px;text-align:center;font-size:14px}
+    .mobile-nav-overlay nav a:hover,.mobile-nav-overlay nav a.active{
+      color:var(--accent-cyan);background:var(--accent-cyan-dim);
+      border-color:rgba(0,212,255,0.1);
+    }
+    .mobile-nav-overlay .mobile-actions{display:flex;gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06)}
+    .mobile-nav-overlay .mobile-actions a{flex:1;text-align:center;padding:8px;border-radius:6px;font-size:12px;font-weight:600}
+
+    /* Overlay backdrop */
+    .overlay-backdrop{
+      position:fixed;top:0;left:0;width:100%;height:100%;z-index:1050;
+      background:rgba(0,0,0,0.5);opacity:0;pointer-events:none;
+      transition:opacity 0.3s;
+    }
+    .overlay-backdrop.show{opacity:1;pointer-events:auto}
+
+    /* Page Hero */
+    .page-hero{
+      position:relative;z-index:1;padding:100px 0 50px;
+      background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 50%,#0d1f3c 100%);
+      border-bottom:1px solid rgba(0,212,255,0.06);
+    }
+    .page-hero h1{font-size:2.4rem;font-weight:700;margin-bottom:8px}
+    .page-hero h1 span{color:var(--accent-cyan)}
+    .page-hero p{color:var(--text-secondary);font-size:1rem;max-width:640px}
+    .page-hero .hero-stats{display:flex;gap:30px;margin-top:20px}
+    .page-hero .hero-stats .stat{text-align:center}
+    .page-hero .hero-stats .stat .num{font-size:1.6rem;font-weight:700;color:var(--accent-cyan)}
+    .page-hero .hero-stats .stat .label{font-size:12px;color:var(--text-muted)}
+
+    /* Activity Banners */
+    .activity-banners{padding:30px 0;position:relative;z-index:1}
+    .activity-slider{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}
+    .activity-slider::-webkit-scrollbar{display:none}
+    .activity-banner{
+      flex:0 0 calc(33.33% - 12px);min-width:300px;
+      border-radius:var(--radius-lg);padding:28px 24px;
+      position:relative;overflow:hidden;cursor:pointer;
+      border:1px solid var(--card-border);transition:var(--transition);
+    }
+    .activity-banner:hover{transform:translateY(-3px);box-shadow:var(--shadow-glow-cyan)}
+    .activity-banner .banner-bg{
+      position:absolute;top:0;left:0;width:100%;height:100%;
+      background:linear-gradient(135deg,var(--primary-light),transparent);
+      opacity:0.5;z-index:0;
+    }
+    .activity-banner .banner-content{position:relative;z-index:1}
+    .activity-banner .banner-tag{
+      display:inline-block;padding:2px 10px;border-radius:12px;
+      font-size:11px;font-weight:600;margin-bottom:8px;
+    }
+    .activity-banner h3{font-size:1.2rem;margin-bottom:6px}
+    .activity-banner p{font-size:13px;color:var(--text-secondary);margin-bottom:12px}
+    .activity-banner .countdown{display:flex;gap:8px;align-items:center}
+    .activity-banner .countdown .time-block{
+      background:rgba(0,0,0,0.4);padding:6px 10px;border-radius:6px;
+      text-align:center;min-width:44px;
+    }
+    .activity-banner .countdown .time-block .num{font-size:1.1rem;font-weight:700;color:var(--accent-cyan);display:block;line-height:1.2}
+    .activity-banner .countdown .time-block .label{font-size:9px;color:var(--text-muted)}
+    .activity-banner .countdown .sep{font-size:1.2rem;color:var(--accent-cyan);font-weight:700}
+
+    /* Country Tabs */
+    .country-tabs{position:relative;z-index:1;padding:20px 0}
+    .country-tab-bar{
+      display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;
+      flex-wrap:nowrap;
+    }
+    .country-tab-bar::-webkit-scrollbar{display:none}
+    .country-tab{
+      flex:0 0 auto;padding:10px 18px;border-radius:var(--radius-md);
+      font-size:13px;font-weight:500;color:var(--text-secondary);
+      background:var(--card-bg);border:1px solid var(--card-border);
+      cursor:pointer;transition:var(--transition);
+      display:flex;align-items:center;gap:8px;white-space:nowrap;
+    }
+    .country-tab:hover{color:var(--accent-cyan);border-color:rgba(0,212,255,0.2)}
+    .country-tab.active{color:#fff;background:rgba(0,212,255,0.15);border-color:var(--accent-cyan)}
+    .country-tab .flag{font-size:20px}
+    .country-tab .badge{
+      background:var(--accent-red-dim);color:var(--accent-red);
+      font-size:10px;padding:1px 6px;border-radius:8px;
+    }
+
+    /* Category Filter */
+    .category-bar{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0;position:relative;z-index:1}
+    .cat-btn{
+      padding:6px 16px;border-radius:20px;font-size:12px;font-weight:500;
+      background:var(--card-bg);border:1px solid var(--card-border);
+      color:var(--text-secondary);cursor:pointer;transition:var(--transition);
+    }
+    .cat-btn:hover{color:var(--accent-cyan);border-color:rgba(0,212,255,0.2)}
+    .cat-btn.active{background:var(--accent-cyan-dim);color:var(--accent-cyan);border-color:var(--accent-cyan)}
+
+    /* Product Grid */
+    .product-grid{position:relative;z-index:1;padding:0 0 40px}
+    .product-grid .grid-4{gap:16px}
+    .product-card{
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
+      border-radius:var(--radius-lg);
+      overflow:hidden;
+      transition:var(--transition);
+      position:relative;
+    }
+    .product-card:hover{
+      border-color:var(--card-hover-border);
+      box-shadow:var(--shadow-glow-cyan);
+      transform:translateY(-3px);
+    }
+    .product-card .product-img{
+      height:160px;
+      background:linear-gradient(135deg,var(--primary-light),var(--primary-mid));
+      display:flex;align-items:center;justify-content:center;
+      position:relative;overflow:hidden;
+    }
+    .product-card .product-img .emoji-bg{font-size:48px;opacity:0.7}
+    .product-card .product-img .country-flag{
+      position:absolute;top:10px;left:10px;font-size:24px;
+      filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+    .product-card .product-img .discount-tag{
+      position:absolute;top:10px;right:10px;
+      background:var(--accent-red);color:#fff;
+      padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;
+    }
+    .product-card .product-info{padding:16px}
+    .product-card .product-info h4{font-size:14px;font-weight:600;margin-bottom:4px}
+    .product-card .product-info .origin{font-size:11px;color:var(--text-muted);margin-bottom:8px}
+    .product-card .product-info .price-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+    .product-card .product-info .price-row .current{font-size:18px;font-weight:700;color:var(--accent-cyan)}
+    .product-card .product-info .price-row .current .currency{font-size:12px}
+    .product-card .product-info .price-row .original{font-size:13px;color:var(--text-muted);text-decoration:line-through}
+    .product-card .product-info .buy-btn{
+      width:100%;padding:8px;border-radius:6px;
+      background:linear-gradient(135deg,var(--accent-cyan-dim),rgba(0,212,255,0.05));
+      border:1px solid rgba(0,212,255,0.15);
+      color:var(--accent-cyan);font-size:12px;font-weight:600;
+      display:flex;align-items:center;justify-content:center;gap:6px;
+    }
+    .product-card .product-info .buy-btn:hover{
+      background:rgba(0,212,255,0.2);
+    }
+    .product-card .product-info .sold{font-size:11px;color:var(--text-muted)}
+    .product-card .product-info .sold span{color:var(--accent-green);font-weight:600}
+
+    /* Footer */
+    footer{
+      border-top:1px solid rgba(255,255,255,0.04);
+      padding:40px 0 30px;position:relative;z-index:1;
+    }
+    footer .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
+    footer h4{font-size:14px;color:var(--text-primary);margin-bottom:12px}
+    footer p,footer a{font-size:13px;color:var(--text-muted);line-height:2}
+    footer a:hover{color:var(--accent-cyan)}
+    footer .copyright{text-align:center;padding-top:24px;margin-top:24px;border-top:1px solid rgba(255,255,255,0.04);font-size:12px;color:var(--text-muted)}
+
+    /* Responsive */
+    @media(max-width:992px){
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:768px){
+      .nav-wrapper{display:none}
+      .mobile-toggle{display:block}
+      .page-hero h1{font-size:1.6rem}
+      .page-hero .hero-stats{gap:16px;flex-wrap:wrap}
+      .activity-banner{flex:0 0 calc(50% - 8px);min-width:240px}
+      .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+      footer .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:480px){
+      .header-actions .btn-did,.header-actions .btn-login{display:none}
+      .activity-banner{flex:0 0 100%}
+      .country-tab{padding:8px 12px;font-size:12px}
+      footer .footer-grid{grid-template-columns:1fr}
+    }
+/* === Link Chain Components === */
+.breadcrumb-bar{display:flex;align-items:center;gap:6px;padding:8px 16px;font-size:12px;color:var(--text-secondary);background:var(--card-bg);border-bottom:1px solid var(--card-border);flex-wrap:wrap;margin:0}
+.breadcrumb-bar a{color:var(--accent-gold);text-decoration:none;transition:var(--transition)}
+.breadcrumb-bar a:hover{color:#f0c040}
+.breadcrumb-bar .sep{color:var(--text-muted);margin:0 2px}
+.breadcrumb-bar .current{color:var(--text-primary);font-weight:600}
+.extend-bar{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 16px;margin:8px 0 16px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-md);flex-wrap:wrap}
+.extend-bar a{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:12px;color:var(--text-primary);background:rgba(15,34,64,.7);border:1px solid var(--accent-gold-dim);text-decoration:none;transition:var(--transition)}
+.extend-bar a:hover{background:var(--accent-gold-dim);border-color:var(--accent-gold);color:var(--accent-gold)}
+.extend-bar .label{font-size:11px;color:var(--text-secondary);margin-right:4px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1);transition:all .2s}
+.bottom-nav a:hover,.bottom-nav a.active{color:#00d4ff;border-color:rgba(0,212,255,.35);background:rgba(0,212,255,.08)}
+  </style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链数智·跨境电商 | 退役军人食品安全服务平台">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/cross-border.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/cross-border.html">
+</head>
+<body>
+
+<!-- Header -->
+<header id="site-header">
+  <div class="container">
+    <div class="topbar">
+      <a href="/index.html" class="brandbox">
+        <div class="brand-logo">&#9990;</div>
+        <div class="brand-title">
+          <div class="cn">军鸽云链</div>
+          <div class="en">JUNGE CLOUDLINK</div>
+        </div>
+      </a>
+      <div class="nav-wrapper">
+        <nav class="navbar" id="main-nav">
+          <a href="/index.html"><i class="fas fa-home"></i>首页</a>
+          <a href="junge-shuzhi.html"><i class="fas fa-crown"></i> junge数智</a>
+          <a href="shangcheng.html"><i class="fas fa-store"></i>军创商城</a>
+          <a href="youpin.html"><i class="fas fa-gem"></i>军创优品</a>
+          <a href="cross-border.html" class="active"><i class="fas fa-globe-asia"></i>跨境电商</a>
+          <a href="zero-tariff.html"><i class="fas fa-tags"></i>零关税</a>
+          <a href="game-center.html"><i class="fas fa-gamepad"></i>🎮游戏池</a>
+          <a href="fenzhan.html"><i class="fas fa-code-branch"></i>分站</a>
+          <a href="enterprise-cooperation.html"><i class="fas fa-handshake"></i>企业合作</a>
+          <a href="employment-service.html"><i class="fas fa-briefcase"></i>就业服务</a>
+          <a href="culture-home.html"><i class="fas fa-landmark"></i>文化家园</a>
+          <a href="mission-system.html"><i class="fas fa-tasks"></i>任务系统</a>
+          <a href="party-public.html"><i class="fas fa-star"></i>党建公益</a>
+          <a href="about.html"><i class="fas fa-info-circle"></i>关于我们</a>
+          <a href="join.html"><i class="fas fa-handshake"></i>申请加盟</a>
+          <a href="member-register.html"><i class="fas fa-user-plus"></i>会员注册</a>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <button class="btn-cart" title="购物车"><i class="fas fa-shopping-cart"></i><span class="cart-badge">3</span></button>
+        <button class="btn-user" title="用户中心"><i class="fas fa-user"></i></button>
+        <span class="btn-did"><i class="fas fa-fingerprint"></i> DID:0x8F3A</span>
+        <a href="login.html" class="btn-login"><i class="fas fa-sign-in-alt"></i> 登录</a>
+        <button class="mobile-toggle" id="mobile-toggle" onclick="openMobileNav()" aria-label="打开菜单"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav Overlay -->
+<div class="overlay-backdrop" id="overlay-backdrop" onclick="closeMobileNav()"></div>
+<div class="mobile-nav-overlay" id="mobile-nav-overlay">
+  <div class="mobile-nav-header">
+    <span style="font-weight:600;font-size:15px"><i class="fas fa-bars" style="margin-right:8px;color:var(--accent-cyan)"></i>导航菜单</span>
+    <button class="mobile-toggle-close" onclick="closeMobileNav()" style="display:block"><i class="fas fa-times"></i></button>
+  </div>
+  <nav>
+    <a href="/index.html"><i class="fas fa-home"></i>首页</a>
+    <a href="junge-shuzhi.html"><i class="fas fa-crown"></i> junge数智</a>
+    <a href="shangcheng.html"><i class="fas fa-store"></i>军创商城</a>
+    <a href="youpin.html"><i class="fas fa-gem"></i>军创优品</a>
+    <a href="cross-border.html" class="active"><i class="fas fa-globe-asia"></i>跨境电商</a>
+    <a href="zero-tariff.html"><i class="fas fa-tags"></i>零关税</a>
+    <a href="fenzhan.html"><i class="fas fa-code-branch"></i>分站</a>
+    <a href="enterprise-cooperation.html"><i class="fas fa-handshake"></i>企业合作</a>
+    <a href="employment-service.html"><i class="fas fa-briefcase"></i>就业服务</a>
+    <a href="culture-home.html"><i class="fas fa-landmark"></i>文化家园</a>
+    <a href="mission-system.html"><i class="fas fa-tasks"></i>任务系统</a>
+    <a href="party-public.html"><i class="fas fa-star"></i>党建公益</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i>关于我们</a>
+    <a href="join.html"><i class="fas fa-handshake"></i>申请加盟</a>
+    <a href="member-register.html"><i class="fas fa-user-plus"></i>会员注册</a>
+  </nav>
+  <div class="mobile-actions">
+    <a href="login.html" class="btn-login" style="background:var(--accent-cyan-dim);color:var(--accent-cyan);border:1px solid rgba(0,212,255,0.15)"><i class="fas fa-sign-in-alt"></i> 登录</a>
+    <a href="#" class="btn-did" style="background:var(--accent-gold-dim);color:var(--accent-gold);border:1px solid rgba(212,175,55,0.2)"><i class="fas fa-fingerprint"></i> DID</a>
+  </div>
+</div>
+
+<script>
+function openMobileNav(){document.getElementById('mobile-nav-overlay').classList.add('open');document.getElementById('overlay-backdrop').classList.add('show');document.body.style.overflow='hidden'}
+function closeMobileNav(){document.getElementById('mobile-nav-overlay').classList.remove('open');document.getElementById('overlay-backdrop').classList.remove('show');document.body.style.overflow=''}
+// Header scroll effect
+window.addEventListener('scroll',function(){document.getElementById('site-header').classList.toggle('scrolled',window.scrollY>20)});
+</script>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <h1><i class="fas fa-globe-asia" style="color:var(--accent-cyan);margin-right:12px"></i><span>跨</span>境电商 · 全球优品直供</h1>
+    <p>军鸽云链跨境电商平台，直连12国优质供应链，正品溯源、保税直邮、退役军人专属优惠。全球好物，触手可及。</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">12</div><div class="label">国家馆</div></div>
+      <div class="stat"><div class="num">1,286</div><div class="label">精选商品</div></div>
+      <div class="stat"><div class="num">98.6%</div><div class="label">正品保障率</div></div>
+      <div class="stat"><div class="num">3-7</div><div class="label">天直邮到货</div></div>
+      <div class="stat"><div class="num">15,000+</div><div class="label">退役军人好评</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Activity Banners -->
+<section class="activity-banners">
+  <div class="container">
+    <div class="activity-slider" id="activity-slider">
+      <div class="activity-banner" style="background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(124,58,237,0.05))">
+        <div class="banner-bg"></div>
+        <div class="banner-content">
+          <span class="banner-tag" style="background:var(--accent-red-dim);color:var(--accent-red)"><i class="fas fa-bolt"></i> 限时秒杀</span>
+          <h3>&#127482;&#127480; 美国馆超级品牌日</h3>
+          <p>精选大牌保健品、母婴用品全场5折起，退役军人额外享9折</p>
+          <div class="countdown" data-end="2026-05-08T23:59:59">
+            <span>距结束</span>
+            <div class="time-block"><span class="num" id="cd-days-1">02</span><span class="label">天</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-hours-1">18</span><span class="label">时</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-mins-1">45</span><span class="label">分</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-secs-1">30</span><span class="label">秒</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="activity-banner" style="background:linear-gradient(135deg,rgba(212,175,55,0.08),rgba(229,57,53,0.05))">
+        <div class="banner-bg"></div>
+        <div class="banner-content">
+          <span class="banner-tag" style="background:var(--accent-gold-dim);color:var(--accent-gold)"><i class="fas fa-star"></i> 新品首发</span>
+          <h3>&#127471;&#127477; 德国馆厨具新品季</h3>
+          <p>双立人、WMF等德国名品厨具低至3折，下单送军鸽定制刀具</p>
+          <div class="countdown" data-end="2026-05-10T23:59:59">
+            <span>距结束</span>
+            <div class="time-block"><span class="num" id="cd-days-2">04</span><span class="label">天</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-hours-2">12</span><span class="label">时</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-mins-2">30</span><span class="label">分</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-secs-2">00</span><span class="label">秒</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="activity-banner" style="background:linear-gradient(135deg,rgba(76,175,80,0.08),rgba(0,212,255,0.05))">
+        <div class="banner-bg"></div>
+        <div class="banner-content">
+          <span class="banner-tag" style="background:var(--accent-green-dim);color:var(--accent-green)"><i class="fas fa-truck"></i> 包邮专区</span>
+          <h3>&#127470;&#127475; 日本馆全场包邮</h3>
+          <p>日本药妆、零食、家居好物全场免税+包邮，订单满299元再减50</p>
+          <div class="countdown" data-end="2026-05-12T23:59:59">
+            <span>距结束</span>
+            <div class="time-block"><span class="num" id="cd-days-3">06</span><span class="label">天</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-hours-3">08</span><span class="label">时</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-mins-3">15</span><span class="label">分</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-secs-3">45</span><span class="label">秒</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="activity-banner" style="background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(0,212,255,0.05))">
+        <div class="banner-bg"></div>
+        <div class="banner-content">
+          <span class="banner-tag" style="background:var(--accent-purple);color:#fff;opacity:0.9"><i class="fas fa-gift"></i> 新人专享</span>
+          <h3>&#127464;&#127462; 澳洲馆新客福利</h3>
+          <p>首次下单即送澳洲进口保健品礼包，满500减100，退役军人双倍积分</p>
+          <div class="countdown" data-end="2026-05-15T23:59:59">
+            <span>距结束</span>
+            <div class="time-block"><span class="num" id="cd-days-4">09</span><span class="label">天</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-hours-4">16</span><span class="label">时</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-mins-4">20</span><span class="label">分</span></div>
+            <span class="sep">:</span>
+            <div class="time-block"><span class="num" id="cd-secs-4">10</span><span class="label">秒</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Country Tabs & Category Filter -->
+<section class="country-tabs">
+  <div class="container">
+    <div class="country-tab-bar" id="country-tabs">
+      <div class="country-tab active" data-country="all"><span class="flag">&#127758;</span> 全部 <span class="badge">1286</span></div>
+      <div class="country-tab" data-country="jp"><span class="flag">&#127471;&#127477;</span> 日本 <span class="badge">186</span></div>
+      <div class="country-tab" data-country="kr"><span class="flag">&#127472;&#127475;</span> 韩国 <span class="badge">142</span></div>
+      <div class="country-tab" data-country="de"><span class="flag">&#127465;&#127466;</span> 德国 <span class="badge">98</span></div>
+      <div class="country-tab" data-country="us"><span class="flag">&#127482;&#127480;</span> 美国 <span class="badge">156</span></div>
+      <div class="country-tab" data-country="au"><span class="flag">&#127464;&#127462;</span> 澳洲 <span class="badge">87</span></div>
+      <div class="country-tab" data-country="fr"><span class="flag">&#127467;&#127479;</span> 法国 <span class="badge">92</span></div>
+      <div class="country-tab" data-country="it"><span class="flag">&#127470;&#127481;</span> 意大利 <span class="badge">76</span></div>
+      <div class="country-tab" data-country="uk"><span class="flag">&#127468;&#127463;</span> 英国 <span class="badge">65</span></div>
+      <div class="country-tab" data-country="ch"><span class="flag">&#127464;&#127476;</span> 瑞士 <span class="badge">54</span></div>
+      <div class="country-tab" data-country="nz"><span class="flag">&#127475;&#127473;</span> 新西兰 <span class="badge">48</span></div>
+      <div class="country-tab" data-country="ca"><span class="flag">&#127464;&#127462;</span> 加拿大 <span class="badge">62</span></div>
+      <div class="country-tab" data-country="sg"><span class="flag">&#127480;&#127468;</span> 新加坡 <span class="badge">73</span></div>
+    </div>
+    <div class="category-bar" id="category-bar">
+      <button class="cat-btn active" data-cat="all">全部品类</button>
+      <button class="cat-btn" data-cat="food">食品饮料</button>
+      <button class="cat-btn" data-cat="beauty">美妆个护</button>
+      <button class="cat-btn" data-cat="health">保健品</button>
+      <button class="cat-btn" data-cat="mom">母婴用品</button>
+      <button class="cat-btn" data-cat="kitchen">厨具家居</button>
+      <button class="cat-btn" data-cat="digital">数码3C</button>
+      <button class="cat-btn" data-cat="fashion">时尚服饰</button>
+      <button class="cat-btn" data-cat="wine">酒水茗茶</button>
+    </div>
+  </div>
+</section>
+
+<!-- Product Grid - 12 Countries -->
+<section class="product-grid">
+  <div class="container">
+    <div class="grid-4" id="product-grid">
+      <!-- Japan -->
+      <div class="product-card" data-country="jp" data-cat="beauty">
+        <div class="product-img"><span class="country-flag">&#127471;&#127477;</span><span class="discount-tag">-35%</span><span class="emoji-bg">&#127800;</span></div>
+        <div class="product-info">
+          <h4>SK-II 神仙水230ml</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 日本·大阪</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>1,288</span><span class="original">&yen;1,980</span></div>
+          <div class="sold">已售 <span>2,386</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+      <!-- Korea -->
+      <div class="product-card" data-country="kr" data-cat="beauty">
+        <div class="product-img"><span class="country-flag">&#127472;&#127475;</span><span class="discount-tag">-42%</span><span class="emoji-bg">&#129418;</span></div>
+        <div class="product-info">
+          <h4>后·天气丹花献套装</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 韩国·首尔</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>899</span><span class="original">&yen;1,550</span></div>
+          <div class="sold">已售 <span>1,876</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+      <!-- Germany -->
+      <div class="product-card" data-country="de" data-cat="kitchen">
+        <div class="product-img"><span class="country-flag">&#127465;&#127466;</span><span class="discount-tag">-30%</span><span class="emoji-bg">&#127858;</span></div>
+        <div class="product-info">
+          <h4>双立人 刀具套装8件套</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 德国·索林根</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>699</span><span class="original">&yen;998</span></div>
+          <div class="sold">已售 <span>2,012</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+      <!-- USA -->
+      <div class="product-card" data-country="us" data-cat="health">
+        <div class="product-img"><span class="country-flag">&#127482;&#127480;</span><span class="discount-tag">-50%</span><span class="emoji-bg">&#129504;</span></div>
+        <div class="product-info">
+          <h4>Move Free 维骨力氨糖软骨素</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 美国·纽约</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>188</span><span class="original">&yen;376</span></div>
+          <div class="sold">已售 <span>5,632</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+      <!-- Australia -->
+      <div class="product-card" data-country="au" data-cat="food">
+        <div class="product-img"><span class="country-flag">&#127464;&#127462;</span><span class="discount-tag">-25%</span><span class="emoji-bg">&#127866;</span></div>
+        <div class="product-info">
+          <h4>Swisse 葡萄籽精华180粒</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 澳洲·墨尔本</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>198</span><span class="original">&yen;264</span></div>
+          <div class="sold">已售 <span>4,221</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+      <!-- France -->
+      <div class="product-card" data-country="fr" data-cat="wine">
+        <div class="product-img"><span class="country-flag">&#127467;&#127479;</span><span class="discount-tag">-20%</span><span class="emoji-bg">&#127863;</span></div>
+        <div class="product-info">
+          <h4>拉菲传奇波尔多干红礼盒</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 法国·波尔多</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>298</span><span class="original">&yen;372</span></div>
+          <div class="sold">已售 <span>3,109</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+      <!-- Italy -->
+      <div class="product-card" data-country="it" data-cat="food">
+        <div class="product-img"><span class="country-flag">&#127470;&#127481;</span><span class="discount-tag">-15%</span><span class="emoji-bg">&#127837;</span></div>
+        <div class="product-info">
+          <h4>illy 意式浓缩咖啡豆1kg</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 意大利·的里雅斯特</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>218</span><span class="original">&yen;256</span></div>
+          <div class="sold">已售 <span>1,889</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+      <!-- UK -->
+      <div class="product-card" data-country="uk" data-cat="mom">
+        <div class="product-img"><span class="country-flag">&#127468;&#127463;</span><span class="discount-tag">-22%</span><span class="emoji-bg">&#127800;</span></div>
+        <div class="product-info">
+          <h4>牛栏Cow&amp;Gate 婴幼儿奶粉3段</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 英国·伦敦</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>168</span><span class="original">&yen;215</span></div>
+          <div class="sold">已售 <span>6,578</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+      <!-- Switzerland -->
+      <div class="product-card" data-country="ch" data-cat="digital">
+        <div class="product-img"><span class="country-flag">&#127464;&#127476;</span><span class="discount-tag">-18%</span><span class="emoji-bg">&#128377;</span></div>
+        <div class="product-info">
+          <h4>百达翡丽 Calatrava 男士腕表</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 瑞士·日内瓦</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>48,800</span><span class="original">&yen;59,600</span></div>
+          <div class="sold">已售 <span>98</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+      <!-- New Zealand -->
+      <div class="product-card" data-country="nz" data-cat="food">
+        <div class="product-img"><span class="country-flag">&#127475;&#127473;</span><span class="discount-tag">-28%</span><span class="emoji-bg">&#127857;</span></div>
+        <div class="product-info">
+          <h4>康维他 麦卢卡蜂蜜UMF10+</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 新西兰·奥克兰</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>268</span><span class="original">&yen;372</span></div>
+          <div class="sold">已售 <span>3,456</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+      <!-- Canada -->
+      <div class="product-card" data-country="ca" data-cat="health">
+        <div class="product-img"><span class="country-flag">&#127464;&#127462;</span><span class="discount-tag">-32%</span><span class="emoji-bg">&#127807;</span></div>
+        <div class="product-info">
+          <h4>Webber Naturals 深海鱼油1000mg</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 加拿大·温哥华</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>128</span><span class="original">&yen;188</span></div>
+          <div class="sold">已售 <span>7,234</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+      <!-- Singapore -->
+      <div class="product-card" data-country="sg" data-cat="food">
+        <div class="product-img"><span class="country-flag">&#127480;&#127468;</span><span class="discount-tag">-40%</span><span class="emoji-bg">&#127836;</span></div>
+        <div class="product-info">
+          <h4>新加坡 百胜厨 叻沙拉面4袋装</h4>
+          <div class="origin"><i class="fas fa-map-pin"></i> 新加坡·裕廊</div>
+          <div class="price-row"><span class="current"><span class="currency">&yen;</span>39.9</span><span class="original">&yen;66.5</span></div>
+          <div class="sold">已售 <span>12,534</span> 件</div>
+          <button class="buy-btn"><i class="fas fa-shopping-cart"></i> 立即抢购</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4><i class="fas fa-globe-asia" style="color:var(--accent-cyan);margin-right:6px"></i>军鸽云链跨境电商</h4>
+        <p>基于退役军人信用背书的全球跨境贸易平台，12国直采，海关监管，正品溯源。每一件商品均可追溯至原产地，让您买得放心。</p>
+        <p style="margin-top:8px"><i class="fas fa-shield-alt" style="color:var(--accent-cyan)"></i> 中国人保承保 · 假一赔十</p>
+      </div>
+      <div>
+        <h4>购物指南</h4>
+        <a href="#">新手教程</a><br><a href="#">常见问题</a><br><a href="#">物流查询</a><br><a href="#">退货政策</a><br><a href="#">联系客服</a>
+      </div>
+      <div>
+        <h4>国家馆</h4>
+        <a href="#">日本馆</a><br><a href="#">韩国馆</a><br><a href="#">德国馆</a><br><a href="#">美国馆</a><br><a href="#">更多国家</a>
+      </div>
+      <div>
+        <h4>合作与服务</h4>
+        <a href="#">商家入驻</a><br><a href="#">保税仓合作</a><br><a href="#">退役军人专享</a><br><a href="#">企业团购</a><br><a href="#">DID数字身份</a>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2026 军鸽云链数智 Junge CloudLink DI. All Rights Reserved. | 退役军人食品安全服务平台<br>
+      <span style="font-size:11px">ICP证：琼ICP备2025XXXXXX号 | 琼公网安备 46000002000XXX号</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Country tab switching
+document.querySelectorAll('.country-tab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    document.querySelectorAll('.country-tab').forEach(function(t){t.classList.remove('active')});
+    this.classList.add('active');
+    var country = this.getAttribute('data-country');
+    document.querySelectorAll('#product-grid .product-card').forEach(function(card){
+      if(country === 'all' || card.getAttribute('data-country') === country){
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Category filter
+document.querySelectorAll('.cat-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.remove('active')});
+    this.classList.add('active');
+    var cat = this.getAttribute('data-cat');
+    var activeCountry = document.querySelector('.country-tab.active').getAttribute('data-country');
+    document.querySelectorAll('#product-grid .product-card').forEach(function(card){
+      var matchCountry = (activeCountry === 'all' || card.getAttribute('data-country') === activeCountry);
+      var matchCat = (cat === 'all' || card.getAttribute('data-cat') === cat);
+      card.style.display = (matchCountry && matchCat) ? '' : 'none';
+    });
+  });
+});
+
+// Countdown timer
+function updateCountdowns(){
+  var now = new Date();
+  document.querySelectorAll('.countdown').forEach(function(el,i){
+    // Simulated countdown: just decrement seconds visually for demo
+    var secs = document.getElementById('cd-secs-'+(i+1));
+    var mins = document.getElementById('cd-mins-'+(i+1));
+    var hrs = document.getElementById('cd-hours-'+(i+1));
+    var days = document.getElementById('cd-days-'+(i+1));
+    if(secs){
+      var s = parseInt(secs.textContent);
+      var m = parseInt(mins.textContent);
+      var h = parseInt(hrs.textContent);
+      var d = parseInt(days.textContent);
+      s--;
+      if(s<0){s=59;m--;if(m<0){m=59;h--;if(h<0){h=23;d--;if(d<0){d=0;h=0;m=0;s=0}}}}
+      secs.textContent = String(s).padStart(2,'0');
+      mins.textContent = String(m).padStart(2,'0');
+      hrs.textContent = String(h).padStart(2,'0');
+      days.textContent = String(d).padStart(2,'0');
+    }
+  });
+}
+setInterval(updateCountdowns,1000);
+
+// Activity slider auto-scroll
+(function autoScrollSlider(){
+  var slider = document.getElementById('activity-slider');
+  if(!slider) return;
+  setInterval(function(){
+    if(slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10){
+      slider.scrollTo({left:0,behavior:'smooth'});
+    } else {
+      slider.scrollBy({left:320,behavior:'smooth'});
+    }
+  },5000);
+})();
+</script>
+<!-- 停留分享奖励机制 -->
+<script src="/js/game-pool.js"></script>
+  <script src="/js/share-reward.js"></script>
+  <!-- 停留分享奖励机制 -->
+  <script src="/js/game-pool.js"></script>
+  <script src="/js/share-reward.js"></script>
+</body>
+</html>

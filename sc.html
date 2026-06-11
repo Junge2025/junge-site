@@ -1,0 +1,2324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>军创商城 · 全链条透明监管与链上溯源</title>
+    <meta name="description" content="生产主体资质、属地监管、生产环境、订单制、链上溯源、制度与承诺书、分润规则、AI预警的军创商城全景页面">
+    <meta name="keywords" content="军创优品,军鸽云链,区块链溯源,退役军人,食品安全,透明监管">
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --blue: #1E3A5F;
+            --blue-2: #204664;
+            --green: #2E7D32;
+            --red: #C62E2E;
+            --gold: #D4AF37;
+            --bg: #f6f7f9;
+            --card: #fff;
+            --muted: #66738b;
+            --border: #e9eef6;
+            --text: #2b2b2b;
+            --shadow: 0 4px 15px rgba(18, 57, 95, 0.06);
+            --light-blue: #e6f0ff;
+            --light-green: #e8f5e8;
+            --light-red: #ffe6e6;
+            --light-gold: #fff8e6;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            width: 100%;
+        }
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(90deg, var(--blue), var(--blue-2));
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .brandbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            background: #2a5caa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .brand-title .cn {
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .brand-title .en {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        /* 桌面端导航 - 默认隐藏 */
+        nav.navbar {
+            display: none;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        nav.navbar a {
+            color: #e9eef8;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+        nav.navbar a:hover {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        nav.navbar a.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffd56a;
+        }
+        /* 移动端菜单按钮 */
+        .mobile-menu-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        /* 移动端菜单 */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--blue);
+            color: white;
+            z-index: 2000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+        .mobile-menu.show {
+            transform: translateX(0);
+        }
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            background: var(--blue);
+            z-index: 10;
+        }
+        .close-menu {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .close-menu:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+        }
+        .mobile-nav a {
+            padding: 14px 16px;
+            margin: 4px 0;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .mobile-nav a i {
+            width: 24px;
+            text-align: center;
+        }
+        .mobile-nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(8px);
+        }
+        .mobile-nav a.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffd56a;
+        }
+        /* 卡片通用样式 */
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+        }
+        .card:hover {
+            box-shadow: 0 8px 25px rgba(18, 57, 95, 0.1);
+            transform: translateY(-2px);
+        }
+        .section-title {
+            margin: 0 0 12px;
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--blue);
+            text-align: center;
+        }
+        .underline {
+            width: 50px;
+            height: 2px;
+            background: var(--red);
+            border-radius: 2px;
+            margin: 6px auto 16px;
+        }
+        /* 统计看板 */
+        .stats {
+            margin-top: 16px;
+            background: var(--card);
+            color: var(--text);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .stat {
+            border: 1px solid var(--border);
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .stat:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+        .stat h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+            color: var(--blue);
+        }
+        .stat p {
+            font-size: 12px;
+            margin: 0;
+            color: var(--muted);
+        }
+        /* 产品目录筛选 */
+        .category-filter {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 6px;
+            margin: 12px 0;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .category-btn {
+            padding: 8px 12px;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            min-height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .category-btn:hover, .category-btn.active {
+            background: var(--blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+        /* 产品网格 */
+        .prod-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .prod {
+            background: #fff;
+            border: 1px solid #eef2f9;
+            border-radius: 10px;
+            padding: 12px;
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .prod:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+        .prod img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+        .prod h4 {
+            margin: 6px 0 4px;
+            color: var(--blue);
+            font-size: 16px;
+        }
+        .prod p {
+            margin: 0;
+            color: #4c5970;
+            font-size: 12px;
+        }
+        .prod-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 8px;
+        }
+        .prod-badge {
+            background: #f0f4ff;
+            border: 1px solid var(--border);
+            padding: 3px 6px;
+            border-radius: 999px;
+            font-size: 10px;
+            color: #12395f;
+        }
+        /* 按钮样式 - 缩小并使用淡底色 */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 14px;
+            text-align: center;
+            min-height: 36px;
+            width: 100%;
+        }
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        .btn:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(15, 15);
+                opacity: 0;
+            }
+        }
+        /* 淡底色按钮样式 */
+        .btn.primary {
+            background: var(--light-red);
+            color: var(--red);
+        }
+        .btn.primary:hover {
+            background: var(--red);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(198, 46, 46, 0.2);
+        }
+        .btn.green {
+            background: var(--light-green);
+            color: var(--green);
+        }
+        .btn.green:hover {
+            background: var(--green);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(46, 125, 50, 0.2);
+        }
+        .btn.gold {
+            background: var(--light-gold);
+            color: var(--gold);
+            font-weight: 600;
+        }
+        .btn.gold:hover {
+            background: var(--gold);
+            color: var(--blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(212, 175, 55, 0.2);
+        }
+        .btn.secondary {
+            background: var(--light-blue);
+            color: #2b55a1;
+            border: 1px solid #dbe5ff;
+        }
+        .btn.secondary:hover {
+            background: linear-gradient(135deg, #e0e9ff 0%, #d0dcff 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(43, 85, 161, 0.15);
+        }
+        /* 网格布局 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .grid-4 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        /* 表单样式 */
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #fff;
+            min-height: 36px;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 2px rgba(30,58,95,0.1);
+            outline: none;
+        }
+        .form-group textarea {
+            height: 80px;
+            resize: vertical;
+            min-height: 80px;
+        }
+        /* 表格样式 */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            overflow-x: auto;
+            display: block;
+        }
+        .table th, .table td {
+            border: 1px solid #e6eef6;
+            padding: 8px;
+            text-align: left;
+            white-space: nowrap;
+        }
+        .table th {
+            background: #f8fafc;
+            color: #12395f;
+        }
+        .table tr:hover {
+            background: #f8fafc;
+        }
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .modal-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--blue);
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--muted);
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .close-modal:hover {
+            color: var(--red);
+            background: rgba(0, 0, 0, 0.05);
+        }
+        /* 通知消息 */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 16px;
+            background: var(--green);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 3000;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            max-width: 90%;
+            font-size: 14px;
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+        .notification.error {
+            background: var(--red);
+        }
+        /* Footer */
+        footer {
+            margin-top: 20px;
+            background: var(--blue);
+            color: #e9eef8;
+            padding: 16px 0;
+            text-align: center;
+            width: 100%;
+        }
+        footer .icp {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: var(--blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: var(--blue-2);
+            transform: translateY(-2px);
+        }
+        /* 返回首页按钮 */
+        .home-link {
+            position: fixed;
+            left: 12px;
+            bottom: 12px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 999px;
+            padding: 8px 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 20;
+            transition: all 0.3s ease;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .home-link:hover {
+            transform: translateY(-2px);
+            background: var(--blue-2);
+        }
+        /* 移动端触控反馈 */
+        .touch-feedback {
+            transition: transform 0.15s ease;
+        }
+        .touch-feedback:active {
+            transform: scale(0.95);
+        }
+        /* 下拉刷新指示器 */
+        .refresh-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            color: var(--blue);
+            font-size: 14px;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        .refresh-indicator.show {
+            transform: translateY(0);
+        }
+        /* 紧凑布局 - AI地域智搜及以下 */
+        .compact-section {
+            margin-top: 12px;
+        }
+        .compact-section .card {
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+        .compact-section .section-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        .compact-section .underline {
+            width: 40px;
+            margin: 4px auto 12px;
+        }
+        .search-controls {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .search-control {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .search-control label {
+            font-weight: 600;
+            color: var(--blue);
+            font-size: 12px;
+        }
+        .search-control select, .search-control input {
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            min-height: 36px;
+        }
+        .search-results {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .search-result-item {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            transition: all 0.3s ease;
+        }
+        .search-result-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .search-result-item h4 {
+            color: var(--blue);
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        .search-result-item p {
+            color: var(--muted);
+            font-size: 12px;
+            margin-bottom: 3px;
+        }
+        /* 产品要素展示窗 */
+        .product-insight {
+            background: #fff;
+            border: 1px solid #edf2f7;
+            border-radius: 10px;
+            padding: 16px;
+            box-shadow: 0 4px 16px rgba(76, 89, 112, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-insight:hover {
+            box-shadow: 0 6px 20px rgba(76, 89, 112, 0.12);
+            transform: translateY(-2px);
+        }
+        .product-insight h3 {
+            margin: 0 0 16px;
+            font-size: 16px;
+            color: var(--blue);
+            text-align: center;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+            font-weight: 700;
+        }
+        /* 产品图片画廊 */
+        .product-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .gallery-image {
+            width: 100%;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+        }
+        /* 产品展示窗结构 */
+        .product-insight .pi-header {
+            margin-bottom: 12px;
+        }
+        .product-insight #piImage {
+            width: 100%;
+            height: 140px;
+            border-radius: 8px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #f3f5f9 0%, #e9eef6 100%);
+            border: 1px solid #eef0f5;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            margin-bottom: 12px;
+        }
+        .product-insight .pi-title h3 {
+            margin: 0 0 4px;
+            color: #1f2a44;
+            font-size: 16px;
+            text-align: left;
+            border: none;
+            padding: 0;
+            font-weight: 700;
+        }
+        .product-insight .pi-title p {
+            margin: 0;
+            color: #6b7890;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .pi-body {
+            margin-bottom: 12px;
+        }
+        .pi-meta {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 12px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+        .pi-meta li {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin: 0;
+            padding: 8px;
+            background: #f8fafc;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .pi-meta li:hover {
+            background: #f0f7ff;
+            transform: translateY(-1px);
+        }
+        .pi-meta li strong {
+            color: #66738b;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .pi-meta li span {
+            color: #1f2a44;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .pi-benefits {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid #dbe5ff;
+            margin-bottom: 12px;
+        }
+        .pi-benefits h4 {
+            margin: 0 0 8px;
+            font-size: 14px;
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+        }
+        .pi-benefits h4 i {
+            color: var(--gold);
+        }
+        .pi-benefits ul {
+            margin: 0;
+            padding-left: 16px;
+            color: #3f4a63;
+        }
+        .pi-benefits li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 4px;
+            line-height: 1.4;
+            font-size: 12px;
+        }
+        .pi-footer {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border);
+        }
+        /* 桌面端适配 */
+        @media (min-width: 768px) {
+            /* 显示桌面导航 */
+            nav.navbar {
+                display: flex;
+            }
+            /* 隐藏移动端菜单按钮 */
+            .mobile-menu-toggle {
+                display: none;
+            }
+            /* 统计网格 */
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            /* 产品网格 */
+            .prod-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            /* 搜索控件 */
+            .search-controls {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            /* 搜索结果 */
+            .search-results {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            /* 订单两列布局 */
+            .order-two-col {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            /* 网格布局 */
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            /* 产品元数据网格 */
+            .pi-meta {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (min-width: 992px) {
+            /* 产品网格 */
+            .prod-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            /* 搜索结果 */
+            .search-results {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        /* 加载动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease forwards;
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+    
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军创商城 · 全链条透明监管与链上溯源">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/sc.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/sc.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">收藏夹</span>
+</nav>
+
+    <!-- Header -->
+    <header role="banner" aria-label="站点头部">
+        <div class="container topbar">
+            <div class="brandbox">
+                <div class="brand-logo" aria-hidden="true">JG</div>
+                <div class="brand-title">
+                    <div class="cn">军创商城 · 全链条透明监管</div>
+                    <div class="en">JunGe Premium Products · Full Chain Transparency</div>
+                </div>
+            </div>
+            <!-- 桌面端导航 -->
+            <nav class="navbar" aria-label="主导航">
+                <a href="#ai-search">AI地域智搜</a>
+                <a href="#order">预定订单</a>
+                <a href="#catalog">产品目录</a>
+                <a href="#subject">生产主体与资质</a>
+                <a href="#env">生产环境与产量</a>
+                <a href="#trace">溯源与上传</a>
+                <a href="#docs">制度与承诺</a>
+                <a href="#rules">分润与招商</a>
+                <a href="#train">线上学习与AI预警</a>
+                <a href="#reg">属地监管信息</a>
+            </nav>
+            <!-- 移动端菜单按钮 -->
+            <button class="mobile-menu-toggle touch-feedback" id="mobileMenuToggle" aria-label="打开菜单">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    <!-- 移动端菜单 -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="brandbox">
+                <div class="brand-logo">JG</div>
+                <div class="brand-title">
+                    <div class="cn">军创商城</div>
+                </div>
+            </div>
+            <button class="close-menu touch-feedback" id="closeMenu" aria-label="关闭菜单">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav" aria-label="移动端导航">
+            <a href="#ai-search" class="touch-feedback"><i class="fas fa-search"></i> AI地域智搜</a>
+            <a href="#order" class="touch-feedback"><i class="fas fa-shopping-cart"></i> 预定订单</a>
+            <a href="#catalog" class="touch-feedback"><i class="fas fa-box"></i> 产品目录</a>
+            <a href="#subject" class="touch-feedback"><i class="fas fa-building"></i> 生产主体与资质</a>
+            <a href="#env" class="touch-feedback"><i class="fas fa-tree"></i> 生产环境与产量</a>
+            <a href="#trace" class="touch-feedback"><i class="fas fa-link"></i> 溯源与上传</a>
+            <a href="#docs" class="touch-feedback"><i class="fas fa-file-alt"></i> 制度与承诺</a>
+            <a href="#rules" class="touch-feedback"><i class="fas fa-hand-holding-usd"></i> 分润与招商</a>
+            <a href="#train" class="touch-feedback"><i class="fas fa-graduation-cap"></i> 线上学习与AI预警</a>
+            <a href="#reg" class="touch-feedback"><i class="fas fa-shield-alt"></i> 属地监管信息</a>
+        </nav>
+    </div>
+    <!-- 返回首页按钮 -->
+    <a class="home-link touch-feedback" href="/index.html" title="返回平台首页">
+        <i class="fas fa-home"></i> 返回首页
+    </a>
+    <!-- 下拉刷新指示器 -->
+    <div class="refresh-indicator" id="refreshIndicator">
+        <i class="fas fa-sync-alt fa-spin"></i> 刷新中...
+    </div>
+    <main class="container" style="margin: 12px 0 20px;">
+        <!-- 统计看板 -->
+        <section class="stats card fade-in" aria-label="统计看板">
+            <h2 class="section-title">平台透明度与质控看板</h2>
+            <div class="underline"></div>
+            <div class="stats-grid">
+                <div class="stat fade-in delay-1"><h3 id="kpiProducts">300+</h3><p>在册产商品（主体备案）</p></div>
+                <div class="stat fade-in delay-2"><h3 id="kpiCompliance">98%</h3><p>主体资质完整率</p></div>
+                <div class="stat fade-in delay-3"><h3 id="kpiTrace">95%</h3><p>溯源记录完整度</p></div>
+                <div class="stat fade-in"><h3 id="kpiAlerts">3</h3><p>AI预警待处理</p></div>
+            </div>
+        </section>
+        <!-- 产品目录 -->
+        <section class="card fade-in" id="catalog">
+            <h2 class="section-title">军创商城 · 产品目录</h2>
+            <div class="underline"></div>
+            <!-- 产品分类筛选 -->
+            <div class="category-filter" id="categoryFilter">
+                <button class="category-btn active touch-feedback" data-category="all">全部产品</button>
+                <button class="category-btn touch-feedback" data-category="planting">种植</button>
+                <button class="category-btn touch-feedback" data-category="breeding">养殖</button>
+                <button class="category-btn touch-feedback" data-category="organic">有机食品</button>
+                <button class="category-btn touch-feedback" data-category="geographical">地理标志保护产品</button>
+                <button class="category-btn touch-feedback" data-category="intangible">非遗食品</button>
+                <button class="category-btn touch-feedback" data-category="ecological">生态食品</button>
+                <button class="category-btn touch-feedback" data-category="seasonal">季节农产品</button>
+                <button class="category-btn touch-feedback" data-category="gift">生态农庄礼盒（包）</button>
+                <button class="category-btn touch-feedback" data-category="green">绿色无公害食品</button>
+                <button class="category-btn touch-feedback" data-category="military">军旅行装及其他</button>
+            </div>
+            <div class="prod-grid" id="prodGrid">
+                <!-- 产品将通过JavaScript动态生成 -->
+            </div>
+        </section>
+        <!-- AI地域智搜系统及以下 - 紧凑布局 -->
+        <div class="compact-section">
+            <!-- AI地域智搜系统 -->
+            <section class="card fade-in" id="ai-search">
+                <h2 class="section-title">AI地域智搜系统</h2>
+                <div class="underline"></div>
+                <p style="text-align: center; color: var(--muted); margin-bottom: 12px; font-size: 13px;">
+                    智能检索地方分站、企业、产地信息，快速定位军创商城资源
+                </p>
+                <div class="search-controls">
+                    <div class="search-control">
+                        <label for="region-select">选择地区</label>
+                        <select id="region-select" class="touch-feedback">
+                            <option value="">全部地区</option>
+                            <option value="beijing">北京</option>
+                            <option value="shanghai">上海</option>
+                            <option value="guangdong">广东</option>
+                            <option value="zhejiang">浙江</option>
+                            <option value="jiangsu">江苏</option>
+                            <option value="sichuan">四川</option>
+                            <option value="hunan">湖南</option>
+                            <option value="hubei">湖北</option>
+                        </select>
+                    </div>
+                    <div class="search-control">
+                        <label for="enterprise-type">企业类型</label>
+                        <select id="enterprise-type" class="touch-feedback">
+                            <option value="">全部类型</option>
+                            <option value="agriculture">农业企业</option>
+                            <option value="food">食品加工</option>
+                            <option value="breeding">养殖企业</option>
+                            <option value="processing">加工企业</option>
+                            <option value="logistics">物流企业</option>
+                        </select>
+                    </div>
+                    <div class="search-control">
+                        <label for="product-search">产品/产地关键词</label>
+                        <input type="text" id="product-search" placeholder="输入产品名称或产地" class="touch-feedback">
+                    </div>
+                </div>
+                <div style="text-align: center; margin-bottom: 12px;">
+                    <button class="btn primary touch-feedback" id="search-btn"><i class="fas fa-search"></i> 智能搜索</button>
+                    <button class="btn gold touch-feedback" id="reset-btn" style="margin-top: 8px;"><i class="fas fa-redo"></i> 重置条件</button>
+                </div>
+                <div class="search-results" id="search-results">
+                    <!-- 搜索结果将通过JavaScript动态生成 -->
+                </div>
+            </section>
+            <!-- 预定订单 -->
+            <section class="card fade-in" id="order">
+                <h2 class="section-title">预定订单</h2>
+                <div class="underline"></div>
+                <p style="text-align:center;color:#4c5970;margin-bottom: 16px; font-size: 13px;">
+                    提前预定军创产品，享受专属优惠与优先配送
+                </p>
+                <!-- 两列并排容器 -->
+                <div class="order-two-col">
+                    <!-- 左列：订单表单 -->
+                    <div class="order-form fade-in">
+                        <h3>填写预定信息</h3>
+                        <form id="orderForm">
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label for="orderName"><i class="fas fa-user"></i> 姓名</label>
+                                    <input type="text" id="orderName" placeholder="请输入您的姓名" required="required" class="touch-feedback">
+                                </div>
+                                <div class="form-group">
+                                    <label for="orderPhone"><i class="fas fa-phone"></i> 联系电话</label>
+                                    <input type="tel" id="orderPhone" placeholder="请输入您的联系电话" required="required" class="touch-feedback">
+                                </div>
+                            </div>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label for="orderProduct"><i class="fas fa-shopping-bag"></i> 预定产品</label>
+                                    <select id="orderProduct" required="required" class="touch-feedback">
+                                        <option value="">请选择预定产品</option>
+                                        <option value="JG-2025001">有机大米（军创优选）</option>
+                                        <option value="JG-2025002">地理标志水果</option>
+                                        <option value="JG-2025003">生态土鸡蛋</option>
+                                        <option value="JG-2025004">非遗手工辣酱</option>
+                                        <option value="JG-2025005">季节鲜橙</option>
+                                        <option value="JG-2025006">生态农庄礼盒</option>
+                                        <option value="JG-2025007">绿色无公害蔬菜</option>
+                                        <option value="JG-2025008">军旅行装包</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="orderQuantity"><i class="fas fa-hashtag"></i> 预定数量</label>
+                                    <input type="number" id="orderQuantity" placeholder="请输入预定数量" min="1" required="required" class="touch-feedback">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="orderDate"><i class="fas fa-calendar-alt"></i> 期望配送日期</label>
+                                <input type="date" id="orderDate" required="required" class="touch-feedback">
+                            </div>
+                            <div class="form-group">
+                                <label for="orderAddress"><i class="fas fa-map-marker-alt"></i> 配送地址</label>
+                                <textarea id="orderAddress" placeholder="请输入详细配送地址" required="required" class="touch-feedback"></textarea>
+                            </div>
+                            <button type="submit" class="btn primary touch-feedback" style="width: 100%; margin-top: 8px;" id="submitOrderBtn">
+                                <span id="submitOrderText"><i class="fas fa-paper-plane"></i> 提交预定</span>
+                                <span id="submitOrderLoader" class="loader" style="display: none;"></span>
+                            </button>
+                        </form>
+                    </div>
+                    <!-- 右列：核心要素展示窗 -->
+                    <aside class="product-insight fade-in" aria-live="polite">
+                        <h3>预定产品核心要素信息</h3>
+                        <!-- 产品图片画廊 -->
+                        <div class="product-gallery">
+                            <img id="galleryImage1" src="https://doc.doubao.com/s/_dIPjEqZMO8/" alt="有机农产品展示图1" class="gallery-image touch-feedback">
+                            <img id="galleryImage2" src="https://doc.doubao.com/s/AQ04qnsnJAY/" alt="新鲜有机蔬菜展示图2" class="gallery-image touch-feedback">
+                        </div>
+                        <!-- 主产品图片 -->
+                        <img id="piImage" src="https://doc.doubao.com/s/_dIPjEqZMO8/" alt="有机农产品主图" class="pi-main-image">
+                        <div class="pi-header">
+                            <div class="pi-title">
+                                <h3 id="piName">请选择预定产品</h3>
+                                <p id="piSub">核心要素将自动展示</p>
+                            </div>
+                        </div>
+                        <div class="pi-body">
+                            <ul class="pi-meta">
+                                <li><strong>产品价格：</strong><span id="piPrice">—</span></li>
+                                <li><strong>产品规格：</strong><span id="piSpec">—</span></li>
+                                <li><strong>产地来源：</strong><span id="piOrigin">—</span></li>
+                                <li><strong>产品特色：</strong><span id="piFeature">—</span></li>
+                                <li><strong>配送时效：</strong><span id="piDelivery">—</span></li>
+                                <li><strong>库存状态：</strong><span id="piStock">—</span></li>
+                            </ul>
+                            <div class="pi-benefits">
+                                <h4><i class="fas fa-star"></i> 下单理由</h4>
+                                <ul id="piReasons">
+                                    <li>—</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pi-footer">
+                            <button type="button" class="btn secondary touch-feedback" id="piAddToForm">
+                                <i class="fas fa-cart-plus"></i> 将此产品写入订单
+                            </button>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+            <!-- 生产主体与资质 -->
+            <section class="card fade-in" id="subject">
+                <h2 class="section-title">生产主体与资质（企业/个体工商户）</h2>
+                <div class="underline"></div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="entName">主体名称（企业/个体工商户）</label>
+                        <input id="entName" class="input touch-feedback" placeholder="例：XX生态农庄 / XX食品有限公司">
+                    </div>
+                    <div class="form-group">
+                        <label for="entCode">统一社会信用代码</label>
+                        <input id="entCode" class="input touch-feedback" placeholder="18位代码">
+                    </div>
+                    <div class="form-group">
+                        <label for="entLicense">营业执照扫描件（图片/PDF）</label>
+                        <div class="file-upload">
+                            <input id="entLicense" type="file" accept="image/*,.pdf" class="touch-feedback">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ownerName">法定代表人/负责人姓名</label>
+                        <input id="ownerName" class="input touch-feedback" placeholder="负责人姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="ownerId">负责人身份证号（加密存储，脱敏展示）</label>
+                        <input id="ownerId" class="input touch-feedback" placeholder="仅用于实名校验（平台脱敏显示）">
+                    </div>
+                    <div class="form-group">
+                        <label for="ownerPhone">联系人与电话（公开展示）</label>
+                        <input id="ownerPhone" class="input touch-feedback" placeholder="例：张三 138xxxxxx（属地化）">
+                    </div>
+                </div>
+                <p style="margin-top: 8px; color: var(--muted); font-size: 12px;">说明：身份证号仅用于实名校验与合规留存，平台前台展示将自动脱敏。主体资质经审核后在"溯源卡"内公开显示。</p>
+                <div style="margin-top: 12px; text-align: center;">
+                    <button class="btn primary touch-feedback" id="saveSubject"><i class="fas fa-save"></i> 保存主体信息</button>
+                </div>
+            </section>
+            <!-- 生产环境与产量 -->
+            <section class="card fade-in" id="env">
+                <h2 class="section-title">生产（种植/养殖）环境与产量信息</h2>
+                <div class="underline"></div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="envDesc">生产环境与地理位置</label>
+                        <textarea id="envDesc" placeholder="土壤/水源/气候/污染防控，详细地理位置（经纬度/地图坐标）" class="touch-feedback"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="envYield">预期产量（年度/季度）</label>
+                        <input id="envYield" class="input touch-feedback" placeholder="例：大米 20 吨/年；鸡蛋 5 万枚/季">
+                    </div>
+                    <div class="form-group">
+                        <label for="envCycle">生产（成长）期</label>
+                        <input id="envCycle" class="input touch-feedback" placeholder="例：水稻 150 天；土鸡 ≥180 天；辣酱发酵 ≥90 天">
+                    </div>
+                    <div class="form-group">
+                        <label for="envSales">售卖预期与分期产量</label>
+                        <input id="envSales" class="input touch-feedback" placeholder="例：5-8 月出米；每月 5 吨；分期到货计划">
+                    </div>
+                </div>
+                <div class="grid-2" style="margin-top: 12px;">
+                    <div class="form-group">
+                        <label for="envImgs">生产与工作场景图片（多选）</label>
+                        <input id="envImgs" type="file" accept="image/*" multiple="multiple" class="touch-feedback">
+                    </div>
+                    <div class="form-group">
+                        <label for="envVids">生产视频（支持mp4）</label>
+                        <input id="envVids" type="file" accept="video/mp4" multiple="multiple" class="touch-feedback">
+                    </div>
+                </div>
+                <div style="margin-top: 12px; text-align: center;">
+                    <button class="btn primary touch-feedback" id="saveEnv"><i class="fas fa-save"></i> 保存环境信息</button>
+                </div>
+            </section>
+            <!-- 溯源与上传 -->
+            <section class="card fade-in" id="trace">
+                <h2 class="section-title">链上溯源记录 · 上传与签名审核</h2>
+                <div class="underline"></div>
+                <div class="grid-3">
+                    <div class="form-group">
+                        <label for="fileSeed">种子/苗木检测报告</label>
+                        <input id="fileSeed" type="file" accept="image/*,.pdf" class="touch-feedback">
+                    </div>
+                    <div class="form-group">
+                        <label for="fileSoil">土壤/水质检测报告</label>
+                        <input id="fileSoil" type="file" accept="image/*,.pdf" class="touch-feedback">
+                    </div>
+                    <div class="form-group">
+                        <label for="fileFert">施肥/投入品台账</label>
+                        <input id="fileFert" type="file" accept="image/*,.pdf" class="touch-feedback">
+                    </div>
+                    <div class="form-group">
+                        <label for="fileCycle">生长/养殖周期记录</label>
+                        <input id="fileCycle" type="file" accept="image/*,.pdf" class="touch-feedback">
+                    </div>
+                    <div class="form-group">
+                        <label for="fileProc">加工主体与批次记录</label>
+                        <input id="fileProc" type="file" accept="image/*,.pdf" class="touch-feedback">
+                    </div>
+                    <div class="form-group">
+                        <label for="fileLogi">物流（北斗/冷链）轨迹</label>
+                        <input id="fileLogi" type="file" accept="image/*,.pdf,.csv" class="touch-feedback">
+                    </div>
+                </div>
+                <div class="grid-4" style="margin-top: 12px;">
+                    <div class="form-group">
+                        <label for="signFarmer">生产加工者（农户）签名</label>
+                        <input id="signFarmer" class="input touch-feedback" placeholder="电子签名/签字图片">
+                    </div>
+                    <div class="form-group">
+                        <label for="signReg">监管推荐员签名</label>
+                        <input id="signReg" class="input touch-feedback" placeholder="电子签名/签字图片">
+                    </div>
+                    <div class="form-group">
+                        <label for="signStation">分站负责人签名</label>
+                        <input id="signStation" class="input touch-feedback" placeholder="电子签名/签字图片">
+                    </div>
+                    <div class="form-group">
+                        <label for="auditNote">审核备注</label>
+                        <input id="auditNote" class="input touch-feedback" placeholder="异常与纠偏说明、复核结论">
+                    </div>
+                </div>
+                <div style="margin-top: 12px; text-align: center;">
+                    <button class="btn primary touch-feedback" id="submitTrace"><i class="fas fa-cloud-upload-alt"></i> 提交并上链</button>
+                    <button class="btn gold touch-feedback" id="previewTrace" style="margin-top: 8px;"><i class="fas fa-eye"></i> 预览溯源卡</button>
+                </div>
+                <p style="margin-top: 8px; color: var(--muted); font-size: 12px;">说明：所有文件与签名将进入审核流（主体资质→文件一致性→质控节点），审核通过后生成"一物一码"溯源卡并公开。</p>
+            </section>
+            <!-- 制度与承诺书 -->
+            <section class="card fade-in" id="docs">
+                <h2 class="section-title">管理制度与承诺书 · 公开文档中心</h2>
+                <div class="underline"></div>
+                <div class="grid-3">
+                    <div class="card touch-feedback">
+                        <h3>食品安全承诺书</h3>
+                        <p style="color: var(--muted); margin: 6px 0; font-size: 12px;">生产者 + 分站管理者 + 包装运输主体联合承诺</p>
+                        <button class="btn primary touch-feedback" onclick="openDoc('承诺书')"><i class="fas fa-file-contract"></i> 查看/下载</button>
+                    </div>
+                    <div class="card touch-feedback">
+                        <h3>分站运营手册与SOP</h3>
+                        <p style="color: var(--muted); margin: 6px 0; font-size: 12px;">准军事化管理流程与服务细则</p>
+                        <button class="btn primary touch-feedback" onclick="openDoc('运营手册')"><i class="fas fa-book"></i> 查看/下载</button>
+                    </div>
+                    <div class="card touch-feedback">
+                        <h3>分润规则（逐级分配）</h3>
+                        <p style="color: var(--muted); margin: 6px 0; font-size: 12px;">会员费与服务利润按劳按绩分配原则</p>
+                        <button class="btn primary touch-feedback" onclick="openDoc('分润规则')"><i class="fas fa-scale-balanced"></i> 查看/下载</button>
+                    </div>
+                    <div class="card touch-feedback">
+                        <h3>招商加盟条件与权责</h3>
+                        <p style="color: var(--muted); margin: 6px 0; font-size: 12px;">入驻标准、权利、义务与退出机制</p>
+                        <button class="btn primary touch-feedback" onclick="openDoc('招商加盟')"><i class="fas fa-handshake"></i> 查看/下载</button>
+                    </div>
+                    <div class="card touch-feedback">
+                        <h3>审核与签名制度</h3>
+                        <p style="color: var(--muted); margin: 6px 0; font-size: 12px;">电子签名、异常复核、责任追溯</p>
+                        <button class="btn primary touch-feedback" onclick="openDoc('审核签名')"><i class="fas fa-shield-check"></i> 查看/下载</button>
+                    </div>
+                    <div class="card touch-feedback">
+                        <h3>曝光监督与投诉流程</h3>
+                        <p style="color: var(--muted); margin: 6px 0; font-size: 12px;">联动市场监管等部门，属地化处置</p>
+                        <button class="btn primary touch-feedback" onclick="openDoc('曝光举报')"><i class="fas fa-bullhorn"></i> 查看/下载</button>
+                    </div>
+                </div>
+            </section>
+            <!-- 分润与招商 -->
+            <section class="card fade-in" id="rules">
+                <h2 class="section-title">分润公开与招商加盟规则</h2>
+                <div class="underline"></div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label>会员费分配原则（示例）</label>
+                        <textarea readonly="readonly" class="touch-feedback">推荐者80%（含公益金） · 县级分站10% · 市级5% · 省级3% · 总站2%。按劳按绩分配，达到财富自由后启动先富带后富的激励调整。</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>平台服务费与生产者收益（示例）</label>
+                        <textarea readonly="readonly" class="touch-feedback">生产者净利润85%（含税）归己所有；消费者返利10%；平台服务费5%（技术维护2%+分站分润2%+扶助基金1%）。</textarea>
+                    </div>
+                </div>
+                <div class="grid-2" style="margin-top: 12px;">
+                    <div class="form-group">
+                        <label>招商加盟条件（示例）</label>
+                        <textarea readonly="readonly" class="touch-feedback">主体合规、可溯源、接受随机抽检与曝光机制；遵守《运营手册》与《承诺书》；支持电子签名与AI预警纠偏。</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>权利与义务（示例）</label>
+                        <textarea readonly="readonly" class="touch-feedback">享平台流量与分润；按时履约与数据上链；发生质量问题须配合召回与整改；允许平台公开必要信息以保障消费者知情权。</textarea>
+                    </div>
+                </div>
+            </section>
+            <!-- 线上学习与AI预警 -->
+            <section class="card fade-in" id="train">
+                <h2 class="section-title">线上学习培训与AI智能预警</h2>
+                <div class="underline"></div>
+                <div class="grid-2">
+                    <div class="card touch-feedback">
+                        <h3>标准化培训课件</h3>
+                        <p style="color: var(--muted); margin: 6px 0; font-size: 12px;">食品安全、溯源上传、现场质控、直播规范</p>
+                        <button class="btn primary touch-feedback" onclick="openTrain('课件')"><i class="fas fa-chalkboard-teacher"></i> 进入学习</button>
+                    </div>
+                    <div class="card touch-feedback">
+                        <h3>AI智能体预警中心</h3>
+                        <p style="color: var(--muted); margin: 6px 0; font-size: 12px;">按规则监测缺失、异常、延迟与不一致项</p>
+                        <button class="btn gold touch-feedback" id="runAI"><i class="fas fa-robot"></i> 一键巡检</button>
+                    </div>
+                </div>
+                <div id="aiAlerts" class="grid-3" style="margin-top: 12px;">
+                    <!-- AI预警将通过JavaScript动态生成 -->
+                </div>
+            </section>
+            <!-- 属地监管信息 -->
+            <section class="card fade-in" id="reg">
+                <h2 class="section-title">属地监管信息（本地化责任链）</h2>
+                <div class="underline"></div>
+                <div style="overflow-x: auto;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>监管主体</th>
+                                <th>单位/科室</th>
+                                <th>负责人</th>
+                                <th>电话</th>
+                                <th>备注</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>市场监督管理局</td>
+                                <td>食品安全科</td>
+                                <td><input class="input touch-feedback" placeholder="负责人姓名"></td>
+                                <td><input class="input touch-feedback" placeholder="电话"></td>
+                                <td><input class="input touch-feedback" placeholder="属地化更新"></td>
+                            </tr>
+                            <tr>
+                                <td>农业农村局</td>
+                                <td>农产品质量安全科</td>
+                                <td><input class="input touch-feedback" placeholder="负责人姓名"></td>
+                                <td><input class="input touch-feedback" placeholder="电话"></td>
+                                <td><input class="input touch-feedback" placeholder="属地化更新"></td>
+                            </tr>
+                            <tr>
+                                <td>乡村振兴局</td>
+                                <td>产业发展科</td>
+                                <td><input class="input touch-feedback" placeholder="负责人姓名"></td>
+                                <td><input class="input touch-feedback" placeholder="电话"></td>
+                                <td><input class="input touch-feedback" placeholder="属地化更新"></td>
+                            </tr>
+                            <tr>
+                                <td>文化旅游局</td>
+                                <td>市场管理科</td>
+                                <td><input class="input touch-feedback" placeholder="负责人姓名"></td>
+                                <td><input class="input touch-feedback" placeholder="电话"></td>
+                                <td><input class="input touch-feedback" placeholder="属地化更新"></td>
+                            </tr>
+                            <tr>
+                                <td>行政执法稽查队</td>
+                                <td>——</td>
+                                <td><input class="input touch-feedback" placeholder="负责人姓名"></td>
+                                <td><input class="input touch-feedback" placeholder="电话"></td>
+                                <td><input class="input touch-feedback" placeholder="案件协同/应急"></td>
+                            </tr>
+                            <tr>
+                                <td>军鸽云链分站</td>
+                                <td>属地服务中心</td>
+                                <td><input class="input touch-feedback" placeholder="分站负责人姓名"></td>
+                                <td><input class="input touch-feedback" placeholder="电话（属地化）"></td>
+                                <td><input class="input touch-feedback" placeholder="具体服务范围"></td>
+                            </tr>
+                            <tr>
+                                <td>推荐人员</td>
+                                <td>——</td>
+                                <td><input class="input touch-feedback" placeholder="推荐人姓名"></td>
+                                <td><input class="input touch-feedback" placeholder="电话（属地化）"></td>
+                                <td><input class="input touch-feedback" placeholder="推荐关系与说明"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 12px; text-align: center;">
+                    <button class="btn primary touch-feedback" id="saveReg"><i class="fas fa-save"></i> 保存监管信息</button>
+                </div>
+                <p style="margin-top: 8px; color: var(--muted); font-size: 12px;">说明：分站页面展示属地有效电话与科室信息（本页为总站备案与公开展示用）。</p>
+            </section>
+        </div>
+    </main>
+    <!-- Footer -->
+    <!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+
+<footer aria-label="页脚">
+        <div class="container">
+            <div>愿每一份的付出被发现，让每一份的信任有回应</div>
+            <div class="icp" style="margin-top:4px">版权 © 2025 军鸽云链计划 | 琼ICP备2025063762号-2</div>
+        </div>
+    </footer>
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top touch-feedback" id="backToTop" aria-label="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <!-- 通知消息 -->
+    <div class="notification" id="notification"></div>
+    <!-- 溯源卡预览模态框 -->
+    <div class="modal" id="traceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">一物一码 · 溯源卡预览</h3>
+                <button class="close-modal touch-feedback" onclick="closeTraceModal()">×</button>
+            </div>
+            <div id="traceDetail"></div>
+        </div>
+    </div>
+    <script>
+        // 示例产品数据
+        const products = [
+            {
+                id: "JG-2025001", 
+                name: "有机大米（军创优选）", 
+                category: ["organic", "planting"],
+                geo: "海南",
+                price: 128, 
+                unit: "5kg",
+                img: "https://doc.doubao.com/s/_dIPjEqZMO8/",
+                galleryImages: [
+                    "https://doc.doubao.com/s/_dIPjEqZMO8/",
+                    "https://doc.doubao.com/s/AQ04qnsnJAY/"
+                ],
+                badges: ["有机认证", "链上溯源", "退役军人编号"],
+                feature: "高山种植，180天生长期，无农药化肥",
+                delivery: "下单后3-5天，全国冷链配送",
+                stock: "充足",
+                reasons: [
+                    "军创认证有机种植，品质保障",
+                    "链上溯源，全程透明可查",
+                    "退役军人创业项目，支持就业",
+                    "高山种植，自然成熟，口感香甜"
+                ],
+                subject: {
+                    entName: "海南XX生态农庄", 
+                    entCode: "9146XXXXXXXXXXXXX",
+                    ownerName: "王某", 
+                    ownerIdMasked: "4201**********1234", 
+                    ownerPhone: "王某 138****8888",
+                    license: "已上传并审核"
+                },
+                traceScore: 0.95
+            },
+            {
+                id: "JG-2025002", 
+                name: "地理标志水果", 
+                category: ["geographical", "planting"],
+                geo: "广西",
+                price: 68, 
+                unit: "箱（5斤）",
+                img: "https://doc.doubao.com/s/AQ04qnsnJAY/",
+                galleryImages: [
+                    "https://doc.doubao.com/s/AQ04qnsnJAY/",
+                    "https://doc.doubao.com/s/_dIPjEqZMO8/"
+                ],
+                badges: ["地理标志", "链上溯源", "退役军人编号"],
+                feature: "国家地理标志产品，自然成熟",
+                delivery: "下单后2-4天，产地直发",
+                stock: "充足",
+                reasons: [
+                    "国家地理标志认证，品质优良",
+                    "退役军人创业示范基地",
+                    "产地直供，新鲜直达",
+                    "季节性限量供应"
+                ],
+                subject: {
+                    entName: "广西XX果业合作社", 
+                    entCode: "9145XXXXXXXXXXXXX",
+                    ownerName: "李某", 
+                    ownerIdMasked: "4501**********5678", 
+                    ownerPhone: "李某 139****9999",
+                    license: "已上传并审核"
+                },
+                traceScore: 0.92
+            },
+            {
+                id: "JG-2025003", 
+                name: "生态土鸡蛋", 
+                category: ["ecological", "breeding"],
+                geo: "云南",
+                price: 36, 
+                unit: "30枚",
+                img: "https://doc.doubao.com/s/_dIPjEqZMO8/",
+                galleryImages: [
+                    "https://doc.doubao.com/s/_dIPjEqZMO8/",
+                    "https://doc.doubao.com/s/AQ04qnsnJAY/"
+                ],
+                badges: ["生态养殖", "链上溯源", "退役军人编号"],
+                feature: "山林散养，无激素添加",
+                delivery: "下单后1-3天，冷链配送",
+                stock: "充足",
+                reasons: [
+                    "山林生态散养，自然觅食",
+                    "无激素无抗生素添加",
+                    "每日新鲜捡拾，品质保障",
+                    "退役军人农场，全程可追溯"
+                ],
+                subject: {
+                    entName: "云南XX生态农场", 
+                    entCode: "9153XXXXXXXXXXXXX",
+                    ownerName: "张某", 
+                    ownerIdMasked: "5301**********3456", 
+                    ownerPhone: "张某 137****7777",
+                    license: "已上传并审核"
+                },
+                traceScore: 0.89
+            },
+            {
+                id: "JG-2025004", 
+                name: "非遗手工辣酱", 
+                category: ["intangible"],
+                geo: "四川",
+                price: 48, 
+                unit: "瓶（350g）",
+                img: "https://doc.doubao.com/s/AQ04qnsnJAY/",
+                galleryImages: [
+                    "https://doc.doubao.com/s/AQ04qnsnJAY/",
+                    "https://doc.doubao.com/s/_dIPjEqZMO8/"
+                ],
+                badges: ["非遗传承", "链上溯源", "退役军人编号"],
+                feature: "百年非遗工艺，纯手工制作",
+                delivery: "下单后2-5天",
+                stock: "充足",
+                reasons: [
+                    "非物质文化遗产传承工艺",
+                    "纯手工制作，无添加",
+                    "退役军人创业，传承技艺",
+                    "传统工艺与现代监管结合"
+                ],
+                subject: {
+                    entName: "四川XX食品有限公司", 
+                    entCode: "9151XXXXXXXXXXXXX",
+                    ownerName: "刘某", 
+                    ownerIdMasked: "5101**********7890", 
+                    ownerPhone: "刘某 136****6666",
+                    license: "已上传并审核"
+                },
+                traceScore: 0.94
+            },
+            {
+                id: "JG-2025005", 
+                name: "季节鲜橙", 
+                category: ["seasonal", "planting"],
+                geo: "江西",
+                price: 58, 
+                unit: "5kg",
+                img: "https://doc.doubao.com/s/_dIPjEqZMO8/",
+                galleryImages: [
+                    "https://doc.doubao.com/s/_dIPjEqZMO8/",
+                    "https://doc.doubao.com/s/AQ04qnsnJAY/"
+                ],
+                badges: ["季节限定", "链上溯源", "退役军人编号"],
+                feature: "当季新鲜采摘，自然成熟",
+                delivery: "下单后2-4天，产地直发",
+                stock: "充足",
+                reasons: [
+                    "当季新鲜采摘，口感最佳",
+                    "退役军人果园，品质保障",
+                    "自然成熟，不催熟不打蜡",
+                    "季节限定，错过等一年"
+                ],
+                subject: {
+                    entName: "江西XX果业", 
+                    entCode: "9136XXXXXXXXXXXXX",
+                    ownerName: "陈某", 
+                    ownerIdMasked: "3601**********2345", 
+                    ownerPhone: "陈某 135****5555",
+                    license: "已上传并审核"
+                },
+                traceScore: 0.91
+            },
+            {
+                id: "JG-2025006", 
+                name: "生态农庄礼盒", 
+                category: ["gift"],
+                geo: "浙江",
+                price: 298, 
+                unit: "盒",
+                img: "https://doc.doubao.com/s/AQ04qnsnJAY/",
+                galleryImages: [
+                    "https://doc.doubao.com/s/AQ04qnsnJAY/",
+                    "https://doc.doubao.com/s/_dIPjEqZMO8/"
+                ],
+                badges: ["精选礼盒", "链上溯源", "退役军人编号"],
+                feature: "精选多种生态产品组合",
+                delivery: "下单后3-7天，定制包装",
+                stock: "充足",
+                reasons: [
+                    "多种生态产品组合，一盒尽享",
+                    "退役军人农场精选产品",
+                    "定制包装，送礼体面",
+                    "链上溯源，品质保证"
+                ],
+                subject: {
+                    entName: "浙江XX农庄", 
+                    entCode: "9133XXXXXXXXXXXXX",
+                    ownerName: "赵某", 
+                    ownerIdMasked: "3301**********6789", 
+                    ownerPhone: "赵某 134****4444",
+                    license: "已上传并审核"
+                },
+                traceScore: 0.96
+            },
+            {
+                id: "JG-2025007", 
+                name: "绿色无公害蔬菜", 
+                category: ["green", "planting"],
+                geo: "山东",
+                price: 28, 
+                unit: "2kg",
+                img: "https://doc.doubao.com/s/_dIPjEqZMO8/",
+                galleryImages: [
+                    "https://doc.doubao.com/s/_dIPjEqZMO8/",
+                    "https://doc.doubao.com/s/AQ04qnsnJAY/"
+                ],
+                badges: ["绿色认证", "链上溯源", "退役军人编号"],
+                feature: "绿色认证，无农药残留",
+                delivery: "下单后1-3天，冷链保鲜",
+                stock: "充足",
+                reasons: [
+                    "国家绿色食品认证",
+                    "无农药残留，食用安全",
+                    "退役军人农业基地",
+                    "当天采摘，新鲜直达"
+                ],
+                subject: {
+                    entName: "山东XX蔬菜基地", 
+                    entCode: "9137XXXXXXXXXXXXX",
+                    ownerName: "孙某", 
+                    ownerIdMasked: "3701**********1234", 
+                    ownerPhone: "孙某 133****3333",
+                    license: "已上传并审核"
+                },
+                traceScore: 0.93
+            },
+            {
+                id: "JG-2025008", 
+                name: "军旅行装包", 
+                category: ["military"],
+                geo: "广东",
+                price: 399, 
+                unit: "个",
+                img: "https://doc.doubao.com/s/AQ04qnsnJAY/",
+                galleryImages: [
+                    "https://doc.doubao.com/s/AQ04qnsnJAY/",
+                    "https://doc.doubao.com/s/_dIPjEqZMO8/"
+                ],
+                badges: ["军旅设计", "耐用材质", "退役军人编号"],
+                feature: "军旅风格设计，高强度耐磨材料",
+                delivery: "下单后2-5天",
+                stock: "充足",
+                reasons: [
+                    "退役军人设计团队",
+                    "军旅风格，实用耐用",
+                    "高强度耐磨材料",
+                    "多功能分区设计"
+                ],
+                subject: {
+                    entName: "广东XX户外用品", 
+                    entCode: "9144XXXXXXXXXXXXX",
+                    ownerName: "周某", 
+                    ownerIdMasked: "4401**********5678", 
+                    ownerPhone: "周某 132****2222",
+                    license: "已上传并审核"
+                },
+                traceScore: 0.88
+            }
+        ];
+        // 地方分站数据
+        const stations = [
+            {
+                name: "北京分站",
+                region: "beijing",
+                address: "北京市朝阳区XXX路XX号",
+                contact: "张站长 138****1234",
+                products: ["有机蔬菜", "生态禽蛋", "非遗食品"]
+            },
+            {
+                name: "上海分站",
+                region: "shanghai",
+                address: "上海市浦东新区XXX路XX号",
+                contact: "李站长 139****5678",
+                products: ["地理标志产品", "绿色食品", "季节农产品"]
+            },
+            {
+                name: "广东分站",
+                region: "guangdong",
+                address: "广州市天河区XXX路XX号",
+                contact: "王站长 137****9012",
+                products: ["生态食品", "军旅行装", "农庄礼盒"]
+            }
+        ];
+        // DOM引用
+        const kpiProducts = document.getElementById('kpiProducts');
+        const kpiCompliance = document.getElementById('kpiCompliance');
+        const kpiTrace = document.getElementById('kpiTrace');
+        const kpiAlerts = document.getElementById('kpiAlerts');
+        const searchResults = document.getElementById('search-results');
+        const searchBtn = document.getElementById('search-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const prodGrid = document.getElementById('prodGrid');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const orderForm = document.getElementById('orderForm');
+        const submitOrderBtn = document.getElementById('submitOrderBtn');
+        const submitOrderText = document.getElementById('submitOrderText');
+        const submitOrderLoader = document.getElementById('submitOrderLoader');
+        // 产品要素展示窗元素
+        const piImage = document.getElementById('piImage');
+        const piName = document.getElementById('piName');
+        const piSub = document.getElementById('piSub');
+        const piPrice = document.getElementById('piPrice');
+        const piSpec = document.getElementById('piSpec');
+        const piOrigin = document.getElementById('piOrigin');
+        const piFeature = document.getElementById('piFeature');
+        const piDelivery = document.getElementById('piDelivery');
+        const piStock = document.getElementById('piStock');
+        const piReasons = document.getElementById('piReasons');
+        const piAddToForm = document.getElementById('piAddToForm');
+        // 画廊图片元素
+        const galleryImage1 = document.getElementById('galleryImage1');
+        const galleryImage2 = document.getElementById('galleryImage2');
+        const saveSubject = document.getElementById('saveSubject');
+        const saveReg = document.getElementById('saveReg');
+        const saveEnv = document.getElementById('saveEnv');
+        const submitTrace = document.getElementById('submitTrace');
+        const previewTrace = document.getElementById('previewTrace');
+        const traceModal = document.getElementById('traceModal');
+        const traceDetail = document.getElementById('traceDetail');
+        const runAI = document.getElementById('runAI');
+        const aiAlerts = document.getElementById('aiAlerts');
+        // 移动端元素
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        const refreshIndicator = document.getElementById('refreshIndicator');
+        // 当前选中的产品分类
+        let currentCategory = 'all';
+        // 当前选中的产品
+        let currentSelectedProduct = null;
+        // 下拉刷新变量
+        let touchStartY = 0;
+        let touchEndY = 0;
+        const threshold = 50;
+        let isRefreshing = false;
+        // 初始化AI地域智搜系统
+        function initAISearch() {
+            // 默认显示所有分站
+            renderSearchResults(stations);
+            // 搜索按钮事件
+            searchBtn.addEventListener('click', performSearch);
+            // 重置按钮事件
+            resetBtn.addEventListener('click', resetSearch);
+        }
+        // 执行搜索
+        function performSearch() {
+            const region = document.getElementById('region-select').value;
+            const enterpriseType = document.getElementById('enterprise-type').value;
+            const keyword = document.getElementById('product-search').value.toLowerCase();
+            // 过滤分站数据
+            let filteredStations = stations.filter(station => {
+                // 地区筛选
+                if (region && station.region !== region) return false;
+                // 关键词筛选
+                if (keyword) {
+                    const nameMatch = station.name.toLowerCase().includes(keyword);
+                    const addressMatch = station.address.toLowerCase().includes(keyword);
+                    const productsMatch = station.products.some(product => 
+                        product.toLowerCase().includes(keyword)
+                    );
+                    if (!nameMatch && !addressMatch && !productsMatch) return false;
+                }
+                return true;
+            });
+            renderSearchResults(filteredStations);
+            showNotification(`找到 ${filteredStations.length} 个相关分站`, 'success');
+        }
+        // 重置搜索
+        function resetSearch() {
+            document.getElementById('region-select').value = '';
+            document.getElementById('enterprise-type').value = '';
+            document.getElementById('product-search').value = '';
+            renderSearchResults(stations);
+            showNotification('搜索条件已重置', 'success');
+        }
+        // 渲染搜索结果
+        function renderSearchResults(results) {
+            if (results.length === 0) {
+                searchResults.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 20px;">
+                        <i class="fas fa-search" style="font-size: 36px; color: var(--muted); margin-bottom: 12px;"></i>
+                        <h3 style="color: var(--muted); font-size: 16px;">未找到匹配的分站信息</h3>
+                        <p style="color: var(--muted); font-size: 13px;">请尝试调整搜索条件</p>
+                    </div>
+                `;
+                return;
+            }
+            searchResults.innerHTML = results.map(station => `
+                <div class="search-result-item touch-feedback">
+                    <h4>${station.name}</h4>
+                    <p><strong>地址：</strong>${station.address}</p>
+                    <p><strong>联系人：</strong>${station.contact}</p>
+                    <p><strong>主营产品：</strong>${station.products.join('、')}</p>
+                    <div style="margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+                        <button class="btn primary touch-feedback" style="padding: 6px 10px; font-size: 11px;">查看详情</button>
+                        <button class="btn gold touch-feedback" style="padding: 6px 10px; font-size: 11px;">联系分站</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        // 渲染产品卡
+        function renderProducts() {
+            // 根据当前分类筛选产品
+            const filteredProducts = currentCategory === 'all' 
+                ? products 
+                : products.filter(p => p.category.includes(currentCategory));
+            prodGrid.innerHTML = filteredProducts.map(p => `
+                <div class="prod touch-feedback">
+                    <img src="${p.img}" alt="${p.name}" loading="lazy" />
+                    <h4>${p.name}</h4>
+                    <p>产地：${p.geo} · 溯源编号：${p.id}</p>
+                    <p style="margin-top:6px"><strong>价格：</strong>¥${p.price} / ${p.unit}</p>
+                    <div class="prod-badges">
+                        ${p.badges.map(b => `<span class="prod-badge">${b}</span>`).join('')}
+                    </div>
+                    <div class="form-group" style="margin-top:8px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+                        <button class="btn primary touch-feedback" onclick="openTrace('${p.id}')">查看溯源</button>
+                        <button class="btn green touch-feedback" onclick="openSubject('${p.id}')">主体资质</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        // 初始化分类筛选
+        function initCategoryFilter() {
+            const buttons = categoryFilter.querySelectorAll('.category-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // 移除所有active类
+                    buttons.forEach(b => b.classList.remove('active'));
+                    // 添加active类到当前按钮
+                    btn.classList.add('active');
+                    // 更新当前分类
+                    currentCategory = btn.dataset.category;
+                    // 重新渲染产品
+                    renderProducts();
+                });
+            });
+        }
+        // 更新产品要素展示窗
+        function updateProductInsight(product) {
+            if (!product) {
+                piImage.src = 'https://doc.doubao.com/s/_dIPjEqZMO8/';
+                piImage.alt = '有机农产品主图';
+                piName.textContent = '请选择预定产品';
+                piSub.textContent = '选择产品后展示详细信息';
+                piPrice.textContent = '—';
+                piSpec.textContent = '—';
+                piOrigin.textContent = '—';
+                piFeature.textContent = '—';
+                piDelivery.textContent = '—';
+                piStock.textContent = '—';
+                piReasons.innerHTML = '<li>—</li>';
+                // 设置默认画廊图片
+                galleryImage1.src = 'https://doc.doubao.com/s/_dIPjEqZMO8/';
+                galleryImage1.alt = '有机农产品展示图1';
+                galleryImage2.src = 'https://doc.doubao.com/s/AQ04qnsnJAY/';
+                galleryImage2.alt = '新鲜有机蔬菜展示图2';
+                return;
+            }
+            piImage.src = product.img;
+            piImage.alt = product.name;
+            piName.textContent = product.name;
+            piSub.textContent = `溯源编号：${product.id}`;
+            piPrice.textContent = `¥${product.price}`;
+            piSpec.textContent = product.unit;
+            piOrigin.textContent = product.geo;
+            piFeature.textContent = product.feature;
+            piDelivery.textContent = product.delivery;
+            piStock.textContent = product.stock;
+            piReasons.innerHTML = product.reasons.map(reason => 
+                `<li>${reason}</li>`
+            ).join('');
+            // 更新画廊图片
+            if (product.galleryImages && product.galleryImages.length >= 2) {
+                galleryImage1.src = product.galleryImages[0];
+                galleryImage1.alt = `${product.name} - 展示图1`;
+                galleryImage2.src = product.galleryImages[1];
+                galleryImage2.alt = `${product.name} - 展示图2`;
+            }
+            currentSelectedProduct = product;
+        }
+        // 预定订单表单提交
+        if (orderForm) {
+            orderForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // 显示加载状态
+                submitOrderText.style.display = 'none';
+                submitOrderLoader.style.display = 'inline-block';
+                submitOrderBtn.disabled = true;
+                // 模拟API调用
+                setTimeout(() => {
+                    // 隐藏加载状态
+                    submitOrderText.style.display = 'inline-block';
+                    submitOrderLoader.style.display = 'none';
+                    submitOrderBtn.disabled = false;
+                    // 显示成功消息
+                    showNotification('预定订单提交成功！我们将尽快与您联系确认。', 'success');
+                    // 重置表单
+                    orderForm.reset();
+                    updateProductInsight(null);
+                }, 1500);
+            });
+        }
+        // 产品选择联动
+        document.getElementById('orderProduct').addEventListener('change', function(e) {
+            const productId = e.target.value;
+            if (productId) {
+                const product = products.find(p => p.id === productId);
+                if (product) {
+                    updateProductInsight(product);
+                }
+            } else {
+                updateProductInsight(null);
+            }
+        });
+        // 将产品写入订单按钮
+        piAddToForm.addEventListener('click', function() {
+            if (currentSelectedProduct) {
+                document.getElementById('orderProduct').value = currentSelectedProduct.id;
+                document.getElementById('orderQuantity').focus();
+                showNotification(`已选择产品：${currentSelectedProduct.name}`, 'success');
+            } else {
+                showNotification('请先选择产品', 'error');
+            }
+        });
+        // 画廊图片点击事件
+        galleryImage1.addEventListener('click', function() {
+            if (currentSelectedProduct) {
+                piImage.src = this.src;
+                showNotification('已切换为主展示图片', 'success');
+            }
+        });
+        galleryImage2.addEventListener('click', function() {
+            if (currentSelectedProduct) {
+                piImage.src = this.src;
+                showNotification('已切换为主展示图片', 'success');
+            }
+        });
+        // 打开溯源详情
+        function openTrace(id) {
+            const p = products.find(x => x.id === id);
+            if (!p) return;
+            traceDetail.innerHTML = `
+                <div class="card">
+                    <h3>${p.name}</h3>
+                    <p><strong>溯源编号：</strong>${p.id}</p>
+                    <p><strong>产地：</strong>${p.geo}</p>
+                    <p><strong>生产主体：</strong>${p.subject.entName}</p>
+                    <p><strong>负责人：</strong>${p.subject.ownerName}</p>
+                    <p><strong>联系电话：</strong>${p.subject.ownerPhone}</p>
+                    <div style="margin-top: 8px;">
+                        <h4>溯源信息</h4>
+                        <p><strong>溯源完整度：</strong>${Math.round((p.traceScore || 0) * 100)}%</p>
+                    </div>
+                </div>
+            `;
+            traceModal.style.display = 'flex';
+        }
+        // 打开主体资质详情
+        function openSubject(id) {
+            const p = products.find(x => x.id === id);
+            if (!p) return;
+            traceDetail.innerHTML = `
+                <div class="card">
+                    <h3>生产主体与资质</h3>
+                    <p><strong>主体名称：</strong>${p.subject.entName}</p>
+                    <p><strong>统一社会信用代码：</strong>${p.subject.entCode}</p>
+                    <p><strong>负责人：</strong>${p.subject.ownerName}</p>
+                    <p><strong>身份证（脱敏）：</strong>${p.subject.ownerIdMasked}</p>
+                    <p><strong>联系电话：</strong>${p.subject.ownerPhone}</p>
+                    <p><strong>营业执照：</strong>${p.subject.license}</p>
+                </div>
+            `;
+            traceModal.style.display = 'flex';
+        }
+        // 关闭溯源模态框
+        function closeTraceModal() {
+            traceModal.style.display = 'none';
+        }
+        // 保存示例（前端提示，实际应走后端API）
+        saveSubject.addEventListener('click', () => showNotification('主体信息已提交审核（示例）。实际将走实名校验与合规审核流。', 'success'));
+        saveReg.addEventListener('click', () => showNotification('属地监管信息已保存（示例）。实际将进入分站本地化更新与校验。', 'success'));
+        saveEnv.addEventListener('click', () => showNotification('生产环境信息已保存（示例）。图片/视频将进入合规与隐私校验。', 'success'));
+        // 溯源上传与签名（示例）
+        previewTrace.addEventListener('click', () => {
+            openTrace(products[0].id);
+        });
+        submitTrace.addEventListener('click', () => showNotification('溯源资料已提交，审核通过后自动上链并生成二维码（示例）。', 'success'));
+        // 文档与培训（示例）
+        function openDoc(name) { 
+            showNotification(`打开文档：${name}（示例）。实际应跳转到PDF/页面并支持下载与版本留存。`, 'success');
+        }
+        function openTrain(name) { 
+            showNotification(`进入培训：${name}（示例）。实际应进入学习中心并记录学时与考试。`, 'success');
+        }
+        // AI巡检（简单规则示例）
+        runAI.addEventListener('click', () => {
+            aiAlerts.innerHTML = '';
+            let alerts = [];
+            products.forEach(p => {
+                if (!p.subject.entCode) alerts.push({type: '资质缺失', msg: `${p.id} 缺少统一社会信用代码`});
+                if (p.traceScore < 0.9) alerts.push({type: '溯源不完整', msg: `${p.id} 溯源记录完整度低于90%`});
+                if (!p.img) alerts.push({type: '图片缺失', msg: `${p.id} 缺少产品图片`});
+            });
+            if (alerts.length === 0) { 
+                aiAlerts.innerHTML = `<div class="card"><h3>无预警</h3><p style="color: var(--muted); font-size: 13px;">所有项均满足当前规则。</p></div>`; 
+                kpiAlerts.textContent = 0; 
+                return; 
+            }
+            kpiAlerts.textContent = alerts.length;
+            alerts.forEach(a => {
+                const el = document.createElement('div');
+                el.className = 'card touch-feedback';
+                el.innerHTML = `<h3>AI预警 · ${a.type}</h3><p style="color: var(--muted); font-size: 13px;">${a.msg}</p>`;
+                aiAlerts.appendChild(el);
+            });
+            showNotification(`AI巡检完成，发现 ${alerts.length} 个预警项`, 'success');
+        });
+        // 显示通知
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = 'notification';
+            if (type === 'error') {
+                notification.classList.add('error');
+            }
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2500);
+        }
+        // 返回顶部功能
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 200) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        // 点击模态框外部关闭
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('traceModal');
+            if (e.target === modal) {
+                closeTraceModal();
+            }
+        });
+        // 导航链接点击事件
+        document.querySelectorAll('nav a, .mobile-nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // 移除所有active类
+                document.querySelectorAll('nav a, .mobile-nav a').forEach(item => {
+                    item.classList.remove('active');
+                });
+                // 添加active类到当前链接
+                e.target.classList.add('active');
+            });
+        });
+        // 移动端菜单控制
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('show');
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+        });
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+        // 点击导航链接关闭菜单
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+        });
+        // 点击菜单外部关闭
+        document.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+        // 下拉刷新功能
+        document.addEventListener('touchstart', (e) => {
+            if (window.scrollY === 0) {
+                touchStartY = e.changedTouches[0].screenY;
+            }
+        }, { passive: true });
+        document.addEventListener('touchmove', (e) => {
+            if (window.scrollY === 0 && !isRefreshing) {
+                const currentY = e.changedTouches[0].screenY;
+                const diff = currentY - touchStartY;
+                if (diff > 0) {
+                    e.preventDefault();
+                    refreshIndicator.style.transform = `translateY(${Math.min(diff / 3, 50)}px)`;
+                }
+            }
+        }, { passive: false });
+        document.addEventListener('touchend', (e) => {
+            if (window.scrollY === 0 && !isRefreshing) {
+                touchEndY = e.changedTouches[0].screenY;
+                const diff = touchEndY - touchStartY;
+                if (diff > threshold) {
+                    startRefresh();
+                } else {
+                    refreshIndicator.style.transform = 'translateY(-100%)';
+                }
+            }
+        }, { passive: true });
+        function startRefresh() {
+            isRefreshing = true;
+            refreshIndicator.classList.add('show');
+            // 模拟刷新过程
+            setTimeout(() => {
+                location.reload();
+            }, 1200);
+        }
+        // 图片懒加载优化
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        // 移动端表单优化
+        const formInputs = document.querySelectorAll('input, select, textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                // 防止键盘遮挡
+                setTimeout(() => {
+                    input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 200);
+            });
+        });
+        // 页面加载动画
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.4s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 80);
+            // 初始化AI地域智搜系统
+            initAISearch();
+            // 初始化产品列表
+            renderProducts();
+            initCategoryFilter();
+            // 初始化产品要素展示窗
+            updateProductInsight(null);
+            // 显示欢迎消息
+            setTimeout(() => {
+                showNotification('欢迎使用军创商城！', 'success');
+            }, 800);
+        });
+    </script>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

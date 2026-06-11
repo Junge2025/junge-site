@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>军创优品 · 通用详情模板</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军创优品 · 通用详情模板">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/product-template.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/product-template.html">
+</head>
+<body class="bg-slate-50 text-slate-900">
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">产品模板</span>
+</nav>
+
+  <div class="min-h-screen flex flex-col">
+
+    <!-- 顶部导航 -->
+    <header class="border-b border-slate-200 bg-white/80 backdrop-blur">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex h-8 w-8 rounded-full bg-slate-900 text-white items-center justify-center text-xs font-semibold">军</span>
+          <span class="font-semibold tracking-wide text-sm">军创优品 · 旗舰系列</span>
+        </div>
+        <div class="flex items-center gap-3 text-xs text-slate-500">
+          <span>统一风格 · 可溯源 · 可定价</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+
+      <!-- Hero -->
+      <section class="bg-white">
+        <div class="max-w-6xl mx-auto px-4 py-10 lg:py-16 grid lg:grid-cols-2 gap-10 items-center">
+          <div class="space-y-6">
+            <div class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-500">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+              <span id="product-badges" class="truncate">旗舰款 · 军创优品</span>
+            </div>
+            <h1 id="product-name" class="text-3xl lg:text-4xl font-semibold tracking-tight">军创优品 · 旗舰装</h1>
+            <p id="product-tagline" class="text-slate-600 text-sm leading-relaxed">为一线战友打造的旗舰级补给方案。</p>
+            <p id="product-summary" class="text-slate-500 text-sm leading-relaxed">支持高强度任务场景下的持续补给与快速恢复，兼顾轻量化与严苛品控。</p>
+
+            <div class="flex flex-wrap gap-3 pt-2">
+              <button id="btn-pricing" class="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white text-xs px-4 py-2 shadow-sm hover:bg-slate-800 transition">
+                查看定价方案 <span class="text-[10px] opacity-80">Pricing</span>
+              </button>
+              <button id="btn-trace" class="inline-flex items-center gap-2 rounded-full border border-slate-300 text-slate-700 text-xs px-4 py-2 hover:border-slate-400 hover:bg-slate-50 transition">
+                查看溯源信息 <span class="text-[10px] opacity-70">Traceability</span>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 pt-4 text-xs text-slate-500">
+              <div><div class="text-slate-400">净含量 / 套装</div><div id="spec-weight" class="mt-1 font-medium text-slate-700">-</div></div>
+              <div><div class="text-slate-400">保质期</div><div id="spec-shelf" class="mt-1 font-medium text-slate-700">-</div></div>
+              <div><div class="text-slate-400">产地</div><div id="spec-origin" class="mt-1 font-medium text-slate-700">-</div></div>
+              <div><div class="text-slate-400">SKU</div><div id="spec-sku" class="mt-1 font-mono text-slate-700 text-[11px]">-</div></div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl bg-slate-100 overflow-hidden shadow-[0_18px_45px_rgba(15,23,42,0.18)]">
+              <img id="hero-image" src="" alt="产品主图" class="w-full h-full object-cover" />
+            </div>
+            <div class="mt-4 flex gap-3">
+              <div class="flex-1 h-20 rounded-2xl bg-slate-100 overflow-hidden"><img id="gallery-1" src="" alt="" class="w-full h-full object-cover" /></div>
+              <div class="flex-1 h-20 rounded-2xl bg-slate-100 overflow-hidden"><img id="gallery-2" src="" alt="" class="w-full h-full object-cover" /></div>
+              <div class="flex-1 h-20 rounded-2xl bg-slate-100 overflow-hidden"><img id="gallery-3" src="" alt="" class="w-full h-full object-cover" /></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 特性区 -->
+      <section class="bg-slate-50 py-10 lg:py-14">
+        <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-3 gap-6 lg:gap-8">
+          <div class="lg:col-span-1">
+            <h2 class="text-sm font-semibold tracking-wide text-slate-500 uppercase">产品特性</h2>
+            <p class="mt-3 text-sm text-slate-600">围绕核心场景设计，兼顾实战与体验。</p>
+          </div>
+          <div id="feature-list" class="lg:col-span-2 grid sm:grid-cols-2 gap-4">
+            <!-- JS 注入 -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+
+<footer class="border-t border-slate-200 bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-400">
+        <span>军创优品 · 统一详情模板</span>
+        <span>支持溯源 / 定价模态 · JSON 注入</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== 溯源模态 ===== -->
+  <div id="trace-modal" class="js-modal-backdrop fixed inset-0 z-40 hidden opacity-0 pointer-events-none flex items-center justify-center bg-black/40" data-modal-id="trace-modal">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
+      <button class="absolute right-4 top-4 text-slate-400 hover:text-slate-600 text-xs" data-modal-close="trace-modal">关闭</button>
+      <h3 class="text-sm font-semibold text-slate-800 mb-4">溯源信息</h3>
+      <div class="space-y-3 text-xs text-slate-600">
+        <div><div class="text-slate-400">SKU</div><div id="trace-sku" class="mt-1 font-medium text-slate-800">-</div></div>
+        <div><div class="text-slate-400">生产批次</div><div id="trace-batch" class="mt-1 font-medium text-slate-800">-</div></div>
+        <div><div class="text-slate-400">生产工厂</div><div id="trace-factory" class="mt-1 font-medium text-slate-800">-</div></div>
+        <div><div class="text-slate-400">生产日期</div><div id="trace-date" class="mt-1 font-medium text-slate-800">-</div></div>
+        <div><div class="text-slate-400">质检报告</div><a id="trace-qa-link" href="#" target="_blank" class="mt-1 inline-flex items-center gap-1 text-emerald-600 hover:text-emerald-700">查看 PDF 报告</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 定价模态 ===== -->
+  <div id="pricing-modal" class="js-modal-backdrop fixed inset-0 z-40 hidden opacity-0 pointer-events-none flex items-center justify-center bg-black/40" data-modal-id="pricing-modal">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
+      <button class="absolute right-4 top-4 text-slate-400 hover:text-slate-600 text-xs" data-modal-close="pricing-modal">关闭</button>
+      <h3 class="text-sm font-semibold text-slate-800 mb-4">定价方案</h3>
+      <div class="space-y-4 text-xs text-slate-600">
+        <div class="flex items-center justify-between"><span class="text-slate-400">零售价格</span><span id="price-retail" class="font-semibold text-slate-900">-</span></div>
+        <div class="flex items-center justify-between"><span class="text-slate-400">会员价格</span><span id="price-member" class="font-semibold text-emerald-600">-</span></div>
+        <div class="border-t border-dashed border-slate-200 pt-3 mt-1">
+          <div class="flex items-center justify-between"><span class="text-slate-400">团购起订量</span><span id="price-bulk-qty" class="font-medium text-slate-800">-</span></div>
+          <div class="flex items-center justify-between mt-2"><span class="text-slate-400">团购单价</span><span id="price-bulk-price" class="font-semibold text-slate-900">-</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== JS ===== -->
+  <script src="./modal.js"></script>
+  <script>
+    function getQueryParam(key){var p=new URLSearchParams(window.location.search);return p.get(key)}
+
+    async function loadProductData(){
+      var pid=getQueryParam('product')||'A';
+      var map={A:'./product-a.json',C:'./product-c.json',D:'./product-d.json',E:'./product-e.json'};
+      var url=map[pid]||map.A;
+      var res=await fetch(url);var data=await res.json();
+
+      document.title='军创优品 · '+data.name;
+      document.getElementById('product-name').textContent=data.name;
+      document.getElementById('product-tagline').textContent=data.tagline;
+      document.getElementById('product-summary').textContent=data.summary;
+      if(data.badges&&data.badges.length)document.getElementById('product-badges').textContent=data.badges.join(' · ');
+      document.getElementById('hero-image').src=data.heroImage;
+      document.getElementById('gallery-1').src=(data.gallery&&data.gallery[0])||data.heroImage;
+      document.getElementById('gallery-2').src=(data.gallery&&data.gallery[1])||data.heroImage;
+      document.getElementById('gallery-3').src=(data.gallery&&data.gallery[2])||data.heroImage;
+      document.getElementById('spec-weight').textContent=(data.specs&&data.specs.weight)||'-';
+      document.getElementById('spec-shelf').textContent=(data.specs&&data.specs.shelfLife)||'-';
+      document.getElementById('spec-origin').textContent=(data.specs&&data.specs.origin)||'-';
+      document.getElementById('spec-sku').textContent=(data.specs&&data.specs.sku)||'-';
+
+      var fl=document.getElementById('feature-list');fl.innerHTML='';
+      if(data.features){for(var i=0;i<data.features.length;i++){var f=data.features[i];var c=document.createElement('div');
+        c.className='rounded-2xl bg-white shadow-[0_14px_35px_rgba(15,23,42,0.08)] p-4 flex flex-col gap-2 hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(15,23,42,0.16)] transition';
+        c.innerHTML='<div class="text-[11px] text-slate-400 mb-1">特性 0'+(i+1)+'</div><div class="text-sm font-semibold text-slate-800 mb-1">'+f.title+'</div><div class="text-xs text-slate-600 leading-relaxed">'+f.description+'</div>';
+        fl.appendChild(c);}}
+
+      document.getElementById('btn-trace').addEventListener('click',function(){window.ProductModals.openTraceModal(data.traceability)});
+      document.getElementById('btn-pricing').addEventListener('click',function(){window.ProductModals.openPricingModal(data.pricing)});
+    }
+    loadProductData();
+  </script>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

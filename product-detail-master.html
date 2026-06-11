@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<title>【产品名】 · 军鸽云链 | 全链透明溯源</title>
+<meta name="description" content="退役军人信用背书，全过程透明溯源，一物一码区块链。">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ===== ZONE VARIABLES — 8区配色 ===== */
+:root{
+  /* 默认：优质农产品帮扶区(绿) */
+  --zone-primary:#2E7D32; --zone-primary-light:#e8f5e9; --zone-accent:#C62E2E;
+  --zone-gold:#D4AF37; --zone-bg:#f9f7f2; --zone-card:#fff;
+  --zone-border:#e8dfc8; --zone-text:#2d2a1f; --zone-muted:#6b6651;
+  --zone-hero-from:#1a3a5f; --zone-hero-to:#2c5282;
+  --radius:12px; --radius-lg:16px;
+  --shadow:0 4px 12px rgba(26,58,95,.08); --shadow-hover:0 8px 20px rgba(26,58,95,.12);
+}
+/* 稀缺资源品区(金) */
+[data-zone="scarce"]{ --zone-primary:#8B6914; --zone-primary-light:#fdf6e3; --zone-accent:#B8860B; --zone-gold:#FFD700; --zone-hero-from:#3e2723; --zone-hero-to:#5d4037; }
+/* 溢价品区(紫金) */
+[data-zone="premium"]{ --zone-primary:#4A148C; --zone-primary-light:#f3e5f5; --zone-accent:#C62828; --zone-gold:#FFC107; --zone-hero-from:#1a237e; --zone-hero-to:#283593; }
+/* 增值品区(蓝橙) */
+[data-zone="valueadd"]{ --zone-primary:#1565C0; --zone-primary-light:#e3f2fd; --zone-accent:#E65100; --zone-gold:#FF8F00; --zone-hero-from:#0d47a1; --zone-hero-to:#1976d2; }
+/* 自报价值品区(青) */
+[data-zone="selfreport"]{ --zone-primary:#00695C; --zone-primary-light:#e0f2f1; --zone-accent:#BF360C; --zone-gold:#F9A825; --zone-hero-from:#004d40; --zone-hero-to:#00897b; }
+/* 保值品区(深蓝) */
+[data-zone="preserve"]{ --zone-primary:#1A237E; --zone-primary-light:#e8eaf6; --zone-accent:#B71C1C; --zone-gold:#FFD600; --zone-hero-from:#0d1b2a; --zone-hero-to:#1b2838; }
+/* 优质农产品帮扶区(绿) = default */
+[data-zone="support"]{ --zone-primary:#2E7D32; --zone-primary-light:#e8f5e9; --zone-accent:#C62E2E; --zone-gold:#D4AF37; --zone-hero-from:#1a3a5f; --zone-hero-to:#2c5282; }
+/* 新优品智推区(科技蓝) */
+[data-zone="newarrival"]{ --zone-primary:#0277BD; --zone-primary-light:#e1f5fe; --zone-accent:#FF6F00; --zone-gold:#00E5FF; --zone-hero-from:#263238; --zone-hero-to:#37474f; }
+/* 食品安全潜在区(预警橙青) */
+[data-zone="foodsafety"]{ --zone-primary:#00838F; --zone-primary-light:#e0f7fa; --zone-accent:#E65100; --zone-gold:#FFD600; --zone-hero-from:#004d40; --zone-hero-to:#00695c; }
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;background:var(--zone-bg);color:var(--zone-text);line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* ===== HERO ===== */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--zone-hero-from),var(--zone-hero-to));color:#fff;padding:clamp(40px,6vw,70px) 16px;text-align:center}
+.hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.65);z-index:0}
+.hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto}
+.hero h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;margin-bottom:10px}
+.hero .subtitle{font-size:clamp(.85rem,2vw,1.1rem);opacity:.9;margin-bottom:14px;font-weight:300}
+.hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:12px}
+.hero-tags span{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 14px;font-size:12px;backdrop-filter:blur(4px)}
+.hero-certs{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;font-size:12px;margin-top:8px;opacity:.85}
+
+/* ===== KPI 透明卡 ===== */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
+@media(max-width:700px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+.kpi-card{background:var(--zone-card);border-radius:var(--radius);padding:16px;text-align:center;box-shadow:var(--shadow);border-left:4px solid var(--zone-primary)}
+.kpi-card .kpi-icon{font-size:24px;margin-bottom:6px;display:block}
+.kpi-card .kpi-val{font-size:24px;font-weight:800;color:var(--zone-primary)}
+.kpi-card .kpi-label{font-size:10px;color:var(--zone-muted);margin-top:2px}
+
+/* ===== 双栏布局 ===== */
+.main-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-bottom:24px}
+@media(max-width:860px){.main-grid{grid-template-columns:1fr}}
+
+/* ===== SECTION 卡片 ===== */
+.section{background:var(--zone-card);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow);margin-bottom:16px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--zone-border)}
+.section-hd h2{font-size:17px;font-weight:700;color:var(--zone-primary)}
+.section-hd i{font-size:20px;color:var(--zone-primary)}
+
+/* 信息行 */
+.info-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.04);font-size:13px}
+.info-row:last-child{border-bottom:none}
+.info-row .lbl{color:var(--zone-muted);flex-shrink:0}
+.info-row .val{font-weight:600;text-align:right}
+
+/* 双列网格 */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:500px){.grid2{grid-template-columns:1fr}}
+.info-box{background:var(--zone-primary-light);border-radius:10px;padding:12px;font-size:12px;line-height:1.6}
+.info-box strong{color:var(--zone-primary)}
+
+/* 报告卡片 */
+.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:500px){.report-grid{grid-template-columns:1fr}}
+.report-card{background:#fff;border:1px solid var(--zone-border);border-radius:10px;padding:14px;cursor:pointer;transition:all .2s;font-size:12px;line-height:1.5}
+.report-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:var(--zone-primary)}
+.report-card .rc-title{font-weight:700;color:var(--zone-primary);margin-bottom:4px}
+
+/* 生长周期 */
+.growth-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;text-align:center;font-size:11px}
+.growth-step{background:#fff;border:1px solid var(--zone-border);border-radius:8px;padding:10px 6px}
+.growth-step .gs-name{font-weight:700;margin-bottom:2px}
+
+/* 营养表 */
+.nutri-table{width:100%;border-collapse:collapse;font-size:12px}
+.nutri-table th{background:var(--zone-hero-from);color:#fff;padding:8px;text-align:left}
+.nutri-table td{padding:7px 8px;border-bottom:1px solid var(--zone-border)}
+
+/* 标签云 */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{background:var(--zone-primary-light);color:var(--zone-primary);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:600}
+
+/* ===== 右侧栏 ===== */
+.side-card{background:var(--zone-card);border-radius:var(--radius-lg);padding:18px;box-shadow:var(--shadow);margin-bottom:14px}
+.side-card h3{font-size:15px;color:var(--zone-primary);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.side-card h3 i{font-size:16px}
+
+/* ===== 分站监管标配模块 ===== */
+.supervision{background:linear-gradient(135deg,var(--zone-primary-light),#fff);border:2px solid var(--zone-primary);border-radius:var(--radius-lg);padding:20px;margin:20px 0}
+.supervision h3{font-size:16px;color:var(--zone-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.supervision .sv-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:500px){.supervision .sv-grid{grid-template-columns:1fr}}
+.sv-person{display:flex;align-items:center;gap:12px;background:#fff;border-radius:10px;padding:12px;border:1px solid var(--zone-border)}
+.sv-avatar{width:48px;height:48px;border-radius:50%;background:var(--zone-primary);display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px}
+.sv-info .sv-name{font-weight:700;font-size:14px}
+.sv-info .sv-role{font-size:10px;color:var(--zone-muted)}
+.sv-stamp{text-align:right;font-size:11px;color:var(--zone-muted);line-height:1.6}
+
+/* ===== 承诺书 ===== */
+.pledge{background:var(--zone-card);border-radius:var(--radius-lg);padding:18px;border-top:4px solid var(--zone-primary);margin-top:16px}
+.pledge h4{font-size:14px;color:var(--zone-primary);margin-bottom:8px}
+.pledge .pledge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;font-size:10px;margin-top:10px}
+@media(max-width:500px){.pledge .pledge-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== CTA 价格区 ===== */
+.price-box{background:var(--zone-card);border-radius:var(--radius-lg);padding:22px;text-align:center;box-shadow:var(--shadow);border:2px solid var(--zone-gold);position:sticky;top:20px}
+.price-box .zone-badge{display:inline-block;padding:3px 12px;border-radius:10px;font-size:9px;font-weight:700;margin-bottom:8px;background:var(--zone-primary-light);color:var(--zone-primary)}
+.price-box .price{font-size:40px;font-weight:900;color:var(--zone-accent)}
+.price-box .price small{font-size:14px;color:var(--zone-muted);text-decoration:line-through;margin-left:8px}
+.price-box .pkg{font-size:12px;color:var(--zone-muted);margin:6px 0}
+.btn{display:block;width:100%;padding:12px;border-radius:25px;font-size:15px;font-weight:700;cursor:pointer;border:none;text-align:center;text-decoration:none;margin-top:8px;transition:all .2s}
+.btn-buy{background:var(--zone-accent);color:#fff}
+.btn-buy:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(200,40,40,.3)}
+.btn-outline{background:transparent;border:1px solid var(--zone-primary);color:var(--zone-primary)}
+.btn-outline:hover{background:var(--zone-primary);color:#fff}
+.price-box .guarantee{font-size:10px;color:var(--zone-muted);margin-top:10px}
+
+/* ===== 底栏 ===== */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+footer{text-align:center;padding:20px 16px 60px;font-size:9px;color:var(--zone-muted);border-top:1px solid var(--zone-border);margin-top:20px}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="【产品名】 · 军鸽云链 | 全链透明溯源">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/product-detail-master.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/product-detail-master.html">
+</head>
+<body data-zone="support">
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">产品详情模板</span>
+</nav>
+
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1><i class="fas fa-flag" style="color:var(--zone-gold)"></i> 军创优品 · 【产品名称】 <i class="fas fa-flag" style="color:var(--zone-gold)"></i></h1>
+    <p class="subtitle">退役军人信用背书 · 全链路区块链溯源 · 从种子到餐桌全程透明</p>
+    <div class="hero-tags">
+      <span><i class="fas fa-map-marker-alt" style="color:var(--zone-gold)"></i> 【产地】</span>
+      <span><i class="fas fa-seedling" style="color:var(--zone-gold)"></i> 【品种】</span>
+      <span><i class="fas fa-shield-alt" style="color:var(--zone-gold)"></i> 【认证】</span>
+      <span><i class="fas fa-file-alt" style="color:var(--zone-gold)"></i> 一物一码溯源</span>
+    </div>
+    <div class="hero-certs">
+      <span><i class="fas fa-check-circle" style="color:var(--zone-gold)"></i> 退役军人认证</span>
+      <span><i class="fas fa-check-circle" style="color:var(--zone-gold)"></i> 地理标志保护</span>
+      <span><i class="fas fa-check-circle" style="color:var(--zone-gold)"></i> 权威检测合格</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- KPI 透明卡 -->
+<div class="kpi-grid">
+  <div class="kpi-card"><span class="kpi-icon"><i class="fas fa-database"></i></span><div class="kpi-val">100%</div><div class="kpi-label">溯源数据完整率</div></div>
+  <div class="kpi-card"><span class="kpi-icon"><i class="fas fa-flask"></i></span><div class="kpi-val">【检测项】</div><div class="kpi-label">农残/重金属均未检出</div></div>
+  <div class="kpi-card"><span class="kpi-icon"><i class="fas fa-award"></i></span><div class="kpi-val">【等级】</div><div class="kpi-label">包装等级</div></div>
+  <div class="kpi-card"><span class="kpi-icon"><i class="fas fa-user-shield"></i></span><div class="kpi-val">退役军人</div><div class="kpi-label">全程监督·军创团队</div></div>
+</div>
+
+<!-- 双栏 -->
+<div class="main-grid">
+
+<!-- 左栏：透明溯源 -->
+<div>
+
+<!-- 1. 源头追溯 -->
+<section class="section">
+  <div class="section-hd"><i class="fas fa-seedling"></i><h2>🌾 源头追溯 · 种子/土壤/水质</h2></div>
+  <div class="grid2">
+    <div class="info-box"><i class="fas fa-leaf"></i> <strong>品种：</strong>【品种名称】<br><span style="font-size:10px;color:var(--zone-muted)">种子批次：【批号】 | 发芽率≥【%】</span></div>
+    <div class="info-box"><i class="fas fa-tachometer-alt"></i> <strong>土壤检测：</strong>【土壤类型】，有机质【%】<br><span style="font-size:10px;color:var(--zone-muted)">pH【值】，重金属未检出</span></div>
+    <div class="info-box"><i class="fas fa-water"></i> <strong>灌溉水源：</strong>【水源描述】<br><span style="font-size:10px;color:var(--zone-muted)">水质检测：符合农田灌溉标准</span></div>
+    <div class="info-box"><i class="fas fa-chart-line"></i> <strong>产地环境：</strong>【地理特征】<br><span style="font-size:10px;color:var(--zone-muted)">空气优良天数≥【】天/年</span></div>
+  </div>
+</section>
+
+<!-- 2. 种植/生产过程图片区 -->
+<section class="section">
+  <div class="section-hd"><i class="fas fa-image"></i><h2>📷 生长/生产过程实录</h2></div>
+  <div class="grid2">
+    <div class="info-box" style="text-align:center;min-height:140px;display:flex;align-items:center;justify-content:center;flex-direction:column">
+      <i class="fas fa-camera-retro" style="font-size:28px;color:var(--zone-muted)"></i>
+      <span style="font-size:10px;color:var(--zone-muted);margin-top:6px">【生长阶段照片1】</span>
+    </div>
+    <div class="info-box" style="text-align:center;min-height:140px;display:flex;align-items:center;justify-content:center;flex-direction:column">
+      <i class="fas fa-camera-retro" style="font-size:28px;color:var(--zone-muted)"></i>
+      <span style="font-size:10px;color:var(--zone-muted);margin-top:6px">【生长阶段照片2】</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 种植管理 -->
+<section class="section">
+  <div class="section-hd"><i class="fas fa-tractor"></i><h2>📊 种植管理 · 施肥/绿色防控 & 物联网</h2></div>
+  <div class="grid2">
+    <div class="info-box"><i class="fas fa-flask"></i> <strong>施肥记录：</strong>【施肥方案】<br><span style="font-size:10px;color:var(--zone-muted)">禁用化学合成激素，全程绿控</span></div>
+    <div class="info-box"><i class="fas fa-bug"></i> <strong>病虫害防控：</strong>【防治方案】<br><span style="font-size:10px;color:var(--zone-muted)">化学农药零残留</span></div>
+  </div>
+  <div style="background:#f5f5f5;border-radius:8px;padding:10px;margin-top:10px;font-size:11px">
+    <i class="fas fa-microchip" style="color:var(--zone-primary)"></i> <strong>物联网传感数据：</strong> 土壤温湿度传感器实时上链 · 空气温湿度/光照强度 · 历史数据可查区块高度#【】
+  </div>
+  <div class="growth-steps" style="margin-top:10px">
+    <div class="growth-step"><div class="gs-name">【阶段1】</div>【时间】</div>
+    <div class="growth-step"><div class="gs-name">【阶段2】</div>【时间】</div>
+    <div class="growth-step"><div class="gs-name">【阶段3】</div>【时间】</div>
+    <div class="growth-step"><div class="gs-name">【阶段4】</div>【时间】</div>
+    <div class="growth-step"><div class="gs-name">自然周期</div>【天数】天</div>
+  </div>
+</section>
+
+<!-- 4. 收获加工 & 包装等级 -->
+<section class="section">
+  <div class="section-hd"><i class="fas fa-industry"></i><h2>🏭 收获·加工·包装等级（含合格证）</h2></div>
+  <div class="grid2">
+    <div>
+      <div style="margin-bottom:8px"><i class="fas fa-harvest"></i> <strong>收获时间：</strong>【收获日期】</div>
+      <div style="margin-bottom:8px"><i class="fas fa-cogs"></i> <strong>加工工艺：</strong>【加工方法】</div>
+      <div class="tag-cloud"><span class="tag"><i class="fas fa-certificate"></i> 生产许可证：【编号】</span><span class="tag"><i class="fas fa-tag"></i> 执行标准：【标准号】</span></div>
+    </div>
+    <div style="background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.25);border-radius:10px;padding:12px">
+      <div style="font-weight:700;color:var(--zone-primary);margin-bottom:6px"><i class="fas fa-box-open"></i> 包装等级 / 合格证</div>
+      <div style="font-size:12px;line-height:1.6">
+        <strong>等级：</strong>【产品等级】<br>
+        <strong>包装规格：</strong>【规格列表】<br>
+        <strong>合格证信息：</strong> 检验员：【姓名】(退役军人) · 出厂批号：【批号】 · 检验结论：合格<br>
+        <i class="fas fa-qrcode" style="color:var(--zone-primary)"></i> 扫描包装溯源码可查全流程
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--zone-border);display:flex;flex-wrap:wrap;justify-content:space-between;font-size:11px">
+    <span><i class="fas fa-thermometer-half"></i> 储存条件：【储存说明】，保质期【】个月</span>
+    <span class="tag">真空包装</span>
+  </div>
+</section>
+
+<!-- 5. 检验报告 -->
+<section class="section">
+  <div class="section-hd"><i class="fas fa-file-alt"></i><h2>📑 官方检验报告 & 合格证公示</h2></div>
+  <div class="report-grid">
+    <div class="report-card" onclick="alert('【报告1详情】')">
+      <div class="rc-title"><i class="fas fa-flask"></i> 第三方检测报告</div>
+      <div>报告编号：【编号】 | 【日期】<br>✔ 【检测结果摘要】</div>
+    </div>
+    <div class="report-card" onclick="alert('【报告2详情】')">
+      <div class="rc-title"><i class="fas fa-tint"></i> 土壤/水质检测报告</div>
+      <div>检测机构：【机构名】 | 【日期】<br>【检测结论】</div>
+    </div>
+    <div class="report-card" onclick="alert('【报告3详情】')">
+      <div class="rc-title"><i class="fas fa-clinic-medical"></i> 加工环境/卫生报告</div>
+      <div>【卫生检测结论】</div>
+    </div>
+    <div class="report-card" onclick="alert('【报告4详情】')">
+      <div class="rc-title"><i class="fas fa-certificate"></i> 合格证及官方认证</div>
+      <div>【认证列表】</div>
+    </div>
+  </div>
+  <div style="background:#e8f5e9;margin-top:10px;padding:10px;border-radius:8px;font-size:11px;display:flex;justify-content:space-between;flex-wrap:wrap">
+    <span><i class="fas fa-check-circle" style="color:var(--zone-primary)"></i> 本批次产品附带电子合格证&检验报告副本，扫码可查</span>
+    <span style="font-family:monospace;color:var(--zone-primary)">合格证编号：【编号】</span>
+  </div>
+</section>
+
+<!-- 6. 营养成分 -->
+<section class="section">
+  <div class="section-hd"><i class="fas fa-apple-alt"></i><h2>🥣 营养成分表 & 产品标签</h2></div>
+  <div class="grid2">
+    <div style="border:1px solid var(--zone-border);border-radius:10px;overflow:hidden">
+      <table class="nutri-table">
+        <thead><tr><th>营养成分（每100g）</th><th>含量</th><th>NRV%</th></tr></thead>
+        <tbody>
+          <tr><td>能量</td><td>【】kJ</td><td>【】%</td></tr>
+          <tr><td>蛋白质</td><td>【】g</td><td>【】%</td></tr>
+          <tr><td>脂肪</td><td>【】g</td><td>【】%</td></tr>
+          <tr><td>碳水化合物</td><td>【】g</td><td>【】%</td></tr>
+          <tr><td>膳食纤维</td><td>【】g</td><td>【】%</td></tr>
+          <tr><td>钠</td><td>【】mg</td><td>【】%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="tag-cloud" style="margin-bottom:10px">
+        <span class="tag"><i class="fas fa-tag"></i> 产品类别：【类别】</span>
+        <span class="tag"><i class="fas fa-leaf"></i> 质量等级：【等级】</span>
+        <span class="tag"><i class="fas fa-chart-simple"></i> 食味值≥【】分</span>
+      </div>
+      <div class="info-box">
+        <i class="fas fa-info-circle"></i> <strong>标签信息：</strong><br>
+        产品名称：【全称】 · 产地：【产地】<br>
+        生产商：【企业名称】 · 保质期：【】个月<br>
+        包装日期：【日期】 · 储存：【储存条件】
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /左栏 -->
+
+<!-- 右栏 -->
+<aside>
+
+<!-- 生产主体 -->
+<div class="side-card">
+  <h3><i class="fas fa-building"></i> 军创生产主体资质</h3>
+  <div class="info-row"><span class="lbl">主体名称</span><span class="val">【企业/合作社全称】</span></div>
+  <div class="info-row"><span class="lbl">统一社会信用代码</span><span class="val" style="font-family:monospace;font-size:11px">【代码】</span></div>
+  <div class="info-row"><span class="lbl">法人代表</span><span class="val">【姓名】（退役军人）</span></div>
+  <div class="info-row"><span class="lbl">生产基地</span><span class="val">【地址】</span></div>
+  <div class="info-row"><span class="lbl">退役军人认证编号</span><span class="val">【编号】</span></div>
+</div>
+
+<!-- 产地环境 -->
+<div class="side-card">
+  <h3><i class="fas fa-map-marked-alt"></i> 原产地地理环境</h3>
+  <div class="info-row"><span class="lbl">地理坐标</span><span class="val" style="font-family:monospace;font-size:11px">【坐标】</span></div>
+  <div class="info-row"><span class="lbl">土壤类型</span><span class="val">【类型】</span></div>
+  <div class="info-row"><span class="lbl">年均气温</span><span class="val">【】℃</span></div>
+  <div class="info-row"><span class="lbl">无霜期</span><span class="val">【】天</span></div>
+</div>
+
+<!-- 区块链 -->
+<div class="side-card">
+  <h3><i class="fas fa-link" style="color:var(--zone-gold)"></i> 🔗 区块链全程溯源</h3>
+  <div class="info-row"><span class="lbl"><i class="fas fa-qrcode"></i> 唯一溯源码</span><span class="val" style="font-family:monospace;font-size:10px">【溯源码】</span></div>
+  <div class="info-row"><span class="lbl"><i class="fas fa-database"></i> 区块链平台</span><span class="val">蚂蚁链 · 区块高度 #【】</span></div>
+  <div class="info-row"><span class="lbl"><i class="fas fa-clock"></i> 上链时间</span><span class="val">【时间】</span></div>
+  <div class="info-row"><span class="lbl"><i class="fas fa-truck"></i> 物流轨迹</span><span class="val">【轨迹描述】</span></div>
+  <div style="margin-top:8px"><a href="#" onclick="alert('区块链浏览器：可查看所有节点数据及智能合约')" style="color:var(--zone-primary);font-size:12px;text-decoration:underline">点击查看完整链上记录 →</a></div>
+</div>
+
+<!-- 退役军人质控 -->
+<div class="side-card">
+  <h3><i class="fas fa-user-shield" style="color:var(--zone-accent)"></i> 退役军人质控团队</h3>
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+    <div style="width:44px;height:44px;border-radius:50%;background:var(--zone-primary);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px"><i class="fas fa-user-check"></i></div>
+    <div><strong style="font-size:13px">【负责人姓名】</strong><br><span style="font-size:10px;color:var(--zone-muted)">【军衔】，【】年军龄，全面监管生产流程</span></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div style="width:44px;height:44px;border-radius:50%;background:var(--zone-primary);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px"><i class="fas fa-user-graduate"></i></div>
+    <div><strong style="font-size:13px">【质量监督员】</strong><br><span style="font-size:10px;color:var(--zone-muted)">【军衔】，【】年军龄，负责检测/合格签发</span></div>
+  </div>
+</div>
+
+<!-- 价格订购 -->
+<div class="price-box">
+  <div class="zone-badge">【品区标签】</div>
+  <div style="font-size:16px;font-weight:700;color:var(--zone-primary);margin-bottom:8px">全国统一明码标价</div>
+  <div class="price">¥ 【价格】<small>¥ 【原价】</small></div>
+  <div class="pkg">【规格】 | <i class="fas fa-shipping-fast"></i> 【包邮条件】</div>
+  <button class="btn btn-buy" onclick="alert('即将跳转订单平台')"><i class="fas fa-shopping-cart"></i> 立即下单购买</button>
+  <button class="btn btn-outline" onclick="alert('退役军人客服专线：400-123-4567')"><i class="fas fa-headset"></i> 退役军人客服</button>
+  <button class="btn btn-outline" style="border-color:#aaa" onclick="alert('下载APP享会员价')"><i class="fas fa-mobile-alt"></i> 下载APP 享会员价</button>
+  <div class="guarantee"><i class="fas fa-shield-alt" style="color:var(--zone-gold)"></i> 假一赔十 · 冷链保障 · 30天退换</div>
+</div>
+
+</aside>
+
+</div><!-- /main-grid -->
+
+<!-- ===== 标配模块：分站监管责任 ===== -->
+<div class="supervision">
+  <h3><i class="fas fa-shield-haltered"></i> 🛡️ 分站监管责任 · 品质推荐</h3>
+  <div class="sv-grid">
+    <div class="sv-person">
+      <div class="sv-avatar"><i class="fas fa-user-tie"></i></div>
+      <div class="sv-info">
+        <div class="sv-name">【分站负责人姓名】</div>
+        <div class="sv-role">【分站名称】分站 · 站长</div>
+        <div style="font-size:10px;color:var(--zone-muted)">退役军人 · 【军衔】</div>
+      </div>
+    </div>
+    <div class="sv-stamp">
+      <div style="font-weight:700;color:var(--zone-primary)">✅ 分站品质推荐</div>
+      <div>本站实地考察核验</div>
+      <div>产地直供 · 正品保障</div>
+      <div style="margin-top:4px;font-size:10px;border:1px dashed var(--zone-primary);display:inline-block;padding:2px 8px;border-radius:4px;color:var(--zone-primary)">分站监管编号：【编号】</div>
+    </div>
+  </div>
+  <div style="margin-top:10px;font-size:11px;color:var(--zone-muted);line-height:1.5">
+    <i class="fas fa-info-circle"></i> 本产品由【分站名称】分站实地考察认证，分站站长作为品质第一责任人，对产品产地、加工、检测全程监督。消费者如有疑问，可直接联系分站或拨打平台客服热线。
+  </div>
+</div>
+
+<!-- 承诺书 -->
+<div class="pledge">
+  <h4><i class="fas fa-file-signature"></i> 军创优品透明承诺书</h4>
+  <p style="font-size:11px;color:var(--zone-muted);line-height:1.6">全过程无隐瞒，接受社会监督，每批次产品均附电子报告，支持随机抽检。生产者、分站、监管联合签名，确保透明与责任追溯。</p>
+  <div class="pledge-grid">
+    <div><i class="fas fa-check" style="color:var(--zone-primary)"></i> 禁用化学增香剂</div>
+    <div><i class="fas fa-check" style="color:var(--zone-primary)"></i> 无抛光打蜡</div>
+    <div><i class="fas fa-check" style="color:var(--zone-primary)"></i> 加工零添加</div>
+    <div><i class="fas fa-check" style="color:var(--zone-primary)"></i> 真空氮气锁鲜</div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- 底栏 -->
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+
+<div class="bottom-nav">
+  <a href="/">🏠 首页</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+  <a href="/join-apply.html">📝 申请加入</a>
+</div>
+
+<footer>
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台 · 本页面所有可溯源数据均在区块链存证，支持实时核验</p>
+</footer>
+
+</body>
+</html>

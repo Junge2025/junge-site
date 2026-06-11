@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>创业孵化 · 军鸽云链</title>
+<meta name="description" content="军鸽云链创业孵化平台——退役军人创业一站式服务：政策扶持、资金对接、导师辅导、市场渠道。零费用入驻，3000+分站协同。">
+<style>
+:root{--bg:#030712;--bg-card:rgba(8,20,44,.85);--text:#e8edf5;--text-dim:#8896b0;--text-muted:#4a5568;--border:rgba(255,255,255,.06);--border-glow:rgba(0,212,255,.18);--primary:#00d4ff;--gold:#f0c040;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;--radius:12px;--radius-lg:18px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh;line-height:1.8;padding-bottom:80px}
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.hero{background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(3,7,18,.97),rgba(0,212,255,.04));border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px 28px;text-align:center;margin-bottom:24px}
+.hero h1{font-size:30px;font-weight:900;margin-bottom:8px}
+.hero p{font-size:13px;color:var(--text-dim);max-width:700px;margin:0 auto}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+@media(max-width:640px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+.stat-card .sc-num{font-size:24px;font-weight:900;color:var(--primary)}
+.stat-card .sc-label{font-size:10px;color:var(--text-dim);margin-top:4px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+.section h2{font-size:18px;margin-bottom:16px;padding-left:12px;border-left:3px solid var(--green)}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:640px){.service-grid{grid-template-columns:1fr 1fr}}
+.svc-card{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center;transition:transform .2s}
+.svc-card:hover{transform:translateY(-4px);border-color:var(--green)}
+.svc-card .si{font-size:36px;margin-bottom:8px}
+.svc-card h3{font-size:14px;margin-bottom:6px}
+.svc-card p{font-size:11px;color:var(--text-dim)}
+.process-steps{display:flex;gap:0;margin-top:12px;overflow-x:auto}
+.step{flex:1;min-width:140px;background:rgba(0,212,255,.04);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;position:relative}
+.step .step-num{width:28px;height:28px;border-radius:50%;background:var(--primary);color:#000;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
+.step h4{font-size:12px;margin-bottom:4px}
+.step p{font-size:10px;color:var(--text-dim)}
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:480px){.case-grid{grid-template-columns:1fr}}
+.case-card{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.case-card .cc-tag{font-size:9px;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:8px}
+.tag-green{background:rgba(34,197,94,.12);color:var(--green)}
+.tag-gold{background:rgba(240,192,64,.12);color:var(--gold)}
+.case-card h4{font-size:14px;margin-bottom:6px}
+.case-card p{font-size:11px;color:var(--text-dim)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+footer{text-align:center;padding:16px;font-size:9px;color:#556070;border-top:1px solid var(--border);margin-top:16px}
+.cta-bar{background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(3,7,18,.97));border:1px solid var(--border-glow);border-radius:var(--radius);padding:24px;text-align:center;margin-top:16px}
+.cta-bar h3{font-size:16px;color:var(--primary);margin-bottom:8px}
+.cta-bar p{font-size:12px;color:var(--text-dim);margin-bottom:14px}
+.btn{display:inline-block;padding:10px 28px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;transition:.2s}
+.btn-primary{background:var(--primary);color:#000}
+.btn-primary:hover{background:#33e0ff;transform:translateY(-2px)}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="创业孵化 · 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/business-incubation.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/business-incubation.html">
+</head>
+<body>
+<nav class="breadcrumb-bar"><a href="/">首页</a><span class="sep">▸</span><a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span><a href="/employment-service.html">🏗 就业创业</a><span class="sep">▸</span><span class="current">创业孵化</span></nav>
+
+<div class="container">
+  <div class="hero">
+    <h1>🚀 创业孵化</h1>
+    <p>从军营到商海——军鸽云链为退役军人提供一站式创业孵化服务：政策扶持、资金对接、导师辅导、市场渠道。零费用入驻，3000+分站协同赋能。</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card"><div class="sc-num">386</div><div class="sc-label">已孵化项目</div></div>
+    <div class="stat-card"><div class="sc-num">92%</div><div class="sc-label">项目存活率</div></div>
+    <div class="stat-card"><div class="sc-num">1.2亿</div><div class="sc-label">累计融资额(元)</div></div>
+    <div class="stat-card"><div class="sc-num">128</div><div class="sc-label">导师团队</div></div>
+  </div>
+
+  <div class="section">
+    <h2>🛠 孵化服务体系</h2>
+    <div class="service-grid">
+      <div class="svc-card"><div class="si">📋</div><h3>政策对接</h3><p>退役军人创业补贴 · 税收减免 · 场地优惠 · 贷款贴息</p></div>
+      <div class="svc-card"><div class="si">💰</div><h3>资金扶持</h3><p>天使投资对接 · 创业基金 · 众筹平台 · 供应链金融</p></div>
+      <div class="svc-card"><div class="si">👨‍🏫</div><h3>导师辅导</h3><p>128位创业导师 · 1对1辅导 · 行业专家 · 成功创业者</p></div>
+      <div class="svc-card"><div class="si">📊</div><h3>市场渠道</h3><p>军鸽平台3000+分站 · 线上商城 · 直播带货 · 跨境出海</p></div>
+      <div class="svc-card"><div class="si">🏢</div><h3>办公空间</h3><p>全国合作孵化器 · 共享办公 · 农产品仓储物流</p></div>
+      <div class="svc-card"><div class="si">🤝</div><h3>战友网络</h3><p>退役军人创业社群 · 人脉对接 · 互助协作 · 经验分享</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📋 孵化流程</h2>
+    <div class="process-steps">
+      <div class="step"><div class="step-num">1</div><h4>提交申请</h4><p>在线填写项目计划书</p></div>
+      <div class="step"><div class="step-num">2</div><h4>项目评审</h4><p>导师团队3日审核</p></div>
+      <div class="step"><div class="step-num">3</div><h4>签约入驻</h4><p>零费用签约入孵</p></div>
+      <div class="step"><div class="step-num">4</div><h4>孵化培育</h4><p>3-12个月深度辅导</p></div>
+      <div class="step"><div class="step-num">5</div><h4>毕业上线</h4><p>接入3000+分站网络</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🏆 孵化成功案例</h2>
+    <div class="case-grid">
+      <div class="case-card">
+        <span class="cc-tag tag-green">农业</span>
+        <h4>🌴 海南热带果业</h4>
+        <p>退役军人张某，2024年入驻孵化，从50亩芒果园发展到1,200亩热带农庄，年营收800万。军鸽平台提供品牌策划+溯源系统+线上渠道。</p>
+      </div>
+      <div class="case-card">
+        <span class="cc-tag tag-gold">电商</span>
+        <h4>📦 退役军人优选电商</h4>
+        <p>5名退役军人联合创立，主营军创产品直播带货。孵化期间获得200万天使投资，入驻军鸽商城后月GMV突破150万。</p>
+      </div>
+      <div class="case-card">
+        <span class="cc-tag tag-green">食品</span>
+        <h4>🍵 景迈山古树茶品牌</h4>
+        <p>16位退役军人守护300年古茶树，通过军鸽区块链溯源建立品牌信任。入驻孵化后打开全国市场，产品远销欧洲。</p>
+      </div>
+      <div class="case-card">
+        <span class="cc-tag tag-gold">文旅</span>
+        <h4>🏕 军旅体验营地</h4>
+        <p>退役军人创办的军事主题营地，提供企业团建+青少年国防教育。军鸽平台对接全国3000+分站的客源渠道。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-bar">
+    <h3>⚡ 零费用入驻 · 即刻启动创业之旅</h3>
+    <p>退役军人携带退役证即可申请。军鸽云链全程护航，从项目策划到市场落地。</p>
+    <a href="/join-apply.html" class="btn btn-primary">📝 立即申请入驻</a>
+  </div>
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a><a href="/shangcheng.html">🛒 商业生态</a><a href="/junge-shuzhi.html">⚔ 数智中心</a><a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+<footer><p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p><p>食品安全 + 退役军人在服务综合平台 · 原产地直供 · 非转基因</p></footer>
+</body>
+</html>

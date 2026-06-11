@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>景迈山古茶专业社 · 合作伙伴 · 军鸽云链</title>
+<meta name="description" content="景迈山古茶专业合作社——世界文化遗产核心区，16位退役军人守护300年古茶树，中欧双有机认证，云南高原农庄战略合作伙伴。">
+<style>
+:root{
+  --bg:#030712;--bg-card:rgba(8,20,44,.85);--text:#e8edf5;--text-dim:#8896b0;
+  --text-muted:#4a5568;--border:rgba(255,255,255,.06);--border-glow:rgba(0,212,255,.18);
+  --primary:#00d4ff;--gold:#f0c040;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;
+  --radius:12px;--radius-lg:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh;line-height:1.8;padding-bottom:80px}
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+.top-nav{position:sticky;top:36px;z-index:98;background:linear-gradient(135deg,rgba(8,20,44,.94),rgba(3,7,18,.97));border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;backdrop-filter:blur(10px)}
+.top-nav a{color:var(--text-dim);text-decoration:none;font-size:11px;padding:4px 10px;border-radius:12px;transition:.2s}
+.top-nav a:hover{color:var(--primary)}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.partner-hero{background:linear-gradient(135deg,rgba(167,139,250,.06),rgba(3,7,18,.97),rgba(109,171,126,.05));border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 28px;text-align:center;margin-bottom:20px}
+.partner-hero .ph-icon{font-size:56px;margin-bottom:12px}
+.partner-hero h1{font-size:26px;font-weight:900;color:var(--text);margin-bottom:6px}
+.partner-hero .tagline{font-size:13px;color:var(--gold);margin-bottom:16px}
+.partner-hero .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.badge{padding:4px 14px;border-radius:14px;font-size:10px;font-weight:700}
+.badge-green{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.2)}
+.badge-gold{background:rgba(240,192,64,.12);color:var(--gold);border:1px solid rgba(240,192,64,.2)}
+.badge-blue{background:rgba(0,212,255,.1);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.badge-purple{background:rgba(167,139,250,.12);color:var(--purple);border:1px solid rgba(167,139,250,.2)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+@media(max-width:640px){.info-grid{grid-template-columns:1fr 1fr}}
+.info-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+.info-card .ic-icon{font-size:28px;margin-bottom:6px}
+.info-card .ic-val{font-size:20px;font-weight:800;color:var(--primary)}
+.info-card .ic-label{font-size:10px;color:var(--text-dim);margin-top:2px}
+.section-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+.section-card h2{font-size:17px;margin-bottom:14px;padding-left:12px;border-left:3px solid var(--purple)}
+.section-card p,.section-card li{font-size:13px;color:var(--text-dim);margin-bottom:8px}
+.section-card ul{padding-left:18px}
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+@media(max-width:640px){.feature-grid{grid-template-columns:1fr}}
+.feat-item{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center}
+.feat-item .fi-icon{font-size:22px;margin-bottom:4px}
+.feat-item .fi-title{font-size:11px;font-weight:700;color:var(--text)}
+.feat-item .fi-desc{font-size:10px;color:var(--text-dim);margin-top:4px}
+.cert-grid{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.cert-badge{background:rgba(109,171,126,.08);border:1px solid rgba(109,171,126,.2);padding:8px 16px;border-radius:20px;font-size:11px;color:var(--green);display:flex;align-items:center;gap:6px}
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:480px){.products-grid{grid-template-columns:1fr}}
+.prod-card{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;gap:12px;align-items:center}
+.prod-icon{font-size:36px}
+.prod-info .pi-name{font-size:13px;font-weight:700;color:var(--text)}
+.prod-info .pi-desc{font-size:10px;color:var(--text-dim);margin-top:2px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+footer{text-align:center;padding:16px;font-size:9px;color:#556070;border-top:1px solid var(--border);margin-top:16px}
+.cta-bar{background:var(--bg-card);border:1px solid var(--border-glow);border-radius:var(--radius);padding:20px;text-align:center;margin-top:16px}
+.cta-bar h3{font-size:15px;margin-bottom:8px;color:var(--primary)}
+.cta-bar p{font-size:12px;color:var(--text-dim);margin-bottom:12px}
+.cta-bar .btn{display:inline-block;padding:10px 28px;border-radius:20px;background:var(--primary);color:#000;font-size:13px;font-weight:700;text-decoration:none;transition:.2s}
+.cta-bar .btn:hover{background:#33e0ff;transform:translateY(-2px)}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="景迈山古茶专业社 · 合作伙伴 · 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/partner-3.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/partner-3.html">
+</head>
+<body>
+<nav class="breadcrumb-bar"><a href="/">首页</a><span class="sep">▸</span><a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span><a href="/fenzhan.html">🌾 分站家园</a><span class="sep">▸</span><span class="current">景迈山古茶专业合作社</span></nav>
+
+<nav class="top-nav">
+  <a href="/partner-1.html">🌴 海南热带农庄</a>
+  <a href="/partner-2.html">🌾 东北黑土农庄</a>
+  <a href="/partner-3.html" style="color:var(--primary);font-weight:700">🏔 云南高原农庄</a>
+</nav>
+
+<div class="container">
+  <div class="partner-hero">
+    <div class="ph-icon">🏔</div>
+    <h1>景迈山古茶专业合作社</h1>
+    <div class="tagline">世界文化遗产 · 海拔1800m · 300年古茶树守护者</div>
+    <div class="badges">
+      <span class="badge badge-green">✓ 中欧双有机</span>
+      <span class="badge badge-gold">✓ 退役军人</span>
+      <span class="badge badge-purple">✓ 2,200亩</span>
+      <span class="badge badge-blue">✓ 世界文化遗产</span>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="ic-icon">👥</div><div class="ic-val">16</div><div class="ic-label">退役军人成员</div></div>
+    <div class="info-card"><div class="ic-icon">🤝</div><div class="ic-val">150+</div><div class="ic-label">合作农户</div></div>
+    <div class="info-card"><div class="ic-icon">🌱</div><div class="ic-val">300年</div><div class="ic-label">古茶树年龄</div></div>
+  </div>
+
+  <div class="section-card">
+    <h2>🏔 合作社概况</h2>
+    <p>景迈山古茶专业合作社成立于2019年，由16位退役军人联合创立，坐落于世界文化遗产——云南省普洱市澜沧县景迈山核心区。合作社拥有2,200亩古茶园，核心区300年以上古茶树1,200余株，年产古树普洱茶12吨、野生菌菇8吨。已获得中国有机认证和欧盟EU有机认证（双有机），是军鸽云链数智平台云南高原农庄的战略合作伙伴。</p>
+    <div class="feature-grid">
+      <div class="feat-item"><div class="fi-icon">🌍</div><div class="fi-title">世界文化遗产</div><div class="fi-desc">景迈山古茶林文化景观 · 2023年列入UNESCO</div></div>
+      <div class="feat-item"><div class="fi-icon">🏔</div><div class="fi-title">海拔1800m+</div><div class="fi-desc">高海拔云雾茶区 · 昼夜温差大 · 茶叶内含物质丰富</div></div>
+      <div class="feat-item"><div class="fi-icon">🌳</div><div class="fi-title">300年古茶树</div><div class="fi-desc">1,200+株百年古茶树 · 最老树龄超500年</div></div>
+      <div class="feat-item"><div class="fi-icon">🇪🇺</div><div class="fi-title">中欧双有机</div><div class="fi-desc">中国有机认证 + 欧盟EU有机认证</div></div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2>🏅 认证资质</h2>
+    <div class="cert-grid">
+      <div class="cert-badge">🌱 中国有机产品认证</div>
+      <div class="cert-badge">🇪🇺 欧盟EU有机认证</div>
+      <div class="cert-badge">🏔 地理标志保护产品</div>
+      <div class="cert-badge">🔍 军鸽区块链溯源</div>
+      <div class="cert-badge">🌍 UNESCO世界遗产</div>
+      <div class="cert-badge">🛡 退役军人创业示范</div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2>🍵 核心产品</h2>
+    <div class="products-grid">
+      <div class="prod-card"><span class="prod-icon">🍵</span><div class="prod-info"><div class="pi-name">景迈古树生普</div><div class="pi-desc">300年以上古树 · 传统手工杀青 · 石磨压制 · 357g/饼</div></div></div>
+      <div class="prod-card"><span class="prod-icon">🫖</span><div class="prod-info"><div class="pi-name">景迈古树熟普</div><div class="pi-desc">古树春茶发酵 · 陈香醇厚 · 宫廷级 · 357g/饼</div></div></div>
+      <div class="prod-card"><span class="prod-icon">🍄</span><div class="prod-info"><div class="pi-name">景迈野生松茸</div><div class="pi-desc">海拔2000m+野生采摘 · 鲜品+冻干双规格 · 7-9月产季</div></div></div>
+      <div class="prod-card"><span class="prod-icon">🫘</span><div class="prod-info"><div class="pi-name">景迈野生牛肝菌</div><div class="pi-desc">高原原始森林采摘 · 鲜品+干品 · 6-10月产季</div></div></div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2>🤝 合作模式</h2>
+    <ul>
+      <li><strong>军鸽平台直供：</strong>合作社产品通过军鸽云链平台直接面向全国消费者，区块链溯源一码可查</li>
+      <li><strong>退役军人品控：</strong>从采摘→加工→包装→物流，全程由退役军人员工管理和监督</li>
+      <li><strong>产地体验旅游：</strong>开放古茶园参观、采茶制茶体验、少数民族文化之旅</li>
+      <li><strong>品牌联名：</strong>与军鸽平台联名推出"军魂·古树"系列高端普洱茶</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <h2>📍 联系方式</h2>
+    <p><strong>地址：</strong>云南省普洱市澜沧拉祜族自治县惠民镇景迈山芒景村</p>
+    <p><strong>联系人：</strong>赵志强（退役军人，合作社理事长）</p>
+    <p><strong>电话：</strong>0879-7654XXX · 1388792XXXX</p>
+    <p><strong>合作社编号：</strong>YN-LC-2024-0036</p>
+    <p style="margin-top:8px;font-size:12px;color:#6dab7e;">🛡 全部产品已接入军鸽区块链溯源系统，扫码可查生产、加工、物流全链条信息</p>
+  </div>
+
+  <div class="cta-bar">
+    <h3>⚡ 与景迈山合作社建立合作</h3>
+    <p>采购古树普洱茶 · 定制联名产品 · 产地旅游合作 · 品牌渠道对接</p>
+    <a href="/enterprise-contact.html" class="btn">📞 联系我们</a>
+  </div>
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/junge-shuzhi.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+<footer><p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p><p>食品安全 + 退役军人在服务综合平台 · 原产地直供 · 非转基因</p></footer>
+</body>
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<meta name="theme-color" content="#030712">
+<title>军旅培训基地 - 军鸽云链</title>
+<meta name="description" content="军鸽云链军旅培训基地：退役军人职业技能培训、红色文化教育、军地融合实训。培训类型、课程列表、报名入口。">
+<style>
+:root {
+  --bg-deep: #030712;
+  --bg-card: rgba(8,20,44,.85);
+  --primary: #00d4ff;
+  --accent: #ff2d78;
+  --gold: #f0c040;
+  --green: #22c55e;
+  --purple: #a78bfa;
+  --red: #d47a7e;
+  --text: #e8edf5;
+  --text-dim: #8896b0;
+  --text-muted: #4a5568;
+  --border: rgba(0,212,255,.1);
+  --border-glow: rgba(0,212,255,.18);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --shadow: 0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg-deep);color:var(--text);line-height:1.7;padding-bottom:72px;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 40% 10%,rgba(34,197,94,.04) 0%,transparent 50%),radial-gradient(ellipse at 70% 90%,rgba(0,212,255,.03) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+.breadcrumb-bar{background:rgba(3,7,18,.95);border-bottom:1px solid var(--border);padding:10px 20px;position:sticky;top:0;z-index:99;backdrop-filter:blur(12px);display:flex;align-items:center;gap:6px;font-size:12px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .25s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:var(--text-muted)}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{position:relative;z-index:1;text-align:center;padding:56px 20px 40px;background:linear-gradient(180deg,rgba(34,197,94,.05) 0%,rgba(3,7,18,.98) 100%)}
+.hero h1{font-size:30px;font-weight:900;margin-bottom:10px;background:linear-gradient(135deg,#22c55e 30%,#00d4ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:14px;color:var(--text-dim);max-width:650px;margin:0 auto}
+.hero .kpi-row{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.hero .kpi{text-align:center;padding:8px 16px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.12);border-radius:var(--radius-sm)}
+.hero .kpi .val{font-size:22px;font-weight:900;color:var(--green)}
+.hero .kpi .lbl{font-size:10px;color:var(--text-dim)}
+
+.container{max-width:1000px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+.section-title{display:flex;align-items:center;gap:10px;margin:36px 0 20px;font-size:18px;font-weight:700}
+.section-title .icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:rgba(34,197,94,.1);color:var(--green)}
+.section-title span.color{color:var(--green)}
+
+.training-type-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:20px}
+.training-type{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center;backdrop-filter:blur(12px);cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.training-type::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:.4}
+.training-type:hover{border-color:rgba(34,197,94,.3);box-shadow:0 0 24px rgba(34,197,94,.08);transform:translateY(-2px)}
+.training-type .type-icon{font-size:36px;display:block;margin-bottom:12px}
+.training-type h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.training-type p{font-size:12px;color:var(--text-dim);line-height:1.5}
+.training-type .count{display:inline-block;margin-top:10px;padding:3px 12px;border-radius:10px;font-size:10px;font-weight:600;background:rgba(34,197,94,.1);color:var(--green)}
+
+.course-list{margin-bottom:20px}
+.course-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:12px;backdrop-filter:blur(12px);display:flex;align-items:center;gap:16px;flex-wrap:wrap;transition:all .3s}
+.course-card:hover{border-color:var(--border-glow);transform:translateX(4px)}
+.course-card .course-badge{flex-shrink:0;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900}
+.badge-green{background:rgba(34,197,94,.15);color:var(--green)}
+.badge-blue{background:rgba(0,212,255,.15);color:var(--primary)}
+.badge-gold{background:rgba(240,192,64,.15);color:var(--gold)}
+.badge-purple{background:rgba(167,139,250,.15);color:var(--purple)}
+.badge-red{background:rgba(212,122,126,.15);color:var(--red)}
+.course-card .course-info{flex:1;min-width:200px}
+.course-card .course-info h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.course-card .course-info .course-desc{font-size:12px;color:var(--text-dim);line-height:1.5}
+.course-card .course-meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;min-width:120px}
+.course-card .course-meta .duration{font-size:12px;color:var(--text-dim)}
+.course-card .course-meta .price{font-size:16px;font-weight:900;color:var(--gold)}
+.course-card .course-meta .enroll-btn{padding:7px 20px;border-radius:16px;font-size:11px;font-weight:700;cursor:pointer;background:var(--green);color:#030712;border:none;transition:all .3s}
+.course-card .course-meta .enroll-btn:hover{transform:scale(1.05);box-shadow:0 4px 16px rgba(34,197,94,.3)}
+
+.course-cat-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.course-cat-filter .cat-btn{padding:7px 16px;border-radius:16px;font-size:11px;font-weight:600;cursor:pointer;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text-dim);transition:all .25s}
+.course-cat-filter .cat-btn:hover{border-color:var(--green);color:var(--green)}
+.course-cat-filter .cat-btn.active{background:rgba(34,197,94,.12);border-color:var(--green);color:var(--green)}
+
+.base-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:20px}
+.base-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;backdrop-filter:blur(12px);transition:all .3s;position:relative;overflow:hidden}
+.base-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--primary),transparent);opacity:.3}
+.base-card:hover{border-color:var(--border-glow);transform:translateY(-2px);box-shadow:0 0 20px rgba(0,212,255,.06)}
+.base-card h4{font-size:15px;font-weight:700;margin-bottom:8px}
+.base-card .base-location{font-size:11px;color:var(--gold);margin-bottom:8px}
+.base-card .base-features{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.base-card .base-features span{font-size:10px;padding:3px 10px;border-radius:8px;background:rgba(34,197,94,.08);color:var(--green);border:1px solid rgba(34,197,94,.12)}
+.base-card .base-contact{font-size:11px;color:var(--text-dim);margin-bottom:4px}
+
+.cta-banner{background:linear-gradient(135deg,rgba(34,197,94,.08),rgba(0,212,255,.06));border:1px solid var(--border-glow);border-radius:var(--radius-lg);padding:24px 28px;text-align:center;margin:24px 0;backdrop-filter:blur(12px)}
+.cta-banner h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.cta-banner p{font-size:13px;color:var(--text-dim);margin-bottom:14px}
+.cta-banner .cta-btn{padding:10px 32px;border-radius:20px;font-size:14px;font-weight:700;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;border:none;cursor:pointer;transition:all .3s}
+.cta-banner .cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(34,197,94,.3)}
+
+.extend-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px;margin:24px 0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;border-top:2px solid var(--border-glow)}
+.extend-bar .ext-title{font-size:12px;font-weight:700;color:var(--text-dim)}
+.extend-bar a{display:inline-flex;align-items:center;gap:5px;padding:8px 18px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .25s}
+.ext-primary{background:rgba(0,212,255,.1);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-primary:hover{background:rgba(0,212,255,.22);color:#fff}
+.ext-secondary{background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-secondary:hover{border-color:var(--primary);color:var(--primary)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:11px;padding:5px 12px;border-radius:12px;background:rgba(8,20,44,.7);border:1px solid rgba(0,212,255,.08);transition:all .25s}
+.bottom-nav a:hover{color:var(--primary);border-color:var(--border-glow)}
+
+footer{text-align:center;padding:16px 20px;font-size:10px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:24px;position:relative;z-index:1}
+footer p{margin:3px 0}
+
+@media(max-width:640px){
+  .hero h1{font-size:22px}
+  .course-card{flex-direction:column;align-items:flex-start}
+  .course-card .course-meta{flex-direction:row;width:100%;justify-content:space-between;align-items:center}
+  .training-type-grid{grid-template-columns:repeat(2,1fr)}
+  .base-grid{grid-template-columns:1fr}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军旅培训基地 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/base-training.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/base-training.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">🎖️ 军旅培训基地</span>
+</nav>
+
+<div class="hero">
+  <h1>🎖️ 军旅培训基地</h1>
+  <p>退役不褪色，转岗再出发。军鸽云链联合全国优质培训机构，为退役军人提供职业技能培训、红色文化教育、军地融合实训一站式服务。</p>
+  <div class="kpi-row">
+    <div class="kpi"><div class="val">86</div><div class="lbl">合作基地</div></div>
+    <div class="kpi"><div class="val">320+</div><div class="lbl">培训课程</div></div>
+    <div class="kpi"><div class="val">5.2万</div><div class="lbl">已培训战友</div></div>
+    <div class="kpi"><div class="val">92%</div><div class="lbl">就业率</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 培训类型 -->
+<div class="section-title"><span class="icon">🎯</span><span>培训<span class="color">类型</span>总览</span></div>
+<div class="training-type-grid">
+  <div class="training-type" onclick="filterCourses('all')">
+    <span class="type-icon">💻</span>
+    <h4>职业技能培训</h4>
+    <p>IT技术、无人机操控、网络安全、电工焊工等实用技能</p>
+    <span class="count">120门课程</span>
+  </div>
+  <div class="training-type" onclick="filterCourses('entrepreneur')">
+    <span class="type-icon">🚀</span>
+    <h4>创业孵化培训</h4>
+    <p>商业计划、财务管理、市场营销、政策申报全流程辅导</p>
+    <span class="count">48门课程</span>
+  </div>
+  <div class="training-type" onclick="filterCourses('agriculture')">
+    <span class="type-icon">🌾</span>
+    <h4>现代农业培训</h4>
+    <p>智慧农业、有机种植、养殖技术、农产品电商运营</p>
+    <span class="count">56门课程</span>
+  </div>
+  <div class="training-type" onclick="filterCourses('culture')">
+    <span class="type-icon">📚</span>
+    <h4>红色文化教育</h4>
+    <p>党史军史、国防教育、红色文旅讲解员、研学导师</p>
+    <span class="count">32门课程</span>
+  </div>
+  <div class="training-type" onclick="filterCourses('security')">
+    <span class="type-icon">🛡️</span>
+    <h4>安保服务培训</h4>
+    <p>高级安保、消防操作、应急救援、公共安全管理</p>
+    <span class="count">28门课程</span>
+  </div>
+  <div class="training-type" onclick="filterCourses('sports')">
+    <span class="type-icon">🏋️</span>
+    <h4>体育拓展培训</h4>
+    <p>户外拓展教练、军事夏令营教官、青少年国防教育</p>
+    <span class="count">36门课程</span>
+  </div>
+</div>
+
+<!-- 课程列表 -->
+<div class="section-title"><span class="icon">📋</span><span>热门<span class="color">课程</span>推荐</span></div>
+<div class="course-cat-filter">
+  <span class="cat-btn active" onclick="filterCourses('all',this)">全部课程</span>
+  <span class="cat-btn" onclick="filterCourses('skill',this)">职业技能</span>
+  <span class="cat-btn" onclick="filterCourses('entrepreneur',this)">创业孵化</span>
+  <span class="cat-btn" onclick="filterCourses('agriculture',this)">现代农业</span>
+  <span class="cat-btn" onclick="filterCourses('free',this)">🆓 免费课程</span>
+</div>
+
+<div class="course-list" id="courseList">
+  <div class="course-card" data-cat="skill">
+    <div class="course-badge badge-blue">💻</div>
+    <div class="course-info">
+      <h4>Python编程与数据分析实战班</h4>
+      <div class="course-desc">零基础入门Python，掌握数据分析核心技能。涵盖爬虫、可视化、自动化办公，结业可考取工信部认证。</div>
+    </div>
+    <div class="course-meta">
+      <span class="duration">⏱️ 8周 · 线上+线下</span>
+      <span class="price">¥2,800</span>
+      <button class="enroll-btn" onclick="alert('报名成功！工作人员将联系您。')">立即报名</button>
+    </div>
+  </div>
+  <div class="course-card" data-cat="skill">
+    <div class="course-badge badge-green">🚁</div>
+    <div class="course-info">
+      <h4>民用无人机驾驶员执照培训（CAAC）</h4>
+      <div class="course-desc">从理论到实操，涵盖多旋翼、固定翼机型。退役军人享受专项补贴，通过率95%以上。推荐就业：航拍、测绘、农业植保。</div>
+    </div>
+    <div class="course-meta">
+      <span class="duration">⏱️ 4周 · 线下实训</span>
+      <span class="price">¥6,800</span>
+      <button class="enroll-btn" onclick="alert('报名成功！工作人员将联系您。')">立即报名</button>
+    </div>
+  </div>
+  <div class="course-card" data-cat="entrepreneur">
+    <div class="course-badge badge-gold">🚀</div>
+    <div class="course-info">
+      <h4>退役军人创业特训营（第18期）</h4>
+      <div class="course-desc">30天密集训练：商业计划书撰写、融资路演、财税合规、团队管理。优秀项目可获军鸽云链50万创业基金支持。</div>
+    </div>
+    <div class="course-meta">
+      <span class="duration">⏱️ 30天 · 集中训练</span>
+      <span class="price">¥4,800</span>
+      <button class="enroll-btn" onclick="alert('报名成功！工作人员将联系您。')">立即报名</button>
+    </div>
+  </div>
+  <div class="course-card" data-cat="agriculture">
+    <div class="course-badge badge-green">🌾</div>
+    <div class="course-info">
+      <h4>智慧农业管理师认证课程</h4>
+      <div class="course-desc">物联网+农业实战：智能大棚管理、精准施肥、农产品溯源系统搭建。结业安排到军鸽云链合作农庄实习。</div>
+    </div>
+    <div class="course-meta">
+      <span class="duration">⏱️ 6周 · 线上+基地实训</span>
+      <span class="price">¥3,200</span>
+      <button class="enroll-btn" onclick="alert('报名成功！工作人员将联系您。')">立即报名</button>
+    </div>
+  </div>
+  <div class="course-card" data-cat="free skill">
+    <div class="course-badge badge-red">🆓</div>
+    <div class="course-info">
+      <h4>网络安全基础（退役军人公益课）</h4>
+      <div class="course-desc">政府补贴免费课程！网络攻防基础、安全运维、渗透测试入门。适合零基础，结业推荐至合作企业实习。</div>
+    </div>
+    <div class="course-meta">
+      <span class="duration">⏱️ 4周 · 线上直播</span>
+      <span class="price" style="color:var(--green)">免费</span>
+      <button class="enroll-btn" onclick="alert('报名成功！工作人员将联系您。')">立即报名</button>
+    </div>
+  </div>
+  <div class="course-card" data-cat="free skill">
+    <div class="course-badge badge-purple">🆓</div>
+    <div class="course-info">
+      <h4>电商直播带货实操（退役军人免费班）</h4>
+      <div class="course-desc">从账号搭建到直播话术，手把手教你带货。退役军人专项扶持，优秀学员可签约军鸽云链MCN机构。</div>
+    </div>
+    <div class="course-meta">
+      <span class="duration">⏱️ 3周 · 线上+实战</span>
+      <span class="price" style="color:var(--green)">免费</span>
+      <button class="enroll-btn" onclick="alert('报名成功！工作人员将联系您。')">立即报名</button>
+    </div>
+  </div>
+  <div class="course-card" data-cat="entrepreneur">
+    <div class="course-badge badge-gold">📊</div>
+    <div class="course-info">
+      <h4>中小微企业财税管理实战班</h4>
+      <div class="course-desc">针对退役军人创办的中小微企业，讲解税务筹划、成本控制、财务报表分析。避免踩坑，合规经营。</div>
+    </div>
+    <div class="course-meta">
+      <span class="duration">⏱️ 2周 · 线上+线下</span>
+      <span class="price">¥1,800</span>
+      <button class="enroll-btn" onclick="alert('报名成功！工作人员将联系您。')">立即报名</button>
+    </div>
+  </div>
+  <div class="course-card" data-cat="skill">
+    <div class="course-badge badge-blue">🔧</div>
+    <div class="course-info">
+      <h4>新能源汽车维修技术认证</h4>
+      <div class="course-desc">面向未来产业：电动汽车三电系统维修、充电桩安装维护。与比亚迪、蔚来等企业合作，定向就业。</div>
+    </div>
+    <div class="course-meta">
+      <span class="duration">⏱️ 10周 · 线下实训</span>
+      <span class="price">¥5,600</span>
+      <button class="enroll-btn" onclick="alert('报名成功！工作人员将联系您。')">立即报名</button>
+    </div>
+  </div>
+</div>
+
+<!-- 基地分布 -->
+<div class="section-title"><span class="icon">📍</span><span>合作<span class="color">基地</span>分布</span></div>
+<div class="base-grid">
+  <div class="base-card">
+    <h4>🏛️ 广州总站培训中心</h4>
+    <div class="base-location">📍 广州市天河区</div>
+    <div class="base-features">
+      <span>IT培训</span><span>创业孵化</span><span>电商直播</span><span>无人机</span>
+    </div>
+    <div class="base-contact">📞 020-8888-6666 · 容纳200人</div>
+  </div>
+  <div class="base-card">
+    <h4>🏕️ 海南三亚实训基地</h4>
+    <div class="base-location">📍 海南省三亚市</div>
+    <div class="base-features">
+      <span>现代农业</span><span>海洋养殖</span><span>户外拓展</span><span>研学旅游</span>
+    </div>
+    <div class="base-contact">📞 0898-3333-5555 · 容纳120人</div>
+  </div>
+  <div class="base-card">
+    <h4>🏔️ 云南昆明红色教育基地</h4>
+    <div class="base-location">📍 云南省昆明市</div>
+    <div class="base-features">
+      <span>红色文化</span><span>国防教育</span><span>安保培训</span><span>生态农业</span>
+    </div>
+    <div class="base-contact">📞 0871-6666-8888 · 容纳150人</div>
+  </div>
+  <div class="base-card">
+    <h4>🏭 东北哈尔滨实训基地</h4>
+    <div class="base-location">📍 黑龙江省哈尔滨市</div>
+    <div class="base-features">
+      <span>大田种植</span><span>寒地农业</span><span>食品加工</span><span>冷链物流</span>
+    </div>
+    <div class="base-contact">📞 0451-5555-7777 · 容纳100人</div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <h3>🎯 不确定选什么课程？</h3>
+  <p>联系我们的一对一职业规划顾问，根据你的军旅经历和兴趣，推荐最适合的培训方向。</p>
+  <button class="cta-btn" onclick="alert('顾问将在24小时内联系您！')">📋 免费职业规划咨询</button>
+</div>
+
+<div class="extend-bar">
+  <span class="ext-title">🔗 相关链接：</span>
+  <a href="/employment-service.html" class="ext-primary">💼 就业创业服务</a>
+  <a href="/mutual-aid-stations.html" class="ext-primary">🆘 战友互助站</a>
+  <a href="/index.html" class="ext-secondary">🏠 返回首页</a>
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台</p>
+</footer>
+
+<script>
+function filterCourses(cat,btn){
+  if(btn){document.querySelectorAll('.course-cat-filter .cat-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+  document.querySelectorAll('#courseList .course-card').forEach(card=>{
+    if(cat==='all'){card.style.display='flex';return}
+    var cats=card.dataset.cat.split(' ');
+    card.style.display=cats.includes(cat)?'flex':'none';
+  });
+}
+</script>
+
+</body>
+</html>

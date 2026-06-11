@@ -1,0 +1,974 @@
+<!-- Product Detail 4: 军用压缩饼干 · 12包组合装 ¥128 | V2: 10-feature enhancement -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<title>军用压缩饼干 12包 · 军创食品 | 军鸽云链 全链透明溯源</title>
+<meta name="description" content="退役军人监制军用压缩饼干，12包组合装，高能营养，户外应急必备。区块链溯源，¥128。军创食品，军需品质。">
+<meta name="keywords" content="压缩饼干,军用食品,军创食品,应急储备,退役军人,区块链溯源,军鸽云链">
+<meta property="og:title" content="军用压缩饼干12包 · 军创食品 ¥128">
+<meta property="og:description" content="退役军人监制，高能营养压缩饼干，户外应急必备，区块链溯源保障。">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+  --zone-primary:#1A237E; --zone-primary-light:#e8eaf6; --zone-accent:#B71C1C; --zone-gold:#FFD600; --zone-bg:#f5f6fa; --zone-card:#fff; --zone-border:#d8dbee; --zone-text:#1f212d; --zone-muted:#5a5d78; --zone-hero-from:#0d1b2a; --zone-hero-to:#1b2838;
+  --radius:12px; --radius-lg:16px;
+  --shadow:0 4px 12px rgba(26,58,95,.08); --shadow-hover:0 8px 20px rgba(26,58,95,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;background:var(--zone-bg);color:var(--zone-text);line-height:1.6;padding-bottom:80px}
+
+/* Carousel */
+.carousel{position:relative;width:100%;max-width:600px;margin:0 auto 20px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in}
+.carousel-track{display:flex;transition:transform .5s ease}
+.carousel-slide{min-width:100%;height:380px;display:flex;align-items:center;justify-content:center;font-size:60px;color:#fff;position:relative}
+.carousel-slide:nth-child(1){background:linear-gradient(135deg,#1A237E,#283593)}
+.carousel-slide:nth-child(2){background:linear-gradient(135deg,#0d1b2a,#1b2838)}
+.carousel-slide:nth-child(3){background:linear-gradient(135deg,#263238,#455A64)}
+.carousel-slide .cs-label{position:absolute;bottom:16px;background:rgba(0,0,0,.55);color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600}
+.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
+.carousel-dot{width:10px;height:10px;border-radius:50%;background:var(--zone-border);cursor:pointer;transition:all .3s;border:none}
+.carousel-dot.active{background:var(--zone-primary);transform:scale(1.3)}
+.carousel-arrows{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 10px;pointer-events:none;z-index:2}
+.carousel-arrow{pointer-events:auto;background:rgba(255,255,255,.85);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.carousel-arrow:hover{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+
+/* Breadcrumb */
+.breadcrumb-bar{background:rgba(255,255,255,.92);border-bottom:1px solid var(--zone-border);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--zone-muted);text-decoration:none}
+.breadcrumb-bar a:hover{color:var(--zone-primary)}
+.breadcrumb-bar .sep{color:var(--zone-border)}
+.breadcrumb-bar .current{color:var(--zone-primary);font-weight:700}
+
+/* Compare Bar */
+.compare-bar{position:fixed;top:36px;left:0;right:0;z-index:98;background:linear-gradient(90deg,rgba(255,255,255,.97),rgba(255,255,255,.95));border-bottom:2px solid var(--zone-primary);padding:8px 12px;display:none;align-items:center;gap:8px;font-size:12px;box-shadow:0 2px 12px rgba(0,0,0,.1);backdrop-filter:blur(8px);flex-wrap:wrap}
+.compare-bar.show{display:flex}
+.compare-bar .cb-title{font-weight:700;color:var(--zone-primary);white-space:nowrap}
+.compare-bar .cb-items{display:flex;gap:6px;flex:1;overflow-x:auto;align-items:center}
+.compare-bar .cb-item{background:var(--zone-primary-light);padding:4px 10px;border-radius:20px;font-size:11px;white-space:nowrap;display:flex;align-items:center;gap:6px;border:1px solid var(--zone-primary)}
+.compare-bar .cb-item .cb-remove{cursor:pointer;color:var(--zone-accent);font-weight:700;font-size:14px;line-height:1}
+.compare-bar .cb-actions{display:flex;gap:6px;white-space:nowrap}
+.compare-bar .cb-compare-btn{padding:5px 14px;background:var(--zone-primary);color:#fff;border:none;border-radius:15px;cursor:pointer;font-size:11px;font-weight:700}
+.compare-bar .cb-clear{font-size:10px;color:var(--zone-muted);cursor:pointer;background:none;border:none;text-decoration:underline}
+.compare-toggle{position:fixed;right:12px;bottom:140px;z-index:97;background:var(--zone-primary);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:18px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.compare-toggle:active{transform:scale(.9)}
+.compare-toggle .ct-badge{position:absolute;top:-4px;right:-4px;background:var(--zone-accent);color:#fff;border-radius:50%;width:20px;height:20px;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* Price Section */
+.price-hero{background:linear-gradient(135deg,#1A237E,#283593,#B71C1C);color:#fff;padding:28px 20px;text-align:center;border-radius:var(--radius-lg);margin:20px 0;position:relative;overflow:hidden}
+.price-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,.08) 50%,transparent 70%);animation:priceShine 3s infinite}
+@keyframes priceShine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.price-hero .ph-badge{display:inline-block;background:rgba(255,255,255,.2);padding:4px 14px;border-radius:20px;font-size:11px;margin-bottom:10px;backdrop-filter:blur(4px)}
+.price-hero .ph-price{font-size:48px;font-weight:900;text-shadow:0 2px 8px rgba(0,0,0,.2)}
+.price-hero .ph-price small{font-size:18px;text-decoration:line-through;opacity:.7;margin-left:10px}
+.price-hero .ph-tags{display:flex;gap:8px;justify-content:center;margin-top:8px;flex-wrap:wrap}
+.ph-tag{padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700}
+.ph-tag.hot{background:#ff4444;color:#fff;animation:pulse-tag 1.5s infinite}
+.ph-tag.limited{background:#FF6F00;color:#fff}
+.ph-tag.presale{background:#7B1FA2;color:#fff;animation:pulse-tag 1.5s infinite}
+@keyframes pulse-tag{0%,100%{box-shadow:0 0 0 0 rgba(255,68,68,.5)}50%{box-shadow:0 0 0 8px rgba(255,68,68,0)}}
+
+/* Stock Progress */
+.stock-progress{margin:12px 0;padding:0 4px}
+.stock-progress .sp-header{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+.stock-progress .sp-header .sp-sold{color:var(--zone-accent);font-weight:700}
+.stock-progress .sp-header .sp-total{color:var(--zone-muted)}
+.stock-progress .sp-bar{height:10px;border-radius:5px;background:#eee;overflow:hidden}
+.stock-progress .sp-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,#ff6b6b,#ff4444,var(--zone-accent));transition:width .6s ease;position:relative}
+.stock-progress .sp-fill::after{content:'';position:absolute;right:0;top:0;bottom:0;width:20px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4))}
+.stock-progress .sp-fire{font-size:11px;color:var(--zone-accent);text-align:right;margin-top:2px}
+
+/* Coupon */
+.coupon-section{display:flex;gap:8px;overflow-x:auto;padding:4px 0;margin:8px 0;-webkit-overflow-scrolling:touch}
+.coupon-section::-webkit-scrollbar{height:2px}
+.coupon-card{flex:0 0 auto;background:linear-gradient(135deg,#fff9f0,#fff3e0);border:1px dashed var(--zone-accent);border-radius:10px;padding:8px 14px;cursor:pointer;transition:all .2s;text-align:center;min-width:100px}
+.coupon-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(198,46,46,.15)}
+.coupon-card .cc-amount{font-size:22px;font-weight:900;color:var(--zone-accent)}
+.coupon-card .cc-amount small{font-size:11px;font-weight:400}
+.coupon-card .cc-condition{font-size:10px;color:var(--zone-muted)}
+.coupon-card .cc-label{font-size:9px;background:var(--zone-accent);color:#fff;padding:1px 6px;border-radius:8px;display:inline-block;margin-top:2px}
+
+/* Quantity */
+.qty-row{display:flex;align-items:center;justify-content:center;gap:12px;margin:16px 0}
+.qty-btn{width:38px;height:38px;border-radius:50%;border:2px solid var(--zone-primary);background:#fff;cursor:pointer;font-size:20px;font-weight:700;color:var(--zone-primary);transition:all .2s;display:flex;align-items:center;justify-content:center}
+.qty-btn:hover{background:var(--zone-primary);color:#fff}
+.qty-num{font-size:22px;font-weight:800;min-width:50px;text-align:center}
+.qty-label{font-size:12px;color:var(--zone-muted)}
+
+/* Pulsing Buy Button */
+.btn-pulse{display:block;width:100%;max-width:360px;margin:0 auto;padding:16px 32px;border:none;border-radius:30px;font-size:17px;font-weight:800;cursor:pointer;background:linear-gradient(135deg,#B71C1C,#D32F2F);color:#fff;animation:btnPulse 2s infinite;transition:all .3s;text-align:center;text-decoration:none}
+@keyframes btnPulse{0%,100%{box-shadow:0 0 0 0 rgba(183,28,28,.5)}50%{box-shadow:0 0 0 14px rgba(183,28,28,0)}}
+.btn-pulse:hover{transform:translateY(-3px);animation:none;box-shadow:0 8px 28px rgba(183,28,28,.4)}
+
+/* Price Trend Chart */
+.price-chart-section{background:var(--zone-card);border-radius:var(--radius-lg);padding:16px;box-shadow:var(--shadow);margin-bottom:16px}
+.price-chart-section .pc-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.price-chart-section .pc-title{font-size:14px;font-weight:700;color:var(--zone-primary)}
+.price-chart-section .pc-badge{font-size:10px;padding:2px 8px;border-radius:10px;background:var(--zone-primary-light);color:var(--zone-primary)}
+.price-chart-section .pc-stats{display:flex;gap:16px;font-size:11px;color:var(--zone-muted);margin-bottom:8px;flex-wrap:wrap}
+.price-chart-section .pc-stats .pc-low{color:#22c55e}
+.price-chart-section .pc-stats .pc-high{color:var(--zone-accent)}
+.price-chart-section svg{width:100%;height:160px}
+
+/* Spec Table */
+.spec-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+.spec-table td{padding:10px 12px;border-bottom:1px solid var(--zone-border)}
+.spec-table td:first-child{font-weight:700;color:var(--zone-primary);width:30%;background:var(--zone-primary-light)}
+.spec-table tr:last-child td{border-bottom:none}
+
+/* Reviews + Helpful Button */
+.review-card{border-bottom:1px solid var(--zone-border);padding:14px 0}
+.review-card:last-child{border-bottom:none}
+.review-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.review-avatar{width:36px;height:36px;border-radius:50%;background:var(--zone-primary-light);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--zone-primary);font-size:14px}
+.review-stars{color:var(--zone-gold);font-size:13px}
+.review-date{font-size:11px;color:var(--zone-muted);margin-left:auto}
+.review-text{font-size:13px;color:var(--zone-muted);line-height:1.6}
+.review-actions{display:flex;gap:12px;margin-top:8px;align-items:center}
+.helpful-btn{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border:1px solid var(--zone-border);border-radius:16px;background:#fff;cursor:pointer;font-size:11px;color:var(--zone-muted);transition:all .2s}
+.helpful-btn:hover{border-color:var(--zone-primary);color:var(--zone-primary)}
+.helpful-btn.voted{background:var(--zone-primary-light);border-color:var(--zone-primary);color:var(--zone-primary);font-weight:700}
+.helpful-btn .hb-count{font-weight:600}
+
+/* Share */
+.share-row{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px 0}
+.share-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 18px;border:1px solid var(--zone-border);border-radius:20px;background:#fff;cursor:pointer;font-size:12px;color:var(--zone-muted);transition:all .2s}
+.share-btn:hover{background:var(--zone-primary-light);color:var(--zone-primary);border-color:var(--zone-primary)}
+
+/* Horizontal scroll */
+.hscroll-section{margin:20px 0}
+.hscroll-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.hscroll-title{font-size:16px;font-weight:700;color:var(--zone-primary);display:flex;align-items:center;gap:8px}
+.hscroll-refresh{padding:5px 14px;border:1px solid var(--zone-primary);border-radius:16px;background:#fff;color:var(--zone-primary);cursor:pointer;font-size:11px;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:4px}
+.hscroll-refresh:hover{background:var(--zone-primary);color:#fff}
+.hscroll-refresh.spinning i{animation:spin .6s linear}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hscroll-wrap{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.hscroll-wrap::-webkit-scrollbar{height:4px}
+.hscroll-wrap::-webkit-scrollbar-thumb{background:var(--zone-primary);border-radius:4px}
+.hscroll-card{flex:0 0 180px;background:var(--zone-card);border-radius:var(--radius);padding:14px;text-align:center;box-shadow:var(--shadow);scroll-snap-align:start;cursor:pointer;transition:all .2s;text-decoration:none;color:var(--zone-text);display:block}
+.hscroll-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.hscroll-card .hc-icon{font-size:32px;margin-bottom:6px}
+.hscroll-card .hc-name{font-size:12px;font-weight:700;margin-bottom:2px}
+.hscroll-card .hc-price{font-size:14px;font-weight:800;color:var(--zone-accent)}
+
+/* FAQ Accordion */
+.faq-section{background:var(--zone-card);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow);margin-bottom:16px}
+.faq-section .faq-hd{font-size:16px;font-weight:700;color:var(--zone-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.faq-item{border-bottom:1px solid var(--zone-border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:14px 0;cursor:pointer;font-size:13px;font-weight:600;color:var(--zone-text);transition:color .2s}
+.faq-q:hover{color:var(--zone-primary)}
+.faq-q .faq-icon{transition:transform .3s;font-size:12px;color:var(--zone-muted)}
+.faq-q.open .faq-icon{transform:rotate(180deg);color:var(--zone-primary)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:12px;color:var(--zone-muted);line-height:1.7;padding:0}
+.faq-a.open{max-height:200px;padding:0 0 14px 0}
+
+/* Zoom Modal */
+.zoom-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;flex-direction:column}
+.zoom-overlay.show{display:flex}
+.zoom-overlay .zoom-content{font-size:120px;color:#fff;text-align:center;padding:20px}
+.zoom-overlay .zoom-label{color:rgba(255,255,255,.7);font-size:14px;margin-top:12px}
+.zoom-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.15);color:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.zoom-close:hover{background:rgba(255,255,255,.25)}
+
+/* Toast */
+.toast-container{position:fixed;top:60px;left:50%;transform:translateX(-50%);z-index:9998;display:flex;flex-direction:column;gap:8px;align-items:center}
+.toast{background:rgba(0,0,0,.85);color:#fff;padding:10px 24px;border-radius:24px;font-size:13px;font-weight:600;animation:toastIn .35s ease,toastOut .35s ease 2s forwards;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+@keyframes toastIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes toastOut{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-20px)}}
+
+/* Share Card Modal */
+.share-modal-overlay{position:fixed;inset:0;z-index:9997;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center}
+.share-modal-overlay.show{display:flex}
+.share-modal{background:#fff;border-radius:var(--radius-lg);padding:24px;max-width:380px;width:90%;box-shadow:0 16px 40px rgba(0,0,0,.3);text-align:center}
+.share-modal .sm-title{font-size:16px;font-weight:700;margin-bottom:16px;color:var(--zone-text)}
+.share-card-preview{background:linear-gradient(135deg,var(--zone-primary-light),#fff);border:2px solid var(--zone-primary);border-radius:var(--radius);padding:16px;margin-bottom:16px;text-align:left}
+.share-card-preview .scp-name{font-weight:700;color:var(--zone-primary);font-size:15px}
+.share-card-preview .scp-price{font-size:22px;font-weight:900;color:var(--zone-accent);margin:4px 0}
+.share-card-preview .scp-code{font-family:monospace;font-size:10px;color:var(--zone-muted);background:rgba(0,0,0,.04);padding:4px 8px;border-radius:4px;display:inline-block;margin-top:4px}
+.share-card-preview .scp-qr{font-size:60px;text-align:center;margin:8px 0}
+.share-modal .sm-actions{display:flex;gap:8px;justify-content:center}
+.share-modal .sm-btn{padding:8px 18px;border-radius:20px;border:none;cursor:pointer;font-size:12px;font-weight:600;transition:all .2s}
+.share-modal .sm-btn.copy{background:var(--zone-primary);color:#fff}
+.share-modal .sm-btn.close{background:#eee;color:var(--zone-muted)}
+
+/* Shared */
+.section{background:var(--zone-card);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow);margin-bottom:16px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--zone-border)}
+.section-hd h2{font-size:16px;font-weight:700;color:var(--zone-primary)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:500px){.grid2{grid-template-columns:1fr}}
+.info-box{background:var(--zone-primary-light);border-radius:10px;padding:12px;font-size:12px;line-height:1.6}
+.info-box strong{color:var(--zone-primary)}
+.tag{background:var(--zone-primary-light);color:var(--zone-primary);padding:3px 10px;border-radius:12px;font-size:10px;font-weight:600}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+
+/* Mobile Bottom Bar */
+.mobile-buy-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:rgba(255,255,255,.97);border-top:1px solid var(--zone-border);padding:8px 12px;box-shadow:0 -4px 16px rgba(0,0,0,.1);align-items:center;gap:10px;backdrop-filter:blur(8px)}
+.mobile-buy-bar .mbb-info{flex:1;min-width:0}
+.mobile-buy-bar .mbb-price{font-size:20px;font-weight:900;color:var(--zone-accent)}
+.mobile-buy-bar .mbb-price small{font-size:11px;text-decoration:line-through;color:var(--zone-muted)}
+.mobile-buy-bar .mbb-stock{font-size:10px;color:var(--zone-muted)}
+.mobile-buy-bar .mbb-btns{display:flex;gap:8px}
+.mobile-buy-bar .mbb-btn{padding:10px 20px;border-radius:24px;border:none;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .2s}
+.mobile-buy-bar .mbb-btn.cart{background:var(--zone-primary-light);color:var(--zone-primary)}
+.mobile-buy-bar .mbb-btn.buy{background:linear-gradient(135deg,var(--zone-accent),#ff4444);color:#fff}
+@media(max-width:768px){
+  .mobile-buy-bar{display:flex}
+  body{padding-bottom:70px}
+  .btn-pulse.desktop-only{display:none}
+  .qty-row.desktop-only{display:none}
+  .carousel-slide{height:280px}
+}
+
+/* Bottom Nav */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:99;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+@media(max-width:768px){.bottom-nav{bottom:58px}}
+.extend-bar{background:var(--zone-card);border-radius:var(--radius-lg);padding:14px 18px;box-shadow:var(--shadow);margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:3px solid var(--zone-primary)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:var(--zone-muted)}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:var(--zone-primary-light);color:var(--zone-primary);border:1px solid var(--zone-primary)}
+.ext-trace:hover{background:var(--zone-primary);color:#fff}
+.ext-mall{background:transparent;color:var(--zone-muted);border:1px dashed var(--zone-border)}
+.ext-mall:hover{border-color:var(--zone-primary);color:var(--zone-primary)}
+footer{text-align:center;padding:16px 16px 80px;font-size:9px;color:var(--zone-muted);border-top:1px solid var(--zone-border);margin-top:16px}
+
+/* Supervision */
+.supervision{background:linear-gradient(135deg,var(--zone-primary-light),#fff);border:2px solid var(--zone-primary);border-radius:var(--radius-lg);padding:18px;margin:16px 0}
+.supervision h3{font-size:15px;color:var(--zone-primary);margin-bottom:10px}
+.sv-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:500px){.sv-grid{grid-template-columns:1fr}}
+.sv-person{display:flex;align-items:center;gap:10px;background:#fff;border-radius:10px;padding:10px;border:1px solid var(--zone-border)}
+.sv-avatar{width:44px;height:44px;border-radius:50%;background:var(--zone-primary);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px}
+
+/* === Round 3 Features === */
+
+/* Video Placeholder */
+.video-placeholder{position:relative;width:100%;max-width:600px;margin:0 auto 20px;border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;aspect-ratio:16/9;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)}
+.video-placeholder .vp-cover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+.video-placeholder .vp-icon{font-size:64px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3))}
+.video-placeholder .vp-play{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--zone-primary);box-shadow:0 4px 20px rgba(0,0,0,.3);transition:transform .2s}
+.video-placeholder:hover .vp-play{transform:scale(1.1)}
+.video-placeholder .vp-duration{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.7);color:#fff;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600}
+.video-placeholder .vp-title{position:absolute;bottom:12px;left:12px;background:rgba(0,0,0,.55);color:#fff;padding:4px 12px;border-radius:12px;font-size:11px}
+
+/* Flash Sale Countdown */
+.flash-sale{background:linear-gradient(135deg,#ff2d2d,#e60000);border-radius:var(--radius);padding:12px 16px;margin:12px 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:#fff;box-shadow:0 4px 16px rgba(255,0,0,.3)}
+.flash-sale .fs-label{font-weight:700;font-size:14px;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.flash-sale .fs-label .fs-icon{animation:flashPulse .8s infinite}
+@keyframes flashPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.flash-sale .fs-countdown{display:flex;gap:4px;align-items:center;font-weight:900;font-size:18px;font-family:monospace}
+.flash-sale .fs-segment{background:rgba(0,0,0,.3);padding:4px 8px;border-radius:6px;min-width:36px;text-align:center}
+.flash-sale .fs-sep{font-size:14px;opacity:.7}
+.flash-sale .fs-progress{flex:1;min-width:80px;font-size:11px}
+.flash-sale .fs-bar{height:6px;border-radius:3px;background:rgba(255,255,255,.25);margin-top:4px;overflow:hidden}
+.flash-sale .fs-fill{height:100%;border-radius:3px;background:#fff;transition:width 1s linear}
+
+/* Service Promise */
+.service-promise{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:8px 0;padding:10px 0}
+.service-promise .sp-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--zone-muted);background:var(--zone-primary-light);padding:6px 12px;border-radius:20px;white-space:nowrap}
+.service-promise .sp-item .sp-icon{font-size:14px;color:var(--zone-primary);font-weight:700}
+
+/* Points Deduction */
+.points-deduction{background:linear-gradient(135deg,#fff9e6,#fff3cd);border:1px solid #ffc107;border-radius:var(--radius);padding:10px 14px;margin:8px 0;display:flex;align-items:center;gap:10px;font-size:12px;flex-wrap:wrap}
+.points-deduction .pd-icon{font-size:22px}
+.points-deduction .pd-info{flex:1;min-width:120px}
+.points-deduction .pd-info strong{color:#e6a800}
+.points-deduction .pd-btn{padding:5px 14px;background:linear-gradient(135deg,#ffc107,#ff9800);color:#fff;border:none;border-radius:16px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+
+/* Bundle Recommendation */
+.bundle-section{background:var(--zone-card);border-radius:var(--radius-lg);padding:16px;box-shadow:var(--shadow);margin-bottom:16px;border-left:4px solid var(--zone-accent)}
+.bundle-section .bundle-hd{font-size:15px;font-weight:700;color:var(--zone-accent);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.bundle-section .bundle-items{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.bundle-section .bundle-items::-webkit-scrollbar{height:3px}
+.bundle-section .bundle-item{flex:0 0 140px;text-align:center;background:var(--zone-bg);border-radius:var(--radius);padding:12px 8px;position:relative}
+.bundle-section .bundle-item .bi-icon{font-size:36px;margin-bottom:4px}
+.bundle-section .bundle-item .bi-name{font-size:11px;font-weight:600;margin-bottom:2px}
+.bundle-section .bundle-item .bi-price{font-size:13px;font-weight:800;color:var(--zone-accent)}
+.bundle-section .bundle-item .bi-plus{position:absolute;top:-8px;right:-8px;background:var(--zone-accent);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;cursor:pointer;transition:transform .2s}
+.bundle-section .bundle-item .bi-plus:hover{transform:scale(1.2)}
+.bundle-section .bundle-total{text-align:center;margin-top:12px;padding-top:10px;border-top:1px dashed var(--zone-border)}
+.bundle-section .bundle-total .bt-price{font-size:22px;font-weight:900;color:var(--zone-accent)}
+.bundle-section .bundle-total .bt-save{font-size:11px;color:#22c55e;font-weight:600}
+.bundle-section .bundle-total .bt-btn{display:inline-block;margin-top:8px;padding:8px 28px;background:linear-gradient(135deg,var(--zone-accent),#ff4444);color:#fff;border:none;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer}
+
+/* Product Q&A */
+.qa-section{background:var(--zone-card);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow);margin-bottom:16px}
+.qa-section .qa-hd{font-size:16px;font-weight:700;color:var(--zone-primary);margin-bottom:12px;display:flex;align-items:center;gap:8px;justify-content:space-between}
+.qa-section .qa-ask-btn{padding:5px 14px;background:var(--zone-primary);color:#fff;border:none;border-radius:16px;font-size:11px;cursor:pointer;font-weight:600}
+.qa-item{border-bottom:1px solid var(--zone-border);padding:12px 0}
+.qa-item:last-child{border-bottom:none}
+.qa-item .qa-q-row{display:flex;gap:8px;align-items:flex-start}
+.qa-item .qa-q-avatar{width:28px;height:28px;border-radius:50%;background:var(--zone-primary-light);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--zone-primary);flex-shrink:0;font-weight:700}
+.qa-item .qa-q-text{font-size:13px;font-weight:600;color:var(--zone-text);flex:1}
+.qa-item .qa-a-row{display:flex;gap:8px;align-items:flex-start;margin-top:8px;margin-left:36px;background:var(--zone-primary-light);border-radius:10px;padding:10px 12px}
+.qa-item .qa-a-avatar{width:24px;height:24px;border-radius:50%;background:var(--zone-primary);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;flex-shrink:0}
+.qa-item .qa-a-text{font-size:12px;color:var(--zone-muted);flex:1;line-height:1.6}
+.qa-item .qa-a-badge{font-size:9px;background:var(--zone-primary);color:#fff;padding:1px 6px;border-radius:8px;white-space:nowrap}
+.qa-item .qa-meta{display:flex;gap:10px;font-size:10px;color:var(--zone-muted);margin-top:4px;margin-left:36px}
+
+/* Browse History */
+.history-section{margin:20px 0}
+.history-section .hist-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.history-section .hist-title{font-size:14px;font-weight:700;color:var(--zone-text);display:flex;align-items:center;gap:6px}
+.history-section .hist-clear{font-size:10px;color:var(--zone-muted);cursor:pointer;background:none;border:none;text-decoration:underline}
+.history-section .hist-wrap{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.history-section .hist-wrap::-webkit-scrollbar{height:3px}
+.history-section .hist-item{flex:0 0 130px;background:var(--zone-card);border-radius:var(--radius);padding:10px;text-align:center;box-shadow:var(--shadow);text-decoration:none;color:var(--zone-text);transition:transform .2s}
+.history-section .hist-item:hover{transform:translateY(-2px)}
+.history-section .hist-item .hi-icon{font-size:28px;margin-bottom:4px}
+.history-section .hist-item .hi-name{font-size:11px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.history-section .hist-item .hi-price{font-size:12px;font-weight:700;color:var(--zone-accent)}
+.history-section .hist-item .hi-time{font-size:9px;color:var(--zone-muted)}
+
+/* Store Card */
+.store-card{background:var(--zone-card);border-radius:var(--radius-lg);padding:16px;box-shadow:var(--shadow);margin-bottom:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.store-card .sc-logo{width:56px;height:56px;border-radius:12px;background:var(--zone-primary);display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;flex-shrink:0}
+.store-card .sc-info{flex:1;min-width:140px}
+.store-card .sc-name{font-size:15px;font-weight:700;color:var(--zone-text);margin-bottom:2px}
+.store-card .sc-stats{display:flex;gap:12px;font-size:11px;color:var(--zone-muted);flex-wrap:wrap}
+.store-card .sc-stats .sc-star{color:var(--zone-gold)}
+.store-card .sc-stats .sc-count{font-weight:600;color:var(--zone-primary)}
+.store-card .sc-follow{padding:8px 20px;background:var(--zone-primary);color:#fff;border:none;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .2s}
+.store-card .sc-follow:hover{opacity:.85;transform:translateY(-1px)}
+.store-card .sc-follow.followed{background:#ccc;color:#666}
+.store-card .sc-enter{font-size:11px;color:var(--zone-primary);text-decoration:underline;cursor:pointer}
+
+</style>
+</head>
+<body data-zone="preserve" data-pid="4" data-pname="军用压缩饼干 12包" data-pprice="128" data-picon="🍪">
+
+<div class="compare-bar" id="compareBar">
+  <span class="cb-title"><i class="fas fa-balance-scale"></i> 已选对比</span>
+  <div class="cb-items" id="compareItems"></div>
+  <div class="cb-actions">
+    <button class="cb-compare-btn" onclick="doCompare()">开始对比</button>
+    <button class="cb-clear" onclick="clearCompare()">清空</button>
+  </div>
+</div>
+<button class="compare-toggle" id="compareToggle" onclick="toggleCompare()" title="商品对比">
+  <i class="fas fa-balance-scale"></i>
+  <span class="ct-badge" id="compareBadge" style="display:none">0</span>
+</button>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="zoom-overlay" id="zoomOverlay" onclick="closeZoom()">
+  <button class="zoom-close" onclick="closeZoom()"><i class="fas fa-times"></i></button>
+  <div class="zoom-content" id="zoomContent"></div>
+  <div class="zoom-label" id="zoomLabel"></div>
+</div>
+
+<div class="share-modal-overlay" id="shareModalOverlay" onclick="closeShareModal(event)">
+  <div class="share-modal" onclick="event.stopPropagation()">
+    <div class="sm-title"><i class="fas fa-share-alt"></i> 分享商品</div>
+    <div class="share-card-preview" id="shareCardPreview">
+      <div class="scp-name">军用压缩饼干 · 12包组合装</div>
+      <div class="scp-price">¥128 <small style="font-size:11px;text-decoration:line-through;color:var(--zone-muted)">¥168</small></div>
+      <div class="scp-qr">🍪🔗</div>
+      <div class="scp-code">溯源码: JC-BC-250529-004-M2N6H</div>
+      <div style="font-size:9px;color:var(--zone-muted);margin-top:4px">军鸽云链 · 全链透明溯源</div>
+    </div>
+    <div class="sm-actions">
+      <button class="sm-btn copy" onclick="copyShareLink()"><i class="fas fa-copy"></i> 复制链接</button>
+      <button class="sm-btn close" onclick="closeShareModal()">关闭</button>
+    </div>
+  </div>
+</div>
+
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/shangcheng.html">🛒 商业生态</a><span class="sep">▸</span>
+  <a href="/veteran-mall.html">军创商城</a><span class="sep">▸</span>
+  <span class="current">军用压缩饼干 12包</span>
+</nav>
+
+<div class="container">
+
+<div class="carousel" id="carousel4" onclick="openZoom(event,'carousel4')">
+  <div class="carousel-arrows">
+    <button class="carousel-arrow" onclick="event.stopPropagation();prevSlide('carousel4')"><i class="fas fa-chevron-left"></i></button>
+    <button class="carousel-arrow" onclick="event.stopPropagation();nextSlide('carousel4')"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="carousel-track" id="carousel4-track">
+<div class="carousel-slide" data-zoom-icon="🍪" data-zoom-label="12包组合装 · 独立真空包装"><span style="font-size:80px">🍪</span><span class="cs-label">12包组合装 · 独立真空包装</span></div>
+<div class="carousel-slide" data-zoom-icon="🎒" data-zoom-label="户外便携 · 一包一顿管饱"><span style="font-size:80px">🎒</span><span class="cs-label">户外便携 · 一包一顿管饱</span></div>
+<div class="carousel-slide" data-zoom-icon="📋" data-zoom-label="军工品质 · 营养均衡配比"><span style="font-size:80px">📋</span><span class="cs-label">军工品质 · 营养均衡配比</span></div>
+  </div>
+  <div class="carousel-dots" id="carousel4-dots">
+    <button class="carousel-dot active" onclick="event.stopPropagation();goSlide('carousel4',0)"></button>
+    <button class="carousel-dot" onclick="event.stopPropagation();goSlide('carousel4',1)"></button>
+    <button class="carousel-dot" onclick="event.stopPropagation();goSlide('carousel4',2)"></button>
+  </div>
+</div>
+
+<!-- 1. Video Placeholder -->
+<div class="video-placeholder" onclick="playVideo('4')">
+  <div class="vp-cover">
+    <div class="vp-icon">🍪</div>
+    <div class="vp-play">▶</div>
+  </div>
+  <div class="vp-duration">02:45</div>
+  <div class="vp-title">军用压缩饼干 · 商品视频介绍</div>
+</div>
+
+<div class="price-hero">
+  <div class="ph-badge">🍪 军创食品 · 保值品区</div>
+  <div style="font-size:18px;font-weight:700;margin-bottom:6px">军用压缩饼干 · 12包组合装</div>
+  <div class="ph-price">¥128<small>¥168</small></div>
+  <div class="ph-tags">
+    <span class="ph-tag hot">🔥 热卖爆款</span><span class="ph-tag" style="background:#1A237E">🎖 军需品质</span><span class="ph-tag" style="background:#2E7D32">📦 36个月保质期</span>
+  </div>
+  <div style="font-size:12px;opacity:.85;margin-top:6px"><i class="fas fa-shipping-fast"></i> 全国包邮 · 每包200g · 12包超值装</div>
+</div>
+
+<!-- 2. Flash Sale Countdown -->
+<div class="flash-sale">
+  <div class="fs-label"><span class="fs-icon">⚡</span> 限时秒杀</div>
+  <div class="fs-countdown" id="flashCountdown4">
+    <span class="fs-segment fs-h">02</span><span class="fs-sep">:</span>
+    <span class="fs-segment fs-m">30</span><span class="fs-sep">:</span>
+    <span class="fs-segment fs-s">15</span>
+  </div>
+  <div class="fs-progress">
+    <span style="font-size:10px">已抢68%</span>
+    <div class="fs-bar"><div class="fs-fill" style="width:68%"></div></div>
+  </div>
+</div>
+
+<div class="stock-progress">
+  <div class="sp-header">
+    <span class="sp-sold">已售 4,521件</span>
+    <span class="sp-total">总库存 10,000件</span>
+  </div>
+  <div class="sp-bar"><div class="sp-fill" style="width:45%"></div></div>
+  <div class="sp-fire"><i class="fas fa-fire"></i> 已售45% · 剩余库存紧张，请尽快下单</div>
+</div>
+
+<div class="coupon-section">
+  <div class="coupon-card" onclick="claimCoupon('满99减10','man99b')">
+    <div class="cc-amount">¥10</div>
+    <div class="cc-condition">满99元可用</div>
+    <div class="cc-label">满减券</div>
+  </div>
+  <div class="coupon-card" onclick="claimCoupon('新人专享 ¥8','xinren4')">
+    <div class="cc-amount">¥8</div>
+    <div class="cc-condition">新人无门槛</div>
+    <div class="cc-label">新人券</div>
+  </div>
+  <div class="coupon-card" onclick="claimCoupon('满199减25','man199b')">
+    <div class="cc-amount">¥25</div>
+    <div class="cc-condition">满199元可用</div>
+    <div class="cc-label">满减券</div>
+  </div>
+</div>
+
+<!-- 3. Service Promise -->
+<div class="service-promise">
+  <span class="sp-item"><span class="sp-icon">🛡️</span> 正品保证</span>
+  <span class="sp-item"><span class="sp-icon">🔄</span> 7天无理由</span>
+  <span class="sp-item"><span class="sp-icon">📦</span> 运费险</span>
+  <span class="sp-item"><span class="sp-icon">⚖️</span> 假一赔十</span>
+</div>
+
+<!-- 4. Points Deduction -->
+<div class="points-deduction">
+  <div class="pd-icon">🎖️</div>
+  <div class="pd-info"><strong>JC功勋币可抵¥12</strong> · 您当前拥有 <span style="color:var(--zone-primary);font-weight:700">1,280</span> 功勋币（100功勋币=¥1）</div>
+  <button class="pd-btn" onclick="usePoints(this,12)">立即抵扣</button>
+</div>
+
+<div class="qty-row desktop-only">
+  <span class="qty-label">数量：</span>
+  <button class="qty-btn" onclick="changeQty('qty4',-1)">−</button>
+  <span class="qty-num" id="qty4">1</span>
+  <button class="qty-btn" onclick="changeQty('qty4',1)">+</button>
+  <span class="qty-label">份</span>
+</div>
+<a href="/product-buy-4.html" class="btn-pulse desktop-only"><i class="fas fa-bolt"></i> 立即购买 · 应急储备 居家必备</a>
+
+<div class="share-row">
+  <button class="share-btn" onclick="openShareModal()"><i class="fas fa-share-alt"></i> 分享给朋友</button>
+  <button class="share-btn" onclick="toggleCompare()"><i class="fas fa-balance-scale"></i> 加入对比</button>
+</div>
+
+<div class="price-chart-section">
+  <div class="pc-header">
+    <span class="pc-title"><i class="fas fa-chart-line"></i> 价格走势（近7天）</span>
+    <span class="pc-badge">模拟数据</span>
+  </div>
+  <div class="pc-stats">
+    <span>7天最低: <span class="pc-low">¥125</span></span>
+    <span>7天最高: <span class="pc-high">¥135</span></span>
+    <span>当前: <span style="color:var(--zone-primary);font-weight:700">¥128</span></span>
+  </div>
+  <svg viewBox="0 0 600 160" id="priceChart4">
+    <defs>
+      <linearGradient id="pcGrad4" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1A237E" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#1A237E" stop-opacity="0.02"/>
+      </linearGradient>
+    </defs>
+    <line x1="40" y1="130" x2="580" y2="130" stroke="#e0e0e0" stroke-width="0.5"/>
+    <line x1="40" y1="80" x2="580" y2="80" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4"/>
+    <line x1="40" y1="30" x2="580" y2="30" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4"/>
+    <text x="32" y="134" font-size="9" fill="#888" text-anchor="end">120</text>
+<text x="32" y="84" font-size="9" fill="#888" text-anchor="end">130</text>
+<text x="32" y="34" font-size="9" fill="#888" text-anchor="end">140</text>
+
+    <polygon points="80,90 150,70 220,105 290,90 360,55 430,80 500,90 500,130 80,130" fill="url(#pcGrad4)"/>
+    <polyline points="80,90 150,70 220,105 290,90 360,55 430,80 500,90" fill="none" stroke="#1A237E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="80" cy="90" r="4" fill="#fff" stroke="#1A237E" stroke-width="2"/>
+<circle cx="150" cy="70" r="4" fill="#fff" stroke="#1A237E" stroke-width="2"/>
+<circle cx="220" cy="105" r="4" fill="#fff" stroke="#1A237E" stroke-width="2"/>
+<circle cx="290" cy="90" r="4" fill="#fff" stroke="#1A237E" stroke-width="2"/>
+<circle cx="360" cy="55" r="4" fill="#fff" stroke="#1A237E" stroke-width="2"/>
+<circle cx="430" cy="80" r="5" fill="#B71C1C" stroke="#B71C1C" stroke-width="2"/>
+<circle cx="500" cy="90" r="4" fill="#fff" stroke="#1A237E" stroke-width="2"/>
+
+    <text x="80" y="148" font-size="9" fill="#888" text-anchor="middle">05/23</text>
+<text x="150" y="148" font-size="9" fill="#888" text-anchor="middle">05/24</text>
+<text x="220" y="148" font-size="9" fill="#888" text-anchor="middle">05/25</text>
+<text x="290" y="148" font-size="9" fill="#888" text-anchor="middle">05/26</text>
+<text x="360" y="148" font-size="9" fill="#888" text-anchor="middle">05/27</text>
+<text x="430" y="148" font-size="9" fill="#888" text-anchor="middle">05/28</text>
+<text x="500" y="148" font-size="9" fill="#888" text-anchor="middle">05/29</text>
+
+    <text x="80" y="76" font-size="8" fill="#1A237E" text-anchor="middle" font-weight="700">¥128</text>
+<text x="150" y="56" font-size="8" fill="#1A237E" text-anchor="middle" font-weight="700">¥132</text>
+<text x="220" y="91" font-size="8" fill="#1A237E" text-anchor="middle" font-weight="700">¥125</text>
+<text x="290" y="76" font-size="8" fill="#1A237E" text-anchor="middle" font-weight="700">¥128</text>
+<text x="360" y="41" font-size="8" fill="#1A237E" text-anchor="middle" font-weight="700">¥135</text>
+<text x="430" y="62" font-size="9" fill="#B71C1C" text-anchor="middle" font-weight="700">¥130★</text>
+<text x="500" y="76" font-size="8" fill="#1A237E" text-anchor="middle" font-weight="700">¥128</text>
+
+  </svg>
+</div>
+
+<section class="section">
+  <div class="section-hd"><i class="fas fa-clipboard-list"></i><h2>📋 规格参数</h2></div>
+  <table class="spec-table">
+    <tr><td>产品名称</td><td>军用压缩饼干（军需配方）</td></tr>
+    <tr><td>规格</td><td>12包/箱 × 200g/包</td></tr>
+    <tr><td>总净重</td><td>2400g（2.4kg）</td></tr>
+    <tr><td>能量密度</td><td>≥1850kJ/100g（国标≥1700kJ）</td></tr>
+    <tr><td>主要成分</td><td>小麦粉、全脂奶粉、大豆蛋白、精炼植物油、复合维生素</td></tr>
+    <tr><td>蛋白质</td><td>≥12g/100g</td></tr>
+    <tr><td>保质期</td><td>36个月（真空独立包装）</td></tr>
+    <tr><td>储存条件</td><td>常温干燥避光保存，开封后尽快食用</td></tr>
+    <tr><td>执行标准</td><td>GJB 2806A-2019（军用食品标准）</td></tr>
+    <tr><td>生产许可证</td><td>SC10732010001</td></tr>
+    <tr><td>适用场景</td><td>户外徒步 / 应急储备 / 家庭防灾 / 军迷收藏</td></tr>
+  </table>
+</section>
+
+<section class="section">
+  <div class="section-hd"><i class="fas fa-info-circle"></i><h2>📝 产品描述</h2></div>
+  <p style="font-size:13px;line-height:1.8;color:var(--zone-muted)">
+  由退役军需官监制，严格参照军用食品标准GJB 2806A-2019生产。每包含200g压缩饼干，可提供约3700kJ能量——满足成人一顿正餐的热量需求。采用真空独立小包装设计，36个月超长保质期，是家庭应急储备、户外探险和防灾物资的理想选择。配方中添加了全脂奶粉和大豆蛋白，口感松脆不干噎，远超市面普通压缩饼干。每一箱均附带区块链溯源码，从原料采购到出厂检验全程透明。
+  </p>
+  <div class="tag-cloud">
+    <span class="tag">🎖 军需标准</span><span class="tag">⚡ 高能营养</span><span class="tag">📦 36月保质</span><span class="tag">🔬 SGS检测</span><span class="tag">🛡️ 退役军人监制</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-hd"><i class="fas fa-link"></i><h2>🔗 区块链溯源信息</h2></div>
+  <div class="grid2">
+    <div class="info-box"><i class="fas fa-qrcode"></i> <strong>唯一溯源码</strong><br><span style="font-family:monospace;font-size:12px;color:var(--zone-primary)">JC-BC-250529-004-M2N6H</span></div>
+    <div class="info-box"><i class="fas fa-database"></i> <strong>区块链平台</strong><br>蚂蚁链 · 区块高度 #9,123,459</div>
+    <div class="info-box"><i class="fas fa-clock"></i> <strong>上链时间</strong><br>2025-05-29 11:15:22 CST</div>
+    <div class="info-box"><i class="fas fa-shield-alt"></i> <strong>数据完整性</strong><br>100% · 智能合约验证通过</div>
+  </div>
+  <div style="margin-top:10px;font-size:12px;line-height:1.8;color:var(--zone-muted)">
+    <strong>溯源节点：</strong>原料采购(小麦粉/奶粉/蛋白) → 配料混合 → 压制成型 → 烘烤(2025.04) → 真空包装 → 出厂质检 → 入库上链 → 物流发出
+  </div>
+  <div style="margin-top:8px"><a href="/traceability.html" style="color:var(--zone-primary);font-size:12px;text-decoration:underline"><i class="fas fa-external-link-alt"></i> 在区块链浏览器中查看完整链上记录 →</a></div>
+</section>
+
+<section class="section">
+  <div class="section-hd"><i class="fas fa-star"></i><h2>⭐ 用户评价 (3条)</h2></div>
+  <div class="review-card" data-review-id="4-1">
+    <div class="review-head">
+      <div class="review-avatar">徐</div>
+      <div><strong style="font-size:13px">徐大军</strong></div>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-date">2025-05-17</div>
+    </div>
+    <div class="review-text">作为户外爱好者，各种压缩饼干吃了不少。这款口感明显好很多——有奶香味，不干不噎，嚼着还有一点酥脆感。上周末爬泰山带了两包，一包顶一餐完全够。128元12包划下来才10块多一包，比超市的进口品牌便宜一半。</div>
+    <div class="review-actions">
+      <button class="helpful-btn" onclick="voteHelpful('4-1',this)"><i class="fas fa-thumbs-up"></i> 有用 <span class="hb-count">(61)</span></button>
+    </div>
+  </div>
+  <div class="review-card" data-review-id="4-2">
+    <div class="review-head">
+      <div class="review-avatar">黄</div>
+      <div><strong style="font-size:13px">黄丽娟</strong></div>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-date">2025-05-13</div>
+    </div>
+    <div class="review-text">家里备了两箱作为应急物资。36个月的保质期让人放心，真空包装密封得很好。孩子学校组织防灾演练也带了几包去，老师反馈说比其他同学的压缩饼干好吃。退役军人做的产品确实靠谱，支持！</div>
+    <div class="review-actions">
+      <button class="helpful-btn" onclick="voteHelpful('4-2',this)"><i class="fas fa-thumbs-up"></i> 有用 <span class="hb-count">(34)</span></button>
+    </div>
+  </div>
+  <div class="review-card" data-review-id="4-3">
+    <div class="review-head">
+      <div class="review-avatar">钱</div>
+      <div><strong style="font-size:13px">钱一鸣</strong></div>
+      <div class="review-stars">★★★★☆</div>
+      <div class="review-date">2025-05-09</div>
+    </div>
+    <div class="review-text">味道确实不错，比记忆中部队的09式压缩饼干好吃太多了。能量密度高，吃完一包真的有饱腹感。扣一星是因为只有原味，如果能出个巧克力口味或者水果口味就更好了。总体性价比很高。</div>
+    <div class="review-actions">
+      <button class="helpful-btn" onclick="voteHelpful('4-3',this)"><i class="fas fa-thumbs-up"></i> 有用 <span class="hb-count">(28)</span></button>
+    </div>
+  </div>
+</section>
+
+<div class="hscroll-section">
+  <div class="hscroll-header">
+    <div class="hscroll-title"><i class="fas fa-eye"></i> 看了又看 · 为您推荐</div>
+    <button class="hscroll-refresh" onclick="refreshRecommendations(this)" id="refreshBtn4"><i class="fas fa-sync-alt"></i> 换一批</button>
+  </div>
+  <div class="hscroll-wrap" id="recWrap4">
+    <a href="/product-detail-3.html" class="hscroll-card">
+      <div class="hc-icon">🎒</div>
+      <div class="hc-name">战术背包</div>
+      <div class="hc-price">¥458</div>
+      <div style="font-size:10px;color:var(--zone-muted)">军创户外装备</div>
+    </a>
+    <a href="/product-detail-1.html" class="hscroll-card">
+      <div class="hc-icon">🌾</div>
+      <div class="hc-name">有机大米 5kg</div>
+      <div class="hc-price">¥68</div>
+      <div style="font-size:10px;color:var(--zone-muted)">军创农产品</div>
+    </a>
+    <a href="/product-detail-5.html" class="hscroll-card">
+      <div class="hc-icon">🍯</div>
+      <div class="hc-name">蜂蜜礼盒</div>
+      <div class="hc-price">¥188</div>
+      <div style="font-size:10px;color:var(--zone-muted)">退役军人创业</div>
+    </a>
+    <a href="/product-detail-6.html" class="hscroll-card">
+      <div class="hc-icon">⌚</div>
+      <div class="hc-name">智能手环</div>
+      <div class="hc-price">¥599</div>
+      <div style="font-size:10px;color:var(--zone-muted)">军创科技</div>
+    </a>
+  </div>
+</div>
+
+<!-- 5. Bundle Recommendation -->
+<div class="bundle-section">
+  <div class="bundle-hd"><i class="fas fa-gift"></i> 🎁 超值套装 · 购买此商品的用户还买了</div>
+  <div class="bundle-items">
+    <div class="bundle-item" style="border:2px solid var(--zone-primary)">
+      <div class="bi-icon">🍪</div>
+      <div class="bi-name">军用压缩饼干</div>
+      <div class="bi-price">¥128</div>
+    </div>
+    <div class="bundle-item" data-companion="1">
+      <div class="bi-icon">🌾</div>
+      <div class="bi-name">有机大米</div>
+      <div class="bi-price">¥68</div>
+    </div>
+    <div class="bundle-item" data-companion="5">
+      <div class="bi-icon">🍯</div>
+      <div class="bi-name">蜂蜜礼盒</div>
+      <div class="bi-price">¥188</div>
+    </div>
+  </div>
+  <div class="bundle-total">
+    <div>套装价 <span class="bt-price">¥384</span> <span style="text-decoration:line-through;font-size:12px;color:var(--zone-muted)">¥444</span></div>
+    <div class="bt-save">💰 套装省 ¥60</div>
+    <button class="bt-btn" onclick="addBundleToCart('4')">🛒 一键购买套装</button>
+  </div>
+</div>
+
+<section class="faq-section">
+  <div class="faq-hd"><i class="fas fa-question-circle"></i> 常见问题</div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFAQ(this)"><span>❓ 压缩饼干和普通饼干有什么区别？保质期为什么这么长？</span><i class="fas fa-chevron-down faq-icon"></i></div>
+    <div class="faq-a">军用压缩饼干采用高压成型和真空独立包装技术，能量密度达1850kJ/100g以上，一包200g可满足成人一顿正餐的热量需求。36个月保质期得益于真空包装+脱氧剂双重保鲜，以及严格的军用食品标准工艺。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFAQ(this)"><span>📦 一箱12包能吃多久？适合什么场景？</span><i class="fas fa-chevron-down faq-icon"></i></div>
+    <div class="faq-a">一箱12包，按每人每天1-2包计算，可供单人6-12天应急使用，或三口之家3-4天。适合家庭防灾储备、户外徒步、自驾旅行、军迷收藏等场景。建议每个家庭至少储备1-2箱。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFAQ(this)"><span>🍪 口感怎么样？会不会很难吃？</span><i class="fas fa-chevron-down faq-icon"></i></div>
+    <div class="faq-a">与刻板印象不同，这款压缩饼干添加了全脂奶粉和大豆蛋白，口感松脆有奶香味，不干不噎。许多用户反馈比超市普通饼干还好吃。当然，压缩饼干的特点是密度高、饱腹感强，吃一包加喝水就有明显饱腹感。</div>
+  </div>
+</section>
+
+<!-- 6. Product Q&A -->
+<div class="qa-section">
+  <div class="qa-hd">
+    <span><i class="fas fa-comments"></i> 💬 商品问答（3条）</span>
+    <button class="qa-ask-btn" onclick="askQuestion()">我要提问</button>
+  </div>
+  <div class="qa-item">
+    <div class="qa-q-row">
+      <div class="qa-q-avatar">张</div>
+      <div class="qa-q-text">请问军用压缩饼干的发货地是哪里？大概几天能到？</div>
+    </div>
+    <div class="qa-a-row">
+      <div class="qa-a-avatar">店</div>
+      <div class="qa-a-text">亲，本品从产地直发，默认顺丰快递，全国大部分地区3-5天送达。具体时效请以物流信息为准哦~ <span class="qa-a-badge">商家回复</span></div>
+    </div>
+    <div class="qa-meta"><span>2025-05-28</span><span>12人觉得有用</span></div>
+  </div>
+  <div class="qa-item">
+    <div class="qa-q-row">
+      <div class="qa-q-avatar">李</div>
+      <div class="qa-q-text">这款商品支持七天无理由退货吗？</div>
+    </div>
+    <div class="qa-a-row">
+      <div class="qa-a-avatar">店</div>
+      <div class="qa-a-text">支持的！在保证商品完好的前提下，签收后7天内可以申请无理由退货，运费险已为您投保。 <span class="qa-a-badge">商家回复</span></div>
+    </div>
+    <div class="qa-meta"><span>2025-05-25</span><span>8人觉得有用</span></div>
+  </div>
+  <div class="qa-item">
+    <div class="qa-q-row">
+      <div class="qa-q-avatar">王</div>
+      <div class="qa-q-text">退役军人购买有额外优惠吗？</div>
+    </div>
+    <div class="qa-a-row">
+      <div class="qa-a-avatar">店</div>
+      <div class="qa-a-text">退役军人凭证可享专属95折优惠，同时支持JC功勋币抵扣。感谢战友支持！ <span class="qa-a-badge">商家回复</span></div>
+    </div>
+    <div class="qa-meta"><span>2025-05-20</span><span>25人觉得有用</span></div>
+  </div>
+</div>
+
+<div class="supervision">
+  <h3><i class="fas fa-shield-haltered"></i> 🛡️ 分站监管责任 · 品质推荐</h3>
+  <div class="sv-grid">
+    <div class="sv-person">
+      <div class="sv-avatar"><i class="fas fa-user-tie"></i></div>
+      <div><strong style="font-size:13px">杨铁军</strong><br><span style="font-size:9px;color:var(--zone-muted)">北京军需分站 · 站长 · 退役军需官</span></div>
+    </div>
+    <div style="text-align:right;font-size:11px;color:var(--zone-muted);line-height:1.6">
+      <div style="font-weight:700;color:var(--zone-primary)">✅ 分站品质推荐</div>
+      <div>军标质检 · 实地验厂</div>
+      <div style="margin-top:4px;border:1px dashed var(--zone-primary);display:inline-block;padding:2px 8px;border-radius:4px;color:var(--zone-primary)">监管编号：FZ-BJ-2025-004</div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. Browse History -->
+<div class="history-section">
+  <div class="hist-hd">
+    <div class="hist-title"><i class="fas fa-history"></i> 🕐 浏览历史</div>
+    <button class="hist-clear" onclick="clearBrowseHistory()">清空记录</button>
+  </div>
+  <div class="hist-wrap" id="browseHistoryWrap">
+    <span style="font-size:11px;color:var(--zone-muted);padding:12px">加载中...</span>
+  </div>
+</div>
+
+<!-- 8. Store Card -->
+<div class="store-card">
+  <div class="sc-logo">🍪</div>
+  <div class="sc-info">
+    <div class="sc-name">军需食品保障中心</div>
+    <div class="sc-stats">
+      <span class="sc-star">⭐ 4.7</span>
+      <span>在售 <span class="sc-count">210</span> 件</span>
+      <span>综合体验 · 高分</span>
+    </div>
+    <a href="/shop.html" class="sc-enter">进入店铺 →</a>
+  </div>
+  <button class="sc-follow" data-store="军需食品保障中心" onclick="toggleStoreFollow(this,'军需食品保障中心')">+ 关注店铺</button>
+</div>
+
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+</div>
+
+<div class="mobile-buy-bar" id="mobileBuyBar">
+  <div class="mbb-info">
+    <div class="mbb-price">¥128 <small>¥168</small></div>
+    <div class="mbb-stock">已售45% · 库存紧张</div>
+  </div>
+  <div class="mbb-btns">
+    <button class="mbb-btn cart" onclick="addToCart()"><i class="fas fa-cart-plus"></i> 加购</button>
+    <button class="mbb-btn buy" onclick="location.href='/product-buy-4.html'"><i class="fas fa-bolt"></i> 立即购买</button>
+  </div>
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台 · 本页面所有可溯源数据均在区块链存证</p>
+</footer>
+
+<script>
+// Carousel
+var carousels={};
+function initCarousel(id){
+  var track=document.getElementById(id+'-track');
+  var dots=document.getElementById(id+'-dots').children;
+  carousels[id]={track:track,dots:dots,current:0,total:3};
+  var touchStartX=0,touchEndX=0;
+  var carouselEl=track.parentElement;
+  carouselEl.addEventListener('touchstart',function(e){touchStartX=e.changedTouches[0].screenX},{passive:true});
+  carouselEl.addEventListener('touchend',function(e){
+    touchEndX=e.changedTouches[0].screenX;
+    var diff=touchStartX-touchEndX;
+    if(Math.abs(diff)>50){if(diff>0)nextSlide(id);else prevSlide(id)}
+  },{passive:true});
+}
+function goSlide(id,n){
+  var c=carousels[id];c.current=n;
+  c.track.style.transform='translateX(-'+n+'00%)';
+  for(var i=0;i<c.dots.length;i++)c.dots[i].classList.toggle('active',i===n);
+}
+function nextSlide(id){var c=carousels[id];goSlide(id,(c.current+1)%c.total)}
+function prevSlide(id){var c=carousels[id];goSlide(id,(c.current-1+c.total)%c.total)}
+initCarousel('carousel4');
+setInterval(function(){nextSlide('carousel4')},4000);
+
+// Quantity
+function changeQty(id,delta){
+  var el=document.getElementById(id);
+  var v=parseInt(el.textContent)+delta;
+  if(v>=1&&v<=99)el.textContent=v;
+}
+
+// Compare
+var COMPARE_KEY='junge_compare';
+function getCompare(){try{return JSON.parse(localStorage.getItem(COMPARE_KEY)||'[]')}catch(e){return[]}}
+function saveCompare(arr){localStorage.setItem(COMPARE_KEY,JSON.stringify(arr));renderCompare();updateCompareBadge()}
+function addToCompare(pid,pname,pprice,picon){
+  var items=getCompare();
+  if(items.find(function(i){return i.id===pid})){showToast('该商品已在对比列表中');return}
+  if(items.length>=3){showToast('最多对比3个商品');return}
+  items.push({id:pid,name:pname,price:pprice,icon:picon});
+  saveCompare(items);
+  showToast('已加入对比: '+pname);
+}
+function removeFromCompare(pid){var items=getCompare().filter(function(i){return i.id!==pid});saveCompare(items)}
+function clearCompare(){saveCompare([]);showToast('对比列表已清空')}
+function renderCompare(){
+  var items=getCompare();
+  var bar=document.getElementById('compareBar');
+  var container=document.getElementById('compareItems');
+  container.innerHTML=items.map(function(i){return '<span class="cb-item">'+i.icon+' '+i.name+' ¥'+i.price+' <span class="cb-remove" onclick="removeFromCompare(\''+i.id+'\')">×</span></span>'}).join('');
+  if(items.length>0)bar.classList.add('show');else bar.classList.remove('show');
+}
+function updateCompareBadge(){
+  var items=getCompare();var badge=document.getElementById('compareBadge');
+  badge.textContent=items.length;badge.style.display=items.length>0?'flex':'none';
+}
+function toggleCompare(){
+  var body=document.body;
+  addToCompare(body.getAttribute('data-pid'),body.getAttribute('data-pname'),body.getAttribute('data-pprice'),body.getAttribute('data-picon'));
+}
+function doCompare(){
+  var items=getCompare();
+  if(items.length<2){showToast('请至少选择2个商品进行对比');return}
+  showToast('对比功能: 已选'+items.length+'个商品');
+}
+renderCompare();updateCompareBadge();
+
+// Helpful
+function voteHelpful(rid,btn){
+  var key='helpful_'+rid;
+  if(localStorage.getItem(key)){showToast('您已经评价过了');return}
+  localStorage.setItem(key,'1');btn.classList.add('voted');
+  var countEl=btn.querySelector('.hb-count');
+  var current=parseInt(countEl.textContent.replace(/[()]/g,''))||0;
+  countEl.textContent='('+(current+1)+')';showToast('感谢您的反馈！');
+}
+
+// Coupon
+function claimCoupon(name,code){
+  var key='coupon_'+code;
+  if(localStorage.getItem(key)){showToast('您已领取过该优惠券');return}
+  localStorage.setItem(key,'1');showToast('🎫 优惠券已领取: '+name+'，下单时自动抵扣');
+}
+
+// Share
+function openShareModal(){document.getElementById('shareModalOverlay').classList.add('show')}
+function closeShareModal(e){
+  if(e&&e.target!==document.getElementById('shareModalOverlay'))return;
+  document.getElementById('shareModalOverlay').classList.remove('show');
+}
+function copyShareLink(){
+  var url=window.location.href.split('?')[0]+'?ref=share&trace=JC-BC-250529-004-M2N6H';
+  if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){showToast('✅ 链接已复制，含溯源码')})}
+  else{var ta=document.createElement('textarea');ta.value=url;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('✅ 链接已复制')}
+}
+
+// Refresh recommendations
+var recSets4=[
+  [{icon:'🎒',name:'战术背包',price:'¥458',link:'/product-detail-3.html',desc:'45L·考杜拉面料'},{icon:'🌾',name:'有机大米',price:'¥68',link:'/product-detail-1.html',desc:'5kg·五常有机'},{icon:'🍯',name:'蜂蜜礼盒',price:'¥188',link:'/product-detail-5.html',desc:'秦岭百花蜜'},{icon:'⌚',name:'智能手环',price:'¥599',link:'/product-detail-6.html',desc:'军创科技·IP68'}],
+  [{icon:'🍪',name:'压缩饼干',price:'¥128',link:'/product-detail-4.html',desc:'军需品质·12包'},{icon:'🎒',name:'战术背包',price:'¥458',link:'/product-detail-3.html',desc:'MOLLE模块化'},{icon:'👜',name:'手工皮具',price:'¥298',link:'/product-detail-2.html',desc:'头层牛皮·植鞣'},{icon:'🌾',name:'有机大米',price:'¥68',link:'/product-detail-1.html',desc:'五常稻花香2号'}]
+];
+var recIndex4=0;
+function refreshRecommendations(btn){
+  btn.classList.add('spinning');
+  recIndex4=(recIndex4+1)%recSets4.length;
+  var wrap=document.getElementById('recWrap4');
+  var items=recSets4[recIndex4];
+  wrap.style.opacity='0';wrap.style.transition='opacity .3s';
+  setTimeout(function(){
+    wrap.innerHTML=items.map(function(item){return '<a href="'+item.link+'" class="hscroll-card"><div class="hc-icon">'+item.icon+'</div><div class="hc-name">'+item.name+'</div><div class="hc-price">'+item.price+'</div><div style="font-size:10px;color:var(--zone-muted)">'+item.desc+'</div></a>'}).join('');
+    wrap.style.opacity='1';btn.classList.remove('spinning');
+  },300);
+}
+
+// FAQ
+function toggleFAQ(qEl){
+  var wasOpen=qEl.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(function(el){el.classList.remove('open');el.nextElementSibling.classList.remove('open')});
+  if(!wasOpen){qEl.classList.add('open');qEl.nextElementSibling.classList.add('open')}
+}
+
+// Zoom
+function openZoom(e,carouselId){
+  if(e.target.closest('.carousel-arrow')||e.target.closest('.carousel-dot'))return;
+  var c=carousels[carouselId];var slide=c.track.children[c.current];
+  document.getElementById('zoomContent').textContent=slide.getAttribute('data-zoom-icon')||'📷';
+  document.getElementById('zoomLabel').textContent=slide.getAttribute('data-zoom-label')||'';
+  document.getElementById('zoomOverlay').classList.add('show');document.body.style.overflow='hidden';
+}
+function closeZoom(){document.getElementById('zoomOverlay').classList.remove('show');document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeZoom()});
+
+// Toast
+function showToast(msg){
+  var container=document.getElementById('toastContainer');
+  var toast=document.createElement('div');toast.className='toast';toast.textContent=msg;
+  container.appendChild(toast);
+  setTimeout(function(){if(toast.parentNode)toast.parentNode.removeChild(toast)},2500);
+}
+
+// Add to Cart
+function addToCart(){
+  var pid=document.body.getAttribute('data-pid');
+  var cart=JSON.parse(localStorage.getItem('junge_cart')||'{}');
+  cart[pid]=(cart[pid]||0)+1;localStorage.setItem('junge_cart',JSON.stringify(cart));
+  showToast('🛒 已加入购物车');
+}
+</script>
+</body>
+</html>

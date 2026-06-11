@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<meta name="theme-color" content="#030712">
+<title>文章投稿 - 军鸽云链</title>
+<meta name="description" content="军鸽云链文章投稿：长文投稿、分类选择、标签系统。退役军人原创内容平台。">
+<style>
+:root {
+  --bg-deep: #030712;
+  --bg-card: rgba(8,20,44,.85);
+  --primary: #00d4ff;
+  --accent: #ff2d78;
+  --gold: #f0c040;
+  --green: #22c55e;
+  --purple: #a78bfa;
+  --red: #d47a7e;
+  --text: #e8edf5;
+  --text-dim: #8896b0;
+  --text-muted: #4a5568;
+  --border: rgba(0,212,255,.1);
+  --border-glow: rgba(0,212,255,.18);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --shadow: 0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg-deep);color:var(--text);line-height:1.7;padding-bottom:72px;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 30% 0%,rgba(0,212,255,.05) 0%,transparent 50%),radial-gradient(ellipse at 90% 80%,rgba(167,139,250,.03) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+.breadcrumb-bar{background:rgba(3,7,18,.95);border-bottom:1px solid var(--border);padding:10px 20px;position:sticky;top:0;z-index:99;backdrop-filter:blur(12px);display:flex;align-items:center;gap:6px;font-size:12px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .25s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:var(--text-muted)}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{position:relative;z-index:1;text-align:center;padding:56px 20px 40px;background:linear-gradient(180deg,rgba(0,212,255,.06) 0%,rgba(3,7,18,.98) 100%)}
+.hero h1{font-size:30px;font-weight:900;margin-bottom:10px;background:linear-gradient(135deg,#00d4ff 0%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:14px;color:var(--text-dim);max-width:600px;margin:0 auto}
+
+.container{max-width:960px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+.section-title{display:flex;align-items:center;gap:10px;margin:36px 0 20px;font-size:18px;font-weight:700}
+.section-title .icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:rgba(0,212,255,.1);color:var(--primary)}
+.section-title span.color{color:var(--primary)}
+
+/* 分类筛选栏 */
+.cat-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.cat-filter .cat-btn{padding:8px 20px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text-dim);transition:all .25s}
+.cat-filter .cat-btn:hover{border-color:var(--primary);color:var(--primary)}
+.cat-filter .cat-btn.active{background:rgba(0,212,255,.12);border-color:var(--primary);color:var(--primary)}
+
+.article-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:20px}
+.article-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;backdrop-filter:blur(12px);transition:all .3s;cursor:pointer}
+.article-card:hover{border-color:var(--border-glow);transform:translateY(-2px);box-shadow:0 0 20px rgba(0,212,255,.06)}
+.article-card .art-cat{display:inline-block;padding:3px 10px;border-radius:10px;font-size:10px;font-weight:600;margin-bottom:10px}
+.cat-military{background:rgba(0,212,255,.1);color:var(--primary)}
+.cat-entrepreneur{background:rgba(240,192,64,.1);color:var(--gold)}
+.cat-tech{background:rgba(34,197,94,.1);color:var(--green)}
+.cat-culture{background:rgba(167,139,250,.1);color:var(--purple)}
+.cat-comment{background:rgba(212,122,126,.1);color:var(--red)}
+.article-card h4{font-size:14px;font-weight:700;margin-bottom:8px;line-height:1.4}
+.article-card .art-excerpt{font-size:12px;color:var(--text-dim);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+.article-card .art-meta{display:flex;gap:10px;font-size:11px;color:var(--text-muted)}
+
+.form-section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;backdrop-filter:blur(12px);position:relative;overflow:hidden;margin-bottom:24px}
+.form-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--primary),transparent);opacity:.4}
+.form-section h3{font-size:16px;font-weight:700;margin-bottom:20px;color:var(--primary)}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.form-group label .required{color:var(--accent);margin-left:2px}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea{width:100%;padding:10px 14px;border-radius:var(--radius-sm);background:rgba(3,7,18,.6);border:1px solid var(--border);color:var(--text);font-size:13px;font-family:inherit;transition:all .25s;outline:none}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--primary);box-shadow:0 0 12px rgba(0,212,255,.1)}
+.form-group textarea{min-height:220px;resize:vertical;line-height:1.8}
+.form-group select{appearance:none;cursor:pointer}
+.form-group .hint{font-size:11px;color:var(--text-muted);margin-top:4px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.tag-system{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.tag-system .tag{display:inline-flex;align-items:center;gap:4px;padding:5px 14px;border-radius:16px;font-size:11px;cursor:pointer;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text-dim);transition:all .25s}
+.tag-system .tag:hover{border-color:var(--primary);color:var(--primary)}
+.tag-system .tag.active{background:rgba(0,212,255,.1);border-color:var(--primary);color:var(--primary)}
+.tag-system .tag-group-label{width:100%;font-size:11px;font-weight:600;color:var(--text-muted);margin-top:6px;margin-bottom:2px}
+
+.editor-toolbar{display:flex;gap:6px;padding:8px 12px;background:rgba(3,7,18,.4);border:1px solid var(--border);border-bottom:none;border-radius:var(--radius-sm) var(--radius-sm) 0 0;flex-wrap:wrap}
+.editor-toolbar button{width:32px;height:28px;border-radius:4px;border:1px solid transparent;background:transparent;color:var(--text-dim);cursor:pointer;font-size:13px;transition:all .2s}
+.editor-toolbar button:hover{background:rgba(0,212,255,.1);border-color:var(--border-glow);color:var(--primary)}
+.editor-area{background:rgba(3,7,18,.6);border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-sm) var(--radius-sm);padding:16px;min-height:220px;font-size:13px;line-height:1.8;color:var(--text);outline:none;font-family:inherit}
+.editor-area:focus{border-color:var(--primary)}
+
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn-primary{padding:10px 32px;border-radius:var(--radius-sm);background:linear-gradient(135deg,#00d4ff,#0090c0);color:#030712;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:all .3s;font-family:inherit}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,212,255,.25)}
+.btn-secondary{padding:10px 24px;border-radius:var(--radius-sm);background:transparent;color:var(--text-dim);font-size:14px;border:1px solid var(--border);cursor:pointer;transition:all .3s;font-family:inherit}
+.btn-secondary:hover{border-color:var(--primary);color:var(--primary)}
+
+.tip-card{background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.12);border-radius:var(--radius);padding:16px 20px;margin-bottom:16px}
+.tip-card h4{font-size:13px;font-weight:700;color:var(--primary);margin-bottom:6px}
+.tip-card p{font-size:12px;color:var(--text-dim);line-height:1.6}
+
+.extend-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px;margin:24px 0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;border-top:2px solid var(--border-glow)}
+.extend-bar .ext-title{font-size:12px;font-weight:700;color:var(--text-dim)}
+.extend-bar a{display:inline-flex;align-items:center;gap:5px;padding:8px 18px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .25s}
+.ext-primary{background:rgba(0,212,255,.1);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-primary:hover{background:rgba(0,212,255,.22);color:#fff}
+.ext-secondary{background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-secondary:hover{border-color:var(--primary);color:var(--primary)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:11px;padding:5px 12px;border-radius:12px;background:rgba(8,20,44,.7);border:1px solid rgba(0,212,255,.08);transition:all .25s}
+.bottom-nav a:hover{color:var(--primary);border-color:var(--border-glow)}
+
+footer{text-align:center;padding:16px 20px;font-size:10px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:24px;position:relative;z-index:1}
+footer p{margin:3px 0}
+
+@media(max-width:640px){
+  .hero h1{font-size:22px}
+  .form-row{grid-template-columns:1fr}
+  .article-grid{grid-template-columns:1fr}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="文章投稿 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/contribute-article.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/contribute-article.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">📝 文章投稿</span>
+</nav>
+
+<div class="hero">
+  <h1>📝 文章投稿</h1>
+  <p>深度思考、专业分析、经验分享——用文字传递价值，让每一篇原创都有回响。</p>
+</div>
+
+<div class="container">
+
+<!-- 分类筛选 -->
+<div class="section-title"><span class="icon">📂</span><span>文章<span class="color">分类</span></span></div>
+<div class="cat-filter">
+  <span class="cat-btn active" onclick="filterCat('all',this)">全部</span>
+  <span class="cat-btn" onclick="filterCat('military',this)">🎖️ 军事评论</span>
+  <span class="cat-btn" onclick="filterCat('entrepreneur',this)">🚀 创业经验</span>
+  <span class="cat-btn" onclick="filterCat('tech',this)">💻 技术分享</span>
+  <span class="cat-btn" onclick="filterCat('culture',this)">📚 文化生活</span>
+  <span class="cat-btn" onclick="filterCat('comment',this)">📰 时事评论</span>
+</div>
+
+<!-- 文章列表 -->
+<div class="article-grid" id="articleList">
+  <div class="article-card" data-cat="military">
+    <span class="art-cat cat-military">军事评论</span>
+    <h4>新时代民兵队伍建设：从数量规模型向质量效能型转变</h4>
+    <div class="art-excerpt">随着国防和军队改革深入推进，民兵作为我国武装力量的重要组成部分，正经历着深刻的转型升级。本文从组织架构、训练模式、装备保障三个维度，探讨新时代民兵建设的路径选择……</div>
+    <div class="art-meta"><span>👤 刘大江</span><span>❤️ 1.2k</span><span>💬 386</span></div>
+  </div>
+  <div class="article-card" data-cat="entrepreneur">
+    <span class="art-cat cat-entrepreneur">创业经验</span>
+    <h4>退役军人创办农业合作社的五个关键成功要素</h4>
+    <div class="art-excerpt">基于对全国120家退役军人领办农业合作社的调研，我们总结出品牌建设、供应链管理、数字化营销、政策利用、团队凝聚五大关键要素。数据显示，具备全部五要素的合作社年营收平均高出同行47%……</div>
+    <div class="art-meta"><span>👤 赵为民</span><span>❤️ 2.6k</span><span>💬 512</span></div>
+  </div>
+  <div class="article-card" data-cat="tech">
+    <span class="art-cat cat-tech">技术分享</span>
+    <h4>从零搭建智慧农场IoT系统：传感器选型与数据上链实战</h4>
+    <div class="art-excerpt">本文详细介绍如何使用ESP32+LoRa搭建低成本农业物联网系统，并通过军鸽云链接口将数据上链存证。涵盖土壤湿度、温湿度、光照等核心指标的采集方案，总成本控制在500元以内……</div>
+    <div class="art-meta"><span>👤 陈志远</span><span>❤️ 960</span><span>💬 178</span></div>
+  </div>
+  <div class="article-card" data-cat="culture">
+    <span class="art-cat cat-culture">文化生活</span>
+    <h4>军旅书法艺术鉴赏：从碑帖临摹到军魂创作</h4>
+    <div class="art-excerpt">军旅书法既有传统书法的艺术底蕴，又融入了军人的刚毅气质。本文以几位退役军官书法家为例，探讨军旅书法在当代文化中的独特价值与艺术魅力……</div>
+    <div class="art-meta"><span>👤 周文彬</span><span>❤️ 760</span><span>💬 142</span></div>
+  </div>
+  <div class="article-card" data-cat="comment">
+    <span class="art-cat cat-comment">时事评论</span>
+    <h4>退役军人就业形势2026：挑战、机遇与政策红利</h4>
+    <div class="art-excerpt">2026年退役军人就业市场呈现新特征：数字经济岗位增长35%，灵活就业占比首超40%，多地出台退役军人创业免息贷款新政。本文全面解读最新政策动向与就业趋势……</div>
+    <div class="art-meta"><span>👤 孙建国</span><span>❤️ 3.2k</span><span>💬 891</span></div>
+  </div>
+  <div class="article-card" data-cat="entrepreneur">
+    <span class="art-cat cat-entrepreneur">创业经验</span>
+    <h4>从军营炊事班到连锁餐饮：一位老兵的美食创业之路</h4>
+    <div class="art-excerpt">在部队当了12年炊事兵的老马，退伍后把军营大锅饭的精髓融入现代餐饮。从路边摊到6家连锁店，他总结出"标准化+人情味"的独特经营哲学……</div>
+    <div class="art-meta"><span>👤 马千里</span><span>❤️ 1.5k</span><span>💬 299</span></div>
+  </div>
+</div>
+
+<!-- 投稿表单 -->
+<div class="section-title"><span class="icon">✏️</span><span>提交你的<span class="color">文章</span></span></div>
+
+<div class="tip-card">
+  <h4>💡 写作建议</h4>
+  <p>1. 标题精准有力，20字以内概括核心观点；2. 开篇200字内亮出核心论点；3. 数据引用注明来源增加可信度；4. 结尾升华主题、引发思考。字数建议：长篇2000-5000字，短篇800-2000字。</p>
+</div>
+
+<div class="form-section">
+  <h3>📝 文章投稿表单</h3>
+  <form onsubmit="alert('感谢投稿！我们将在48小时内审核。');return false">
+    <div class="form-row">
+      <div class="form-group">
+        <label>作者姓名/笔名 <span class="required">*</span></label>
+        <input type="text" placeholder="请输入您的姓名或笔名" required>
+      </div>
+      <div class="form-group">
+        <label>电子邮箱 <span class="required">*</span></label>
+        <input type="email" placeholder="用于接收审核通知" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>文章分类 <span class="required">*</span></label>
+      <select>
+        <option value="">请选择文章分类</option>
+        <option>🎖️ 军事评论</option>
+        <option>🚀 创业经验</option>
+        <option>💻 技术分享</option>
+        <option>📚 文化生活</option>
+        <option>📰 时事评论</option>
+        <option>🌾 三农观察</option>
+        <option>🎓 国防教育</option>
+        <option>🔬 行业研究</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>文章标题 <span class="required">*</span></label>
+      <input type="text" placeholder="精准、有力、吸引人（10-25字）" required>
+      <div class="hint">好标题是成功的一半。示例：「退役军人创办农业合作社的五个关键成功要素」</div>
+    </div>
+    <div class="form-group">
+      <label>文章正文 <span class="required">*</span></label>
+      <div class="editor-toolbar">
+        <button title="加粗">B</button><button title="斜体">I</button><button title="标题">H</button>
+        <button title="引用">"</button><button title="列表">•</button><button title="链接">🔗</button>
+        <span style="flex:1"></span>
+        <span style="font-size:11px;color:var(--text-muted);line-height:28px">字数: 0</span>
+      </div>
+      <textarea placeholder="请在此撰写您的文章……&#10;&#10;建议结构：&#10;一、引言（200字以内，点明主题和核心论点）&#10;二、正文（分2-4个小节展开论述，每节300-800字）&#10;三、结语（简要总结，升华主题）&#10;&#10;可用Markdown语法美化排版。" style="border-radius:0 0 8px 8px;min-height:300px" required></textarea>
+    </div>
+    <div class="form-group">
+      <label>选择标签（最多5个）</label>
+      <div class="tag-system">
+        <div class="tag-group-label">▸ 内容主题</div>
+        <span class="tag active">军事分析</span><span class="tag">国防科技</span><span class="tag">国际形势</span>
+        <span class="tag">创业指导</span><span class="tag">商业案例</span><span class="tag">农业科技</span>
+        <div class="tag-group-label">▸ 目标读者</div>
+        <span class="tag">退役军人</span><span class="tag">军属群体</span><span class="tag">军事爱好者</span>
+        <span class="tag">创业者</span><span class="tag">农业从业者</span><span class="tag">技术开发者</span>
+        <div class="tag-group-label">▸ 文章属性</div>
+        <span class="tag">深度分析</span><span class="tag">实战经验</span><span class="tag">政策解读</span>
+        <span class="tag">教程指南</span><span class="tag">观点评论</span><span class="tag">科普介绍</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>参考文献/数据来源（如有）</label>
+      <textarea placeholder="请注明文章引用的数据来源和参考文献，增加文章可信度" style="min-height:80px"></textarea>
+    </div>
+    <div class="btn-row">
+      <button type="submit" class="btn-primary">📤 提交审核</button>
+      <button type="button" class="btn-secondary">💾 保存草稿</button>
+      <button type="button" class="btn-secondary">👁️ 预览</button>
+    </div>
+  </form>
+</div>
+
+<div class="extend-bar">
+  <span class="ext-title">🔗 相关链接：</span>
+  <a href="/contribute-guide.html" class="ext-primary">📋 投稿指南</a>
+  <a href="/contribute-story.html" class="ext-primary">📖 故事投稿</a>
+  <a href="/contribute-art.html" class="ext-primary">🎨 艺术投稿</a>
+  <a href="/index.html" class="ext-secondary">🏠 返回首页</a>
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台</p>
+</footer>
+
+<script>
+function filterCat(cat,btn){
+  document.querySelectorAll('.cat-filter .cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#articleList .article-card').forEach(card=>{
+    card.style.display=(cat==='all'||card.dataset.cat===cat)?'':'none';
+  });
+}
+document.querySelectorAll('.tag-system .tag').forEach(t=>{
+  t.addEventListener('click',function(){this.classList.toggle('active')})
+});
+</script>
+
+</body>
+</html>

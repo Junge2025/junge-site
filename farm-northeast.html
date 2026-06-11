@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>东北黑土地有机农场 · 军鸽云链数智</title>
+<meta name="description" content="东北黑土地有机农场坐落于黑龙江五常市龙凤山镇，占地3500亩，地处北纬45°世界黄金水稻带。有机双认证+区块链溯源，五常大米、有机杂粮，18位退役军人扎根黑土地。">
+<meta name="keywords" content="东北农场,五常大米,有机杂粮,黑土地,区块链溯源,退役军人创业,有机认证,军鸽云链">
+<meta property="og:title" content="东北黑土地有机农场 · 军鸽云链数智">
+<meta property="og:description" content="世界三大黑土带上的有机奇迹，有机双认证·区块链溯源·退役军人在服务。">
+<meta property="og:image" content="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1200&q=80">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://junge.中国/farm-northeast.html">
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,0.85);--text:#e8edf5;--dim:#8896b0;--border:rgba(255,255,255,.06);--red:#b84045;--green:#4d9460;--blue:#4b8ecf;--gold:#f0c040;--cyan:#00d4ff;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;line-height:1.7;min-height:100vh;padding-bottom:130px}
+.breadcrumb{position:sticky;top:0;z-index:101;background:rgba(3,7,18,.96);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:6px;font-size:11px;backdrop-filter:blur(12px)}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:.2s}
+.breadcrumb a:hover{color:var(--cyan)}
+.breadcrumb .sep{color:#4a5568}
+.breadcrumb .current{color:var(--cyan);font-weight:700}
+.top-nav{position:sticky;top:33px;z-index:100;background:linear-gradient(90deg,rgba(3,7,18,.98),rgba(10,22,40,.97));backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;overflow-x:auto}
+.top-nav .logo{font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;flex-shrink:0}
+.top-nav .divider{width:1px;height:16px;background:var(--border);flex-shrink:0}
+.top-nav a.nav-link{color:var(--dim);text-decoration:none;font-size:11px;padding:3px 9px;border-radius:10px;border:1px solid transparent;white-space:nowrap;flex-shrink:0;transition:.2s}
+.top-nav a.nav-link:hover,.top-nav a.nav-link.active{color:var(--cyan);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.05)}
+.hero{position:relative;height:480px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1920&q=80') center/cover;opacity:.22}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,7,18,.4) 0%,rgba(3,7,18,.92) 100%)}
+.hero>*{position:relative;z-index:2}
+.hero h1{font-size:44px;color:var(--gold);margin-bottom:12px;text-shadow:0 0 40px rgba(240,192,64,.15);letter-spacing:2px}
+.hero .location{font-size:15px;color:var(--dim);margin-bottom:6px}
+.hero .stars{font-size:18px;color:var(--gold);margin-bottom:12px}
+.hero .badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero .badge{padding:4px 14px;border-radius:14px;font-size:11px;font-weight:600;border:1px solid}
+.container{max-width:1160px;margin:0 auto;padding:10px 20px 40px}
+.section{margin:36px 0}
+.section-title{font-size:15px;color:var(--cyan);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:18px}
+.intro-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:start}
+.intro-text{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.intro-text h3{font-size:18px;color:var(--gold);margin-bottom:14px}
+.intro-text p{color:var(--dim);font-size:13px;line-height:1.9;margin-bottom:10px}
+.intro-img{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.intro-img img{width:100%;height:100%;object-fit:cover;min-height:260px}
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+.dash-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 14px;text-align:center;transition:.25s}
+.dash-item:hover{border-color:rgba(0,212,255,.2);transform:translateY(-2px)}
+.dash-item .dash-icon{font-size:28px;margin-bottom:6px}
+.dash-item .dash-val{font-size:24px;font-weight:700;color:var(--cyan)}
+.dash-item .dash-lbl{font-size:10px;color:var(--dim);margin-top:2px}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.prod-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.25s;position:relative}
+.prod-card:hover{transform:translateY(-3px);border-color:rgba(0,212,255,.2)}
+.prod-card img{width:100%;height:170px;object-fit:cover;display:block}
+.prod-card .info{padding:14px}
+.prod-card h4{font-size:14px;color:var(--text);margin-bottom:4px}
+.prod-card .desc{font-size:11px;color:var(--dim);margin-bottom:8px;line-height:1.5}
+.prod-card .price{font-size:16px;font-weight:700;color:var(--red);margin-bottom:6px}
+.prod-card .trace-tag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:9px;font-weight:600;background:rgba(0,212,255,.08);color:var(--cyan);border:1px solid rgba(0,212,255,.15)}
+.prod-overlay{position:absolute;inset:0;background:rgba(3,7,18,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:5;border-radius:var(--radius)}
+.prod-card:hover .prod-overlay{opacity:1;pointer-events:auto}
+.prod-overlay .ov-name{font-size:15px;font-weight:700;color:var(--gold);margin-bottom:4px}
+.prod-overlay .ov-price{font-size:18px;font-weight:700;color:var(--red);margin-bottom:8px}
+.prod-overlay .ov-trace{font-size:10px;color:var(--cyan);background:rgba(0,212,255,.1);padding:3px 10px;border-radius:10px;margin-bottom:14px;border:1px solid rgba(0,212,255,.15)}
+.prod-overlay .ov-btn{display:inline-block;padding:8px 22px;border-radius:20px;font-size:12px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--cyan),var(--gold));text-decoration:none;transition:.2s}
+.prod-overlay .ov-btn:hover{box-shadow:0 0 20px rgba(0,212,255,.4)}
+.trace-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.trace-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.trace-block{background:rgba(0,212,255,.03);border:1px solid rgba(0,212,255,.08);border-radius:10px;padding:18px}
+.trace-block h4{font-size:13px;color:var(--cyan);margin-bottom:10px}
+.trace-block .cert-id{font-family:monospace;font-size:12px;color:var(--gold);background:rgba(240,192,64,.06);padding:8px 12px;border-radius:6px;word-break:break-all;border-left:3px solid var(--gold)}
+.trace-block .report-link{display:block;margin-top:6px;font-size:11px;color:var(--dim)}
+.trace-block .report-link a{color:var(--cyan);text-decoration:none}
+.trace-block .report-link a:hover{text-decoration:underline}
+.timeline{grid-column:span 2;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
+.tl-step{background:rgba(0,212,255,.03);border:1px solid rgba(0,212,255,.08);border-radius:10px;padding:14px 10px;text-align:center;cursor:pointer;transition:.25s;position:relative}
+.tl-step:hover,.tl-step.active{border-color:rgba(0,212,255,.3);background:rgba(0,212,255,.06)}
+.tl-step .tl-icon{font-size:28px;margin-bottom:4px;transition:.3s}
+.tl-step.active .tl-icon{transform:scale(1.2)}
+.tl-step .tl-title{font-size:11px;font-weight:600;color:var(--text)}
+.tl-step .tl-info{font-size:9px;color:var(--dim)}
+.tl-step .tl-detail{max-height:0;overflow:hidden;transition:max-height .4s,.3s margin;font-size:10px;color:var(--dim);margin-top:0;line-height:1.6;text-align:left}
+.tl-step.active .tl-detail{max-height:120px;margin-top:8px}
+.tl-step .tl-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--cyan);margin-right:4px}
+.cal-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:4px}
+.cal-month{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 4px;text-align:center;font-size:10px;transition:.25s}
+.cal-month .mon{font-weight:700;color:var(--dim);font-size:11px}
+.cal-month .crops{font-size:8px;color:var(--dim);margin-top:2px;line-height:1.4}
+.cal-month.active{background:rgba(0,212,255,.06);border-color:rgba(0,212,255,.25)}
+.cal-month.active .mon{color:var(--cyan)}
+.cal-month.active .crops{color:var(--text)}
+.cal-month.peak{background:rgba(240,192,64,.06);border-color:rgba(240,192,64,.3)}
+.cal-month.peak .mon{color:var(--gold)}
+.scene-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.scene-item{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);position:relative;height:200px}
+.scene-item img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.scene-item:hover img{transform:scale(1.05)}
+.scene-item .caption{position:absolute;bottom:0;left:0;right:0;padding:8px 12px;background:linear-gradient(0deg,rgba(3,7,18,.9),transparent);font-size:11px;color:var(--text)}
+.review-list{display:flex;flex-direction:column;gap:12px}
+.review-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;cursor:pointer;transition:.25s}
+.review-item:hover{border-color:rgba(0,212,255,.15)}
+.review-item .reviewer{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.review-item .avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff}
+.review-item .name{font-size:13px;font-weight:600;color:var(--text)}
+.review-item .review-stars{font-size:11px;color:var(--gold);margin-left:auto;cursor:pointer;padding:2px 6px;border-radius:6px;transition:.2s}
+.review-item .review-stars:hover{background:rgba(240,192,64,.1)}
+.review-item .rev-date{font-size:10px;color:var(--dim)}
+.review-item .rev-content{font-size:12px;color:var(--dim);line-height:1.8;max-height:48px;overflow:hidden;transition:max-height .4s}
+.review-item.expanded .rev-content{max-height:500px}
+.review-item .rev-expand{font-size:10px;color:var(--cyan);margin-top:4px;text-align:right;display:block}
+.story-tl{position:relative;padding-left:30px}
+.story-tl::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--cyan),var(--gold),var(--green))}
+.story-item{position:relative;margin-bottom:20px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
+.story-item::before{content:'';position:absolute;left:-26px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--cyan);border:3px solid var(--bg);z-index:2}
+.story-item .st-year{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:4px}
+.story-item .st-title{font-size:13px;color:var(--text);margin-bottom:4px}
+.story-item .st-desc{font-size:11px;color:var(--dim);line-height:1.6}
+.map-placeholder{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;text-align:center;position:relative;overflow:hidden}
+.map-placeholder .map-bg{font-size:80px;opacity:.15;margin-bottom:10px}
+.map-placeholder .map-coords{font-size:11px;color:var(--dim);font-family:monospace}
+.map-placeholder .map-link{display:inline-block;margin-top:10px;padding:8px 18px;border-radius:20px;font-size:11px;color:var(--cyan);border:1px solid rgba(0,212,255,.2);text-decoration:none;transition:.2s}
+.map-placeholder .map-link:hover{background:rgba(0,212,255,.08)}
+.fixed-cta{position:fixed;bottom:52px;left:0;right:0;z-index:998;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.15);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.fixed-cta .cta-text{font-size:13px;color:var(--text)}
+.fixed-cta .cta-countdown{font-size:12px;color:var(--gold);background:rgba(240,192,64,.1);padding:4px 12px;border-radius:12px;border:1px solid rgba(240,192,64,.2);white-space:nowrap}
+.fixed-cta .cta-countdown .num{font-weight:700;font-size:16px}
+.fixed-cta .cta-btn-fixed{display:inline-block;padding:10px 28px;border-radius:24px;font-size:14px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--cyan),var(--gold));text-decoration:none;transition:.25s;box-shadow:0 4px 20px rgba(0,212,255,.2)}
+.fixed-cta .cta-btn-fixed:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(0,212,255,.4)}
+.footer{text-align:center;padding:20px 20px 30px;border-top:1px solid var(--border);font-size:10px;color:#4a5568;line-height:1.8}
+.footer a{color:var(--dim);text-decoration:none}
+.footer a:hover{color:var(--cyan)}
+.footer-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{padding:4px 12px;border-radius:12px;border:1px solid var(--border);font-size:10px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.1);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:4px 8px;border-radius:8px;transition:.2s}
+.bottom-nav a:hover{color:var(--cyan)}
+.bottom-nav a.highlight{color:var(--gold);border:1px solid rgba(240,192,64,.2);background:rgba(240,192,64,.05)}
+/* 虚拟导览360 */
+.tour-360{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;position:relative;overflow:hidden}
+.tour-360 .tour-viewport{width:100%;height:320px;border-radius:10px;overflow:hidden;position:relative;background:#0a1628;border:1px solid var(--border)}
+.tour-360 .tour-viewport img{width:100%;height:100%;object-fit:cover;opacity:.35;transition:transform .4s}
+.tour-360 .tour-viewport .tour-overlay-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+.tour-360 .tour-viewport .tour-overlay-text .tour-icon{font-size:48px;margin-bottom:8px}
+.tour-360 .tour-viewport .tour-overlay-text .tour-label{font-size:13px;color:var(--dim)}
+.tour-360 .tour-controls{display:flex;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.tour-360 .tour-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(0,212,255,.25);background:rgba(0,212,255,.06);color:var(--cyan);font-size:18px;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center}
+.tour-360 .tour-btn:hover{background:rgba(0,212,255,.15);border-color:rgba(0,212,255,.5);box-shadow:0 0 16px rgba(0,212,255,.2)}
+.tour-360 .tour-btn.zoom{width:52px;font-size:14px;font-weight:700}
+.tour-360 .tour-info{font-size:10px;color:var(--dim);margin-top:10px}
+/* 预售 */
+.presale-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.presale-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center;transition:.25s;position:relative;overflow:hidden}
+.presale-card:hover{border-color:rgba(240,192,64,.3);transform:translateY(-2px)}
+.presale-card .pre-badge{position:absolute;top:10px;right:10px;background:linear-gradient(135deg,var(--gold),#f59e0b);color:#030712;font-size:9px;font-weight:700;padding:3px 10px;border-radius:10px}
+.presale-card .pre-icon{font-size:38px;margin-bottom:10px}
+.presale-card h4{font-size:14px;color:var(--text);margin-bottom:4px}
+.presale-card .pre-desc{font-size:11px;color:var(--dim);margin-bottom:8px;line-height:1.5}
+.presale-card .pre-progress{height:6px;background:rgba(255,255,255,.06);border-radius:3px;margin:10px 0;overflow:hidden}
+.presale-card .pre-progress-bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--cyan));border-radius:3px;transition:width .6s}
+.presale-card .pre-meta{font-size:10px;color:var(--dim);display:flex;justify-content:space-between;margin-bottom:10px}
+.presale-card .pre-price{font-size:15px;font-weight:700;color:var(--red)}
+.presale-card .pre-btn{display:inline-block;padding:8px 22px;border-radius:20px;font-size:11px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--gold),var(--cyan));text-decoration:none;cursor:pointer;transition:.2s;border:none}
+.presale-card .pre-btn:hover{box-shadow:0 0 20px rgba(240,192,64,.4);transform:translateY(-1px)}
+/* 活动日历 */
+.act-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.act-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;gap:14px;align-items:flex-start;transition:.25s}
+.act-item:hover{border-color:rgba(0,212,255,.15)}
+.act-item .act-date{flex-shrink:0;width:56px;height:56px;border-radius:10px;background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.act-item .act-date .act-day{font-size:20px;font-weight:700;color:var(--cyan);line-height:1}
+.act-item .act-date .act-mon{font-size:9px;color:var(--dim)}
+.act-item .act-info{flex:1}
+.act-item .act-info h4{font-size:13px;color:var(--text);margin-bottom:4px}
+.act-item .act-info .act-desc{font-size:10px;color:var(--dim);line-height:1.5;margin-bottom:6px}
+.act-item .act-info .act-meta{font-size:9px;color:var(--dim);display:flex;gap:10px;flex-wrap:wrap}
+.act-item .act-signup{flex-shrink:0;padding:6px 14px;border-radius:16px;font-size:10px;font-weight:600;color:var(--cyan);border:1px solid rgba(0,212,255,.3);background:rgba(0,212,255,.05);cursor:pointer;transition:.2s;text-decoration:none;white-space:nowrap}
+.act-item .act-signup:hover{background:rgba(0,212,255,.15);border-color:rgba(0,212,255,.5)}
+/* 会员体系 */
+.member-table{width:100%;border-collapse:collapse;font-size:12px}
+.member-table th,.member-table td{padding:12px 10px;text-align:center;border:1px solid var(--border)}
+.member-table thead th{background:rgba(0,212,255,.04);color:var(--cyan);font-weight:600;font-size:11px}
+.member-table thead th.gold-hd{color:var(--gold);background:rgba(240,192,64,.06)}
+.member-table tbody td{color:var(--dim)}
+.member-table tbody td.yes{color:var(--green)}
+.member-table tbody td.highlight{color:var(--gold)}
+.member-table tbody tr:hover{background:rgba(0,212,255,.02)}
+.member-table .tier-icon{font-size:24px;display:block;margin-bottom:4px}
+.member-table .tier-name{font-size:13px;font-weight:700;color:var(--text)}
+.member-table .tier-sub{font-size:9px;color:var(--dim)}
+.member-cta{text-align:center;margin-top:16px}
+.member-cta a{display:inline-block;padding:10px 28px;border-radius:24px;font-size:12px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--gold),var(--cyan));text-decoration:none;transition:.2s}
+.member-cta a:hover{box-shadow:0 0 20px rgba(240,192,64,.4)}
+/* 交通指南 */
+.transport-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.transport-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:.25s}
+.transport-card:hover{border-color:rgba(0,212,255,.15)}
+.transport-card .tp-icon{font-size:36px;margin-bottom:10px}
+.transport-card h4{font-size:13px;color:var(--text);margin-bottom:8px}
+.transport-card .tp-detail{font-size:10px;color:var(--dim);line-height:1.7;text-align:left}
+.transport-card .tp-detail .tp-line{margin-bottom:4px}
+.transport-card .tp-link{display:inline-block;margin-top:10px;font-size:10px;color:var(--cyan);text-decoration:none;border-bottom:1px dashed rgba(0,212,255,.3)}
+.transport-card .tp-link:hover{border-color:rgba(0,212,255,.8)}
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:8px}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.25s}
+.faq-item:hover{border-color:rgba(0,212,255,.12)}
+.faq-q{padding:14px 18px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--text);user-select:none}
+.faq-q .faq-arrow{font-size:10px;color:var(--dim);transition:transform .3s}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--cyan)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s,padding .4s;font-size:11px;color:var(--dim);line-height:1.8;padding:0 18px}
+.faq-item.open .faq-a{max-height:200px;padding:0 18px 14px}
+/* 在线咨询浮动按钮 */
+.chat-float{position:fixed;bottom:120px;right:24px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.chat-float .chat-btn{width:52px;height:52px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#fff;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,212,255,.35);transition:.3s;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.chat-float .chat-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(0,212,255,.5)}
+.chat-float .chat-btn.pulse{animation:chatPulse 2s infinite}
+@keyframes chatPulse{0%,100%{box-shadow:0 4px 20px rgba(0,212,255,.35)}50%{box-shadow:0 4px 32px rgba(0,212,255,.65)}}
+.chat-float .chat-label{font-size:9px;color:var(--dim);background:var(--card);padding:3px 10px;border-radius:10px;border:1px solid var(--border);margin-top:-4px}
+@media(max-width:768px){
+  .hero h1{font-size:28px}.hero{height:340px}
+  .intro-grid{grid-template-columns:1fr}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .scene-grid{grid-template-columns:repeat(2,1fr)}
+  .trace-grid{grid-template-columns:1fr}
+  .timeline{grid-template-columns:repeat(2,1fr)}
+  .cal-grid{grid-template-columns:repeat(6,1fr)}
+  .dash-grid{grid-template-columns:repeat(2,1fr)}
+  .fixed-cta{gap:8px;padding:8px 12px}
+  .fixed-cta .cta-text{font-size:11px}
+  .presale-grid{grid-template-columns:1fr}
+  .act-grid{grid-template-columns:1fr}
+  .transport-grid{grid-template-columns:1fr}
+  .chat-float{bottom:100px;right:12px}
+  .chat-float .chat-btn{width:44px;height:44px;font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🛡️ 情怀首页</a><span class="sep">▸</span>
+  <a href="/junge/eco-farm.html">🌿 生态农庄</a><span class="sep">▸</span>
+  <span class="current">东北黑土地有机农场</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" class="logo">⚔ 军鸽云链</a>
+  <span class="divider"></span>
+  <a href="/index.html" class="nav-link">🛡️ 军鸽首页</a>
+  <a href="/shangcheng.html" class="nav-link">🛒 商业生态</a>
+  <a href="/taskforce.html" class="nav-link">⚡ 数智中心</a>
+  <a href="/fenzhan.html" class="nav-link">🌾 分站家园</a>
+  <span class="divider"></span>
+  <a href="/junge/eco-farm.html" class="nav-link active">🌿 生态农庄</a>
+  <a href="/junge/comrades.html" class="nav-link">战友驿站</a>
+  <a href="/junge/overview.html" class="nav-link">军鸽总览</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>🌾 东北黑土地有机农场</h1>
+    <div class="location">📍 黑龙江省五常市龙凤山镇 · 北纬45°世界黄金水稻带</div>
+    <div class="stars">⭐⭐⭐⭐⭐ <span style="font-size:11px;color:var(--dim);font-weight:400">4.9分 · 352条评价</span></div>
+    <div class="badge-row">
+      <span class="badge" style="border-color:rgba(77,148,96,.3);color:var(--green)">🌱 有机双认证</span>
+      <span class="badge" style="border-color:rgba(0,212,255,.3);color:var(--cyan)">🔗 区块链溯源</span>
+      <span class="badge" style="border-color:rgba(240,192,64,.3);color:var(--gold)">🎖️ 退役军人在服务</span>
+      <span class="badge" style="border-color:rgba(75,142,207,.3);color:var(--blue)">🏅 地理标志</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+<div class="section">
+  <div class="section-title"><span class="icon">📊</span> 农场数据看板</div>
+  <div class="dash-grid">
+    <div class="dash-item"><div class="dash-icon">🌾</div><div class="dash-val">3,500</div><div class="dash-lbl">亩种植面积</div></div>
+    <div class="dash-item"><div class="dash-icon">📦</div><div class="dash-val">1,800</div><div class="dash-lbl">年产有机稻谷(吨)</div></div>
+    <div class="dash-item"><div class="dash-icon">👨‍🌾</div><div class="dash-val">18</div><div class="dash-lbl">退役军人在服务</div></div>
+    <div class="dash-item"><div class="dash-icon">🏅</div><div class="dash-val">6年</div><div class="dash-lbl">有机双认证年限</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">🏡</span> 农庄介绍</div>
+  <div class="intro-grid">
+    <div class="intro-text">
+      <h3>🌾 世界三大黑土带上的有机奇迹</h3>
+      <p>东北黑土地有机农场坐落于黑龙江省五常市龙凤山镇，地处北纬45°世界黄金水稻种植带核心区。这里拥有举世闻名的黑钙土资源，有机质含量高达5%-8%，是国家地理标志产品"五常大米"的核心产区。农场占地3500亩，其中稻田2200亩、杂粮种植区800亩、大豆种植区500亩。</p>
+      <p>农场由退役军人联合社创办运营，汇聚了18位退伍战友。秉承"退伍不褪色、扎根黑土地"的精神，农场全面采用有机种植标准，全程不使用化学合成农药和化肥。自建智能育秧大棚和稻鸭共作系统，年产量超过1800吨有机稻谷。</p>
+      <p>2023年荣获"全国退役军人创业创新大赛金奖"，2024年通过中国有机产品认证和欧盟EU Organic双认证。所有产品均接入军鸽云链区块链溯源平台，每一粒米都可追溯至具体的种植地块和管理档案，让"舌尖上的安全"触手可及。</p>
+    </div>
+    <div class="intro-img"><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80" alt="黑土地稻田" loading="lazy"></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">🌽</span> 产品中心 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">区块链溯源 · 品质保障 · hover查看详情</span></div>
+  <div class="prod-grid">
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&q=80" alt="五常有机大米" loading="lazy">
+      <div class="info">
+        <h4>🍚 五常有机大米</h4>
+        <div class="desc">稻花香2号·黑土种植·软糯香甜</div>
+        <div class="price">¥168<small style="font-weight:400">/袋 (5kg)</small></div>
+        <span class="trace-tag">🔗 溯源可查</span>
+      </div>
+      <div class="prod-overlay">
+        <div class="ov-name">🍚 五常有机大米</div>
+        <div class="ov-price">¥168/袋 (5kg)</div>
+        <div class="ov-trace">🔗 区块链存证: DB-JGC-20260401-RC-7K2M</div>
+        <a href="/shangcheng.html" class="ov-btn">🛒 立即购买</a>
+        <a href="/farm-ne-rice.html" class="ov-btn" style="margin-top:6px;background:linear-gradient(135deg,rgba(109,171,126,.7),rgba(77,148,96,.5));font-size:10px">📋 查看详情</a>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1515543904379-3d757afe72e4?w=400&q=80" alt="有机黄豆" loading="lazy">
+      <div class="info">
+        <h4>🫘 有机黄豆</h4>
+        <div class="desc">非转基因·高蛋白·黑土种植</div>
+        <div class="price">¥48<small style="font-weight:400">/袋 (2.5kg)</small></div>
+        <span class="trace-tag">🔗 溯源可查</span>
+      </div>
+      <div class="prod-overlay">
+        <div class="ov-name">🫘 有机黄豆</div>
+        <div class="ov-price">¥48/袋 (2.5kg)</div>
+        <div class="ov-trace">🔗 区块链存证: DB-JGC-20260401-SB-5K1L</div>
+        <a href="/shangcheng.html" class="ov-btn">🛒 立即购买</a>
+        <a href="/farm-ne-soybean.html" class="ov-btn" style="margin-top:6px;background:linear-gradient(135deg,rgba(109,171,126,.7),rgba(77,148,96,.5));font-size:10px">📋 查看详情</a>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&q=80" alt="有机小米" loading="lazy">
+      <div class="info">
+        <h4>🌾 有机小米</h4>
+        <div class="desc">黄金苗品种·养胃佳品·细腻浓香</div>
+        <div class="price">¥38<small style="font-weight:400">/袋 (2kg)</small></div>
+        <span class="trace-tag">🔗 溯源可查</span>
+      </div>
+      <div class="prod-overlay">
+        <div class="ov-name">🌾 有机小米</div>
+        <div class="ov-price">¥38/袋 (2kg)</div>
+        <div class="ov-trace">🔗 区块链存证: DB-JGC-20260401-ML-9P3N</div>
+        <a href="/shangcheng.html" class="ov-btn">🛒 立即购买</a>
+        <a href="/farm-northeast-products.html" class="ov-btn" style="margin-top:6px;background:linear-gradient(135deg,rgba(109,171,126,.7),rgba(77,148,96,.5));font-size:10px">📋 查看详情</a>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1609412439836-2b3a38e0b8f2?w=400&q=80" alt="五谷杂粮礼盒" loading="lazy">
+      <div class="info">
+        <h4>🎁 五谷杂粮礼盒</h4>
+        <div class="desc">小米+高粱+玉米碴·五谷丰登</div>
+        <div class="price">¥98<small style="font-weight:400">/盒 (6袋装)</small></div>
+        <span class="trace-tag">🔗 溯源可查</span>
+      </div>
+      <div class="prod-overlay">
+        <div class="ov-name">🎁 五谷杂粮礼盒</div>
+        <div class="ov-price">¥98/盒 (6袋装)</div>
+        <div class="ov-trace">🔗 区块链存证: DB-JGC-20260401-GF-2R6T</div>
+        <a href="/shangcheng.html" class="ov-btn">🛒 立即购买</a>
+        <a href="/farm-ne-giftbox.html" class="ov-btn" style="margin-top:6px;background:linear-gradient(135deg,rgba(109,171,126,.7),rgba(77,148,96,.5));font-size:10px">📋 查看详情</a>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:16px">
+    <a href="/farm-northeast-products.html" style="display:inline-block;padding:10px 28px;border-radius:24px;font-size:12px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--cyan),var(--gold));text-decoration:none;transition:.2s">📦 查看全部产品中心 →</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">📅</span> 季节性产品日历 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">🟡金色=当季盛产 · 🔵青色=有产</span></div>
+  <div class="cal-grid">
+    <div class="cal-month"><div class="mon">1月</div><div class="crops">杂粮仓储</div></div>
+    <div class="cal-month"><div class="mon">2月</div><div class="crops">杂粮仓储</div></div>
+    <div class="cal-month"><div class="mon">3月</div><div class="crops">备耕育秧</div></div>
+    <div class="cal-month active"><div class="mon">4月</div><div class="crops">育秧·播种</div></div>
+    <div class="cal-month active"><div class="mon">5月</div><div class="crops">插秧·大豆</div></div>
+    <div class="cal-month"><div class="mon">6月</div><div class="crops">田间管理</div></div>
+    <div class="cal-month"><div class="mon">7月</div><div class="crops">稻鸭共作</div></div>
+    <div class="cal-month"><div class="mon">8月</div><div class="crops">灌浆成熟</div></div>
+    <div class="cal-month peak"><div class="mon">9月</div><div class="crops">🌾秋收·新米</div></div>
+    <div class="cal-month peak"><div class="mon">10月</div><div class="crops">🌽秋收·杂粮</div></div>
+    <div class="cal-month active"><div class="mon">11月</div><div class="crops">新米上市</div></div>
+    <div class="cal-month"><div class="mon">12月</div><div class="crops">仓储·加工</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">🔍</span> 区块链溯源信息 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">👆 点击每步查看详情</span></div>
+  <div class="trace-section">
+    <div class="trace-grid">
+      <div class="trace-block">
+        <h4>📜 区块链存证编号</h4>
+        <div class="cert-id">DB-JGC-20260401-RC-7K2M</div>
+        <div class="report-link">存证时间: 2026-04-01 08:15:32 · 区块高度: #1,847,241</div>
+        <div class="report-link" style="margin-top:8px">验证平台: <a href="/traceability.html">军鸽云链区块链溯源平台 →</a></div>
+      </div>
+      <div class="trace-block">
+        <h4>📋 检测报告</h4>
+        <div class="report-link"><a href="#">📄 中国有机产品认证 (COFCC-2026-HLJ-0521) · 有效期至2027年</a></div>
+        <div class="report-link"><a href="#">📄 欧盟有机认证 (EU Organic - CN-BIO-162) · 出口欧盟资质</a></div>
+        <div class="report-link"><a href="#">📄 农残及重金属检测 (SGS-20260401-HRB) · 258项零检出</a></div>
+        <div class="report-link"><a href="#">📄 地理标志产品专用标志: 五常大米 (GB/T 19266)</a></div>
+      </div>
+      <div class="timeline">
+        <div class="tl-step active" onclick="toggleTimeline(this)">
+          <div class="tl-icon">🌾</div>
+          <div class="tl-title">育秧插秧</div>
+          <div class="tl-info">GPS·田间档案</div>
+          <div class="tl-detail"><span class="tl-dot"></span>地块编号: HLJ-WC-0052<br><span class="tl-dot"></span>GPS坐标: 44.93°N, 127.17°E<br><span class="tl-dot"></span>品种: 稻花香2号 非转基因<br><span class="tl-dot"></span>智能育秧大棚IoT温控记录</div>
+        </div>
+        <div class="tl-step" onclick="toggleTimeline(this)">
+          <div class="tl-icon">💧</div>
+          <div class="tl-title">灌溉管理</div>
+          <div class="tl-info">水质监测·IoT</div>
+          <div class="tl-detail"><span class="tl-dot"></span>水源: 龙凤山水库 一类水质<br><span class="tl-dot"></span>灌溉方式: 自流灌溉+智能节水<br><span class="tl-dot"></span>IoT传感器: 土壤湿度实时监控<br><span class="tl-dot"></span>稻鸭共作: 2000只麻鸭生态除虫</div>
+        </div>
+        <div class="tl-step" onclick="toggleTimeline(this)">
+          <div class="tl-icon">⚙️</div>
+          <div class="tl-title">加工碾米</div>
+          <div class="tl-info">批次编号·时间戳</div>
+          <div class="tl-detail"><span class="tl-dot"></span>加工日期: 2026-03-15<br><span class="tl-dot"></span>批次编号: WC-RC-0315-A<br><span class="tl-dot"></span>加工标准: GB/T 19266特等<br><span class="tl-dot"></span>真空包装+充氮保鲜</div>
+        </div>
+        <div class="tl-step" onclick="toggleTimeline(this)">
+          <div class="tl-icon">🚚</div>
+          <div class="tl-title">冷链配送</div>
+          <div class="tl-info">全程追踪·签收</div>
+          <div class="tl-detail"><span class="tl-dot"></span>仓储温度: 15°C恒温仓库<br><span class="tl-dot"></span>路径: 五常→哈尔滨→全国分拨<br><span class="tl-dot"></span>预计时效: 下单后3-5天送达<br><span class="tl-dot"></span>签收扫码: 品质溯源闭环</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:16px">
+    <a href="/farm-northeast-traceability.html" style="display:inline-block;padding:10px 28px;border-radius:24px;font-size:12px;font-weight:700;color:#030712;background:linear-gradient(135deg,#6dab7e,var(--cyan));text-decoration:none;transition:.2s">🔍 查看完整溯源详情 →</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">📸</span> 农场实景</div>
+  <div class="scene-grid">
+    <div class="scene-item">
+      <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500&q=80" alt="万亩稻田" loading="lazy">
+      <div class="caption">🌾 金秋稻田 · 2200亩有机水稻种植区</div>
+    </div>
+    <div class="scene-item">
+      <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=500&q=80" alt="智能育秧大棚" loading="lazy">
+      <div class="caption">🌱 智能育秧大棚 · 物联网温控系统</div>
+    </div>
+    <div class="scene-item">
+      <img src="https://images.unsplash.com/photo-1530554764233-e79e16c91d08?w=500&q=80" alt="稻鸭共作" loading="lazy">
+      <div class="caption">🦆 稻鸭共作系统 · 生态循环农业</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">📖</span> 农场故事</div>
+  <div class="story-tl">
+    <div class="story-item">
+      <div class="st-year">2018年</div>
+      <div class="st-title">🪖 18位战友集结黑土地</div>
+      <div class="st-desc">退役军人赵卫国在部队服役16年后退役，联合17位来自全国各地的退伍战友，在五常市龙凤山镇流转1200亩黑土地，创办退役军人联合社，立志种出中国最好的有机大米。</div>
+    </div>
+    <div class="story-item">
+      <div class="st-year">2020年</div>
+      <div class="st-title">🌱 获得中国有机认证</div>
+      <div class="st-desc">经过2年土壤修复和有机转换，农场通过中国COFCC有机产品认证。种植面积扩大到2200亩，引入稻鸭共作生态种植系统，建成智能育秧大棚。</div>
+    </div>
+    <div class="story-item">
+      <div class="st-year">2023年</div>
+      <div class="st-title">🏆 全国金奖+欧盟双认证</div>
+      <div class="st-desc">荣获"全国退役军人创业创新大赛金奖"，成为退役军人创业全国标杆。同年通过欧盟EU Organic认证，五常有机大米具备出口欧盟资质。接入军鸽云链区块链溯源平台。</div>
+    </div>
+    <div class="story-item">
+      <div class="st-year">2024年</div>
+      <div class="st-title">📈 3500亩·年产1800吨</div>
+      <div class="st-desc">种植面积达3500亩，年产有机稻谷超1800吨，产品覆盖全国30个省市。荣获"黑龙江省农业产业化重点龙头企业"称号，与军鸽云链深度合作打造"从黑土地到餐桌"全链路溯源体系。</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">📍</span> 地图位置示意</div>
+  <div class="map-placeholder">
+    <div class="map-bg">🗺️</div>
+    <div style="font-size:14px;color:var(--text);margin-bottom:6px">黑龙江省五常市龙凤山镇 · 北纬45°世界黄金水稻带</div>
+    <div class="map-coords">GPS坐标: 44.9320°N, 127.1750°E · 海拔: 185m</div>
+    <a href="https://map.baidu.com/search/五常龙凤山镇" target="_blank" rel="noopener" class="map-link">🗺️ 在百度地图中查看 →</a>
+    <a href="https://uri.amap.com/search?keyword=五常龙凤山镇" target="_blank" rel="noopener" class="map-link" style="margin-left:8px">📍 在高德地图中查看 →</a>
+  </div>
+</div>
+
+<!-- 虚拟导览360 -->
+<div class="section">
+  <div class="section-title"><span class="icon">🔄</span> 360° 虚拟导览 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">🖱️ 点击方向按钮旋转视角</span></div>
+  <div class="tour-360">
+    <div class="tour-viewport" id="tourViewport">
+      <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1200&q=80" alt="360全景" id="tourImg">
+      <div class="tour-overlay-text">
+        <div class="tour-icon">🌐</div>
+        <div class="tour-label">360° 全景漫游 · 东北黑土地有机农场</div>
+      </div>
+    </div>
+    <div class="tour-controls">
+      <button class="tour-btn" onclick="rotateTour(-45)" title="左转">◀</button>
+      <button class="tour-btn" onclick="rotateTour(-15)" title="微调左">↖</button>
+      <button class="tour-btn zoom" onclick="zoomTour('in')" title="放大">🔍+</button>
+      <button class="tour-btn zoom" onclick="zoomTour('out')" title="缩小">🔍−</button>
+      <button class="tour-btn" onclick="rotateTour(15)" title="微调右">↗</button>
+      <button class="tour-btn" onclick="rotateTour(45)" title="右转">▶</button>
+    </div>
+    <div class="tour-info">📷 场景: 万亩稻田全景 | 当前角度: <span id="tourAngle">0</span>° | 缩放: <span id="tourZoom">1.0</span>x</div>
+  </div>
+</div>
+
+<!-- 农产品预售 -->
+<div class="section">
+  <div class="section-title"><span class="icon">📦</span> 即将上市 · 预售专区 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">🔥 提前预定享早鸟价</span></div>
+  <div class="presale-grid">
+    <div class="presale-card">
+      <div class="pre-badge">🔥 热销中</div>
+      <div class="pre-icon">🍚</div>
+      <h4>2026新米·五常稻花香2号</h4>
+      <div class="pre-desc">预计10月中旬上市 · 当季新碾 · 真空锁鲜</div>
+      <div class="pre-progress"><div class="pre-progress-bar" style="width:65%"></div></div>
+      <div class="pre-meta"><span>已预售 2,150袋</span><span>剩余 1,350袋</span></div>
+      <div class="pre-price">预售价 ¥78<small style="font-weight:400;font-size:10px">/袋(5kg) 原价¥98</small></div>
+      <a href="/shangcheng.html" class="pre-btn">🛒 立即预购</a>
+    </div>
+    <div class="presale-card">
+      <div class="pre-badge">🆕 新品</div>
+      <div class="pre-icon">🫘</div>
+      <h4>有机黑豆（特级）</h4>
+      <div class="pre-desc">预计11月上市 · 非转基因 · 颗粒饱满</div>
+      <div class="pre-progress"><div class="pre-progress-bar" style="width:38%"></div></div>
+      <div class="pre-meta"><span>已预售 520袋</span><span>剩余 980袋</span></div>
+      <div class="pre-price">预售价 ¥35<small style="font-weight:400;font-size:10px">/袋(2kg) 原价¥48</small></div>
+      <a href="/shangcheng.html" class="pre-btn">🛒 立即预购</a>
+    </div>
+    <div class="presale-card">
+      <div class="pre-badge">⭐ 限量</div>
+      <div class="pre-icon">🌾</div>
+      <h4>有机小米（贡米级）</h4>
+      <div class="pre-desc">预计9月底上市 · 限量2000袋 · 米油丰厚</div>
+      <div class="pre-progress"><div class="pre-progress-bar" style="width:52%"></div></div>
+      <div class="pre-meta"><span>已预售 1,040袋</span><span>剩余 960袋</span></div>
+      <div class="pre-price">预售价 ¥42<small style="font-weight:400;font-size:10px">/袋(2.5kg) 原价¥58</small></div>
+      <a href="/shangcheng.html" class="pre-btn">🛒 立即预购</a>
+    </div>
+  </div>
+</div>
+
+<!-- 农庄活动日历 -->
+<div class="section">
+  <div class="section-title"><span class="icon">📆</span> 本月农庄活动 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">📋 名额有限·先到先得</span></div>
+  <div class="act-grid">
+    <div class="act-item">
+      <div class="act-date"><div class="act-day">18</div><div class="act-mon">6月</div></div>
+      <div class="act-info">
+        <h4>🌾 黑土地插秧体验节</h4>
+        <div class="act-desc">亲手在水田中插秧，感受黑土地的神奇。含午餐农家宴+带走5kg当季大米。</div>
+        <div class="act-meta"><span>⏰ 08:00-16:00</span><span>👥 限40人</span><span>💰 ¥168/人</span></div>
+      </div>
+      <a href="/farm-experience.html" class="act-signup">📝 报名</a>
+    </div>
+    <div class="act-item">
+      <div class="act-date"><div class="act-day">25</div><div class="act-mon">6月</div></div>
+      <div class="act-info">
+        <h4>🔬 有机农业科普研学</h4>
+        <div class="act-desc">参观智能育秧大棚+稻鸭共作系统，学习有机种植技术，含午餐+实践证书。</div>
+        <div class="act-meta"><span>⏰ 09:00-15:00</span><span>👥 限25组家庭</span><span>💰 ¥258/家庭</span></div>
+      </div>
+      <a href="/farm-experience.html" class="act-signup">📝 报名</a>
+    </div>
+    <div class="act-item">
+      <div class="act-date"><div class="act-day">1</div><div class="act-mon">7月</div></div>
+      <div class="act-info">
+        <h4>🎖️ 战友返乡创业座谈会</h4>
+        <div class="act-desc">18位退役军人创业者分享黑土地上的奋斗故事，退役军人及家属免费参加。</div>
+        <div class="act-meta"><span>⏰ 14:00-17:00</span><span>👥 限60人</span><span>💰 免费（需报名）</span></div>
+      </div>
+      <a href="/farm-experience.html" class="act-signup">📝 报名</a>
+    </div>
+    <div class="act-item">
+      <div class="act-date"><div class="act-day">15</div><div class="act-mon">7月</div></div>
+      <div class="act-info">
+        <h4>🍲 东北农家美食节</h4>
+        <div class="act-desc">铁锅炖大鹅+现磨豆浆+手工豆腐制作体验，品味最地道的东北味道。</div>
+        <div class="act-meta"><span>⏰ 10:00-18:00</span><span>👥 限80人</span><span>💰 ¥128/人</span></div>
+      </div>
+      <a href="/farm-experience.html" class="act-signup">📝 报名</a>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:16px">
+    <a href="/farm-northeast-experience.html" style="display:inline-block;padding:10px 28px;border-radius:24px;font-size:12px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--gold),#6dab7e);text-decoration:none;transition:.2s">🌾 了解更多农旅体验 →</a>
+  </div>
+</div>
+
+<!-- 会员体系 -->
+<div class="section">
+  <div class="section-title"><span class="icon">👑</span> 会员体系 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">🎖️ 退役军人及家属享专属优惠</span></div>
+  <div style="overflow-x:auto">
+  <table class="member-table">
+    <thead>
+      <tr>
+        <th style="width:18%">权益项目</th>
+        <th style="width:27%"><span class="tier-icon">🌱</span><span class="tier-name">普通会员</span><br><span class="tier-sub">免费注册</span></th>
+        <th style="width:27%"><span class="tier-icon">🥈</span><span class="tier-name">银卡会员</span><br><span class="tier-sub">年消费≥¥2,000</span></th>
+        <th class="gold-hd" style="width:28%"><span class="tier-icon">👑</span><span class="tier-name" style="color:var(--gold)">金卡会员</span><br><span class="tier-sub" style="color:var(--dim)">年消费≥¥5,000 或退役军人</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>产品折扣</td><td>无</td><td class="yes">9.5折</td><td class="highlight">8.8折</td></tr>
+      <tr><td>包邮门槛</td><td>满¥199</td><td class="yes">满¥99</td><td class="highlight">全场包邮</td></tr>
+      <tr><td>预售优先权</td><td>无</td><td class="yes">提前12小时</td><td class="highlight">提前48小时</td></tr>
+      <tr><td>专属客服</td><td>在线客服</td><td class="yes">专属顾问</td><td class="highlight">1对1管家</td></tr>
+      <tr><td>农场体验</td><td>原价</td><td class="yes">8折</td><td class="highlight">每年2次免费</td></tr>
+      <tr><td>新品试用</td><td>无</td><td>无</td><td class="highlight">每季1次</td></tr>
+      <tr><td>生日礼遇</td><td>优惠券</td><td class="yes">礼盒+券</td><td class="highlight">定制礼盒+¥200券</td></tr>
+      <tr><td>区块链溯源报告</td><td>基础版</td><td class="yes">详细版</td><td class="highlight">完整版+专属哈希</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="member-cta">
+    <a href="/member-register.html">🎖️ 立即注册/升级会员 →</a>
+  </div>
+</div>
+
+<!-- 用户评价（5条） -->
+<div class="section">
+  <div class="section-title"><span class="icon">💬</span> 用户评价 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">⭐ 点击评价展开全文</span></div>
+  <div class="review-list">
+    <div class="review-item" onclick="this.classList.toggle('expanded')">
+      <div class="reviewer">
+        <div class="avatar">赵</div>
+        <div><div class="name">赵大江 · 北京消费者</div><div class="rev-date">2026年5月10日</div></div>
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="rev-content">从小吃东北大米长大，离开家乡后在城市里很少能吃到正宗五常大米了。军鸽云链上买的大米，扫码溯源能看到种植的地块编号和农户信息，煮饭满屋飘香，软糯有嚼劲！这才是记忆中的味道。已经推荐给身边所有朋友了。</div>
+      <div class="rev-expand">▼ 展开全文</div>
+    </div>
+    <div class="review-item" onclick="this.classList.toggle('expanded')">
+      <div class="reviewer">
+        <div class="avatar" style="background:linear-gradient(135deg,var(--green),#22c55e)">刘</div>
+        <div><div class="name">刘海燕 · 退役军人</div><div class="rev-date">2026年4月22日</div></div>
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="rev-content">看到18位战友在东北黑土地上创业的故事，深受感动。买了有机黄豆和小米，品质超出预期。黄豆打豆浆特别香浓，小米熬粥一层米油，是真材实料的好东西。支持战友创业，支持中国好粮食！区块链溯源让每一粒粮食都有据可查。</div>
+      <div class="rev-expand">▼ 展开全文</div>
+    </div>
+    <div class="review-item" onclick="this.classList.toggle('expanded')">
+      <div class="reviewer">
+        <div class="avatar" style="background:linear-gradient(135deg,#8b6914,var(--gold))">陈</div>
+        <div><div class="name">陈思远 · 深圳访客</div><div class="rev-date">2026年5月5日</div></div>
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="rev-content">去年秋天带家人专程从深圳飞到五常参观农场。亲眼看到了黑土地的神奇——抓起一把土都能闻到土地的芬芳。战友们热情接待，带我们体验了割稻、碾米，孩子们在城市里哪见过这个！买了100斤大米寄回深圳，今年又在线上复购了。强烈推荐！</div>
+      <div class="rev-expand">▼ 展开全文</div>
+    </div>
+    <div class="review-item" onclick="this.classList.toggle('expanded')">
+      <div class="reviewer">
+        <div class="avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">孙</div>
+        <div><div class="name">孙丽华 · 上海退休医生</div><div class="rev-date">2026年5月18日</div></div>
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="rev-content">作为一名注重食品安全的退休医生，我对军鸽云链的溯源系统非常认可。每一袋大米都能追溯到具体地块，SGS检测报告公开透明。五常大米确实名不虚传，煮出来的米饭晶莹剔透，软糯香甜。每个月都固定回购，已经成了全家人的主食。</div>
+      <div class="rev-expand">▼ 展开全文</div>
+    </div>
+    <div class="review-item" onclick="this.classList.toggle('expanded')">
+      <div class="reviewer">
+        <div class="avatar" style="background:linear-gradient(135deg,var(--red),#dc2626)">周</div>
+        <div><div class="name">周明远 · 杭州企业采购</div><div class="rev-date">2026年4月30日</div></div>
+        <div class="review-stars">⭐⭐⭐⭐<span style="color:var(--dim)">☆</span></div>
+      </div>
+      <div class="rev-content">公司作为员工福利采购了一批有机杂粮礼盒，包装很用心，溯源二维码也很方便。员工反馈都很好。唯一建议是希望增加更多企业定制选项，比如印logo等。客服态度很好，下次还会继续合作。</div>
+      <div class="rev-expand">▼ 展开全文</div>
+    </div>
+  </div>
+</div>
+
+<!-- 交通指南 -->
+<div class="section">
+  <div class="section-title"><span class="icon">🚗</span> 交通指南 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">📍 黑龙江省五常市龙凤山镇</span></div>
+  <div class="transport-grid">
+    <div class="transport-card">
+      <div class="tp-icon">🚗</div>
+      <h4>自驾前往</h4>
+      <div class="tp-detail">
+        <div class="tp-line">📍 导航搜索: 东北黑土地有机农场</div>
+        <div class="tp-line">🛣️ 哈五高速五常出口 → G229国道 → 龙凤山镇 → 农场路直达</div>
+        <div class="tp-line">🅿️ 免费停车位60个+农机展示区</div>
+        <div class="tp-line">⏱️ 哈尔滨市区出发约2小时</div>
+      </div>
+      <a href="https://map.baidu.com/search/五常龙凤山镇" target="_blank" rel="noopener" class="tp-link">🗺️ 百度地图导航 →</a>
+    </div>
+    <div class="transport-card">
+      <div class="tp-icon">🚌</div>
+      <h4>公共交通</h4>
+      <div class="tp-detail">
+        <div class="tp-line">🚌 哈市客运站 → 五常市（每30分钟一班）→ 换乘乡镇公交至龙凤山</div>
+        <div class="tp-line">🚐 农庄接驳车: 五常客运站 ↔ 农场（免费·需提前预约）</div>
+        <div class="tp-line">🚕 五常市区打车约40分钟（约¥60）</div>
+        <div class="tp-line">⏱️ 公共交通全程约3-3.5小时</div>
+      </div>
+      <a href="https://map.baidu.com/search/五常客运站" target="_blank" rel="noopener" class="tp-link">🚏 客运班次查询 →</a>
+    </div>
+    <div class="transport-card">
+      <div class="tp-icon">🚄</div>
+      <h4>高铁/飞机</h4>
+      <div class="tp-detail">
+        <div class="tp-line">✈️ 哈尔滨太平国际机场 → 打车约2.5小时</div>
+        <div class="tp-line">🚄 哈尔滨西站 → 五常站（高铁约40分钟）→ 打车30分钟</div>
+        <div class="tp-line">🚄 长春站 → 五常站（高铁约1.5小时）</div>
+        <div class="tp-line">🎁 金卡会员享哈尔滨市区免费接站服务</div>
+      </div>
+      <a href="/farm-experience.html" class="tp-link">📅 预约接送服务 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+  <div class="section-title"><span class="icon">❓</span> 常见问题 FAQ</div>
+  <div class="faq-list">
+    <div class="faq-item open">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>🍚 五常大米如何辨别真伪？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">军鸽云链平台上的五常大米均配备区块链溯源二维码，扫码可查：种植地块GPS坐标、稻花香2号品种认证、五常地理标志使用授权、加工批次及检测报告。每一袋米都有唯一存证编号，可通过军鸽云链溯源平台独立验证，杜绝假冒。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>🌾 有机种植不用农药如何防虫？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">我们采用稻鸭共作生态种植系统，2000只麻鸭在水田中自由觅食，天然除虫除草。同时使用物理杀虫灯、生物制剂等有机农业允许的防控手段。整个种植过程符合中国GB/T 19630有机标准和欧盟EU Organic标准，每年接受第三方检测机构审核。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>🎖️ 退役军人有什么专属优惠？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">退役军人凭有效证件自动升级为金卡会员，享受8.8折、全场包邮、每年2次免费农场体验（含食宿）、1对1管家服务等专属权益。农场现有18位退役军人创业者，欢迎更多战友加入我们的团队。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>📅 农场可以参观吗？什么季节最美？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">农场全年开放参观，建议提前3天预约。5-6月看插秧和稻鸭共作，7-8月看碧绿稻田，9-10月金秋收割季最为壮观。冬季可体验东北雪乡风情。金卡会员每年享有2次免费体验名额（含食宿）。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>💳 支持哪些支付方式？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">支持微信支付、支付宝、银联卡、数字人民币等多种支付方式。企业团购支持对公转账和增值税发票开具。所有交易均在军鸽云链平台上完成，支付安全有保障。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>📦 大米如何保鲜？发货周期多长？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">采用当季现碾+真空包装+充氮保鲜技术，最大限度保留大米的新鲜度和营养。下单后24小时内加工发货，全国主要城市3-5天送达。预售商品标注的预计上市时间后按订单顺序发货。</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- 在线咨询浮动按钮 -->
+<div class="chat-float">
+  <a href="/contact.html" class="chat-btn pulse" title="在线咨询">💬</a>
+  <span class="chat-label">在线咨询</span>
+</div>
+
+<div class="fixed-cta" id="fixedCta">
+  <span class="cta-text">📅 预约参观 · 感受黑土地的馈赠</span>
+  <span class="cta-countdown">🔥 今日剩余 <span class="num" id="ctaCount">42</span> 个名额</span>
+  <a href="/farm-experience.html" class="cta-btn-fixed">🌾 立即预约</a>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="/junge/eco-farm.html" style="border-color:rgba(77,148,96,.2);color:var(--green)">🌿 生态农庄</a>
+    <a href="/shangcheng.html" style="border-color:rgba(0,212,255,.2);color:var(--cyan)">🛒 商业生态</a>
+    <a href="/traceability.html" style="border-color:rgba(240,192,64,.2);color:var(--gold)">🔗 区块链溯源</a>
+    <a href="/index.html" style="border-color:rgba(184,64,69,.2);color:var(--red)">🏠 返回首页</a>
+  </div>
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站: 175.178.55.90 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+  食品安全+退役军人在服务综合平台
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<script src="/js/share-reward.js"></script>
+<script>
+function toggleTimeline(el){el.classList.toggle('active')}
+(function(){var n=Math.floor(Math.random()*44)+42;document.getElementById('ctaCount').textContent=n;var t=setInterval(function(){if(n<=1){n=Math.floor(Math.random()*44)+42;document.getElementById('ctaCount').textContent=n}else{n--;document.getElementById('ctaCount').textContent=n}},30000)})()
+document.querySelectorAll('.review-item').forEach(function(r){r.addEventListener('click',function(){var s=this.classList.contains('expanded');this.querySelector('.rev-expand').textContent=s?'▼ 展开全文':'▲ 收起'})})
+// 360虚拟导览
+var tourAngle=0,tourZoom=1;
+function rotateTour(deg){tourAngle+=deg;var img=document.getElementById('tourImg');if(img)img.style.transform='rotate('+tourAngle+'deg) scale('+tourZoom+')';var el=document.getElementById('tourAngle');if(el)el.textContent=tourAngle}
+function zoomTour(dir){if(dir==='in')tourZoom=Math.min(2,tourZoom+0.2);else tourZoom=Math.max(0.5,tourZoom-0.2);var img=document.getElementById('tourImg');if(img)img.style.transform='rotate('+tourAngle+'deg) scale('+tourZoom+')';var el=document.getElementById('tourZoom');if(el)el.textContent=tourZoom.toFixed(1)}
+</script>
+</body>
+</html>

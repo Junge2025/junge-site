@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>商业版图 · 食品安全供应链 | 军鸽云链数智</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050814;color:#e8edf5;font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:#050814}
+::-webkit-scrollbar-thumb{background:#1a3a5f;border-radius:2px}
+
+/* ===== 顶部导航 ===== */
+.topbar{position:sticky;top:0;z-index:1000;background:rgba(5,8,20,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,212,255,0.06);padding:8px 16px;display:flex;align-items:center;gap:10px}
+.topbar .logo{font-size:15px;font-weight:700;background:linear-gradient(90deg,#00d4ff,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.topbar .nav{display:flex;gap:4px;flex:1;overflow-x:auto;white-space:nowrap}
+.topbar .nav a{color:#5a6a85;padding:4px 10px;border-radius:6px;font-size:11px;text-decoration:none;transition:.2s}
+.topbar .nav a:hover,.topbar .nav a.active{color:#00d4ff;background:rgba(0,212,255,0.06)}
+
+/* ===== Hero ===== */
+.hero{position:relative;min-height:70vh;display:flex;align-items:center;padding:60px 20px;background:linear-gradient(135deg,rgba(5,8,20,0.95),rgba(15,34,64,0.8)),url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="none"/><circle cx="80%" cy="20%" r="250" fill="rgba(0,212,255,0.03)"/><circle cx="20%" cy="60%" r="180" fill="rgba(212,175,55,0.02)"/><path d="M0 700 Q300 650 600 700 T1200 720 L1200 800 L0 800 Z" fill="rgba(0,212,255,0.01)"/></svg>') center/cover}
+.hero-content{max-width:1000px;margin:0 auto;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 16px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(0,212,255,0.08);color:#00d4ff;border:1px solid rgba(0,212,255,0.12);margin-bottom:16px}
+.hero h1{font-size:2.6rem;font-weight:800;line-height:1.2;margin-bottom:12px}
+.hero h1 .cyan{color:#00d4ff}
+.hero h1 .gold{background:linear-gradient(135deg,#d4af37,#f5d67a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero h1 .red{color:#e53935}
+.hero .subtitle{font-size:1rem;color:#8896b0;max-width:720px;margin:0 auto 24px;line-height:1.7}
+.hero-stats{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.hero-stats .s-item{text-align:center;padding:12px 20px;background:rgba(15,34,64,0.4);border:1px solid rgba(0,212,255,0.06);border-radius:12px;min-width:120px}
+.hero-stats .s-item .num{font-size:1.4rem;font-weight:800;color:#00d4ff}
+.hero-stats .s-item .label{font-size:10px;color:#5a6a85;margin-top:2px}
+
+/* ===== 四大宗旨 ===== */
+.section{padding:60px 0}
+.section .container{max-width:1100px;margin:0 auto;padding:0 20px}
+.section-header{text-align:center;margin-bottom:36px}
+.section-header .tag{display:inline-block;padding:4px 16px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(0,212,255,0.06);color:#00d4ff;border:1px solid rgba(0,212,255,0.1);margin-bottom:8px}
+.section-header h2{font-size:1.6rem;font-weight:700}
+.section-header h2 span{color:#00d4ff}
+.alt{background:rgba(15,34,64,0.15);border-top:1px solid rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.02)}
+
+.tenets{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tenet-card{background:rgba(15,34,64,0.4);border:1px solid rgba(0,212,255,0.06);border-radius:14px;padding:24px 18px;text-align:center;transition:.25s}
+.tenet-card:hover{border-color:rgba(0,212,255,0.2);transform:translateY(-3px)}
+.tenet-card .icon{font-size:32px;margin-bottom:10px}
+.tenet-card h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.tenet-card h3 .c1{color:#00d4ff}
+.tenet-card h3 .c2{color:#d4af37}
+.tenet-card h3 .c3{color:#22c55e}
+.tenet-card h3 .c4{color:#7c3aed}
+.tenet-card p{font-size:12px;color:#8896b0;line-height:1.6}
+
+/* ===== 三大业务载体 ===== */
+.carriers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.carrier-card{background:rgba(15,34,64,0.3);border:1px solid rgba(0,212,255,0.06);border-radius:16px;padding:28px 20px;position:relative;overflow:hidden;transition:.25s}
+.carrier-card:hover{border-color:rgba(0,212,255,0.2)}
+.carrier-card .num{position:absolute;top:12px;right:16px;font-size:40px;font-weight:800;color:rgba(0,212,255,0.06)}
+.carrier-card .ci{font-size:36px;margin-bottom:10px}
+.carrier-card h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.carrier-card h3 .tag{display:inline-block;padding:1px 8px;border-radius:4px;font-size:9px;margin-left:6px;vertical-align:middle}
+.carrier-card p{font-size:12px;color:#8896b0;margin-bottom:12px;line-height:1.6}
+.carrier-card .list{list-style:none;font-size:11px;color:#5a6a85}
+.carrier-card .list li{padding:3px 0;padding-left:14px;position:relative}
+.carrier-card .list li::before{content:"›";position:absolute;left:0;color:#00d4ff;font-weight:700}
+
+/* ===== 七大功能区 ===== */
+.pyramid{display:flex;flex-direction:column;align-items:center;gap:0;max-width:800px;margin:0 auto}
+.pyramid .level{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:14px 16px;margin-bottom:6px;border-radius:10px;transition:.2s;cursor:default}
+.pyramid .level:hover{transform:scale(1.02)}
+.pyramid .level .ld{font-size:11px;font-weight:600;min-width:70px;text-align:right}
+.pyramid .level .ln{font-size:12px;flex:1}
+.pyramid .level .lv{font-size:9px;color:#5a6478;min-width:60px;text-align:left}
+
+.l1{background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(0,212,255,0.02));border:1px solid rgba(0,212,255,0.1);max-width:96%}
+.l2{background:linear-gradient(135deg,rgba(212,175,55,0.08),rgba(212,175,55,0.02));border:1px solid rgba(212,175,55,0.1);max-width:88%}
+.l3{background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(124,58,237,0.02));border:1px solid rgba(124,58,237,0.1);max-width:80%}
+.l4{background:linear-gradient(135deg,rgba(34,197,94,0.08),rgba(34,197,94,0.02));border:1px solid rgba(34,197,94,0.1);max-width:72%}
+.l5{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(239,68,68,0.02));border:1px solid rgba(239,68,68,0.1);max-width:64%}
+.l6{background:linear-gradient(135deg,rgba(0,200,255,0.06),rgba(0,200,255,0.02));border:1px solid rgba(0,200,255,0.08);max-width:56%}
+.l7{background:linear-gradient(135deg,rgba(251,191,36,0.06),rgba(251,191,36,0.02));border:1px solid rgba(251,191,36,0.08);max-width:48%}
+
+/* ===== 三大价值量 ===== */
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.value-card{background:rgba(15,34,64,0.4);border:1px solid rgba(0,212,255,0.06);border-radius:14px;padding:24px;text-align:center;transition:.25s}
+.value-card:hover{border-color:rgba(0,212,255,0.2)}
+.value-card .vi{font-size:30px;margin-bottom:8px}
+.value-card h3{font-size:14px;font-weight:700;margin-bottom:4px}
+.value-card .hl{font-size:10px;color:#5a6478;margin-bottom:10px}
+.value-card p{font-size:11px;color:#8896b0;line-height:1.6;margin-bottom:10px}
+.value-card .tag-list{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+.value-card .tag-list span{padding:2px 8px;border-radius:4px;font-size:9px;background:rgba(0,212,255,0.06);color:#00d4ff;border:1px solid rgba(0,212,255,0.1)}
+
+/* ===== Footer ===== */
+footer{background:rgba(10,22,40,0.9);border-top:1px solid rgba(255,255,255,0.04);padding:30px 0 16px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:20px;padding-bottom:20px}
+.footer-grid h4{font-size:14px;font-weight:700;margin-bottom:10px;color:#e8edf5}
+.footer-grid p,.footer-grid a{font-size:12px;color:#5a6a85;display:block;margin-bottom:4px;text-decoration:none}
+.footer-grid a:hover{color:#00d4ff}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.03);padding-top:14px;font-size:12px;color:#5a6a85}
+.footer-bottom a{color:#00d4ff;text-decoration:none}
+
+/* ===== 响应式 ===== */
+@media(max-width:768px){
+  .tenets{grid-template-columns:repeat(2,1fr)}
+  .carriers{grid-template-columns:1fr}
+  .value-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:1.8rem}
+  .pyramid .level{flex-wrap:wrap;padding:10px 12px;gap:4px}
+  .pyramid .level .ld{min-width:auto;text-align:left}
+}
+@media(max-width:480px){
+  .tenets{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-stats .s-item{min-width:80px}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="商业版图 · 食品安全供应链 | 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/commerce-land.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/commerce-land.html">
+</head>
+<body>
+
+<!-- ===== 顶部导航 ===== -->
+<div class="topbar">
+  <div class="logo">🏛 军鸽云链数智</div>
+  <div class="nav">
+    <a href="/">首页</a>
+    <a href="#" class="active">商业版图</a>
+    <a href="/command.html">指挥中心</a>
+    <a href="/taskforce.html">特战队</a>
+    <a href="/ops.html">调度中心</a>
+  </div>
+</div>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🏛 商业版图 · 食品安全供应链</div>
+    <h1>军旅数智 <span class="cyan">供应链</span><br><span class="gold">安全食品</span> <span class="red">信用基石</span></h1>
+    <p class="subtitle">依托海南自贸港零关税、双15%税收、跨境贸易三重红利，<br>打造以食品安全为核心、以退役军人为信用底座的数智化供应链与商业版图。</p>
+    <div class="hero-stats">
+      <div class="s-item"><div class="num">3000+</div><div class="label">全国分站</div></div>
+      <div class="s-item"><div class="num">100%</div><div class="label">区块链溯源</div></div>
+      <div class="s-item"><div class="num">85%</div><div class="label">利润归生产者</div></div>
+      <div class="s-item"><div class="num">🌏</div><div class="label">零关税跨境</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 四大宗旨 ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">⚓ 四大价值锚点</span>
+      <h2>让每一份良心农产品，<span>有尊严地</span>被看见</h2>
+    </div>
+    <div class="tenets">
+      <div class="tenet-card">
+        <div class="icon">📈</div>
+        <h3><span class="c1">价值回归</span></h3>
+        <p>优质农产品、安全食品、跨境优品的真实价值被市场认可，不再被"劣币驱逐良币"。</p>
+      </div>
+      <div class="tenet-card">
+        <div class="icon">🔍</div>
+        <h3><span class="c2">价格透明</span></h3>
+        <p>全链条数字化记录成本与利润，消费者扫码即可看到源头、流通、关税与合理定价。</p>
+      </div>
+      <div class="tenet-card">
+        <div class="icon">👁</div>
+        <h3><span class="c3">消费者知情</span></h3>
+        <p>区块链溯源+物联网监控，国内外产品流转信息一键可视，买得放心吃得安心。</p>
+      </div>
+      <div class="tenet-card">
+        <div class="icon">🤝</div>
+        <h3><span class="c4">生产者获益</span></h3>
+        <p>平台仅收取技术服务费，85%净利润归生产者、跨境商家、生态农庄、旅游接待方。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 三大业务载体 ===== -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">🏗 三大业务载体</span>
+      <h2>从源头到餐桌的 <span>完整商业闭环</span></h2>
+    </div>
+    <div class="carriers">
+      <div class="carrier-card">
+        <div class="num">01</div>
+        <div class="ci">🏪</div>
+        <h3>军创商城 <span class="tag" style="background:rgba(0,212,255,.15);color:#00d4ff">前端窗口</span></h3>
+        <p>军人信用背书的"安全食品入口"，让每一份良心农产品都有尊严地被看见、被买走、被溯源。</p>
+        <ul class="list">
+          <li>有机 · 绿色 · 地理标志 · 非遗食品</li>
+          <li>生态食品 / 农庄直供</li>
+          <li>优质农产品帮扶区（滞销帮扶）</li>
+          <li>跨境 · 零关税优质进口商品</li>
+        </ul>
+      </div>
+      <div class="carrier-card">
+        <div class="num">02</div>
+        <div class="ci">🌾</div>
+        <h3>生态农庄 <span class="tag" style="background:rgba(212,175,55,.15);color:#d4af37">生产+体验</span></h3>
+        <p>安全农产品的生产基地、药食同源与康养体验的线下场景、退役军人创业的样板工程。</p>
+        <ul class="list">
+          <li>共享农庄 / 认养制（地块、果树、牲畜）</li>
+          <li>军创优品基地（退役军人运营）</li>
+          <li>物联网监测（温湿度、农残、土壤）</li>
+          <li>农庄体验游 · 农事采摘</li>
+        </ul>
+      </div>
+      <div class="carrier-card">
+        <div class="num">03</div>
+        <div class="ci">🚩</div>
+        <h3>红色旅游 <span class="tag" style="background:rgba(229,57,53,.15);color:#e53935">文化+服务</span></h3>
+        <p>军旅精神与健康生活方式的线下承载空间，退役军人讲解、带队，形成"信任经济"闭环。</p>
+        <ul class="list">
+          <li>红色专线 · 革命旧址 · 军旅记忆</li>
+          <li>老兵情怀游（退役军人带队）</li>
+          <li>康养旅居 · 药食同源体验</li>
+          <li>军事拓展 · 国防教育</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 七大功能区 ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">💎 七大价值区</span>
+      <h2>跨境 · 零关税 · <span>价值分层体系</span></h2>
+    </div>
+    <div class="pyramid">
+      <div class="level l1"><span class="ld" style="color:#00d4ff">🥇 稀缺资源</span><span class="ln">全球稀缺产地、限量资源 · 零关税优势 + 自贸港价格</span><span class="lv" style="color:#00d4ff">顶层</span></div>
+      <div class="level l2"><span class="ld" style="color:#d4af37">🏆 溢价品区</span><span class="ln">品牌、故事、工艺形成溢价 · 不是贵，是值</span><span class="lv" style="color:#d4af37">高端</span></div>
+      <div class="level l3"><span class="ld" style="color:#a78bfa">📈 增值品区</span><span class="ln">与军鸽币、积分、股权权益挂钩 · 买产品也是买未来</span><span class="lv" style="color:#a78bfa">成长</span></div>
+      <div class="level l4"><span class="ld" style="color:#22c55e">✍️ 自报价值</span><span class="ln">生产者自主定价 · 平台数据校准 · 价值共创</span><span class="lv" style="color:#22c55e">共创</span></div>
+      <div class="level l5"><span class="ld" style="color:#ef4444">🛡 保值品区</span><span class="ln">可回购、可抵扣、可兑换 · 军鸽币价值池逻辑</span><span class="lv" style="color:#ef4444">保障</span></div>
+      <div class="level l6"><span class="ld" style="color:#00d4ff">🤲 帮扶专区</span><span class="ln">好但卖不动的农产品 · 军鸽币补贴 + 流量倾斜</span><span class="lv" style="color:#00d4ff">公益</span></div>
+      <div class="level l7"><span class="ld" style="color:#fbbf24">✨ 新优品智推</span><span class="ln">AI 推荐新品 · 新农人创业产品 · 千人千面曝光</span><span class="lv" style="color:#fbbf24">创新</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 三大价值量 ===== -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">🪙 三大价值量体系</span>
+      <h2>让每一次参与，都有 <span>可见的价值刻度</span></h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="vi">💰</div>
+        <h3>交易商用值</h3>
+        <div class="hl">TransCommercial Value</div>
+        <p>用户在平台上的所有交易行为所产生的商业价值。购买、推荐、合伙、跨境撮合——每一笔都是贡献。</p>
+        <div class="tag-list">
+          <span>交易额</span><span>订单数</span><span>复购率</span>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="vi">⚡</div>
+        <h3>数字赋能值</h3>
+        <div class="hl">DigitalValue</div>
+        <p>AI推荐、区块链溯源、智能分润系统为用户、生产者、合伙人带来的额外增值——看得见的效率提升。</p>
+        <div class="tag-list">
+          <span>推广贡献</span><span>服务积分</span><span>内容创作</span>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="vi">🪙</div>
+        <h3>Junge币</h3>
+        <div class="hl">军鸽数字资产</div>
+        <p>由平台利润托底、与跨境免税额度、康养名额、股权优先认购权挂钩的数字资产价值量。</p>
+        <div class="tag-list">
+          <span>购物抵扣</span><span>分红权益</span><span>价值回购</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<h4>🏛 军鸽云链数智</h4>
+<p style="font-size:12px;color:#8896b0">以军人精神守护民生底线，以商业创新激活社会价值。退役军人创业就业服务平台。</p>
+</div>
+<div><h4>商业版图</h4><a href="#">食品安全供应链</a><a href="#">军创商城</a><a href="#">生态农庄</a><a href="#">红色旅游</a><a href="#">跨境零关税</a></div>
+<div><h4>价值体系</h4><a href="#">七大价值区</a><a href="#">三大价值量</a><a href="#">军鸽币</a><a href="#">区块链溯源</a></div>
+<div><h4>关于</h4><a href="/about.html">关于我们</a><a href="/command.html">指挥中心</a><a href="/join.html">加入军创</a></div>
+</div>
+<div class="footer-bottom">
+<span>&copy; 2025-2026 军鸽云链数智 版权所有</span>
+<span>琼ICP备2025063762号-2 | 📱 @军鸽老兵 v19809293800</span>
+</div>
+</div>
+</footer>
+
+</body>
+</html>

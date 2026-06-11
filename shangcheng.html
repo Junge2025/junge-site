@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>生态商业 · 全链条透明监管 | 军鸽云链数智</title>
+<meta name="description" content="军鸽云链数智 · 生态商业版图 — 数字经济×首创模式×跨境生态×名优优品×军创商城，全链条透明监管。海口总站。">
+<meta name="keywords" content="军鸽云链,数字经济,跨境电商,零关税,军创商城,优品,食品安全,退役军人,溯源监管">
+<!-- [SEO] OpenGraph + Twitter + Canonical + Robots — 2026-06-10 -->
+<meta property="og:title" content="生态商业 · 全链条透明监管 | 军鸽云链数智">
+<meta property="og:description" content="数字经济×首创模式×跨境生态×名优优品×军创商城，全链条透明监管。海口总站。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/shangcheng.html">
+<meta property="og:image" content="https://junge.中国/assets/og-commerce.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="生态商业 · 全链条透明监管 | 军鸽云链数智">
+<meta name="twitter:description" content="数字经济×跨境生态×军创商城，全链条透明监管。">
+<meta name="twitter:image" content="https://junge.中国/assets/og-commerce.jpg">
+<link rel="canonical" href="https://junge.中国/shangcheng.html">
+<meta name="robots" content="index, follow">
+
+<style>
+/* ═══════════ 品牌色体系（与index.html统一） ═══════════ */
+:root {
+  --red:#b84045; --red-bg:rgba(184,64,69,0.12); --red-glow:rgba(184,64,69,0.4);
+  --green:#4d9460; --green-bg:rgba(77,148,96,0.12); --green-glow:rgba(77,148,96,0.4);
+  --blue:#4b8ec9; --blue-bg:rgba(75,142,201,0.12); --blue-glow:rgba(75,142,201,0.4);
+  --gold:#c4a044; --gold-bg:rgba(196,160,68,0.1); --gold-glow:rgba(196,160,68,0.3);
+  --bg:#0a0f16; --bg2:#101820; --bg-card:rgba(16,24,36,0.7);
+  --text:#e7ecf2; --text2:#9daab8; --text3:#556070;
+  --border:rgba(255,255,255,0.05); --border2:rgba(255,255,255,0.08);
+  --radius:14px; --radius-sm:10px;
+  --shadow:0 8px 32px rgba(0,0,0,.5);
+  --trans:.25s cubic-bezier(.4,0,.2,1);
+  /* V5 生态商业增强 */
+  --ebi-gold:#f0c040; --ebi-cyan:#00d4ff;
+  --layer-rare:#C89B3C; --layer-premium:#E6B422; --layer-appreciation:#4CAF50;
+  --layer-self:#2196F3; --layer-store:#795548; --layer-agri:#8BC34A;
+  --layer-new:#9C27B0; --layer-risk:#F44336;
+}
+
+/* ═══════════ 全局基础 ═══════════ */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+  font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.6;
+  scroll-behavior:smooth;overflow-x:hidden;min-height:100vh;
+}
+body{
+  background-image:
+    radial-gradient(ellipse at 20% 0%,rgba(77,148,96,.06) 0%,transparent 55%),
+    radial-gradient(ellipse at 80% 10%,rgba(75,142,201,.05) 0%,transparent 55%),
+    radial-gradient(ellipse at 50% 50%,rgba(184,64,69,.03) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#253040;border-radius:2px}
+
+/* ═══════════ Header ═══════════ */
+header{
+  position:sticky;top:0;z-index:10000;
+  background:rgba(10,15,22,.93);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 4px 24px rgba(0,0,0,.6);width:100%;
+}
+.header-inner{
+  max-width:1400px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+.logo{font-size:18px;font-weight:800;color:var(--green);letter-spacing:.04em}
+.logo span{color:var(--text2);font-size:13px;font-weight:400;margin-left:8px}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap}
+.nav-links a{
+  padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;
+  color:var(--text2);text-decoration:none;transition:var(--trans);
+  border:1px solid transparent;
+}
+.nav-links a:hover,.nav-links a.active{
+  color:var(--green);background:var(--green-bg);border-color:rgba(77,148,96,.25);
+}
+@media(max-width:768px){.header-inner{justify-content:center}}
+/* ═══ WALLET PILL ═══ */
+.wallet-pill{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:16px;background:rgba(16,24,36,.8);border:1px solid rgba(196,160,68,.25);font-size:10.5px;flex-shrink:0;backdrop-filter:blur(8px);transition:var(--trans)}
+.wallet-pill:hover{border-color:rgba(196,160,68,.5);box-shadow:0 0 12px rgba(196,160,68,.15)}
+.wp-jc{color:#e8d5a0;display:inline-flex;align-items:center;gap:3px}
+.wp-jc b{font-weight:700;font-variant-numeric:tabular-nums;color:var(--gold)}
+.wp-dv{padding:2px 8px;border-radius:8px;background:rgba(77,148,96,.15);color:#6dab7e;font-weight:600;font-size:9.5px;letter-spacing:.04em}
+/* ═══ TV BADGE ═══ */
+.tv-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;margin-top:4px}
+.tv-badge.t1{background:rgba(184,64,69,.18);color:#d47a7e;border:1px solid rgba(184,64,69,.3)}
+.tv-badge.t2{background:rgba(200,130,40,.18);color:#e8a840;border:1px solid rgba(200,130,40,.3)}
+.tv-badge.t3{background:rgba(196,160,68,.15);color:var(--gold);border:1px solid rgba(196,160,68,.25)}
+.tv-badge.t5{background:rgba(75,142,201,.15);color:#7ab5db;border:1px solid rgba(75,142,201,.25)}
+.tv-badge.t6{background:rgba(150,150,150,.12);color:#9daab8;border:1px solid rgba(150,150,150,.18)}
+
+.og-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:6px;font-size:9px;font-weight:700;background:rgba(77,148,96,.1);color:#6dab7e;border:1px solid rgba(77,148,96,.2)}
+.tv-badge.t8{background:rgba(100,100,100,.1);color:var(--text3);border:1px solid rgba(100,100,100,.12)}
+/* zone live counters */
+.zone-live{display:inline-block;padding:1px 6px;border-radius:6px;font-size:9px;font-weight:700;background:rgba(196,160,68,.12);color:var(--gold);border:1px solid rgba(196,160,68,.2);margin-left:4px;animation:zonePulse 2s ease-in-out infinite}
+@keyframes zonePulse{0%,100%{opacity:.7}50%{opacity:1}}
+
+/* ═══════════ 容器 ═══════════ */
+.container{max-width:1300px;margin:0 auto;padding:0 18px}
+.section-pad{padding:40px 0}
+.section-label{
+  display:inline-block;font-size:10px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:10px;
+}
+.section-label.g{color:var(--green);background:var(--green-bg);border:1px solid rgba(77,148,96,.25)}
+.section-label.b{color:var(--blue);background:var(--blue-bg);border:1px solid rgba(75,142,201,.25)}
+.section-label.r{color:var(--red);background:var(--red-bg);border:1px solid rgba(184,64,69,.25)}
+.section-label.k{color:var(--gold);background:var(--gold-bg);border:1px solid rgba(196,160,68,.25)}
+.section-title{font-size:22px;font-weight:800;margin:6px 0 4px;letter-spacing:.03em}
+.section-sub{font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.5}
+
+/* ═══════════ Hero ═══════════ */
+.hero{text-align:center;padding:50px 0 30px}
+.hero-badge{
+  display:inline-block;background:linear-gradient(135deg,rgba(77,148,96,.25),rgba(75,142,201,.15));
+  color:var(--green);font-size:11px;font-weight:700;letter-spacing:.08em;
+  padding:5px 18px;border-radius:20px;border:1px solid rgba(77,148,96,.3);
+  box-shadow:0 0 24px rgba(77,148,96,.15);animation:pulse-glow 2.5s ease-in-out infinite;
+}
+.hero h1{font-size:36px;font-weight:900;margin:16px 0 8px;letter-spacing:.04em}
+.hero h1 .g{color:var(--green)}
+.hero h1 .b{color:var(--blue)}
+.hero .desc{font-size:14px;color:var(--text2);max-width:700px;margin:0 auto 20px;line-height:1.7}
+.hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin:20px 0}
+.hero-stat{text-align:center}
+.hero-stat .n{font-size:28px;font-weight:900;color:var(--green)}
+.hero-stat .l{font-size:10px;color:var(--text2);letter-spacing:.06em;margin-top:2px}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 24px rgba(77,148,96,.15)}50%{box-shadow:0 0 44px rgba(77,148,96,.3)}}
+
+/* ═══════════ 5层金字塔标识 ═══════════ */
+.pyramid-nav{text-align:center;padding:16px 0 10px}
+.pyramid-nav .tiers{display:inline-flex;flex-direction:column;gap:3px;align-items:center}
+.pyramid-nav .tier{
+  font-size:11px;font-weight:700;letter-spacing:.06em;padding:5px 24px;border-radius:20px;
+  color:var(--text2);background:var(--bg-card);border:1px solid var(--border);
+  transition:var(--trans);text-decoration:none;cursor:pointer;
+}
+.pyramid-nav .tier:hover,.pyramid-nav .tier.hl{color:#fff;border-color:var(--green);background:var(--green-bg)}
+.pyramid-nav .tier.t1{min-width:260px}.pyramid-nav .tier.t2{min-width:280px}
+.pyramid-nav .tier.t3{min-width:220px}.pyramid-nav .tier.t4{min-width:200px}
+.pyramid-nav .tier.t5{min-width:180px}
+
+/* ═══════════ 通用卡片 ═══════════ */
+.card-glass{
+  background:var(--bg-card);backdrop-filter:blur(12px);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px;transition:var(--trans);
+}
+.card-glass:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.5)}
+
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.grid4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid2,.grid3,.grid4{grid-template-columns:1fr}}
+
+/* ═══════════ Layer 1: 数字经济底座 ═══════════ */
+.digi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.digi-card{background:var(--bg-card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.digi-card .icon-big{font-size:36px;margin-bottom:8px}
+.digi-card h3{font-size:16px;font-weight:700;margin-bottom:6px}
+.digi-card p{font-size:12px;color:var(--text2);line-height:1.6}
+.digi-card .tags{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.digi-card .tag{padding:3px 10px;border-radius:10px;font-size:10px;font-weight:600}
+.digi-card .tag.g{background:var(--green-bg);color:var(--green)}
+.digi-card .tag.b{background:var(--blue-bg);color:var(--blue)}
+.digi-card .tag.r{background:var(--red-bg);color:var(--red)}
+.digi-card .tag.k{background:var(--gold-bg);color:var(--gold)}
+@media(max-width:768px){.digi-grid{grid-template-columns:1fr}}
+
+/* ═══════════ Layer 2: 8区跨境价值分层 ═══════════ */
+.zone8-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.zone-card{
+  background:var(--bg-card);backdrop-filter:blur(12px);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px;text-align:center;transition:var(--trans);cursor:pointer;
+}
+.zone-card:hover{transform:translateY(-4px)}
+.zone-card:hover.g{border-color:rgba(77,148,96,.4);box-shadow:0 10px 32px var(--green-glow)}
+.zone-card:hover.b{border-color:rgba(75,142,201,.4);box-shadow:0 10px 32px var(--blue-glow)}
+.zone-card:hover.r{border-color:rgba(184,64,69,.4);box-shadow:0 10px 32px var(--red-glow)}
+.zone-card:hover.k{border-color:rgba(196,160,68,.4);box-shadow:0 10px 32px var(--gold-glow)}
+.zone-card .zi{font-size:34px;margin-bottom:8px}
+.zone-card h4{font-size:14px;font-weight:700;margin:6px 0}
+.zone-card p{font-size:11px;color:var(--text2);line-height:1.5}
+.zone-card .zt{margin-top:8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.zone-card .zt span{padding:2px 8px;border-radius:8px;font-size:9px;font-weight:600}
+.zone-card .zt span.g{background:var(--green-bg);color:var(--green)}
+.zone-card .zt span.b{background:var(--blue-bg);color:var(--blue)}
+.zone-card .zt span.r{background:var(--red-bg);color:var(--red)}
+.zone-card .zt span.k{background:var(--gold-bg);color:var(--gold)}
+.zone-entry{
+  grid-column:span 4;display:flex;justify-content:center;gap:32px;flex-wrap:wrap;
+  background:linear-gradient(135deg,rgba(16,24,36,.9),rgba(8,20,44,.95));
+  border:2px solid var(--green-glow);border-radius:var(--radius);padding:20px;text-align:center;
+  transition:var(--trans);
+}
+.zone-entry:hover{box-shadow:0 16px 48px var(--green-glow)}
+.zone-entry a{
+  padding:12px 32px;border-radius:12px;text-decoration:none;font-size:14px;font-weight:700;
+  color:#fff;transition:var(--trans);
+}
+.zone-entry a.cb{background:linear-gradient(135deg,var(--green),#3a7a4d);box-shadow:0 0 20px var(--green-glow)}
+.zone-entry a.zt{background:linear-gradient(135deg,var(--blue),#3a6d9e);box-shadow:0 0 20px var(--blue-glow)}
+.zone-entry a:hover{transform:scale(1.05)}
+@media(max-width:1100px){.zone8-grid{grid-template-columns:repeat(3,1fr)}.zone-entry{grid-column:span 3}}
+@media(max-width:700px){.zone8-grid{grid-template-columns:repeat(2,1fr)}.zone-entry{grid-column:span 2}}
+@media(max-width:450px){.zone8-grid{grid-template-columns:1fr}.zone-entry{grid-column:span 1}}
+
+/* ═══════════ Layer 3/4: 商品卡片 ═══════════ */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.prod-card{
+  background:var(--bg-card);backdrop-filter:blur(12px);
+  border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;transition:var(--trans);
+}
+.prod-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.5);border-color:var(--green-glow)}
+.prod-card .img-block{height:160px;position:relative;overflow:hidden}
+.prod-card .img-block.g{background:linear-gradient(135deg,rgba(77,148,96,.15),rgba(35,80,50,.3))}
+.prod-card .img-block.b{background:linear-gradient(135deg,rgba(75,142,201,.15),rgba(35,60,120,.3))}
+.prod-card .img-block.r{background:linear-gradient(135deg,rgba(184,64,69,.15),rgba(100,30,35,.3))}
+.prod-card .img-block .p-tag{
+  position:absolute;top:8px;left:8px;z-index:2;
+  padding:3px 10px;border-radius:8px;font-size:9px;font-weight:700;color:#fff;
+}
+.prod-card .img-block .p-tag.g{background:rgba(77,148,96,.85)}
+.prod-card .img-block .p-tag.b{background:rgba(75,142,201,.85)}
+.prod-card .img-block .p-tag.r{background:rgba(184,64,69,.85)}
+.prod-card .info{padding:12px 14px}
+.prod-card .info h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.prod-card .info .meta{font-size:10px;color:var(--text2)}
+.prod-card .info .price{font-size:14px;font-weight:800;color:var(--green);margin-top:6px}
+@media(max-width:900px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.prod-grid{grid-template-columns:1fr}}
+
+/* ═══════════ Layer 5: 军创商城 ═══════════ */
+.vet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.vet-card{
+  background:var(--bg-card);backdrop-filter:blur(12px);
+  border:1px solid rgba(184,64,69,.2);border-radius:var(--radius);
+  padding:24px;text-align:center;transition:var(--trans);
+}
+.vet-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px var(--red-glow);border-color:rgba(184,64,69,.4)}
+.vet-card .vi{font-size:40px;margin-bottom:10px}
+.vet-card h3{font-size:15px;font-weight:700;color:var(--red);margin-bottom:6px}
+.vet-card p{font-size:11px;color:var(--text2);line-height:1.5}
+@media(max-width:768px){.vet-grid{grid-template-columns:1fr}}
+
+/* ═══════════ 供应链透明 ═══════════ */
+.chain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.chain-card{
+  background:var(--bg-card);backdrop-filter:blur(12px);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px;transition:var(--trans);
+}
+.chain-card:hover{transform:translateY(-2px);border-color:var(--green-glow)}
+.chain-card .ci{font-size:28px;margin-bottom:6px}
+.chain-card h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.chain-card p{font-size:11px;color:var(--text2);line-height:1.5}
+@media(max-width:900px){.chain-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.chain-grid{grid-template-columns:1fr}}
+
+/* ═══════════ 分隔条 ═══════════ */
+.divider{
+  height:1px;background:linear-gradient(90deg,transparent,var(--green-glow),transparent);
+  margin:40px 0;
+}
+.layer-divider{
+  display:flex;align-items:center;gap:14px;margin:36px 0 24px;
+}
+.layer-divider .line{flex:1;height:1px;background:var(--border2)}
+.layer-divider span{font-size:10px;color:var(--text3);letter-spacing:.1em;white-space:nowrap}
+
+/* ═══════════ 底部固定导航 ═══════════ */
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:9999;
+  background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));
+  border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;
+  display:flex;gap:6px;justify-content:center;flex-wrap:wrap;
+}
+.bottom-nav a{
+  padding:6px 14px;border-radius:16px;font-size:11px;font-weight:600;
+  color:var(--text2);text-decoration:none;transition:var(--trans);
+}
+.bottom-nav a:hover{color:#fff;background:rgba(255,255,255,.05)}
+.bottom-nav a.active{color:var(--green);background:var(--green-bg)}
+
+/* ═══════════ Footer ═══════════ */
+footer{text-align:center;padding:24px 16px 60px;color:var(--text3);font-size:10px;line-height:1.8}
+
+/* ═══════════ 动画 ═══════════ */
+.fade-up{animation:fadeUp .6s ease-out}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* 搜索栏 */
+.search-bar{display:flex;gap:8px;max-width:500px;margin:0 auto}
+.search-bar input{
+  flex:1;padding:10px 16px;border-radius:24px;border:1px solid var(--border2);
+  background:var(--bg2);color:var(--text);font-size:13px;outline:none;
+  transition:var(--trans);
+}
+.search-bar input:focus{border-color:var(--green);box-shadow:0 0 0 3px var(--green-bg)}
+.search-bar button{
+  padding:10px 20px;border-radius:24px;border:none;
+  background:linear-gradient(135deg,var(--green),#3a7a4d);
+  color:#fff;font-size:13px;font-weight:700;cursor:pointer;transition:var(--trans);
+}
+.search-bar button:hover{box-shadow:0 0 20px var(--green-glow)}
+
+.slogan-bar{text-align:center;padding:16px 20px;margin-bottom:14px;border-radius:12px;background:linear-gradient(135deg,rgba(184,64,69,.15),rgba(10,15,22,.95),rgba(75,142,201,.08));border:1px solid rgba(184,64,69,.15);position:relative;overflow:hidden}
+.slogan-bar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.02),transparent);pointer-events:none}
+.slogan-bar .big{font-size:22px;font-weight:800;letter-spacing:.1em;position:relative;z-index:1;background:linear-gradient(120deg,#d47a7e,#e8c4a0,#7ab5db);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.slogan-bar .sub{font-size:10px;color:#8896b0;margin-top:3px;position:relative;z-index:1;letter-spacing:.05em}
+
+
+/* ═══ HERO ═══ */
+.hero{position:relative;border-radius:12px;padding:36px 24px 28px;margin-bottom:16px;overflow:hidden;text-align:center;background:linear-gradient(160deg,rgba(184,64,69,.08) 0%,rgba(16,24,32,.9) 40%,rgba(75,142,201,.06) 100%);border:1px solid rgba(255,255,255,.08)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% -20%,rgba(255,200,200,.04),transparent 60%);pointer-events:none}
+.hero h1{font-size:26px;font-weight:700;margin-bottom:8px;position:relative;z-index:1;letter-spacing:.03em}
+.hero h1 .r{color:#d47a7e}.hero h1 .g{color:#6dab7e}.hero h1 .b{color:#7ab5db}
+.hero .desc{font-size:12px;color:#8896b0;max-width:560px;margin:0 auto 14px;position:relative;z-index:1;line-height:1.8}
+.hero-values{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;position:relative;z-index:1}
+.hero-values span{padding:6px 14px;border-radius:18px;font-size:10.5px;color:#e0c8c8;background:rgba(184,64,69,.1);border:1px solid rgba(184,64,69,.18);display:inline-flex;align-items:center;gap:5px;letter-spacing:.03em}
+.hero-values span i{font-style:normal;font-size:12px}
+.hero .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:28px;font-size:13px;font-weight:650;text-decoration:none;transition:.25s;letter-spacing:.04em;position:relative;overflow:hidden;min-width:160px;justify-content:center}
+.hero-btn:hover{transform:translateY(-2px)}
+.hero-btn.blue{background:linear-gradient(135deg,rgba(75,142,201,.25),rgba(40,80,140,.5));border:1px solid rgba(75,142,201,.4);color:#b8d8f5;box-shadow:0 0 24px rgba(75,142,201,.4),inset 0 1px 0 rgba(255,255,255,.05)}
+.hero-btn.blue:hover{box-shadow:0 0 40px rgba(75,142,201,.6),inset 0 1px 0 rgba(255,255,255,.1)}
+.hero-btn.green{background:linear-gradient(135deg,rgba(77,148,96,.25),rgba(35,90,55,.5));border:1px solid rgba(77,148,96,.4);color:#b0ddbc;box-shadow:0 0 24px rgba(77,148,96,.4),inset 0 1px 0 rgba(255,255,255,.05)}
+.hero-btn.green:hover{box-shadow:0 0 40px rgba(77,148,96,.6),inset 0 1px 0 rgba(255,255,255,.1)}
+.hero-btn.red{background:linear-gradient(135deg,rgba(184,64,69,.25),rgba(130,35,40,.5));border:1px solid rgba(184,64,69,.4);color:#e8b0b4;box-shadow:0 0 24px rgba(184,64,69,.4),inset 0 1px 0 rgba(255,255,255,.05)}
+.hero-btn.red:hover{box-shadow:0 0 40px rgba(184,64,69,.6),inset 0 1px 0 rgba(255,255,255,.1)}
+
+@keyframes shine{0%,100%{box-shadow:0 0 14px rgba(196,160,68,.5),0 0 28px rgba(77,148,96,.3),0 0 42px rgba(75,142,201,.2);border-color:rgba(196,160,68,.55)}33%{box-shadow:0 0 16px rgba(75,142,201,.5),0 0 30px rgba(196,160,68,.3),0 0 44px rgba(77,148,96,.2);border-color:rgba(75,142,201,.55)}66%{box-shadow:0 0 16px rgba(77,148,96,.5),0 0 30px rgba(75,142,201,.3),0 0 44px rgba(196,160,68,.2);border-color:rgba(77,148,96,.55)}}@keyframes starPulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.6)}}@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* ══ V5 生态商业增强样式 ══ */
+.ebi-score-bar{display:flex;align-items:center;gap:8px;padding:6px 0}
+.ebi-score-bar .label{width:60px;font-size:10px;color:var(--text2);text-align:right;flex-shrink:0}
+.ebi-score-bar .track{flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.ebi-score-bar .fill{height:100%;border-radius:3px}
+.ebi-score-num{font-size:28px;font-weight:800;color:var(--ebi-gold);line-height:1}
+.ebi-grade-badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:700;background:linear-gradient(135deg,var(--ebi-gold),#e6a817);color:#030712}
+.layer-badge-v5{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:600}
+.eco-intel-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:768px){.eco-intel-preview{grid-template-columns:1fr}}
+.intel-mini-card{background:rgba(20,30,50,.85);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px;transition:var(--trans)}
+.intel-mini-card:hover{border-color:rgba(0,212,255,.35);transform:translateY(-2px)}
+.intel-mini-card h4{font-size:14px;color:#00d4ff;margin-bottom:8px}
+.intel-mini-card .kpi{font-size:28px;font-weight:800;color:#f0c040}
+.intel-mini-card .kpi.warn{color:#ff4444}
+.intel-mini-card .sub{font-size:12px;color:#d0d8e4;line-height:1.6}
+.intel-mini-card .link{display:inline-block;margin-top:8px;font-size:11px;color:#00d4ff;text-decoration:none;padding:4px 10px;border-radius:8px;border:1px solid rgba(0,212,255,.2);background:rgba(0,212,255,.04)}
+.intel-mini-card .link:hover{background:rgba(0,212,255,.1)}
+.product-ebi-card{display:flex;gap:14px;align-items:center;padding:12px;background:rgba(240,192,64,.03);border:1px solid rgba(240,192,64,.12);border-radius:10px;margin:8px 0}
+.product-ebi-card .thumb{font-size:32px;flex-shrink:0}
+.product-ebi-card .info{flex:1}
+.product-ebi-card .info .name{font-size:13px;font-weight:600;color:var(--text)}
+.product-ebi-card .info .price{font-size:11px;color:var(--text2)}
+.product-ebi-card .ebi-badge{display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:700;background:rgba(240,192,64,.12);color:var(--ebi-gold);margin-top:4px}
+.product-ebi-card .arrow{color:var(--ebi-cyan);font-size:18px;flex-shrink:0}
+</style>
+
+<!-- [SEO] JSON-LD Organization + CollectionPage — 2026-06-10 -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"军鸽云链数智","alternateName":"JunGe CloudLink DI","description":"食品安全+退役军人在服务综合平台。以军人精神守护民生底线，以商业创新激活社会价值。","url":"https://junge.中国","logo":"https://junge.中国/assets/logo.png","foundingDate":"2025","founder":{"@type":"Person","name":"朱文静","jobTitle":"创始人"},"address":{"@type":"PostalAddress","addressCountry":"CN","addressRegion":"海南省","addressLocality":"海口市"},"contactPoint":{"@type":"ContactPoint","telephone":"19809293800","contactType":"customer service","areaServed":"CN"},"sameAs":["https://junge.中国"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"军鸽云链数字商城","description":"数字经济×首创模式×跨境生态×名优优品×军创商城，可溯源优质产品","url":"https://junge.中国/shangcheng.html","isPartOf":{"@type":"WebSite","url":"https://junge.中国"}}
+</script>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header>
+  <div class="header-inner">
+    <div class="logo">🛒 生态商业 <span>[V4.8] 海口总站</span></div>
+    <div class="nav-links">
+      <a href="#layer1">📡 数字经济底座</a>
+      <a href="#layer2">🌐 生态品质价值分层体系</a>
+      <a href="#layer3">🌍 跨境电商 &amp; 零关税</a>
+      <a href="#layer4">🏆 名优优品</a>
+      <a href="/standards.html" style="color:#d47a7e">🛡 入网标准</a><a href="#layer5">🎖 军创商城</a>
+    </div>
+    <span class="wallet-pill" id="walletPill" style="display:none">
+      <span class="wp-jc">🪙 <b id="wpJcBal">--</b> JC</span>
+      <span class="wp-dv" id="wpDvLvl">--</span>
+    </span>
+  </div>
+</header>
+
+
+<!-- ═══ 价值观横幅 ═══ -->
+<div style="text-align:center;padding:24px 8px;margin:10px 4px 20px;border-radius:16px;
+  background:linear-gradient(135deg,rgba(77,148,96,.12),rgba(10,22,40,.97),rgba(196,160,68,.08));
+  border:1px solid rgba(77,148,96,.2);
+  box-shadow:0 0 40px rgba(77,148,96,.08),inset 0 1px 0 rgba(255,255,255,.03)">
+  <div style="font-size:30px;font-weight:800;letter-spacing:.12em;color:#f5edd6;
+    display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;
+    text-shadow:0 0 24px rgba(196,160,68,.3);line-height:1.5">
+    <span>价值回归</span><span style="color:rgba(77,148,96,.5);font-size:18px;font-weight:300">|</span>
+    <span>价格透明</span><span style="color:rgba(77,148,96,.5);font-size:18px;font-weight:300">|</span>
+    <span>消费者知情</span><span style="color:rgba(77,148,96,.5);font-size:18px;font-weight:300">|</span>
+    <span>劳动者受益</span>
+  </div>
+  <div style="font-size:20px;font-weight:600;letter-spacing:.08em;color:#d4c090;margin-top:6px;
+    text-shadow:0 0 16px rgba(196,160,68,.25)">
+    生态商业的维护人 &nbsp;|&nbsp; 共创共建的财富地 &nbsp;|&nbsp; 市场公平的稳定器
+  </div>
+</div>
+
+<section class="hero">
+<h1><span style="background:linear-gradient(135deg,rgba(75,142,201,.25),rgba(40,80,140,.5));border:1px solid rgba(75,142,201,.4);color:#b8d8f5;padding:4px 18px;border-radius:28px;box-shadow:0 0 24px var(--blue-glow),inset 0 1px 0 rgba(255,255,255,.05)">数字经济</span> <span class="g">*</span> <span style="background:linear-gradient(135deg,rgba(77,148,96,.25),rgba(35,90,55,.5));border:1px solid rgba(77,148,96,.4);color:#b0ddbc;padding:4px 18px;border-radius:28px;box-shadow:0 0 24px var(--green-glow),inset 0 1px 0 rgba(255,255,255,.05)">生态跨境</span> <span class="b">*</span> <span style="background:linear-gradient(135deg,rgba(196,160,68,.25),rgba(150,115,40,.5));border:1px solid rgba(196,160,68,.4);color:#e8d9a0;padding:4px 18px;border-radius:28px;box-shadow:0 0 24px var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.05)">优品军创</span></h1>
+  
+  <div style="text-align:center;margin-bottom:10px"><span style="display:inline-block;font-size:14px;color:var(--green);letter-spacing:.08em;font-weight:700;padding:6px 24px;border-radius:14px;background:linear-gradient(135deg,rgba(77,148,96,.08),rgba(77,148,96,.03));border:1px solid rgba(77,148,96,.15)">🔗 区块链溯源 &nbsp; 共建生态商业</span></div>
+  <p class="desc">以区块链溯源为基座 构建数字经济ID模式 跨境*零关税 名优优品 军创商城生态商业版图<br><span style="font-size:13px;color:var(--green)">首创生态品质价值八层体系 实现品质可追溯 &nbsp; 价格透明 &nbsp; 价值回归</span></p>
+<!-- 便捷通道 ★ 金绿蓝三色炫光 · 科幻星光 -->
+  <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:14px 0 20px;position:relative;z-index:1">
+    <span style="position:absolute;width:3px;height:3px;background:#c4a044;border-radius:50%;top:8%;left:8%;animation:starPulse 2s ease-in-out infinite;box-shadow:0 0 6px #c4a044"></span>
+    <span style="position:absolute;width:2px;height:2px;background:#4b8ec9;border-radius:50%;top:65%;left:12%;animation:starPulse 2.6s ease-in-out .5s infinite;box-shadow:0 0 5px #4b8ec9"></span>
+    <span style="position:absolute;width:2.5px;height:2.5px;background:#4d9460;border-radius:50%;top:15%;right:10%;animation:starPulse 3s ease-in-out 1s infinite;box-shadow:0 0 6px #4d9460"></span>
+    <span style="position:absolute;width:2px;height:2px;background:#c4a044;border-radius:50%;bottom:20%;right:18%;animation:starPulse 2.2s ease-in-out .3s infinite;box-shadow:0 0 5px #c4a044"></span>
+    <span style="position:absolute;width:2.5px;height:2.5px;background:#4b8ec9;border-radius:50%;top:45%;left:28%;animation:starPulse 2.8s ease-in-out 1.6s infinite;box-shadow:0 0 5px #4b8ec9"></span>
+    <span style="position:absolute;width:1.5px;height:1.5px;background:#4d9460;border-radius:50%;bottom:30%;left:22%;animation:starPulse 3.2s ease-in-out .7s infinite;box-shadow:0 0 4px #4d9460"></span>
+    <span style="position:absolute;width:3px;height:3px;background:#c4a044;border-radius:50%;top:70%;right:25%;animation:starPulse 1.8s ease-in-out 2s infinite;box-shadow:0 0 7px #c4a044"></span>
+    <a href="/about-junge.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 30px;border-radius:26px;font-size:12.5px;font-weight:700;text-decoration:none;letter-spacing:.06em;background:linear-gradient(135deg,rgba(15,23,42,.93),rgba(20,35,60,.9));color:#f0e8d0;border:2px solid rgba(196,160,68,.5);transition:all .35s;animation:shine 3.5s ease-in-out infinite;position:relative;overflow:hidden;backdrop-filter:blur(4px)">
+      <span style="position:absolute;inset:-60%;background:conic-gradient(from 0deg,transparent,rgba(196,160,68,.12),transparent,rgba(75,142,201,.08),transparent);animation:spin 5s linear infinite;border-radius:inherit"></span>
+      <span style="position:relative;z-index:1">📖 了解 junge.中国</span>
+    </a>
+    <a href="/ruzhu.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 30px;border-radius:26px;font-size:12.5px;font-weight:700;text-decoration:none;letter-spacing:.06em;background:linear-gradient(135deg,rgba(15,23,42,.93),rgba(20,35,60,.9));color:#c8e8d0;border:2px solid rgba(77,148,96,.5);transition:all .35s;animation:shine 3.5s ease-in-out 1.8s infinite;position:relative;overflow:hidden;backdrop-filter:blur(4px)">
+      <span style="position:absolute;inset:-60%;background:conic-gradient(from 180deg,transparent,rgba(77,148,96,.12),transparent,rgba(196,160,68,.08),transparent);animation:spin 5s linear infinite reverse;border-radius:inherit"></span>
+      <span style="position:relative;z-index:1">📝 申请加入</span>
+    </a>
+  </div>
+  <div class="hero-btns">
+<a href="/junge-shuzhi.html" class="hero-btn blue">⚡ 进入数智中心</a>
+<a href="/" class="hero-btn green">🏠 情怀综合</a>
+<a href="/fenzhan.html" class="hero-btn red">🌾 分站家园</a>
+</div>
+</section>
+
+
+
+
+
+<section id="layer1" class="section-pad container fade-up">
+  <h2 class="section-title">📡 数字经济底座 <span style="font-size:13px;font-weight:400;color:var(--blue)">* ID锁定数字价值</span></h2>
+  <p class="section-sub">数字ID · 价值量体系 · AI智搜 — 构建可信商业的数字基础设施 <a href="/eco/id.html" style="color:var(--blue);font-size:10px;text-decoration:none;margin-left:8px;padding:2px 8px;border-radius:8px;background:rgba(75,142,201,.08);border:1px solid rgba(75,142,201,.15)">📋 详情</a></p>
+
+  <div class="digi-grid" style="grid-template-columns:repeat(3,1fr)">
+    <!-- 数字ID + 可信身份合并 -->
+    <div class="digi-card" style="border-left:3px solid var(--blue)">
+      <div class="icon-big">🆔</div>
+      <h3 style="color:var(--blue)">数字ID中心</h3>
+      <p>一人一码·一物一码·一企一码。基于区块链的分布式数字身份体系，实现交易价值量(TV)、数据价值量(DV)、军功价值量(JC)三维量化。退役军人身份核验·企业资质链上存证·产品溯源一码通。</p>
+      <div class="tags">
+        <span class="tag b">TV交易值</span><span class="tag k">DV数据值</span><span class="tag r">JC军功值</span><span class="tag r">退役军人</span><span class="tag g">企业认证</span><span class="tag b">产品溯源</span>
+      </div>
+    </div>
+
+    <!-- AI地域智搜 -->
+    <div class="digi-card" style="border-left:3px solid var(--green)">
+      <div class="icon-big">🤖</div>
+      <h3 style="color:var(--green)">AI地域智搜</h3>
+      <p>智能搜索全国3000+分站产品、服务、农庄、基地。AI驱动的精准匹配引擎，让好产品找到对的人。</p>
+      <div class="search-bar" style="margin-top:12px">
+        <input type="text" placeholder="🔍 搜索产品、地区、品类...">
+        <button>搜索</button>
+      </div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;justify-content:center">
+        <a href="/organic-products.html" style="padding:3px 10px;border-radius:10px;font-size:9px;font-weight:600;color:var(--green);background:var(--green-bg);text-decoration:none;border:1px solid rgba(77,148,96,.2)">有机</a>
+        <a href="/green-fruits.html" style="padding:3px 10px;border-radius:10px;font-size:9px;font-weight:600;color:var(--green);background:var(--green-bg);text-decoration:none;border:1px solid rgba(77,148,96,.2)">绿色</a>
+        <a href="/geographical-products.html" style="padding:3px 10px;border-radius:10px;font-size:9px;font-weight:600;color:var(--blue);background:var(--blue-bg);text-decoration:none;border:1px solid rgba(75,142,201,.2)">地标产</a>
+        <a href="/non-heritage.html" style="padding:3px 10px;border-radius:10px;font-size:9px;font-weight:600;color:var(--gold);background:var(--gold-bg);text-decoration:none;border:1px solid rgba(196,160,68,.2)">非物遗</a>
+      </div>
+    </div>
+
+    <!-- 平台透明度看板 -->
+    <div class="digi-card" style="border-left:3px solid var(--gold)">
+      <div class="icon-big">📊</div>
+      <h3 style="color:var(--gold)">平台透明度看板</h3>
+      <p>实时公示平台交易数据、质量评分、投诉处理率、溯源覆盖率。消费者知情权，用数据说话。</p>
+      <div class="tags">
+        <span class="tag g">溯源覆盖98%</span><span class="tag k">满意度95%</span>
+      </div>
+    </div>
+  </div></section>
+
+<section id="layer2" class="section-pad container fade-up">
+  <h2 class="section-title">🌐 生态品质价值分层体系 <span style="font-size:13px;font-weight:400;color:var(--green)">* 八层价值体系</span><br><span style="font-size:10px;color:#6dab7e;font-weight:600">🌱 本平台除跨境&零关税外，全部产商品均为原产地直供+非转基因（种子），无一例外</span> <a href="/value-layers.html" style="font-size:10px;color:var(--gold);text-decoration:none;margin-left:8px;padding:2px 8px;border-radius:8px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.15)">📊 查看完整体系</a></h2>
+  
+  <div class="zone8-grid">
+    <!-- 1. 稀缺资源品区 -->
+    <div class="zone-card g" data-tier="1" onclick="location.href='value-products.html?tier=1'">
+      <div class="zi">💎</div>
+      <h4 style="color:var(--green)">稀缺资源品区</h4>
+      <p>全球限量·稀有原料<br>退役军人专属渠道</p>
+      <div class="zt"><span class="g">独家</span><span class="g">限量</span><span class="zone-live" id="zc1">--</span></div>
+    </div>
+    <!-- 2. 溢价品区 -->
+    <div class="zone-card k" data-tier="2" onclick="location.href='value-products.html?tier=2'">
+      <div class="zi">👑</div>
+      <h4 style="color:var(--gold)">溢价品区</h4>
+      <p>品牌溢价·文化附加<br>价值增长空间明确</p>
+      <div class="zt"><span class="k">高价值</span><span class="zone-live" id="zc2">--</span></div>
+    </div>
+    <!-- 3. 增值品区 -->
+    <div class="zone-card b" data-tier="3" onclick="location.href='value-products.html?tier=3'">
+      <div class="zi">📈</div>
+      <h4 style="color:var(--blue)">增值品区</h4>
+      <p>持有增值·时间复利<br>链上溯源确权</p>
+      <div class="zt"><span class="b">增值</span><span class="b">溯源</span><span class="zone-live" id="zc3">--</span></div>
+    </div>
+    <!-- 4. 自报价值品区 -->
+    <div class="zone-card r" data-tier="4" onclick="location.href='value-products.html?tier=4'">
+      <div class="zi">🏷️</div>
+      <h4 style="color:var(--red)">自报价值品区</h4>
+      <p>商家自报·平台核验<br>公开透明定价权</p>
+      <div class="zt"><span class="r">透明</span><span class="r">自主</span><span class="zone-live" id="zc4">--</span></div>
+    </div>
+    <!-- 5. 保值品区 -->
+    <div class="zone-card g" data-tier="5" onclick="location.href='value-products.html?tier=5'">
+      <div class="zi">🛡️</div>
+      <h4 style="color:var(--green)">保值品区</h4>
+      <p>资产保值·抗通胀<br>退役军人信用背书</p>
+      <div class="zt"><span class="g">保值</span><span class="g">信用</span><span class="zone-live" id="zc5">--</span></div>
+    </div>
+    <!-- 6. 优质农产品帮扶区 -->
+    <div class="zone-card" data-tier="6" style="border-color:rgba(77,148,96,.3)" onclick="location.href='value-products.html?tier=6'">
+      <div class="zi">🌾</div>
+      <h4 style="color:var(--green)">优质农产品帮扶区</h4>
+      <p>乡村振兴·消费帮扶<br>产地直发品质保障</p>
+      <div class="zt"><span class="g">助农</span><span class="k">优质</span><span class="zone-live" id="zc6">--</span></div>
+    </div>
+    <!-- 7. 新优品智推区 -->
+    <div class="zone-card b" data-tier="7" onclick="location.href='value-products.html?tier=7'">
+      <div class="zi">🚀</div>
+      <h4 style="color:var(--blue)">新优品智推区</h4>
+      <p>AI智能推荐·新品首发<br>全网数据驱动选品</p>
+      <div class="zt"><span class="b">AI</span><span class="b">首发</span><span class="b">智推</span><span class="zone-live" id="zc7">--</span></div>
+    </div>
+    <!-- 8. 食品安全潜在区 -->
+    <div class="zone-card" data-tier="8" style="border-color:rgba(184,64,69,.3)" onclick="location.href='value-products.html?tier=8'">
+      <div class="zi">🔬</div>
+      <h4 style="color:var(--red)">食品安全潜在区</h4>
+      <p>风险预警·安全筛查<br>链上存证透明公开</p>
+      <div class="zt"><span class="r">安全</span><span class="g">溯源</span><span class="zone-live" id="zc8">--</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="layer3" class="section-pad container fade-up">
+  <h2 class="section-title">🌍 跨境电商 & 零关税</h2>
+  <p class="section-sub">全球好物直达 · 零关税优享 · 品质溯源保障 <a href="/eco/cross-border.html" style="color:var(--green);font-size:10px;text-decoration:none;margin-left:8px;padding:2px 8px;border-radius:8px;background:rgba(77,148,96,.08);border:1px solid rgba(77,148,96,.15)">📋 详情</a></p>
+
+  <div class="grid2">
+    <div class="card-glass" style="border-left:3px solid var(--green)">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
+        <span style="font-size:32px">🌐</span>
+        <div>
+          <a href="/cross-border.html" onclick="window.earnDV&&earnDV('browse_detail','跨境电商')" style="text-decoration:none;color:inherit"><h3 style="color:var(--green);font-size:16px">跨境电商专区</h3></a>
+          <p style="font-size:11px;color:var(--text2)">全球精选·品质溯源·退役军人专属价</p>
+        </div>
+      </div>
+      <div class="prod-grid" style="margin-top:10px">
+        <div class="prod-card" onclick="location.href='cross-border.html'">
+          <div class="img-block g"><span class="p-tag g">跨境</span></div>
+          <div class="info"><h4>进口食品饮料</h4><div class="meta">全球直采 · 海关监管</div></div>
+        </div>
+        <div class="prod-card" onclick="location.href='cb-baby.html'">
+          <div class="img-block b"><span class="p-tag b">母婴</span></div>
+          <div class="info"><h4>母婴个护</h4><div class="meta">国际品牌 · 正品保障</div></div>
+        </div>
+        <div class="prod-card" onclick="location.href='cb-health.html'">
+          <div class="img-block r"><span class="p-tag r">保健</span></div>
+          <div class="info"><h4>营养保健</h4><div class="meta">全球优选 · 品质认证</div></div>
+        </div>
+        <div class="prod-card" onclick="location.href='cb-beauty.html'">
+          <div class="img-block g"><span class="p-tag g">美妆</span></div>
+          <div class="info"><h4>美妆护肤</h4><div class="meta">国际大牌 · 免税优享</div></div>
+        </div>
+      </div>
+      <a href="/cross-border.html" style="display:inline-block;margin-top:12px;padding:8px 20px;background:linear-gradient(135deg,var(--green),#3a7a4d);color:#fff;border-radius:20px;text-decoration:none;font-size:12px;font-weight:700">进入跨境电商 →</a>
+    </div>
+
+    <div class="card-glass" style="border-left:3px solid var(--blue)">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
+        <span style="font-size:32px">🏷️</span>
+        <div>
+          <a href="/zero-tariff.html" onclick="window.earnDV&&earnDV('browse_detail','零关税')" style="text-decoration:none;color:inherit"><h3 style="color:var(--blue);font-size:16px">零关税专区</h3></a>
+          <p style="font-size:11px;color:var(--text2)">海南自贸港·零关税优享·品质严选</p>
+        </div>
+      </div>
+      <div class="prod-grid" style="margin-top:10px">
+        <div class="prod-card" onclick="location.href='zero-tariff.html'">
+          <div class="img-block b"><span class="p-tag b">零关税</span></div>
+          <div class="info"><h4>海南离岛免税</h4><div class="meta">自贸港政策 · 优惠直达</div></div>
+        </div>
+        <div class="prod-card" onclick="location.href='zt-food.html'">
+          <div class="img-block g"><span class="p-tag g">特产</span></div>
+          <div class="info"><h4>热带特色产品</h4><div class="meta">海南原产 · 品质保证</div></div>
+        </div>
+        <div class="prod-card" onclick="location.href='zt-alcohol.html'">
+          <div class="img-block r"><span class="p-tag r">免税</span></div>
+          <div class="info"><h4>进口消费品</h4><div class="meta">零关税 · 工厂直供</div></div>
+        </div>
+        <div class="prod-card" onclick="location.href='zt-health.html'">
+          <div class="img-block b"><span class="p-tag b">科技</span></div>
+          <div class="info"><h4>智能数码</h4><div class="meta">免税优享 · 正品联保</div></div>
+        </div>
+      </div>
+      <a href="/zero-tariff.html" style="display:inline-block;margin-top:12px;padding:8px 20px;background:linear-gradient(135deg,var(--blue),#3a6d9e);color:#fff;border-radius:20px;text-decoration:none;font-size:12px;font-weight:700">进入零关税专区 →</a>
+    </div>
+  </div>
+</section>
+
+<section id="layer4" class="section-pad container fade-up">
+  <h2 class="section-title">🏆 名优优品</h2>
+  <p class="section-sub">精选推荐 · 名优品橱窗 · 团购集中营 · 天天抢 — 品质生活的每一面 <a href="/eco/premium.html" style="color:var(--gold);font-size:10px;text-decoration:none;margin-left:8px;padding:2px 8px;border-radius:8px;background:rgba(196,160,68,.08);border:1px solid rgba(196,160,68,.15)">📋 详情</a></p>
+
+  <!-- 精选推荐 -->
+  <div style="margin-bottom:28px">
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;color:var(--gold)">🌟 精选推荐</h3>
+    <div class="prod-grid">
+      <div class="prod-card" data-pid="b0000000-0000-0000-0000-000000000101" onclick="location.href='product-detail-1.html'">
+        <div class="img-block g"><span class="p-tag g">有机</span></div>
+        <div class="info"><h4>五常有机大米</h4><div class="meta">黑龙江原产地 · 非转基因 · 地理标志</div><div class="price">¥89 <span class="tv-badge t2" id="tvBadge1">TV --</span></div></div>
+      </div>
+      <div class="prod-card" data-pid="b0000000-0000-0000-0000-000000000102" onclick="location.href='product-detail-2.html'">
+        <div class="img-block b"><span class="p-tag b">非遗</span></div>
+        <div class="info"><h4>西湖龙井明前茶</h4><div class="meta">浙江原产地 · 非转基因 · 非遗传承</div><div class="price">¥268 <span class="tv-badge t3" id="tvBadge2">TV --</span></div></div>
+      </div>
+      <div class="prod-card" data-pid="b0000000-0000-0000-0000-000000000103" onclick="location.href='product-detail-3.html'">
+        <div class="img-block r"><span class="p-tag r">军创</span></div>
+        <div class="info"><h4>退役军人蜂蜜</h4><div class="meta">云南原产地 · 非转基因 · 原始森林</div><div class="price">¥128 <span class="tv-badge t5" id="tvBadge3">TV --</span></div></div>
+      </div>
+      <div class="prod-card" data-pid="b0000000-0000-0000-0000-000000000104" onclick="location.href='product-detail-4.html'">
+        <div class="img-block g"><span class="p-tag g">生态</span></div>
+        <div class="info"><h4>散养土鸡蛋</h4><div class="meta">海南原产地 · 非转基因 · 林下散养</div><div class="price">¥58 <span class="tv-badge t6" id="tvBadge4">TV --</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 名优名品橱窗 -->
+  <div style="margin-bottom:28px">
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;color:var(--blue)">🏪 名优名品 · 分类橱窗</h3>
+    <div class="grid4">
+      <div class="card-glass" style="text-align:center;cursor:pointer" onclick="location.href='famous-products.html'">
+        <div style="font-size:32px;margin-bottom:6px">🏅</div>
+        <h4>地理标志产品</h4><p style="font-size:10px;color:var(--text2)">国家认证·产地保护</p>
+      </div>
+      <div class="card-glass" style="text-align:center;cursor:pointer" onclick="location.href='organic-products.html'">
+        <div style="font-size:32px;margin-bottom:6px">🌿</div>
+        <h4>有机生态产品</h4><p style="font-size:10px;color:var(--text2)">无农药·无化肥·有机认证</p>
+      </div>
+      <div class="card-glass" style="text-align:center;cursor:pointer" onclick="location.href='non-heritage.html'">
+        <div style="font-size:32px;margin-bottom:6px">🏺</div>
+        <h4>非遗传承产品</h4><p style="font-size:10px;color:var(--text2)">传统工艺·文化传承</p>
+      </div>
+      <div class="card-glass" style="text-align:center;cursor:pointer" onclick="location.href='green-fruits.html'">
+        <div style="font-size:32px;margin-bottom:6px">🍎</div>
+        <h4>绿色果蔬</h4><p style="font-size:10px;color:var(--text2)">新鲜直达·季节限定</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 团购集中营 -->
+  <div style="margin-bottom:28px">
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;color:var(--green)">👥 团购集中营</h3>
+    <div class="grid3">
+      <div class="card-glass" style="text-align:center;cursor:pointer" onclick="location.href='group-eco-products.html'">
+        <div style="font-size:28px">🌱</div><h4>生态产品团</h4><p style="font-size:10px;color:var(--text2)">拼团更优惠 · 产地直发</p>
+        <span style="display:inline-block;margin-top:6px;background:var(--green-bg);color:var(--green);padding:2px 10px;border-radius:8px;font-size:9px;font-weight:700">省30%</span>
+      </div>
+      <div class="card-glass" style="text-align:center;cursor:pointer" onclick="location.href='group-military-products.html'">
+        <div style="font-size:28px">🎖️</div><h4>军创产品团</h4><p style="font-size:10px;color:var(--text2)">退役军人·品质保证</p>
+        <span style="display:inline-block;margin-top:6px;background:var(--red-bg);color:var(--red);padding:2px 10px;border-radius:8px;font-size:9px;font-weight:700">热卖</span>
+      </div>
+      <div class="card-glass" style="text-align:center;cursor:pointer" onclick="location.href='group-seasonal-fruits.html'">
+        <div style="font-size:28px">🍊</div><h4>季节水果团</h4><p style="font-size:10px;color:var(--text2)">当季鲜果 · 限时抢</p>
+        <span style="display:inline-block;margin-top:6px;background:var(--blue-bg);color:var(--blue);padding:2px 10px;border-radius:8px;font-size:9px;font-weight:700">限时</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 天天抢 -->
+  <div>
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;color:var(--red)">⚡ 天天抢</h3>
+    <div class="grid3">
+      <div class="card-glass" style="text-align:center;cursor:pointer" onclick="location.href='rush-eggs.html'">
+        <div style="font-size:28px">🥚</div><h4>禽蛋专场</h4><p style="font-size:10px;color:var(--text2)">每日限量·抢完即止</p>
+      </div>
+      <div class="card-glass" style="text-align:center;cursor:pointer" onclick="location.href='rush-geographical.html'">
+        <div style="font-size:28px">🌍</div><h4>地标品专场</h4><p style="font-size:10px;color:var(--text2)">地理标志·限量供应</p>
+      </div>
+      <div class="card-glass" style="text-align:center;cursor:pointer" onclick="location.href='rush-vegetables.html'">
+        <div style="font-size:28px">🥬</div><h4>蔬菜专场</h4><p style="font-size:10px;color:var(--text2)">清晨采摘·当日送达</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="layer5" class="section-pad container fade-up">
+  <h2 class="section-title">🎖 军创商城</h2>
+  <p class="section-sub">退役军人创业产品 · 军供品质 · 诚信保障 — 每一件产品都有军魂背书 <a href="/eco/military-mall.html" style="color:var(--red);font-size:10px;text-decoration:none;margin-left:8px;padding:2px 8px;border-radius:8px;background:rgba(184,64,69,.08);border:1px solid rgba(184,64,69,.15)">📋 详情</a></p>
+
+  <div class="vet-grid">
+    <div class="vet-card" onclick="location.href='veteran-mall.html'">
+      <div class="vi">🏪</div>
+      <h3>军创优品旗舰店</h3>
+      <p>全国退役军人创业产品集中展示与交易平台。军供品质标准，从田间到餐桌全程可追溯。</p>
+    </div>
+    <div class="vet-card" onclick="location.href='military-products.html'">
+      <div class="vi">🎽</div>
+      <h3>军需保障品</h3>
+      <p>军用标准户外装备、应急物资、作训服装。品质经得起极限考验，民品享受军用标准。</p>
+    </div>
+    <div class="vet-card" onclick="location.href='enterprise-cooperation.html'">
+      <div class="vi">🤝</div>
+      <h3>军创企业联盟</h3>
+      <p>全国退役军人创办企业合作网络。资源对接、渠道共享、品牌联营，抱团发展。</p>
+    </div>
+  </div>
+
+  <!-- 产品目录快速入口 -->
+  <div style="margin-top:24px;padding:18px;background:rgba(184,64,69,.06);border:1px solid rgba(184,64,69,.15);border-radius:var(--radius);text-align:center">
+    <p style="font-size:13px;color:var(--text2);margin-bottom:12px">🎖 军创产品分类浏览</p>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+      <a href="/product-detail-1.html" style="padding:8px 18px;background:var(--bg-card);border:1px solid var(--border2);border-radius:20px;color:var(--text);text-decoration:none;font-size:11px;font-weight:600">🥬 生态农产品</a>
+      <a href="/product-detail-2.html" style="padding:8px 18px;background:var(--bg-card);border:1px solid var(--border2);border-radius:20px;color:var(--text);text-decoration:none;font-size:11px;font-weight:600">🍵 茶叶饮品</a>
+      <a href="/product-detail-3.html" style="padding:8px 18px;background:var(--bg-card);border:1px solid var(--border2);border-radius:20px;color:var(--text);text-decoration:none;font-size:11px;font-weight:600">🍯 蜂蜜滋补</a>
+      <a href="/product-detail-4.html" style="padding:8px 18px;background:var(--bg-card);border:1px solid var(--border2);border-radius:20px;color:var(--text);text-decoration:none;font-size:11px;font-weight:600">🥩 肉禽蛋类</a>
+      <a href="/product-detail-5.html" style="padding:8px 18px;background:var(--bg-card);border:1px solid var(--border2);border-radius:20px;color:var(--text);text-decoration:none;font-size:11px;font-weight:600">🧵 手工艺品</a>
+    </div>
+  </div>
+
+  <!-- V5 生态商业指数产品卡 -->
+  <div class="product-ebi-card" style="margin-top:20px;cursor:pointer" onclick="location.href='/product-military-biscuit.html'">
+    <div class="thumb">🍪</div>
+    <div class="info">
+      <div class="name">军用压缩饼干 · 12包组合装</div>
+      <div class="price">¥128 · 军需标准 GJB 2806A-2019</div>
+      <span class="layer-badge-v5" style="background:rgba(121,85,72,.15);color:#a08070">🛡️ 保值品区</span>
+      <span class="ebi-badge">🧮 EBI 89.6 · A级优秀</span>
+    </div>
+    <div class="arrow">→</div>
+  </div>
+</section>
+
+<div class="divider container"></div>
+
+<!-- ═══════════ V5 生态情报中心预览 ═══════════ -->
+<section class="section-pad container fade-up">
+  <span class="section-label g">ECO INTEL</span>
+  <h2 class="section-title">🧠 生态情报中心 <span style="font-size:13px;font-weight:400;color:var(--ebi-cyan)">* AI驱动的运营决策中枢</span></h2>
+  <p class="section-sub">生态体检日报 · 品牌画像 · 异常预警 — 让运营透明、可视、可量化</p>
+  <div class="eco-intel-preview">
+    <div class="intel-mini-card" onclick="location.href='/product-military-biscuit.html'" style="cursor:pointer">
+      <h4>📊 生态体检日报</h4>
+      <div class="kpi">87.3</div>
+      <div class="sub">全站EHI · 6品牌监控中</div>
+      <div style="margin-top:4px;display:flex;gap:4px">
+        <span class="ebi-grade-badge" style="font-size:9px">↑1.2</span>
+        <span class="sub">3家高风险 · 持续跟踪</span>
+      </div>
+      <span class="link">🍪 查看军创案例 →</span>
+    </div>
+    <div class="intel-mini-card" onclick="window.open('/docs/junge_eco_whitepaper.html','_blank')" style="cursor:pointer">
+      <h4>🔍 品牌生态画像</h4>
+      <div style="display:flex;align-items:center;gap:6px;margin:8px 0">
+        <span class="layer-badge-v5" style="background:rgba(77,148,96,.15);color:#6dab7e;font-size:11px">🌾 农产品帮扶区</span>
+      </div>
+      <div class="sub">6品牌已生成AI画像 · 支持一键报告</div>
+      <span class="link">📖 白皮书（新窗口打开） →</span>
+    </div>
+    <div class="intel-mini-card" onclick="location.href='/shangcheng.html#layer2'" style="cursor:pointer">
+      <h4>⚠️ 异常预警中心</h4>
+      <div class="kpi warn">3</div>
+      <div class="sub">高危预警 · 近7天</div>
+      <div style="margin-top:4px">
+        <span class="layer-badge-v5" style="background:rgba(184,64,69,.12);color:#d47070;font-size:10px">🔬 3家高危企业</span>
+      </div>
+      <span class="link">🌐 查看八层体系 →</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 供应链透明监管 ═══════════ -->
+<section class="section-pad container fade-up">
+  <span class="section-label g">SUPPLY CHAIN</span>
+  <h2 class="section-title">🔗 全链条透明监管</h2>
+  <p class="section-sub">从生产到消费，每一步都在阳光下 — 主体资质、溯源记录、属地监管 <a href="/eco/supply-chain.html" style="color:var(--blue);font-size:10px;text-decoration:none;margin-left:8px;padding:2px 8px;border-radius:8px;background:rgba(75,142,201,.08);border:1px solid rgba(75,142,201,.15)">📋 详情</a></p>
+
+  <div class="chain-grid">
+    <div class="chain-card" onclick="location.href='enterprise-contact.html'" style="border-left:3px solid var(--green)">
+      <div class="ci">🏭</div><h4 style="color:var(--green)">生产主体与资质</h4>
+      <p>企业/个体工商户认证，生产许可证、经营资质链上存证，一企一码可查</p>
+    </div>
+    <div class="chain-card" onclick="location.href='traceability.html'" style="border-left:3px solid var(--blue)">
+      <div class="ci">🔬</div><h4 style="color:var(--blue)">链上溯源记录</h4>
+      <p>一物一码·全链路溯源。从种植/养殖到加工、物流、销售，每步上链不可篡改</p>
+    </div>
+    <div class="chain-card" onclick="location.href='complaint-process.html'" style="border-left:3px solid var(--red)">
+      <div class="ci">🏛️</div><h4 style="color:var(--red)">属地监管信息</h4>
+      <p>市场监督管理局·食品安全质询员·分站站长三级监管，本地化责任链</p>
+    </div>
+
+</section>
+
+<!-- ═══════════ BOTTOM NAV ═══════════ -->
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap">
+  <a href="/" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🏠 军鸽云链</a>
+  <a href="/shangcheng.html" style="color:#4d9460;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(77,148,96,.1);border:1px solid rgba(77,148,96,.25)">🛒 商业生态</a>
+  <a href="/junge-shuzhi.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">⚔ 数智中心</a>
+  <a href="/fenzhan.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🌾 分站家园</a>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div>军鸽云链数智 · junge.中国 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">琼ICP备2025063762号</a></div>
+  <div>主办单位：海口市与众军鸽网络科技有限责任公司</div>
+  <div>海口总站: 175.178.55.90 · 食品安全+退役军人在服务综合平台</div>
+  <div style="margin-top:4px">生态商业 · 全链条透明监管 <span style="color:var(--green);font-weight:700">[V4.8]</span></div>
+</footer>
+
+<!-- ═══════════ 简易交互 ═══════════ -->
+<script>
+document.querySelectorAll('.search-bar input').forEach(function(inp){
+  inp.addEventListener('keydown',function(e){
+    if(e.key==='Enter') location.href='search-results.html?q='+encodeURIComponent(inp.value);
+  });
+});
+
+// 金字塔导航高亮当前视口section
+var tiers=document.querySelectorAll('.pyramid-nav .tier');
+var sections=['layer1','layer2','layer3','layer4','layer5'].map(function(id){return document.getElementById(id);});
+window.addEventListener('scroll',function(){
+  var scrollY=window.scrollY+200;
+  for(var i=sections.length-1;i>=0;i--){
+    if(sections[i] && scrollY>=sections[i].offsetTop){tiers.forEach(function(t){t.classList.remove('hl')});if(tiers[i])tiers[i].classList.add('hl');break;}
+  }
+});
+</script>
+
+<script src="/js/junge-smart-search.js"></script>
+
+<!-- ═══ 数字数据价值体系 · TV+钱包引擎 ═══ -->
+<script>
+(function(){
+  const DEMO_DID='a0000000-0000-0000-0000-000000000001';
+  const API='/api/value';
+
+  function fmt(n,d){return Number(n||0).toLocaleString('zh-CN',{maximumFractionDigits:d||0})}
+
+  async function fetchVal(path){
+    try{const r=await fetch(API+path);const j=await r.json();return j.ok?j.data:null}catch(e){return null}
+  }
+
+  // TV tier → CSS class mapping
+  function tvTierClass(t){return 't'+(t||8)}
+
+  async function refreshTV(){
+    const pids=[
+      'b0000000-0000-0000-0000-000000000101',
+      'b0000000-0000-0000-0000-000000000102',
+      'b0000000-0000-0000-0000-000000000103',
+      'b0000000-0000-0000-0000-000000000104'
+    ];
+    for(let i=0;i<pids.length;i++){
+      const tv=await fetchVal('/tv/'+pids[i]);
+      const badge=document.getElementById('tvBadge'+(i+1));
+      if(tv&&badge){
+        badge.textContent='TV '+fmt(tv.tv_score,1);
+        badge.className='tv-badge '+tvTierClass(tv.tv_tier);
+      }
+    }
+  }
+
+  async function refreshWallet(){
+    const dv=await fetchVal('/dv/'+DEMO_DID);
+    const jc=await fetchVal('/jc/wallet/'+DEMO_DID);
+    if(dv&&jc){
+      const pill=document.getElementById('walletPill');
+      pill.style.display='inline-flex';
+      document.getElementById('wpJcBal').textContent=fmt(jc.jc_balance,2);
+      document.getElementById('wpDvLvl').textContent=dv.dv_level;
+    }
+  }
+
+  async function refreshZones(){
+    const db=await fetchVal('/dashboard');
+    if(db&&db.tv_tier_distribution){
+      const tiers=db.tv_tier_distribution;
+      for(let i=1;i<=8;i++){
+        const el=document.getElementById('zc'+i);
+        if(el){const t=tiers.find(function(x){return x.tv_tier===i});el.textContent=t?t.cnt:'0'}
+      }
+    }
+  }
+
+  refreshTV();
+  refreshWallet();
+  refreshZones();
+  setInterval(function(){refreshTV();refreshWallet();refreshZones()},60000);
+})();
+</script>
+</body>
+</html>

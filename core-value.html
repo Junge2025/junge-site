@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>核心价值 · 军鸽云链数智</title>
+<meta name="description" content="军鸽云链数智平台四大核心价值——价值回归、价格透明、消费者知情、劳动者受益。以区块链溯源和TV/DV/JC三层价值体系，重塑食品安全信任，让每一笔交易创造真实价值。">
+<style>
+:root {
+--bg-deep:#030712; --bg-base:#060d1a; --bg-card:rgba(8,20,44,0.85);
+--primary:#00d4ff; --accent:#ff2d78; --gold:#f0c040; --green:#6dab7e;
+--red:#b84045; --blue:#4b8ecf; --purple:#a78bfa;
+--text:#e8edf5; --text-dim:#8896b0; --text-muted:#4a5568;
+--border:rgba(255,255,255,.06); --border-glow:rgba(0,212,255,.15);
+--radius:12px; --radius-sm:8px; --radius-lg:18px;
+--shadow:0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg-deep);color:var(--text);line-height:1.65;overflow-x:hidden;
+min-height:100vh;
+background-image:
+radial-gradient(ellipse at 20% 0%,rgba(0,212,255,.04) 0%,transparent 55%),
+radial-gradient(ellipse at 80% 15%,rgba(184,64,69,.03) 0%,transparent 55%),
+radial-gradient(ellipse at 40% 70%,rgba(240,192,64,.03) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:#1a2744;border-radius:2px}
+
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 20px;position:sticky;top:0;z-index:999;backdrop-filter:blur(20px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .2s;padding:3px 8px;border-radius:10px}
+.breadcrumb-bar a:hover{color:var(--primary);background:rgba(0,212,255,.08)}
+.breadcrumb-bar .sep{color:var(--text-muted);font-size:9px}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{text-align:center;padding:50px 20px 40px;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(184,64,69,.06) 0%,rgba(6,13,26,.95) 40%,rgba(240,192,64,.05) 100%);border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(184,64,69,.05),transparent 60%);pointer-events:none}
+.hero .icon{font-size:56px;margin-bottom:12px;position:relative;z-index:1;display:block}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:.06em;position:relative;z-index:1;background:linear-gradient(135deg,#d47a7e,#f0c040,#6dab7e);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:13px;color:var(--text-dim);margin-top:8px;position:relative;z-index:1;letter-spacing:.03em;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.8}
+.hero .values-strip{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;margin-top:16px}
+.values-strip span{padding:7px 16px;border-radius:18px;font-size:11px;color:#e0c8c8;background:rgba(184,64,69,.08);border:1px solid rgba(184,64,69,.15);display:inline-flex;align-items:center;gap:5px;letter-spacing:.03em}
+
+.container{max-width:1000px;margin:0 auto;padding:20px 18px 90px}
+
+.section{margin-bottom:30px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(240,192,64,.15)}
+.section-hd .icon{font-size:20px}
+.section-hd .title{font-size:15px;font-weight:650;letter-spacing:.03em;color:var(--gold)}
+.section-hd .tag{font-size:9px;padding:3px 10px;border-radius:10px;background:rgba(240,192,64,.08);color:var(--gold);margin-left:auto;letter-spacing:.06em}
+
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+.g-asym{grid-template-columns:1fr 1.4fr}
+@media(max-width:768px){.g2,.g3,.g-asym{grid-template-columns:1fr}}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all .25s;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.card:hover{border-color:var(--border-glow);box-shadow:var(--shadow)}
+
+/* Value Hero Card */
+.val-hero{background:linear-gradient(135deg,rgba(8,20,44,.9),rgba(16,30,50,.8));border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.val-hero .vh-num{font-size:64px;font-weight:900;line-height:1;opacity:.15;color:var(--primary)}
+.val-hero .vh-content h3{font-size:16px;margin-bottom:6px}
+.val-hero .vh-content p{font-size:11px;color:var(--text-dim);line-height:1.8}
+.val-hero .vh-content ul{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:5px}
+.val-hero .vh-content ul li{font-size:10px;color:var(--text-dim);padding-left:14px;position:relative}
+.val-hero .vh-content ul li::before{content:'▸';position:absolute;left:0;color:var(--primary);font-size:8px}
+@media(max-width:550px){.val-hero{grid-template-columns:1fr}.val-hero .vh-num{text-align:center;font-size:48px}}
+
+/* Value layers diagram */
+.value-flow{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;padding:16px 0}
+.value-flow .vnode{text-align:center;padding:12px 18px;border-radius:var(--radius-sm);font-size:10px;min-width:90px}
+.value-flow .vnode.tv{background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.2);color:var(--primary)}
+.value-flow .vnode.dv{background:rgba(109,171,126,.08);border:1px solid rgba(109,171,126,.2);color:var(--green)}
+.value-flow .vnode.jc{background:rgba(240,192,64,.08);border:1px solid rgba(240,192,64,.2);color:var(--gold)}
+.value-flow .varr{font-size:18px;color:var(--text-muted)}
+
+/* Stats */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+.stat-card .sv{font-size:24px;font-weight:700;margin-bottom:4px}
+.stat-card .sl{font-size:9px;color:var(--text-muted)}
+
+/* Principle */
+.principle{display:flex;gap:14px;align-items:flex-start;padding:16px;background:rgba(255,255,255,.01);border-radius:var(--radius-sm);margin-bottom:10px;border:1px solid transparent;transition:all .2s}
+.principle:hover{border-color:var(--border)}
+.principle .pr-icon{font-size:28px;flex-shrink:0;width:40px;text-align:center}
+.principle .pr-body h4{font-size:13px;margin-bottom:4px}
+.principle .pr-body p{font-size:10px;color:var(--text-dim);line-height:1.6}
+
+/* Comparison Table */
+.cmp-table{width:100%;border-collapse:collapse;font-size:10px}
+.cmp-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text-dim);font-weight:600;font-size:9px;letter-spacing:.04em}
+.cmp-table td{padding:8px 10px;border-bottom:1px dotted rgba(255,255,255,.03);color:var(--text-dim);line-height:1.5}
+.cmp-table tr:nth-child(even) td{background:rgba(255,255,255,.01)}
+.cmp-table .old{color:#8b5a5a;font-size:9px}
+.cmp-table .new{color:#6dab7e;font-size:9px;font-weight:600}
+
+/* Guarantee */
+.guarantee{padding:12px 16px;border-radius:var(--radius-sm);text-align:center;font-size:11px;line-height:1.7}
+.guarantee.cyan{background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.1);color:var(--text-dim)}
+.guarantee.green{background:rgba(109,171,126,.04);border:1px solid rgba(109,171,126,.1);color:var(--text-dim)}
+.guarantee.gold{background:rgba(240,192,64,.04);border:1px solid rgba(240,192,64,.1);color:var(--text-dim)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(20px);border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:all .2s;color:var(--text-dim);background:rgba(15,34,64,.6);border:1px solid rgba(0,212,255,.08)}
+.bottom-nav a:hover,.bottom-nav a.active{background:rgba(0,212,255,.12);color:var(--primary);border-color:rgba(0,212,255,.25)}
+
+footer{text-align:center;padding:16px 20px 10px;font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);line-height:1.8}
+
+@media(max-width:550px){
+.hero h1{font-size:22px}
+.card{padding:14px}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="核心价值 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/core-value.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/core-value.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+<a href="/">🏠 首页</a><span class="sep">▸</span>
+<a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+<span class="current">💎 核心价值</span>
+</nav>
+
+<div class="hero">
+<div class="icon">💎</div>
+<h1>四大核心价值</h1>
+<p class="sub">价值回归 · 价格透明 · 消费者知情 · 劳动者受益 —— 军鸽云链数智平台立身之本。以区块链溯源信任底座和TV/DV/JC三层价值体系，重新定义食品安全领域的商业伦理。</p>
+<div class="values-strip">
+<span>🛡️ 价值回归</span><span>📊 价格透明</span><span>👁️ 消费者知情</span><span>💪 劳动者受益</span>
+</div>
+</div>
+
+<div class="container">
+
+<!-- Value 1: Value Return -->
+<div class="section">
+<div class="section-hd"><span class="icon">🛡️</span><span class="title">价值回归 · 让商品回归使用价值</span><span class="tag">VALUE RETURN</span></div>
+<div class="grid g-asym">
+<div class="val-hero" style="border-left:2px solid rgba(0,212,255,.25)">
+<div class="vh-num" style="color:var(--primary)">01</div>
+<div class="vh-content">
+<h3 style="color:var(--primary)">什么是"价值回归"？</h3>
+<p>在传统商业中，一件商品从生产到消费者手中，往往经历了多层中间商的加价、过度包装的溢价、营销概念的炒作。最终消费者支付的价格中，商品本身的使用价值占比越来越低。军鸽云链提出的"价值回归"，就是让商品回归其最本质的使用价值——我们吃的是食物本身，不是包装盒；我们买的是品质，不是品牌溢价。</p>
+<ul>
+<li>原产地直供，去除中间商加价环节</li>
+<li>拒绝过度包装，减少不必要的成本转嫁</li>
+<li>TV交易商用值体系，真实反映商品价值</li>
+</ul>
+</div>
+</div>
+<div class="card" style="border-left:2px solid rgba(240,192,64,.25)">
+<h3 style="color:var(--gold)">📐 TV/DV/JC 三层价值体系</h3>
+<div style="padding:12px 0">
+<div class="value-flow">
+<div class="vnode tv"><strong style="display:block;font-size:16px">TV</strong>交易商用值<br><span style="font-size:8px">Trading Value</span></div>
+<span class="varr">→</span>
+<div class="vnode dv"><strong style="display:block;font-size:16px">DV</strong>数字赋能值<br><span style="font-size:8px">Digital Value</span></div>
+<span class="varr">→</span>
+<div class="vnode jc"><strong style="display:block;font-size:16px">JC</strong>junge币<br><span style="font-size:8px">流通代币</span></div>
+</div>
+</div>
+<p style="font-size:10px;color:var(--text-dim);line-height:1.7">TV衡量每笔交易的实际商业价值贡献；DV衡量用户对平台的数字化参与和赋能；JC作为平台内流通代币，1JC=¥0.01恒定汇率。三层体系确保每一笔交易、每一次互动都产生可量化的真实价值，杜绝虚假繁荣。</p>
+</div>
+</div>
+</div>
+
+<!-- Value 2: Price Transparency -->
+<div class="section">
+<div class="section-hd"><span class="icon">📊</span><span class="title">价格透明 · 每一分钱都明明白白</span><span class="tag">TRANSPARENCY</span></div>
+<div class="g2 grid">
+<div class="val-hero" style="border-left:2px solid rgba(109,171,126,.25)">
+<div class="vh-num" style="color:var(--green)">02</div>
+<div class="vh-content">
+<h3 style="color:var(--green)">全链路成本透明</h3>
+<p>从种子、土壤、水源、种植、采收、加工、包装、物流到平台服务费——每一个环节的成本都在区块链上公开可查。消费者扫描溯源二维码，不仅能看到食品安全检测报告，还能看到价格构成的每一个细节。这不是商业机密的泄露，而是消费者应有的知情权。</p>
+<ul>
+<li>区块链存证，每一笔成本数据不可篡改</li>
+<li>消费者扫码即可查看完整价格构成</li>
+<li>平台服务费率固定透明，无隐藏收费</li>
+</ul>
+</div>
+</div>
+<div class="card" style="border-left:2px solid rgba(0,212,255,.25)">
+<h3 style="color:var(--primary)">📋 传统电商 vs 军鸽云链</h3>
+<table class="cmp-table">
+<tr><th>对比维度</th><th>传统电商平台</th><th>军鸽云链数智</th></tr>
+<tr><td>中间商层数</td><td class="old">3-5层，每层加价15-30%</td><td class="new">0层，产地直供</td></tr>
+<tr><td>平台抽成</td><td class="old">5-20%不等（含隐形费用）</td><td class="new">固定透明费率</td></tr>
+<tr><td>价格构成</td><td class="old">消费者无从知晓</td><td class="new">区块链公开可查</td></tr>
+<tr><td>包装成本</td><td class="old">过度包装占售价10-30%</td><td class="new">适度包装，环保优先</td></tr>
+<tr><td>营销溢价</td><td class="old">"双11""618"价格游戏</td><td class="new">日常真实价格，不玩套路</td></tr>
+<tr><td>退换货</td><td class="old">复杂规则，商家承担</td><td class="new">48小时极速处理，平台保障</td></tr>
+</table>
+</div>
+</div>
+</div>
+
+<!-- Value 3: Consumer Knowledge -->
+<div class="section">
+<div class="section-hd"><span class="icon">👁️</span><span class="title">消费者知情 · 从种子到餐桌全透明</span><span class="tag">INFORMED</span></div>
+<div class="grid g3">
+<div class="card" style="text-align:center;border-top:2px solid rgba(0,212,255,.25)">
+<div style="font-size:38px;margin-bottom:8px">🔍</div>
+<h4 style="color:var(--primary);justify-content:center">扫码即知</h4>
+<p style="font-size:10px">扫描商品溯源码，立即可查看：种子来源、种植地点、土壤水质报告、化肥农药使用记录、采收日期、加工流程、检测报告、物流轨迹——108项溯源数据一码呈现。</p>
+</div>
+<div class="card" style="text-align:center;border-top:2px solid rgba(109,171,126,.25)">
+<div style="font-size:38px;margin-bottom:8px">📋</div>
+<h4 style="color:var(--green);justify-content:center">十不入网保障</h4>
+<p style="font-size:10px">平台执行最严格的「十不入网」审核标准：非原产地不入网、非转基因不入网、未实名不入网、信息不全不入网……十道关卡，层层把关，守护消费者每一口安全。</p>
+</div>
+<div class="card" style="text-align:center;border-top:2px solid rgba(240,192,64,.25)">
+<div style="font-size:38px;margin-bottom:8px">📞</div>
+<h4 style="color:var(--gold);justify-content:center">48小时响应</h4>
+<p style="font-size:10px">任何产品质量疑问、安全投诉，平台承诺48小时内响应。紧急食品安全问题2小时响应。投诉上链存证，处理过程全透明，消费者可随时查看处理进度。</p>
+</div>
+</div>
+</div>
+
+<!-- Value 4: Worker Benefit -->
+<div class="section">
+<div class="section-hd"><span class="icon">💪</span><span class="title">劳动者受益 · 让生产者劳有所得</span><span class="tag">FAIR REWARD</span></div>
+<div class="g2 grid">
+<div class="val-hero" style="border-left:2px solid rgba(184,64,69,.25)">
+<div class="vh-num" style="color:#d47a7e">04</div>
+<div class="vh-content">
+<h3 style="color:#d47a7e">告别"谷贱伤农"</h3>
+<p>在传统农产品流通体系中，生产者（农民、种植户、养殖户）往往处于价值链最底端——辛苦一年的产出被中间商层层压价。军鸽云链通过原产地直供模式，去除中间环节，让消费者支付的每一分钱中，更大比例流向真正的劳动者。</p>
+<ul>
+<li>平台不压价，由生产者自主定价</li>
+<li>消费者直接对接生产者，减少中间商盘剥</li>
+<li>退役军人分站站长作为品控+服务节点，获得合理报酬</li>
+<li>TV价值体系确保生产者的劳动价值被真实计量</li>
+</ul>
+</div>
+</div>
+<div class="card" style="border-left:2px solid rgba(240,192,64,.25)">
+<h3 style="color:var(--gold)">🏆 劳动者受益的四个维度</h3>
+<div class="principle">
+<div class="pr-icon">💰</div>
+<div class="pr-body"><h4 style="color:var(--gold)">经济受益</h4><p>去除中间商，生产者获得更高比例的商品售价。以东北大米为例：传统渠道农民到手价约为零售价的30%，军鸽云链直供模式下可达60-70%。</p></div>
+</div>
+<div class="principle">
+<div class="pr-icon">🏅</div>
+<div class="pr-body"><h4 style="color:var(--gold)">品牌受益</h4><p>平台为每一位生产者建立数字身份和品牌主页，帮助小农户打造个人品牌，让"谁种的、怎么种的"成为品牌资产。</p></div>
+</div>
+<div class="principle">
+<div class="pr-icon">🎓</div>
+<div class="pr-body"><h4 style="color:var(--gold)">技能受益</h4><p>平台提供免费的非转基因种植培训、食品安全标准培训、电商运营培训，退役军人还可获得创业辅导和资源对接。</p></div>
+</div>
+<div class="principle">
+<div class="pr-icon">🪖</div>
+<div class="pr-body"><h4 style="color:var(--gold)">退役军人专项</h4><p>退役军人在验证后享优先入驻权、零费用开店、创业贷款贴息、战友互助网络等专属权益。3000+分站站长优先从退役军人中选拔。</p></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Value summary -->
+<div class="section">
+<div class="section-hd"><span class="icon">✨</span><span class="title">四大价值 · 一个承诺</span><span class="tag">PROMISE</span></div>
+<div class="grid g3">
+<div class="guarantee cyan">
+<strong style="color:var(--primary);display:block;font-size:13px;margin-bottom:4px">🛡️ 价值回归</strong>
+我们对消费者的承诺：<br>你支付的每一分钱，都为真实的商品价值买单，不为虚假营销买单。
+</div>
+<div class="guarantee green">
+<strong style="color:var(--green);display:block;font-size:13px;margin-bottom:4px">📊 价格透明</strong>
+我们对市场的承诺：<br>从种子到餐桌全链路成本公开，用区块链技术终结价格黑箱。
+</div>
+<div class="guarantee gold">
+<strong style="color:var(--gold);display:block;font-size:13px;margin-bottom:4px">👁️ 消费者知情</strong>
+我们对社会的承诺：<br>108项溯源数据一码呈现，让每一位消费者成为食品安全的监督者。
+</div>
+</div>
+<div style="text-align:center;padding:12px;font-size:11px;color:var(--text-dim);line-height:1.8;margin-top:10px">
+<strong style="color:#d47a7e">💪 劳动者受益</strong><br>
+我们对每一位生产者和退役军人的承诺：<br>
+你的劳动值得被尊重，你的付出值得被看见，你的价值值得被公平对待。<br>
+军鸽云链，让劳动者成为平台最大的受益者。
+</div>
+</div>
+
+<!-- CTA -->
+<div style="text-align:center;padding:24px;margin-top:10px">
+<p style="color:var(--text-dim);font-size:12px;margin-bottom:16px">四大核心价值，不只是口号——我们在区块链上见证</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="/traceability.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:linear-gradient(135deg,rgba(109,171,126,.2),rgba(8,20,44,.8));border:1px solid rgba(109,171,126,.3);color:var(--green);transition:all .2s">🔍 体验区块链溯源</a>
+<a href="/mission.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:transparent;border:1px solid var(--border);color:var(--text-dim);transition:all .2s">🎯 了解使命</a>
+<a href="/standards.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:transparent;border:1px solid var(--border);color:var(--text-dim);transition:all .2s">🛡 十不入网标准</a>
+</div>
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/taskforce.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+食品安全+退役军人在服务综合平台 · 价值回归 · 价格透明 · 消费者知情 · 劳动者受益
+</footer>
+
+</body>
+</html>

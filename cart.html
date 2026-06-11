@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#0a1628">
+  <title>军鸽云链数智·购物车 | 退役军人食品安全服务平台</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/ai-styles.css">
+  <style>
+:root {
+  --primary: #0a1628;
+  --primary-light: #0f2240;
+  --primary-mid: #1a3a5f;
+  --accent-cyan: #00d4ff;
+  --accent-cyan-dim: rgba(0,212,255,0.15);
+  --accent-gold: #d4af37;
+  --accent-gold-dim: rgba(212,175,55,0.15);
+  --accent-red: #e53935;
+  --accent-red-dim: rgba(229,57,53,0.12);
+  --accent-green: #4caf50;
+  --accent-green-dim: rgba(76,175,80,0.12);
+  --accent-purple: #7c3aed;
+  --accent-orange: #fb8b24;
+  --text-primary: #e8edf5;
+  --text-secondary: #8896b0;
+  --text-muted: #5a6a85;
+  --card-bg: rgba(15,34,64,0.6);
+  --card-border: rgba(0,212,255,0.08);
+  --card-hover-border: rgba(0,212,255,0.25);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.3);
+  --shadow-glow-cyan: 0 0 20px rgba(0,212,255,0.15);
+  --glass-bg: rgba(10,22,40,0.75);
+  --glass-border: rgba(255,255,255,0.06);
+  --font-family: 'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{
+  font-family:var(--font-family);
+  background:var(--primary);
+  color:var(--text-primary);
+  line-height:1.6;
+  overflow-x:hidden;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+}
+::selection{background:var(--accent-cyan);color:var(--primary)}
+a{color:inherit;text-decoration:none;transition:var(--transition)}
+button,.btn{cursor:pointer;font-family:inherit;border:none;outline:none;transition:var(--transition)}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
+.page-container{width:100%;max-width:820px;margin:0 auto;padding:0 20px;flex:1;}
+
+/* Particle Canvas */
+#particle-canvas{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;opacity:0.6;
+}
+
+/* Header */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(10,22,40,0.88);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  transition:var(--transition);
+}
+header.scrolled{background:rgba(10,22,40,0.96);box-shadow:0 4px 30px rgba(0,0,0,0.35)}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 0;gap:8px;min-height:56px;
+}
+.brandbox{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.brand-logo{
+  width:36px;height:36px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));
+  font-size:16px;font-weight:800;color:#fff;
+}
+.brand-title .cn{font-size:15px;font-weight:700;color:var(--text-primary);letter-spacing:1px}
+.brand-title .en{font-size:9px;color:var(--text-secondary);letter-spacing:2px}
+
+.nav-wrapper{
+  flex:1;overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent);
+  mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent);
+}
+nav.navbar{
+  display:flex;gap:2px;overflow-x:auto;overflow-y:hidden;
+  scrollbar-width:none;-ms-overflow-style:none;
+  padding:0 4px;scroll-behavior:smooth;
+}
+nav.navbar::-webkit-scrollbar{display:none}
+nav.navbar a{
+  padding:6px 10px;border-radius:6px;font-size:12.5px;font-weight:500;
+  color:var(--text-secondary);white-space:nowrap;
+  border:1px solid transparent;transition:var(--transition);
+  display:flex;align-items:center;gap:4px;flex-shrink:0;
+}
+nav.navbar a i{font-size:12px;opacity:0.7}
+nav.navbar a:hover,nav.navbar a.active{
+  color:var(--accent-cyan);background:var(--accent-cyan-dim);
+  border-color:rgba(0,212,255,0.1);
+}
+nav.navbar a.active{color:#fff;background:rgba(0,212,255,0.12)}
+nav.navbar a:hover i,nav.navbar a.active i{opacity:1}
+
+.header-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.header-actions .btn-cart,.header-actions .btn-user{
+  width:34px;height:34px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:var(--text-secondary);
+  background:rgba(255,255,255,0.03);border:1px solid transparent;
+  position:relative;transition:var(--transition);
+}
+.header-actions .btn-cart:hover,.header-actions .btn-user:hover{
+  color:var(--accent-cyan);background:var(--accent-cyan-dim);
+  border-color:rgba(0,212,255,0.1);
+}
+.header-actions .cart-badge{
+  position:absolute;top:-2px;right:-2px;
+  min-width:16px;height:16px;padding:0 4px;
+  border-radius:10px;background:var(--accent-red);
+  color:#fff;font-size:9px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  line-height:1;box-shadow:0 0 6px rgba(229,57,53,0.4);
+}
+.header-actions .btn-did{
+  padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;
+  background:linear-gradient(135deg,var(--accent-gold-dim),var(--accent-gold-dim));
+  border:1px solid rgba(212,175,55,0.2);
+  color:var(--accent-gold);letter-spacing:0.5px;white-space:nowrap;
+}
+.header-actions .btn-did:hover{background:var(--accent-gold-dim);border-color:var(--accent-gold)}
+.header-actions .btn-login{
+  padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;
+  background:var(--accent-cyan-dim);border:1px solid rgba(0,212,255,0.15);
+  color:var(--accent-cyan);white-space:nowrap;
+}
+.header-actions .btn-login:hover{background:rgba(0,212,255,0.2)}
+.mobile-toggle,.mobile-toggle-close{display:none;color:var(--text-primary);font-size:20px;background:none;padding:6px;border-radius:6px}
+.mobile-toggle:hover{background:rgba(255,255,255,0.05)}
+
+/* Page Title */
+.page-title-bar{
+  margin-top:76px;padding:16px 0;position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.page-title-bar h1{font-size:22px;font-weight:700;color:var(--text-primary)}
+.page-title-bar h1 i{color:var(--accent-cyan);margin-right:8px}
+.page-title-bar .back-link{
+  font-size:13px;color:var(--text-secondary);
+  display:flex;align-items:center;gap:4px;
+}
+.page-title-bar .back-link:hover{color:var(--accent-cyan)}
+
+/* Cart Section */
+.cart-section{position:relative;z-index:1;padding-bottom:100px;}
+.cart-item{
+  display:flex;gap:14px;
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:var(--radius-lg);padding:16px;margin-bottom:12px;
+  backdrop-filter:blur(12px);
+  transition:var(--transition);align-items:center;
+}
+.cart-item:hover{
+  border-color:var(--card-hover-border);
+  box-shadow:var(--shadow-glow-cyan);
+  transform:translateY(-2px);
+}
+.item-checkbox-wrap{flex-shrink:0;}
+.item-checkbox-wrap input[type="checkbox"]{
+  width:18px;height:18px;accent-color:var(--accent-cyan);cursor:pointer;
+}
+.item-img{
+  width:80px;height:80px;border-radius:var(--radius-sm);object-fit:cover;
+  flex-shrink:0;background:rgba(255,255,255,0.03);border:1px solid var(--card-border);
+}
+.item-info{flex:1;min-width:0;}
+.item-name{font-size:16px;font-weight:600;color:var(--text-primary);margin-bottom:4px;}
+.item-spec{font-size:12px;color:var(--text-muted);margin-bottom:8px;}
+.item-price-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.item-price{font-size:20px;font-weight:800;color:var(--accent-gold);}
+.item-subtotal{font-size:14px;color:var(--text-muted);}
+.item-subtotal span{color:var(--accent-cyan);font-weight:600;}
+.qty-control{display:flex;align-items:center;gap:4px;}
+.qty-btn{
+  width:30px;height:30px;border-radius:6px;
+  background:rgba(255,255,255,0.05);border:1px solid var(--card-border);
+  color:var(--text-secondary);cursor:pointer;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  transition:var(--transition);
+}
+.qty-btn:hover{background:var(--accent-cyan-dim);color:var(--accent-cyan);border-color:var(--accent-cyan);}
+.qty-input{
+  width:46px;height:30px;text-align:center;
+  background:rgba(0,0,0,0.3);border:1px solid var(--card-border);
+  border-radius:6px;color:var(--text-primary);font-size:14px;
+  -moz-appearance:textfield;
+}
+.qty-input::-webkit-inner-spin-button{-webkit-appearance:none;}
+.delete-btn{
+  background:none;border:none;color:var(--text-muted);
+  cursor:pointer;font-size:13px;padding:4px 8px;border-radius:6px;
+  transition:var(--transition);display:flex;align-items:center;gap:4px;
+}
+.delete-btn:hover{color:var(--accent-red);background:var(--accent-red-dim);}
+
+/* Bottom Bar */
+.bottom-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:100;
+  background:rgba(10,22,40,0.95);
+  backdrop-filter:blur(20px);
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding:12px 0;
+}
+.bottom-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.select-all-wrap{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text-secondary);cursor:pointer;}
+.select-all-wrap input{width:18px;height:18px;accent-color:var(--accent-cyan);cursor:pointer;}
+.total-area{display:flex;align-items:baseline;gap:8px;}
+.total-label{font-size:14px;color:var(--text-muted);}
+.total-amount{font-size:24px;font-weight:800;color:var(--accent-gold);}
+.checkout-btn{
+  padding:12px 28px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent-cyan),rgba(0,212,255,0.7));
+  color:var(--primary);font-size:16px;font-weight:700;
+  display:flex;align-items:center;gap:6px;
+  transition:var(--transition);
+}
+.checkout-btn:hover{box-shadow:0 0 30px rgba(0,212,255,0.3);transform:translateY(-2px);}
+.checkout-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:none;}
+.checkout-btn:disabled:hover{box-shadow:none;}
+
+/* Empty Cart */
+.empty-cart{
+  text-align:center;padding:80px 20px;position:relative;z-index:1;
+}
+.empty-cart i{font-size:56px;color:var(--text-muted);display:block;margin-bottom:16px;}
+.empty-cart p{font-size:16px;color:var(--text-secondary);margin-bottom:16px;}
+
+/* Recommended Section */
+.recommend-section{z-index:1;position:relative;padding-bottom:100px;}
+.recommend-section h2{
+  font-size:18px;font-weight:700;margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+.recommend-section h2 i{color:var(--accent-cyan);}
+.recommend-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.rec-card{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:var(--radius-md);padding:14px;
+  transition:var(--transition);cursor:pointer;text-align:center;
+}
+.rec-card:hover{
+  border-color:var(--card-hover-border);
+  box-shadow:var(--shadow-glow-cyan);
+  transform:translateY(-2px);
+}
+.rec-card img{
+  width:100%;height:100px;object-fit:cover;border-radius:6px;
+  margin-bottom:8px;background:rgba(255,255,255,0.03);
+}
+.rec-card h4{font-size:13px;font-weight:600;margin-bottom:4px;}
+.rec-card .rec-price{font-size:16px;font-weight:800;color:var(--accent-gold);}
+.rec-card .rec-btn{
+  margin-top:8px;padding:4px 14px;border-radius:6px;
+  font-size:12px;font-weight:500;
+  background:var(--accent-cyan-dim);color:var(--accent-cyan);
+  border:1px solid rgba(0,212,255,0.1);
+  transition:var(--transition);
+}
+.rec-card .rec-btn:hover{background:rgba(0,212,255,0.2);}
+
+/* Footer */
+footer{
+  position:relative;z-index:1;
+  background:rgba(10,22,40,0.9);border-top:1px solid rgba(255,255,255,0.04);
+  padding:40px 0 20px;margin-top:40px;
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
+.footer-brand .fb-icon{font-size:28px;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.7}
+.footer-col h4{font-size:13px;font-weight:600;margin-bottom:12px;color:var(--text-primary);letter-spacing:1px}
+.footer-col a{display:block;font-size:12px;color:var(--text-muted);margin-bottom:6px}
+.footer-col a:hover{color:var(--accent-cyan)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.04);padding-top:16px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  font-size:12px;color:var(--text-muted);
+}
+
+/* Section divider fix */
+.section-divider{
+  width:60px;height:3px;
+  background:linear-gradient(90deg,var(--accent-cyan),var(--accent-gold));
+  border-radius:2px;margin:16px auto;
+}
+.glass-card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-lg);
+  padding:24px;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  transition:var(--transition);
+  position:relative;overflow:hidden;
+}
+.glass-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent-cyan),transparent);
+  opacity:0.3;
+}
+.glass-card:hover{
+  border-color:var(--card-hover-border);
+  box-shadow:var(--shadow-glow-cyan);
+  transform:translateY(-2px);
+}
+
+/* Responsive */
+@media(max-width:992px){
+  .recommend-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .mobile-toggle{display:block;order:10}
+  .mobile-toggle-close{display:flex !important}
+  .nav-wrapper{position:fixed;top:0;right:-100%;width:300px;max-width:85vw;height:100vh;
+    background:rgba(8,16,32,0.98);backdrop-filter:blur(24px);
+    border-left:1px solid rgba(255,255,255,0.06);
+    z-index:2000;transition:right 0.35s cubic-bezier(0.4,0,0.2,1);
+    padding:70px 16px 24px;overflow-y:auto;
+    -webkit-mask-image:none;mask-image:none;
+    box-shadow:-10px 0 40px rgba(0,0,0,0.5);
+  }
+  .nav-wrapper.open{right:0}
+  .navbar{flex-direction:column;gap:2px;overflow:visible;padding:0}
+  .navbar a{
+    padding:12px 14px;font-size:14px;border-radius:8px;
+    border:1px solid transparent;gap:10px;
+  }
+  .navbar a i{font-size:16px;width:20px;text-align:center;opacity:1}
+  .navbar a:not(:last-child){border-bottom:1px solid rgba(255,255,255,0.03)}
+  .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.5);z-index:1999;
+    opacity:0;pointer-events:none;transition:opacity 0.3s;
+  }
+  .nav-overlay.show{opacity:1;pointer-events:auto}
+  .did-text,.login-text{display:none}
+  .mobile-toggle-close{
+    position:fixed;top:12px;right:calc(300px + 12px);
+    max-width:85vw;z-index:2001;font-size:24px;
+    opacity:0;pointer-events:none;transition:opacity 0.3s;
+  }
+  .mobile-toggle-close.show{opacity:1;pointer-events:auto}
+  .item-img{width:60px;height:60px;}
+  .item-name{font-size:14px;}
+  .item-price{font-size:17px;}
+  .total-amount{font-size:20px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .recommend-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .nav-wrapper{width:100%;max-width:100%;border-left:none}
+  .mobile-toggle-close{right:16px}
+  .recommend-grid{grid-template-columns:1fr;}
+}
+/* === Link Chain Components === */
+.breadcrumb-bar{display:flex;align-items:center;gap:6px;padding:8px 16px;font-size:12px;color:var(--text-secondary);background:var(--card-bg);border-bottom:1px solid var(--card-border);flex-wrap:wrap;margin:0}
+.breadcrumb-bar a{color:var(--accent-gold);text-decoration:none;transition:var(--transition)}
+.breadcrumb-bar a:hover{color:#f0c040}
+.breadcrumb-bar .sep{color:var(--text-muted);margin:0 2px}
+.breadcrumb-bar .current{color:var(--text-primary);font-weight:600}
+.extend-bar{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 16px;margin:8px 0 16px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-md);flex-wrap:wrap}
+.extend-bar a{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:12px;color:var(--text-primary);background:rgba(15,34,64,.7);border:1px solid var(--accent-gold-dim);text-decoration:none;transition:var(--transition)}
+.extend-bar a:hover{background:var(--accent-gold-dim);border-color:var(--accent-gold);color:var(--accent-gold)}
+.extend-bar .label{font-size:11px;color:var(--text-secondary);margin-right:4px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1);transition:all .2s}
+.bottom-nav a:hover,.bottom-nav a.active{color:#00d4ff;border-color:rgba(0,212,255,.35);background:rgba(0,212,255,.08)}
+  </style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链数智·购物车 | 退役军人食品安全服务平台">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/cart.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/cart.html">
+</head>
+<body>
+  <canvas id="particle-canvas"></canvas>
+
+  <div class="breadcrumb-bar"><a href="/">首页</a><span class="sep">›</span><a href="/shangcheng.html">商业生态</a><span class="sep">›</span><span class="current">购物车</span></div>
+
+  <!-- ====== Header ====== -->
+  <header id="site-header" role="banner">
+    <div class="container topbar">
+      <div class="brandbox">
+        <div class="brand-logo">&#x1F426;</div>
+        <div class="brand-title">
+          <div class="cn">军鸽云链数智</div>
+          <div class="en">JunGe CloudLink DI</div>
+        </div>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><i class="fas fa-bars"></i></button>
+      <div class="nav-wrapper" id="navWrapper">
+        <nav class="navbar" id="mainNav" aria-label="主导航">
+          <a href="/index.html"><i class="fas fa-home"></i> 首页</a>
+          <a href="junge-shuzhi.html"><i class="fas fa-crown"></i> junge数智</a>
+          <a href="shangcheng.html"><i class="fas fa-store"></i> 军创商城</a>
+          <a href="youpin.html"><i class="fas fa-star"></i> 军创优品</a>
+          <a href="cross-border.html"><i class="fas fa-globe"></i> 跨境电商</a>
+          <a href="zero-tariff.html"><i class="fas fa-tag"></i> 零关税</a>
+        <a href="game-center.html" class="nav-highlight" style="border-color:rgba(212,175,55,0.25);background:rgba(212,175,55,0.04)"><i class="fas fa-gamepad"></i> 🎮游戏池</a>
+          <a href="fenzhan.html"><i class="fas fa-sitemap"></i> 分站</a>
+          <a href="enterprise-cooperation.html"><i class="fas fa-building"></i> 企业合作</a>
+          <a href="employment-service.html"><i class="fas fa-briefcase"></i> 就业服务</a>
+          <a href="culture-home.html"><i class="fas fa-book-open"></i> 文化家园</a>
+          <a href="mission-system.html"><i class="fas fa-bullseye"></i> 任务系统</a>
+          <a href="party-public.html"><i class="fas fa-flag"></i> 党建公益</a>
+          <a href="about.html"><i class="fas fa-info-circle"></i> 关于我们</a>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="btn-cart" href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-badge" id="headerCartBadge">0</span></a>
+        <a class="btn-user" href="personal-center.html"><i class="fas fa-user-circle"></i></a>
+        <a class="btn-did" href="digital-id.html"><i class="fas fa-id-card"></i> <span class="did-text">数字ID</span></a>
+        <a class="btn-login" href="login.html"><i class="fas fa-sign-in-alt"></i> <span class="login-text">登录</span></a>
+        <button class="mobile-toggle-close" id="mobileClose" aria-label="关闭菜单" style="display:none"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ====== Page Title ====== -->
+  <div class="page-container">
+    <div class="page-title-bar">
+      <h1><i class="fas fa-shopping-cart"></i> 购物车</h1>
+      <a class="back-link" href="shangcheng.html"><i class="fas fa-arrow-left"></i> 继续购物</a>
+    </div>
+  </div>
+
+  <!-- ====== Cart List ====== -->
+  <main class="page-container cart-section" id="cartPage">
+    <div id="cartList">
+      <!-- JS renders cart items -->
+    </div>
+    <div class="empty-cart" id="emptyCart" style="display:none;">
+      <i class="fas fa-cart-plus"></i>
+      <p>购物车还是空的</p>
+      <a href="shangcheng.html" class="btn-hero outline-cyan" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:10px;font-size:14px;font-weight:600;"><i class="fas fa-store"></i> 去商城逛逛</a>
+    </div>
+  </main>
+
+  <!-- ====== Recommended Products ====== -->
+  <div class="page-container recommend-section">
+    <h2><i class="fas fa-fire"></i> 为你推荐</h2>
+    <div class="recommend-grid" id="recommendGrid">
+      <div class="rec-card" onclick="addRecToCart('r1')">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop" alt="有机杂粮礼盒" loading="lazy">
+        <h4>有机杂粮礼盒</h4>
+        <div class="rec-price">¥128.00</div>
+        <button class="rec-btn" onclick="event.stopPropagation();addRecToCart('r1')"><i class="fas fa-cart-plus"></i> 加入购物车</button>
+      </div>
+      <div class="rec-card" onclick="addRecToCart('r2')">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=400&auto=format&fit=crop" alt="野生山茶油" loading="lazy">
+        <h4>野生山茶油</h4>
+        <div class="rec-price">¥268.00</div>
+        <button class="rec-btn" onclick="event.stopPropagation();addRecToCart('r2')"><i class="fas fa-cart-plus"></i> 加入购物车</button>
+      </div>
+      <div class="rec-card" onclick="addRecToCart('r3')">
+        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=400&auto=format&fit=crop" alt="军创普洱茶饼" loading="lazy">
+        <h4>军创普洱茶饼</h4>
+        <div class="rec-price">¥399.00</div>
+        <button class="rec-btn" onclick="event.stopPropagation();addRecToCart('r3')"><i class="fas fa-cart-plus"></i> 加入购物车</button>
+      </div>
+      <div class="rec-card" onclick="addRecToCart('r4')">
+        <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=400&auto=format&fit=crop" alt="退役军人特供蜂蜜" loading="lazy">
+        <h4>退役军人特供蜂蜜</h4>
+        <div class="rec-price">¥88.00</div>
+        <button class="rec-btn" onclick="event.stopPropagation();addRecToCart('r4')"><i class="fas fa-cart-plus"></i> 加入购物车</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Bottom Bar ====== -->
+  <div class="bottom-bar" id="bottomBar">
+    <div class="page-container bottom-inner">
+      <label class="select-all-wrap">
+        <input type="checkbox" id="selectAll" onchange="toggleSelectAll()" checked>
+        全选
+      </label>
+      <div class="total-area">
+        <span class="total-label">合计：</span>
+        <span class="total-amount" id="totalPrice">¥0.00</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn" onclick="checkout()">
+        <i class="fas fa-shopping-bag"></i> 结算 (<span id="checkoutCount">0</span>)
+      </button>
+    </div>
+  </div>
+
+  <!-- ====== Footer ====== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="fb-icon">&#x1F426;</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:4px;letter-spacing:1px">军鸽云链数智</h3>
+          <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">JunGe CloudLink Digital Intelligence</p>
+          <p>以军人精神守护民生底线，以商业创新激活社会价值。退役军人创业就业服务平台 · 食品安全溯源 · 数字经济试验区。</p>
+        </div>
+        <div class="footer-col">
+          <h4>快速链接</h4>
+          <a href="shangcheng.html">军创商城</a>
+          <a href="youpin.html">军创优品</a>
+          <a href="cross-border.html">跨境电商</a>
+          <a href="zero-tariff.html">零关税专区</a>
+          <a href="fenzhan.html">AI智联分站</a>
+          <a href="join.html">加入军创</a>
+        </div>
+        <div class="footer-col">
+          <h4>服务支持</h4>
+          <a href="about.html">关于我们</a>
+          <a href="enterprise-contact.html">联系客服</a>
+          <a href="feedback.html">意见反馈</a>
+          <a href="complaint-process.html">投诉曝光台</a>
+          <a href="contact.html">联系方式</a>
+          <a href="mission.html">使命愿景</a>
+        </div>
+        <div class="footer-col">
+          <h4>智能体服务</h4>
+          <a href="ai-assistant.html">AI智能助手</a>
+          <a href="ai-consult.html">AI智能咨询</a>
+          <a href="ai-podcast.html">AI播客</a>
+          <a href="digital-id.html">数字ID中心</a>
+          <a href="personal-center.html">个人中心</a>
+          <a href="member-register.html">会员注册</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025-2026 军鸽云链数智 版权所有</span>
+        <span>琼ICP备2025063762号-2 | 技术支持：AI超级智能体编队</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // === Cart Data ===
+  var DEFAULT_PRODUCTS = [
+    {id:'p1', name:'军创有机五彩米 5kg', price:89.00, quantity:2, image:'https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=400&auto=format&fit=crop', spec:'5kg/袋 · 有机认证'},
+    {id:'p2', name:'退役军人特级山茶油 1L', price:168.00, quantity:1, image:'https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=400&auto=format&fit=crop', spec:'1L/瓶 · 物理压榨'},
+    {id:'p3', name:'云南古树普洱茶 357g', price:399.00, quantity:1, image:'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=400&auto=format&fit=crop', spec:'357g/饼 · 古树原料'},
+    {id:'p4', name:'军创精选椴木黑木耳 500g', price:68.00, quantity:3, image:'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=400&auto=format&fit=crop', spec:'500g/袋 · 深山椴木'}
+  ];
+
+  var CART_KEY = 'junge_cart';
+  var recProducts = {
+    'r1': {id:'r1', name:'有机杂粮礼盒', price:128.00, image:'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop', spec:'礼盒装 · 五谷杂粮'},
+    'r2': {id:'r2', name:'野生山茶油', price:268.00, image:'https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=400&auto=format&fit=crop', spec:'500ml/瓶 · 野生山茶'},
+    'r3': {id:'r3', name:'军创普洱茶饼', price:399.00, image:'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=400&auto=format&fit=crop', spec:'357g/饼 · 古树普洱'},
+    'r4': {id:'r4', name:'退役军人特供蜂蜜', price:88.00, image:'https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=400&auto=format&fit=crop', spec:'500g/瓶 · 天然成熟蜜'}
+  };
+
+  function getCart(){
+    var data = localStorage.getItem(CART_KEY);
+    if(data){
+      try{return JSON.parse(data);}catch(e){}
+    }
+    // First visit: seed with defaults
+    localStorage.setItem(CART_KEY, JSON.stringify(DEFAULT_PRODUCTS));
+    return JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+  }
+
+  function saveCart(cart){
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    updateHeaderBadge(cart);
+  }
+
+  function updateHeaderBadge(cart){
+    var count = cart.reduce(function(s, i){ return s + i.quantity; }, 0);
+    var badge = document.getElementById('headerCartBadge');
+    if(badge) badge.textContent = count;
+  }
+
+  function renderCart(){
+    var cart = getCart();
+    var list = document.getElementById('cartList');
+    var empty = document.getElementById('emptyCart');
+    var selectAll = document.getElementById('selectAll');
+
+    if(cart.length === 0){
+      list.innerHTML = '';
+      empty.style.display = 'block';
+      if(selectAll) selectAll.checked = false;
+      updateTotal();
+      return;
+    }
+    empty.style.display = 'none';
+
+    list.innerHTML = cart.map(function(item){
+      var subtotal = (item.price * item.quantity).toFixed(2);
+      return '<div class="cart-item">' +
+        '<div class="item-checkbox-wrap">' +
+        '<input type="checkbox" class="item-checkbox" data-id="' + item.id + '" onchange="updateTotal()" checked>' +
+        '</div>' +
+        '<img class="item-img" src="' + item.image + '" alt="' + item.name + '" loading="lazy">' +
+        '<div class="item-info">' +
+        '<div class="item-name">' + item.name + '</div>' +
+        '<div class="item-spec">' + (item.spec || '') + '</div>' +
+        '<div class="item-price-row">' +
+        '<div class="item-price">¥' + item.price.toFixed(2) + '</div>' +
+        '<div class="item-subtotal">小计：<span>¥' + subtotal + '</span></div>' +
+        '</div>' +
+        '<div class="item-price-row" style="margin-top:8px;">' +
+        '<div class="qty-control">' +
+        '<button class="qty-btn" onclick="updateQuantity(\'' + item.id + '\', -1)">-</button>' +
+        '<input type="number" class="qty-input" value="' + item.quantity + '" min="1" onchange="handleQtyInput(\'' + item.id + '\', this.value)" onclick="this.select()">' +
+        '<button class="qty-btn" onclick="updateQuantity(\'' + item.id + '\', 1)">+</button>' +
+        '</div>' +
+        '<button class="delete-btn" onclick="removeItem(\'' + item.id + '\')"><i class="fas fa-trash-alt"></i> 删除</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+    }).join('');
+
+    if(selectAll) selectAll.checked = true;
+    updateTotal();
+  }
+
+  function updateQuantity(id, delta){
+    var cart = getCart();
+    var item = null;
+    for(var i = 0; i < cart.length; i++){
+      if(cart[i].id === id){ item = cart[i]; break; }
+    }
+    if(item){
+      item.quantity += delta;
+      if(item.quantity <= 0){
+        removeItem(id);
+        return;
+      }
+      saveCart(cart);
+      renderCart();
+    }
+  }
+
+  function handleQtyInput(id, value){
+    var qty = parseInt(value);
+    if(isNaN(qty) || qty < 1){
+      removeItem(id);
+      return;
+    }
+    var cart = getCart();
+    for(var i = 0; i < cart.length; i++){
+      if(cart[i].id === id){ cart[i].quantity = qty; break; }
+    }
+    saveCart(cart);
+    renderCart();
+  }
+
+  function removeItem(id){
+    var cart = getCart();
+    var newCart = [];
+    for(var i = 0; i < cart.length; i++){
+      if(cart[i].id !== id) newCart.push(cart[i]);
+    }
+    saveCart(newCart);
+    renderCart();
+  }
+
+  function getSelectedItems(){
+    var checkboxes = document.querySelectorAll('.item-checkbox:checked');
+    var ids = [];
+    for(var i = 0; i < checkboxes.length; i++){
+      ids.push(checkboxes[i].dataset.id);
+    }
+    var cart = getCart();
+    var selected = [];
+    for(var i = 0; i < cart.length; i++){
+      for(var j = 0; j < ids.length; j++){
+        if(cart[i].id === ids[j]){ selected.push(cart[i]); break; }
+      }
+    }
+    return selected;
+  }
+
+  function toggleSelectAll(){
+    var selectAll = document.getElementById('selectAll');
+    var checkboxes = document.querySelectorAll('.item-checkbox');
+    for(var i = 0; i < checkboxes.length; i++){
+      checkboxes[i].checked = selectAll.checked;
+    }
+    updateTotal();
+  }
+
+  function updateTotal(){
+    var selected = getSelectedItems();
+    var total = 0;
+    var count = 0;
+    for(var i = 0; i < selected.length; i++){
+      total += selected[i].price * selected[i].quantity;
+      count += selected[i].quantity;
+    }
+    document.getElementById('totalPrice').textContent = '¥' + total.toFixed(2);
+    document.getElementById('checkoutCount').textContent = count;
+    document.getElementById('checkoutBtn').disabled = selected.length === 0;
+  }
+
+  function checkout(){
+    var selected = getSelectedItems();
+    if(selected.length === 0){
+      alert('请选择要结算的商品');
+      return;
+    }
+    var total = 0;
+    var count = 0;
+    for(var i = 0; i < selected.length; i++){
+      total += selected[i].price * selected[i].quantity;
+      count += selected[i].quantity;
+    }
+    if(confirm('确认结算 ' + count + ' 件商品，总计 ¥' + total.toFixed(2) + '？')){
+      var cart = getCart();
+      var selectedIds = {};
+      for(var i = 0; i < selected.length; i++) selectedIds[selected[i].id] = true;
+      var newCart = [];
+      for(var i = 0; i < cart.length; i++){
+        if(!selectedIds[cart[i].id]) newCart.push(cart[i]);
+      }
+      saveCart(newCart);
+      alert('订单已提交！感谢您的支持。');
+      renderCart();
+    }
+  }
+
+  function addRecToCart(id){
+    var product = recProducts[id];
+    if(!product) return;
+    var cart = getCart();
+    var existing = null;
+    for(var i = 0; i < cart.length; i++){
+      if(cart[i].id === product.id){ existing = cart[i]; break; }
+    }
+    if(existing){
+      existing.quantity += 1;
+    } else {
+      cart.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        spec: product.spec || '',
+        quantity: 1
+      });
+    }
+    saveCart(cart);
+    renderCart();
+    var btn = event && event.target;
+    if(btn){
+      var orig = btn.textContent;
+      btn.textContent = '已添加';
+      btn.style.background = 'var(--accent-green-dim)';
+      btn.style.color = 'var(--accent-green)';
+      setTimeout(function(){ btn.textContent = orig; btn.style.background = ''; btn.style.color = ''; }, 1200);
+    }
+  }
+
+  // === Init ===
+  window.addEventListener('DOMContentLoaded', function(){
+    renderCart();
+
+    // Mobile nav
+    var toggle = document.getElementById('mobileToggle');
+    var navWrap = document.getElementById('navWrapper');
+    var overlay = document.getElementById('navOverlay');
+    var closeBtn = document.getElementById('mobileClose');
+
+    function openNav(){
+      if(navWrap) navWrap.classList.add('open');
+      if(overlay) overlay.classList.add('show');
+      if(closeBtn) closeBtn.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNav(){
+      if(navWrap) navWrap.classList.remove('open');
+      if(overlay) overlay.classList.remove('show');
+      if(closeBtn) closeBtn.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+    if(toggle) toggle.addEventListener('click', openNav);
+    if(closeBtn) closeBtn.addEventListener('click', closeNav);
+    if(overlay) overlay.addEventListener('click', closeNav);
+    if(navWrap){
+      navWrap.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click', closeNav);
+      });
+    }
+
+    var header = document.getElementById('site-header');
+    if(header){
+      window.addEventListener('scroll', function(){
+        if(window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+    }
+  });
+
+  // === Particle Canvas ===
+  (function(){
+    var canvas = document.getElementById('particle-canvas');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var PARTICLE_COUNT = 60;
+
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function Particle(){
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.size = Math.random() * 2 + 0.5;
+      this.alpha = Math.random() * 0.5 + 0.1;
+    }
+    Particle.prototype.update = function(){
+      this.x += this.vx;
+      this.y += this.vy;
+      if(this.x < 0) this.x = canvas.width;
+      if(this.x > canvas.width) this.x = 0;
+      if(this.y < 0) this.y = canvas.height;
+      if(this.y > canvas.height) this.y = 0;
+    };
+    Particle.prototype.draw = function(){
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0, 212, 255, ' + this.alpha + ')';
+      ctx.fill();
+    };
+
+    for(var i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+    function animate(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for(var i = 0; i < particles.length; i++){
+        for(var j = i + 1; j < particles.length; j++){
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if(dist < 120){
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(0, 212, 255, ' + (0.08 * (1 - dist / 120)) + ')';
+            ctx.stroke();
+          }
+        }
+        particles[i].update();
+        particles[i].draw();
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+  </script>
+  <script src="/js/ai-engine.js"></script>
+  <!-- 停留分享奖励机制 -->
+  <script src="/js/game-pool.js"></script>
+  <script src="/js/share-reward.js"></script>
+
+  <div class="extend-bar"><span class="label">🔗 快捷入口：</span><a href="/traceability.html"><i class="fas fa-link"></i> 区块链溯源</a><a href="/shangcheng.html"><i class="fas fa-store"></i> 返回商城</a><a href="/digital-id.html"><i class="fas fa-id-card"></i> 数字ID</a></div>
+
+  <div class="bottom-nav">
+    <a href="/">🏠 首页</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+  </div>
+</body>
+</html>

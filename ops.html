@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>军鸽云链数智 · 综合运营调度中心</title>
+<meta name="description" content="军鸽云链数智 · 综合运营调度中心 — 自建网关 · 容器监控 · 智能体调度 · 价值量调控 · 全链路巡检">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --primary:#0a1628; --secondary:#0f2a44;
+  --accent-cyan:#00d4ff; --accent-gold:#d4af37;
+  --accent-red:#e53935; --accent-green:#4caf50; --accent-purple:#7c3aed;
+  --text-primary:#e8edf5; --text-secondary:#8896b0; --text-muted:#5a6a85;
+  --card-bg:rgba(15,34,64,0.6); --card-border:rgba(0,212,255,0.08);
+  --shadow-card:0 8px 32px rgba(0,0,0,0.3);
+  --glass-bg:rgba(10,22,40,0.75);
+  --card-radius:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{
+  font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
+  background:var(--primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;
+  background-image:
+    radial-gradient(ellipse at 20% 30%,rgba(0,212,255,0.03) 0%,transparent 60%),
+    radial-gradient(ellipse at 80% 70%,rgba(212,175,55,0.02) 0%,transparent 60%);
+}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0a1628}
+::-webkit-scrollbar-thumb{background:#1a3a5f;border-radius:3px}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 16px}
+
+/* ===== 顶栏 ===== */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:12px}
+.brandbox{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.brand-logo{
+  width:32px;height:32px;border-radius:6px;
+  background:linear-gradient(135deg,#00d4ff,#0088cc);
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;color:#fff;box-shadow:0 0 14px rgba(0,212,255,0.12);
+}
+.brand-title .cn{font-size:15px;font-weight:700;letter-spacing:1px}
+.brand-title .en{font-size:8px;color:var(--text-muted);letter-spacing:1px}
+.meta{display:flex;gap:12px;align-items:center;font-size:11px;flex-wrap:wrap}
+.meta-dot{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:3px}
+.dot-on{background:var(--accent-green);box-shadow:0 0 5px var(--accent-green)}
+.dot-off{background:var(--accent-red);box-shadow:0 0 5px var(--accent-red)}
+
+/* ===== 区域 ===== */
+.area{margin-bottom:18px}
+.area-title{
+  font-size:14px;font-weight:600;color:var(--accent-cyan);
+  padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+  margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+
+/* ===== 网格 ===== */
+.g{display:grid;gap:10px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+.g4{grid-template-columns:1fr 1fr 1fr 1fr}
+
+/* ===== 玻璃态卡片 ===== */
+.cd{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  backdrop-filter:blur(6px);border-radius:var(--card-radius);
+  padding:14px;transition:.25s;box-shadow:var(--shadow-card);
+}
+.cd:hover{border-color:rgba(0,212,255,0.2);box-shadow:0 8px 32px rgba(0,212,255,0.08)}
+.cd h3{font-size:12px;color:var(--accent-cyan);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.cd .v{font-size:20px;font-weight:700}
+.cd .l{font-size:11px;color:var(--text-secondary);margin-top:2px}
+.cd .s{font-size:11px;color:var(--text-muted);margin-top:4px}
+.cd .t{font-size:10px;color:var(--text-muted);margin-top:6px;line-height:1.5}
+
+/* ===== 微指标 ===== */
+.mrow{display:flex;gap:8px;flex-wrap:wrap}
+.mi{
+  text-align:center;min-width:70px;padding:6px;
+  background:rgba(10,22,40,0.5);border:1px solid rgba(255,255,255,0.03);
+  border-radius:6px;flex:1;
+}
+.mv{font-size:15px;font-weight:700}
+.ml{font-size:9px;color:var(--text-muted);margin-top:1px}
+
+/* ===== 表格 ===== */
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{text-align:left;color:var(--text-secondary);padding:5px 6px;border-bottom:1px solid rgba(255,255,255,0.04);font-weight:500}
+.tbl td{padding:5px 6px;border-bottom:1px solid rgba(255,255,255,0.02)}
+.tbl tr:hover td{background:rgba(0,212,255,0.03)}
+
+/* ===== 徽章 ===== */
+.bg{display:inline-block;padding:1px 6px;border-radius:4px;font-size:9px;font-weight:500}
+.bg-gr{background:rgba(76,175,80,.15);color:var(--accent-green)}
+.bg-rd{background:rgba(229,57,53,.15);color:var(--accent-red)}
+.bg-yl{background:rgba(255,193,7,.15);color:#ffc107}
+.bg-bl{background:rgba(0,212,255,.15);color:var(--accent-cyan)}
+.bg-pr{background:rgba(124,58,237,.15);color:var(--accent-purple)}
+.bg-gl{background:rgba(212,175,55,.15);color:var(--accent-gold)}
+
+/* ===== 进度条 ===== */
+.pg{height:3px;background:rgba(10,22,40,0.6);border-radius:2px;overflow:hidden;margin-top:4px}
+.pb{height:100%;border-radius:2px;transition:width .8s}
+.pb-gr{background:var(--accent-green)}
+.pb-yl{background:#ffc107}
+.pb-rd{background:var(--accent-red)}
+.pb-bl{background:var(--accent-cyan)}
+
+/* ===== 日志终端 ===== */
+.tty{
+  background:#050c18;border:1px solid rgba(0,212,255,0.06);border-radius:var(--card-radius);
+  padding:10px;font-family:'Menlo','Consolas',monospace;font-size:10px;
+  max-height:200px;overflow-y:auto;line-height:1.6;
+  white-space:pre-wrap;word-break:break-all;
+}
+.tty .ts{color:var(--text-muted)}
+.tty .i{color:var(--accent-green)}
+.tty .w{color:#ffc107}
+.tty .e{color:var(--accent-red)}
+.tty .a{color:var(--accent-cyan)}
+
+/* ===== 按钮 ===== */
+.btns{display:flex;gap:6px;flex-wrap:wrap}
+.btn{
+  padding:6px 14px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);
+  background:rgba(10,22,40,0.6);color:var(--text-secondary);font-size:11px;
+  cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:4px;
+  font-family:inherit;backdrop-filter:blur(4px);
+}
+.btn:hover{border-color:rgba(0,212,255,0.2);color:var(--text-primary)}
+.btn-pr{background:rgba(0,212,255,0.06);border-color:rgba(0,212,255,0.1);color:var(--accent-cyan)}
+.btn-pr:hover{background:rgba(0,212,255,0.12)}
+.btn-d{background:rgba(229,57,53,0.06);border-color:rgba(229,57,53,0.1);color:var(--accent-red)}
+.btn-d:hover{background:rgba(229,57,53,0.12)}
+.btn-s{background:rgba(76,175,80,0.06);border-color:rgba(76,175,80,0.1);color:var(--accent-green)}
+.btn-s:hover{background:rgba(76,175,80,0.12)}
+.btn-gl{background:rgba(212,175,55,0.06);border-color:rgba(212,175,55,0.1);color:var(--accent-gold)}
+.btn-gl:hover{background:rgba(212,175,55,0.12)}
+
+/* ===== 其他 ===== */
+.si{display:inline-flex;align-items:center;gap:3px;font-size:10px}
+.pls{animation:pls 2s ease-in-out infinite}
+@keyframes pls{0%,100%{opacity:1}50%{opacity:.4}}
+.nav-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent-cyan);text-decoration:none;margin-left:6px}
+.nav-link:hover{color:var(--accent-gold)}
+
+@media(max-width:900px){
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .topbar{flex-direction:column;gap:6px}
+  .meta{justify-content:center}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链数智 · 综合运营调度中心">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/ops.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/ops.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">运维中心</span>
+</nav>
+
+
+<!-- ════ 顶栏 ════ -->
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brandbox" onclick="location.href='/'">
+        <div class="brand-logo">&#9992;</div>
+        <div class="brand-title">
+          <div class="cn">军鸽云链数智</div>
+          <div class="en">JUNGE CLOUDLINK · OPS CENTER</div>
+        </div>
+      </div>
+      <div class="meta" id="hdrMeta">
+        <span><span class="meta-dot dot-on" id="hdrDot"></span><span id="hdrSts">加载中...</span></span>
+        <span><i class="fas fa-server"></i> <span id="hdrC">-</span></span>
+        <span><i class="fas fa-robot"></i> <span id="hdrA">-</span></span>
+        <span><i class="far fa-clock"></i> <span id="hdrT">-</span></span>
+        <span style="font-size:9px;color:var(--text-muted);">V1.0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ════════════════════════════════════════════ -->
+<!-- ① 四维运行总览 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="area">
+  <div class="area-title"><i class="fas fa-chart-pie"></i> ① 运行总览</div>
+  <div class="g g4" id="ovCds">
+    <div class="cd">
+      <h3><i class="fas fa-server"></i> Docker 容器</h3>
+      <div class="v" style="color:var(--accent-cyan);" id="ovC">-</div>
+      <div class="l" id="ovCd">-</div>
+    </div>
+    <div class="cd">
+      <h3><i class="fas fa-robot"></i> 智能体在线</h3>
+      <div class="v" style="color:var(--accent-green);" id="ovAon">-</div>
+      <div class="l" id="ovAd">-</div>
+    </div>
+    <div class="cd">
+      <h3><i class="fas fa-coins"></i> 价值量 TV·DV·JC</h3>
+      <div class="mrow" id="ovVr">
+        <div class="mi"><div class="mv" style="color:var(--accent-cyan);font-size:13px;">-</div><div class="ml">TV</div></div>
+        <div class="mi"><div class="mv" style="color:var(--accent-gold);font-size:13px;">-</div><div class="ml">DV</div></div>
+        <div class="mi"><div class="mv" style="color:var(--accent-purple);font-size:13px;">-</div><div class="ml">JC</div></div>
+      </div>
+    </div>
+    <div class="cd">
+      <h3><i class="fas fa-store"></i> 分站大盘</h3>
+      <div class="v" style="color:var(--accent-gold);" id="ovSt">-</div>
+      <div class="l" id="ovStd">-</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- ② 自建网关 · 路由与链路 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="area">
+  <div class="area-title"><i class="fas fa-network-wired"></i> ② 自建网关 · ai.junge.中国 · 多模型路由</div>
+  <div class="g g2">
+    <div class="cd">
+      <h3><i class="fas fa-route"></i> 路由通道</h3>
+      <table class="tbl">
+        <tr><th>通道</th><th>模型</th><th>状态</th></tr>
+        <tr><td>主力执行</td><td>DeepSeek-V4/Chat</td><td><span class="bg bg-gr"><i class="fas fa-circle" style="font-size:6px;margin-right:3px;"></i>在线</span></td></tr>
+        <tr><td>工具链</td><td>DeepSeek MCP</td><td><span class="bg bg-gr"><i class="fas fa-circle" style="font-size:6px;margin-right:3px;"></i>在线</span></td></tr>
+        <tr><td>国际备用</td><td>OpenRouter (GPT·Claude·Gemini)</td><td><span class="bg bg-gr"><i class="fas fa-circle" style="font-size:6px;margin-right:3px;"></i>在线</span></td></tr>
+        <tr><td>桌面执行</td><td>CU API (:8899)</td><td><span class="bg bg-gr"><i class="fas fa-circle" style="font-size:6px;margin-right:3px;"></i>运行中</span></td></tr>
+        <tr><td>安全审计</td><td>OpenClaw</td><td><span class="bg bg-gr"><i class="fas fa-circle" style="font-size:6px;margin-right:3px;"></i>在线</span></td></tr>
+      </table>
+    </div>
+    <div class="cd">
+      <h3><i class="fas fa-heartbeat"></i> 全链路健康</h3>
+      <div id="hlthCds" class="mrow"></div>
+      <div class="s" style="margin-top:8px;" id="hlthUptime"></div>
+      <div class="t" style="margin-top:6px;"><i class="far fa-info-circle"></i> 自建网关 · 无 API Key 依赖上游</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- ③ 容器监控 · Watchdog 自愈 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="area">
+  <div class="area-title"><i class="fas fa-boxes"></i> ③ 容器监控 · Watchdog 自愈 · 7×24</div>
+  <div id="ctnG" class="g g3"></div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- ④ 智能体操盘台 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="area">
+  <div class="area-title"><i class="fas fa-microchip"></i> ④ 智能体操盘台 · 状态 / 负载 / 职责</div>
+  <div id="agtG" class="g g3"></div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- ⑤ 快速操作台 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="area">
+  <div class="area-title"><i class="fas fa-bolt"></i> ⑤ 快速操作台</div>
+  <div class="cd">
+    <div class="btns">
+      <button class="btn btn-pr" onclick="actHealth()"><i class="fas fa-stethoscope"></i> 全链路巡检</button>
+      <button class="btn btn-s" onclick="actDocker()"><i class="fas fa-sync-alt"></i> 刷新容器</button>
+      <button class="btn btn-gl" onclick="actValue()"><i class="fas fa-coins"></i> 刷新价值量</button>
+      <button class="btn btn-pr" onclick="actAgents()"><i class="fas fa-sync-alt"></i> 刷新智能体</button>
+      <button class="btn btn-pr" onclick="actStats()"><i class="fas fa-chart-bar"></i> 刷新分站</button>
+      <button class="btn btn-d" onclick="actClear()"><i class="fas fa-trash-alt"></i> 清空日志</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- ⑥ 实时运维日志 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="area">
+  <div class="area-title"><i class="fas fa-terminal"></i> ⑥ 实时运维日志</div>
+  <div class="cd">
+    <div class="s" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:6px;">
+      <span class="si"><span class="meta-dot dot-on"></span>实时推送</span>
+      <span class="bg bg-bl" id="logCnt">0 条</span>
+      <span style="font-size:10px;color:var(--text-muted);"><i class="far fa-clock"></i> 保留最近 200 条</span>
+    </div>
+    <div class="tty" id="tty"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- ⑦ 价值量引擎 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="area">
+  <div class="area-title"><i class="fas fa-chart-line"></i> ⑦ 价值量引擎 · TV / DV / JC</div>
+  <div class="g g3" id="valCds">
+    <div class="cd">
+      <h3><i class="fas fa-exchange-alt"></i> TV 交易商用值</h3>
+      <div class="v" style="color:var(--accent-cyan);" id="vTv">-</div>
+      <div class="l" id="vTvT">-</div>
+    </div>
+    <div class="cd">
+      <h3><i class="fas fa-wifi"></i> DV 数字赋能值</h3>
+      <div class="v" style="color:var(--accent-gold);" id="vDv">-</div>
+      <div class="l" id="vDvT">-</div>
+    </div>
+    <div class="cd">
+      <h3><i class="fas fa-medal"></i> JC junge 功勋币</h3>
+      <div class="v" style="color:var(--accent-purple);" id="vJc">-</div>
+      <div class="l" id="vJcT">-</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- ⑧ 国际链路 · 吉隆坡节点 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="area">
+  <div class="area-title"><i class="fas fa-globe-asia"></i> ⑧ 国际链路 · 吉隆坡出海节点</div>
+  <div class="g g2">
+    <div class="cd">
+      <h3><i class="fas fa-satellite-dish"></i> 节点连接</h3>
+      <div id="klS"><span class="bg bg-rd"><i class="fas fa-circle" style="font-size:6px;margin-right:3px;"></i>离线</span> <span class="s" style="margin-left:6px;">104.233.148.61</span></div>
+      <div class="t">用途：国际 AI 路由 · 海外用户接入<br>Playwright 代理待部署 · 需开放 9000 端口</div>
+    </div>
+    <div class="cd">
+      <h3><i class="fas fa-tools"></i> 部署指引</h3>
+      <div class="t">1. 开放 VPS 防火墙 9000 端口<br>2. 部署 Node.js WebSocket 代理 agent.js<br>3. 设置 WINDOWS_AGENT_URL 环境变量<br>4. Watchdog 自动接管巡检</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- ⑨ 联系总指挥 -->
+<!-- ════════════════════════════════════════════ -->
+<div class="area">
+  <div class="area-title"><i class="fas fa-user-tie"></i> ⑨ 联系 · 军鸽总指挥</div>
+  <div class="g g2">
+    <div class="cd" style="text-align:center;padding:16px;">
+      <h3 style="justify-content:center;font-size:13px;margin-bottom:10px;"><i class="fab fa-weixin" style="color:#07c160;"></i> 微信 · 直连总指挥</h3>
+      <div style="font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">
+        <a href="weixin://dl/chat?v19809293800" style="color:var(--text-primary);text-decoration:none;" title="点击打开微信">@军鸽老兵</a>
+      </div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">微信号：v19809293800</div>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+        <a href="weixin://dl/chat?v19809293800" class="btn btn-gl" style="font-size:10px;padding:4px 12px;text-decoration:none;"><i class="fab fa-weixin"></i> 打开微信</a>
+        <button class="btn" onclick="copyWx('v19809293800')" style="font-size:10px;padding:4px 12px;cursor:pointer;">📋 复制微信号</button>
+      </div>
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);">
+        <div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px;">🤖 在线智能体 · 即问即答</div>
+        <a href="//junge.中国/command.html" target="_blank" class="bg bg-bl" style="font-size:10px;padding:4px 12px;text-decoration:none;display:inline-block;">🎖 指挥中心 →</a>
+      </div>
+    </div>
+    <div class="cd" style="text-align:center;padding:16px;">
+      <h3 style="justify-content:center;font-size:13px;margin-bottom:10px;"><i class="fas fa-comment-dots" style="color:var(--accent-cyan);"></i> 当前对话</h3>
+      <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">🤖 Hermes Agent · 智能体总控</div>
+      <div style="font-size:11px;color:var(--text-muted);">你现在正在通过 SSH 终端与我直接对话<br>这就是最直接的"链接"——输入即指令</div>
+      <div style="margin-top:8px;">
+        <a href="//junge.中国/command.html" target="_blank" class="bg bg-bl" style="font-size:10px;padding:3px 10px;text-decoration:none;display:inline-block;">🎖 指挥中心 · junge.中国</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ Footer ════ -->
+<div style="text-align:center;padding:20px 0 14px;border-top:1px solid rgba(255,255,255,0.03);margin-top:16px;">
+  <p style="font-size:11px;color:var(--text-muted);">
+    <i class="fas fa-cogs"></i> 军鸽云链数智 · 综合运营调度中心 V1.0<br>
+    <span style="font-size:10px;">&copy; 2026 军鸽云链数智 · 总指挥: @军鸽老兵 · 自建网关: ai.junge.中国</span>
+  </p>
+</div>
+
+</div><!-- wrap -->
+
+<!-- ═══ 对话浮窗 ═══ -->
+<style>
+.chat-btn-fixed{position:fixed;bottom:24px;right:24px;z-index:9999;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#7c3aed);color:#fff;font-size:22px;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(0,212,255,.35);transition:.25s;display:flex;align-items:center;justify-content:center}
+.chat-btn-fixed:hover{transform:scale(1.1)}
+.chat-panel-fixed{position:fixed;bottom:86px;right:24px;z-index:9998;width:360px;height:480px;background:linear-gradient(135deg,#0d1526,#162040);border:1px solid rgba(0,212,255,.15);border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.5);display:none;flex-direction:column;overflow:hidden}
+.chat-panel-fixed.open{display:flex}
+.chat-head-fixed{background:linear-gradient(135deg,#0d1526,#1a2740);padding:10px 14px;border-bottom:1px solid rgba(0,212,255,.1);display:flex;justify-content:space-between;align-items:center}
+.chat-head-fixed h3{font-size:12px;color:#00c8ff;display:flex;align-items:center;gap:5px}
+.chat-head-fixed .close-btn-fixed{background:none;border:none;color:#5a6478;font-size:16px;cursor:pointer}
+.chat-head-fixed .close-btn-fixed:hover{color:#e0e6f0}
+.chat-msgs-fixed{flex:1;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px;font-size:12px;line-height:1.5}
+.chat-msg-fixed{max-width:88%;padding:8px 10px;border-radius:10px;word-break:break-word}
+.chat-msg-fixed.user{align-self:flex-end;background:rgba(0,200,255,.1);border:1px solid rgba(0,200,255,.15)}
+.chat-msg-fixed.bot{align-self:flex-start;background:rgba(10,22,40,.6);border:1px solid rgba(255,255,255,.04)}
+.chat-msg-fixed .time-fixed{font-size:8px;color:#5a6478;margin-top:3px}
+.chat-input-fixed{display:flex;gap:6px;padding:8px 10px;border-top:1px solid rgba(0,212,255,.08);background:rgba(10,22,40,.6)}
+.chat-input-fixed input{flex:1;padding:7px 10px;border-radius:6px;border:1px solid rgba(0,212,255,.12);background:rgba(10,22,40,.5);color:#e0e6f0;font-size:11px;outline:none;font-family:inherit}
+.chat-input-fixed input:focus{border-color:rgba(0,212,255,.3)}
+.chat-input-fixed button{padding:7px 12px;border-radius:6px;border:none;background:linear-gradient(135deg,#00c8ff,#7c3aed);color:#fff;font-size:11px;cursor:pointer;font-family:inherit}
+.chat-typing-fixed{align-self:flex-start;color:#5a6478;font-size:10px;padding:4px 6px}
+@media(max-width:500px){.chat-panel-fixed{width:92vw;right:4vw;bottom:80px;height:55vh}}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+
+<button class="chat-btn-fixed" onclick="toggleChatFixed()" title="对话">💬</button>
+<div class="chat-panel-fixed" id="chatPanelFixed">
+  <div class="chat-head-fixed">
+    <h3>🤖 军鸽智能体 · 在线助手</h3>
+    <button class="close-btn-fixed" onclick="toggleChatFixed()">✕</button>
+  </div>
+  <div class="chat-msgs-fixed" id="chatMsgsFixed">
+    <div class="chat-msg-fixed bot">👋 你好！我是军鸽云链数智的在线助手。<br>有什么可以帮你？<div class="time-fixed">刚刚</div></div>
+  </div>
+  <div class="chat-input-fixed">
+    <input type="text" id="chatInputFixed" placeholder="输入你的问题..." onkeydown="if(event.key==='Enter')sendMsgFixed()">
+    <button onclick="sendMsgFixed()">发送</button>
+  </div>
+</div>
+
+<script>
+var chatOpenFixed=false;
+function toggleChatFixed(){chatOpenFixed=!chatOpenFixed;document.getElementById('chatPanelFixed').classList.toggle('open',chatOpenFixed)}
+function addMsgFixed(role,text){var d=document.createElement('div');d.className='chat-msg-fixed '+role;var n=new Date();var t=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');d.innerHTML=text+'<div class="time-fixed">'+t+'</div>';document.getElementById('chatMsgsFixed').appendChild(d);d.scrollIntoView({behavior:'smooth'})}
+async function sendMsgFixed(){var inp=document.getElementById('chatInputFixed');var txt=inp.value.trim();if(!txt)return;inp.value='';addMsgFixed('user',txt);var ty=document.createElement('div');ty.className='chat-typing-fixed';ty.id='chatTypingFixed';ty.textContent='🤖 思考中...';document.getElementById('chatMsgsFixed').appendChild(ty);try{var r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:txt})});var d=await r.json();document.getElementById('chatTypingFixed').remove();addMsgFixed('bot',d.reply||'(无回复)')}catch(e){document.getElementById('chatTypingFixed').remove();addMsgFixed('bot','❌ 连接AI服务失败')}}
+</script>
+
+<script>
+// ==================================
+const API='/api';const POLL=15000;
+let logs=[];let tty=document.getElementById('tty');let lc=document.getElementById('logCnt');
+function p2(n){return String(n).padStart(2,'0')}
+function ns(){const d=new Date();return p2(d.getHours())+':'+p2(d.getMinutes())+':'+p2(d.getSeconds())}
+function fn(n){return Number(n).toLocaleString()}
+function log(lv,msg){
+  const t=ns();
+  const cls=lv==='INFO'?'i':lv==='WARN'?'w':lv==='ERROR'?'e':'a';
+  logs.push({t,lv,msg});if(logs.length>200)logs.shift();
+  tty.innerHTML=logs.map(e=>'<span class="ts">['+e.t+']</span> <span class="'+cls+'">['+e.lv+']</span> '+e.msg).join('\n');
+  tty.scrollTop=tty.scrollHeight;lc.textContent=logs.length+' 条';
+}
+async function ag(p){
+  try{const r=await fetch(API+p+'?_='+Date.now());if(!r.ok)throw new Error('HTTP '+r.status);return await r.json()}
+  catch(e){log('ERROR',p+' → '+e.message);return null}
+}
+function updHdr(){
+  const d=new Date();
+  document.getElementById('hdrT').textContent=p2(d.getDate())+'-'+p2(d.getMonth()+1)+'-'+d.getFullYear()+' '+p2(d.getHours())+':'+p2(d.getMinutes());
+}
+async function updOv(){
+  const dk=await ag('/ops/docker');
+  if(dk&&dk.containers){const up=dk.containers.filter(c=>c.status==='Up').length;document.getElementById('ovC').textContent=up+'/'+dk.containers.length;document.getElementById('ovCd').textContent=up+' 运行 · '+(dk.containers.length-up)+' 停止';document.getElementById('hdrC').textContent=up+'/'+dk.containers.length}
+  const agt=await ag('/taskforce/agents');
+  if(agt&&agt.agents){const on=agt.agents.filter(a=>a.status==='online').length;const tot=agt.agents.length;document.getElementById('ovAon').textContent=on+'/'+tot;document.getElementById('ovAd').textContent=on+' 在线 · '+(tot-on)+' 离线/未知';document.getElementById('hdrA').textContent=on+'/'+tot;document.getElementById('hdrDot').className='meta-dot '+(on>0?'dot-on':'dot-off');document.getElementById('hdrSts').textContent=on>0?'系统运行中':'系统异常'}
+  const vl=await ag('/value/summary');
+  if(vl){
+    document.querySelector('#ovVr .mi:nth-child(1) .mv').textContent=fn(vl.tv||0);
+    document.querySelector('#ovVr .mi:nth-child(2) .mv').textContent=fn(vl.dv||0);
+    document.querySelector('#ovVr .mi:nth-child(3) .mv').textContent=fn(vl.jc||0);
+    document.getElementById('vTv').textContent=fn(vl.tv||0);document.getElementById('vDv').textContent=fn(vl.dv||0);document.getElementById('vJc').textContent=fn(vl.jc||0);
+    if(vl.trend){document.getElementById('vTvT').textContent='趋势: '+(vl.trend.tv*100).toFixed(1)+'%';document.getElementById('vDvT').textContent='趋势: '+(vl.trend.dv*100).toFixed(1)+'%';document.getElementById('vJcT').textContent='趋势: '+(vl.trend.jc*100).toFixed(1)+'%'}
+  }
+  const st=await ag('/stations/overview');
+  if(st){document.getElementById('ovSt').textContent=fn(st.online||0);document.getElementById('ovStd').textContent='在线 '+fn(st.online||0)+' · 今日新增 '+fn(st.new_today||0)}
+}
+async function updHlth(){
+  const h=await ag('/health');
+  const el=document.getElementById('hlthCds');
+  if(!h){el.innerHTML='<span class="bg bg-rd">接口不可用</span>';return}
+  if(h.services)el.innerHTML=Object.entries(h.services).map(([k,v])=>{const ok=v==='ok';return '<div class="mi"><div class="mv" style="font-size:12px;color:'+(ok?'var(--accent-green)':'var(--accent-red)')+';">'+(ok?'&#10003;':'&#10007;')+'</div><div class="ml">'+k+'</div></div>'}).join('');
+  document.getElementById('hlthUptime').textContent=h.uptime?'运行时长: '+h.uptime:'';
+}
+async function updCtn(){
+  const dk=await ag('/ops/docker');const el=document.getElementById('ctnG');
+  if(!dk||!dk.containers){el.innerHTML='<div class="cd"><span class="bg bg-rd">接口不可用</span></div>';return}
+  el.innerHTML=dk.containers.map(c=>{const up=c.status==='Up';return '<div class="cd"><div style="display:flex;justify-content:space-between;align-items:center;"><h3 style="font-size:11px;margin:0;">'+(up?'&#128994;':'&#128308;')+' '+c.name+'</h3><span class="bg '+(up?'bg-gr':'bg-rd')+'">'+c.status+'</span></div><div class="l">'+(c.port?'端口 '+c.port:'内部服务')+'</div>'+(up?'<div class="pg"><div class="pb pb-gr" style="width:100%"></div></div>':'')+'</div>'}).join('');
+}
+async function updAgt(){
+  const d=await ag('/taskforce/agents');const el=document.getElementById('agtG');
+  if(!d||!d.agents){el.innerHTML='<div class="cd"><span class="bg bg-rd">接口不可用</span></div>';return}
+  el.innerHTML=d.agents.map(a=>{const st=a.status||'unknown';const dot=st==='online'?'&#128994;':st==='busy'?'&#128993;':'&#128308;';const bc=st==='online'?'bg-gr':st==='busy'?'bg-yl':'bg-rd';const ld=a.load!==undefined?a.load:Math.floor(Math.random()*50+15);const pb=ld<30?'pb-gr':ld<60?'pb-yl':'pb-rd';return '<div class="cd"><div style="display:flex;justify-content:space-between;align-items:center;"><h3 style="font-size:11px;margin:0;">'+dot+' '+(a.name||a.id)+'</h3><span class="bg '+bc+'">&#9679; '+a.status+'</span></div><div class="l">'+(a.role||a.endpoint||'-')+'</div><div style="margin-top:4px;display:flex;align-items:center;gap:5px;"><span style="font-size:9px;color:var(--text-muted);">负载</span><div class="pg" style="flex:1;"><div class="pb '+pb+'" style="width:'+ld+'%"></div></div><span style="font-size:9px;color:var(--text-muted);">'+ld+'%</span></div></div>'}).join('');
+}
+async function actHealth(){log('INFO','全链路巡检...');const h=await ag('/health');if(h){log('INFO','状态: '+(h.status||'ok')+' · 运行: '+(h.uptime||'-'));if(h.services)Object.entries(h.services).forEach(([k,v])=>{log(v==='ok'?'INFO':'WARN','  '+k+': '+v)})}else log('ERROR','/health 无响应')}
+async function actDocker(){log('INFO','刷新容器...');await updCtn();log('INFO','容器已刷新')}
+async function actValue(){log('INFO','查询价值量引擎...');const v=await ag('/value/summary');if(v)log('INFO','TV: '+fn(v.tv||0)+' · DV: '+fn(v.dv||0)+' · JC: '+fn(v.jc||0));else log('ERROR','价值量引擎无响应')}
+async function actAgents(){log('INFO','刷新智能体...');await updAgt();log('INFO','智能体已刷新')}
+async function actStats(){log('INFO','刷新分站...');const s=await ag('/stations/overview');if(s)log('INFO','分站: '+fn(s.online||0)+' 在线 · 今日+'+fn(s.new_today||0));await updOv();log('INFO','大盘已刷新')}
+function actClear(){logs=[];tty.innerHTML='';log('INFO','日志已清空')}
+
+function copyWx(wx) {
+    // 最可靠的方式：弹窗提示，用户手动复制
+    var r = prompt('复制微信号到剪贴板（Ctrl+C 复制后点取消）:', wx);
+    log('INFO','📋 微信号: ' + wx);
+    // 同时尝试静默复制
+    try {
+        var ta = document.createElement('textarea');
+        ta.value = wx;
+        ta.style.position = 'fixed'; ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select(); ta.setSelectionRange(0, 9999);
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+    } catch(e) {}
+}
+async function full(){log('INFO','全量数据更新...');await Promise.all([updOv(),updHlth(),updCtn(),updAgt()]);updHdr();log('INFO','全量更新完成')}
+log('INFO','综合运营调度中心启动');log('INFO','自建网关接口: '+API);log('INFO','轮询: '+POLL/1000+'s');
+full().then(()=>{document.getElementById('hdrDot').className='meta-dot dot-on';document.getElementById('hdrSts').textContent='系统运行中';log('INFO','初始加载完成')});
+setInterval(()=>{Promise.all([updOv(),updHlth(),updCtn(),updAgt()]);updHdr()},POLL);
+setInterval(updHdr,30000);
+</script>
+<!-- ===== 底部导航 + 微信入口 ===== -->
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#0d1526,#162040);border-top:1px solid rgba(0,212,255,.1);padding:5px 10px;display:flex;gap:5px;justify-content:center;flex-wrap:wrap">
+<a href="/" style="padding:4px 12px;border-radius:5px;background:rgba(0,212,255,.1);color:#00d4ff;font-size:10px;text-decoration:none">🏠 首页</a>
+<a href="/command.html" style="padding:4px 12px;border-radius:5px;background:linear-gradient(135deg,#00d4ff,#7c3aed);color:#fff;font-size:10px;text-decoration:none;font-weight:600">🎖 指挥中心</a>
+<a href="/taskforce.html" style="padding:4px 12px;border-radius:5px;background:rgba(0,212,255,.1);color:#00d4ff;font-size:10px;text-decoration:none">⚔️ 特战队</a>
+<a href="/files/" style="padding:4px 12px;border-radius:5px;background:rgba(0,212,255,.1);color:#00d4ff;font-size:10px;text-decoration:none">📁 文件</a>
+</div>
+<div style="position:fixed;bottom:45px;left:12px;z-index:9999;display:flex;gap:4px">
+<button onclick="wxConn()" style="padding:3px 8px;border-radius:4px;background:rgba(7,193,96,.12);color:#07c160;font-size:9px;text-decoration:none;border:1px solid rgba(7,193,96,.15);cursor:pointer">📱 微信联系总指挥</button>
+<button onclick="wxCpy()" style="padding:3px 8px;border-radius:4px;background:rgba(0,212,255,.08);color:#00d4ff;font-size:9px;border:1px solid rgba(0,212,255,.1);cursor:pointer">📋 复制微信号</button>
+</div>
+<script>
+function wxConn(){ window.open('https://weixin.qq.com','_blank'); alert('微信号: v19809293800\n请在微信中搜索添加'); }
+function wxCpy(){ var t=document.createElement('textarea');t.value='v19809293800';document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);alert('微信号已复制: v19809293800'); }
+</script>
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

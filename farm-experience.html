@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<title>农场体验 · 军鸽云链数智</title>
+<meta name="description" content="军鸽云链生态农场体验——海南热带果园、东北黑土地、云南高山茶园、西北牧场。采摘、农耕、垂钓、研学，退役军人专属优惠。">
+<style>
+:root {
+--bg-deep:#030712; --bg-base:#060d1a; --bg-card:rgba(8,20,44,0.85);
+--primary:#00d4ff; --accent:#ff2d78; --gold:#f0c040; --green:#6dab7e;
+--red:#b84045; --blue:#4b8ecf; --purple:#a78bfa; --orange:#f59e0b;
+--text:#e8edf5; --text-dim:#8896b0; --text-muted:#4a5568;
+--border:rgba(255,255,255,.06); --border-glow:rgba(0,212,255,.15);
+--radius:12px; --radius-sm:8px; --radius-lg:18px;
+--shadow:0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg-deep);color:var(--text);line-height:1.65;overflow-x:hidden;
+min-height:100vh;
+background-image:
+radial-gradient(ellipse at 20% 0%,rgba(109,171,126,.04) 0%,transparent 55%),
+radial-gradient(ellipse at 80% 15%,rgba(240,192,64,.03) 0%,transparent 55%),
+radial-gradient(ellipse at 40% 70%,rgba(0,212,255,.03) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:#1a2744;border-radius:2px}
+
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 20px;position:sticky;top:0;z-index:999;backdrop-filter:blur(20px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .2s;padding:3px 8px;border-radius:10px}
+.breadcrumb-bar a:hover{color:var(--primary);background:rgba(0,212,255,.08)}
+.breadcrumb-bar .sep{color:var(--text-muted);font-size:9px}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{text-align:center;padding:42px 20px 32px;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(109,171,126,.06) 0%,rgba(6,13,26,.95) 50%,rgba(240,192,64,.04) 100%);border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(109,171,126,.06),transparent 60%);pointer-events:none}
+.hero .icon{font-size:48px;margin-bottom:8px;position:relative;z-index:1}
+.hero h1{font-size:26px;font-weight:800;letter-spacing:.04em;position:relative;z-index:1;background:linear-gradient(135deg,#6dab7e,#f0c040);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:12px;color:var(--text-dim);margin-top:6px;position:relative;z-index:1;letter-spacing:.03em}
+
+.container{max-width:1000px;margin:0 auto;padding:20px 18px 90px}
+
+.section{margin-bottom:28px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(109,171,126,.12)}
+.section-hd .icon{font-size:20px}
+.section-hd .title{font-size:15px;font-weight:650;letter-spacing:.03em;color:var(--green)}
+.section-hd .tag{font-size:9px;padding:3px 10px;border-radius:10px;background:rgba(109,171,126,.08);color:var(--green);margin-left:auto;letter-spacing:.06em}
+
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:768px){.g2,.g3{grid-template-columns:1fr}}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .25s;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.card:hover{border-color:var(--border-glow);box-shadow:var(--shadow)}
+.card h3{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card .desc{font-size:11px;color:var(--text-dim);line-height:1.7}
+.card.green{border-left:2px solid rgba(109,171,126,.25)}.card.green h3{color:var(--green)}
+.card.cyan{border-left:2px solid rgba(0,212,255,.25)}.card.cyan h3{color:var(--primary)}
+.card.gold{border-left:2px solid rgba(240,192,64,.25)}.card.gold h3{color:var(--gold)}
+
+.farm-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:0;overflow:hidden;transition:all .25s}
+.farm-card:hover{border-color:var(--border-glow);box-shadow:var(--shadow)}
+.farm-card .farm-img{height:150px;display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(135deg,rgba(8,20,44,.8),rgba(3,7,18,.95))}
+.farm-card .farm-info{padding:16px}
+.farm-card .farm-info h4{font-size:14px;font-weight:650;color:var(--text);margin-bottom:6px}
+.farm-card .farm-info .loc{font-size:10px;color:var(--gold)}
+.farm-card .farm-info .desc{font-size:10.5px;color:var(--text-dim);margin-top:6px;line-height:1.6}
+.farm-card .farm-info .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.farm-card .farm-info .tags span{padding:3px 8px;border-radius:8px;font-size:9px;background:rgba(109,171,126,.08);color:var(--green)}
+
+.package-row{display:flex;align-items:center;gap:14px;padding:14px;background:rgba(109,171,126,.03);border-radius:var(--radius-sm);border:1px solid var(--border);margin-bottom:10px}
+.package-row .pkg-icon{font-size:30px;flex-shrink:0;width:50px;text-align:center}
+.package-row .pkg-info{flex:1;min-width:0}
+.package-row .pkg-info .title{font-size:12px;font-weight:650;color:var(--text)}
+.package-row .pkg-info .sub{font-size:10px;color:var(--text-dim);margin-top:2px}
+.package-row .pkg-price{font-size:14px;font-weight:800;color:var(--gold);flex-shrink:0}
+
+.quote-box{background:rgba(109,171,126,.04);border:1px solid rgba(109,171,126,.12);border-radius:var(--radius);padding:18px 20px;font-style:italic;color:var(--green);font-size:13px;margin:16px 0;position:relative}
+.quote-box::before{content:'"';position:absolute;top:-10px;left:12px;font-size:36px;color:var(--green);opacity:.3}
+
+.btn-ghost{display:inline-flex;align-items:center;gap:4px;padding:8px 20px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .25s;background:transparent;border:1px solid var(--border);color:var(--text-dim)}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+
+.extend-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(109,171,126,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:var(--text-dim)}
+.ext-trace{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s;background:rgba(109,171,126,.1);color:var(--green);border:1px solid rgba(109,171,126,.2)}
+.ext-trace:hover{background:rgba(109,171,126,.25);color:#fff}
+.ext-mall{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s;background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:var(--primary);color:var(--primary)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(20px);border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:all .2s;color:var(--text-dim);background:rgba(15,34,64,.6);border:1px solid rgba(0,212,255,.08)}
+.bottom-nav a:hover,.bottom-nav a.active{background:rgba(0,212,255,.12);color:var(--primary);border-color:rgba(0,212,255,.25)}
+
+footer{text-align:center;padding:16px 20px 10px;font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);line-height:1.8}
+
+@media(max-width:550px){.hero h1{font-size:20px}.card{padding:14px}.farm-card .farm-img{height:120px;font-size:36px}}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="农场体验 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/farm-experience.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/farm-experience.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+<a href="/">🏠 首页</a><span class="sep">▸</span>
+<a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+<span class="current">🧑‍🌾 农场体验</span>
+</nav>
+
+<div class="hero">
+<div class="icon">🧑‍🌾</div>
+<h1>农场体验</h1>
+<p class="sub">生态农庄参观 · 有机采摘 · 农耕研学 · 退役军人专属优惠</p>
+</div>
+
+<div class="container">
+
+<!-- 体验概述 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🌿</span><span class="title">回归田野 · 品味自然</span><span class="tag">OVERVIEW</span></div>
+<div class="card green">
+<div class="desc" style="font-size:13px;line-height:2">
+<p>军鸽云链在全国合作了超过200家生态农庄和有机农场，覆盖海南热带果园、东北黑土地、云南高山茶园、西北草原牧场、江南水乡稻田等特色农业产区。我们诚邀退役军人及家属走进田间地头，亲手采摘时令蔬果，体验农耕文化，品尝从田间直达餐桌的新鲜美味。</p>
+<p style="margin-top:12px">每一位来过农场的战友都说：「这里的空气是甜的，蔬菜是活的，鸡蛋是热的。」军鸽云链农旅项目，不仅是一次田园旅行，更是对食品安全从源头到餐桌的全流程见证。所有合作农场均通过区块链溯源认证，你采摘的每一颗果实，都可以扫码追溯它的"成长日记"。</p>
+</div>
+</div>
+</div>
+
+<!-- 四大农场 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🏞️</span><span class="title">合作农场 · 四方风味</span><span class="tag">FARMS</span></div>
+<div class="grid g2">
+<div class="farm-card">
+<div class="farm-img">🌴</div>
+<div class="farm-info">
+<h4>海南热带果园基地</h4>
+<div class="loc">📍 海南省陵水县 · 军鸽云链直属农庄</div>
+<div class="desc">占地800亩，种植芒果、龙眼、荔枝、莲雾、火龙果等20余种热带水果。配套民宿12间，可同时接待50人团队。</div>
+<div class="tags"><span>🍍 热带水果</span><span>🏡 农庄民宿</span><span>🥥 椰子鸡</span></div>
+</div>
+</div>
+<div class="farm-card">
+<div class="farm-img">🌽</div>
+<div class="farm-info">
+<h4>东北黑土地农场</h4>
+<div class="loc">📍 黑龙江省五常市 · 军鸽有机稻米基地</div>
+<div class="desc">核心产区3000亩有机稻田，采用古法种植+现代溯源。配套农耕体验区、稻米文化馆，秋季可体验收割打谷。</div>
+<div class="tags"><span>🌾 五常大米</span><span>🚜 农机体验</span><span>🍚 铁锅炖</span></div>
+</div>
+</div>
+<div class="farm-card">
+<div class="farm-img">🍵</div>
+<div class="farm-info">
+<h4>云南高山茶园</h4>
+<div class="loc">📍 云南省普洱市 · 军鸽古树茶基地</div>
+<div class="desc">海拔1800米高山茶园，300年以上古茶树68棵。提供采茶、制茶、品茶全过程体验，配套茶山民宿和少数民族风情表演。</div>
+<div class="tags"><span>🍃 古树普洱</span><span>🫖 茶道体验</span><span>🏔️ 高山徒步</span></div>
+</div>
+</div>
+<div class="farm-card">
+<div class="farm-img">🐑</div>
+<div class="farm-info">
+<h4>西北草原牧场</h4>
+<div class="loc">📍 甘肃省张掖市 · 军鸽生态牧场</div>
+<div class="desc">祁连山脚下5000亩天然草场，养殖藏羊、牦牛、走地鸡。提供骑马、挤奶、放牧体验，蒙古包住宿，草原篝火晚会。</div>
+<div class="tags"><span>🐎 草原骑马</span><span>🏕️ 蒙古包</span><span>🔥 篝火晚会</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 体验套餐 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🎫</span><span class="title">体验套餐 · 退役军人专享价</span><span class="tag">PACKAGES</span></div>
+
+<div class="package-row">
+<div class="pkg-icon">🍓</div>
+<div class="pkg-info"><div class="title">一日采摘体验（含午餐+5斤自采水果）</div><div class="sub">适用农场：海南/云南/东北 · 含园区导览+农事讲解+区块链溯源码</div></div>
+<div class="pkg-price">¥168<small style="font-size:10px;font-weight:400;color:var(--text-dim)">/人</small></div>
+</div>
+<div class="package-row">
+<div class="pkg-icon">🏡</div>
+<div class="pkg-info"><div class="title">两日一夜农庄深度体验（含食宿+全部活动）</div><div class="sub">适用农场：全部合作农场 · 含农庄民宿1晚+三餐+农耕体验+篝火晚会</div></div>
+<div class="pkg-price">¥498<small style="font-size:10px;font-weight:400;color:var(--text-dim)">/人</small></div>
+</div>
+<div class="package-row">
+<div class="pkg-icon">👨‍👩‍👧‍👦</div>
+<div class="pkg-info"><div class="title">亲子农耕研学套餐（2大1小）</div><div class="sub">含农事课堂+种子实验+萌宠喂养+有机午餐+纪念证书</div></div>
+<div class="pkg-price">¥688<small style="font-size:10px;font-weight:400;color:var(--text-dim)">/家庭</small></div>
+</div>
+<div class="package-row">
+<div class="pkg-icon">🪖</div>
+<div class="pkg-info"><div class="title">战友聚会定制套餐（10人起订）</div><div class="sub">含专属场地+烧烤晚宴+军旅主题游戏+集体合影+军鸽币奖励</div></div>
+<div class="pkg-price">¥368<small style="font-size:10px;font-weight:400;color:var(--text-dim)">/人</small></div>
+</div>
+</div>
+
+<!-- 活动项目 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🎯</span><span class="title">特色活动 · 丰富多彩</span><span class="tag">ACTIVITIES</span></div>
+<div class="grid g3">
+<div class="card cyan">
+<h3>🍎 时令采摘</h3>
+<div class="desc">根据不同季节安排草莓、樱桃、荔枝、葡萄、苹果等采摘活动，现场品尝，打包带走。采摘区配备专业农技师指导，确保安全。</div>
+</div>
+<div class="card gold">
+<h3>🌱 农耕体验</h3>
+<div class="desc">参与翻地、播种、施肥、除草等农事活动，感受"粒粒皆辛苦"的真谛。完成后可获得区块链"农耕达人"数字勋章。</div>
+</div>
+<div class="card green">
+<h3>🎣 休闲垂钓</h3>
+<div class="desc">农场配套生态鱼塘，提供钓具租赁和指导服务。钓获的鱼可现场加工品尝，也可免费带走2斤以内部分。</div>
+</div>
+<div class="card cyan">
+<h3>🔥 篝火烧烤</h3>
+<div class="desc">夕阳西下，篝火燃起。农场提供有机食材烧烤套餐，战友们围坐篝火旁，唱军歌、聊往事，重温军营岁月。</div>
+</div>
+<div class="card gold">
+<h3>📚 农事研学</h3>
+<div class="desc">面向青少年开设农事课堂：认识农作物、了解食品安全、动手做实验。退役军人教官带队，寓教于乐。</div>
+</div>
+<div class="card green">
+<h3>📸 田园摄影</h3>
+<div class="desc">提供田园风光摄影服务，专业摄影师跟拍，记录你和家人在农场的美好时光。精修电子相册免费赠送。</div>
+</div>
+</div>
+</div>
+
+<!-- 预约须知 -->
+<div class="section">
+<div class="section-hd"><span class="icon">📋</span><span class="title">预约须知 · 出行贴士</span><span class="tag">GUIDE</span></div>
+<div class="card green">
+<h3>📝 预约与出行</h3>
+<div class="desc" style="font-size:12px;line-height:2.2">
+<p><strong>预约方式：</strong>登录军鸽云链平台 → 进入"农场体验"频道 → 选择农场和日期 → 提交预约申请 → 收到确认短信即预约成功。也可致电400-888-8888由客服协助预约。</p>
+<p><strong>预约时间：</strong>建议至少提前3天预约，旺季（春节、五一、国庆）建议提前7天预约。</p>
+<p><strong>退役军人优惠：</strong>预约时上传退役证照片，享受套餐价格8.5折优惠。烈士家属、残疾军人享受5折优惠。</p>
+<p><strong>交通指南：</strong>各农场提供免费停车场。部分地区提供高铁站/机场接送服务（需提前预约，费用另计）。</p>
+<p><strong>注意事项：</strong>建议穿着长袖长裤、运动鞋，携带防晒用品和驱蚊液。农场提供草帽和手套借用。</p>
+</div>
+<div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/farm-hainan.html" class="btn-ghost">🌴 海南基地</a>
+<a href="/farm-northeast.html" class="btn-ghost">🌽 东北基地</a>
+<a href="/farm-yunnan.html" class="btn-ghost">🍵 云南基地</a>
+<a href="/travel-support.html" class="btn-ghost">🚗 出行保障</a>
+</div>
+</div>
+</div>
+
+<blockquote class="quote-box">
+"从田间到舌尖，我们守护的不只是食品安全，更是一份对土地的敬畏、对战友的承诺。来农场吧，尝一口真正的自然味道。"
+</blockquote>
+
+<div class="extend-bar"><span class="ext-title">🔗 继续探索：</span><a href="/origin-farm.html" class="ext-trace">🌾 原产地农场</a><a href="/organic-products.html" class="ext-trace">🥬 有机产品</a><a href="/traceability.html" class="ext-trace">🔍 区块链溯源</a><a href="/index.html" class="ext-mall">🏠 返回情怀首页</a><a href="/shangcheng.html" class="ext-mall">🛒 返回商城</a></div>
+
+</div>
+
+<nav class="bottom-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/taskforce.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+海口总站 · 广州RED-DUAL指挥中心 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+食品安全+退役军人在服务综合平台 · 军魂铸信 · 数智富民
+</footer>
+
+</body>
+</html>

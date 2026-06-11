@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地理标志水果 · 下单购 - 军鸽云链</title>
+    <style>
+        :root{--primary:#2D6A4F;--accent:#C62E2E;--gold:#D4AF37;--bg:#f9f7f2;--card:#fff;--border:#e8dfc8;--text:#2d2a1f;--muted:#6b6651}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-bottom:60px}
+
+        /* 面包屑 */
+        .breadcrumb-bar{background:rgba(255,255,255,.92);border-bottom:1px solid #e8dfc8;padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+        .breadcrumb-bar a{color:#6b6651;text-decoration:none}
+        .breadcrumb-bar a:hover{color:#2D6A4F}
+        .breadcrumb-bar .sep{color:#e8dfc8}
+        .breadcrumb-bar .current{color:#2D6A4F;font-weight:700}
+        /* 延伸节点 */
+        .extend-bar{background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 2px 8px rgba(0,0,0,.05);margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:3px solid #2D6A4F}
+        .extend-bar .ext-title{font-size:11px;font-weight:700;color:#6b6651}
+        .extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+        .ext-trace{background:#e8f5e9;color:#2D6A4F;border:1px solid #2D6A4F}
+        .ext-trace:hover{background:#2D6A4F;color:#fff}
+        .ext-detail{background:transparent;color:#6b6651;border:1px dashed #e8dfc8}
+        .ext-detail:hover{border-color:#2D6A4F;color:#2D6A4F}
+        .ext-mall{background:transparent;color:#6b6651;border:1px dashed #e8dfc8}
+        .ext-mall:hover{border-color:#2D6A4F;color:#2D6A4F}
+        /* 底部导航 */
+        .bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+        .bottom-nav a{color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+        .bottom-nav a.active{color:#f0c040;border-color:rgba(240,192,64,.3);background:rgba(240,192,64,.08)}
+
+        .hero{background:linear-gradient(135deg,#1b3a2a,#2d5a3f);color:white;padding:50px 20px 36px;text-align:center}
+        .hero h1{font-size:28px;font-weight:900;margin-bottom:6px}
+        .hero p{font-size:14px;opacity:.9}
+        .container{max-width:800px;margin:0 auto;padding:0 20px}
+        .section{background:var(--card);border-radius:12px;padding:24px;margin:20px 0;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+        .product-header{display:flex;gap:16px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+        .product-header img{width:100px;height:100px;object-fit:cover;border-radius:10px}
+        .product-header h2{font-size:19px;color:var(--primary)}
+        .product-header p{font-size:12px;color:var(--muted)}
+        .price{font-size:26px;font-weight:900;color:var(--accent);margin:8px 0}
+        .price small{font-size:13px;font-weight:400;color:var(--muted);text-decoration:line-through;margin-left:8px}
+        .form-group{margin-bottom:14px}
+        .form-group label{display:block;font-weight:600;color:var(--primary);margin-bottom:5px;font-size:13px}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;outline:none;font-family:inherit}
+        .form-group input:focus,.form-group select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,0.1)}
+        .form-group textarea{height:70px;resize:vertical}
+        .btn-submit{width:100%;padding:14px;background:linear-gradient(135deg,var(--accent),#E53935);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:all .3s}
+        .btn-submit:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(198,46,46,.3)}
+        footer{text-align:center;padding:14px 16px 8px;font-size:9px;color:var(--muted);border-top:1px solid var(--border);margin-top:16px}
+    </style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="地理标志水果 · 下单购 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/product-buy-2.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/product-buy-2.html">
+</head>
+<body>
+<nav class="breadcrumb-bar">
+    <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+    <a href="/shangcheng.html">🛒 商业生态</a><span class="sep">▸</span>
+    <a href="/product-detail-2.html">赣南脐橙</a><span class="sep">▸</span>
+    <span class="current">📦 下单购</span>
+</nav>
+<div class="hero">
+    <h1>🛒 下单购 · 赣南脐橙</h1>
+    <p>国家地理标志 · 退役军人信用背书</p>
+</div>
+<div class="container">
+    <div class="section">
+        <div class="product-header">
+            <img src="https://images.unsplash.com/photo-1587132137056-bfbf0166836e?q=80&w=800&auto=format&fit=crop" alt="赣南脐橙" loading="lazy">
+            <div style="flex:1;min-width:180px">
+                <h2>赣南脐橙</h2>
+                <p>国家地理标志 · 退役军人信用背书</p>
+                <div class="price">¥128.00 <small>¥168.00</small></div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h3 style="color:var(--primary);margin-bottom:14px;">📋 购买信息</h3>
+        <div class="form-group"><label>规格选择</label><select><option>标准装 — ¥128.00</option><option>家庭装 — ¥236.00</option><option>礼盒装 — ¥354.00</option></select></div>
+        <div class="form-group"><label>数量</label><input type="number" value="1" min="1" max="99"></div>
+        <div class="form-group"><label>收货人姓名</label><input type="text" placeholder="请输入收货人姓名"></div>
+        <div class="form-group"><label>联系电话</label><input type="tel" placeholder="请输入手机号码"></div>
+        <div class="form-group"><label>收货地址</label><textarea placeholder="请输入详细收货地址"></textarea></div>
+        <div class="form-group"><label>备注</label><textarea placeholder="其他要求（可选）"></textarea></div>
+        <button class="btn-submit" onclick="alert('订单提交成功！我们将尽快为您发货。退役军人客服专线：400-123-4567')">📦 确认下单</button>
+    </div>
+    <div class="section">
+        <h3 style="color:var(--primary);margin-bottom:10px;">📌 配送说明</h3>
+        <ul style="padding-left:20px;color:var(--muted);font-size:13px;line-height:1.8">
+            <li>满¥198全国包邮（港澳台除外）</li>
+            <li>订单提交后24小时内发货，冷链配送</li>
+            <li>支持7天无理由退换（未拆封）</li>
+            <li>退役军人创业项目，部分收益用于退役军人帮扶</li>
+            <li>每件商品附区块链溯源码，扫码可查全程溯源</li>
+        </ul>
+    </div>
+    <div class="extend-bar">
+        <span class="ext-title">🔗 继续探索：</span>
+        <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+        <a href="/product-detail-2.html" class="ext-detail"><i class="fas fa-reply"></i> 返回商品详情</a>
+        <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城首页</a>
+    </div>
+</div>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html" class="active">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+<footer><p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p><p>食品安全 + 退役军人在服务综合平台</p></footer>
+<script src="/js/game-pool.js"></script>
+</body>
+</html>

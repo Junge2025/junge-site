@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>联系我们 · 军鸽云链数智 | 退役军人服务·食品安全·区块链溯源</title>
+<meta name="description" content="军鸽云链数智客服中心 — 7×24小时智能客服·退役军人专线·企业合作·区块链溯源技术支持。海口总站：175.178.55.90。">
+<style>
+:root {
+--red:#b84045;--green:#4d9460;--blue:#4b8ec9;--gold:#c4a044;
+--bg:#0a0f16;--bg2:#101820;--bg-card:rgba(16,24,36,.7);
+--text:#e7ecf2;--text2:#9daab8;--text3:#556070;
+--border:rgba(255,255,255,.05);--border2:rgba(255,255,255,.08);
+--radius:14px;--radius-sm:10px;--shadow:0 8px 32px rgba(0,0,0,.5);
+--trans:.25s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;background-image:radial-gradient(ellipse at 30% 0%,rgba(75,142,201,.05) 0%,transparent 55%),radial-gradient(ellipse at 70% 30%,rgba(77,148,96,.04) 0%,transparent 55%)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#253040;border-radius:2px}
+
+/* Header */
+header{position:sticky;top:0;z-index:10000;background:rgba(10,15,22,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,.6)}
+.header-inner{max-width:1200px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.brand{display:flex;align-items:center;gap:8px}
+.brand-logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#b84045,#822);display:flex;align-items:center;justify-content:center;font-size:17px}
+.brand-text .main{font-size:14px;font-weight:700;letter-spacing:.04em}
+.brand-text .sub{font-size:9px;color:var(--text3)}
+.breadcrumb{font-size:11px;color:var(--text3)}.breadcrumb a{color:var(--blue);text-decoration:none}
+
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Hero */
+.hero{padding:60px 20px 50px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(75,142,201,.08) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-size:38px;font-weight:900;margin-bottom:10px;background:linear-gradient(135deg,#e7ecf2,#9daab8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:15px;color:var(--text2);max-width:600px;margin:0 auto}
+
+/* Section */
+.section{margin:28px 0}
+.section-title{font-size:20px;font-weight:700;color:var(--blue);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:22px}
+
+/* Contact Grid */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.contact-card{padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);text-align:center;backdrop-filter:blur(10px);transition:var(--trans)}
+.contact-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 8px 24px rgba(75,142,201,.1)}
+.contact-card .icon{font-size:40px;margin-bottom:10px}
+.contact-card h3{font-size:15px;color:var(--gold);margin-bottom:6px}
+.contact-card .value{font-size:20px;font-weight:800;color:var(--text)}
+.contact-card .sub{font-size:11px;color:var(--text3);margin-top:4px}
+.contact-card .copy-btn{margin-top:10px;padding:5px 16px;background:var(--blue);color:#fff;border:none;border-radius:15px;font-size:11px;cursor:pointer;transition:var(--trans)}
+.contact-card .copy-btn:hover{background:#3a7ab8}
+
+/* Service Table */
+.service-table{width:100%;border-collapse:collapse;font-size:13px}
+.service-table td{padding:10px 14px;border-bottom:1px solid var(--border)}
+.service-table td:first-child{font-weight:600;color:var(--gold);width:140px}
+
+/* CTA Block */
+.cta-block{background:linear-gradient(135deg,rgba(75,142,201,.1),rgba(184,64,69,.08));border:1px solid rgba(75,142,201,.15);border-radius:var(--radius);padding:30px;text-align:center;margin:28px 0}
+.cta-block h3{font-size:20px;color:var(--text);margin-bottom:10px}
+.cta-block p{font-size:13px;color:var(--text2);margin-bottom:16px}
+.cta-btn{display:inline-block;padding:12px 32px;background:linear-gradient(135deg,var(--blue),#3a7ab8);color:#fff;border-radius:25px;font-weight:700;font-size:14px;text-decoration:none;transition:var(--trans)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(75,142,201,.3)}
+
+/* Service List */
+.service-list{list-style:none;padding:0}
+.service-list li{padding:12px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:8px;font-size:13px;transition:var(--trans)}
+.service-list li:hover{border-color:var(--blue)}
+
+/* Scope cards */
+.scope-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.scope-card{padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;text-align:center;transition:var(--trans)}
+.scope-card:hover{border-color:var(--green)}
+.scope-card .sicon{font-size:24px;margin-bottom:6px}
+
+@media(max-width:768px){.hero h1{font-size:26px}.contact-grid{grid-template-columns:1fr}}
+
+/* Bottom Nav */
+.btm-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.btm-nav a{padding:4px 10px;border-radius:12px;font-size:10px;text-decoration:none;color:var(--text2);transition:var(--trans)}
+.btm-nav a.on{background:rgba(75,142,201,.12);color:var(--blue)}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="联系我们 · 军鸽云链数智 | 退役军人服务·食品安全·区块链溯源">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/contact-v2.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/contact-v2.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">联系我们</span>
+</nav>
+
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-logo">🕊</div>
+      <div class="brand-text"><div class="main">军鸽云链数智</div><div class="sub">RED‑DUAL Ω · 天无敌</div></div>
+    </div>
+    <div class="breadcrumb"><a href="/">首页</a> › <a href="/shangcheng.html">商业生态</a> › 联系我们</div>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>📞 联系军鸽云链</h1>
+  <p>退役军人服务专线 · 食品安全溯源 · 企业合作洽谈 — 我们随时待命</p>
+</div>
+
+<div class="container">
+
+  <!-- 场景与痛点 -->
+  <div class="section">
+    <h2 class="section-title"><span class="icon">🎯</span> 场景与痛点</h2>
+    <div class="scope-grid">
+      <div class="scope-card"><div class="sicon">🛒</div><strong>商品溯源查询</strong><br><span style="font-size:11px;color:var(--text3)">区块链扫码查批次</span></div>
+      <div class="scope-card"><div class="sicon">🎖</div><strong>退役军人服务</strong><br><span style="font-size:11px;color:var(--text3)">创业·就业·政策</span></div>
+      <div class="scope-card"><div class="sicon">🤝</div><strong>企业合作入驻</strong><br><span style="font-size:11px;color:var(--text3)">供应链·渠道·招商</span></div>
+      <div class="scope-card"><div class="sicon">🔧</div><strong>技术支援</strong><br><span style="font-size:11px;color:var(--text3)">平台使用·API对接</span></div>
+    </div>
+  </div>
+
+  <!-- 联系方式 -->
+  <div class="section">
+    <h2 class="section-title"><span class="icon">📬</span> 联系方式</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">📞</div><h3>客服热线</h3>
+        <div class="value">400-888-8888</div>
+        <div class="sub">工作日 8:00-20:00 · 周末 9:00-18:00</div>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📧</div><h3>电子邮箱</h3>
+        <div class="value">service@junge.中国</div>
+        <div class="sub">24小时内回复</div>
+      </div>
+      <div class="contact-card">
+        <div class="icon">💬</div><h3>官方微信</h3>
+        <div class="value">军鸽云链客服</div>
+        <div class="sub">微信号：junge_kefu</div>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📍</div><h3>广州总站</h3>
+        <div class="value">175.178.55.90</div>
+        <div class="sub">海南省海口市 · 军民融合产业园</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 服务时间 -->
+  <div class="section">
+    <h2 class="section-title"><span class="icon">🕐</span> 服务时间</h2>
+    <table class="service-table">
+      <tr><td>人工客服</td><td>周一至周五 8:00-20:00</td></tr>
+      <tr><td>周末服务</td><td>周六至周日 9:00-18:00</td></tr>
+      <tr><td>智能客服</td><td>7×24小时 AI 在线</td></tr>
+      <tr><td>退役军人专线</td><td>工作日 9:00-17:30（优先接入）</td></tr>
+      <tr><td>节假日</td><td>另行公告通知</td></tr>
+    </table>
+  </div>
+
+  <!-- 服务范围 -->
+  <div class="section">
+    <h2 class="section-title"><span class="icon">📋</span> 服务范围</h2>
+    <ul class="service-list">
+      <li>🔹 <strong>商品咨询</strong> — 产品溯源查询·批次验证·区块链存证查询</li>
+      <li>🔹 <strong>订单服务</strong> — 订单跟踪·物流查询·退换货·售后保障</li>
+      <li>🔹 <strong>退役军人服务</strong> — 创业扶持·就业推荐·政策解读·战友驿站</li>
+      <li>🔹 <strong>技术支援</strong> — 平台使用指导·API对接·数据接入·系统集成</li>
+      <li>🔹 <strong>合作洽谈</strong> — 供应商入驻·渠道合作·企业联盟·跨境贸易</li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h3>🤖 7×24小时 AI 智能客服</h3>
+    <p>RED‑DUAL Ω 智能客服系统 — 秒级响应·多轮对话·自动路由</p>
+    <a href="/ai-assistant.html" class="cta-btn">⚡ 立即开启智能对话</a>
+  </div>
+
+  <div style="height:80px"></div>
+</div>
+
+<!-- Bottom Nav -->
+<div class="btm-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html" style="color:var(--green)">🛒 商业生态</a>
+  <a href="/junge-shuzhi.html" style="color:var(--blue)">⚔ 数智中心</a>
+  <a href="/fenzhan.html" style="color:var(--gold)">🌾 分站家园</a>
+</div>
+
+<script src="/js/junge-smart-search.js"></script>
+<script src="/js/share-reward.js"></script><!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body></html>

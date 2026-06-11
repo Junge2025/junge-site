@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>农旅体验 · 云南高山生态农庄 · 军鸽云链数智</title>
+<meta name="description" content="景迈山古茶山徒步、采茶制茶体验、野生菌采摘、傣族/拉祜族/布朗族文化、茶山民宿云海日出、季节日历。云南高山生态农庄深度体验。">
+<meta name="keywords" content="景迈山徒步,采茶体验,制茶体验,野生菌采摘,少数民族文化,茶山民宿,云海日出,农旅体验,云南农庄">
+<meta property="og:title" content="农旅体验 · 云南高山生态农庄">
+<meta property="og:description" content="深入景迈山千年古茶林，采茶制茶、采菌品菌、观云海日出——一场身心沉浸的高原之旅。">
+<link rel="canonical" href="https://junge.中国/farm-yunnan-experience.html">
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,0.85);--text:#e8edf5;--dim:#8896b0;--border:rgba(255,255,255,.06);--red:#b84045;--green:#4d9460;--blue:#4b8ecf;--gold:#f0c040;--cyan:#00d4ff;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;line-height:1.7;min-height:100vh;padding-bottom:130px}
+.breadcrumb{position:sticky;top:0;z-index:101;background:rgba(3,7,18,.96);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:6px;font-size:11px;backdrop-filter:blur(12px)}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:.2s}
+.breadcrumb a:hover{color:var(--cyan)}
+.breadcrumb .sep{color:#4a5568}
+.breadcrumb .current{color:var(--cyan);font-weight:700}
+.top-nav{position:sticky;top:33px;z-index:100;background:linear-gradient(90deg,rgba(3,7,18,.98),rgba(10,22,40,.97));backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;overflow-x:auto}
+.top-nav .logo{font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;flex-shrink:0}
+.top-nav .divider{width:1px;height:16px;background:var(--border);flex-shrink:0}
+.top-nav a.nav-link{color:var(--dim);text-decoration:none;font-size:11px;padding:3px 9px;border-radius:10px;border:1px solid transparent;white-space:nowrap;flex-shrink:0;transition:.2s}
+.top-nav a.nav-link:hover,.top-nav a.nav-link.active{color:var(--cyan);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.05)}
+.hero{position:relative;height:340px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') center/cover;opacity:.2}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,7,18,.3) 0%,rgba(3,7,18,.92) 100%)}
+.hero>*{position:relative;z-index:2}
+.hero h1{font-size:38px;color:var(--gold);margin-bottom:8px;text-shadow:0 0 40px rgba(240,192,64,.15)}
+.hero .sub{font-size:13px;color:var(--dim)}
+.container{max-width:1160px;margin:0 auto;padding:10px 20px 40px}
+.section{margin:36px 0}
+.section-title{font-size:15px;color:var(--cyan);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:18px;display:grid;grid-template-columns:280px 1fr;transition:.25s}
+.exp-card:hover{border-color:rgba(0,212,255,.15)}
+.exp-card .ec-img{position:relative;min-height:220px;overflow:hidden}
+.exp-card .ec-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.exp-card .ec-img .ec-badge{position:absolute;top:10px;left:10px;padding:3px 10px;border-radius:8px;font-size:9px;font-weight:700;background:rgba(0,212,255,.15);color:var(--cyan);border:1px solid rgba(0,212,255,.2)}
+.exp-card .ec-info{padding:20px}
+.exp-card .ec-info h3{font-size:16px;color:var(--text);margin-bottom:8px}
+.exp-card .ec-info .ec-desc{font-size:12px;color:var(--dim);line-height:1.8;margin-bottom:10px}
+.exp-card .ec-info .ec-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.exp-card .ec-info .ec-meta span{font-size:10px;color:var(--dim);background:rgba(0,212,255,.04);padding:3px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.04);white-space:nowrap}
+.exp-card .ec-info .ec-price{font-size:15px;font-weight:700;color:var(--red);margin-bottom:8px}
+.exp-card .ec-info .ec-btn{display:inline-block;padding:8px 22px;border-radius:20px;font-size:11px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--cyan),var(--gold));text-decoration:none;transition:.2s}
+.exp-card .ec-info .ec-btn:hover{box-shadow:0 0 20px rgba(0,212,255,.4)}
+.season-cal{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.season-cal .sc-block{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;transition:.25s}
+.season-cal .sc-block:hover{border-color:rgba(0,212,255,.15)}
+.season-cal .sc-block .sc-icon{font-size:32px;margin-bottom:6px}
+.season-cal .sc-block .sc-title{font-size:13px;color:var(--text);font-weight:600;margin-bottom:4px}
+.season-cal .sc-block .sc-months{font-size:10px;color:var(--gold);margin-bottom:4px}
+.season-cal .sc-block .sc-detail{font-size:9px;color:var(--dim);line-height:1.5}
+.culture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.culture-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center;transition:.25s}
+.culture-item:hover{border-color:rgba(240,192,64,.2)}
+.culture-item .ci-icon{font-size:32px;margin-bottom:8px}
+.culture-item h4{font-size:13px;color:var(--gold);margin-bottom:6px}
+.culture-item .ci-desc{font-size:10px;color:var(--dim);line-height:1.6}
+.lodge-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+.lodge-card .lodge-img{border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.lodge-card .lodge-img img{width:100%;height:220px;object-fit:cover}
+.lodge-card .lodge-info h3{font-size:16px;color:var(--text);margin-bottom:8px}
+.lodge-card .lodge-info p{font-size:12px;color:var(--dim);line-height:1.8;margin-bottom:8px}
+.lodge-card .lodge-info .lodge-features{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.lodge-card .lodge-info .lodge-features span{font-size:10px;color:var(--green);background:rgba(77,148,96,.08);padding:2px 8px;border-radius:6px;border:1px solid rgba(77,148,96,.15)}
+.book-strip{background:linear-gradient(135deg,rgba(0,212,255,.05),rgba(240,192,64,.05));border:1px solid rgba(0,212,255,.12);border-radius:var(--radius);padding:20px 24px;text-align:center;margin-top:10px}
+.book-strip h3{font-size:15px;color:var(--gold);margin-bottom:8px}
+.book-strip .book-cta{display:inline-block;padding:10px 28px;border-radius:24px;font-size:13px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--cyan),var(--gold));text-decoration:none;transition:.2s;margin-top:6px}
+.book-strip .book-cta:hover{box-shadow:0 0 24px rgba(0,212,255,.4)}
+.footer{text-align:center;padding:20px 20px 30px;border-top:1px solid var(--border);font-size:10px;color:#4a5568;line-height:1.8}
+.footer a{color:var(--dim);text-decoration:none}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.1);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:4px 8px;border-radius:8px;transition:.2s}
+.bottom-nav a:hover{color:var(--cyan)}
+@media(max-width:768px){
+  .hero h1{font-size:24px}.hero{height:240px}
+  .exp-card{grid-template-columns:1fr}
+  .exp-card .ec-img{height:180px}
+  .season-cal{grid-template-columns:repeat(2,1fr)}
+  .culture-grid{grid-template-columns:1fr}
+  .lodge-card{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/junge/eco-farm.html">🌿 生态农庄</a><span class="sep">▸</span>
+  <a href="/farm-yunnan.html">云南高山生态农庄</a><span class="sep">▸</span>
+  <span class="current">农旅体验</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" class="logo">⚔ 军鸽云链</a>
+  <span class="divider"></span>
+  <a href="/index.html" class="nav-link">🛡️ 军鸽首页</a>
+  <a href="/shangcheng.html" class="nav-link">🛒 商业生态</a>
+  <a href="/taskforce.html" class="nav-link">⚡ 数智中心</a>
+  <a href="/fenzhan.html" class="nav-link">🌾 分站家园</a>
+  <span class="divider"></span>
+  <a href="/farm-yunnan.html" class="nav-link">🏔️ 云南农庄</a>
+  <a href="/farm-yunnan-products.html" class="nav-link">📦 产品中心</a>
+  <a href="/farm-yunnan-traceability.html" class="nav-link">🔍 溯源详情</a>
+  <a href="/farm-yunnan-experience.html" class="nav-link active">🌿 农旅体验</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>🌿 云岭深处 · 农旅体验</h1>
+    <div class="sub">古茶山徒步 · 采茶制茶 · 野生菌采摘 · 少数民族文化 · 茶山民宿</div>
+  </div>
+</section>
+
+<div class="container">
+
+<!-- 核心体验项目 -->
+<div class="section">
+  <div class="section-title"><span class="icon">🎯</span> 核心体验项目</div>
+
+  <div class="exp-card">
+    <div class="ec-img">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="古茶山徒步" loading="lazy">
+      <div class="ec-badge">🔥 最受欢迎</div>
+    </div>
+    <div class="ec-info">
+      <h3>🥾 古茶山徒步 · 景迈山茶马古道</h3>
+      <div class="ec-desc">穿越景迈山千年古茶林，沿着茶马古道探寻世界文化遗产的脉络。专业向导（退役军人和当地少数民族茶农）带您深入古茶园核心区，认识300-1000年古茶树，了解"林下种植"的千年智慧。途经云海观景台、古村落和茶马古道遗迹。</div>
+      <div class="ec-meta"><span>⏰ 3-4小时</span><span>👥 5-20人/团</span><span>📏 约6-8公里</span><span>🏔️ 海拔1700-1900m</span></div>
+      <div class="ec-price">¥168/人</div>
+      <a href="/farm-experience.html" class="ec-btn">📝 立即预约</a>
+    </div>
+  </div>
+
+  <div class="exp-card">
+    <div class="ec-img">
+      <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=600&q=80" alt="采茶制茶体验" loading="lazy">
+      <div class="ec-badge">🍵 春/秋限定</div>
+    </div>
+    <div class="ec-info">
+      <h3>🍵 采茶制茶深度体验</h3>
+      <div class="ec-desc">跟随傣族非遗制茶传承人，清晨进入古茶园采摘一芽二叶春茶鲜叶。从摊青、杀青到揉捻、晒干——全程手工体验千年制茶工艺，最后亲手用石磨压制一饼专属普洱茶，签名留念，并获得区块链存证编号。茶饼寄回家中或现场带走。</div>
+      <div class="ec-meta"><span>⏰ 全天 08:00-17:00</span><span>👥 限30人/场</span><span>🌱 3-4月春茶季</span><span>🍂 9-10月秋茶季</span></div>
+      <div class="ec-price">¥398/人（含午餐+成品茶饼）</div>
+      <a href="/farm-experience.html" class="ec-btn">📝 立即预约</a>
+    </div>
+  </div>
+
+  <div class="exp-card">
+    <div class="ec-img">
+      <img src="https://images.unsplash.com/photo-1543364195-bfe6e4932397?w=600&q=80" alt="野生菌采摘" loading="lazy">
+      <div class="ec-badge">🍄 7-9月限定</div>
+    </div>
+    <div class="ec-info">
+      <h3>🍄 野生菌采摘体验</h3>
+      <div class="ec-desc">雨季的景迈山，松茸、牛肝菌、鸡枞菌破土而出。在经验丰富的当地菌农带领下，深入原始森林学习辨别可食用野生菌的技巧。采摘的菌菇可现场烹饪品尝，体验"从森林到餐桌"的极致鲜美。含菌菇辨识课程和野生菌火锅午餐。</div>
+      <div class="ec-meta"><span>⏰ 07:00-13:00</span><span>👥 限15人/团</span><span>🍄 7-9月雨季</span><span>🧤 装备全包</span></div>
+      <div class="ec-price">¥328/人（含午餐+采摘菌菇）</div>
+      <a href="/farm-experience.html" class="ec-btn">📝 立即预约</a>
+    </div>
+  </div>
+
+  <div class="exp-card">
+    <div class="ec-img">
+      <img src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=600&q=80" alt="云海日出茶会" loading="lazy">
+      <div class="ec-badge">☁️ 常年可约</div>
+    </div>
+    <div class="ec-info">
+      <h3>☁️ 云海日出茶会</h3>
+      <div class="ec-desc">清晨5:30出发，登上海拔1800米的观景台，静候云海日出胜景。当金色阳光穿透云层洒在千年古茶林上，一边品鉴三款不同年份的古树普洱茶，一边聆听茶道师讲解景迈茶文化。一场视觉、味觉与心灵的三重盛宴。</div>
+      <div class="ec-meta"><span>⏰ 05:30-10:00</span><span>👥 限20人</span><span>🍵 品鉴3款古树茶</span><span>📸 专业旅拍</span></div>
+      <div class="ec-price">¥188/人（含茶点+旅拍照片）</div>
+      <a href="/farm-experience.html" class="ec-btn">📝 立即预约</a>
+    </div>
+  </div>
+</div>
+
+<!-- 季节日历 -->
+<div class="section">
+  <div class="section-title"><span class="icon">📅</span> 四季体验日历</div>
+  <div class="season-cal">
+    <div class="sc-block" style="border-color:rgba(77,148,96,.15)">
+      <div class="sc-icon">🌸</div>
+      <div class="sc-title">春 · 茶香季</div>
+      <div class="sc-months">3月-5月</div>
+      <div class="sc-detail">🍵 春茶采摘制茶<br>🌸 樱花盛开赏花<br>🥾 古茶山徒步<br>🌿 中草药研学</div>
+    </div>
+    <div class="sc-block" style="border-color:rgba(0,212,255,.15)">
+      <div class="sc-icon">☁️</div>
+      <div class="sc-title">夏 · 云海菌菇季</div>
+      <div class="sc-months">6月-8月</div>
+      <div class="sc-detail">☁️ 云海日出观赏<br>🍄 野生菌采摘体验<br>🔥 篝火晚会<br>🏕️ 高山露营</div>
+    </div>
+    <div class="sc-block" style="border-color:rgba(240,192,64,.2)">
+      <div class="sc-icon">🍂</div>
+      <div class="sc-title">秋 · 丰收季</div>
+      <div class="sc-months">9月-11月</div>
+      <div class="sc-detail">🍵 秋茶采摘制茶<br>🌿 三七采挖体验<br>🌾 丰收庆典<br>📸 金秋摄影</div>
+    </div>
+    <div class="sc-block" style="border-color:rgba(184,64,69,.15)">
+      <div class="sc-icon">❄️</div>
+      <div class="sc-title">冬 · 禅茶季</div>
+      <div class="sc-months">12月-2月</div>
+      <div class="sc-detail">🌸 冬樱花观赏<br>🍵 古树茶品鉴会<br>🧘 茶山冥想<br>🔥 围炉煮茶</div>
+    </div>
+  </div>
+</div>
+
+<!-- 少数民族文化 -->
+<div class="section">
+  <div class="section-title"><span class="icon">🎭</span> 少数民族文化体验</div>
+  <div class="culture-grid">
+    <div class="culture-item">
+      <div class="ci-icon">🦚</div>
+      <h4>傣族文化</h4>
+      <div class="ci-desc">体验傣族泼水节、竹筒茶制作、傣族织锦。品尝傣味手抓饭、香茅草烤鱼、菠萝紫米饭。聆听傣族古茶歌谣，了解傣族与茶的不解之缘。</div>
+    </div>
+    <div class="culture-item">
+      <div class="ci-icon">🎵</div>
+      <h4>拉祜族文化</h4>
+      <div class="ci-desc">聆听拉祜族芦笙舞和古调吟唱——"猎虎的民族"在茶山中找到了新的生活方式。体验拉祜族烤茶、品尝拉祜族烤鸡和糯米粑粑。</div>
+    </div>
+    <div class="culture-item">
+      <div class="ci-icon">🌳</div>
+      <h4>布朗族文化</h4>
+      <div class="ci-desc">布朗族是景迈山最早的茶农——"茶神子孙"。体验布朗族祭茶祖仪式、学习布朗族手工制茶技艺。品尝布朗族的酸茶和昆虫宴。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 茶山民宿 -->
+<div class="section">
+  <div class="section-title"><span class="icon">🏡</span> 茶山民宿 · 云海日出</div>
+  <div class="lodge-card">
+    <div class="lodge-img"><img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&q=80" alt="茶山民宿" loading="lazy"></div>
+    <div class="lodge-info">
+      <h3>🏡 云海茶居民宿</h3>
+      <p>坐落于海拔1800米的茶山之巅，推窗即见云海翻涌和千年古茶林。民宿采用傣族传统干栏式建筑风格，融入现代舒适设施。共12间客房，每间均配备观景阳台和茶台。</p>
+      <p>清晨，在鸟鸣和茶香中醒来，推开窗便是壮美的云海日出。夜晚，满天繁星触手可及，围炉煮茶、听退役军人们讲述高山创业故事。</p>
+      <div class="lodge-features">
+        <span>🏔️ 云海观景</span><span>🍵 茶台+古树茶</span><span>📶 免费WiFi</span><span>🅿️ 免费停车</span><span>🍽️ 有机餐厅</span>
+      </div>
+      <p style="font-size:14px;color:var(--red);font-weight:700">¥398-698/晚 · 含双早+下午茶</p>
+    </div>
+  </div>
+</div>
+
+<!-- 预约 -->
+<div class="book-strip">
+  <h3>📞 预约咨询 · 定制您的云岭之旅</h3>
+  <p style="font-size:11px;color:var(--dim);margin-bottom:4px">提前3天预约 · 退役军人及家属享8折 · 金卡会员每年2次免费体验</p>
+  <a href="/farm-experience.html" class="book-cta">🍵 立即预约农旅体验</a>
+  <a href="/farm-yunnan.html" style="display:inline-block;margin-left:10px;padding:10px 20px;border-radius:24px;font-size:11px;color:var(--cyan);border:1px solid rgba(0,212,255,.2);text-decoration:none;transition:.2s">🏔️ 返回农庄主页 →</a>
+</div>
+
+</div>
+
+<div class="footer">
+  <a href="/junge/eco-farm.html">🌿 生态农庄</a> ·
+  <a href="/farm-yunnan-products.html">📦 产品中心</a> ·
+  <a href="/shangcheng.html">🛒 商业生态</a> ·
+  <a href="/">🏠 首页</a><br>
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站: 175.178.55.90 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+  食品安全+退役军人在服务综合平台
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+</body>
+</html>

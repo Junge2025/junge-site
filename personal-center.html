@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#0a1628">
+  <title>军鸽云链数智·个人中心 | 退役军人食品安全服务平台</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/ai-styles.css">
+  <style>
+:root {
+  --primary: #0a1628;
+  --primary-light: #0f2240;
+  --primary-mid: #1a3a5f;
+  --accent-cyan: #00d4ff;
+  --accent-cyan-dim: rgba(0,212,255,0.15);
+  --accent-gold: #d4af37;
+  --accent-gold-dim: rgba(212,175,55,0.15);
+  --accent-red: #e53935;
+  --accent-red-dim: rgba(229,57,53,0.12);
+  --accent-green: #4caf50;
+  --accent-green-dim: rgba(76,175,80,0.12);
+  --accent-purple: #7c3aed;
+  --accent-orange: #fb8b24;
+  --text-primary: #e8edf5;
+  --text-secondary: #8896b0;
+  --text-muted: #5a6a85;
+  --card-bg: rgba(15,34,64,0.6);
+  --card-border: rgba(0,212,255,0.08);
+  --card-hover-border: rgba(0,212,255,0.25);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.3);
+  --shadow-glow-cyan: 0 0 20px rgba(0,212,255,0.15);
+  --glass-bg: rgba(10,22,40,0.75);
+  --glass-border: rgba(255,255,255,0.06);
+  --font-family: 'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{
+  font-family:var(--font-family);
+  background:var(--primary);
+  color:var(--text-primary);
+  line-height:1.6;
+  overflow-x:hidden;
+  min-height:100vh;display:flex;flex-direction:column;
+}
+::selection{background:var(--accent-cyan);color:var(--primary)}
+a{color:inherit;text-decoration:none;transition:var(--transition)}
+button,.btn{cursor:pointer;font-family:inherit;border:none;outline:none;transition:var(--transition)}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
+.page-container{width:100%;max-width:820px;margin:0 auto;padding:0 20px;flex:1;}
+
+/* Particle Canvas */
+#particle-canvas{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;opacity:0.6;
+}
+
+/* Header */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(10,22,40,0.88);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  transition:var(--transition);
+}
+header.scrolled{background:rgba(10,22,40,0.96);box-shadow:0 4px 30px rgba(0,0,0,0.35)}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 0;gap:8px;min-height:56px;
+}
+.brandbox{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.brand-logo{
+  width:36px;height:36px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));
+  font-size:16px;font-weight:800;color:#fff;
+}
+.brand-title .cn{font-size:15px;font-weight:700;color:var(--text-primary);letter-spacing:1px}
+.brand-title .en{font-size:9px;color:var(--text-secondary);letter-spacing:2px}
+.nav-wrapper{
+  flex:1;overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent);
+  mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent);
+}
+nav.navbar{
+  display:flex;gap:2px;overflow-x:auto;overflow-y:hidden;
+  scrollbar-width:none;-ms-overflow-style:none;
+  padding:0 4px;scroll-behavior:smooth;
+}
+nav.navbar::-webkit-scrollbar{display:none}
+nav.navbar a{
+  padding:6px 10px;border-radius:6px;font-size:12.5px;font-weight:500;
+  color:var(--text-secondary);white-space:nowrap;
+  border:1px solid transparent;transition:var(--transition);
+  display:flex;align-items:center;gap:4px;flex-shrink:0;
+}
+nav.navbar a i{font-size:12px;opacity:0.7}
+nav.navbar a:hover,nav.navbar a.active{
+  color:var(--accent-cyan);background:var(--accent-cyan-dim);
+  border-color:rgba(0,212,255,0.1);
+}
+nav.navbar a.active{color:#fff;background:rgba(0,212,255,0.12)}
+nav.navbar a:hover i,nav.navbar a.active i{opacity:1}
+.header-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.header-actions .btn-cart,.header-actions .btn-user{
+  width:34px;height:34px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:var(--text-secondary);
+  background:rgba(255,255,255,0.03);border:1px solid transparent;
+  position:relative;transition:var(--transition);
+}
+.header-actions .btn-cart:hover,.header-actions .btn-user:hover{
+  color:var(--accent-cyan);background:var(--accent-cyan-dim);
+  border-color:rgba(0,212,255,0.1);
+}
+.header-actions .cart-badge{
+  position:absolute;top:-2px;right:-2px;
+  min-width:16px;height:16px;padding:0 4px;
+  border-radius:10px;background:var(--accent-red);
+  color:#fff;font-size:9px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  line-height:1;box-shadow:0 0 6px rgba(229,57,53,0.4);
+}
+.header-actions .btn-did{
+  padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;
+  background:linear-gradient(135deg,var(--accent-gold-dim),var(--accent-gold-dim));
+  border:1px solid rgba(212,175,55,0.2);
+  color:var(--accent-gold);letter-spacing:0.5px;white-space:nowrap;
+}
+.header-actions .btn-did:hover{background:var(--accent-gold-dim);border-color:var(--accent-gold)}
+.header-actions .btn-login{
+  padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;
+  background:var(--accent-cyan-dim);border:1px solid rgba(0,212,255,0.15);
+  color:var(--accent-cyan);white-space:nowrap;
+}
+.header-actions .btn-login:hover{background:rgba(0,212,255,0.2)}
+.mobile-toggle,.mobile-toggle-close{display:none;color:var(--text-primary);font-size:20px;background:none;padding:6px;border-radius:6px}
+.mobile-toggle:hover{background:rgba(255,255,255,0.05)}
+
+/* Spacer */
+.page-spacer{height:76px;}
+
+/* ====== User Header Card ====== */
+.user-card{
+  position:relative;z-index:1;
+  background:linear-gradient(135deg,rgba(15,34,64,0.8),rgba(10,22,40,0.9));
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-xl);
+  padding:28px 24px;margin-top:16px;margin-bottom:20px;
+  backdrop-filter:blur(16px);
+  overflow:hidden;
+}
+.user-card::before{
+  content:'';position:absolute;top:-50%;right:-30%;
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(0,212,255,0.08) 0%,transparent 70%);
+  border-radius:50%;
+}
+.user-card .top-row{
+  display:flex;align-items:center;gap:16px;position:relative;z-index:1;
+}
+.user-avatar{
+  width:68px;height:68px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));
+  display:flex;align-items:center;justify-content:center;
+  font-size:32px;font-weight:800;color:#fff;flex-shrink:0;
+  border:2px solid rgba(0,212,255,0.3);
+  box-shadow:0 0 20px rgba(0,212,255,0.15);
+}
+.user-meta{flex:1;}
+.user-meta .nickname{font-size:22px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.user-meta .nickname .vip-tag{
+  font-size:10px;padding:2px 10px;border-radius:12px;
+  background:var(--accent-gold-dim);color:var(--accent-gold);
+  border:1px solid rgba(212,175,55,0.2);
+  font-weight:600;letter-spacing:0.5px;
+}
+.user-meta .did-row{font-size:13px;color:var(--text-muted);margin-top:4px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.user-meta .did-row .did-value{font-family:monospace;color:var(--accent-cyan);font-size:12px;}
+.user-badge-row{
+  display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;
+}
+.user-badge-row .badge{
+  font-size:10px;padding:2px 8px;border-radius:10px;
+  background:var(--accent-cyan-dim);color:var(--accent-cyan);
+  border:1px solid rgba(0,212,255,0.1);
+}
+
+/* ====== Three Value Progress Bars ====== */
+.value-section{position:relative;z-index:1;margin-bottom:20px;}
+.value-section .section-title{
+  font-size:16px;font-weight:700;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.value-section .section-title i{color:var(--accent-cyan);}
+
+.value-progress-card{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:var(--radius-lg);padding:20px 20px 16px;
+  backdrop-filter:blur(12px);margin-bottom:12px;
+  transition:var(--transition);
+}
+.value-progress-card:hover{border-color:var(--card-hover-border);}
+.value-progress-card .vp-header{
+  display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;
+}
+.value-progress-card .vp-label{
+  font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;
+}
+.value-progress-card .vp-num{font-size:20px;font-weight:800;}
+.value-progress-card .vp-bar{
+  width:100%;height:8px;border-radius:10px;
+  background:rgba(255,255,255,0.06);overflow:hidden;
+}
+.value-progress-card .vp-bar .vp-fill{
+  height:100%;border-radius:10px;transition:width 1s ease;
+}
+.value-progress-card .vp-foot{font-size:12px;color:var(--text-muted);margin-top:6px;}
+.value-progress-card.trade .vp-num{color:var(--accent-gold);}
+.value-progress-card.trade .vp-fill{background:linear-gradient(90deg,var(--accent-gold-dim),var(--accent-gold));}
+.value-progress-card.digital .vp-num{color:var(--accent-cyan);}
+.value-progress-card.digital .vp-fill{background:linear-gradient(90deg,var(--accent-cyan-dim),var(--accent-cyan));}
+.value-progress-card.honor .vp-num{color:var(--accent-red);}
+.value-progress-card.honor .vp-fill{background:linear-gradient(90deg,var(--accent-red-dim),var(--accent-red));}
+
+/* ====== Orders Section ====== */
+.orders-section{position:relative;z-index:1;margin-bottom:20px;}
+.orders-section .section-title{
+  font-size:16px;font-weight:700;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.orders-section .section-title i{color:var(--accent-cyan);}
+.order-item{
+  display:flex;align-items:center;gap:14px;
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:var(--radius-md);padding:14px 16px;margin-bottom:10px;
+  transition:var(--transition);cursor:pointer;
+}
+.order-item:hover{
+  border-color:var(--card-hover-border);
+  box-shadow:var(--shadow-glow-cyan);
+  transform:translateY(-1px);
+}
+.order-item .oi-icon{
+  width:40px;height:40px;border-radius:8px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.order-item .oi-info{flex:1;min-width:0;}
+.order-item .oi-status{font-size:13px;font-weight:600;margin-bottom:2px;}
+.order-item .oi-detail{font-size:12px;color:var(--text-muted);}
+.order-item .oi-amount{font-size:15px;font-weight:700;color:var(--accent-gold);text-align:right;}
+.order-item .oi-time{font-size:11px;color:var(--text-muted);text-align:right;}
+
+/* Status colors */
+.status-complete .oi-status{color:var(--accent-green);}
+.status-pending .oi-status{color:var(--accent-gold);}
+.status-shipping .oi-status{color:var(--accent-cyan);}
+.status-cancel .oi-status{color:var(--text-muted);}
+.status-refund .oi-status{color:var(--accent-orange);}
+.oi-icon.complete{background:var(--accent-green-dim);color:var(--accent-green);}
+.oi-icon.pending{background:var(--accent-gold-dim);color:var(--accent-gold);}
+.oi-icon.shipping{background:var(--accent-cyan-dim);color:var(--accent-cyan);}
+.oi-icon.cancel{background:rgba(255,255,255,0.04);color:var(--text-muted);}
+.oi-icon.refund{background:rgba(251,139,36,0.15);color:var(--accent-orange);}
+
+/* ====== Section Cards ====== */
+.section-card{position:relative;z-index:1;margin-bottom:20px;}
+.section-card .section-title{
+  font-size:16px;font-weight:700;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.section-card .section-title i{color:var(--accent-cyan);}
+
+/* Product Grid (Favorites + Recent) */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.prod-card{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:var(--radius-md);padding:12px;text-align:center;
+  transition:var(--transition);cursor:pointer;
+}
+.prod-card:hover{
+  border-color:var(--card-hover-border);
+  box-shadow:var(--shadow-glow-cyan);
+  transform:translateY(-2px);
+}
+.prod-card img{
+  width:100%;height:90px;object-fit:cover;border-radius:6px;
+  margin-bottom:8px;background:rgba(255,255,255,0.03);
+}
+.prod-card h4{font-size:13px;font-weight:600;margin-bottom:2px;}
+.prod-card .prod-price{font-size:15px;font-weight:700;color:var(--accent-gold);}
+.prod-card .prod-time{font-size:10px;color:var(--text-muted);margin-top:2px;}
+
+/* ====== Menu Section ====== */
+.menu-section{position:relative;z-index:1;margin-bottom:16px;}
+.menu-section .section-title{
+  font-size:16px;font-weight:700;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.menu-section .section-title i{color:var(--accent-cyan);}
+
+.menu-card{
+  background:var(--card-bg);border:1px solid var(--card-border);
+  border-radius:var(--radius-lg);overflow:hidden;
+  backdrop-filter:blur(12px);
+}
+.menu-item{
+  display:flex;align-items:center;padding:14px 18px;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  cursor:pointer;transition:var(--transition);gap:12px;
+}
+.menu-item:last-child{border-bottom:none;}
+.menu-item:hover{background:rgba(0,212,255,0.03);}
+.menu-item .mi-icon{
+  width:36px;height:36px;border-radius:8px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.menu-item .mi-text{flex:1;}
+.menu-item .mi-text h4{font-size:14px;font-weight:600;}
+.menu-item .mi-text p{font-size:12px;color:var(--text-muted);}
+.menu-item .mi-arrow{color:var(--text-muted);font-size:12px;}
+.menu-item .mi-badge{
+  font-size:10px;padding:2px 8px;border-radius:10px;
+  background:var(--accent-red-dim);color:var(--accent-red);
+  border:1px solid rgba(229,57,53,0.15);font-weight:600;
+}
+
+/* Logout */
+.logout-wrap{position:relative;z-index:1;margin:24px 0 40px;}
+.logout-btn{
+  width:100%;padding:14px;border-radius:10px;
+  background:rgba(229,57,53,0.08);border:1px solid rgba(229,57,53,0.15);
+  color:var(--accent-red);font-size:15px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:var(--transition);cursor:pointer;
+}
+.logout-btn:hover{background:rgba(229,57,53,0.15);}
+
+/* Footer */
+footer{
+  position:relative;z-index:1;
+  background:rgba(10,22,40,0.9);border-top:1px solid rgba(255,255,255,0.04);
+  padding:40px 0 20px;margin-top:40px;
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
+.footer-brand .fb-icon{font-size:28px;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.7}
+.footer-col h4{font-size:13px;font-weight:600;margin-bottom:12px;color:var(--text-primary);letter-spacing:1px}
+.footer-col a{display:block;font-size:12px;color:var(--text-muted);margin-bottom:6px}
+.footer-col a:hover{color:var(--accent-cyan)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.04);padding-top:16px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+  font-size:12px;color:var(--text-muted);
+}
+
+/* Responsive */
+@media(max-width:992px){
+  .prod-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .mobile-toggle{display:block;order:10}
+  .mobile-toggle-close{display:flex !important}
+  .nav-wrapper{position:fixed;top:0;right:-100%;width:300px;max-width:85vw;height:100vh;
+    background:rgba(8,16,32,0.98);backdrop-filter:blur(24px);
+    border-left:1px solid rgba(255,255,255,0.06);
+    z-index:2000;transition:right 0.35s cubic-bezier(0.4,0,0.2,1);
+    padding:70px 16px 24px;overflow-y:auto;
+    -webkit-mask-image:none;mask-image:none;
+    box-shadow:-10px 0 40px rgba(0,0,0,0.5);
+  }
+  .nav-wrapper.open{right:0}
+  .navbar{flex-direction:column;gap:2px;overflow:visible;padding:0}
+  .navbar a{
+    padding:12px 14px;font-size:14px;border-radius:8px;
+    border:1px solid transparent;gap:10px;
+  }
+  .navbar a i{font-size:16px;width:20px;text-align:center;opacity:1}
+  .navbar a:not(:last-child){border-bottom:1px solid rgba(255,255,255,0.03)}
+  .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.5);z-index:1999;
+    opacity:0;pointer-events:none;transition:opacity 0.3s;
+  }
+  .nav-overlay.show{opacity:1;pointer-events:auto}
+  .did-text,.login-text{display:none}
+  .mobile-toggle-close{
+    position:fixed;top:12px;right:calc(300px + 12px);
+    max-width:85vw;z-index:2001;font-size:24px;
+    opacity:0;pointer-events:none;transition:opacity 0.3s;
+  }
+  .mobile-toggle-close.show{opacity:1;pointer-events:auto}
+  .user-avatar{width:56px;height:56px;font-size:26px;}
+  .user-meta .nickname{font-size:18px;}
+  .prod-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .nav-wrapper{width:100%;max-width:100%;border-left:none}
+  .mobile-toggle-close{right:16px}
+  .prod-grid{grid-template-columns:1fr;}
+}
+  
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链数智·个人中心 | 退役军人食品安全服务平台">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/personal-center.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/personal-center.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">个人中心</span>
+</nav>
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ====== Header ====== -->
+  <header id="site-header" role="banner">
+    <div class="container topbar">
+      <div class="brandbox">
+        <div class="brand-logo">&#x1F426;</div>
+        <div class="brand-title">
+          <div class="cn">军鸽云链数智</div>
+          <div class="en">JunGe CloudLink DI</div>
+        </div>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><i class="fas fa-bars"></i></button>
+      <div class="nav-wrapper" id="navWrapper">
+        <nav class="navbar" id="mainNav" aria-label="主导航">
+          <a href="/index.html"><i class="fas fa-home"></i> 首页</a>
+          <a href="junge-shuzhi.html"><i class="fas fa-crown"></i> junge数智</a>
+          <a href="shangcheng.html"><i class="fas fa-store"></i> 军创商城</a>
+          <a href="youpin.html"><i class="fas fa-star"></i> 军创优品</a>
+          <a href="cross-border.html"><i class="fas fa-globe"></i> 跨境电商</a>
+          <a href="zero-tariff.html"><i class="fas fa-tag"></i> 零关税</a>
+        <a href="game-center.html" class="nav-highlight" style="border-color:rgba(212,175,55,0.25);background:rgba(212,175,55,0.04)"><i class="fas fa-gamepad"></i> 🎮游戏池</a>
+          <a href="fenzhan.html"><i class="fas fa-sitemap"></i> 分站</a>
+          <a href="enterprise-cooperation.html"><i class="fas fa-building"></i> 企业合作</a>
+          <a href="employment-service.html"><i class="fas fa-briefcase"></i> 就业服务</a>
+          <a href="culture-home.html"><i class="fas fa-book-open"></i> 文化家园</a>
+          <a href="mission-system.html"><i class="fas fa-bullseye"></i> 任务系统</a>
+          <a href="party-public.html"><i class="fas fa-flag"></i> 党建公益</a>
+          <a href="about.html"><i class="fas fa-info-circle"></i> 关于我们</a>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="btn-cart" href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-badge">0</span></a>
+        <a class="btn-user" href="personal-center.html"><i class="fas fa-user-circle"></i></a>
+        <a class="btn-did" href="digital-id.html"><i class="fas fa-id-card"></i> <span class="did-text">数字ID</span></a>
+        <a class="btn-login" href="login.html"><i class="fas fa-sign-in-alt"></i> <span class="login-text">登录</span></a>
+        <button class="mobile-toggle-close" id="mobileClose" aria-label="关闭菜单" style="display:none"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <div class="page-spacer"></div>
+
+  <div class="page-container">
+
+    <!-- ====== User Card ====== -->
+    <div class="user-card">
+      <div class="top-row">
+        <div class="user-avatar">张</div>
+        <div class="user-meta">
+          <div class="nickname">
+            张建国
+            <span class="vip-tag"><i class="fas fa-crown"></i> 金牌会员</span>
+          </div>
+          <div class="did-row">
+            <i class="fas fa-id-card"></i> 数字ID：
+            <span class="did-value">JG-DID-0x7F3A...B9C2</span>
+            <span style="color:var(--accent-green);font-size:11px;"><i class="fas fa-check-circle"></i> 已认证</span>
+          </div>
+          <div class="user-badge-row">
+            <span class="badge"><i class="fas fa-shield-alt"></i> 退役军人</span>
+            <span class="badge"><i class="fas fa-link"></i> 区块链确权</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== Three Value Progress Bars ====== -->
+    <div class="value-section">
+      <div class="section-title"><i class="fas fa-chart-bar"></i> 三大价值量体系</div>
+
+      <div class="value-progress-card trade">
+        <div class="vp-header">
+          <div class="vp-label"><i class="fas fa-coins" style="color:var(--accent-gold)"></i> 交易商用值</div>
+          <div class="vp-num" id="vpTrade">12,560</div>
+        </div>
+        <div class="vp-bar"><div class="vp-fill" id="barTrade" style="width:72%;"></div></div>
+        <div class="vp-foot"><i class="fas fa-arrow-up" style="color:var(--accent-green)"></i> 较上月增长 +8.3% · 等级Lv.5</div>
+      </div>
+
+      <div class="value-progress-card digital">
+        <div class="vp-header">
+          <div class="vp-label"><i class="fas fa-chart-line" style="color:var(--accent-cyan)"></i> 数字赋能值</div>
+          <div class="vp-num" id="vpDigital">86,420</div>
+        </div>
+        <div class="vp-bar"><div class="vp-fill" id="barDigital" style="width:58%;"></div></div>
+        <div class="vp-foot"><i class="fas fa-arrow-up" style="color:var(--accent-green)"></i> 较上月增长 +15.2% · 等级Lv.6</div>
+      </div>
+
+      <div class="value-progress-card honor">
+        <div class="vp-header">
+          <div class="vp-label"><i class="fas fa-medal" style="color:var(--accent-red)"></i> junge币</div>
+          <div class="vp-num" id="vpHoner">3,250</div>
+        </div>
+        <div class="vp-bar"><div class="vp-fill" id="barHonor" style="width:41%;"></div></div>
+        <div class="vp-foot"><i class="fas fa-gem" style="color:var(--accent-gold)"></i> 可用币：1,860 · 锁定币：1,390</div>
+      </div>
+    </div>
+
+    <!-- ====== Orders Section ====== -->
+    <div class="orders-section">
+      <div class="section-title"><i class="fas fa-receipt"></i> 最近订单</div>
+
+      <div class="order-item status-complete" onclick="alert('订单详情：JD20260501001')">
+        <div class="oi-icon complete"><i class="fas fa-check"></i></div>
+        <div class="oi-info">
+          <div class="oi-status">已完成</div>
+          <div class="oi-detail">军创有机五彩米5kg × 2 · 山茶油1L × 1</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="oi-amount">¥346.00</div>
+          <div class="oi-time">2026-05-01</div>
+        </div>
+      </div>
+
+      <div class="order-item status-pending" onclick="alert('订单详情：JD20260428003')">
+        <div class="oi-icon pending"><i class="fas fa-clock"></i></div>
+        <div class="oi-info">
+          <div class="oi-status">待付款</div>
+          <div class="oi-detail">古树普洱茶饼357g · 椴木黑木耳500g × 2</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="oi-amount">¥535.00</div>
+          <div class="oi-time">2026-04-28</div>
+        </div>
+      </div>
+
+      <div class="order-item status-shipping" onclick="alert('订单详情：JD20260425002')">
+        <div class="oi-icon shipping"><i class="fas fa-truck"></i></div>
+        <div class="oi-info">
+          <div class="oi-status">运输中</div>
+          <div class="oi-detail">退役军人特供蜂蜜500g × 3 · 有机杂粮礼盒</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="oi-amount">¥392.00</div>
+          <div class="oi-time">2026-04-25</div>
+        </div>
+      </div>
+
+      <div class="order-item status-refund" onclick="alert('订单详情：JD20260420004')">
+        <div class="oi-icon refund"><i class="fas fa-rotate-left"></i></div>
+        <div class="oi-info">
+          <div class="oi-status">退款中</div>
+          <div class="oi-detail">跨境电商进口保健品 · 退款处理中</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="oi-amount">¥268.00</div>
+          <div class="oi-time">2026-04-20</div>
+        </div>
+      </div>
+
+      <div class="order-item status-cancel" onclick="alert('订单详情：JD20260415001')">
+        <div class="oi-icon cancel"><i class="fas fa-ban"></i></div>
+        <div class="oi-info">
+          <div class="oi-status">已取消</div>
+          <div class="oi-detail">零关税免税电子产品 · 已取消</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="oi-amount">¥1,299.00</div>
+          <div class="oi-time">2026-04-15</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== Favorite Products ====== -->
+    <div class="section-card">
+      <div class="section-title"><i class="fas fa-heart" style="color:var(--accent-red)"></i> 收藏商品</div>
+      <div class="prod-grid">
+        <div class="prod-card" onclick="alert('军创有机五彩米')">
+          <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=400&auto=format&fit=crop" alt="有机五彩米" loading="lazy">
+          <h4>军创有机五彩米</h4>
+          <div class="prod-price">¥89.00</div>
+        </div>
+        <div class="prod-card" onclick="alert('野生山茶油')">
+          <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=400&auto=format&fit=crop" alt="山茶油" loading="lazy">
+          <h4>野生山茶油 1L</h4>
+          <div class="prod-price">¥168.00</div>
+        </div>
+        <div class="prod-card" onclick="alert('零关税进口红酒')">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400&auto=format&fit=crop" alt="红酒" loading="lazy">
+          <h4>零关税进口红酒</h4>
+          <div class="prod-price">¥398.00</div>
+        </div>
+        <div class="prod-card" onclick="alert('军创普洱茶饼')">
+          <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=400&auto=format&fit=crop" alt="普洱茶" loading="lazy">
+          <h4>古树普洱茶饼</h4>
+          <div class="prod-price">¥399.00</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== Recent Browsing ====== -->
+    <div class="section-card">
+      <div class="section-title"><i class="fas fa-clock-rotate"></i> 最近浏览</div>
+      <div class="prod-grid">
+        <div class="prod-card" onclick="alert('有机杂粮礼盒')">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop" alt="杂粮礼盒" loading="lazy">
+          <h4>有机杂粮礼盒</h4>
+          <div class="prod-price">¥128.00</div>
+          <div class="prod-time">2小时前</div>
+        </div>
+        <div class="prod-card" onclick="alert('退役军人特供蜂蜜')">
+          <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=400&auto=format&fit=crop" alt="蜂蜜" loading="lazy">
+          <h4>特供天然蜂蜜</h4>
+          <div class="prod-price">¥88.00</div>
+          <div class="prod-time">4小时前</div>
+        </div>
+        <div class="prod-card" onclick="alert('零关税电子产品')">
+          <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?q=80&w=400&auto=format&fit=crop" alt="电子产品" loading="lazy">
+          <h4>零关税蓝牙耳机</h4>
+          <div class="prod-price">¥599.00</div>
+          <div class="prod-time">昨天</div>
+        </div>
+        <div class="prod-card" onclick="alert('国际母婴用品')">
+          <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=400&auto=format&fit=crop" alt="母婴" loading="lazy">
+          <h4>国际母婴套装</h4>
+          <div class="prod-price">¥299.00</div>
+          <div class="prod-time">3天前</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== Account Settings Menu ====== -->
+    <div class="menu-section">
+      <div class="section-title"><i class="fas fa-gear"></i> 账户设置</div>
+      <div class="menu-card">
+        <div class="menu-item" onclick="navigate('profile')">
+          <div class="mi-icon" style="background:var(--accent-cyan-dim);color:var(--accent-cyan);"><i class="fas fa-user-edit"></i></div>
+          <div class="mi-text">
+            <h4>个人信息</h4>
+            <p>姓名、手机、地区、头像</p>
+          </div>
+          <i class="fas fa-chevron-right mi-arrow"></i>
+        </div>
+        <div class="menu-item" onclick="navigate('security')">
+          <div class="mi-icon" style="background:var(--accent-green-dim);color:var(--accent-green);"><i class="fas fa-shield-alt"></i></div>
+          <div class="mi-text">
+            <h4>安全设置</h4>
+            <p>密码、实名认证、数字ID</p>
+          </div>
+          <i class="fas fa-chevron-right mi-arrow"></i>
+        </div>
+        <div class="menu-item" onclick="navigate('address')">
+          <div class="mi-icon" style="background:var(--accent-gold-dim);color:var(--accent-gold);"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="mi-text">
+            <h4>收货地址</h4>
+            <p>管理常用收货地址</p>
+          </div>
+          <i class="fas fa-chevron-right mi-arrow"></i>
+        </div>
+        <div class="menu-item" onclick="navigate('payment')">
+          <div class="mi-icon" style="background:var(--accent-purple-dim);color:var(--accent-purple);"><i class="fas fa-credit-card"></i></div>
+          <div class="mi-text">
+            <h4>支付方式</h4>
+            <p>银行卡、数字钱包管理</p>
+          </div>
+          <i class="fas fa-chevron-right mi-arrow"></i>
+        </div>
+        <div class="menu-item" onclick="navigate('notifications')">
+          <div class="mi-icon" style="background:var(--accent-orange-dim);color:var(--accent-orange);"><i class="fas fa-bell"></i></div>
+          <div class="mi-text">
+            <h4>消息通知</h4>
+            <p>订单通知、活动提醒</p>
+          </div>
+          <span class="mi-badge">3</span>
+          <i class="fas fa-chevron-right mi-arrow"></i>
+        </div>
+        <div class="menu-item" onclick="navigate('privacy')">
+          <div class="mi-icon" style="background:var(--accent-red-dim);color:var(--accent-red);"><i class="fas fa-lock"></i></div>
+          <div class="mi-text">
+            <h4>隐私与授权</h4>
+            <p>数据授权、区块链确权</p>
+          </div>
+          <i class="fas fa-chevron-right mi-arrow"></i>
+        </div>
+        <div class="menu-item" onclick="navigate('about')">
+          <div class="mi-icon" style="background:rgba(255,255,255,0.04);color:var(--text-secondary);"><i class="fas fa-info-circle"></i></div>
+          <div class="mi-text">
+            <h4>关于账号</h4>
+            <p>版本号、注销账号</p>
+          </div>
+          <i class="fas fa-chevron-right mi-arrow"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logout -->
+    <div class="logout-wrap">
+      <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> 退出登录</button>
+    </div>
+
+  </div>
+
+  <!-- ====== Footer ====== -->
+  <!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="fb-icon">&#x1F426;</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:4px;letter-spacing:1px">军鸽云链数智</h3>
+          <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">JunGe CloudLink Digital Intelligence</p>
+          <p>以军人精神守护民生底线，以商业创新激活社会价值。退役军人创业就业服务平台 · 食品安全溯源 · 数字经济试验区。</p>
+        </div>
+        <div class="footer-col">
+          <h4>快速链接</h4>
+          <a href="shangcheng.html">军创商城</a>
+          <a href="youpin.html">军创优品</a>
+          <a href="cross-border.html">跨境电商</a>
+          <a href="zero-tariff.html">零关税专区</a>
+          <a href="fenzhan.html">AI智联分站</a>
+          <a href="join.html">加入军创</a>
+        </div>
+        <div class="footer-col">
+          <h4>服务支持</h4>
+          <a href="about.html">关于我们</a>
+          <a href="enterprise-contact.html">联系客服</a>
+          <a href="feedback.html">意见反馈</a>
+          <a href="complaint-process.html">投诉曝光台</a>
+          <a href="contact.html">联系方式</a>
+          <a href="mission.html">使命愿景</a>
+        </div>
+        <div class="footer-col">
+          <h4>智能体服务</h4>
+          <a href="ai-assistant.html">AI智能助手</a>
+          <a href="ai-consult.html">AI智能咨询</a>
+          <a href="ai-podcast.html">AI播客</a>
+          <a href="digital-id.html">数字ID中心</a>
+          <a href="personal-center.html">个人中心</a>
+          <a href="member-register.html">会员注册</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025-2026 军鸽云链数智 版权所有</span>
+        <span>琼ICP备2025063762号-2 | 技术支持：AI超级智能体编队</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // === Navigation Helper ===
+  function navigate(page){
+    var messages = {
+      'profile': '个人信息编辑（姓名、手机、地区、头像）',
+      'security': '安全设置（密码、实名认证、数字ID管理）',
+      'address': '收货地址管理',
+      'payment': '支付方式管理（银行卡、数字钱包）',
+      'notifications': '消息通知设置',
+      'privacy': '隐私与授权（数据授权、区块链确权）',
+      'about': '关于账号（版本 3.2.0 · 注销账号）'
+    };
+    alert(messages[page] || '功能开发中，敬请期待');
+  }
+
+  function logout(){
+    if(confirm('确定退出登录吗？')){
+      localStorage.removeItem('junge_user');
+      localStorage.removeItem('junge_cart');
+      alert('已退出登录');
+      window.location.href = 'login.html';
+    }
+  }
+
+  // === Animate Value Bars ===
+  function animateProgressBars(){
+    var bars = [
+      {el: document.getElementById('barTrade'), target: 72},
+      {el: document.getElementById('barDigital'), target: 58},
+      {el: document.getElementById('barHonor'), target: 41}
+    ];
+    bars.forEach(function(b){
+      if(!b.el) return;
+      b.el.style.width = '0%';
+      setTimeout(function(){
+        b.el.style.width = b.target + '%';
+      }, 300);
+    });
+  }
+
+  // === Mobile Nav ===
+  document.addEventListener('DOMContentLoaded', function(){
+    animateProgressBars();
+
+    var toggle = document.getElementById('mobileToggle');
+    var navWrap = document.getElementById('navWrapper');
+    var overlay = document.getElementById('navOverlay');
+    var closeBtn = document.getElementById('mobileClose');
+
+    function openNav(){
+      if(navWrap) navWrap.classList.add('open');
+      if(overlay) overlay.classList.add('show');
+      if(closeBtn) closeBtn.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeNav(){
+      if(navWrap) navWrap.classList.remove('open');
+      if(overlay) overlay.classList.remove('show');
+      if(closeBtn) closeBtn.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+    if(toggle) toggle.addEventListener('click', openNav);
+    if(closeBtn) closeBtn.addEventListener('click', closeNav);
+    if(overlay) overlay.addEventListener('click', closeNav);
+    if(navWrap){
+      navWrap.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click', closeNav);
+      });
+    }
+
+    var header = document.getElementById('site-header');
+    if(header){
+      window.addEventListener('scroll', function(){
+        if(window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+    }
+  });
+
+  // === Particle Canvas Background ===
+  (function(){
+    var canvas = document.getElementById('particle-canvas');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var PARTICLE_COUNT = 60;
+
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function Particle(){
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.size = Math.random() * 2 + 0.5;
+      this.alpha = Math.random() * 0.5 + 0.1;
+    }
+    Particle.prototype.update = function(){
+      this.x += this.vx; this.y += this.vy;
+      if(this.x < 0) this.x = canvas.width;
+      if(this.x > canvas.width) this.x = 0;
+      if(this.y < 0) this.y = canvas.height;
+      if(this.y > canvas.height) this.y = 0;
+    };
+    Particle.prototype.draw = function(){
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0, 212, 255, ' + this.alpha + ')';
+      ctx.fill();
+    };
+
+    for(var i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+    function animate(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for(var i = 0; i < particles.length; i++){
+        for(var j = i + 1; j < particles.length; j++){
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if(dist < 120){
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(0, 212, 255, ' + (0.08 * (1 - dist / 120)) + ')';
+            ctx.stroke();
+          }
+        }
+        particles[i].update();
+        particles[i].draw();
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+  </script>
+  <script src="/js/ai-engine.js"></script>
+  <script src="/js/game-pool.js"></script>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

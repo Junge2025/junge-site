@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="refresh" content="60">
+<title>一人超体 · AI指挥舱 | junge.中国 RED-DUAL Ω</title>
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,.85);--cyan:#00d4ff;--gold:#f0c040;--red:#ef4444;--green:#22c55e;--purple:#a78bfa;--orange:#fb8b24;--text:#e8edf5;--dim:#8896b0;--muted:#4a5568;--border:rgba(0,212,255,.08);--glow:rgba(0,212,255,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",monospace;line-height:1.6;padding-bottom:60px}
+.topbar{background:linear-gradient(135deg,rgba(3,7,18,.98),rgba(10,22,40,.95));border-bottom:1px solid var(--glow);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:100}
+.topbar .logo{font-size:15px;font-weight:900;background:linear-gradient(90deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.topbar .status{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--green)}
+.topbar .status .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.topbar .time{font-size:11px;color:var(--dim)}
+.container{max-width:1400px;margin:0 auto;padding:16px}
+
+/* Grid */
+.dash{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+@media(max-width:1000px){.dash{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.dash{grid-template-columns:1fr}}
+
+.panel{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden}
+.panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.3}
+.panel.wide{grid-column:span 2}
+.panel.full{grid-column:span 4}
+.panel.alert{border-color:rgba(239,68,68,.2)}
+.panel.alert::before{background:linear-gradient(90deg,transparent,var(--red),transparent)}
+.panel h3{font-size:13px;font-weight:700;color:var(--cyan);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.panel h3 .icon{font-size:16px}
+.panel h3 .tag{font-size:9px;padding:2px 8px;border-radius:8px;background:rgba(0,212,255,.1);color:var(--cyan);margin-left:auto}
+
+/* Stat card */
+.stat-row{display:flex;gap:10px;flex-wrap:wrap}
+.stat{flex:1;min-width:80px;text-align:center;padding:10px 8px;background:rgba(0,0,0,.2);border-radius:8px}
+.stat .val{font-size:22px;font-weight:900;color:var(--gold)}
+.stat .lbl{font-size:9px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.05em}
+
+/* Agent list */
+.agent-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:11px}
+.agent-row:last-child{border:none}
+.agent-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.agent-dot.on{background:var(--green);box-shadow:0 0 6px var(--green)}
+.agent-dot.idle{background:var(--orange);box-shadow:0 0 6px var(--orange)}
+.agent-name{flex:1;color:var(--text)}
+.agent-stat{color:var(--dim);font-size:10px}
+
+/* Pipeline */
+.pipe{display:flex;align-items:center;gap:4px;flex-wrap:wrap;font-size:10px;margin:8px 0}
+.pipe-node{padding:5px 10px;border-radius:6px;background:rgba(0,0,0,.3);border:1px solid var(--border)}
+.pipe-node.done{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.2);color:var(--green)}
+.pipe-node.run{background:rgba(0,212,255,.08);border-color:rgba(0,212,255,.2);color:var(--cyan);animation:pulse 2s infinite}
+.pipe-node.wait{color:var(--muted)}
+.pipe-arrow{color:var(--dim)}
+
+/* Cron table */
+.cron-table{width:100%;font-size:10px}
+.cron-table td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.02)}
+.cron-table .cron-name{color:var(--text);font-weight:600}
+.cron-table .cron-time{color:var(--gold)}
+.cron-table .cron-stat{font-size:9px}
+.cron-table .cron-stat.active{color:var(--green)}
+.cron-table .cron-stat.waiting{color:var(--dim)}
+
+/* Content catalog */
+.cat-item{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:10px;border-bottom:1px solid rgba(255,255,255,.02)}
+.cat-item:last-child{border:none}
+.cat-emoji{font-size:14px;flex-shrink:0}
+.cat-name{flex:1;color:var(--text)}
+.cat-count{color:var(--gold);font-weight:700}
+
+/* Progress bar */
+.bar-wrap{background:rgba(0,0,0,.3);border-radius:4px;height:4px;margin:4px 0;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width .5s}
+.bar-fill.green{background:var(--green)}
+.bar-fill.cyan{background:var(--cyan)}
+.bar-fill.gold{background:var(--gold)}
+
+/* Quick actions */
+.actions{display:flex;gap:6px;flex-wrap:wrap}
+.act-btn{padding:6px 14px;border-radius:6px;font-size:10px;font-weight:600;border:1px solid var(--border);background:rgba(0,0,0,.3);color:var(--dim);cursor:pointer;text-decoration:none;transition:.2s}
+.act-btn:hover{background:rgba(0,212,255,.08);border-color:var(--cyan);color:var(--cyan)}
+.act-btn.go{border-color:rgba(34,197,94,.3);color:var(--green)}
+.act-btn.go:hover{background:rgba(34,197,94,.08)}
+
+footer{text-align:center;padding:20px;color:var(--muted);font-size:9px;border-top:1px solid var(--border);margin-top:20px}
+.btm-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid var(--glow);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.btm-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="一人超体 · AI指挥舱 | junge.中国 RED-DUAL Ω">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/super-agent-hq.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/super-agent-hq.html">
+</head>
+<body>
+<div class="topbar">
+<div class="logo">⚡ 一人超体 · AI指挥舱</div>
+<div style="display:flex;align-items:center;gap:12px">
+<div class="status"><span class="dot"></span>全部系统在线</div>
+<div class="time">RED-DUAL Ω · junge.中国</div>
+</div>
+</div>
+
+<div class="container">
+
+<!-- ROW 1: KPIs -->
+<div class="dash">
+<div class="panel">
+<h3><span class="icon">🤖</span>AI武器状态</h3>
+<div class="stat-row">
+<div class="stat"><div class="val" style="color:var(--green)">12</div><div class="lbl">武器在线</div></div>
+<div class="stat"><div class="val">92%</div><div class="lbl">替代率</div></div>
+<div class="stat"><div class="val" style="color:var(--green)">¥0</div><div class="lbl">今日成本</div></div>
+</div>
+<div class="agent-row"><span class="agent-dot on"></span><span class="agent-name">L0 Ollama qwen2.5:3b</span><span class="agent-stat">内存驻留·¥0</span></div>
+<div class="agent-row"><span class="agent-dot on"></span><span class="agent-name">L1 junge-api :8866</span><span class="agent-stat">3模型路由</span></div>
+<div class="agent-row"><span class="agent-dot on"></span><span class="agent-name">L2 Hermes Agent</span><span class="agent-stat">15工具·子代理</span></div>
+<div class="agent-row"><span class="agent-dot on"></span><span class="agent-name">SuperAgentX :8500</span><span class="agent-stat">14Agents·Pipeline</span></div>
+<div class="agent-row"><span class="agent-dot on"></span><span class="agent-name">Docker 8容器</span><span class="agent-stat">Watchdog自愈</span></div>
+</div>
+
+<div class="panel">
+<h3><span class="icon">📡</span>定时火线</h3>
+<table class="cron-table">
+<tr><td class="cron-name">🔍 情报搜集</td><td class="cron-time">08:00,20:00</td><td class="cron-stat active">● 就绪</td></tr>
+<tr><td class="cron-name">📝 内容生产线</td><td class="cron-time">09:00</td><td class="cron-stat active">● 就绪</td></tr>
+<tr><td class="cron-name">🛡 Watchdog巡检</td><td class="cron-time">30秒</td><td class="cron-stat active">● 运行中</td></tr>
+<tr><td class="cron-name">📊 日报生成</td><td class="cron-time">待部署</td><td class="cron-stat waiting">○ 规划中</td></tr>
+<tr><td class="cron-name">📢 自动外发</td><td class="cron-time">待部署</td><td class="cron-stat waiting">○ 规划中</td></tr>
+</table>
+</div>
+
+<div class="panel">
+<h3><span class="icon">📦</span>今日内容产线</h3>
+<div class="cat-item"><span class="cat-emoji">📰</span><span class="cat-name">公众号推文</span><span class="cat-count">1篇</span></div>
+<div class="cat-item"><span class="cat-emoji">💬</span><span class="cat-name">朋友圈裂变文案</span><span class="cat-count">10条</span></div>
+<div class="cat-item"><span class="cat-emoji">🎬</span><span class="cat-name">抖音/快手脚本</span><span class="cat-count">3条</span></div>
+<div class="cat-item"><span class="cat-emoji">🖼</span><span class="cat-name">推广海报文案</span><span class="cat-count">待生成</span></div>
+<div class="cat-item"><span class="cat-emoji">📕</span><span class="cat-name">小红书笔记</span><span class="cat-count">待生成</span></div>
+<div class="cat-item"><span class="cat-emoji">📋</span><span class="cat-name">事务局合作函</span><span class="cat-count">待生成</span></div>
+<div style="margin-top:8px;font-size:10px;color:var(--green)">合计：14件 · 成本：¥0</div>
+</div>
+
+<div class="panel">
+<h3><span class="icon">🎯</span>全媒体覆盖计划</h3>
+<table style="width:100%;font-size:10px">
+<tr><td>📱 微信生态</td><td style="color:var(--green)">✓ 公众号+社群+朋友圈</td></tr>
+<tr><td>🎵 抖音/快手</td><td style="color:var(--green)">✓ 脚本已备·待拍摄</td></tr>
+<tr><td>📕 小红书</td><td style="color:var(--gold)">→ 待生成·明日</td></tr>
+<tr><td>🏛 事务局渠道</td><td style="color:var(--gold)">→ 合作函待生成</td></tr>
+<tr><td>📺 视频号</td><td style="color:var(--gold)">→ 复用抖音素材</td></tr>
+<tr><td>🌐 百家号/头条</td><td style="color:var(--gold)">→ 复用公众号推文</td></tr>
+<tr><td>💼 企业微信</td><td style="color:var(--gold)">→ 待开通</td></tr>
+</table>
+</div>
+</div>
+
+<!-- ROW 2: Pipeline + Progress -->
+<div class="dash">
+<div class="panel wide">
+<h3><span class="icon">⚔</span>AI推广流水线</h3>
+<div class="pipe">
+<div class="pipe-node done">🔍 情报搜集</div><div class="pipe-arrow">→</div>
+<div class="pipe-node run">📝 内容生产</div><div class="pipe-arrow">→</div>
+<div class="pipe-node wait">🎨 视觉生成</div><div class="pipe-arrow">→</div>
+<div class="pipe-node wait">📤 多渠道分发</div><div class="pipe-arrow">→</div>
+<div class="pipe-node wait">📊 数据回收</div><div class="pipe-arrow">→</div>
+<div class="pipe-node wait">🔄 AI迭代优化</div>
+</div>
+<div style="margin-top:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;font-size:10px">
+<div>
+<div style="color:var(--dim);margin-bottom:4px">内容生产</div>
+<div class="bar-wrap"><div class="bar-fill green" style="width:100%"></div></div>
+<div style="color:var(--green);margin-top:2px">14/14 完成</div>
+</div>
+<div>
+<div style="color:var(--dim);margin-bottom:4px">媒体覆盖</div>
+<div class="bar-wrap"><div class="bar-fill cyan" style="width:43%"></div></div>
+<div style="color:var(--cyan);margin-top:2px">3/7 渠道</div>
+</div>
+<div>
+<div style="color:var(--dim);margin-bottom:4px">自动化率</div>
+<div class="bar-wrap"><div class="bar-fill gold" style="width:60%"></div></div>
+<div style="color:var(--gold);margin-top:2px">3/5 cron上线</div>
+</div>
+</div>
+</div>
+
+<div class="panel alert">
+<h3><span class="icon">🚨</span>待点火</h3>
+<div style="font-size:10px;color:var(--dim);line-height:1.8">
+⚡ 海报视觉生成（接入image_generate）<br>
+⚡ 小红书笔记自动生成<br>
+⚡ 事务局合作函自动生成<br>
+⚡ 自动外发cronjob部署<br>
+⚡ 数据回收+AI优化闭环<br>
+⚡ 企业微信渠道接入<br>
+</div>
+<div class="actions" style="margin-top:10px">
+<a href="#" class="act-btn go" onclick="alert('总指挥下令即点火')">🔥 全部点火</a>
+<a href="#" class="act-btn">📊 查看详情</a>
+</div>
+</div>
+</div>
+
+<!-- ROW 3: Content Library -->
+<div class="panel full">
+<h3><span class="icon">📚</span>内容弹药库</h3>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:10px">
+<div style="background:rgba(0,0,0,.2);border-radius:8px;padding:10px">
+<div style="font-weight:700;color:var(--cyan);margin-bottom:4px">📄 公众号推文</div>
+<div>军鸽云链招募书</div>
+<div>退役军人集结冲锋号</div>
+<div>食安慰殇·数智造基</div>
+<div style="color:var(--green)">+ 每日新增1篇</div>
+</div>
+<div style="background:rgba(0,0,0,.2);border-radius:8px;padding:10px">
+<div style="font-weight:700;color:var(--cyan);margin-bottom:4px">💬 裂变文案库</div>
+<div>朋友圈10条</div>
+<div>社群话术</div>
+<div>邀请函模板</div>
+<div style="color:var(--green)">+ 每日新增10条</div>
+</div>
+<div style="background:rgba(0,0,0,.2);border-radius:8px;padding:10px">
+<div style="font-weight:700;color:var(--cyan);margin-bottom:4px">🎬 视频脚本库</div>
+<div>情怀篇</div>
+<div>赚钱篇</div>
+<div>信任篇</div>
+<div style="color:var(--green)">+ 每日新增3条</div>
+</div>
+<div style="background:rgba(0,0,0,.2);border-radius:8px;padding:10px">
+<div style="font-weight:700;color:var(--cyan);margin-bottom:4px">🏛 政府文书库</div>
+<div>事务局合作函</div>
+<div>政策解读模板</div>
+<div>汇报材料框架</div>
+<div style="color:var(--orange)">待生成</div>
+</div>
+</div>
+</div>
+
+<!-- ROW 4: Quick Actions -->
+<div class="panel full">
+<h3><span class="icon">🎯</span>快速行动</h3>
+<div class="actions">
+<a href="/ai-war-plan.html" class="act-btn go">📋 AI作战方案</a>
+<a href="/national-plan.html" class="act-btn">📋 传统推广方案</a>
+<a href="/ai-dashboard.html" class="act-btn go" style="background:linear-gradient(135deg,rgba(75,142,201,.15),rgba(184,64,69,.08));border-color:rgba(75,142,201,.3)">🤖 AI 智慧成果</a>
+        <a href="/junge-shuzhi.html" class="act-btn">⚔ 数智中心</a>
+<a href="/veteran-call.html" class="act-btn">🪖 退役军人集结号</a>
+<a href="/junge-recruit.html" class="act-btn">📝 招募书</a>
+<a href="/join-apply.html" class="act-btn">✍ 申请加入</a>
+</div>
+</div>
+
+</div>
+
+<footer>
+一人超体 · AI指挥舱 | RED-DUAL Ω · junge.中国<br>
+全部推广内容由AI自动生成 · 零人力成本 · 零推广费用<br>
+战斗力 = AI产出 ÷ 人力投入 · 分母趋零 · 战力无限
+</footer>
+
+<div class="btm-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/junge-shuzhi.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</div>
+</body>
+</html>

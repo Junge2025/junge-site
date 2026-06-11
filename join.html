@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.5,user-scalable=yes">
+<title>申请建站 · 军鸽云链数智 | 退役军人创业平台</title>
+<meta name="description" content="申请加入军鸽云链数智3000+分站网络，退役军人创业首选平台，AI智能运营，共创共富。">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --primary:#0a1628; --secondary:#0f2a44;
+  --accent-cyan:#00d4ff; --accent-gold:#d4af37; --accent-red:#e53935;
+  --accent-green:#4caf50; --accent-purple:#7c3aed;
+  --text-primary:#e8edf5; --text-secondary:#8896b0; --text-muted:#5a6a85;
+  --card-bg:rgba(15,34,64,0.6); --card-border:rgba(0,212,255,0.08);
+  --shadow-card:0 8px 32px rgba(0,0,0,0.3);
+  --glass-bg:rgba(10,22,40,0.75);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{
+  font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
+  background:var(--primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;
+  background-image:radial-gradient(ellipse at 20% 30%,rgba(0,212,255,0.03) 0%,transparent 60%),
+                  radial-gradient(ellipse at 80% 70%,rgba(212,175,55,0.02) 0%,transparent 60%);
+}
+.container{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* ===== Header ===== */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  transition:var(--transition);
+}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:12px}
+.brandbox{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.brand-logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#00d4ff,#0088cc);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff}
+.brand-title .cn{font-size:16px;font-weight:700;color:#e8edf5;letter-spacing:1px}
+.brand-title .en{font-size:9px;color:#5a6a85;letter-spacing:1px}
+.nav-wrapper{overflow-x:auto;white-space:nowrap;scrollbar-width:none;-ms-overflow-style:none;flex:1}
+.nav-wrapper::-webkit-scrollbar{display:none}
+.navbar{display:flex;gap:4px;padding:4px 0}
+.navbar a{
+  color:#8896b0;padding:6px 10px;border-radius:6px;font-size:12px;
+  transition:all .25s;white-space:nowrap;text-decoration:none;
+}
+.navbar a:hover{color:#e8edf5;background:rgba(0,212,255,0.08)}
+.navbar a.active{color:#00d4ff;background:rgba(0,212,255,0.1)}
+.navbar a i{margin-right:4px}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.header-actions a{color:#8896b0;text-decoration:none;transition:all .25s;display:flex;align-items:center;gap:4px;font-size:13px}
+.header-actions a:hover{color:#00d4ff}
+.btn-cart{position:relative}
+.cart-badge{position:absolute;top:-6px;right:-8px;background:#e53935;color:#fff;font-size:10px;padding:1px 5px;border-radius:10px;min-width:16px;text-align:center}
+.btn-user{font-size:20px}
+.btn-did{border:1px solid rgba(212,175,55,0.2);padding:4px 10px;border-radius:20px;background:rgba(212,175,55,0.06);font-size:12px}
+.btn-did:hover{border-color:rgba(212,175,55,0.4);color:#d4af37}
+.did-text{display:inline}@media(max-width:480px){.did-text{display:none}}
+.btn-login{border:1px solid rgba(0,212,255,0.2);padding:4px 12px;border-radius:20px;background:rgba(0,212,255,0.06);font-size:12px}
+.login-text{display:inline}@media(max-width:480px){.login-text{display:none}}
+.mobile-toggle{display:none;background:none;border:none;color:#8896b0;font-size:22px;cursor:pointer;padding:4px}
+@media(max-width:768px){
+  .mobile-toggle{display:block}
+  .nav-wrapper{position:fixed;top:0;right:-300px;width:280px;height:100vh;background:rgba(10,22,40,0.98);backdrop-filter:blur(20px);border-left:1px solid rgba(255,255,255,0.06);z-index:1001;transition:right .35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;padding:60px 20px 20px;white-space:normal}
+  .nav-wrapper.open{right:0}
+  .nav-wrapper .navbar{flex-direction:column;gap:2px}
+  .nav-wrapper .navbar a{padding:10px 14px;font-size:14px;border-radius:8px;width:100%}
+  .mobile-toggle-close{position:fixed;top:14px;right:14px;z-index:1002;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:#8896b0;font-size:18px;width:36px;height:36px;border-radius:8px;cursor:pointer;display:none!important;align-items:center;justify-content:center}
+  .mobile-toggle-close.show{display:flex!important}
+  .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;opacity:0;pointer-events:none;transition:opacity .35s}
+  .nav-overlay.show{opacity:1;pointer-events:auto}
+}
+.policy-ticker-container{margin-top:6px;border-top:1px solid rgba(255,255,255,0.03);padding:4px 0}
+.policy-ticker{overflow:hidden;white-space:nowrap;font-size:11px;color:#5a6a85}
+.policy-ticker .ticker-content{display:inline-block;animation:ticker 30s linear infinite}
+@keyframes ticker{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+
+/* ===== Page Content ===== */
+.page-hero{
+  position:relative;z-index:1;
+  background:linear-gradient(135deg,rgba(10,22,40,0.9),rgba(15,34,64,0.8)),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="none"/><circle cx="10%" cy="20%" r="80" fill="rgba(0,212,255,0.04)"/><circle cx="90%" cy="60%" r="120" fill="rgba(212,175,55,0.03)"/></svg>') center/cover;
+  padding:60px 0 50px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.page-hero h1{font-size:2.4rem;font-weight:800;margin-bottom:8px}
+.page-hero h1 span{color:#00d4ff}
+.page-hero p{font-size:1rem;color:#8896b0;max-width:600px;margin:0 auto}
+.page-hero .hero-badge{
+  display:inline-block;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:1px;
+  background:rgba(0,212,255,0.08);color:#00d4ff;border:1px solid rgba(0,212,255,0.12);margin-bottom:12px;
+}
+.page-hero .hero-badge .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#4caf50;margin-right:6px;animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.4}}
+.section{padding:50px 0;position:relative;z-index:1}
+.section-header{text-align:center;margin-bottom:36px}
+.section-header h2{font-size:1.6rem;font-weight:700;margin-bottom:8px}
+.section-header h2 span{color:#00d4ff}
+.section-header p{color:#8896b0;font-size:0.9rem}
+
+/* ===== Join流程 ===== */
+.join-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.join-card{
+  background:rgba(15,34,64,0.5);border:1px solid rgba(0,212,255,0.06);border-radius:14px;
+  padding:28px 16px;text-align:center;transition:all .3s;position:relative;
+}
+.join-card:hover{border-color:rgba(0,212,255,0.2);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,212,255,0.06)}
+.join-card .step-num{
+  width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 12px;font-size:16px;font-weight:800;
+  background:rgba(0,212,255,0.1);color:#00d4ff;border:1px solid rgba(0,212,255,0.15);
+}
+.join-card h3{font-size:1rem;font-weight:700;margin-bottom:6px;color:#e8edf5}
+.join-card p{font-size:0.82rem;color:#8896b0;line-height:1.5}
+.join-card .step-connector{
+  position:absolute;top:38px;right:-12px;color:#2a3a5a;font-size:14px;
+}
+
+/* ===== 建站方案 ===== */
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plan-card{
+  background:rgba(15,34,64,0.5);border:1px solid rgba(0,212,255,0.06);border-radius:14px;
+  padding:30px 20px;text-align:center;transition:all .3s;
+}
+.plan-card.featured{border-color:#d4af37;border-width:2px;position:relative}
+.plan-card.featured::before{content:'推荐';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#d4af37;color:#0a1628;font-size:11px;font-weight:800;padding:2px 14px;border-radius:10px}
+.plan-card:hover{border-color:rgba(0,212,255,0.2);transform:translateY(-3px)}
+.plan-card .plan-icon{font-size:36px;margin-bottom:10px}
+.plan-card h3{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.plan-card .price{font-size:1.4rem;font-weight:800;color:#00d4ff;margin:8px 0 4px}
+.plan-card .price span{font-size:0.8rem;color:#8896b0;font-weight:400}
+.plan-card ul{list-style:none;padding:0;margin:12px 0;text-align:left}
+.plan-card ul li{padding:4px 0;font-size:0.85rem;color:#8896b0}
+.plan-card ul li i{color:#4caf50;margin-right:6px;font-size:12px}
+.plan-card .btn-plan{
+  display:inline-block;padding:8px 28px;border-radius:20px;font-size:14px;font-weight:600;
+  background:rgba(0,212,255,0.1);color:#00d4ff;border:1px solid rgba(0,212,255,0.2);text-decoration:none;transition:all .3s;margin-top:8px;
+}
+.plan-card .btn-plan:hover{background:#00d4ff;color:#0a1628}
+
+/* ===== 表单 ===== */
+.form-section{max-width:640px;margin:0 auto}
+.form-card{
+  background:rgba(15,34,64,0.4);border:1px solid rgba(0,212,255,0.06);border-radius:16px;
+  padding:36px 32px;
+}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;color:#8896b0;margin-bottom:6px;font-weight:600}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:10px 14px;border-radius:8px;font-size:14px;font-family:inherit;
+  background:rgba(10,22,40,0.6);border:1px solid rgba(255,255,255,0.06);color:#e8edf5;outline:none;transition:all .25s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#00d4ff;box-shadow:0 0 12px rgba(0,212,255,0.08)}
+.form-group textarea{resize:vertical;min-height:80px}
+.form-group select option{background:#0a1628;color:#e8edf5}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-submit{
+  width:100%;padding:12px;border-radius:10px;font-size:16px;font-weight:700;font-family:inherit;
+  background:linear-gradient(135deg,#00d4ff,#0088cc);color:#0a1628;border:none;cursor:pointer;transition:all .3s;
+}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,212,255,0.2)}
+.form-note{text-align:center;font-size:12px;color:#5a6a85;margin-top:12px}
+
+/* FAQ */
+.faq-list{max-width:700px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.04);padding:16px 0}
+.faq-item h4{font-size:0.95rem;color:#e8edf5;margin-bottom:6px;cursor:pointer}
+.faq-item h4 i{color:#00d4ff;margin-right:8px}
+.faq-item p{font-size:0.85rem;color:#8896b0;padding-left:22px}
+
+/* ===== Footer ===== */
+footer{background:rgba(10,22,40,0.9);border-top:1px solid rgba(255,255,255,0.04);padding:30px 0 16px;margin-top:40px}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.03);padding-top:14px;font-size:12px;color:#5a6a85}
+
+@media(max-width:768px){
+  .join-steps{grid-template-columns:repeat(2,1fr)}
+  .plan-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .page-hero h1{font-size:1.6rem}
+}
+@media(max-width:480px){
+  .join-steps{grid-template-columns:1fr}
+  .join-card .step-connector{display:none}
+}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="申请建站 · 军鸽云链数智 | 退役军人创业平台">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/join.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/join.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">加入我们</span>
+</nav>
+
+<header>
+  <div class="container topbar">
+    <div class="brandbox">
+      <div class="brand-logo">&#x1F426;</div>
+      <div class="brand-title"><div class="cn">军鸽云链数智</div><div class="en">JunGe CloudLink DI</div></div>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><i class="fas fa-bars"></i></button>
+    <div class="nav-wrapper" id="navWrapper">
+      <nav class="navbar" id="mainNav">
+        <a href="/index.html"><i class="fas fa-home"></i> 首页</a>
+        <a href="/junge-shuzhi.html"><i class="fas fa-crown"></i> junge数智</a>
+        <a href="/shangcheng.html"><i class="fas fa-store"></i> 军创商城</a>
+        <a href="/youpin.html"><i class="fas fa-star"></i> 军创优品</a>
+        <a href="/cross-border.html"><i class="fas fa-globe"></i> 跨境电商</a>
+        <a href="/zero-tariff.html"><i class="fas fa-tag"></i> 零关税</a>
+        <a href="game-center.html"><i class="fas fa-gamepad"></i> 🎮游戏池</a>
+        <a href="/fenzhan.html"><i class="fas fa-sitemap"></i> 分站</a>
+        <a href="enterprise-cooperation.html"><i class="fas fa-building"></i> 企业合作</a>
+        <a href="employment-service.html"><i class="fas fa-briefcase"></i> 就业服务</a>
+        <a href="culture-home.html"><i class="fas fa-book-open"></i> 文化家园</a>
+        <a href="mission-system.html"><i class="fas fa-bullseye"></i> 任务系统</a>
+        <a href="party-public.html"><i class="fas fa-flag"></i> 党建公益</a>
+        <a href="/about.html"><i class="fas fa-info-circle"></i> 关于我们</a>
+      </nav>
+    </div>
+    <div class="header-actions">
+      <a class="btn-cart" href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-badge">0</span></a>
+      <a class="btn-user" href="personal-center.html"><i class="fas fa-user-circle"></i></a>
+      <a class="btn-did" href="digital-id.html"><i class="fas fa-id-card"></i> <span class="did-text">数字ID</span></a>
+      <a class="btn-login" href="login.html"><i class="fas fa-sign-in-alt"></i> <span class="login-text">登录</span></a>
+      <button class="mobile-toggle-close" id="mobileClose" aria-label="关闭菜单"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-badge"><span class="dot"></span> JOIN US · 创业者招募中</div>
+    <h1>加入<span>军鸽云链数智</span> · 共创未来</h1>
+    <p>退役军人创业首选平台 · AI智能运营 · 3000+分站网络 · 共享数智经济红利</p>
+  </div>
+</section>
+
+<!-- 申请建站流程 -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>申请建站 · <span>四步完成</span></h2>
+      <p>简单四步，开启你的军鸽云链分站创业之旅</p>
+    </div>
+    <div class="join-steps">
+      <div class="join-card">
+        <div class="step-num">1</div>
+        <h3>提交申请</h3>
+        <p>填写分站信息，提交资质审核，等待平台确认</p>
+        <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="join-card">
+        <div class="step-num">2</div>
+        <h3>资质审核</h3>
+        <p>平台审核退役军人身份及资质，3个工作日内反馈</p>
+        <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="join-card">
+        <div class="step-num">3</div>
+        <h3>签约授牌</h3>
+        <p>签订合作协议，授予分站运营牌照及数字ID体系</p>
+        <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="join-card">
+        <div class="step-num">4</div>
+        <h3>上线运营</h3>
+        <p>AI智能体自动配置，商品上架，开启本地化运营</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 建站方案 -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header">
+      <h2>选择 <span>建站方案</span></h2>
+      <p>灵活选择，适应不同阶段的发展需求</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <div class="plan-icon"><i class="fas fa-cloud-upload-alt" style="color:#00d4ff"></i></div>
+        <h3>总站托管模式</h3>
+        <div class="price">¥0 <span>/月</span></div>
+        <p style="font-size:12px;color:#8896b0;margin-bottom:8px">零成本启动 · 推荐初创</p>
+        <ul>
+          <li><i class="fas fa-check"></i> 总站统一服务器管理</li>
+          <li><i class="fas fa-check"></i> AI智能体自动运维</li>
+          <li><i class="fas fa-check"></i> 共享供应链与商品库</li>
+          <li><i class="fas fa-check"></i> 数据总站备份保障</li>
+        </ul>
+        <a class="btn-plan" href="#apply-form">立即申请</a>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-icon"><i class="fas fa-server" style="color:#d4af37"></i></div>
+        <h3>独立部署模式</h3>
+        <div class="price">¥0 <span>/月</span></div>
+        <p style="font-size:12px;color:#8896b0;margin-bottom:8px">自主可控 · 推荐标准</p>
+        <ul>
+          <li><i class="fas fa-check"></i> 独立云服务器配置</li>
+          <li><i class="fas fa-check"></i> 自主域名与品牌展示</li>
+          <li><i class="fas fa-check"></i> 独立财务账户管理</li>
+          <li><i class="fas fa-check"></i> 优先接入国际AI资源</li>
+        </ul>
+        <a class="btn-plan" href="#apply-form" style="background:#d4af37;color:#0a1628;border-color:#d4af37">立即申请</a>
+      </div>
+      <div class="plan-card">
+        <div class="plan-icon"><i class="fas fa-building" style="color:#4caf50"></i></div>
+        <h3>企业旗舰模式</h3>
+        <div class="price">¥0 <span>/月</span></div>
+        <p style="font-size:12px;color:#8896b0;margin-bottom:8px">全套服务 · 推荐企业</p>
+        <ul>
+          <li><i class="fas fa-check"></i> 旗舰级服务器集群</li>
+          <li><i class="fas fa-check"></i> 数字ID+区块链溯源</li>
+          <li><i class="fas fa-check"></i> 专属AI智能体助理</li>
+          <li><i class="fas fa-check"></i> 全国分站流量分发</li>
+        </ul>
+        <a class="btn-plan" href="#apply-form">立即申请</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 申请表单 -->
+<section class="section" id="apply-form" style="padding-top:0">
+  <div class="container">
+    <div class="section-header">
+      <h2>填写 <span>建站申请</span></h2>
+      <p>提交信息后，AI智能体将在24小时内联系您</p>
+    </div>
+    <div class="form-section">
+      <div class="form-card">
+        <form onsubmit="alert('申请已提交！AI智能体将在24小时内与您联系。');return false">
+          <div class="form-row">
+            <div class="form-group">
+              <label>姓名</label>
+              <input type="text" placeholder="请填写真实姓名" required>
+            </div>
+            <div class="form-group">
+              <label>手机号</label>
+              <input type="tel" placeholder="11位手机号" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>地区</label>
+              <select><option>请选择省份</option><option>海南省</option><option>广东省</option><option>湖南省</option><option>四川省</option><option>其他</option></select>
+            </div>
+            <div class="form-group">
+              <label>城市/县</label>
+              <input type="text" placeholder="如：海口市龙华区">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>建站模式</label>
+            <select>
+              <option>总站托管模式（推荐初创）</option>
+              <option>独立部署模式（推荐标准）</option>
+              <option>企业旗舰模式（推荐企业）</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>是否退役军人</label>
+            <select>
+              <option>是</option>
+              <option>否（普通创业者）</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>申请说明</label>
+            <textarea placeholder="请简单描述您的创业计划或资源优势..."></textarea>
+          </div>
+          <button class="form-submit"><i class="fas fa-paper-plane"></i> 提交申请</button>
+          <div class="form-note">
+            <i class="fas fa-shield-alt" style="color:#4caf50;margin-right:4px"></i>
+            您的信息将严格保密，仅用于建站资格审核
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header">
+      <h2>常见 <span>问题</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4><i class="fas fa-question-circle"></i> 申请建站需要什么条件？</h4>
+        <p>退役军人优先，普通创业者亦可申请。需提供真实身份信息，具备本地化运营能力。</p>
+      </div>
+      <div class="faq-item">
+        <h4><i class="fas fa-question-circle"></i> 总站托管模式有什么限制？</h4>
+        <p>托管模式不可自定义域名和服务器配置，但可利用总站全部供应链和AI智能体能力，零成本启动。</p>
+      </div>
+      <div class="faq-item">
+        <h4><i class="fas fa-question-circle"></i> 分站如何盈利？</h4>
+        <p>分站通过商品交易佣金、本地服务收入、流量变现、junge币奖励等多种方式获得收益，月均预期收入5000-50000元。</p>
+      </div>
+      <div class="faq-item">
+        <h4><i class="fas fa-question-circle"></i> 数字ID与三大价值量是什么？</h4>
+        <p>每个用户拥有唯一数字身份，交易商用值记录交易贡献，数字赋能值衡量生态贡献，junge币作为特殊奖励通证，三者共同构成价值体系。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin:30px 0;padding:20px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px"><p style="margin-bottom:12px;color:var(--text-secondary)">已经是会员？</p><a href="/member-register.html" style="color:var(--accent-gold);font-weight:600;text-decoration:none;padding:10px 28px;border:1px solid rgba(212,175,55,0.3);border-radius:8px;display:inline-block;transition:all .25s;background:rgba(212,175,55,0.04)">立即注册会员 →</a></div>
+
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2025-2026 军鸽云链数智 版权所有</span>
+      <span>琼ICP备2025063762号-2 | 技术支持：AI超级智能体编队</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var toggle=document.getElementById('mobileToggle');
+  var navWrap=document.getElementById('navWrapper');
+  var overlay=document.getElementById('navOverlay');
+  var closeBtn=document.getElementById('mobileClose');
+  function openNav(){if(navWrap)navWrap.classList.add('open');if(overlay)overlay.classList.add('show');if(closeBtn)closeBtn.classList.add('show');document.body.style.overflow='hidden'}
+  function closeNav(){if(navWrap)navWrap.classList.remove('open');if(overlay)overlay.classList.remove('show');if(closeBtn)closeBtn.classList.remove('show');document.body.style.overflow=''}
+  if(toggle)toggle.addEventListener('click',openNav);
+  if(closeBtn)closeBtn.addEventListener('click',closeNav);
+  if(overlay)overlay.addEventListener('click',closeNav);
+  if(navWrap)navWrap.querySelectorAll('a').forEach(function(l){l.addEventListener('click',closeNav)});
+});
+</script>
+<!-- 停留分享奖励机制 -->
+<script src="/js/share-reward.js"></script>
+  <script src="/js/game-pool.js"></script>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

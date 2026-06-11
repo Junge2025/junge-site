@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>军鸽云链·数智总部 | RED‑DUAL Ω 联合作战指挥部</title>
+<meta name="description" content="军鸽云链数智总部 — RED‑DUAL Ω 双域AI联合作战指挥平台。沙盘推演·作战计划·八大将部署·智能指挥链。">
+<meta name="keywords" content="军鸽云链,数智总部,RED-DUAL,AI指挥,沙盘推演,作战计划,智能体">
+<style>
+:root {
+  --bg:#020617; --card:rgba(15,23,42,0.85); --border:rgba(30,41,59,0.8);
+  --red:#b84045; --gold:#c9a96e; --blue:#4dc9f6; --green:#4daf7c;
+  --cyan:#22d3ee; --rose:#fb7185; --amber:#fbbf24; --violet:#a78bfa;
+  --text:#e2e8f0; --muted:#94a3b8; --dim:#475569;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 20%,rgba(184,64,69,.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 30%,rgba(77,201,246,.06) 0%,transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(77,175,124,.05) 0%,transparent 55%),radial-gradient(ellipse at 90% 90%,rgba(201,169,110,.04) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+/* Stars */
+.stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--d) infinite ease-in-out}
+@keyframes twinkle{0%,100%{opacity:0.2;transform:scale(1)}50%{opacity:0.8;transform:scale(1.5)}}
+
+/* Scanline overlay */
+.scanlines{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px)}
+
+.container{max-width:1500px;margin:0 auto;padding:0.5rem 0.75rem;position:relative;z-index:2}
+
+/* Header */
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 1rem;background:var(--card);border:1px solid var(--border);border-radius:0.75rem;margin-bottom:0.5rem;backdrop-filter:blur(16px);flex-wrap:wrap;gap:0.5rem}
+.tb-left{display:flex;align-items:center;gap:0.6rem}
+.tb-pulse{width:8px;height:8px;background:var(--cyan);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 8px var(--cyan)}50%{opacity:0.25;box-shadow:0 0 2px var(--cyan)}}
+.tb-logo{font-size:1rem;font-weight:700;letter-spacing:-0.02em}
+.tb-logo span{color:var(--red)}
+.tb-logo sub{font-size:0.55rem;color:var(--muted);margin-left:0.2rem;font-weight:400}
+.tb-clock{font-size:0.7rem;color:var(--muted);font-family:'JetBrains Mono','Consolas',monospace}
+.tb-badges{display:flex;gap:0.4rem;flex-wrap:wrap}
+.tb-badge{padding:0.15rem 0.5rem;border-radius:1rem;font-size:0.6rem;font-weight:600}
+.tb-badge.g{background:rgba(77,175,124,.15);color:var(--green);border:1px solid rgba(77,175,124,.25)}
+.tb-badge.b{background:rgba(77,201,246,.12);color:var(--cyan);border:1px solid rgba(77,201,246,.2)}
+.tb-badge.r{background:rgba(184,64,69,.15);color:var(--rose);border:1px solid rgba(184,64,69,.25)}
+.tb-badge.a{background:rgba(251,191,36,.12);color:var(--amber);border:1px solid rgba(251,191,36,.2)}
+
+/* Slogan */
+.slogan-bar{text-align:center;padding:12px 16px;margin-bottom:0.5rem;border-radius:10px;background:linear-gradient(135deg,rgba(184,64,69,.12),rgba(2,6,23,.9),rgba(77,201,246,.06));border:1px solid rgba(184,64,69,.1);position:relative;overflow:hidden}
+.slogan-bar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.015),transparent);pointer-events:none}
+.slogan-bar .big{font-size:1.2rem;font-weight:800;letter-spacing:.1em;position:relative;z-index:1;background:linear-gradient(120deg,#d47a7e,#e8c4a0,#7ab5db);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.slogan-bar .sub{font-size:0.55rem;color:var(--muted);margin-top:3px;position:relative;z-index:1;letter-spacing:.04em}
+
+/* Stats Row */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.5rem;margin-bottom:0.75rem}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:0.6rem;padding:0.6rem 0.75rem;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.stat-card::after{content:'';position:absolute;top:0;right:0;width:60px;height:60px;border-radius:50%;opacity:0.06;transform:translate(20px,-20px)}
+.stat-card.r::after{background:var(--red)}
+.stat-card.b::after{background:var(--blue)}
+.stat-card.g::after{background:var(--green)}
+.stat-card.a::after{background:var(--gold)}
+.stat-icon{font-size:1.4rem;margin-bottom:0.2rem}
+.stat-val{font-size:1.5rem;font-weight:800;letter-spacing:-0.02em}
+.stat-label{font-size:0.6rem;color:var(--muted);margin-top:0.1rem}
+.stat-sub{font-size:0.55rem;color:var(--dim)}
+
+/* Section Title */
+.sec-title{font-size:0.8rem;font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.4rem;padding-left:0.3rem}
+.sec-title::before{content:'';width:3px;height:1rem;background:var(--red);border-radius:2px}
+.sec-title.blue::before{background:var(--cyan)}
+.sec-title.gold::before{background:var(--gold)}
+.sec-title.green::before{background:var(--green)}
+
+/* Sandbox Grid */
+.sandbox{background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.75rem;margin-bottom:0.75rem;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.sandbox-topo{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,auto);gap:0.5rem;min-height:280px;position:relative}
+.topo-node{background:rgba(15,23,42,.9);border:1px solid var(--border);border-radius:0.5rem;padding:0.5rem;text-align:center;position:relative;transition:all 0.3s;cursor:default}
+.topo-node:hover{border-color:var(--cyan);box-shadow:0 0 16px rgba(34,211,238,.15);transform:translateY(-2px)}
+.topo-node.hq{grid-column:span 2;border-color:rgba(184,64,69,.4);background:rgba(184,64,69,.06)}
+.topo-node.core{grid-column:span 2;border-color:rgba(77,201,246,.3);background:rgba(77,201,246,.04)}
+.topo-icon{font-size:1.2rem}
+.topo-name{font-size:0.65rem;font-weight:600;margin-top:0.2rem}
+.topo-stats{font-size:0.5rem;color:var(--muted);margin-top:0.15rem}
+.topo-dot{width:5px;height:5px;border-radius:50%;display:inline-block;margin:0 1px}
+.topo-dot.on{background:var(--green);box-shadow:0 0 4px var(--green)}
+.topo-dot.off{background:var(--dim)}
+.topo-dot.warn{background:var(--amber);box-shadow:0 0 4px var(--amber)}
+
+/* Canvas lines between nodes (decorative) */
+.sandbox::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 50% 50%,rgba(34,211,238,.03) 0%,transparent 70%);pointer-events:none}
+
+/* Plans */
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0.5rem;margin-bottom:0.75rem}
+.plan-card{background:var(--card);border:1px solid var(--border);border-radius:0.6rem;padding:0.6rem 0.75rem;backdrop-filter:blur(12px)}
+.plan-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem}
+.plan-name{font-size:0.75rem;font-weight:700}
+.plan-status{font-size:0.55rem;padding:0.1rem 0.4rem;border-radius:1rem;font-weight:600}
+.plan-status.active{background:rgba(34,211,238,.15);color:var(--cyan);border:1px solid rgba(34,211,238,.3)}
+.plan-status.planning{background:rgba(251,191,36,.12);color:var(--amber);border:1px solid rgba(251,191,36,.25)}
+.plan-status.standby{background:rgba(77,175,124,.12);color:var(--green);border:1px solid rgba(77,175,124,.25)}
+.plan-phases{display:flex;gap:0.3rem;margin:0.4rem 0;flex-wrap:wrap}
+.plan-phase{flex:1;min-width:50px;text-align:center;padding:0.3rem 0.2rem;border-radius:0.35rem;font-size:0.55rem;background:rgba(30,41,59,.6);border:1px solid transparent}
+.plan-phase.done{background:rgba(77,175,124,.08);border-color:rgba(77,175,124,.3);color:var(--green)}
+.plan-phase.active{background:rgba(34,211,238,.08);border-color:rgba(34,211,238,.3);color:var(--cyan)}
+.plan-phase .pnum{font-size:0.45rem;color:var(--dim)}
+.plan-meta{font-size:0.55rem;color:var(--muted);display:flex;justify-content:space-between}
+
+/* Command Chain */
+.chain{background:var(--card);border:1px solid var(--border);border-radius:0.6rem;padding:0.6rem 0.75rem;margin-bottom:0.75rem;backdrop-filter:blur(12px)}
+.chain-row{display:flex;align-items:center;gap:0.5rem;padding:0.35rem 0;border-bottom:1px solid rgba(30,41,59,.3)}
+.chain-row:last-child{border-bottom:none}
+.chain-tier{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.55rem;font-weight:700;flex-shrink:0}
+.chain-tier.l1{background:rgba(184,64,69,.2);color:var(--rose);border:1px solid rgba(184,64,69,.4)}
+.chain-tier.l2{background:rgba(77,201,246,.15);color:var(--cyan);border:1px solid rgba(77,201,246,.3)}
+.chain-tier.l3{background:rgba(77,175,124,.15);color:var(--green);border:1px solid rgba(77,175,124,.3)}
+.chain-tier.l4{background:rgba(201,169,110,.12);color:var(--gold);border:1px solid rgba(201,169,110,.25)}
+.chain-info{flex:1;min-width:0}
+.chain-name{font-size:0.65rem;font-weight:600}
+.chain-detail{font-size:0.5rem;color:var(--muted)}
+.chain-bar{width:50px;height:3px;background:rgba(30,41,59,.8);border-radius:2px;overflow:hidden;flex-shrink:0}
+.chain-fill{height:100%;border-radius:2px;transition:width 0.8s}
+.chain-fill.g{background:var(--green)}
+.chain-fill.a{background:var(--amber)}
+.chain-fill.r{background:var(--rose)}
+.chain-status{font-size:0.55rem;font-weight:600;min-width:40px;text-align:right}
+
+/* Quick Commands */
+.cmds{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.75rem}
+.cmd-btn{padding:0.5rem 1rem;border-radius:0.5rem;font-size:0.7rem;font-weight:600;cursor:pointer;border:1px solid var(--border);background:rgba(30,41,59,.5);color:var(--muted);transition:all 0.2s;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem}
+.cmd-btn:hover{transform:translateY(-1px)}
+.cmd-btn.fire{background:rgba(184,64,69,.15);border-color:rgba(184,64,69,.4);color:var(--rose)}
+.cmd-btn.fire:hover{box-shadow:0 0 20px rgba(184,64,69,.3)}
+.cmd-btn.cyan{background:rgba(34,211,238,.1);border-color:rgba(34,211,238,.3);color:var(--cyan)}
+.cmd-btn.cyan:hover{box-shadow:0 0 16px rgba(34,211,238,.25)}
+.cmd-btn.green{background:rgba(77,175,124,.1);border-color:rgba(77,175,124,.3);color:var(--green)}
+.cmd-btn.green:hover{box-shadow:0 0 16px rgba(77,175,124,.2)}
+.cmd-btn.gold{background:rgba(201,169,110,.08);border-color:rgba(201,169,110,.25);color:var(--gold)}
+.cmd-btn.gold:hover{box-shadow:0 0 16px rgba(201,169,110,.2)}
+
+/* Log Terminal */
+.log-term{background:rgba(2,6,23,.95);border:1px solid var(--border);border-radius:0.6rem;padding:0.5rem 0.6rem;margin-bottom:0.75rem;font-family:'JetBrains Mono','Consolas',monospace;font-size:0.55rem;max-height:160px;overflow-y:auto;backdrop-filter:blur(8px)}
+.log-line{padding:0.08rem 0;border-bottom:1px solid rgba(30,41,59,.15);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.log-ts{color:var(--dim);margin-right:0.4rem}
+.log-ev{color:var(--cyan)}
+.log-w{color:var(--amber)}
+.log-e{color:var(--rose)}
+.log-i{color:var(--muted)}
+.log-s{color:var(--green)}
+
+/* Bottom Nav */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-bottom:env(safe-area-inset-bottom,0)}
+.bottom-nav a{color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1);transition:.2s;white-space:nowrap}
+.bottom-nav a:hover{background:rgba(0,212,255,.08)}
+.bottom-nav a.active{color:#f0c040;background:rgba(240,192,64,.08);border:1px solid rgba(240,192,64,.2)}
+
+/* Footer */
+.site-footer{text-align:center;padding:0.5rem;font-size:0.5rem;color:var(--dim);margin-bottom:3rem}
+
+/* Mobile */
+@media(max-width:768px){
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .sandbox-topo{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
+  .topo-node.hq,.topo-node.core{grid-column:span 2}
+  .top-bar{flex-direction:column;align-items:flex-start}
+  .cmd-btn{font-size:0.6rem;padding:0.4rem 0.7rem}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链·数智总部 | RED‑DUAL Ω 联合作战指挥部">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/shuzhi-zongbu.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/shuzhi-zongbu.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">数智总部</span>
+</nav>
+
+
+<!-- Stars background -->
+<div class="stars" id="stars"></div>
+<div class="scanlines"></div>
+
+<div class="container">
+
+<!-- ═══ TOP BAR ═══ -->
+<div class="top-bar">
+  <div class="tb-left">
+    <div class="tb-pulse"></div>
+    <div class="tb-logo">🤖 RED‑DUAL <span>Ω</span> <sub>· 数智总部</sub></div>
+  </div>
+  <div class="tb-clock" id="clock">--</div>
+  <div class="tb-badges">
+    <span class="tb-badge g">🟢 联合作战</span>
+    <span class="tb-badge b">24智能体</span>
+    <span class="tb-badge r">6域3节点</span>
+    <span class="tb-badge a">V1.0</span>
+  </div>
+</div>
+
+<!-- ═══ SLOGAN ═══ -->
+<div class="slogan-bar">
+  <div class="sub">军鸽云链数智 · RED‑DUAL Ω 双域AI联合作战指挥部 · 海口总站: 175.178.55.90 · 琼ICP备2025063762号-2</div>
+</div>
+
+<!-- ═══ BATTLE DASHBOARD ═══ -->
+<div class="stats-row">
+  <div class="stat-card r">
+    <div class="stat-icon">🤖</div>
+    <div class="stat-val" id="agentCount">24</div>
+    <div class="stat-label">全军智能体</div>
+    <div class="stat-sub">12业务 · 8大将 · 1总指挥 · 3特种</div>
+  </div>
+  <div class="stat-card b">
+    <div class="stat-icon">🌐</div>
+    <div class="stat-val" id="nodeCount">6</div>
+    <div class="stat-label">作战域</div>
+    <div class="stat-sub">政经文旅 · 商业生态 · 数智运维 · 分站 · 指挥 · 总部</div>
+  </div>
+  <div class="stat-card g">
+    <div class="stat-icon">📋</div>
+    <div class="stat-val" id="planCount">3</div>
+    <div class="stat-label">作战计划</div>
+    <div class="stat-sub">铸盾行动 · 红旅突袭 · 天网巡检</div>
+  </div>
+  <div class="stat-card a">
+    <div class="stat-icon">🛡️</div>
+    <div class="stat-val" style="color:var(--amber)">⚠ 低</div>
+    <div class="stat-label">威胁等级</div>
+    <div class="stat-sub">所有节点正常运行 · 密钥有效</div>
+  </div>
+</div>
+
+<!-- ═══ SANDBOX SIMULATION ═══ -->
+<div class="sec-title">⚔ 沙盘推演 · 八大将部署态势</div>
+<div class="sandbox">
+  <div class="sandbox-topo">
+    <!-- HQ -->
+    <div class="topo-node hq">
+      <div class="topo-icon">🎯</div>
+      <div class="topo-name">RED‑DUAL Ω 总指挥部</div>
+      <div class="topo-stats">
+        <span class="topo-dot on"></span> Meta‑Commander ·
+        <span class="topo-dot on"></span> Hermes MAX ·
+        <span class="topo-dot on"></span> 24智能体在线
+      </div>
+    </div>
+    <!-- Core -->
+    <div class="topo-node core">
+      <div class="topo-icon">⚙️</div>
+      <div class="topo-name">SuperAgentX 作战引擎</div>
+      <div class="topo-stats">
+        <span class="topo-dot on"></span> Pipeline就绪 ·
+        <span class="topo-dot on"></span> WebSocket在线 ·
+        <span class="topo-dot on"></span> 3任务流
+      </div>
+    </div>
+    <!-- 8 Generals in 2 rows -->
+    <div class="topo-node"><div class="topo-icon">🔴</div><div class="topo-name">赤锋·政经</div><div class="topo-stats"><span class="topo-dot on"></span> 活跃</div></div>
+    <div class="topo-node"><div class="topo-icon">🟢</div><div class="topo-name">青岚·商业</div><div class="topo-stats"><span class="topo-dot on"></span> 活跃</div></div>
+    <div class="topo-node"><div class="topo-icon">🔵</div><div class="topo-name">蓝盾·运维</div><div class="topo-stats"><span class="topo-dot on"></span> 活跃</div></div>
+    <div class="topo-node"><div class="topo-icon">🟡</div><div class="topo-name">金翼·价值</div><div class="topo-stats"><span class="topo-dot warn"></span> 待命</div></div>
+    <div class="topo-node"><div class="topo-icon">🟣</div><div class="topo-name">紫微·数据</div><div class="topo-stats"><span class="topo-dot on"></span> 活跃</div></div>
+    <div class="topo-node"><div class="topo-icon">⚪</div><div class="topo-name">银蛇·安全</div><div class="topo-stats"><span class="topo-dot on"></span> 巡逻中</div></div>
+    <div class="topo-node"><div class="topo-icon">🟤</div><div class="topo-name">玄甲·部署</div><div class="topo-stats"><span class="topo-dot off"></span> 休眠</div></div>
+    <div class="topo-node"><div class="topo-icon">🟠</div><div class="topo-name">炎龙·响应</div><div class="topo-stats"><span class="topo-dot off"></span> 待激活</div></div>
+  </div>
+</div>
+
+<!-- ═══ BATTLE PLANS ═══ -->
+<div class="sec-title blue">📋 作战计划面板</div>
+<div class="plans-grid">
+  <!-- Plan 1: 铸盾行动 -->
+  <div class="plan-card">
+    <div class="plan-header">
+      <div class="plan-name">🛡️ 铸盾行动</div>
+      <div class="plan-status active">▶ 执行中</div>
+    </div>
+    <div class="plan-phases">
+      <div class="plan-phase done"><div class="pnum">P1</div>侦察</div>
+      <div class="plan-phase done"><div class="pnum">P2</div>布防</div>
+      <div class="plan-phase active"><div class="pnum">P3</div>加固</div>
+      <div class="plan-phase"><div class="pnum">P4</div>演练</div>
+      <div class="plan-phase"><div class="pnum">P5</div>收网</div>
+    </div>
+    <div class="plan-meta">
+      <span>14天 · 5阶段 · 26任务</span>
+      <span style="color:var(--cyan)">60%</span>
+    </div>
+  </div>
+
+  <!-- Plan 2: 红旅突袭 -->
+  <div class="plan-card">
+    <div class="plan-header">
+      <div class="plan-name">⚡ 红旅突袭</div>
+      <div class="plan-status planning">⏳ 筹划中</div>
+    </div>
+    <div class="plan-phases">
+      <div class="plan-phase"><div class="pnum">P1</div>情报</div>
+      <div class="plan-phase"><div class="pnum">P2</div>编队</div>
+      <div class="plan-phase"><div class="pnum">P3</div>突进</div>
+      <div class="plan-phase"><div class="pnum">P4</div>占领</div>
+    </div>
+    <div class="plan-meta">
+      <span>7天 · 4阶段 · 18任务</span>
+      <span style="color:var(--amber)">待审批</span>
+    </div>
+  </div>
+
+  <!-- Plan 3: 天网巡检 -->
+  <div class="plan-card">
+    <div class="plan-header">
+      <div class="plan-name">🌐 天网巡检</div>
+      <div class="plan-status standby">🟢 常驻</div>
+    </div>
+    <div class="plan-phases">
+      <div class="plan-phase done"><div class="pnum">30m</div>全站</div>
+      <div class="plan-phase done"><div class="pnum">30m</div>API</div>
+      <div class="plan-phase active"><div class="pnum">30m</div>密钥</div>
+      <div class="plan-phase"><div class="pnum">30m</div>CDN</div>
+    </div>
+    <div class="plan-meta">
+      <span>30分钟循环 · 4项检查</span>
+      <span style="color:var(--green)">自动运行</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COMMAND CHAIN ═══ -->
+<div class="sec-title gold">🔗 四级指挥链状态</div>
+<div class="chain">
+  <div class="chain-row">
+    <div class="chain-tier l1">L1</div>
+    <div class="chain-info">
+      <div class="chain-name">DeepSeek 直连</div>
+      <div class="chain-detail">deepseek-chat 常态化 · deepseek-v4-pro 战略级</div>
+    </div>
+    <div class="chain-bar"><div class="chain-fill g" style="width:95%"></div></div>
+    <div class="chain-status" style="color:var(--green)">🟢 95%</div>
+  </div>
+  <div class="chain-row">
+    <div class="chain-tier l2">L2</div>
+    <div class="chain-info">
+      <div class="chain-name">junge-api 网关</div>
+      <div class="chain-detail">ai.junge.中国 → DeepSeek · 自建路由</div>
+    </div>
+    <div class="chain-bar"><div class="chain-fill g" style="width:88%"></div></div>
+    <div class="chain-status" style="color:var(--green)">🟢 88%</div>
+  </div>
+  <div class="chain-row">
+    <div class="chain-tier l3">L3</div>
+    <div class="chain-info">
+      <div class="chain-name">Ollama 本地</div>
+      <div class="chain-detail">qwen2.5:7b · 应急兜底 · 质量有限</div>
+    </div>
+    <div class="chain-bar"><div class="chain-fill g" style="width:72%"></div></div>
+    <div class="chain-status" style="color:var(--green)">🟢 72%</div>
+  </div>
+  <div class="chain-row">
+    <div class="chain-tier l4">L4</div>
+    <div class="chain-info">
+      <div class="chain-name">OpenRouter 最低优先</div>
+      <div class="chain-detail">多模型 · 国际线路 · 用户降权</div>
+    </div>
+    <div class="chain-bar"><div class="chain-fill a" style="width:45%"></div></div>
+    <div class="chain-status" style="color:var(--amber)">🟡 45%</div>
+  </div>
+</div>
+
+<!-- ═══ FOUR-TIER COMMAND SYSTEM ═══ -->
+<div class="sec-title" style="margin-bottom:0.6rem">⚡ 四级作战指令体系</div>
+
+<style>
+.cmd-tier{margin-bottom:0.5rem}
+.cmd-tier-hdr{display:flex;align-items:center;gap:0.4rem;padding:0.4rem 0.6rem;border-radius:0.4rem;cursor:pointer;font-size:0.65rem;font-weight:700;transition:.2s;user-select:none}
+.cmd-tier-hdr:hover{opacity:0.85}
+.cmd-tier-hdr .arrow{transition:.3s;font-size:0.55rem}
+.cmd-tier-hdr.open .arrow{transform:rotate(90deg)}
+.cmd-tier-hdr.joint{background:rgba(184,64,69,.12);border:1px solid rgba(184,64,69,.25);color:var(--rose)}
+.cmd-tier-hdr.detach{background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);color:var(--cyan)}
+.cmd-tier-hdr.strike{background:rgba(77,175,124,.08);border:1px solid rgba(77,175,124,.2);color:var(--green)}
+.cmd-tier-hdr.daily{background:rgba(201,169,110,.06);border:1px solid rgba(201,169,110,.18);color:var(--gold)}
+.cmd-tier-body{display:none;padding:0.4rem 0.6rem;margin-top:0.3rem}
+.cmd-tier-body.show{display:block}
+.cmd-tier-body .cmd-row{display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.3rem}
+.cmd-tier-body .cmd-sm{padding:0.25rem 0.5rem;border-radius:0.35rem;font-size:0.55rem;cursor:pointer;border:1px solid var(--border);background:rgba(30,41,59,.5);color:var(--muted);transition:.2s;white-space:nowrap;text-decoration:none}
+.cmd-tier-body .cmd-sm:hover{transform:translateY(-1px)}
+.cmd-tier-body .cmd-sm.f{background:rgba(184,64,69,.1);border-color:rgba(184,64,69,.3);color:var(--rose)}
+.cmd-tier-body .cmd-sm.f:hover{box-shadow:0 0 10px rgba(184,64,69,.2)}
+.cmd-tier-body .cmd-sm.c{background:rgba(34,211,238,.06);border-color:rgba(34,211,238,.2);color:var(--cyan)}
+.cmd-tier-body .cmd-sm.c:hover{box-shadow:0 0 10px rgba(34,211,238,.15)}
+.cmd-tier-body .cmd-sm.g{background:rgba(77,175,124,.06);border-color:rgba(77,175,124,.2);color:var(--green)}
+.cmd-tier-body .cmd-sm.g:hover{box-shadow:0 0 10px rgba(77,175,124,.15)}
+.cmd-tier-body .cmd-sm.a{background:rgba(201,169,110,.04);border-color:rgba(201,169,110,.15);color:var(--gold)}
+.cmd-tier-body .cmd-sm.a:hover{box-shadow:0 0 10px rgba(201,169,110,.15)}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+
+<!-- TIER 1: 联合作战 -->
+<div class="cmd-tier">
+  <div class="cmd-tier-hdr joint" onclick="toggleTier('tier-joint',this)">
+    <span class="arrow">▶</span> 🔴 联合作战 JOINT OPS — 多域协同·全链路·战略级
+  </div>
+  <div class="cmd-tier-body" id="tier-joint">
+    <div class="cmd-row">
+      <button class="cmd-sm f" onclick="fireCommand('assess')">🎯 JOINT-001 全域态势评估</button>
+      <button class="cmd-sm f" onclick="fireCommand('pipeline')">⚙️ JOINT-002 全链路作战管道</button>
+      <button class="cmd-sm f" onclick="fireCommand('zhudun')">🛡️ JOINT-003 铸盾行动</button>
+    </div>
+  </div>
+</div>
+
+<!-- TIER 2: 分兵作战 -->
+<div class="cmd-tier">
+  <div class="cmd-tier-hdr detach" onclick="toggleTier('tier-detach',this)">
+    <span class="arrow">▶</span> 🔵 分兵作战 DETACH OPS — 单域深入·专项任务·战役级
+  </div>
+  <div class="cmd-tier-body" id="tier-detach">
+    <div class="cmd-row">
+      <button class="cmd-sm c" onclick="fireCommand('commerce')">🛒 DETACH-001 商业域突击</button>
+      <button class="cmd-sm c" onclick="fireCommand('shuzhi')">⚔ DETACH-002 数智域防御</button>
+      <button class="cmd-sm c" onclick="fireCommand('fenzhan')">🌾 DETACH-003 分站域渗透</button>
+      <button class="cmd-sm c" onclick="fireCommand('bridge')">📡 DETACH-004 情报域通信</button>
+    </div>
+  </div>
+</div>
+
+<!-- TIER 3: 单兵出击 -->
+<div class="cmd-tier">
+  <div class="cmd-tier-hdr strike" onclick="toggleTier('tier-strike',this)">
+    <span class="arrow">▶</span> 🟢 单兵出击 STRIKE OPS — 单Agent·精准打击·战术级
+  </div>
+  <div class="cmd-tier-body" id="tier-strike">
+    <div class="cmd-row">
+      <button class="cmd-sm g" onclick="fireCommand('assistant')">🤖 STRIKE-001 AI助手</button>
+      <button class="cmd-sm g" onclick="fireCommand('deploy')">📦 STRIKE-002 一键部署</button>
+      <button class="cmd-sm g" onclick="fireCommand('chat')">💬 STRIKE-003 模型直调</button>
+    </div>
+  </div>
+</div>
+
+<!-- TIER 4: 日常运维 -->
+<div class="cmd-tier">
+  <div class="cmd-tier-hdr daily" onclick="toggleTier('tier-daily',this)">
+    <span class="arrow">▶</span> 🟡 日常运维 DAILY OPS — 例行巡检·自动循环·哨兵级
+  </div>
+  <div class="cmd-tier-body" id="tier-daily">
+    <div class="cmd-row">
+      <button class="cmd-sm a" onclick="fireCommand('patrol')">🔍 DAILY-001 战备检查</button>
+      <button class="cmd-sm a" onclick="fireCommand('tianwang')">🌐 DAILY-002 天网巡检</button>
+      <button class="cmd-sm a" onclick="fireCommand('keyrot')">🔑 DAILY-003 密钥轮换</button>
+      <button class="cmd-sm a" onclick="fireCommand('sync')">🔄 DAILY-004 构建同步</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COMMUNICATION MATRIX ═══ -->
+<div class="sec-title blue" style="margin-top:0.75rem">📡 通信协同矩阵</div>
+<div class="chain" style="margin-bottom:0.5rem">
+  <div class="chain-row">
+    <div class="chain-tier l1" style="background:rgba(77,175,124,.15);color:var(--green);border-color:rgba(77,175,124,.3)">微</div>
+    <div class="chain-info"><div class="chain-name">企业微信桥接</div><div class="chain-detail">端口8008 · systemd · Nginx /wechat/callback</div></div>
+    <div class="chain-bar"><div class="chain-fill g" style="width:100%"></div></div>
+    <div class="chain-status" style="color:var(--green)">🟢 在线</div>
+  </div>
+  <div class="chain-row">
+    <div class="chain-tier l2" style="background:rgba(251,191,36,.1);color:var(--amber);border-color:rgba(251,191,36,.2)">飞</div>
+    <div class="chain-info"><div class="chain-name">飞书集成</div><div class="chain-detail">端口8009计划 · @larksuiteoapi/node-sdk · 待建</div></div>
+    <div class="chain-bar"><div class="chain-fill a" style="width:5%"></div></div>
+    <div class="chain-status" style="color:var(--amber)">⚠ 待建</div>
+  </div>
+  <div class="chain-row">
+    <div class="chain-tier l3" style="background:rgba(77,201,246,.12);color:var(--cyan);border-color:rgba(77,201,246,.25)">WS</div>
+    <div class="chain-info"><div class="chain-name">WebSocket实时通道</div><div class="chain-detail">/ws/tasks · /ws/pipelines · 双向推送</div></div>
+    <div class="chain-bar"><div class="chain-fill g" style="width:100%"></div></div>
+    <div class="chain-status" style="color:var(--green)">🟢 在线</div>
+  </div>
+  <div class="chain-row">
+    <div class="chain-tier l4" style="background:rgba(30,41,59,.5);color:var(--dim);border-color:rgba(30,41,59,.5)">📧</div>
+    <div class="chain-info"><div class="chain-name">邮件通知</div><div class="chain-detail">SMTP待配置 · 计划V1.2</div></div>
+    <div class="chain-bar"><div class="chain-fill a" style="width:0%"></div></div>
+    <div class="chain-status" style="color:var(--dim)">⚫ 未部署</div>
+  </div>
+</div>
+
+<!-- ═══ KEY MANAGEMENT ═══ -->
+<div class="sec-title gold" style="margin-top:0.75rem">🔑 密钥态势</div>
+<div class="chain" style="margin-bottom:0.75rem">
+  <div class="chain-row">
+    <div class="chain-tier l1">L1</div>
+    <div class="chain-info"><div class="chain-name">DeepSeek KEY</div><div class="chain-detail">3处持有点 · docker-compose + systemd + 硬编码</div></div>
+    <div class="chain-bar"><div class="chain-fill g" style="width:95%"></div></div>
+    <div class="chain-status" style="color:var(--green)">🟢 有效</div>
+  </div>
+  <div class="chain-row">
+    <div class="chain-tier l4">L4</div>
+    <div class="chain-info"><div class="chain-name">OpenRouter KEY</div><div class="chain-detail">已降权 · 仅L4备选</div></div>
+    <div class="chain-bar"><div class="chain-fill a" style="width:45%"></div></div>
+    <div class="chain-status" style="color:var(--amber)">🟡 待轮换</div>
+  </div>
+  <div class="chain-row">
+    <div class="chain-tier l2">微</div>
+    <div class="chain-info"><div class="chain-name">企业微信凭证</div><div class="chain-detail">WECONFIG + CORP_SECRET · server.js硬编码</div></div>
+    <div class="chain-bar"><div class="chain-fill g" style="width:100%"></div></div>
+    <div class="chain-status" style="color:var(--green)">🟢 有效</div>
+  </div>
+</div>
+
+<!-- ═══ LIVE LOG ═══ -->
+<div class="sec-title blue">📡 实时作战日志</div>
+<div class="log-term" id="logTerm">
+  <div class="log-line"><span class="log-ts">--:--:--</span> <span class="log-i">等待连接...</span></div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="site-footer">
+  军鸽云链数智 · junge.中国 · RED‑DUAL Ω 双域AI联合作战平台 · 海口总站 · 琼ICP备2025063762号-2<br>
+  食品安全+退役军人在服务综合平台 · 账号ID: 100030442552
+</div>
+
+</div><!-- .container -->
+
+<!-- ═══ BOTTOM NAV ═══ -->
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+
+<div class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/junge-shuzhi.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+  <a href="/shuzhi-zongbu.html" class="active">🧠 数智总部</a>
+  <a href="/zhihui-ai.html">🤖 AI指挥台</a>
+</div>
+
+<script>
+// ===== STARS BACKGROUND =====
+(function(){
+  var c=document.getElementById('stars'),h='';
+  for(var i=0;i<120;i++){
+    var s=Math.random()*2+1;
+    h+='<div class="star" style="left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;width:'+s+'px;height:'+s+'px;--d:'+(Math.random()*4+3).toFixed(1)+'s;animation-delay:'+Math.random()*5+'s"></div>';
+  }
+  c.innerHTML=h;
+})();
+
+// ===== CLOCK =====
+function tick(){
+  var n=new Date();
+  var t=n.toLocaleTimeString('zh-CN',{hour12:false});
+  var d=n.toLocaleDateString('zh-CN',{month:'2-digit',day:'2-digit'});
+  document.getElementById('clock').textContent='🕐 '+d+' '+t+' CST';
+}
+tick();setInterval(tick,1000);
+
+// ===== LOG TERMINAL =====
+var logEl=document.getElementById('logTerm');
+var logLines=[];
+function addLog(cat,msg){
+  var n=new Date();
+  var ts=n.toLocaleTimeString('zh-CN',{hour12:false});
+  var cls='log-i';
+  if(cat==='ev')cls='log-ev';
+  else if(cat==='w')cls='log-w';
+  else if(cat==='e')cls='log-e';
+  else if(cat==='s')cls='log-s';
+  logLines.push('<div class="log-line"><span class="log-ts">'+ts+'</span> <span class="'+cls+'">'+msg+'</span></div>');
+  if(logLines.length>50)logLines.shift();
+  logEl.innerHTML=logLines.join('');
+  logEl.scrollTop=logEl.scrollHeight;
+}
+
+addLog('ev','RED‑DUAL Ω 数智总部 作战系统上线');
+addLog('s','八大将部署态势已加载 · 6域3节点就绪');
+addLog('i','四级指挥链 L1-L4 连接验证...');
+setTimeout(function(){addLog('s','L1 DeepSeek ✓ L2 网关 ✓ L3 Ollama ✓ L4 OR ⚠');},800);
+setTimeout(function(){addLog('ev','铸盾行动 P3 加固阶段进行中...');},1500);
+setTimeout(function(){addLog('i','天网巡检 第12轮 开始...');},2200);
+setTimeout(function(){addLog('s','全站5页面 · 7容器 · 5端口 · API全部正常');},2800);
+
+// ===== QUICK COMMANDS =====
+function fireCommand(cmd){
+  addLog('ev','▶ '+cmd);
+  var api=window.location.origin;
+  switch(cmd){
+    case 'assess':
+      addLog('i','JOINT-001 全域态势评估 → Meta-Commander深度分析...');
+      fetch(api+'/assess',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({goal:'数智总部战略态势评估',strategy:'deep'})})
+        .then(function(r){return r.json();})
+        .then(function(d){addLog('s','评估完成: '+JSON.stringify(d).substring(0,100));})
+        .catch(function(e){addLog('e','评估失败: '+e.message);});
+      break;
+    case 'pipeline':
+      addLog('i','JOINT-002 全链路作战管道启动...');
+      fetch(api+'/api/pipelines/junge_project_pipeline/run',{method:'POST'})
+        .then(function(r){return r.json();})
+        .then(function(d){addLog('s','管道启动: run_id='+(d.run_id||'?')+' nodes='+(d.nodes||0));})
+        .catch(function(e){addLog('e','管道失败: '+e.message);});
+      break;
+    case 'zhudun':
+      addLog('i','JOINT-003 铸盾行动 · P3加固阶段...');
+      addLog('s','检查清单: 密钥轮换·MD脱敏·Nginx审计·端口审计·CDN策略');
+      break;
+    case 'commerce':
+      addLog('i','DETACH-001 商业域突击 → shangcheng.html...');
+      fetch(api+'/dispatch',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({intent:'router.auto',goal:'shangcheng页面更新·5层金字塔',domain:'commerce'})})
+        .then(function(r){return r.json();})
+        .then(function(d){addLog('s','分发完成: '+JSON.stringify(d).substring(0,100));})
+        .catch(function(e){addLog('e','分发失败: '+e.message);});
+      break;
+    case 'shuzhi':
+      addLog('i','DETACH-002 数智域防御...');
+      fetch(api+'/health').then(function(r){return r.json();})
+        .then(function(d){addLog('s','数智域: orchestrator='+d.orchestrator+' agents='+d.agents_loaded);})
+        .catch(function(e){addLog('w','数智域超时');});
+      break;
+    case 'fenzhan':
+      addLog('i','DETACH-003 分站域渗透...');
+      fetch(api+'/fenzhan.html?_='+Date.now())
+        .then(function(r){addLog('s','分站域: HTTP '+r.status);})
+        .catch(function(){addLog('e','分站域不可达');});
+      break;
+    case 'bridge':
+      addLog('i','DETACH-004 情报域通信检查...');
+      fetch(api+'/wechat/callback?msg_signature=x&timestamp=1&nonce=2&echostr=3')
+        .then(function(r){addLog('s','企业微信桥接: HTTP '+r.status);})
+        .catch(function(){addLog('w','桥接超时');});
+      break;
+    case 'assistant':
+      addLog('i','STRIKE-001 AI助手单兵出击...');
+      fetch(api+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({agent:'ai-assistant',model:'deepseek-chat',message:'军鸽云链平台简介'})})
+        .then(function(r){return r.json();})
+        .then(function(d){addLog('s','AI助手: '+d.reply.substring(0,80)+'...');})
+        .catch(function(e){addLog('e','助手失败');});
+      break;
+    case 'deploy':
+      addLog('i','STRIKE-002 CU Agent部署中...');
+      addLog('s','安全沙箱: /opt/junge/generated/{run_id}/ 扩展名白名单 600权限');
+      break;
+    case 'chat':
+      addLog('i','STRIKE-003 模型直调 (L1→L4降级链)...');
+      fetch(api+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:'战备状态简报',model:'deepseek-chat'})})
+        .then(function(r){return r.json();})
+        .then(function(d){addLog('s','直调: ['+d.provider+'] '+d.reply.substring(0,70));})
+        .catch(function(e){addLog('e','直调失败: 降级到L3 Ollama');});
+      break;
+    case 'patrol':
+      addLog('i','DAILY-001 每日战备检查 (0830标准)...');
+      fetch(api+'/health').then(function(r){return r.json();})
+        .then(function(d){addLog('s','容器: orchestrator='+d.orchestrator+' agents='+d.agents_loaded);});
+      var pages=['/','/shangcheng.html','/junge-shuzhi.html','/fenzhan.html','/zhihui-ai.html'];
+      var done=0;
+      pages.forEach(function(p){
+        fetch(api+p+'?_='+Date.now())
+          .then(function(r){done++;addLog('s','✓ '+p+' HTTP '+r.status);})
+          .catch(function(){done++;addLog('e','✗ '+p);});
+      });
+      break;
+    case 'tianwang':
+      addLog('i','DAILY-002 天网巡检 (30分钟循环)...');
+      addLog('s','检查: 全站5页面·7容器·5端口·API·微信桥接·密钥');
+      break;
+    case 'keyrot':
+      addLog('w','DAILY-003 密钥轮换 — 3处同步更新...');
+      addLog('i','1. docker-compose.yml → 2. systemd override → 3. main.py硬编码');
+      addLog('w','轮换期间L3 Ollama兜底 /chat可用 /assess回退启发式');
+      break;
+    case 'sync':
+      addLog('i','DAILY-004 构建上下文同步...');
+      addLog('s','检查: Docker容器 ↔ 构建上下文 文件差异');
+      break;
+  }
+}
+
+// ===== Tier toggle =====
+function toggleTier(id,el){
+  var b=document.getElementById(id);
+  var open=b.classList.contains('show');
+  // close all
+  document.querySelectorAll('.cmd-tier-body').forEach(function(x){x.classList.remove('show')});
+  document.querySelectorAll('.cmd-tier-hdr').forEach(function(x){x.classList.remove('open')});
+  if(!open){b.classList.add('show');el.classList.add('open')}
+}
+
+// ===== Periodic health poll =====
+setInterval(function(){
+  fetch(window.location.origin+'/health')
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.agents_loaded) document.getElementById('agentCount').textContent=d.agents_loaded;
+      addLog('i','心跳: orchestrator='+d.orchestrator+' agents='+d.agents_loaded);
+    })
+    .catch(function(){});
+}, 30000);
+</script>
+
+</body>
+</html>

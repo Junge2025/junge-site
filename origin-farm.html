@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<title>原产地农场 - 军鸽云链</title>
+<style>
+:root{--primary:#00d4ff;--accent:#ff2d78;--gold:#f0c040;--green:#6dab7e;--bg:#0a0f16;--card:rgba(16,24,36,.85);--text:#e7ecf2;--muted:#8896b0;--border:rgba(255,255,255,.06)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-bottom:90px}
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--muted);text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+.hero{text-align:center;padding:50px 20px 36px;background:linear-gradient(135deg,rgba(109,171,126,.06),rgba(10,15,22,.97))}
+.hero h1{font-size:28px;font-weight:900;margin-bottom:8px}
+.hero p{font-size:13px;color:var(--muted);max-width:700px;margin:0 auto}
+.container{max-width:1000px;margin:0 auto;padding:0 16px}
+.section{margin:24px 0}
+.section-title{font-size:18px;font-weight:800;margin-bottom:16px;padding-left:12px;border-left:3px solid var(--green)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:768px){.grid3{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.grid3{grid-template-columns:1fr}}
+.farm-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:transform .2s,box-shadow .2s;text-decoration:none;color:var(--text);display:flex;flex-direction:column}
+.farm-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.farm-card img{width:100%;height:200px;object-fit:cover}
+.farm-card-body{padding:18px;flex:1;display:flex;flex-direction:column}
+.farm-card-body h3{font-size:16px;margin-bottom:6px}
+.farm-card-body .location{font-size:10px;color:var(--gold);margin-bottom:6px}
+.farm-card-body p{font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:12px;flex:1}
+.farm-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.farm-badges span{font-size:9px;padding:2px 8px;border-radius:10px}
+.badge-green{background:rgba(109,171,126,.15);color:var(--green)}
+.badge-gold{background:rgba(196,160,68,.15);color:var(--gold)}
+.badge-blue{background:rgba(0,212,255,.12);color:var(--primary)}
+.btn-farm{display:block;text-align:center;padding:8px 0;border-radius:20px;font-size:11px;font-weight:700;border:1px solid var(--green);color:var(--green);background:transparent;transition:all .2s;text-decoration:none}
+.btn-farm:hover{background:var(--green);color:#fff}
+.values-bar{background:var(--card);border:1px solid rgba(109,171,126,.2);border-radius:12px;padding:20px;text-align:center;margin:30px 0}
+.values-bar h3{font-size:15px;color:var(--green);margin-bottom:8px}
+.values-bar .values{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.values-bar .v{font-size:11px;color:var(--muted);padding:4px 14px;border-radius:14px;background:rgba(109,171,126,.06);border:1px solid rgba(109,171,126,.15)}
+.extend-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;margin:20px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:var(--muted)}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:var(--muted);border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:var(--primary);color:var(--primary)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--muted);text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+footer{text-align:center;padding:12px 16px;font-size:9px;color:#556070;border-top:1px solid var(--border);margin-top:20px}
+.notice{background:linear-gradient(135deg,rgba(109,171,126,.08),rgba(10,15,22,.97));border:1px solid rgba(109,171,126,.3);border-radius:12px;padding:16px 20px;text-align:center;margin:20px 0;font-size:12px}
+.notice strong{color:var(--green)}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="原产地农场 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/origin-farm.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/origin-farm.html">
+</head>
+<body>
+<nav class="breadcrumb-bar"><a href="/">首页</a><span class="sep">▸</span><a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span><a href="/junge/eco-farm">🌾 生态农庄</a><span class="sep">▸</span><span class="current">原产地农场</span></nav>
+
+<div class="hero">
+  <h1>🌍 原产地直供农场</h1>
+  <p>从田间到餐桌 · 退役军人全程守护 · 非转基因种子 · 原产地认证 · 军鸽区块链溯源</p>
+</div>
+
+<div class="container">
+  <div class="values-bar">
+    <h3>🛡 军鸽原产地承诺</h3>
+    <div class="values">
+      <span class="v">🌱 非转基因种子</span>
+      <span class="v">🔍 全链条可溯源</span>
+      <span class="v">👨‍✈️ 退役军人品控</span>
+      <span class="v">🏷 原产地认证</span>
+      <span class="v">📋 有机/绿色认证</span>
+      <span class="v">🚚 产地直发</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">🌾 三大核心农庄</h2>
+  <div class="grid3">
+    <!-- 海南 -->
+    <a href="/farm-hainan.html" class="farm-card">
+      <img src="https://images.unsplash.com/photo-1500076656116-558758c991c1?w=600&q=80" alt="海南热带农庄">
+      <div class="farm-card-body">
+        <h3>🌴 海南热带农庄</h3>
+        <div class="location">📍 海南省三亚市</div>
+        <div class="farm-badges">
+          <span class="badge-green">有机认证</span>
+          <span class="badge-gold">退役军人</span>
+          <span class="badge-blue">1,200亩</span>
+        </div>
+        <p>热带水果种植 · 生态养殖 · 农旅体验 · 50+品种 · 200+合作农户 · 年产量3,000吨</p>
+        <span class="btn-farm">查看详情 →</span>
+      </div>
+    </a>
+
+    <!-- 东北 -->
+    <a href="/farm-northeast.html" class="farm-card">
+      <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80" alt="东北黑土农庄">
+      <div class="farm-card-body">
+        <h3>🌾 东北黑土农庄</h3>
+        <div class="location">📍 黑龙江省五常市</div>
+        <div class="farm-badges">
+          <span class="badge-green">有机认证</span>
+          <span class="badge-gold">退役军人</span>
+          <span class="badge-blue">1,800亩</span>
+        </div>
+        <p>世界三大黑土带 · 五常稻花香 · 有机大米·绿色杂粮 · 20+品种 · 300+合作农户</p>
+        <span class="btn-farm">查看详情 →</span>
+      </div>
+    </a>
+
+    <!-- 云南 -->
+    <a href="/farm-yunnan.html" class="farm-card">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="云南高原农庄">
+      <div class="farm-card-body">
+        <h3>🏔 云南高原农庄</h3>
+        <div class="location">📍 云南省普洱市景迈山</div>
+        <div class="farm-badges">
+          <span class="badge-green">中欧双有机</span>
+          <span class="badge-gold">退役军人</span>
+          <span class="badge-blue">2,200亩</span>
+        </div>
+        <p>世界文化遗产 · 海拔1800m · 古树普洱茶 · 野生菌菇 · 300年古茶树 · 150+合作农户</p>
+        <span class="btn-farm">查看详情 →</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="notice">
+    🌱 <strong>更多农庄陆续入驻中：</strong>军鸽云链面向全国退役军人创办的生态农庄免费开放入驻。→ <a href="/join-apply.html" style="color:var(--primary)">申请入驻</a>
+  </div>
+
+  <div class="extend-bar">
+    <span class="ext-title">🔗 继续探索：</span>
+    <a href="/traceability.html" class="ext-trace">🔍 区块链溯源</a>
+    <a href="/junge/eco-farm" class="ext-mall">🌾 生态农庄主页</a>
+    <a href="/shangcheng.html" class="ext-mall">🛒 商业生态</a>
+    <a href="/index.html" class="ext-mall">🏠 返回首页</a>
+  </div>
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/junge-shuzhi.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+<footer><p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p><p>食品安全 + 退役军人在服务综合平台 · 原产地直供 · 非转基因</p></footer>
+</body>
+</html>

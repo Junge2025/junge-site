@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>区块链溯源详情 · 海南热带生态农庄 · 军鸽云链</title>
+<meta name="description" content="海南热带生态农庄区块链溯源体系 — 从种植到餐桌全链条上链存证，扫码追溯种植地块、采摘时间、检测报告、冷链运输，军鸽云链TV/DV/JC三值体系保障食品安全。">
+<meta name="keywords" content="区块链溯源,食品安全溯源,农产品追溯,军鸽云链,TV价值量,DV数据量,JC价值量,有机认证">
+<meta property="og:title" content="区块链溯源详情 · 海南热带生态农庄">
+<meta property="og:description" content="军鸽云链区块链溯源 — 种植→采摘→分拣→检测→包装→物流→扫码，全链条不可篡改">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://junge.中国/farm-hainan-traceability.html">
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,0.85);--text:#e8edf5;--dim:#8896b0;--border:rgba(255,255,255,.06);--red:#b84045;--green:#6dab7e;--blue:#4b8ecf;--gold:#f0c040;--cyan:#00d4ff;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;line-height:1.7;min-height:100vh;padding-bottom:130px}
+.breadcrumb{position:sticky;top:0;z-index:101;background:rgba(3,7,18,.96);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:6px;font-size:11px;backdrop-filter:blur(12px)}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:.2s}
+.breadcrumb a:hover{color:var(--cyan)}
+.breadcrumb .sep{color:#4a5568}
+.breadcrumb .current{color:var(--cyan);font-weight:700}
+.top-nav{position:sticky;top:33px;z-index:100;background:linear-gradient(90deg,rgba(3,7,18,.98),rgba(10,22,40,.97));backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;overflow-x:auto}
+.top-nav .logo{font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;flex-shrink:0}
+.top-nav .divider{width:1px;height:16px;background:var(--border);flex-shrink:0}
+.top-nav a.nav-link{color:var(--dim);text-decoration:none;font-size:11px;padding:3px 9px;border-radius:10px;border:1px solid transparent;white-space:nowrap;flex-shrink:0;transition:.2s}
+.top-nav a.nav-link:hover,.top-nav a.nav-link.active{color:var(--cyan);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.05)}
+.container{max-width:1160px;margin:0 auto;padding:10px 20px 40px}
+.page-hero{text-align:center;padding:40px 20px 30px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.page-hero h1{font-size:32px;color:var(--gold);margin-bottom:8px}
+.page-hero .sub{font-size:13px;color:var(--dim)}
+.section-title{font-size:15px;color:var(--cyan);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.principle-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+.principle-card h3{font-size:16px;color:var(--gold);margin-bottom:12px}
+.principle-card p{font-size:12px;color:var(--dim);line-height:1.9;margin-bottom:8px}
+.flow-chain{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:20px 0}
+.flow-step{background:rgba(0,212,255,.03);border:1px solid rgba(0,212,255,.1);border-radius:10px;padding:16px 8px;text-align:center;transition:.25s;position:relative}
+.flow-step:hover{border-color:rgba(0,212,255,.3);background:rgba(0,212,255,.06);transform:translateY(-2px)}
+.flow-step .fs-icon{font-size:28px;margin-bottom:6px}
+.flow-step .fs-title{font-size:11px;font-weight:600;color:var(--text);margin-bottom:4px}
+.flow-step .fs-detail{font-size:9px;color:var(--dim);line-height:1.5}
+.flow-step::after{content:'→';position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:var(--cyan);font-size:14px;z-index:2}
+.flow-step:last-child::after{content:none}
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.cert-card h4{font-size:13px;color:var(--cyan);margin-bottom:10px}
+.cert-card .cert-id{font-family:'Courier New',monospace;font-size:11px;color:var(--gold);background:rgba(240,192,64,.06);padding:8px 12px;border-radius:6px;border-left:3px solid var(--gold);word-break:break-all;margin-bottom:6px}
+.cert-card .cert-meta{font-size:10px;color:var(--dim);line-height:1.6}
+.test-table{width:100%;border-collapse:collapse;font-size:11px;margin:12px 0}
+.test-table th{background:rgba(0,212,255,.04);color:var(--cyan);font-weight:600;padding:10px 12px;text-align:left;border:1px solid var(--border);font-size:10px}
+.test-table td{padding:10px 12px;border:1px solid var(--border);color:var(--dim)}
+.test-table .pass{color:var(--green);font-weight:600}
+.scan-demo{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;text-align:center;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+.scan-demo .qr-placeholder{width:160px;height:160px;border:3px dashed rgba(0,212,255,.2);border-radius:12px;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:60px;background:rgba(0,212,255,.02)}
+.scan-demo .scan-info{text-align:left}
+.scan-demo .scan-info h3{font-size:16px;color:var(--gold);margin-bottom:10px}
+.scan-demo .scan-info p{font-size:12px;color:var(--dim);line-height:1.8}
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tech-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-align:center;transition:.25s}
+.tech-card:hover{border-color:rgba(0,212,255,.2);transform:translateY(-2px)}
+.tech-card .tech-icon{font-size:36px;margin-bottom:10px}
+.tech-card h4{font-size:14px;color:var(--text);margin-bottom:8px}
+.tech-card .tech-desc{font-size:11px;color:var(--dim);line-height:1.7}
+.footer{text-align:center;padding:20px 20px 30px;border-top:1px solid var(--border);font-size:10px;color:#4a5568;line-height:1.8}
+.footer a{color:var(--dim);text-decoration:none}
+.footer a:hover{color:var(--cyan)}
+.footer-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{padding:4px 12px;border-radius:12px;border:1px solid var(--border);font-size:10px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.1);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:4px 8px;border-radius:8px;transition:.2s}
+.bottom-nav a:hover{color:var(--cyan)}
+.bottom-nav a.highlight{color:var(--gold);border:1px solid rgba(240,192,64,.2);background:rgba(240,192,64,.05)}
+@media(max-width:768px){
+  .flow-chain{grid-template-columns:repeat(2,1fr)}
+  .flow-step::after{content:none}
+  .cert-grid{grid-template-columns:1fr}
+  .scan-demo{grid-template-columns:1fr}
+  .tech-grid{grid-template-columns:1fr}
+  .page-hero h1{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🛡️ 情怀首页</a><span class="sep">▸</span>
+  <a href="/junge/eco-farm.html">🌿 生态农庄</a><span class="sep">▸</span>
+  <a href="/farm-hainan.html">海南热带生态农庄</a><span class="sep">▸</span>
+  <span class="current">溯源详情</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" class="logo">⚔ 军鸽云链</a>
+  <span class="divider"></span>
+  <a href="/index.html" class="nav-link">🛡️ 军鸽首页</a>
+  <a href="/shangcheng.html" class="nav-link">🛒 商业生态</a>
+  <a href="/taskforce.html" class="nav-link">⚡ 数智中心</a>
+  <a href="/fenzhan.html" class="nav-link">🌾 分站家园</a>
+  <span class="divider"></span>
+  <a href="/farm-hainan.html" class="nav-link">🌴 海南农庄</a>
+  <a href="/farm-hainan-products.html" class="nav-link">🍍 产品中心</a>
+  <a href="/farm-hainan-traceability.html" class="nav-link active">🔗 溯源详情</a>
+  <a href="/farm-hainan-experience.html" class="nav-link">🧺 农旅体验</a>
+</nav>
+
+<div class="page-hero">
+  <h1>🔗 区块链溯源体系</h1>
+  <div class="sub">军鸽云链 · 从种植到餐桌 · 全链条上链存证 · 不可篡改 · 扫码即查</div>
+</div>
+
+<div class="container">
+
+<!-- 溯源原理 -->
+<div class="section" style="margin-top:0">
+  <div class="section-title"><span>🔍</span> 溯源原理说明</div>
+  <div class="principle-card">
+    <h3>什么是区块链农产品溯源？</h3>
+    <p>军鸽云链区块链溯源系统，是将军鸽云链数智平台的TV（价值量）、DV（数据量）、JC（价值量）三值体系深度应用于农产品全链条管理的创新实践。每一批农产品从种植地块GPS定位开始，到施肥、采摘、分拣、农残检测、包装、冷链运输，直至消费者扫码签收——每一个关键节点的数据都经过哈希运算后上链存证，形成不可篡改的"数字身份证"。</p>
+    <p>消费者收到产品后，只需扫描包装上的溯源码或输入存证编号，即可在军鸽云链溯源平台查看产品的完整"生命轨迹"：包括种植地块坐标、土壤检测数据、有机肥施用记录、采摘时间戳、农残检测报告（SGS认证252项）、冷链运输温湿度曲线等。所有数据均具有法律效力的区块链存证。</p>
+  </div>
+</div>
+
+<!-- 全链条流程 -->
+<div class="section">
+  <div class="section-title"><span>⛓️</span> 产品信息上链全流程</div>
+  <div class="flow-chain">
+    <div class="flow-step">
+      <div class="fs-icon">🌱</div>
+      <div class="fs-title">种植</div>
+      <div class="fs-detail">GPS定位<br>地块编号<br>土壤pH记录<br>有机肥施用</div>
+    </div>
+    <div class="flow-step">
+      <div class="fs-icon">🧤</div>
+      <div class="fs-title">采摘</div>
+      <div class="fs-detail">时间戳<br>成熟度检测<br>采摘人员<br>批次编号</div>
+    </div>
+    <div class="flow-step">
+      <div class="fs-icon">📋</div>
+      <div class="fs-title">分拣</div>
+      <div class="fs-detail">品质等级<br>重量分选<br>外观筛查<br>分级包装</div>
+    </div>
+    <div class="flow-step">
+      <div class="fs-icon">🔬</div>
+      <div class="fs-title">检测</div>
+      <div class="fs-detail">农残252项<br>重金属检测<br>SGS认证<br>报告上链</div>
+    </div>
+    <div class="flow-step">
+      <div class="fs-icon">📦</div>
+      <div class="fs-title">包装</div>
+      <div class="fs-detail">溯源码<br>冷链包装<br>称重确认<br>出库扫描</div>
+    </div>
+    <div class="flow-step">
+      <div class="fs-icon">🚛</div>
+      <div class="fs-title">物流</div>
+      <div class="fs-detail">温湿度监控<br>GPS路径<br>中转记录<br>全程存证</div>
+    </div>
+    <div class="flow-step">
+      <div class="fs-icon">📱</div>
+      <div class="fs-title">扫码</div>
+      <div class="fs-detail">消费者扫码<br>全链验证<br>评价上链<br>售后保障</div>
+    </div>
+  </div>
+</div>
+
+<!-- 存证编号展示区 -->
+<div class="section">
+  <div class="section-title"><span>📜</span> 区块链存证编号展示</div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <h4>🥭 贵妃芒果 · 批次存证</h4>
+      <div class="cert-id">HN-JGC-20260401-MG-8A3F</div>
+      <div class="cert-meta">存证时间: 2026-04-01 10:23:45<br>区块高度: #1,847,239<br>交易哈希: 0x8a3f7b2c...e91d<br>数据量(DV): 2.4KB · 价值量(TV): 8.6</div>
+    </div>
+    <div class="cert-card">
+      <h4>🍍 金钻凤梨 · 批次存证</h4>
+      <div class="cert-id">HN-JGC-20260401-PL-6C1D</div>
+      <div class="cert-meta">存证时间: 2026-04-01 09:15:32<br>区块高度: #1,847,218<br>交易哈希: 0x6c1d9a4e...f37b<br>数据量(DV): 2.1KB · 价值量(TV): 7.9</div>
+    </div>
+    <div class="cert-card">
+      <h4>🥥 海南青椰子 · 批次存证</h4>
+      <div class="cert-id">HN-JGC-20260401-CO-9B2E</div>
+      <div class="cert-meta">存证时间: 2026-04-01 11:02:18<br>区块高度: #1,847,256<br>交易哈希: 0x9b2e5c1d...a48f<br>数据量(DV): 1.8KB · 价值量(TV): 6.4</div>
+    </div>
+    <div class="cert-card">
+      <h4>☕ 兴隆有机咖啡 · 批次存证</h4>
+      <div class="cert-id">HN-JGC-20260401-CF-4A7E</div>
+      <div class="cert-meta">存证时间: 2026-04-01 08:47:55<br>区块高度: #1,847,201<br>交易哈希: 0x4a7e8b3c...d62a<br>数据量(DV): 3.1KB · 价值量(TV): 12.3</div>
+    </div>
+  </div>
+</div>
+
+<!-- 检测报告摘要 -->
+<div class="section">
+  <div class="section-title"><span>📋</span> 检测报告摘要</div>
+  <div class="principle-card">
+    <h3>SGS农残检测 · 252项零检出</h3>
+    <div style="overflow-x:auto">
+    <table class="test-table">
+      <thead>
+        <tr><th>检测项目</th><th>检测标准</th><th>检出限</th><th>检测结果</th><th>判定</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>有机磷类农药（82项）</td><td>GB 2763-2025</td><td>0.01mg/kg</td><td>未检出</td><td class="pass">✓ 合格</td></tr>
+        <tr><td>有机氯类农药（45项）</td><td>GB 2763-2025</td><td>0.01mg/kg</td><td>未检出</td><td class="pass">✓ 合格</td></tr>
+        <tr><td>氨基甲酸酯类（38项）</td><td>GB 2763-2025</td><td>0.01mg/kg</td><td>未检出</td><td class="pass">✓ 合格</td></tr>
+        <tr><td>拟除虫菊酯类（32项）</td><td>GB 2763-2025</td><td>0.01mg/kg</td><td>未检出</td><td class="pass">✓ 合格</td></tr>
+        <tr><td>其他农药（55项）</td><td>GB 2763-2025</td><td>0.01mg/kg</td><td>未检出</td><td class="pass">✓ 合格</td></tr>
+        <tr><td>铅(Pb)</td><td>GB 2762-2025</td><td>0.05mg/kg</td><td>&lt;0.02mg/kg</td><td class="pass">✓ 合格</td></tr>
+        <tr><td>镉(Cd)</td><td>GB 2762-2025</td><td>0.01mg/kg</td><td>&lt;0.005mg/kg</td><td class="pass">✓ 合格</td></tr>
+        <tr><td>汞(Hg)</td><td>GB 2762-2025</td><td>0.01mg/kg</td><td>未检出</td><td class="pass">✓ 合格</td></tr>
+        <tr><td>砷(As)</td><td>GB 2762-2025</td><td>0.05mg/kg</td><td>&lt;0.03mg/kg</td><td class="pass">✓ 合格</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin-top:10px;font-size:10px;color:var(--dim)">检测机构: SGS通标标准技术服务有限公司 · 报告编号: SGS-20260315-HN0147 · 检测日期: 2026-03-15 · 以上数据均已上链存证</p>
+  </div>
+</div>
+
+<!-- 扫码体验 -->
+<div class="section">
+  <div class="section-title"><span>📱</span> 扫码体验示意</div>
+  <div class="scan-demo">
+    <div class="qr-placeholder">📱</div>
+    <div class="scan-info">
+      <h3>三步追溯，一目了然</h3>
+      <p>❶ <strong style="color:var(--cyan)">收到产品</strong> → 找到包装上的溯源码标签</p>
+      <p>❷ <strong style="color:var(--cyan)">手机扫码</strong> → 微信/支付宝扫描二维码</p>
+      <p>❸ <strong style="color:var(--cyan)">查看全链</strong> → 种植、采摘、检测、运输全流程数据呈现</p>
+      <p style="margin-top:10px">也可在军鸽云链溯源平台手动输入存证编号验证。所有数据均经过区块链哈希存证，不可篡改，消费者可放心查验。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 军鸽区块链技术简介 -->
+<div class="section">
+  <div class="section-title"><span>⚙️</span> 军鸽区块链技术简介</div>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-icon">📊</div>
+      <h4>TV 价值量</h4>
+      <div class="tech-desc">Transaction Value — 衡量每批次产品在区块链上的交易价值密度。TV值越高，表示该批次产品的溯源数据完整度和可信度越高。芒果批次TV值8.6，咖啡批次TV值12.3。</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-icon">💾</div>
+      <h4>DV 数据量</h4>
+      <div class="tech-desc">Data Volume — 衡量区块链存证数据的信息量。包括GPS坐标、土壤数据、检测报告、温湿度曲线等结构化+非结构化数据的聚合体积。DV值越大，溯源信息越详尽。</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-icon">🔐</div>
+      <h4>JC 价值量</h4>
+      <div class="tech-desc">Judicial Credibility — 衡量区块链存证数据的司法采信度。基于哈希值不可逆、时间戳不可篡改等密码学特性，确保溯源数据在法律层面具有完整的证据效力。</div>
+    </div>
+  </div>
+  <div class="principle-card" style="margin-top:16px">
+    <h3>🔗 技术架构</h3>
+    <p>军鸽云链采用联盟链+公有链混合架构，核心溯源数据锚定至以太坊兼容公链，确保去中心化验证。每条溯源记录均包含：产品ID → 批次号 → 关键节点哈希 → 时间戳 → 操作者数字签名 → 上一区块哈希指针。结合Cloudflare全球边缘网络加速，扫码查询响应时间&lt;500ms。</p>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="/farm-hainan.html" style="border-color:rgba(109,171,126,.2);color:var(--green)">🌴 海南农庄</a>
+    <a href="/farm-hainan-products.html" style="border-color:rgba(0,212,255,.2);color:var(--cyan)">🍍 产品中心</a>
+    <a href="/farm-hainan-experience.html" style="border-color:rgba(240,192,64,.2);color:var(--gold)">🧺 农旅体验</a>
+    <a href="/traceability.html" style="border-color:rgba(184,64,69,.2);color:var(--red)">🔗 溯源平台</a>
+  </div>
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站: 175.178.55.90 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+  食品安全+退役军人在服务综合平台
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+</body>
+</html>

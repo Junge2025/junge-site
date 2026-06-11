@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>药食同源知识库 · 110种物质详解 — 军鸽云链</title>
+<meta name="description" content="药食同源110种物质完整知识库，含性味归经、功效、科学食用指南。军鸽云链数智平台出品。">
+<style>
+:root {
+--red:#b84045; --red-bg:rgba(184,64,69,0.12); --red-glow:rgba(184,64,69,0.4);
+--green:#4d9460; --green-bg:rgba(77,148,96,0.12); --green-glow:rgba(77,148,96,0.4);
+--blue:#4b8ec9; --blue-bg:rgba(75,142,201,0.12); --blue-glow:rgba(75,142,201,0.4);
+--gold:#c4a044; --gold-bg:rgba(196,160,68,0.1);
+--bg:#0a0f16; --bg2:#101820; --bg-card:rgba(16,24,36,0.7);
+--text:#e7ecf2; --text2:#9daab8; --text3:#556070;
+--border:rgba(255,255,255,0.05); --border2:rgba(255,255,255,0.08);
+--radius:16px; --radius-sm:10px;
+--shadow:0 8px 32px rgba(0,0,0,.5);
+--trans:.25s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;
+background-image:
+radial-gradient(ellipse at 20% 0%,rgba(184,64,69,.04) 0%,transparent 55%),
+radial-gradient(ellipse at 80% 10%,rgba(75,142,201,.03) 0%,transparent 55%),
+radial-gradient(ellipse at 40% 80%,rgba(77,148,96,.04) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#253040;border-radius:2px}
+
+/* Header */
+.page-header{position:sticky;top:0;z-index:10000;background:rgba(10,15,22,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px 20px}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.header-l{display:flex;align-items:center;gap:10px}
+.header-l .logo{font-size:24px}
+.header-l h1{font-size:15px;font-weight:650;letter-spacing:.03em}
+.back-btn{padding:6px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:var(--text2);font-size:10px;text-decoration:none;transition:var(--trans)}
+.back-btn:hover{color:#d47a7e;border-color:rgba(184,64,69,.3);background:var(--red-bg)}
+
+/* Search */
+.search-wrap{max-width:1200px;margin:20px auto;padding:0 20px}
+.search-bar{display:flex;gap:8px;align-items:center}
+.search-bar input{flex:1;padding:12px 18px;border-radius:24px;border:1px solid var(--border2);background:var(--bg-card);color:var(--text);font-size:14px;outline:none;transition:var(--trans)}
+.search-bar input:focus{border-color:rgba(77,148,96,.4);box-shadow:0 0 16px rgba(77,148,96,.1)}
+.search-bar input::placeholder{color:var(--text3)}
+.search-btn{padding:12px 24px;border-radius:24px;border:none;background:linear-gradient(135deg,var(--green),#3a7d4a);color:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:var(--trans);white-space:nowrap}
+.search-btn:hover{box-shadow:0 4px 20px rgba(77,148,96,.3);transform:translateY(-1px)}
+
+/* Stats bar */
+.stats-bar{max-width:1200px;margin:16px auto;padding:0 20px;display:flex;gap:20px;flex-wrap:wrap}
+.stat-item{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--text3)}
+.stat-item b{color:var(--text);font-size:16px}
+
+/* Category nav */
+.cat-nav{max-width:1200px;margin:16px auto;padding:0 20px;display:flex;gap:6px;flex-wrap:wrap}
+.cat-nav a{padding:5px 14px;border-radius:14px;font-size:10px;color:var(--text2);text-decoration:none;transition:var(--trans);border:1px solid var(--border);background:rgba(255,255,255,.02)}
+.cat-nav a:hover,.cat-nav a.active{color:#6dab7e;border-color:rgba(77,148,96,.3);background:var(--green-bg)}
+
+/* Main */
+main{max-width:1200px;margin:0 auto;padding:0 20px 80px}
+.cat-section{margin-bottom:32px}
+.cat-title{display:flex;align-items:center;gap:8px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.cat-title .icon{font-size:18px}
+.cat-title h2{font-size:14px;font-weight:650;color:var(--text)}
+.cat-title .count{font-size:9px;color:var(--text3);background:rgba(255,255,255,.04);padding:2px 8px;border-radius:8px}
+
+/* Substance cards */
+.substance-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.substance-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;transition:var(--trans);cursor:pointer;position:relative;overflow:hidden}
+.substance-card:hover{transform:translateY(-2px);border-color:rgba(77,148,96,.25);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.substance-card .sc-name{font-size:13px;font-weight:650;color:var(--text);margin-bottom:4px}
+.substance-card .sc-latin{font-size:9px;color:var(--text3);font-style:italic;margin-bottom:6px}
+.substance-card .sc-props{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}
+.sc-props span{padding:2px 7px;border-radius:6px;font-size:8px;background:rgba(255,255,255,.04);color:var(--text3)}
+.sc-props .hot{background:rgba(184,64,69,.1);color:#d47a7e}
+.sc-props .warm{background:rgba(196,160,68,.1);color:var(--gold)}
+.sc-props .cold{background:rgba(75,142,201,.1);color:var(--blue)}
+.sc-props .neutral{background:rgba(77,148,96,.1);color:var(--green)}
+.substance-card .sc-effect{font-size:10px;color:var(--text2);line-height:1.5;margin-bottom:6px}
+.substance-card .sc-use{font-size:9px;color:var(--text3);line-height:1.4;border-top:1px solid var(--border);padding-top:6px}
+.substance-card .sc-caution{font-size:8px;color:#d47a7e;margin-top:4px;line-height:1.3}
+.substance-card .sc-dosage{font-size:8px;color:var(--gold);margin-top:2px}
+
+/* No results */
+.no-results{text-align:center;padding:40px 20px;color:var(--text3);font-size:13px}
+
+/* Bottom nav */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+.bottom-nav a:hover,.bottom-nav a.active{color:#6dab7e;background:var(--green-bg);border-color:rgba(77,148,96,.25)}
+
+/* Footer */
+footer{text-align:center;padding:16px 20px 60px;font-size:9px;color:var(--text3);line-height:1.8}
+
+/* Expand detail */
+.sc-detail{display:none;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+.sc-detail.show{display:block}
+.sc-detail dt{font-size:9px;color:var(--text3);margin-top:4px}
+.sc-detail dd{font-size:9px;color:var(--text2);margin-bottom:2px}
+
+/* Sub title */
+.hero-banner{max-width:1200px;margin:28px auto 8px;padding:0 20px}
+.hero-banner .hb-inner{text-align:center;padding:24px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(77,148,96,.06),rgba(77,148,96,.02));border:1px solid rgba(77,148,96,.1)}
+.hero-banner h2{font-size:20px;color:#6dab7e;margin-bottom:4px}
+.hero-banner p{font-size:11px;color:var(--text2)}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="药食同源知识库 · 110种物质详解 — 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/food-medicine-kb.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/food-medicine-kb.html">
+</head>
+<body>
+
+<div class="page-header">
+<div class="header-inner">
+<div class="header-l"><span class="logo">🍵</span><h1>药食同源知识库</h1></div>
+<a href="/" class="back-btn">← 返回首页</a>
+</div>
+</div>
+
+<div class="hero-banner"><div class="hb-inner">
+<h2>🌿 110种药食同源物质 · 完整知识库</h2>
+<p>依据国家卫健委《按照传统既是食品又是中药材的物质目录》整理 · 传承中医智慧 · 科学食用指南</p>
+</div></div>
+
+<div class="search-wrap">
+<div class="search-bar">
+<input type="text" id="searchInput" placeholder="搜索物质名称、功效、性味...（如：枸杞、补气、温性）" oninput="filterSubstances()">
+<button class="search-btn" onclick="filterSubstances()">🔍 搜索</button>
+</div>
+</div>
+
+<div class="stats-bar" id="statsBar">
+<div class="stat-item">📋 总计 <b>110</b> 种</div>
+<div class="stat-item">📂 分类 <b>5</b> 组</div>
+<div class="stat-item" id="visibleCount">👁 显示 <b>110</b> 种</div>
+</div>
+
+<div class="cat-nav">
+<a href="#cat-fruit" class="active" onclick="scrollToCat('cat-fruit')">🍎 果实种子类</a>
+<a href="#cat-root" onclick="scrollToCat('cat-root')">🌱 根茎叶类</a>
+<a href="#cat-flower" onclick="scrollToCat('cat-flower')">🌸 花类</a>
+<a href="#cat-spice" onclick="scrollToCat('cat-spice')">🌶 香辛调味类</a>
+<a href="#cat-other" onclick="scrollToCat('cat-other')">🍯 其他类</a>
+</div>
+
+<main id="mainContent">
+<!-- dynamically filled -->
+</main>
+
+<div class="bottom-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/junge-shuzhi.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+<a href="/food-medicine-kb.html" class="active">🍵 知识库</a>
+</div>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+药食同源知识库 · 数据来源：国家卫健委《药食同源物质目录》<br>
+本页面内容仅供参考，不构成医疗建议。请遵医嘱。
+</footer>
+
+<script>
+// Full 110 substances database
+const SUBSTANCES = [
+  // ═══ 果实种子类 (32) ═══
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"枸杞子",latin:"Lycium barbarum",nature:"平",taste:"甘",meridian:"肝,肾",effect:"滋补肝肾，益精明目",use:"泡水、煲汤、煮粥，每日6-12g",caution:"外邪实热、脾虚泄泻者慎用",dosage:"6-12g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"山楂",latin:"Crataegus pinnatifida",nature:"微温",taste:"酸,甘",meridian:"脾,胃,肝",effect:"消食健胃，行气散瘀",use:"泡水、制糕、入药，每日9-12g",caution:"胃酸过多者慎用",dosage:"9-12g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"大枣",latin:"Ziziphus jujuba",nature:"温",taste:"甘",meridian:"脾,胃",effect:"补中益气，养血安神",use:"直接食用、煲汤、煮粥，每日6-15g",caution:"湿盛脘腹胀满者忌用",dosage:"6-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"桑葚",latin:"Morus alba",nature:"寒",taste:"甘,酸",meridian:"心,肝,肾",effect:"滋阴补血，生津润燥",use:"鲜食、制膏、泡酒，每日9-15g",caution:"脾胃虚寒泄泻者忌用",dosage:"9-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"龙眼肉",latin:"Dimocarpus longan",nature:"温",taste:"甘",meridian:"心,脾",effect:"补益心脾，养血安神",use:"直接食用、煲汤、煮粥，每日9-15g",caution:"内有痰火及湿滞者忌用",dosage:"9-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"覆盆子",latin:"Rubus idaeus",nature:"温",taste:"甘,酸",meridian:"肝,肾",effect:"益肾固精，缩尿明目",use:"泡水、入药，每日6-12g",caution:"肾虚有火者慎用",dosage:"6-12g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"芡实",latin:"Euryale ferox",nature:"平",taste:"甘,涩",meridian:"脾,肾",effect:"益肾固精，补脾止泻",use:"煮粥、煲汤，每日9-15g",caution:"大小便不利者忌用",dosage:"9-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"乌梅",latin:"Prunus mume",nature:"平",taste:"酸,涩",meridian:"肝,脾,肺,大肠",effect:"敛肺涩肠，生津安蛔",use:"泡水、制酸梅汤，每日6-12g",caution:"外有表邪、内有实热者忌用",dosage:"6-12g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"余甘子",latin:"Phyllanthus emblica",nature:"凉",taste:"甘,酸,涩",meridian:"肺,胃",effect:"清热凉血，消食健胃",use:"鲜食、泡水，每日3-9g",caution:"脾胃虚寒者慎用",dosage:"3-9g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"佛手",latin:"Citrus medica var.sarcodactylis",nature:"温",taste:"辛,苦,酸",meridian:"肝,脾,胃,肺",effect:"疏肝理气，和胃止痛",use:"泡水、煲汤、入药，每日3-9g",caution:"阴虚有火者慎用",dosage:"3-9g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"沙棘",latin:"Hippophae rhamnoides",nature:"温",taste:"酸,涩",meridian:"脾,胃,肺,心",effect:"健脾消食，止咳祛痰",use:"制汁、制油、泡水，每日3-9g",caution:"体温高者慎用",dosage:"3-9g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"郁李仁",latin:"Prunus japonica",nature:"平",taste:"辛,苦,甘",meridian:"脾,大肠,小肠",effect:"润燥滑肠，下气利水",use:"入药，每日6-9g",caution:"孕妇慎用",dosage:"6-9g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"火麻仁",latin:"Cannabis sativa",nature:"平",taste:"甘",meridian:"脾,胃,大肠",effect:"润肠通便",use:"煮粥、制粉，每日9-15g",caution:"肠滑泄泻者忌用",dosage:"9-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"桃仁",latin:"Prunus persica",nature:"平",taste:"苦,甘",meridian:"心,肝,大肠",effect:"活血祛瘀，润肠通便",use:"入药，每日3-9g",caution:"孕妇忌用",dosage:"3-9g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"杏仁",latin:"Prunus armeniaca",nature:"微温",taste:"苦",meridian:"肺,大肠",effect:"降气止咳平喘，润肠通便",use:"入药、制茶，每日3-9g",caution:"阴虚咳嗽者慎用。苦杏仁有小毒",dosage:"3-9g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"酸枣仁",latin:"Ziziphus jujuba var.spinosa",nature:"平",taste:"甘,酸",meridian:"心,肝,胆",effect:"养心安神，敛汗",use:"煮水、入药，每日9-15g",caution:"实邪郁火者慎用",dosage:"9-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"黑芝麻",latin:"Sesamum indicum",nature:"平",taste:"甘",meridian:"肝,肾,大肠",effect:"补肝肾，益精血，润肠燥",use:"直接食用、制糊、入膳，每日9-15g",caution:"便溏者慎用",dosage:"9-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"榧子",latin:"Torreya grandis",nature:"平",taste:"甘",meridian:"肺,胃,大肠",effect:"杀虫消积，润肺止咳",use:"直接食用，每日9-15g",caution:"脾胃虚寒者慎用",dosage:"9-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"榼藤子",latin:"Entada phaseoloides",nature:"平",taste:"甘",meridian:"肝,肾",effect:"补肝肾，强筋骨",use:"泡水、入药，每日9-15g",caution:"—",dosage:"9-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"薏苡仁",latin:"Coix lacryma-jobi",nature:"凉",taste:"甘,淡",meridian:"脾,胃,肺",effect:"健脾渗湿，除痹止泻",use:"煮粥、煲汤，每日9-30g",caution:"孕妇慎用",dosage:"9-30g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"莲子",latin:"Nelumbo nucifera",nature:"平",taste:"甘,涩",meridian:"脾,肾,心",effect:"补脾止泻，益肾固精，养心安神",use:"煮粥、煲汤、甜品，每日6-15g",caution:"大便燥结者忌用",dosage:"6-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"胖大海",latin:"Scaphium scaphigerum",nature:"寒",taste:"甘",meridian:"肺,大肠",effect:"清热润肺，利咽解毒",use:"泡水，每日2-3枚",caution:"脾胃虚寒泄泻者慎用",dosage:"2-3枚"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"罗汉果",latin:"Siraitia grosvenorii",nature:"凉",taste:"甘",meridian:"肺,大肠",effect:"清热润肺，滑肠通便",use:"泡水、煲汤，每日9-15g",caution:"脾胃虚寒者慎用",dosage:"9-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"决明子",latin:"Cassia obtusifolia",nature:"微寒",taste:"甘,苦,咸",meridian:"肝,肾,大肠",effect:"清热明目，润肠通便",use:"泡水代茶，每日9-15g",caution:"气虚便溏者慎用",dosage:"9-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"白扁豆",latin:"Dolichos lablab",nature:"微温",taste:"甘",meridian:"脾,胃",effect:"健脾化湿，和中消暑",use:"煮粥、煲汤，每日9-15g",caution:"—",dosage:"9-15g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"赤小豆",latin:"Vigna umbellata",nature:"平",taste:"甘,酸",meridian:"心,小肠",effect:"利水消肿，解毒排脓",use:"煮粥、煲汤，每日9-30g",caution:"尿多者慎用",dosage:"9-30g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"紫苏子",latin:"Perilla frutescens",nature:"温",taste:"辛",meridian:"肺",effect:"降气消痰，平喘润肠",use:"入药、制粉，每日3-9g",caution:"气虚久咳者慎用",dosage:"3-9g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"莱菔子",latin:"Raphanus sativus",nature:"平",taste:"辛,甘",meridian:"肺,脾,胃",effect:"消食除胀，降气化痰",use:"入药、炒食，每日4.5-9g",caution:"气虚者慎用",dosage:"4.5-9g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"白果",latin:"Ginkgo biloba",nature:"平",taste:"甘,苦,涩",meridian:"肺",effect:"敛肺定喘，止带缩尿",use:"煮熟食用，每日3-9g",caution:"有小毒，不可生食，不宜多食",dosage:"3-9g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"益智仁",latin:"Alpinia oxyphylla",nature:"温",taste:"辛",meridian:"脾,肾",effect:"温脾止泻，暖肾固精",use:"入药、煲汤，每日3-9g",caution:"阴虚火旺者忌用",dosage:"3-9g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"山茱萸",latin:"Cornus officinalis",nature:"微温",taste:"酸,涩",meridian:"肝,肾",effect:"补益肝肾，涩精固脱",use:"入药、泡水，每日6-12g",caution:"湿热小便不利者忌用",dosage:"6-12g"},
+  {cat:"cat-fruit",catName:"果实种子类",emoji:"🍎",name:"麦芽",latin:"Hordeum vulgare",nature:"平",taste:"甘",meridian:"脾,胃",effect:"行气消食，健脾开胃",use:"泡水、入药，每日9-15g",caution:"哺乳期妇女慎用（回乳）",dosage:"9-15g"},
+
+  // ═══ 根茎叶类 (35) ═══
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"人参",latin:"Panax ginseng",nature:"微温",taste:"甘,微苦",meridian:"脾,肺,心",effect:"大补元气，复脉固脱，补脾益肺",use:"炖汤、泡酒、含服，每日3-9g",caution:"实证热证忌用，不宜与萝卜同食",dosage:"3-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"黄芪",latin:"Astragalus membranaceus",nature:"温",taste:"甘",meridian:"脾,肺",effect:"补气升阳，固表止汗，利水消肿",use:"泡水、煲汤、炖肉，每日9-30g",caution:"表实邪盛、气滞湿阻者忌用",dosage:"9-30g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"当归",latin:"Angelica sinensis",nature:"温",taste:"甘,辛",meridian:"肝,心,脾",effect:"补血活血，调经止痛，润肠通便",use:"煲汤、炖鸡、入药，每日6-12g",caution:"湿盛中满、大便泄泻者忌用",dosage:"6-12g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"党参",latin:"Codonopsis pilosula",nature:"平",taste:"甘",meridian:"脾,肺",effect:"补中益气，健脾益肺",use:"煲汤、炖肉、泡水，每日9-30g",caution:"气滞、实邪者忌用",dosage:"9-30g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"甘草",latin:"Glycyrrhiza uralensis",nature:"平",taste:"甘",meridian:"心,肺,脾,胃",effect:"补脾益气，清热解毒，调和诸药",use:"泡水、入药，每日1.5-9g",caution:"不宜与大戟、芫花、甘遂同用。长期大量可致水肿",dosage:"1.5-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"山药",latin:"Dioscorea opposita",nature:"平",taste:"甘",meridian:"脾,肺,肾",effect:"补脾养胃，生津益肺，补肾涩精",use:"煮粥、煲汤、蒸食，每日15-30g",caution:"湿盛中满者慎用",dosage:"15-30g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"百合",latin:"Lilium brownii",nature:"寒",taste:"甘",meridian:"心,肺",effect:"养阴润肺，清心安神",use:"煮粥、煲汤、甜品，每日6-12g",caution:"风寒咳嗽者忌用",dosage:"6-12g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"玉竹",latin:"Polygonatum odoratum",nature:"微寒",taste:"甘",meridian:"肺,胃",effect:"养阴润燥，生津止渴",use:"煲汤、泡水，每日6-12g",caution:"痰湿气滞者忌用",dosage:"6-12g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"黄精",latin:"Polygonatum sibiricum",nature:"平",taste:"甘",meridian:"脾,肺,肾",effect:"补气养阴，健脾润肺，益肾",use:"煲汤、炖肉、制膏，每日9-15g",caution:"中寒泄泻、痰湿痞满者忌用",dosage:"9-15g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"葛根",latin:"Pueraria lobata",nature:"凉",taste:"甘,辛",meridian:"脾,胃",effect:"解肌退热，生津止渴，升阳止泻",use:"泡水、煲汤、制粉，每日9-15g",caution:"胃寒者慎用",dosage:"9-15g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"桔梗",latin:"Platycodon grandiflorus",nature:"平",taste:"苦,辛",meridian:"肺",effect:"宣肺利咽，祛痰排脓",use:"泡水、入药，每日3-9g",caution:"阴虚久咳、气逆咳血者忌用",dosage:"3-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"白芍",latin:"Paeonia lactiflora",nature:"微寒",taste:"苦,酸",meridian:"肝,脾",effect:"养血调经，敛阴止汗，柔肝止痛",use:"入药、煲汤，每日6-15g",caution:"虚寒腹痛泄泻者慎用",dosage:"6-15g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"白芷",latin:"Angelica dahurica",nature:"温",taste:"辛",meridian:"胃,大肠,肺",effect:"散风除湿，通窍止痛，消肿排脓",use:"入药、炖汤，每日3-9g",caution:"阴虚血热者忌用",dosage:"3-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"生姜",latin:"Zingiber officinale",nature:"微温",taste:"辛",meridian:"肺,脾,胃",effect:"解表散寒，温中止呕，化痰止咳",use:"调味、煮水、入膳，每日3-9g",caution:"热盛阴虚者忌用",dosage:"3-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"干姜",latin:"Zingiber officinale (dried)",nature:"热",taste:"辛",meridian:"脾,胃,肾,心,肺",effect:"温中散寒，回阳通脉",use:"调味、入药，每日3-9g",caution:"阴虚内热者忌用",dosage:"3-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"高良姜",latin:"Alpinia officinarum",nature:"热",taste:"辛",meridian:"脾,胃",effect:"温胃散寒，消食止痛",use:"调味、煲汤、入药，每日3-6g",caution:"阴虚有热者忌用",dosage:"3-6g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"肉苁蓉",latin:"Cistanche deserticola",nature:"温",taste:"甘,咸",meridian:"肾,大肠",effect:"补肾阳，益精血，润肠通便",use:"泡酒、煲汤、入药，每日6-9g",caution:"阴虚火旺、大便泄泻者忌用",dosage:"6-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"天麻",latin:"Gastrodia elata",nature:"平",taste:"甘",meridian:"肝",effect:"平肝息风，止痉通络",use:"炖汤、入药，每日3-9g",caution:"气血虚者慎用",dosage:"3-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"何首乌",latin:"Polygonum multiflorum",nature:"温",taste:"苦,甘,涩",meridian:"肝,心,肾",effect:"补肝肾，益精血，乌须发（制）",use:"制后入药、煲汤，每日6-12g",caution:"生用有毒。肝功能异常者慎用",dosage:"6-12g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"芦根",latin:"Phragmites communis",nature:"寒",taste:"甘",meridian:"肺,胃",effect:"清热生津，除烦止呕",use:"煮水代茶，每日15-30g",caution:"脾胃虚寒者忌用",dosage:"15-30g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"白茅根",latin:"Imperata cylindrica",nature:"寒",taste:"甘",meridian:"肺,胃,膀胱",effect:"凉血止血，清热利尿",use:"煮水代茶，每日9-30g",caution:"脾胃虚寒者忌用",dosage:"9-30g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"鲜芦根",latin:"Phragmites communis (fresh)",nature:"寒",taste:"甘",meridian:"肺,胃",effect:"清热生津，除烦止呕利尿",use:"榨汁、煮水，每日30-60g",caution:"脾胃虚寒者忌用",dosage:"30-60g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"蒲公英",latin:"Taraxacum mongolicum",nature:"寒",taste:"苦,甘",meridian:"肝,胃",effect:"清热解毒，消肿散结，利尿通淋",use:"泡水、凉拌、入膳，每日9-15g",caution:"阳虚外寒、脾胃虚弱者忌用",dosage:"9-15g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"鱼腥草",latin:"Houttuynia cordata",nature:"微寒",taste:"辛",meridian:"肺",effect:"清热解毒，消痈排脓，利尿通淋",use:"凉拌、泡水、入膳，每日15-25g",caution:"虚寒证忌用",dosage:"15-25g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"马齿苋",latin:"Portulaca oleracea",nature:"寒",taste:"酸",meridian:"肝,大肠",effect:"清热解毒，凉血止血",use:"凉拌、炒食、入药，每日9-15g",caution:"脾胃虚寒者忌用",dosage:"9-15g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"紫苏",latin:"Perilla frutescens",nature:"温",taste:"辛",meridian:"肺,脾",effect:"解表散寒，行气和胃",use:"调味、煮水、入膳，每日5-9g",caution:"温病及气弱表虚者忌用",dosage:"5-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"藿香",latin:"Pogostemon cablin",nature:"微温",taste:"辛",meridian:"脾,胃,肺",effect:"芳香化浊，和中止呕，发表解暑",use:"调味、泡水、入药，每日3-9g",caution:"阴虚火旺者忌用",dosage:"3-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"薄荷",latin:"Mentha haplocalyx",nature:"凉",taste:"辛",meridian:"肺,肝",effect:"疏散风热，清利头目，利咽透疹",use:"泡水、调味、入膳，每日3-6g",caution:"表虚多汗者忌用",dosage:"3-6g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"桑叶",latin:"Morus alba",nature:"寒",taste:"甘,苦",meridian:"肺,肝",effect:"疏散风热，清肺润燥，清肝明目",use:"泡水代茶，每日5-9g",caution:"风寒感冒者忌用",dosage:"5-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"淡竹叶",latin:"Lophatherum gracile",nature:"寒",taste:"甘,淡",meridian:"心,胃,小肠",effect:"清热除烦，利尿",use:"泡水代茶，每日6-9g",caution:"孕妇慎用",dosage:"6-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"荷叶",latin:"Nelumbo nucifera",nature:"平",taste:"苦",meridian:"肝,脾,胃",effect:"清热解暑，升发清阳，凉血止血",use:"泡水、包饭、入膳，每日3-9g",caution:"—",dosage:"3-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"昆布",latin:"Laminaria japonica",nature:"寒",taste:"咸",meridian:"肝,胃,肾",effect:"软坚散结，消痰利水",use:"煲汤、凉拌，每日6-12g",caution:"脾胃虚寒者忌用",dosage:"6-12g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"桔红",latin:"Citrus reticulata 'Chachi'",nature:"温",taste:"辛,苦",meridian:"肺,脾",effect:"散寒燥湿，利气消痰",use:"泡水、入药，每日3-9g",caution:"阴虚燥咳者忌用",dosage:"3-9g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"茯苓",latin:"Poria cocos",nature:"平",taste:"甘,淡",meridian:"心,肺,脾,肾",effect:"利水渗湿，健脾宁心",use:"煲汤、煮粥、入药，每日9-15g",caution:"虚寒精滑者忌用",dosage:"9-15g"},
+  {cat:"cat-root",catName:"根茎叶类",emoji:"🌱",name:"鸡内金",latin:"Gallus gallus domesticus",nature:"平",taste:"甘",meridian:"脾,胃,小肠,膀胱",effect:"健胃消食，涩精止遗",use:"研粉冲服、入药，每日3-9g",caution:"—",dosage:"3-9g"},
+
+  // ═══ 花类 (14) ═══
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"菊花",latin:"Chrysanthemum morifolium",nature:"微寒",taste:"甘,苦",meridian:"肺,肝",effect:"散风清热，平肝明目",use:"泡水代茶，每日5-9g",caution:"气虚胃寒者慎用",dosage:"5-9g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"金银花",latin:"Lonicera japonica",nature:"寒",taste:"甘",meridian:"肺,心,胃",effect:"清热解毒，疏散风热",use:"泡水代茶，每日6-15g",caution:"脾胃虚寒者忌用",dosage:"6-15g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"丁香",latin:"Syzygium aromaticum",nature:"温",taste:"辛",meridian:"脾,胃,肺,肾",effect:"温中降逆，补肾助阳",use:"调味、泡水，每日1-3g",caution:"热证忌用，不宜与郁金同用",dosage:"1-3g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"槐花",latin:"Sophora japonica",nature:"微寒",taste:"苦",meridian:"肝,大肠",effect:"凉血止血，清肝泻火",use:"泡水、入药，每日5-9g",caution:"脾胃虚寒者慎用",dosage:"5-9g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"玫瑰花",latin:"Rosa rugosa",nature:"温",taste:"甘,微苦",meridian:"肝,脾",effect:"行气解郁，和血止痛",use:"泡水代茶，每日1.5-6g",caution:"阴虚火旺者慎用",dosage:"1.5-6g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"红花",latin:"Carthamus tinctorius",nature:"温",taste:"辛",meridian:"心,肝",effect:"活血通经，散瘀止痛",use:"入药、泡水，每日3-9g",caution:"孕妇忌用",dosage:"3-9g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"桂花",latin:"Osmanthus fragrans",nature:"温",taste:"辛",meridian:"肺,脾,肾",effect:"散寒破结，化痰止咳",use:"制茶、糕点、入膳，每日1-3g",caution:"—",dosage:"1-3g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"代代花",latin:"Citrus aurantium 'Daidai'",nature:"微寒",taste:"甘,微苦",meridian:"肝,胃",effect:"理气宽胸，开胃止呕",use:"泡水代茶，每日1.5-3g",caution:"—",dosage:"1.5-3g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"白扁豆花",latin:"Dolichos lablab",nature:"平",taste:"甘",meridian:"脾,胃",effect:"消暑化湿，和中健脾",use:"泡水、入膳，每日3-9g",caution:"—",dosage:"3-9g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"山银花",latin:"Lonicera confusa",nature:"寒",taste:"甘",meridian:"肺,心,胃",effect:"清热解毒，疏散风热",use:"泡水代茶，每日6-15g",caution:"脾胃虚寒者忌用",dosage:"6-15g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"松花粉",latin:"Pinus massoniana",nature:"温",taste:"甘",meridian:"肝,脾",effect:"收敛止血，燥湿敛疮",use:"冲服、外敷，每日3-6g",caution:"—",dosage:"3-6g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"布渣叶",latin:"Microcos paniculata",nature:"平",taste:"酸",meridian:"脾,胃",effect:"消食化滞，清热利湿",use:"泡水、入药，每日15-30g",caution:"—",dosage:"15-30g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"夏枯草",latin:"Prunella vulgaris",nature:"寒",taste:"辛,苦",meridian:"肝,胆",effect:"清肝明目，散结消肿",use:"泡水代茶，每日9-15g",caution:"脾胃虚寒者慎用",dosage:"9-15g"},
+  {cat:"cat-flower",catName:"花类",emoji:"🌸",name:"西红花",latin:"Crocus sativus",nature:"平",taste:"甘",meridian:"心,肝",effect:"活血化瘀，凉血解毒，解郁安神",use:"泡水，每日0.5-1g",caution:"孕妇忌用",dosage:"0.5-1g"},
+
+  // ═══ 香辛调味类 (14) ═══
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"八角茴香",latin:"Illicium verum",nature:"温",taste:"辛",meridian:"肝,肾,脾,胃",effect:"温阳散寒，理气止痛",use:"调味、卤制，每日3-6g",caution:"阴虚火旺者慎用",dosage:"3-6g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"小茴香",latin:"Foeniculum vulgare",nature:"温",taste:"辛",meridian:"肝,肾,脾,胃",effect:"散寒止痛，理气和胃",use:"调味、入药，每日3-6g",caution:"阴虚火旺者慎用",dosage:"3-6g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"花椒",latin:"Zanthoxylum bungeanum",nature:"温",taste:"辛",meridian:"脾,胃,肾",effect:"温中止痛，杀虫止痒",use:"调味、入药，每日3-6g",caution:"阴虚火旺者忌用。孕妇慎用",dosage:"3-6g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"黑胡椒",latin:"Piper nigrum",nature:"热",taste:"辛",meridian:"胃,大肠",effect:"温中散寒，下气消痰",use:"调味，每日0.6-1.5g",caution:"热证忌用",dosage:"0.6-1.5g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"肉桂",latin:"Cinnamomum cassia",nature:"大热",taste:"辛,甘",meridian:"肾,脾,心,肝",effect:"补火助阳，引火归元，散寒止痛",use:"调味、入药，每日1-4.5g",caution:"阴虚火旺、孕妇忌用。不宜与赤石脂同用",dosage:"1-4.5g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"草果",latin:"Amomum tsao-ko",nature:"温",taste:"辛",meridian:"脾,胃",effect:"燥湿温中，截疟除痰",use:"调味、卤制，每日3-6g",caution:"阴虚血少者忌用",dosage:"3-6g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"豆蔻",latin:"Amomum kravanh",nature:"温",taste:"辛",meridian:"肺,脾,胃",effect:"化湿行气，温中止呕",use:"调味、入药，每日3-6g",caution:"阴虚血燥者忌用",dosage:"3-6g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"砂仁",latin:"Amomum villosum",nature:"温",taste:"辛",meridian:"脾,胃,肾",effect:"化湿开胃，温脾止泻",use:"调味、入药，每日3-6g",caution:"阴虚血燥者忌用",dosage:"3-6g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"荜茇",latin:"Piper longum",nature:"热",taste:"辛",meridian:"胃,大肠",effect:"温中散寒，下气止痛",use:"调味、入药，每日1.5-3g",caution:"实热证忌用",dosage:"1.5-3g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"姜黄",latin:"Curcuma longa",nature:"温",taste:"辛,苦",meridian:"脾,肝",effect:"破血行气，通经止痛",use:"调味、入药、制粉，每日3-9g",caution:"孕妇慎用",dosage:"3-9g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"香薷",latin:"Mosla chinensis",nature:"微温",taste:"辛",meridian:"肺,胃",effect:"发汗解表，和中利湿",use:"调味、泡水，每日3-9g",caution:"表虚多汗者忌用",dosage:"3-9g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"山奈",latin:"Kaempferia galanga",nature:"温",taste:"辛",meridian:"胃",effect:"行气温中，消食止痛",use:"调味、入药，每日6-9g",caution:"阴虚血亏者忌用",dosage:"6-9g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"孜然",latin:"Cuminum cyminum",nature:"温",taste:"辛",meridian:"脾,胃,肾",effect:"散寒止痛，理气调中",use:"调味，每日3-6g",caution:"阴虚火旺者慎用",dosage:"3-6g"},
+  {cat:"cat-spice",catName:"香辛调味类",emoji:"🌶",name:"芫荽",latin:"Coriandrum sativum",nature:"温",taste:"辛",meridian:"肺,脾",effect:"发汗透疹，消食下气",use:"调味、凉拌，每日3-9g",caution:"—",dosage:"3-9g"},
+
+  // ═══ 其他类 (15) ═══
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"蜂蜜",latin:"Apis mellifera",nature:"平",taste:"甘",meridian:"肺,脾,大肠",effect:"补中润燥，止痛解毒",use:"温水冲服、调味，每日15-30g",caution:"痰湿内蕴、肠滑泄泻者忌用。1岁以下婴儿不宜",dosage:"15-30g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"阿胶",latin:"Equus asinus",nature:"平",taste:"甘",meridian:"肺,肝,肾",effect:"补血滋阴，润燥止血",use:"烊化冲服、制糕，每日3-9g",caution:"脾胃虚弱、消化不良者慎用",dosage:"3-9g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"枸杞叶",latin:"Lycium barbarum",nature:"凉",taste:"苦,甘",meridian:"肝,脾,肾",effect:"补虚益精，清热明目，止渴",use:"煮汤、炒食，每日9-15g",caution:"—",dosage:"9-15g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"牡蛎",latin:"Ostrea gigas",nature:"微寒",taste:"咸",meridian:"肝,胆,肾",effect:"重镇安神，潜阳补阴，软坚散结",use:"煲汤、入药，每日9-30g",caution:"—",dosage:"9-30g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"乌梢蛇",latin:"Zaocys dhumnades",nature:"平",taste:"甘",meridian:"肝",effect:"祛风通络，定惊止痉",use:"入药、煲汤，每日9-12g",caution:"血虚生风者慎用",dosage:"9-12g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"蝮蛇",latin:"Agkistrodon halys",nature:"温",taste:"甘",meridian:"肝",effect:"祛风攻毒，通络止痛",use:"入药、浸酒，每日3-9g",caution:"阴虚血燥者慎用",dosage:"3-9g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"木瓜",latin:"Chaenomeles speciosa",nature:"温",taste:"酸",meridian:"肝,脾",effect:"舒筋活络，和胃化湿",use:"煲汤、入药、鲜食，每日6-9g",caution:"—",dosage:"6-9g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"枳椇子",latin:"Hovenia dulcis",nature:"平",taste:"甘,酸",meridian:"心,脾",effect:"止渴除烦，解酒毒，利大小便",use:"泡水、入药，每日4.5-9g",caution:"脾胃虚寒者慎用",dosage:"4.5-9g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"青果",latin:"Canarium album",nature:"平",taste:"甘,酸",meridian:"肺,胃",effect:"清热利咽，生津解毒",use:"鲜食、泡水、入药，每日4.5-9g",caution:"—",dosage:"4.5-9g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"菊苣",latin:"Cichorium intybus",nature:"凉",taste:"微苦,咸",meridian:"肝,胆,胃",effect:"清肝利胆，健胃消食",use:"泡水、凉拌、入膳，每日9-18g",caution:"—",dosage:"9-18g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"槐米",latin:"Sophora japonica (bud)",nature:"微寒",taste:"苦",meridian:"肝,大肠",effect:"凉血止血，清肝泻火",use:"泡水、入药，每日5-9g",caution:"脾胃虚寒者慎用",dosage:"5-9g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"小蓟",latin:"Cirsium setosum",nature:"凉",taste:"甘,苦",meridian:"心,肝",effect:"凉血止血，祛瘀消肿",use:"凉拌、入药，每日4.5-9g",caution:"脾胃虚寒者忌用",dosage:"4.5-9g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"余甘子",latin:"Phyllanthus emblica",nature:"凉",taste:"甘,酸,涩",meridian:"肺,胃",effect:"清热凉血，消食健胃，生津止渴",use:"鲜食、泡水，每日3-9g",caution:"脾胃虚寒者慎用",dosage:"3-9g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"栀子",latin:"Gardenia jasminoides",nature:"寒",taste:"苦",meridian:"心,肺,三焦",effect:"泻火除烦，清热利湿，凉血解毒",use:"泡水、入药，每日6-9g",caution:"脾虚便溏者忌用",dosage:"6-9g"},
+  {cat:"cat-other",catName:"其他类",emoji:"🍯",name:"淡豆豉",latin:"Glycine max (fermented)",nature:"凉",taste:"苦,辛",meridian:"肺,胃",effect:"解表除烦，宣发郁热",use:"调味、入药，每日6-12g",caution:"—",dosage:"6-12g"}
+];
+
+// Nature tag class
+function natureClass(nature) {
+  if (nature.includes('热') || nature.includes('温')) return 'warm';
+  if (nature.includes('寒') || nature.includes('凉')) return 'cold';
+  return 'neutral';
+}
+
+// Render a substance card
+function renderCard(s) {
+  const nc = natureClass(s.nature);
+  return `<div class="substance-card" data-cat="${s.cat}" data-search="${s.name} ${s.effect} ${s.nature} ${s.taste} ${s.use} ${s.meridian}" onclick="this.classList.toggle('expanded');this.querySelector('.sc-detail').classList.toggle('show')">
+    <div class="sc-name">${s.emoji} ${s.name}</div>
+    <div class="sc-latin">${s.latin}</div>
+    <div class="sc-props">
+      <span class="${nc}">${s.nature}</span><span>${s.taste}</span><span>归经: ${s.meridian}</span>
+    </div>
+    <div class="sc-effect">${s.effect}</div>
+    <div class="sc-use">📖 ${s.use}</div>
+    ${s.caution !== '—' ? `<div class="sc-caution">⚠ ${s.caution}</div>` : ''}
+    <div class="sc-dosage">⚖ 推荐用量: ${s.dosage}</div>
+    <div class="sc-detail">
+      <dt>拉丁学名</dt><dd>${s.latin}</dd>
+      <dt>性味</dt><dd>${s.nature} · ${s.taste}</dd>
+      <dt>归经</dt><dd>${s.meridian}</dd>
+      <dt>功效</dt><dd>${s.effect}</dd>
+      <dt>用法</dt><dd>${s.use}</dd>
+      ${s.caution !== '—' ? `<dt>注意</dt><dd style="color:#d47a7e">${s.caution}</dd>` : ''}
+      <dt>用量</dt><dd>${s.dosage}</dd>
+    </div>
+  </div>`;
+}
+
+// Render all categories
+function renderAll() {
+  const cats = [
+    {id:'cat-fruit',name:'果实种子类',emoji:'🍎',color:'#d47a7e'},
+    {id:'cat-root',name:'根茎叶类',emoji:'🌱',color:'var(--green)'},
+    {id:'cat-flower',name:'花类',emoji:'🌸',color:'#d47a7e'},
+    {id:'cat-spice',name:'香辛调味类',emoji:'🌶',color:'#e8a040'},
+    {id:'cat-other',name:'其他类',emoji:'🍯',color:'var(--gold)'}
+  ];
+  
+  let html = '';
+  for (const cat of cats) {
+    const items = SUBSTANCES.filter(s => s.cat === cat.id);
+    html += `<div class="cat-section" id="${cat.id}">
+      <div class="cat-title">
+        <span class="icon">${cat.emoji}</span>
+        <h2>${cat.name}</h2>
+        <span class="count">${items.length}种</span>
+      </div>
+      <div class="substance-grid">
+        ${items.map(renderCard).join('')}
+      </div>
+    </div>`;
+  }
+  document.getElementById('mainContent').innerHTML = html;
+  updateVisibleCount();
+}
+
+function filterSubstances() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  if (!q) {
+    // Show all
+    document.querySelectorAll('.substance-card').forEach(c => c.style.display = '');
+    document.querySelectorAll('.cat-section').forEach(s => s.style.display = '');
+    updateVisibleCount();
+    return;
+  }
+  
+  // Search
+  let visibleTotal = 0;
+  document.querySelectorAll('.cat-section').forEach(section => {
+    let sectionVisible = 0;
+    section.querySelectorAll('.substance-card').forEach(card => {
+      const txt = card.getAttribute('data-search').toLowerCase();
+      if (txt.includes(q)) {
+        card.style.display = '';
+        sectionVisible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    section.style.display = sectionVisible > 0 ? '' : 'none';
+    visibleTotal += sectionVisible;
+  });
+  
+  document.getElementById('visibleCount').innerHTML = `👁 显示 <b>${visibleTotal}</b> 种`;
+}
+
+function updateVisibleCount() {
+  const total = document.querySelectorAll('.substance-card').length;
+  document.getElementById('visibleCount').innerHTML = `👁 显示 <b>${total}</b> 种`;
+}
+
+function scrollToCat(catId) {
+  document.querySelectorAll('.cat-nav a').forEach(a => a.classList.remove('active'));
+  document.querySelector(`.cat-nav a[href="#${catId}"]`).classList.add('active');
+  document.getElementById(catId).scrollIntoView({behavior:'smooth'});
+}
+
+// URL query param support
+function handleQuery() {
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+  if (q) {
+    document.getElementById('searchInput').value = q;
+    // Need to wait for render
+    setTimeout(filterSubstances, 100);
+  }
+}
+
+// Init
+renderAll();
+handleQuery();
+
+// Highlight active nav on scroll
+window.addEventListener('scroll', () => {
+  const sections = ['cat-fruit','cat-root','cat-flower','cat-spice','cat-other'];
+  let current = sections[0];
+  for (const id of sections) {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 120) current = id;
+  }
+  document.querySelectorAll('.cat-nav a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+</body>
+</html>

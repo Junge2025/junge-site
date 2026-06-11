@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>贵妃芒果 · 海南热带农庄 · 军鸽云链数智</title>
+<meta name="description" content="三亚海棠湾有机贵妃芒果，品种红金龙，皮薄肉厚香甜多汁，甜度18-22°Bx，有机认证+区块链溯源。">
+<meta property="og:title" content="贵妃芒果 · 海南热带生态农庄">
+<meta property="og:description" content="三亚海棠湾有机贵妃芒 · 特级/一级/家庭装 · 甜度22° · 区块链存证可查">
+<link rel="canonical" href="https://junge.中国/farm-hn-mango.html">
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,.85);--text:#e8edf5;--dim:#8896b0;--muted:#4a5568;--border:rgba(255,255,255,.06);--primary:#00d4ff;--gold:#f0c040;--green:#6dab7e;--red:#b84045;--purple:#a78bfa;--radius:12px;--radius-lg:18px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;min-height:100vh;padding-bottom:80px}
+.breadcrumb{position:sticky;top:0;z-index:101;background:rgba(3,7,18,.96);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:6px;font-size:11px;backdrop-filter:blur(12px)}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:.2s}
+.breadcrumb a:hover{color:var(--primary)}
+.breadcrumb .sep{color:#4a5568}
+.breadcrumb .current{color:var(--primary);font-weight:700}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+/* 产品头部 */
+.product-header{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;margin-bottom:24px;align-items:start}
+@media(max-width:768px){.product-header{grid-template-columns:1fr}}
+.product-header h1{font-size:26px;color:var(--gold);margin-bottom:8px}
+.product-header .variety{font-size:12px;color:var(--primary);background:rgba(0,212,255,.06);display:inline-block;padding:3px 12px;border-radius:6px;border:1px solid rgba(0,212,255,.1);margin-bottom:12px}
+.product-header .intro{font-size:13px;color:var(--dim);line-height:1.9;margin-bottom:14px}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.badge{padding:4px 12px;border-radius:14px;font-size:10px;font-weight:600;border:1px solid;background:rgba(109,171,126,.1);color:var(--green);border-color:rgba(109,171,126,.25)}
+/* 通用区段 */
+.section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:18px}
+.section h3{font-size:15px;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+/* 规格表 */
+.spec-table{width:100%;border-collapse:collapse;font-size:11px}
+.spec-table th{background:rgba(0,212,255,.04);color:var(--primary);font-weight:600;padding:8px 12px;text-align:left;border:1px solid var(--border);width:30%}
+.spec-table td{padding:8px 12px;border:1px solid var(--border);color:var(--dim)}
+/* 价格卡 */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:640px){.pricing-grid{grid-template-columns:1fr}}
+.price-card{background:rgba(0,212,255,.02);border:1px solid rgba(0,212,255,.08);border-radius:10px;padding:18px;text-align:center;transition:.25s}
+.price-card:hover{border-color:rgba(0,212,255,.2)}
+.price-card.rec{border-color:rgba(240,192,64,.25);background:rgba(240,192,64,.03);position:relative}
+.price-card .rec-badge{position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),#f59e0b);color:#030712;font-size:9px;font-weight:700;padding:2px 12px;border-radius:8px}
+.price-card .tier{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px}
+.price-card .weight{font-size:10px;color:var(--dim);margin-bottom:8px}
+.price-card .price{font-size:22px;font-weight:700;color:var(--red);margin-bottom:8px}
+.price-card .buy-btn{display:inline-block;padding:8px 18px;border-radius:18px;font-size:11px;font-weight:600;color:#030712;background:linear-gradient(135deg,var(--primary),var(--gold));text-decoration:none;transition:.2s}
+.price-card .buy-btn:hover{box-shadow:0 0 16px rgba(0,212,255,.3)}
+/* 溯源QR */
+.trace-qr{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+@media(max-width:640px){.trace-qr{grid-template-columns:1fr}}
+.trace-qr .qr-box{width:130px;height:130px;border:3px dashed rgba(0,212,255,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:50px;background:rgba(0,212,255,.02)}
+.trace-qr .cert-id{font-family:'Courier New',monospace;font-size:13px;color:var(--gold);background:rgba(240,192,64,.06);padding:8px 14px;border-radius:6px;border-left:3px solid var(--gold);margin-bottom:8px}
+.trace-qr .cert-detail{font-size:10px;color:var(--dim);line-height:1.8}
+/* 底部 */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.1);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:4px 8px;border-radius:8px;transition:.2s}
+.bottom-nav a:hover{color:var(--primary)}
+footer{text-align:center;padding:30px 20px;font-size:10px;color:#4a5568;line-height:1.8;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb"><a href="/">🏠 首页</a><span class="sep">▸</span><a href="/farm-hainan.html">🌴 海南农庄</a><span class="sep">▸</span><a href="/farm-hainan-products.html">🍍 产品中心</a><span class="sep">▸</span><span class="current">贵妃芒果</span></nav>
+
+<div class="container">
+
+  <div class="product-header">
+    <div>
+      <h1>🥭 贵妃芒果</h1>
+      <div class="variety">品种：红金龙 | 产地：海南三亚海棠湾</div>
+      <p class="intro">贵妃芒果（红金龙品种）是海南三亚的特产水果，因果皮红黄相间如贵妃霓裳而得名。北纬18°的热带阳光、海风滋养的火山岩土壤，造就了贵妃芒皮薄如纸、肉厚多汁、甜蜜无丝的独特品质。军鸽农庄合作果园采用有机种植方式，不使用膨大剂和催熟剂，每个芒果自然树上成熟后手工采摘。</p>
+      <div class="badge-row">
+        <span class="badge">有机认证</span><span class="badge">海南地理标志</span><span class="badge">区块链溯源</span><span class="badge">树上熟</span>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section">
+    <h3>📋 产品规格</h3>
+    <table class="spec-table">
+      
+      <tr><th>品种</th><td>红金龙贵妃芒</td></tr>
+      
+      <tr><th>产季</th><td>3-6月盛产</td></tr>
+      
+      <tr><th>单果重</th><td>200-400g</td></tr>
+      
+      <tr><th>甜度</th><td>18-22°Bx</td></tr>
+      
+      <tr><th>果肉特征</th><td>皮薄如纸、肉厚多汁、无纤维感</td></tr>
+      
+      <tr><th>维生素C</th><td>36mg/100g</td></tr>
+      
+      <tr><th>储存</th><td>常温3-5天/冷藏7-10天</td></tr>
+      
+      <tr><th>种植方式</th><td>有机种植·树上自然成熟</td></tr>
+      
+    </table>
+  </div>
+  
+
+  
+  <div class="section">
+    <h3>💰 价格与购买</h3>
+    <div class="pricing-grid">
+      
+      <div class="price-card">
+        
+        <div class="tier">家庭装</div>
+        <div class="weight">2.5kg（8-12个）</div>
+        <div class="price">¥68</div>
+        <a href="/cart.html" class="buy-btn">🛒 加入购物车</a>
+      </div>
+      
+      <div class="price-card rec">
+        <div class="rec-badge">⭐ 推荐</div>
+        <div class="tier">特级果</div>
+        <div class="weight">2.5kg（6-8个精选）</div>
+        <div class="price">¥98</div>
+        <a href="/cart.html" class="buy-btn">🛒 加入购物车</a>
+      </div>
+      
+      <div class="price-card">
+        
+        <div class="tier">礼盒装</div>
+        <div class="weight">5kg（12-16个精品）</div>
+        <div class="price">¥168</div>
+        <a href="/cart.html" class="buy-btn">🛒 加入购物车</a>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  
+  <div class="section">
+    <h3>🔬 检测报告</h3>
+    <table class="spec-table">
+      
+      <tr><th>农残检测</th><td>未检出（<0.01mg/kg）</td></tr>
+      
+      <tr><th>重金属</th><td>铅<0.05 镉<0.01 汞<0.005</td></tr>
+      
+      <tr><th>甜度实测</th><td>20.4°Bx</td></tr>
+      
+      <tr><th>检测机构</th><td>SGS通标标准技术服务有限公司</td></tr>
+      
+      <tr><th>报告编号</th><td>HN-MG-2026-0012</td></tr>
+      
+    </table>
+  </div>
+  
+
+  
+  <div class="section">
+    <h3>🔗 区块链溯源</h3>
+    <div class="trace-qr">
+      <div class="qr-box">📱<br><span style="font-size:9px">扫码溯源</span></div>
+      <div>
+        <div class="cert-id">📜 区块链存证编号：HN-JG-BC-2026-MG-0012</div>
+        <p class="cert-detail">上链时间：2026-03-15 08:00:00 | 区块高度：#1,284,200 | 品种验证：红金龙贵妃芒（DNA比对通过） | 产地验证：海南三亚海棠湾·北纬18.3°</p>
+      </div>
+    </div>
+  </div>
+  
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/junge-shuzhi.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+<footer>
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台 · 原产地直供 · 非转基因</p>
+</footer>
+</body>
+</html>

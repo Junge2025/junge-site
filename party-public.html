@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="军鸽云链数智党建公益 — 党建引领、红色教育、公益活动、志愿者招募、捐款通道">
+  <meta name="theme-color" content="#0a1628">
+  <title>军鸽云链数智·党建公益 | 退役军人食品安全服务平台</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+:root {
+  --primary: #0a1628;
+  --primary-light: #0f2240;
+  --primary-mid: #1a3a5f;
+  --accent-cyan: #00d4ff;
+  --accent-cyan-dim: rgba(0,212,255,0.15);
+  --accent-gold: #d4af37;
+  --accent-gold-dim: rgba(212,175,55,0.15);
+  --accent-red: #e53935;
+  --accent-red-dim: rgba(229,57,53,0.12);
+  --accent-green: #4caf50;
+  --accent-green-dim: rgba(76,175,80,0.12);
+  --accent-purple: #7c3aed;
+  --accent-orange: #fb8b24;
+  --text-primary: #e8edf5;
+  --text-secondary: #8896b0;
+  --text-muted: #5a6a85;
+  --card-bg: rgba(15,34,64,0.6);
+  --card-border: rgba(0,212,255,0.08);
+  --card-hover-border: rgba(0,212,255,0.25);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.3);
+  --shadow-glow-cyan: 0 0 20px rgba(0,212,255,0.15);
+  --glass-bg: rgba(10,22,40,0.75);
+  --glass-border: rgba(255,255,255,0.06);
+  --font-family: 'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:var(--font-family);background:var(--primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;min-height:100vh}
+::selection{background:var(--accent-cyan);color:var(--primary)}
+a{color:inherit;text-decoration:none;transition:var(--transition)}
+button,.btn{cursor:pointer;font-family:inherit;border:none;outline:none;transition:var(--transition)}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
+#particle-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.6}
+.section-header{text-align:center;margin-bottom:40px;position:relative;z-index:2}
+.section-header .tag{display:inline-block;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;background:var(--accent-red-dim);color:var(--accent-red);border:1px solid rgba(229,57,53,0.15);margin-bottom:12px}
+.section-header h2{font-size:1.8rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.section-header h2 span{color:var(--accent-red)}
+.section-header h2 .gold{color:var(--accent-gold)}
+.section-header p{color:var(--text-secondary);font-size:0.95rem;max-width:600px;margin:0 auto}
+.section-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--accent-red),var(--accent-gold));border-radius:2px;margin:16px auto}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.glass-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);padding:24px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:var(--transition);position:relative;overflow:hidden}
+.glass-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent-red),transparent);opacity:0.3}
+.glass-card:hover{border-color:rgba(229,57,53,0.25);box-shadow:0 0 20px rgba(229,57,53,0.1);transform:translateY(-2px)}
+.glass-card .card-icon{width:44px;height:44px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px}
+.section{padding:60px 0;position:relative;z-index:1}
+.section.alt{background:rgba(15,34,64,0.3)}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,22,40,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.04);transition:var(--transition)}
+header.scrolled{background:rgba(10,22,40,0.96);box-shadow:0 4px 30px rgba(0,0,0,0.35)}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:8px;min-height:56px}
+.brandbox{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.brand-logo{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));font-size:16px;font-weight:800;color:#fff}
+.brand-title .cn{font-size:15px;font-weight:700;color:var(--text-primary);letter-spacing:1px}
+.brand-title .en{font-size:9px;color:var(--text-secondary);letter-spacing:2px}
+.nav-wrapper{flex:1;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent);mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent)}
+nav.navbar{display:flex;gap:2px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none;padding:0 4px;scroll-behavior:smooth}
+nav.navbar::-webkit-scrollbar{display:none}
+nav.navbar a{padding:6px 10px;border-radius:6px;font-size:12.5px;font-weight:500;color:var(--text-secondary);white-space:nowrap;border:1px solid transparent;transition:var(--transition);display:flex;align-items:center;gap:4px;flex-shrink:0}
+nav.navbar a i{font-size:12px;opacity:0.7}
+nav.navbar a:hover,nav.navbar a.active{color:var(--accent-red);background:var(--accent-red-dim);border-color:rgba(229,57,53,0.1)}
+nav.navbar a.active{color:#fff;background:rgba(229,57,53,0.12)}
+nav.navbar a:hover i,nav.navbar a.active i{opacity:1}
+.header-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.header-actions .btn-cart,.header-actions .btn-user{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text-secondary);background:rgba(255,255,255,0.03);border:1px solid transparent;position:relative;transition:var(--transition)}
+.header-actions .btn-cart:hover,.header-actions .btn-user:hover{color:var(--accent-cyan);background:var(--accent-cyan-dim);border-color:rgba(0,212,255,0.1)}
+.header-actions .cart-badge{position:absolute;top:-2px;right:-2px;min-width:16px;height:16px;padding:0 4px;border-radius:10px;background:var(--accent-red);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1;box-shadow:0 0 6px rgba(229,57,53,0.4)}
+.header-actions .btn-did{padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;background:linear-gradient(135deg,var(--accent-gold-dim),var(--accent-gold-dim));border:1px solid rgba(212,175,55,0.2);color:var(--accent-gold);letter-spacing:0.5px;white-space:nowrap}
+.header-actions .btn-did:hover{background:var(--accent-gold-dim);border-color:var(--accent-gold)}
+.header-actions .btn-login{padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;background:var(--accent-cyan-dim);border:1px solid rgba(0,212,255,0.15);color:var(--accent-cyan);white-space:nowrap}
+.header-actions .btn-login:hover{background:rgba(0,212,255,0.2)}
+.mobile-toggle,.mobile-toggle-close{display:none;color:var(--text-primary);font-size:20px;background:none;padding:6px;border-radius:6px}
+.mobile-toggle:hover{background:rgba(255,255,255,0.05)}
+.policy-ticker-container{border-top:1px solid rgba(255,255,255,0.04);overflow:hidden;font-size:12px;color:var(--text-muted);max-height:0;transition:max-height 0.3s}
+header.scrolled .policy-ticker-container{max-height:28px}
+.policy-ticker{display:flex;align-items:center;gap:8px;padding:4px 0;white-space:nowrap;overflow:hidden}
+.ticker-content{display:inline-block;animation:ticker-scroll 40s linear infinite}
+@keyframes ticker-scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+/* Page Hero */
+.page-hero{position:relative;z-index:1;padding:120px 0 60px;text-align:center;background:linear-gradient(135deg,rgba(229,57,53,0.15),rgba(10,22,40,0.9)),url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1920&h=400&fit=crop') center/cover;border-bottom:1px solid rgba(229,57,53,0.1)}
+.page-hero h1{font-size:2.6rem;font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,#e8edf5 30%,var(--accent-red) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.page-hero p{font-size:1.05rem;color:var(--text-secondary);max-width:600px;margin:0 auto}
+/* News Grid */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.news-card{padding:0;border-radius:var(--radius-md);background:var(--card-bg);border:1px solid var(--card-border);overflow:hidden;transition:var(--transition)}
+.news-card:hover{border-color:rgba(229,57,53,0.25);transform:translateY(-2px)}
+.news-card img{width:100%;height:160px;object-fit:cover;display:block}
+.news-card .news-body{padding:16px}
+.news-card .news-title{font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.news-card .news-desc{font-size:13px;color:var(--text-secondary);margin-bottom:8px;line-height:1.5}
+.news-card .news-meta{font-size:12px;color:var(--text-muted);display:flex;justify-content:space-between}
+.news-card .news-tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:10px;font-weight:600;background:var(--accent-red-dim);color:var(--accent-red)}
+/* Activity Grid */
+.act-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.act-card{padding:20px;border-radius:var(--radius-md);background:var(--card-bg);border:1px solid var(--card-border);transition:var(--transition);position:relative}
+.act-card:hover{border-color:rgba(229,57,53,0.25);transform:translateY(-2px)}
+.act-card .act-icon{font-size:28px;margin-bottom:8px}
+.act-card h4{font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.act-card .act-info{font-size:13px;color:var(--text-secondary);margin-bottom:4px}
+.act-card .act-count{display:inline-block;padding:3px 12px;border-radius:12px;font-size:12px;font-weight:600;background:var(--accent-red-dim);color:var(--accent-red);margin-top:8px}
+/* Dashboard */
+.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.dash-card{text-align:center;padding:32px 20px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);transition:var(--transition)}
+.dash-card:hover{transform:translateY(-4px);border-color:rgba(229,57,53,0.25);box-shadow:0 0 30px rgba(229,57,53,0.08)}
+.dash-card .dash-icon{font-size:36px;margin-bottom:10px}
+.dash-card .dash-num{font-size:2.5rem;font-weight:800;margin-bottom:4px}
+.dash-card .dash-label{font-size:14px;color:var(--text-secondary)}
+.dash-card.members .dash-num{color:var(--accent-red)}
+.dash-card.events .dash-num{color:var(--accent-gold)}
+.dash-card.funds .dash-num{color:var(--accent-green)}
+/* Donation */
+.donation-section{padding:40px;border-radius:var(--radius-lg);background:linear-gradient(135deg,rgba(229,57,53,0.08),rgba(212,175,55,0.08));border:1px solid rgba(229,57,53,0.1);text-align:center}
+.donation-section h3{font-size:1.5rem;font-weight:700;margin-bottom:8px}
+.donation-section p{color:var(--text-secondary);font-size:14px;margin-bottom:20px}
+.donation-presets{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.donation-presets .d-btn{padding:10px 28px;border-radius:10px;font-size:15px;font-weight:700;background:var(--card-bg);border:1px solid var(--card-border);color:var(--text-primary);transition:var(--transition);cursor:pointer}
+.donation-presets .d-btn:hover,.donation-presets .d-btn.active{background:var(--accent-red-dim);border-color:var(--accent-red);color:var(--accent-red)}
+.donation-custom{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.donation-custom input{padding:10px 16px;border-radius:8px;font-size:14px;font-family:inherit;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--text-primary);outline:none;width:200px;transition:var(--transition)}
+.donation-custom input:focus{border-color:var(--accent-red);background:rgba(229,57,53,0.05)}
+.donation-custom .btn-donate{padding:10px 28px;border-radius:8px;font-size:14px;font-weight:700;background:linear-gradient(135deg,var(--accent-red),rgba(229,57,53,0.7));color:#fff;border:none;cursor:pointer;transition:var(--transition)}
+.donation-custom .btn-donate:hover{box-shadow:0 0 30px rgba(229,57,53,0.3);transform:translateY(-2px)}
+/* Volunteer */
+.volunteer-section{padding:40px;border-radius:var(--radius-lg);background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(76,175,80,0.08));border:1px solid rgba(0,212,255,0.1);text-align:center}
+.volunteer-section h3{font-size:1.5rem;font-weight:700;margin-bottom:8px}
+.volunteer-section p{color:var(--text-secondary);font-size:14px;margin-bottom:20px}
+.vol-form{max-width:500px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.vol-form input,.vol-form select,.vol-form textarea{padding:12px 16px;border-radius:8px;font-size:14px;font-family:inherit;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--text-primary);outline:none;transition:var(--transition)}
+.vol-form input:focus,.vol-form select:focus,.vol-form textarea:focus{border-color:var(--accent-cyan);background:rgba(0,212,255,0.05)}
+.vol-form select option{background:var(--primary);color:var(--text-primary)}
+.vol-form textarea{grid-column:span 2;resize:vertical;min-height:60px}
+.vol-form .btn-vol{grid-column:span 2;padding:14px;border-radius:8px;font-size:15px;font-weight:700;background:linear-gradient(135deg,var(--accent-green),rgba(76,175,80,0.7));color:#fff;border:none;cursor:pointer;transition:var(--transition)}
+.vol-form .btn-vol:hover{box-shadow:0 0 30px rgba(76,175,80,0.3);transform:translateY(-2px)}
+/* Footer */
+footer{position:relative;z-index:1;background:rgba(10,22,40,0.9);border-top:1px solid rgba(255,255,255,0.04);padding:40px 0 20px;margin-top:40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
+.footer-brand .fb-icon{font-size:28px;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.7}
+.footer-col h4{font-size:13px;font-weight:600;margin-bottom:12px;color:var(--text-primary);letter-spacing:1px}
+.footer-col a{display:block;font-size:12px;color:var(--text-muted);margin-bottom:6px}
+.footer-col a:hover{color:var(--accent-cyan)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--text-muted)}
+@media(max-width:992px){
+  .grid-4,.dash-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+  .page-hero h1{font-size:2rem}
+}
+@media(max-width:768px){
+  .mobile-toggle{display:block;order:10}
+  .mobile-toggle-close{display:flex !important}
+  .nav-wrapper{position:fixed;top:0;right:-100%;width:300px;max-width:85vw;height:100vh;background:rgba(8,16,32,0.98);backdrop-filter:blur(24px);border-left:1px solid rgba(255,255,255,0.06);z-index:2000;transition:right 0.35s cubic-bezier(0.4,0,0.2,1);padding:70px 16px 24px;overflow-y:auto;-webkit-mask-image:none;mask-image:none;box-shadow:-10px 0 40px rgba(0,0,0,0.5)}
+  .nav-wrapper.open{right:0}
+  .navbar{flex-direction:column;gap:2px;overflow:visible;padding:0}
+  .navbar a{padding:12px 14px;font-size:14px;border-radius:8px;border:1px solid transparent;gap:10px}
+  .navbar a i{font-size:16px;width:20px;text-align:center;opacity:1}
+  .navbar a:not(:last-child){border-bottom:1px solid rgba(255,255,255,0.03)}
+  .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1999;opacity:0;pointer-events:none;transition:opacity 0.3s}
+  .nav-overlay.show{opacity:1;pointer-events:auto}
+  .did-text,.login-text{display:none}
+  .mobile-toggle-close{position:fixed;top:12px;right:calc(300px + 12px);max-width:85vw;z-index:2001;font-size:24px;opacity:0;pointer-events:none;transition:opacity 0.3s}
+  .mobile-toggle-close.show{opacity:1;pointer-events:auto}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
+  .dash-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .vol-form{grid-template-columns:1fr}
+  .vol-form textarea,.vol-form .btn-vol{grid-column:span 1}
+  .page-hero h1{font-size:1.6rem}
+}
+@media(max-width:480px){
+  .grid-2,.grid-3,.grid-4,.news-grid,.act-grid{grid-template-columns:1fr}
+  .page-hero h1{font-size:1.4rem}
+  .nav-wrapper{width:100%;max-width:100%;border-left:none}
+  .mobile-toggle-close{right:16px}
+}
+  
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链数智·党建公益 | 退役军人食品安全服务平台">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/party-public.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/party-public.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">党建公益</span>
+</nav>
+  <canvas id="particle-canvas"></canvas>
+
+  <header id="site-header" role="banner">
+    <div class="container topbar">
+      <div class="brandbox">
+        <div class="brand-logo">&#x1F426;</div>
+        <div class="brand-title">
+          <div class="cn">军鸽云链数智</div>
+          <div class="en">JunGe CloudLink DI</div>
+        </div>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><i class="fas fa-bars"></i></button>
+      <div class="nav-wrapper" id="navWrapper">
+        <nav class="navbar" id="mainNav" aria-label="主导航">
+          <a href="/index.html"><i class="fas fa-home"></i> 首页</a>
+          <a href="junge-shuzhi.html"><i class="fas fa-crown"></i> junge数智</a>
+          <a href="shangcheng.html"><i class="fas fa-store"></i> 军创商城</a>
+          <a href="youpin.html"><i class="fas fa-star"></i> 军创优品</a>
+          <a href="cross-border.html"><i class="fas fa-globe"></i> 跨境电商</a>
+          <a href="zero-tariff.html"><i class="fas fa-tag"></i> 零关税</a>
+        <a href="game-center.html" class="nav-highlight" style="border-color:rgba(212,175,55,0.25);background:rgba(212,175,55,0.04)"><i class="fas fa-gamepad"></i> 🎮游戏池</a>
+          <a href="fenzhan.html"><i class="fas fa-sitemap"></i> 分站</a>
+          <a href="enterprise-cooperation.html"><i class="fas fa-building"></i> 企业合作</a>
+          <a href="employment-service.html"><i class="fas fa-briefcase"></i> 就业服务</a>
+          <a href="culture-home.html"><i class="fas fa-book-open"></i> 文化家园</a>
+          <a href="mission-system.html"><i class="fas fa-bullseye"></i> 任务系统</a>
+          <a href="party-public.html" class="active"><i class="fas fa-flag"></i> 党建公益</a>
+          <a href="about.html"><i class="fas fa-info-circle"></i> 关于我们</a>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="btn-cart" href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-badge">0</span></a>
+        <a class="btn-user" href="personal-center.html"><i class="fas fa-user-circle"></i></a>
+        <a class="btn-did" href="digital-id.html"><i class="fas fa-id-card"></i> <span class="did-text">数字ID</span></a>
+        <a class="btn-login" href="login.html"><i class="fas fa-sign-in-alt"></i> <span class="login-text">登录</span></a>
+        <button class="mobile-toggle-close" id="mobileClose" aria-label="关闭菜单" style="display:none"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div class="container policy-ticker-container">
+      <div class="policy-ticker"><div class="ticker-content">&#x1F4F0; 退役军人党员主题教育全面开展 · 公益捐款通道已开通 · 志愿者招募进行中 · 红色教育基地参观活动报名</div></div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1><i class="fas fa-flag"></i> 党建公益活动</h1>
+      <p>党建引领 · 红色教育 · 退役军人党建 · 公益慈善</p>
+    </div>
+  </section>
+
+  <!-- 数据看板 -->
+  <section class="section" id="dashboard">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-chart-pie"></i> PARTY DATA</span>
+        <h2>党建数据 <span>看板</span></h2>
+        <p>党建引领发展 · 数据见证力量</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-card members glow-red">
+          <div class="dash-icon"><i class="fas fa-users" style="color:var(--accent-red)"></i></div>
+          <div class="dash-num" id="dash-members">3,856</div>
+          <div class="dash-label">党员总数</div>
+        </div>
+        <div class="dash-card events glow-gold">
+          <div class="dash-icon"><i class="fas fa-calendar-check" style="color:var(--accent-gold)"></i></div>
+          <div class="dash-num" id="dash-events">268</div>
+          <div class="dash-label">活动次数</div>
+        </div>
+        <div class="dash-card funds glow-green">
+          <div class="dash-icon"><i class="fas fa-hand-holding-heart" style="color:var(--accent-green)"></i></div>
+          <div class="dash-num" id="dash-funds">286.5万</div>
+          <div class="dash-label">捐款总额</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 党建新闻8条 -->
+  <section class="section alt" id="news">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-newspaper"></i> PARTY NEWS</span>
+        <h2>党建 <span>新闻</span></h2>
+        <p>红色引领 · 思想铸魂 · 组织强基</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <img src="https://images.unsplash.com/photo-1559131397-f94da358a9d5?w=600&h=320&fit=crop" alt="党建新闻" loading="lazy">
+          <div class="news-body">
+            <div class="news-title">退役军人党员学习贯彻党的二十大精神专题培训班圆满结业</div>
+            <div class="news-desc">来自全国各地的120名退役军人党员代表参加了为期5天的集中培训，深入学习党的二十大精神与乡村振兴战略部署。</div>
+            <div class="news-meta"><span class="news-tag">党建学习</span><span>2025-05-28</span></div>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&h=320&fit=crop" alt="党建新闻" loading="lazy">
+          <div class="news-body">
+            <div class="news-title">\"重走长征路·传承红色魂\"主题党日活动在遵义成功举办</div>
+            <div class="news-desc">86名退役军人党员前往遵义会议旧址重温入党誓词，重走长征路，传承红色基因。</div>
+            <div class="news-meta"><span class="news-tag">主题党日</span><span>2025-05-15</span></div>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&h=320&fit=crop" alt="党建新闻" loading="lazy">
+          <div class="news-body">
+            <div class="news-title">军鸽云链数智党支部正式成立，以党建引领企业发展</div>
+            <div class="news-desc">经上级党组织批准，军鸽云链数智科技有限公司党支部正式成立，首批党员32人。</div>
+            <div class="news-meta"><span class="news-tag">组织建设</span><span>2025-05-10</span></div>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&h=320&fit=crop" alt="党建新闻" loading="lazy">
+          <div class="news-body">
+            <div class="news-title">\"退役军人党员进社区\"志愿服务活动获居民点赞</div>
+            <div class="news-desc">36名退役军人党员志愿者走进海口市5个社区，开展免费维修、义诊、法律咨询等志愿服务。</div>
+            <div class="news-meta"><span class="news-tag">志愿服务</span><span>2025-04-22</span></div>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&h=320&fit=crop" alt="党建新闻" loading="lazy">
+          <div class="news-body">
+            <div class="news-title">党建共建签约仪式：军鸽云链与退役军人事务局达成合作</div>
+            <div class="news-desc">双方将在退役军人党员教育、就业帮扶、创业孵化等领域开展深度合作。</div>
+            <div class="news-meta"><span class="news-tag">党建共建</span><span>2025-04-10</span></div>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=320&fit=crop" alt="党建新闻" loading="lazy">
+          <div class="news-body">
+            <div class="news-title">\"军魂永驻·初心不改\"庆祝建党105周年纪念活动隆重举行</div>
+            <div class="news-desc">表彰优秀退役军人党员20名，新老党员共同宣誓，重温入党初心。</div>
+            <div class="news-meta"><span class="news-tag">纪念活动</span><span>2025-04-01</span></div>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="https://images.unsplash.com/photo-1559131397-f94da358a9d5?w=600&h=320&fit=crop" alt="党建新闻" loading="lazy">
+          <div class="news-body">
+            <div class="news-title">退役军人党员乡村振兴示范项目在三亚揭牌</div>
+            <div class="news-desc">项目涵盖有机农业种植、红色旅游、退役军人创业孵化三大板块，带动当地就业200人。</div>
+            <div class="news-meta"><span class="news-tag">乡村振兴</span><span>2025-03-20</span></div>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="https://images.unsplash.com/photo-1573164713988-8665fc963f0c?w=600&h=320&fit=crop" alt="党建新闻" loading="lazy">
+          <div class="news-body">
+            <div class="news-title">\"红星照耀·爱心助学\"公益活动资助50名困难学生</div>
+            <div class="news-desc">退役军人党员自发捐款12.6万元，资助50名革命老区困难学生完成学业。</div>
+            <div class="news-meta"><span class="news-tag">公益慈善</span><span>2025-03-10</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 公益活动6个 -->
+  <section class="section" id="activities">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-hands-helping"></i> PUBLIC WELFARE</span>
+        <h2>公益 <span>活动</span></h2>
+        <p>奉献爱心 · 服务社会 · 传递温暖</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="act-grid">
+        <div class="act-card glass-card">
+          <div class="act-icon"><i class="fas fa-book-open" style="color:var(--accent-red)"></i></div>
+          <h4>\"红星助学\"公益行动</h4>
+          <div class="act-info"><i class="fas fa-calendar-alt"></i> 2025-06-15</div>
+          <div class="act-info"><i class="fas fa-map-marker-alt"></i> 海南海口市红旗镇</div>
+          <span class="act-count"><i class="fas fa-user"></i> 已报名 86人</span>
+        </div>
+        <div class="act-card glass-card">
+          <div class="act-icon"><i class="fas fa-heart" style="color:var(--accent-red)"></i></div>
+          <h4>退役军人健康义诊活动</h4>
+          <div class="act-info"><i class="fas fa-calendar-alt"></i> 2025-06-20</div>
+          <div class="act-info"><i class="fas fa-map-marker-alt"></i> 海口市龙华区社区中心</div>
+          <span class="act-count"><i class="fas fa-user"></i> 已报名 120人</span>
+        </div>
+        <div class="act-card glass-card">
+          <div class="act-icon"><i class="fas fa-tree" style="color:var(--accent-green)"></i></div>
+          <h4>\"绿色军魂\"植树护林活动</h4>
+          <div class="act-info"><i class="fas fa-calendar-alt"></i> 2025-06-25</div>
+          <div class="act-info"><i class="fas fa-map-marker-alt"></i> 三亚市亚龙湾生态区</div>
+          <span class="act-count"><i class="fas fa-user"></i> 已报名 65人</span>
+        </div>
+        <div class="act-card glass-card">
+          <div class="act-icon"><i class="fas fa-hand-holding-heart" style="color:var(--accent-gold)"></i></div>
+          <h4>关爱老兵·温暖入户行动</h4>
+          <div class="act-info"><i class="fas fa-calendar-alt"></i> 2025-07-01</div>
+          <div class="act-info"><i class="fas fa-map-marker-alt"></i> 海口市各街道</div>
+          <span class="act-count"><i class="fas fa-user"></i> 已报名 48人</span>
+        </div>
+        <div class="act-card glass-card">
+          <div class="act-icon"><i class="fas fa-fire-extinguisher" style="color:var(--accent-orange)"></i></div>
+          <h4>应急救援技能公益培训</h4>
+          <div class="act-info"><i class="fas fa-calendar-alt"></i> 2025-07-05</div>
+          <div class="act-info"><i class="fas fa-map-marker-alt"></i> 海口市应急培训基地</div>
+          <span class="act-count"><i class="fas fa-user"></i> 已报名 92人</span>
+        </div>
+        <div class="act-card glass-card">
+          <div class="act-icon"><i class="fas fa-graduation-cap" style="color:var(--accent-cyan)"></i></div>
+          <h4>\"红色基因\"青少年国防教育日</h4>
+          <div class="act-info"><i class="fas fa-calendar-alt"></i> 2025-07-10</div>
+          <div class="act-info"><i class="fas fa-map-marker-alt"></i> 海口市国防教育基地</div>
+          <span class="act-count"><i class="fas fa-user"></i> 已报名 150人</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 捐款通道 -->
+  <section class="section alt" id="donation">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-donate"></i> DONATION</span>
+        <h2>爱心 <span>捐款通道</span></h2>
+        <p>每一份爱心 · 都是对退役军人的温暖守护</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="donation-section glass-card">
+        <h3><i class="fas fa-hand-holding-heart" style="color:var(--accent-red)"></i> 退役军人关爱基金</h3>
+        <p>您的捐款将用于：退役军人困难帮扶 · 英烈家属关爱 · 退役军人创业扶持</p>
+        <div class="donation-presets">
+          <button class="d-btn active" data-amount="10" onclick="selectDonation(this,10)"><i class="fas fa-yen-sign"></i> 10元</button>
+          <button class="d-btn" data-amount="50" onclick="selectDonation(this,50)"><i class="fas fa-yen-sign"></i> 50元</button>
+          <button class="d-btn" data-amount="100" onclick="selectDonation(this,100)"><i class="fas fa-yen-sign"></i> 100元</button>
+          <button class="d-btn" data-amount="500" onclick="selectDonation(this,500)"><i class="fas fa-yen-sign"></i> 500元</button>
+          <button class="d-btn" data-amount="1000" onclick="selectDonation(this,1000)"><i class="fas fa-yen-sign"></i> 1000元</button>
+        </div>
+        <div class="donation-custom">
+          <input type="number" id="customAmount" placeholder="自定义金额（元）" min="1">
+          <button class="btn-donate" onclick="submitDonation()"><i class="fas fa-hand-holding-heart"></i> 立即捐款</button>
+        </div>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:10px"><i class="fas fa-shield-alt" style="color:var(--accent-green)"></i> 善款公开透明 · 每笔支出均可追溯</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 志愿者招募 -->
+  <section class="section" id="volunteer">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-users"></i> VOLUNTEER</span>
+        <h2>志愿者 <span>招募</span></h2>
+        <p>退役不褪色 · 志愿我先行</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="volunteer-section glass-card">
+        <h3><i class="fas fa-user-plus" style="color:var(--accent-green)"></i> 加入退役军人志愿服务队</h3>
+        <p>我们需要您！参与社区服务、应急救援、红色教育、关爱老兵等公益活动</p>
+        <form class="vol-form" onsubmit="submitVolunteer(event)">
+          <input type="text" placeholder="姓名 *" required>
+          <input type="tel" placeholder="联系电话 *" required>
+          <select required>
+            <option value="">志愿方向 *</option>
+            <option value="community">社区服务</option>
+            <option value="emergency">应急救援</option>
+            <option value="education">红色教育</option>
+            <option value="elderly">关爱老兵</option>
+            <option value="environment">环保公益</option>
+          </select>
+          <input type="text" placeholder="所在城市">
+          <textarea placeholder="个人简介 / 特长（可选填）"></textarea>
+          <button type="submit" class="btn-vol"><i class="fas fa-hand-peace"></i> 我要报名</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="fb-icon">&#x1F426;</div>
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:4px;letter-spacing:1px">军鸽云链数智</h3>
+          <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">JunGe CloudLink Digital Intelligence</p>
+          <p>以军人精神守护民生底线，以商业创新激活社会价值。退役军人创业就业服务平台 · 食品安全溯源 · 数字经济试验区。</p>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <a href="#" style="width:32px;height:32px;border-radius:8px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:14px"><i class="fab fa-weixin"></i></a>
+            <a href="#" style="width:32px;height:32px;border-radius:8px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:14px"><i class="fab fa-weibo"></i></a>
+            <a href="#" style="width:32px;height:32px;border-radius:8px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:14px"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>快速链接</h4>
+          <a href="shangcheng.html">军创商城</a>
+          <a href="youpin.html">军创优品</a>
+          <a href="cross-border.html">跨境电商</a>
+          <a href="zero-tariff.html">零关税专区</a>
+          <a href="fenzhan.html">AI智联分站</a>
+          <a href="join.html">加入军创</a>
+        </div>
+        <div class="footer-col">
+          <h4>服务支持</h4>
+          <a href="about.html">关于我们</a>
+          <a href="enterprise-contact.html">联系客服</a>
+          <a href="feedback.html">意见反馈</a>
+          <a href="complaint-process.html">投诉曝光台</a>
+          <a href="contact.html">联系方式</a>
+          <a href="mission.html">使命愿景</a>
+        </div>
+        <div class="footer-col">
+          <h4>智能体服务</h4>
+          <a href="ai-assistant.html">AI智能助手</a>
+          <a href="ai-consult.html">AI智能咨询</a>
+          <a href="ai-podcast.html">AI播客</a>
+          <a href="digital-id.html">数字ID中心</a>
+          <a href="personal-center.html">个人中心</a>
+          <a href="member-register.html">会员注册</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025-2026 军鸽云链数智 版权所有</span>
+        <span>琼ICP备2025063762号-2 | 技术支持：AI超级智能体编队</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // === 粒子背景 Canvas ===
+  (function(){
+    var canvas=document.getElementById('particle-canvas');if(!canvas)return;
+    var ctx=canvas.getContext('2d');var particles=[];var PARTICLE_COUNT=60;
+    function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
+    resize();window.addEventListener('resize',resize);
+    function Particle(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.vx=(Math.random()-0.5)*0.5;this.vy=(Math.random()-0.5)*0.5;this.size=Math.random()*2+0.5;this.alpha=Math.random()*0.5+0.1}
+    Particle.prototype.update=function(){this.x+=this.vx;this.y+=this.vy;if(this.x<0)this.x=canvas.width;if(this.x>canvas.width)this.x=0;if(this.y<0)this.y=canvas.height;if(this.y>canvas.height)this.y=0}
+    Particle.prototype.draw=function(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle='rgba(229,57,53,'+this.alpha+')';ctx.fill()}
+    for(var i=0;i<PARTICLE_COUNT;i++)particles.push(new Particle());
+    var mouseX=-1000,mouseY=-1000;
+    document.addEventListener('mousemove',function(e){mouseX=e.clientX;mouseY=e.clientY});
+    function animate(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      for(var i=0;i<particles.length;i++){
+        for(var j=i+1;j<particles.length;j++){var dx=particles[i].x-particles[j].x;var dy=particles[i].y-particles[j].y;var dist=Math.sqrt(dx*dx+dy*dy);if(dist<120){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle='rgba(229,57,53,'+(0.08*(1-dist/120))+')';ctx.stroke()}}
+        var dx2=particles[i].x-mouseX;var dy2=particles[i].y-mouseY;var dist2=Math.sqrt(dx2*dx2+dy2*dy2);if(dist2<200){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(mouseX,mouseY);ctx.strokeStyle='rgba(229,57,53,'+(0.12*(1-dist2/200))+')';ctx.stroke()}
+        particles[i].update();particles[i].draw()
+      }
+      requestAnimationFrame(animate)
+    }
+    animate()
+  })();
+
+  // === 计数器动画 ===
+  function animateCounter(el,target,suffix,duration){
+    if(!el)return;var start=0,step=Math.ceil(target/60);
+    var timer=setInterval(function(){start+=step;if(start>=target){start=target;clearInterval(timer)}el.textContent=start.toLocaleString()+(suffix||'')},duration?duration/60:30)
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    setTimeout(function(){
+      animateCounter(document.getElementById('dash-members'),3856,'');
+      animateCounter(document.getElementById('dash-events'),268,'');
+      animateCounter(document.getElementById('dash-funds'),286.5,'万');
+    },500)
+  });
+
+  // === 捐款功能 ===
+  var selectedAmount=10;
+  function selectDonation(btn,amount){
+    document.querySelectorAll('.donation-presets .d-btn').forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');selectedAmount=amount;
+    document.getElementById('customAmount').value='';
+  }
+  function submitDonation(){
+    var customInput=document.getElementById('customAmount');
+    var amount=customInput.value?parseFloat(customInput.value):selectedAmount;
+    if(!amount||amount<1){alert('请输入有效的捐款金额');return}
+    alert('感谢您的爱心捐款！\n\n捐款金额：'+amount+'元\n\n捐款编号：DON-'+Date.now().toString(36).toUpperCase()+'\n\n善款将用于退役军人困难帮扶、英烈家属关爱、创业扶持等公益项目。\n\n您的爱心，就是他们前行的力量！❤️');
+  }
+
+  // === 志愿者报名 ===
+  function submitVolunteer(e){
+    e.preventDefault();
+    alert('报名成功！\n\n欢迎加入军鸽云链数智退役军人志愿服务队！\n\n志愿者编号：VOL-'+Date.now().toString(36).toUpperCase()+'\n\n我们的工作人员将在3个工作日内与您联系，确认服务方向和时间安排。');
+    e.target.reset();
+  }
+
+  // === 移动端菜单 ===
+  document.addEventListener('DOMContentLoaded',function(){
+    var toggle=document.getElementById('mobileToggle');var navWrap=document.getElementById('navWrapper');
+    var overlay=document.getElementById('navOverlay');var closeBtn=document.getElementById('mobileClose');
+    function openNav(){if(navWrap)navWrap.classList.add('open');if(overlay)overlay.classList.add('show');if(closeBtn)closeBtn.classList.add('show');document.body.style.overflow='hidden'}
+    function closeNav(){if(navWrap)navWrap.classList.remove('open');if(overlay)overlay.classList.remove('show');if(closeBtn)closeBtn.classList.remove('show');document.body.style.overflow=''}
+    if(toggle)toggle.addEventListener('click',openNav);if(closeBtn)closeBtn.addEventListener('click',closeNav);if(overlay)overlay.addEventListener('click',closeNav);
+    if(navWrap){navWrap.querySelectorAll('a').forEach(function(link){link.addEventListener('click',closeNav)})}
+    var header=document.getElementById('site-header');
+    if(header){window.addEventListener('scroll',function(){if(window.scrollY>50)header.classList.add('scrolled');else header.classList.remove('scrolled')})}
+  });
+  </script>
+  <script src="/js/game-pool.js"></script>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

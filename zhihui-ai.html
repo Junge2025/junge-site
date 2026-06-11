@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<title>智慧AI · 军鸽云链数智</title>
+<meta name="description" content="军鸽云链智慧AI助手——智能客服、AI分析工具、区块链溯源、食品安全检测、退役军人服务AI。GPT-5.5+DeepSeek-V4双引擎驱动。">
+<style>
+:root {
+--bg-deep:#030712; --bg-base:#060d1a; --bg-card:rgba(8,20,44,0.85);
+--primary:#00d4ff; --accent:#ff2d78; --gold:#f0c040; --green:#6dab7e;
+--red:#b84045; --blue:#4b8ecf; --purple:#a78bfa; --orange:#f59e0b;
+--text:#e8edf5; --text-dim:#8896b0; --text-muted:#4a5568;
+--border:rgba(255,255,255,.06); --border-glow:rgba(0,212,255,.15);
+--radius:12px; --radius-sm:8px; --radius-lg:18px;
+--shadow:0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg-deep);color:var(--text);line-height:1.65;overflow-x:hidden;
+min-height:100vh;
+background-image:
+radial-gradient(ellipse at 20% 0%,rgba(0,212,255,.05) 0%,transparent 55%),
+radial-gradient(ellipse at 80% 15%,rgba(167,139,250,.04) 0%,transparent 55%),
+radial-gradient(ellipse at 40% 70%,rgba(0,212,255,.03) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:#1a2744;border-radius:2px}
+
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 20px;position:sticky;top:0;z-index:999;backdrop-filter:blur(20px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .2s;padding:3px 8px;border-radius:10px}
+.breadcrumb-bar a:hover{color:var(--primary);background:rgba(0,212,255,.08)}
+.breadcrumb-bar .sep{color:var(--text-muted);font-size:9px}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{text-align:center;padding:42px 20px 32px;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(0,212,255,.08) 0%,rgba(6,13,26,.95) 50%,rgba(167,139,250,.04) 100%);border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,212,255,.08),transparent 60%);pointer-events:none}
+.hero .icon{font-size:48px;margin-bottom:8px;position:relative;z-index:1}
+.hero h1{font-size:26px;font-weight:800;letter-spacing:.04em;position:relative;z-index:1;background:linear-gradient(135deg,#00d4ff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:12px;color:var(--text-dim);margin-top:6px;position:relative;z-index:1;letter-spacing:.03em}
+
+.container{max-width:1000px;margin:0 auto;padding:20px 18px 90px}
+
+.section{margin-bottom:28px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(0,212,255,.12)}
+.section-hd .icon{font-size:20px}
+.section-hd .title{font-size:15px;font-weight:650;letter-spacing:.03em;color:var(--primary)}
+.section-hd .tag{font-size:9px;padding:3px 10px;border-radius:10px;background:rgba(0,212,255,.08);color:var(--primary);margin-left:auto;letter-spacing:.06em}
+
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:768px){.g2,.g3{grid-template-columns:1fr}}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .25s;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.card:hover{border-color:var(--border-glow);box-shadow:var(--shadow)}
+.card h3{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card .desc{font-size:11px;color:var(--text-dim);line-height:1.7}
+.card.cyan{border-left:2px solid rgba(0,212,255,.25)}.card.cyan h3{color:var(--primary)}
+.card.purple{border-left:2px solid rgba(167,139,250,.25)}.card.purple h3{color:var(--purple)}
+.card.gold{border-left:2px solid rgba(240,192,64,.25)}.card.gold h3{color:var(--gold)}
+.card.green{border-left:2px solid rgba(109,171,126,.25)}.card.green h3{color:var(--green)}
+.card.accent{border-left:2px solid rgba(255,45,120,.25)}.card.accent h3{color:var(--accent)}
+
+.ai-feature-card{text-align:center;padding:20px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);transition:all .25s}
+.ai-feature-card:hover{border-color:var(--border-glow);box-shadow:var(--shadow)}
+.ai-feature-card .ai-icon{font-size:40px;margin-bottom:10px}
+.ai-feature-card h4{font-size:13px;font-weight:650;color:var(--text);margin-bottom:6px}
+.ai-feature-card .desc{font-size:10.5px;color:var(--text-dim);line-height:1.6}
+
+.tool-row{display:flex;align-items:center;gap:12px;padding:12px;background:rgba(0,212,255,.02);border-radius:var(--radius-sm);border:1px solid var(--border);margin-bottom:8px}
+.tool-row .tool-icon{font-size:24px;flex-shrink:0;width:44px;text-align:center}
+.tool-row .tool-info{flex:1;min-width:0}
+.tool-row .tool-info .name{font-size:12px;font-weight:650;color:var(--text)}
+.tool-row .tool-info .sub{font-size:10px;color:var(--text-dim);margin-top:2px}
+.tool-row .tool-status{font-size:9px;padding:3px 10px;border-radius:8px;background:rgba(109,171,126,.1);color:var(--green)}
+
+.engine-badge{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:20px;font-size:11px;font-weight:600;margin:4px}
+.engine-badge.primary{background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.2);color:var(--primary)}
+.engine-badge.purple{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);color:var(--purple)}
+.engine-badge.gold{background:rgba(240,192,64,.1);border:1px solid rgba(240,192,64,.2);color:var(--gold)}
+
+.stat-mini{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:8px 0}
+.stat-mini .item{text-align:center;padding:10px 18px;background:rgba(0,212,255,.04);border-radius:var(--radius-sm);border:1px solid var(--border)}
+.stat-mini .item .num{font-size:20px;font-weight:900;color:var(--primary)}
+.stat-mini .item .lbl{font-size:10px;color:var(--text-dim);margin-top:3px}
+
+.quote-box{background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.12);border-radius:var(--radius);padding:18px 20px;font-style:italic;color:var(--primary);font-size:13px;margin:16px 0;position:relative}
+.quote-box::before{content:'"';position:absolute;top:-10px;left:12px;font-size:36px;color:var(--primary);opacity:.3}
+
+.btn-ghost{display:inline-flex;align-items:center;gap:4px;padding:8px 20px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .25s;background:transparent;border:1px solid var(--border);color:var(--text-dim)}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+
+.extend-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:var(--text-dim)}
+.ext-trace{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s;background:rgba(0,212,255,.08);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s;background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:var(--primary);color:var(--primary)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(20px);border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:all .2s;color:var(--text-dim);background:rgba(15,34,64,.6);border:1px solid rgba(0,212,255,.08)}
+.bottom-nav a:hover,.bottom-nav a.active{background:rgba(0,212,255,.12);color:var(--primary);border-color:rgba(0,212,255,.25)}
+
+footer{text-align:center;padding:16px 20px 10px;font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);line-height:1.8}
+
+@media(max-width:550px){.hero h1{font-size:20px}.card{padding:14px}.ai-feature-card{padding:14px 10px}}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="智慧AI · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/zhihui-ai.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/zhihui-ai.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+<a href="/">🏠 首页</a><span class="sep">▸</span>
+<a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+<span class="current">🤖 智慧AI</span>
+</nav>
+
+<div class="hero">
+<div class="icon">🤖</div>
+<h1>智慧AI</h1>
+<p class="sub">GPT-5.5 + DeepSeek-V4 双引擎 · 智能客服 · AI分析 · 食品安全检测 · 区块链溯源</p>
+</div>
+
+<div class="container">
+
+<!-- AI引擎展示 -->
+<div class="section">
+<div class="section-hd"><span class="icon">⚡</span><span class="title">双AI引擎 · 智慧驱动</span><span class="tag">ENGINES</span></div>
+<div style="text-align:center;margin-bottom:16px">
+<span class="engine-badge primary">🧠 GPT-5.5 · 逻辑推理引擎</span>
+<span class="engine-badge purple">🔮 DeepSeek-V4 · 深度分析引擎</span>
+<span class="engine-badge gold">☁️ Cloudflare Workers · 边缘计算</span>
+</div>
+<div class="card cyan">
+<div class="desc" style="font-size:13px;line-height:2">
+<p>军鸽云链智慧AI系统搭载全球领先的双AI引擎架构：<strong>GPT-5.5</strong>负责自然语言理解、智能对话和内容生成，<strong>DeepSeek-V4</strong>负责深度数据分析、食品安全检测和区块链智能合约验证。两套引擎通过Cloudflare Workers在全球300+边缘节点协同运算，确保无论你身在何处，都能获得毫秒级的AI响应。</p>
+<p style="margin-top:12px">这不是一个简单的聊天机器人，而是一个覆盖食品安全、退役军人服务、区块链溯源、商业分析的全能AI平台。它懂军人、懂农业、懂区块链、懂你。</p>
+</div>
+</div>
+</div>
+
+<!-- AI功能总览 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🧩</span><span class="title">AI功能矩阵 · 全方位智慧服务</span><span class="tag">FEATURES</span></div>
+<div class="grid g3">
+<div class="ai-feature-card">
+<div class="ai-icon">💬</div>
+<h4>智能客服</h4>
+<div class="desc">7×24小时在线，秒级响应。解答退役军人政策、食品安全知识、商城购物、分站服务等各类问题。支持语音和文字双模式。</div>
+</div>
+<div class="ai-feature-card">
+<div class="ai-icon">🔍</div>
+<h4>区块链溯源</h4>
+<div class="desc">扫码即可查看农产品从种子到餐桌的完整旅程。AI自动验证上链数据的真实性，标记异常数据节点。</div>
+</div>
+<div class="ai-feature-card">
+<div class="ai-icon">🛡️</div>
+<h4>食品安全检测</h4>
+<div class="desc">AI图像识别+传感器数据分析，快速检测农产品中的农药残留、重金属、微生物等指标。结果实时上链存证。</div>
+</div>
+<div class="ai-feature-card">
+<div class="ai-icon">📊</div>
+<h4>商业智能分析</h4>
+<div class="desc">为3000+分站和入驻商家提供销售数据分析、库存预测、定价建议等AI决策支持。让数据驱动商业。</div>
+</div>
+<div class="ai-feature-card">
+<div class="ai-icon">🌾</div>
+<h4>农业AI助手</h4>
+<div class="desc">病虫害识别、土壤分析、气象预测、种植建议。AI赋能智慧农业，帮助退役军人农场科学种植。</div>
+</div>
+<div class="ai-feature-card">
+<div class="ai-icon">🎙️</div>
+<h4>AI内容创作</h4>
+<div class="desc">自动生成产品描述、营销文案、新闻稿件。AI播客自动将文字转为语音，支持多语种内容生产。</div>
+</div>
+<div class="ai-feature-card">
+<div class="ai-icon">🔐</div>
+<h4>智能合约验证</h4>
+<div class="desc">AI自动审计区块链智能合约代码，检测安全漏洞和逻辑缺陷。保障军鸽币和溯源系统的安全运行。</div>
+</div>
+<div class="ai-feature-card">
+<div class="ai-icon">🎯</div>
+<h4>精准推荐引擎</h4>
+<div class="desc">基于退役军人画像和消费行为，AI精准推荐适合的农产品、旅游线路、创业项目。千人千面的个性化服务。</div>
+</div>
+<div class="ai-feature-card">
+<div class="ai-icon">🌐</div>
+<h4>多语言翻译</h4>
+<div class="desc">AI实时翻译支持中、英、马来、泰、越等12种语言，助力跨境电商和东盟食品贸易无障碍沟通。</div>
+</div>
+</div>
+</div>
+
+<!-- 实时数据 -->
+<div class="section">
+<div class="section-hd"><span class="icon">📡</span><span class="title">AI运行实况 · 实时数据</span><span class="tag">LIVE</span></div>
+<div class="stat-mini">
+<div class="item"><div class="num">99.7%</div><div class="lbl">AI可用率</div></div>
+<div class="item"><div class="num">&lt;50ms</div><div class="lbl">平均响应时间</div></div>
+<div class="item"><div class="num">12,580+</div><div class="lbl">今日AI对话数</div></div>
+<div class="item"><div class="num">3,420+</div><div class="lbl">今日溯源查询</div></div>
+<div class="item"><div class="num">856+</div><div class="lbl">AI检测批次</div></div>
+</div>
+</div>
+
+<!-- AI工具集 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🛠️</span><span class="title">AI工具集 · 专业即用</span><span class="tag">TOOLS</span></div>
+<div class="grid g2">
+<div class="card cyan">
+<h3>📋 常用AI工具</h3>
+<div class="desc">
+<div class="tool-row"><div class="tool-icon">🔍</div><div class="tool-info"><div class="name">食品溯源查询器</div><div class="sub">扫码或输入溯源码，AI解析产品全链路信息</div></div><span class="tool-status">在线</span></div>
+<div class="tool-row"><div class="tool-icon">📸</div><div class="tool-info"><div class="name">AI病虫害识别</div><div class="sub">拍照上传，AI识别农作物病虫害并给出防治建议</div></div><span class="tool-status">在线</span></div>
+<div class="tool-row"><div class="tool-icon">📝</div><div class="tool-info"><div class="name">AI文案生成器</div><div class="sub">输入关键词，AI自动生成商品描述和营销文案</div></div><span class="tool-status">在线</span></div>
+<div class="tool-row"><div class="tool-icon">🖼️</div><div class="tool-info"><div class="name">AI图片优化</div><div class="sub">自动裁剪、调色、压缩商品图片，适配各平台展示</div></div><span class="tool-status">在线</span></div>
+</div>
+</div>
+<div class="card purple">
+<h3>📈 高级分析工具</h3>
+<div class="desc">
+<div class="tool-row"><div class="tool-icon">📊</div><div class="tool-info"><div class="name">市场趋势分析</div><div class="sub">AI分析农产品市场供需变化，预测价格走势</div></div><span class="tool-status">BETA</span></div>
+<div class="tool-row"><div class="tool-icon">🏷️</div><div class="tool-info"><div class="name">智能定价助手</div><div class="sub">基于成本、市场、竞品数据，AI推荐最优售价</div></div><span class="tool-status">BETA</span></div>
+<div class="tool-row"><div class="tool-icon">📦</div><div class="tool-info"><div class="name">库存优化引擎</div><div class="sub">AI预测销售趋势，优化库存水平，减少损耗</div></div><span class="tool-status">BETA</span></div>
+<div class="tool-row"><div class="tool-icon">⭐</div><div class="tool-info"><div class="name">信用评估模型</div><div class="sub">AI多维度评估商家信用，保障平台交易安全</div></div><span class="tool-status">内测</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 使用场景 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🎬</span><span class="title">AI应用场景 · 实战案例</span><span class="tag">CASES</span></div>
+<div class="grid g2">
+<div class="card green">
+<h3>🍎 场景一：智能食品安全检测</h3>
+<div class="desc">当一批五常大米进入军鸽云链仓库时，AI视觉系统自动扫描每一袋大米的外观、色泽、颗粒完整度。同时，物联网传感器实时采集温湿度数据。AI综合多维度数据，在3秒内给出质量评级——A级（优等）、B级（合格）或C级（待复检），检测结果自动上链，全程不可篡改。</div>
+</div>
+<div class="card cyan">
+<h3>🪖 场景二：退役军人创业咨询</h3>
+<div class="desc">一位退役士官想在家乡开办养殖场，通过AI智能客服咨询政策。AI自动分析他的退役档案、所在地农业资源、市场需求数据，在30秒内生成了包含政策补贴、场地选址、养殖品种建议、预计投资回报的完整创业方案。该战友现已成功开业，月营收超15万元。</div>
+</div>
+<div class="card gold">
+<h3>🌏 场景三：跨境商品AI合规审查</h3>
+<div class="desc">一批海南芒果准备出口马来西亚。AI自动比对中国和马来西亚两国的食品安全标准，检查农药残留限量、添加剂使用规范等37项指标。发现其中1项（某保鲜剂）在马来西亚标准中超标0.02mg/kg，立即预警并建议更换保鲜方案，避免了整批货物被海关退回的损失。</div>
+</div>
+<div class="card accent">
+<h3>📱 场景四：AI助力分站运营</h3>
+<div class="desc">某县级分站运营人员只有2人，面对每天上百条用户咨询力不从心。接入AI智能客服后，80%的常见问题（如溯源码查询、订单跟踪、退货流程）由AI自动处理，复杂问题才转人工。分站人力成本降低60%，用户满意度从72%提升至96%。</div>
+</div>
+</div>
+</div>
+
+<!-- 未来规划 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🚀</span><span class="title">AI未来 · 持续进化</span><span class="tag">ROADMAP</span></div>
+<div class="card cyan">
+<h3>📅 2026年下半年AI路线图</h3>
+<div class="desc" style="font-size:12px;line-height:2">
+<p><strong>Q3 2026：</strong>AI数字人主播上线，支持24小时无人直播带货；AI语音助手覆盖全国3000+分站。</p>
+<p><strong>Q4 2026：</strong>AI驱动的全自动化仓储系统试点（海南、广州、吉隆坡）；AI食品安全预警网络覆盖主要农产品产区。</p>
+<p><strong>2027展望：</strong>AI分站自治系统——实现分站的AI自主运营和决策支持；AI+区块链DAO治理实验。</p>
+</div>
+<div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/ai-assistant.html" class="btn-ghost">💬 AI助手</a>
+<a href="/ai-consult.html" class="btn-ghost">🎯 AI咨询</a>
+<a href="/ai-podcast.html" class="btn-ghost">🎙️ AI播客</a>
+<a href="/taskforce.html" class="btn-ghost">⚔ 数智中心</a>
+</div>
+</div>
+</div>
+
+<blockquote class="quote-box">
+"智慧AI不是冷冰冰的代码，而是军鸽云链为退役军人打造的'数字战友'。它不休息、不抱怨、永远在线——24小时守护食品安全，服务每一位战友。"
+</blockquote>
+
+<div class="extend-bar"><span class="ext-title">🔗 继续探索：</span><a href="/taskforce.html" class="ext-trace">⚔ 数智中心</a><a href="/traceability.html" class="ext-trace">🔍 区块链溯源</a><a href="/junge-coin.html" class="ext-trace">🪙 军鸽币</a><a href="/index.html" class="ext-mall">🏠 返回情怀首页</a><a href="/shangcheng.html" class="ext-mall">🛒 返回商城</a></div>
+
+</div>
+
+<nav class="bottom-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/taskforce.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+海口总站 · 广州RED-DUAL指挥中心 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+食品安全+退役军人在服务综合平台 · 军魂铸信 · 数智富民
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>RED‑DUAL Ω · 双域AI联合作战平台</title>
+<style>
+:root {
+  --red:#b84045;--gold:#C9A96E;--blue:#4DC9F6;--blue2:#4b8ecf;--green:#4DAF7C;
+  --bg:#0a0e14;--card:rgba(18,22,30,0.85);--glass:rgba(255,255,255,0.04);
+  --border:rgba(255,255,255,0.08);--text:#c8ccd4;--dim:#6b7280;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh;overflow-x:hidden;}
+
+/* 粒子背景 */
+#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+
+/* 主容器 */
+.main{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:2rem 1.5rem 4rem;}
+
+/* 头部 */
+.hero{text-align:center;padding:3rem 0 2rem;position:relative;}
+.hero h1{font-size:2.2rem;font-weight:700;letter-spacing:0.08em;background:linear-gradient(135deg,var(--red),var(--gold),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem;}
+.hero .sub{color:var(--dim);font-size:0.95rem;letter-spacing:0.15em;}
+.hero .badges{display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;}
+.hero .badge{background:var(--glass);border:1px solid var(--border);border-radius:12px;padding:0.75rem 1.5rem;text-align:center;min-width:110px;backdrop-filter:blur(8px);}
+.hero .badge .num{font-size:2rem;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero .badge .label{font-size:0.75rem;color:var(--dim);margin-top:0.25rem;}
+
+/* 区域标题 */
+.section{margin-top:3rem;}
+.section-title{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;font-size:1.2rem;font-weight:600;letter-spacing:0.06em;color:var(--gold);}
+.section-title::before{content:'';width:4px;height:20px;background:var(--red);border-radius:2px;}
+
+/* 四层作战卡片 */
+.ops-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+@media(max-width:900px){.ops-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.ops-grid{grid-template-columns:1fr;}}
+.ops-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;backdrop-filter:blur(10px);transition:all 0.3s;position:relative;overflow:hidden;}
+.ops-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,169,110,0.12);}
+.ops-card .emoji{font-size:2rem;margin-bottom:0.75rem;}
+.ops-card .name{font-size:1.1rem;font-weight:700;margin-bottom:0.25rem;color:#fff;}
+.ops-card .name2{font-size:0.85rem;color:var(--dim);margin-bottom:0.25rem;}
+.ops-card .desc{font-size:0.78rem;color:var(--dim);margin-bottom:0.5rem;}
+.ops-card .cmd{display:inline-block;background:rgba(184,64,69,0.15);color:var(--red);padding:0.2rem 0.6rem;border-radius:6px;font-size:0.75rem;font-family:monospace;margin-top:0.25rem;}
+.ops-card::after{content:'';position:absolute;top:-50%;right:-50%;width:100%;height:100%;background:radial-gradient(circle,rgba(201,169,110,0.06) 0%,transparent 70%);pointer-events:none;}
+
+/* Agent网格 */
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.75rem;}
+.agent-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.9rem 1rem;backdrop-filter:blur(8px);transition:all 0.25s;cursor:default;}
+.agent-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(77,201,246,0.1);}
+.agent-card .emoji{font-size:1.3rem;margin-bottom:0.3rem;}
+.agent-card .a-name{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.15rem;}
+.agent-card .a-role{font-size:0.7rem;color:var(--dim);}
+.agent-card .status{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:0.35rem;vertical-align:middle;}
+.agent-card .status.online{background:var(--green);box-shadow:0 0 6px var(--green);}
+.agent-card .status.offline{background:var(--red);opacity:0.5;}
+
+/* MCP工具链 */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:0.6rem;}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:0.75rem 0.9rem;text-align:center;backdrop-filter:blur(8px);transition:all 0.25s;}
+.tool-card:hover{border-color:var(--blue2);}
+.tool-card .t-emoji{font-size:1.2rem;margin-bottom:0.25rem;}
+.tool-card .t-name{font-size:0.8rem;font-weight:600;color:#fff;}
+.tool-card .t-desc{font-size:0.65rem;color:var(--dim);margin-top:0.15rem;}
+
+/* Kimi三轨 */
+.kimi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+@media(max-width:700px){.kimi-grid{grid-template-columns:1fr;}}
+.kimi-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;backdrop-filter:blur(10px);transition:all 0.3s;}
+.kimi-card:hover{border-color:var(--blue);}
+.kimi-card .k-emoji{font-size:1.8rem;margin-bottom:0.5rem;}
+.kimi-card .k-name{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.25rem;}
+.kimi-card .k-tag{display:inline-block;background:rgba(77,201,246,0.1);color:var(--blue);padding:0.15rem 0.5rem;border-radius:4px;font-size:0.7rem;margin-bottom:0.5rem;}
+.kimi-card .k-desc{font-size:0.78rem;color:var(--dim);}
+
+/* Gateway路由 */
+.gateway-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;backdrop-filter:blur(10px);}
+.gateway-box .gw-title{font-size:1rem;font-weight:700;color:var(--gold);margin-bottom:0.75rem;}
+.gateway-box .flow{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;font-size:0.82rem;}
+.gateway-box .flow .step{background:var(--glass);border:1px solid var(--border);padding:0.5rem 1rem;border-radius:8px;color:var(--text);}
+.gateway-box .flow .arrow{color:var(--gold);font-size:1.2rem;}
+.gateway-box .levels{display:flex;gap:0.75rem;margin-top:1rem;flex-wrap:wrap;}
+.gateway-box .levels .lv{background:var(--glass);border:1px solid var(--border);padding:0.4rem 0.9rem;border-radius:8px;font-size:0.75rem;color:var(--dim);}
+.gateway-box .levels .lv strong{color:var(--gold);}
+
+/* 通信矩阵 */
+.comm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.6rem;}
+.comm-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:0.75rem 0.9rem;text-align:center;backdrop-filter:blur(8px);}
+.comm-card .c-emoji{font-size:1.1rem;}
+.comm-card .c-name{font-size:0.75rem;color:var(--dim);margin-top:0.2rem;}
+
+/* 脚注 */
+.footer{text-align:center;margin-top:3rem;color:var(--dim);font-size:0.72rem;letter-spacing:0.08em;}
+
+/* 顶部导航 */
+.top-nav{position:sticky;top:0;z-index:1000;background:rgba(10,14,20,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:8px 1.5rem;display:flex;align-items:center;gap:1rem}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.78rem;padding:5px 12px;border-radius:12px;transition:all 0.25s;display:inline-flex;align-items:center;gap:5px}
+.top-nav a:hover{color:var(--gold);background:rgba(201,169,110,0.08)}
+.top-nav .back{color:var(--gold);font-weight:600}
+.top-nav .brand{font-size:0.82rem;font-weight:700;color:#fff;letter-spacing:0.04em;margin-right:auto}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="RED‑DUAL Ω · 双域AI联合作战平台">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/red-dual-arch.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/red-dual-arch.html">
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<!-- ═══ 顶部导航 ═══ -->
+<nav class="top-nav">
+  <span class="brand">RED‑DUAL Ω · 联合作战</span>
+  <a href="https://junge.中国" class="back">🏠 返回首页</a>
+  <a href="https://junge.中国/junge-shuzhi.html">🧠 AI控制台</a>
+</nav>
+
+<div class="main">
+
+  <!-- === HERO === -->
+  <div class="hero">
+    <h1>RED‑DUAL Ω · 双域AI联合作战平台</h1>
+    <div class="sub">18智能体集群 + 11 MCP工具链 + Kimi三轨 · Gateway智能路由</div>
+    <div class="badges">
+      <div class="badge"><div class="num">18</div><div class="label">智能体集群</div></div>
+      <div class="badge"><div class="num">11</div><div class="label">MCP工具链</div></div>
+      <div class="badge"><div class="num">3</div><div class="label">Kimi轨道</div></div>
+      <div class="badge"><div class="num">4</div><div class="label">作战层级</div></div>
+    </div>
+  </div>
+
+  <!-- === 四层作战模式 === -->
+  <div class="section">
+    <div class="section-title">⚔️ 作战模式</div>
+    <div class="ops-grid">
+      <div class="ops-card">
+        <div class="emoji">⚔️</div>
+        <div class="name">JOINT 联合作战</div>
+        <div class="name2">多域协同·战略级</div>
+        <div class="desc">Meta‑Commander 调度全集群，多Agent协同攻坚复杂任务</div>
+        <span class="cmd">/assess · /dispatch</span>
+      </div>
+      <div class="ops-card">
+        <div class="emoji">🎯</div>
+        <div class="name">DETACH 分兵作战</div>
+        <div class="name2">单域深入·战役级</div>
+        <div class="desc">Pipeline自动化流水线，站点架构→内容生成→安全审计全链路</div>
+        <span class="cmd">/api/pipelines/run</span>
+      </div>
+      <div class="ops-card">
+        <div class="emoji">⚡</div>
+        <div class="name">STRIKE 单兵出击</div>
+        <div class="name2">精准打击·战术级</div>
+        <div class="desc">单Agent精准调用，智能路由自动匹配最优模型</div>
+        <span class="cmd">/chat + Agent路由</span>
+      </div>
+      <div class="ops-card">
+        <div class="emoji">🛰️</div>
+        <div class="name">DAILY 日常运维</div>
+        <div class="name2">巡检·自动·哨兵级</div>
+        <div class="desc">Cronjob定时巡检，自动修复，健康监控7×24</div>
+        <span class="cmd">cronjob · /health</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- === 18智能体集群 === -->
+  <div class="section">
+    <div class="section-title">🤖 18智能体集群</div>
+    <div class="agent-grid">
+      <div class="agent-card"><div class="emoji">🧠</div><div class="a-name"><span class="status online"></span>Meta‑Commander</div><div class="a-role">总司令·全域调度</div></div>
+      <div class="agent-card"><div class="emoji">📡</div><div class="a-name"><span class="status online"></span>Hermes MAX</div><div class="a-role">主力智能体·推理执行</div></div>
+      <div class="agent-card"><div class="emoji">🐍</div><div class="a-name"><span class="status online"></span>OpenClaw α</div><div class="a-role">安全审计·风险过滤</div></div>
+      <div class="agent-card"><div class="emoji">🛡️</div><div class="a-name"><span class="status online"></span>军鸽运维官</div><div class="a-role">健康巡检·自动修复</div></div>
+      <div class="agent-card"><div class="emoji">💎</div><div class="a-name"><span class="status online"></span>价值建模官</div><div class="a-role">价值量体系·数据建模</div></div>
+      <div class="agent-card"><div class="emoji">🌿</div><div class="a-name"><span class="status online"></span>药食智询官</div><div class="a-role">药食同源·智能咨询</div></div>
+      <div class="agent-card"><div class="emoji">🚩</div><div class="a-name"><span class="status online"></span>军创品旅官</div><div class="a-role">军创品牌·产品运营</div></div>
+      <div class="agent-card"><div class="emoji">📈</div><div class="a-name"><span class="status online"></span>市场智研官</div><div class="a-role">市场分析·趋势研判</div></div>
+      <div class="agent-card"><div class="emoji">⚖️</div><div class="a-name"><span class="status online"></span>法务智保官</div><div class="a-role">合规审查·法务保障</div></div>
+      <div class="agent-card"><div class="emoji">⚡</div><div class="a-name"><span class="status online"></span>DeepSeek-V4</div><div class="a-role">战术推理·主力模型</div></div>
+      <div class="agent-card"><div class="emoji">🔗</div><div class="a-name"><span class="status online"></span>溯源链督官</div><div class="a-role">区块链溯源·供应链</div></div>
+      <div class="agent-card"><div class="emoji">🖥️</div><div class="a-name"><span class="status online"></span>CU Agent</div><div class="a-role">计算机操控·浏览器</div></div>
+      <div class="agent-card"><div class="emoji">📝</div><div class="a-name"><span class="status online"></span>内容将·文胆</div><div class="a-role">内容分析·结构重构</div></div>
+      <div class="agent-card"><div class="emoji">🌐</div><div class="a-name"><span class="status online"></span>站点架构师</div><div class="a-role">网站设计·HTML生成</div></div>
+      <div class="agent-card"><div class="emoji">🎨</div><div class="a-name"><span class="status online"></span>设计·UI将</div><div class="a-role">视觉设计·CSS系统</div></div>
+      <div class="agent-card"><div class="emoji">🔍</div><div class="a-name"><span class="status online"></span>搜索·索引官</div><div class="a-role">代码扫描·静态分析</div></div>
+      <div class="agent-card"><div class="emoji">🐍</div><div class="a-name"><span class="status online"></span>Codex</div><div class="a-role">代码生成·自动化部署</div></div>
+      <div class="agent-card"><div class="emoji">📋</div><div class="a-name"><span class="status online"></span>作战参谋</div><div class="a-role">任务规划·路线图</div></div>
+    </div>
+  </div>
+
+  <!-- === Kimi三轨 === -->
+  <div class="section">
+    <div class="section-title">🚂 Kimi三轨并行</div>
+    <div class="kimi-grid">
+      <div class="kimi-card">
+        <div class="k-emoji">📝</div>
+        <div class="k-name">长文轨 · Strategist</div>
+        <div class="k-tag">moonshot-v1-128k · ≥8000 tokens</div>
+        <div class="k-desc">战略报告 · 长篇分析 · 深度阅读 · 白皮书生成 · 文档解析</div>
+      </div>
+      <div class="kimi-card">
+        <div class="k-emoji">💻</div>
+        <div class="k-name">代码轨 · Code Agent</div>
+        <div class="k-tag">全栈开发 · 调试重构</div>
+        <div class="k-desc">代码生成 · 页面构建 · 部署验证 · 代码审查 · 技术说明</div>
+      </div>
+      <div class="kimi-card">
+        <div class="k-emoji">🛡️</div>
+        <div class="k-name">安全轨 · Claw Agent</div>
+        <div class="k-tag">安全审计 · 风险过滤</div>
+        <div class="k-desc">合规检查 · 内容审查 · 安全扫描 · 输出过滤 · 策略执行</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === Gateway智能路由 === -->
+  <div class="section">
+    <div class="section-title">🔀 Gateway智能路由</div>
+    <div class="gateway-box">
+      <div class="gw-title">/v1/chat/completions · 请求→意图识别→Agent匹配→负载均衡→响应</div>
+      <div class="flow">
+        <span class="step">📨 请求</span><span class="arrow">→</span>
+        <span class="step">🔍 意图识别</span><span class="arrow">→</span>
+        <span class="step">🤖 Agent匹配</span><span class="arrow">→</span>
+        <span class="step">⚖️ 负载均衡</span><span class="arrow">→</span>
+        <span class="step">📤 响应</span>
+      </div>
+      <div class="levels">
+        <div class="lv"><strong>L0</strong> Ollama本地 · qwen2.5:3b · ¥0</div>
+        <div class="lv"><strong>L1</strong> DeepSeek-V4 · 战术推理 · 主力 ▸已启用◂</div>
+        <div class="lv"><strong>L2</strong> Kimi · 长文战略 · 128K ▸已启用◂</div>
+        <div class="lv"><strong>L3</strong> GPT-5.5 · 通用推理 · 兜底</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === 11 MCP工具链 === -->
+  <div class="section">
+    <div class="section-title">🔧 11 MCP工具链</div>
+    <div class="tool-grid">
+      <div class="tool-card"><div class="t-emoji">🔍</div><div class="t-name">web_search</div><div class="t-desc">全网搜索</div></div>
+      <div class="tool-card"><div class="t-emoji">📄</div><div class="t-name">file_ops</div><div class="t-desc">文件读写</div></div>
+      <div class="tool-card"><div class="t-emoji">💻</div><div class="t-name">terminal</div><div class="t-desc">命令执行</div></div>
+      <div class="tool-card"><div class="t-emoji">🐳</div><div class="t-name">docker</div><div class="t-desc">容器编排</div></div>
+      <div class="tool-card"><div class="t-emoji">🌐</div><div class="t-name">browser</div><div class="t-desc">网页交互</div></div>
+      <div class="tool-card"><div class="t-emoji">🔗</div><div class="t-name">blockchain</div><div class="t-desc">链上溯源</div></div>
+      <div class="tool-card"><div class="t-emoji">📊</div><div class="t-name">data_viz</div><div class="t-desc">数据可视化</div></div>
+      <div class="tool-card"><div class="t-emoji">📧</div><div class="t-name">email_svc</div><div class="t-desc">邮件服务</div></div>
+      <div class="tool-card"><div class="t-emoji">🗄️</div><div class="t-name">db_query</div><div class="t-desc">数据库查询</div></div>
+      <div class="tool-card"><div class="t-emoji">📡</div><div class="t-name">api_gateway</div><div class="t-desc">API网关</div></div>
+      <div class="tool-card"><div class="t-emoji">⏰</div><div class="t-name">cron_sched</div><div class="t-desc">定时调度</div></div>
+    </div>
+  </div>
+
+  <!-- === 通信矩阵 === -->
+  <div class="section">
+    <div class="section-title">📡 通信矩阵</div>
+    <div class="comm-grid">
+      <div class="comm-card"><div class="c-emoji">💬</div><div class="c-name">微信 · 8008</div></div>
+      <div class="comm-card"><div class="c-emoji">📱</div><div class="c-name">飞书 · 8009(待建)</div></div>
+      <div class="comm-card"><div class="c-emoji">🔗</div><div class="c-name">WebSocket实时管道</div></div>
+      <div class="comm-card"><div class="c-emoji">📧</div><div class="c-name">邮件告警</div></div>
+      <div class="comm-card"><div class="c-emoji">🤖</div><div class="c-name">云端 Hermes MAX</div></div>
+      <div class="comm-card"><div class="c-emoji">🔄</div><div class="c-name">本地 Orchestrator :8500</div></div>
+      <div class="comm-card"><div class="c-emoji">🌐</div><div class="c-name">junge.中国 · 门户</div></div>
+      <div class="comm-card"><div class="c-emoji">🧠</div><div class="c-name">ai.junge.中国 · 控制台</div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    RED‑DUAL Ω 双域AI联合作战平台 · 军鸽云链数智 © 2026 · 广州CVM · 全链路在线
+  </div>
+</div>
+
+<script>
+// 粒子背景
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',resize);
+class Particle{
+  constructor(){this.reset();this.y=Math.random()*H;}
+  reset(){this.x=Math.random()*W;this.y=-5;this.size=Math.random()*2+0.5;this.speed=Math.random()*0.5+0.2;this.opacity=Math.random()*0.4+0.1;}
+  update(){this.y+=this.speed;if(this.y>H+5)this.reset();}
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=`rgba(77,201,246,${this.opacity})`;ctx.fill();}
+}
+for(let i=0;i<80;i++)particles.push(new Particle());
+function animate(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
+animate();
+</script>
+</body>
+</html>

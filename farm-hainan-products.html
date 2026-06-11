@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>热带农产品中心 · 海南热带生态农庄 · 军鸽云链</title>
+<meta name="description" content="海南热带生态农庄产品中心 — 贵妃芒果、金钻凤梨、海南青椰子、兴隆有机咖啡、红心火龙果、海南木瓜等50+热带水果，有机认证+区块链溯源，扫码追溯全链条。">
+<meta name="keywords" content="海南热带水果,贵妃芒果,金钻凤梨,海南椰子,兴隆咖啡,有机认证,区块链溯源,军鸽云链">
+<meta property="og:title" content="热带农产品中心 · 海南热带生态农庄">
+<meta property="og:description" content="有机认证·区块链溯源·50+热带水果品种">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://junge.中国/farm-hainan-products.html">
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,0.85);--text:#e8edf5;--dim:#8896b0;--border:rgba(255,255,255,.06);--red:#b84045;--green:#6dab7e;--blue:#4b8ecf;--gold:#f0c040;--cyan:#00d4ff;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;line-height:1.7;min-height:100vh;padding-bottom:130px}
+.breadcrumb{position:sticky;top:0;z-index:101;background:rgba(3,7,18,.96);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:6px;font-size:11px;backdrop-filter:blur(12px)}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:.2s}
+.breadcrumb a:hover{color:var(--cyan)}
+.breadcrumb .sep{color:#4a5568}
+.breadcrumb .current{color:var(--cyan);font-weight:700}
+.top-nav{position:sticky;top:33px;z-index:100;background:linear-gradient(90deg,rgba(3,7,18,.98),rgba(10,22,40,.97));backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;overflow-x:auto}
+.top-nav .logo{font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;flex-shrink:0}
+.top-nav .divider{width:1px;height:16px;background:var(--border);flex-shrink:0}
+.top-nav a.nav-link{color:var(--dim);text-decoration:none;font-size:11px;padding:3px 9px;border-radius:10px;border:1px solid transparent;white-space:nowrap;flex-shrink:0;transition:.2s}
+.top-nav a.nav-link:hover,.top-nav a.nav-link.active{color:var(--cyan);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.05)}
+.container{max-width:1160px;margin:0 auto;padding:10px 20px 40px}
+.page-hero{text-align:center;padding:40px 20px 30px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.page-hero h1{font-size:32px;color:var(--gold);margin-bottom:8px}
+.page-hero .sub{font-size:13px;color:var(--dim)}
+.section-title{font-size:15px;color:var(--cyan);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.prod-detail-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.prod-detail-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:260px 1fr;transition:.25s}
+.prod-detail-card:hover{border-color:rgba(0,212,255,.2)}
+.prod-detail-card .pd-img{height:100%;min-height:220px;overflow:hidden}
+.prod-detail-card .pd-img img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.prod-detail-card:hover .pd-img img{transform:scale(1.04)}
+.prod-detail-card .pd-info{padding:20px 24px;display:flex;flex-direction:column;justify-content:space-between}
+.prod-detail-card .pd-name{font-size:18px;font-weight:700;color:var(--text);margin-bottom:4px}
+.prod-detail-card .pd-variety{font-size:11px;color:var(--cyan);margin-bottom:10px;background:rgba(0,212,255,.06);display:inline-block;padding:2px 10px;border-radius:6px;border:1px solid rgba(0,212,255,.1)}
+.prod-detail-card .pd-desc{font-size:12px;color:var(--dim);line-height:1.8;margin-bottom:12px}
+.prod-detail-card .pd-specs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.prod-detail-card .pd-spec{font-size:10px;color:var(--dim);background:rgba(255,255,255,.03);padding:4px 10px;border-radius:6px;border:1px solid var(--border)}
+.prod-detail-card .pd-spec.highlight{color:var(--gold);border-color:rgba(240,192,64,.15);background:rgba(240,192,64,.04)}
+.prod-detail-card .pd-bottom{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.prod-detail-card .pd-price{font-size:18px;font-weight:700;color:var(--red)}
+.prod-detail-card .pd-cert{font-size:10px;color:var(--green);border:1px solid rgba(109,171,126,.2);padding:3px 10px;border-radius:8px;background:rgba(109,171,126,.04)}
+.prod-detail-card .pd-link{display:inline-block;padding:7px 18px;border-radius:18px;font-size:11px;font-weight:600;color:var(--cyan);border:1px solid rgba(0,212,255,.25);text-decoration:none;transition:.25s}
+.prod-detail-card .pd-link:hover{background:rgba(0,212,255,.08);border-color:rgba(0,212,255,.5)}
+.footer{text-align:center;padding:20px 20px 30px;border-top:1px solid var(--border);font-size:10px;color:#4a5568;line-height:1.8}
+.footer a{color:var(--dim);text-decoration:none}
+.footer a:hover{color:var(--cyan)}
+.footer-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{padding:4px 12px;border-radius:12px;border:1px solid var(--border);font-size:10px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.1);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:4px 8px;border-radius:8px;transition:.2s}
+.bottom-nav a:hover{color:var(--cyan)}
+.bottom-nav a.highlight{color:var(--gold);border:1px solid rgba(240,192,64,.2);background:rgba(240,192,64,.05)}
+@media(max-width:768px){
+  .prod-detail-card{grid-template-columns:1fr}
+  .prod-detail-card .pd-img{height:200px;min-height:auto}
+  .page-hero h1{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🛡️ 情怀首页</a><span class="sep">▸</span>
+  <a href="/junge/eco-farm.html">🌿 生态农庄</a><span class="sep">▸</span>
+  <a href="/farm-hainan.html">海南热带生态农庄</a><span class="sep">▸</span>
+  <span class="current">产品中心</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" class="logo">⚔ 军鸽云链</a>
+  <span class="divider"></span>
+  <a href="/index.html" class="nav-link">🛡️ 军鸽首页</a>
+  <a href="/shangcheng.html" class="nav-link">🛒 商业生态</a>
+  <a href="/taskforce.html" class="nav-link">⚡ 数智中心</a>
+  <a href="/fenzhan.html" class="nav-link">🌾 分站家园</a>
+  <span class="divider"></span>
+  <a href="/farm-hainan.html" class="nav-link">🌴 海南农庄</a>
+  <a href="/farm-hainan-products.html" class="nav-link active">🍍 产品中心</a>
+  <a href="/farm-hainan-traceability.html" class="nav-link">🔗 溯源详情</a>
+  <a href="/farm-hainan-experience.html" class="nav-link">🧺 农旅体验</a>
+</nav>
+
+<div class="page-hero">
+  <h1>🍍 热带农产品中心</h1>
+  <div class="sub">海南热带生态农庄 · 有机认证 · 区块链溯源 · 50+热带水果品种</div>
+</div>
+
+<div class="container">
+
+<div class="section" style="margin-top:0">
+  <div class="section-title"><span>📋</span> 全部热带农产品 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">点击"查看详情"了解深度溯源信息</span></div>
+  <div class="prod-detail-grid">
+
+    <!-- 产品1: 贵妃芒果 -->
+    <div class="prod-detail-card">
+      <div class="pd-img"><img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=500&q=80" alt="贵妃芒果" loading="lazy"></div>
+      <div class="pd-info">
+        <div>
+          <div class="pd-name">🥭 贵妃芒果</div>
+          <span class="pd-variety">品种: 贵妃芒（红金龙）</span>
+          <div class="pd-desc">三亚海棠湾特产，北纬18°热带阳光充足、昼夜温差大，造就了贵妃芒皮薄肉厚、核小多汁的独特品质。果肉金黄细腻，甜度可达18-22°Bx，香气浓郁持久，被誉为"热带果王"。每100g果肉含维生素C 36mg、β-胡萝卜素1.2mg。</div>
+          <div class="pd-specs">
+            <span class="pd-spec">📍 产地: 三亚海棠湾</span>
+            <span class="pd-spec">📦 规格: 500g/1kg/2.5kg</span>
+            <span class="pd-spec highlight">📅 产季: 3-6月</span>
+            <span class="pd-spec">🍬 甜度: 18-22°Bx</span>
+            <span class="pd-spec">🌱 有机认证</span>
+            <span class="pd-spec">🔗 区块链溯源</span>
+          </div>
+        </div>
+        <div class="pd-bottom">
+          <span class="pd-price">¥68<small style="font-weight:400;font-size:11px">/箱 (5斤)</small></span>
+          <span class="pd-cert">🌱 OFDC有机认证</span>
+          <a href="/farm-hn-mango.html" class="pd-link">📋 查看详情 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 产品2: 金钻凤梨 -->
+    <div class="prod-detail-card">
+      <div class="pd-img"><img src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?w=500&q=80" alt="金钻凤梨" loading="lazy"></div>
+      <div class="pd-info">
+        <div>
+          <div class="pd-name">🍍 金钻凤梨</div>
+          <span class="pd-variety">品种: 台农金钻17号</span>
+          <div class="pd-desc">引进台湾优质品种在海南驯化栽培，果眼浅平无需挖眼、无需盐水浸泡即可直接食用。果肉金黄透亮、纤维细腻无渣，汁水丰沛清甜，甜度稳定在16-20°Bx。富含菠萝蛋白酶和维生素C，是天然的健康水果。单个重量1-1.5kg，果型端正美观。</div>
+          <div class="pd-specs">
+            <span class="pd-spec">📍 产地: 海南乐东/三亚</span>
+            <span class="pd-spec">📦 规格: 1-1.5kg/个</span>
+            <span class="pd-spec highlight">📅 产季: 全年供应</span>
+            <span class="pd-spec">🍬 甜度: 16-20°Bx</span>
+            <span class="pd-spec">🌱 有机认证</span>
+            <span class="pd-spec">🔗 区块链溯源</span>
+          </div>
+        </div>
+        <div class="pd-bottom">
+          <span class="pd-price">¥58<small style="font-weight:400;font-size:11px">/箱 (约8斤)</small></span>
+          <span class="pd-cert">🌱 OFDC有机认证</span>
+          <a href="/farm-hn-pineapple.html" class="pd-link">📋 查看详情 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 产品3: 海南青椰子 -->
+    <div class="prod-detail-card">
+      <div class="pd-img"><img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=500&q=80" alt="海南青椰子" loading="lazy"></div>
+      <div class="pd-info">
+        <div>
+          <div class="pd-name">🥥 海南青椰子</div>
+          <span class="pd-variety">品种: 海南本地青椰（文椰2号）</span>
+          <div class="pd-desc">文昌东郊椰林产区，海南岛独有的热带海洋性气候赋予青椰子清甜甘冽的独特风味。椰汁清澈透亮、清甜解渴，富含钾、钠、钙、镁等电解质；椰肉嫩滑如果冻，椰香浓郁。单果800-1200g，椰汁容量300-500ml。全年可采收，是天然的运动饮料。</div>
+          <div class="pd-specs">
+            <span class="pd-spec">📍 产地: 文昌东郊</span>
+            <span class="pd-spec">📦 规格: 单果800-1200g</span>
+            <span class="pd-spec highlight">📅 产季: 全年供应</span>
+            <span class="pd-spec">💧 椰汁: 300-500ml</span>
+            <span class="pd-spec">🌱 有机认证</span>
+            <span class="pd-spec">🔗 区块链溯源</span>
+          </div>
+        </div>
+        <div class="pd-bottom">
+          <span class="pd-price">¥45<small style="font-weight:400;font-size:11px">/箱 (6个)</small></span>
+          <span class="pd-cert">🌱 OFDC有机认证</span>
+          <a href="/farm-hn-coconut.html" class="pd-link">📋 查看详情 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 产品4: 兴隆有机咖啡 -->
+    <div class="prod-detail-card">
+      <div class="pd-img"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80" alt="兴隆咖啡" loading="lazy"></div>
+      <div class="pd-info">
+        <div>
+          <div class="pd-name">☕ 兴隆有机咖啡</div>
+          <span class="pd-variety">品种: 罗布斯塔+阿拉比卡混合（中粒种）</span>
+          <div class="pd-desc">万宁兴隆华侨农场产区，北纬18°热带火山岩土壤种植，中粒种罗布斯塔与阿拉比卡精心拼配。采用传统湿法加工+中深度烘焙，口感醇厚浓郁、回甘悠长，带有独特的焦糖和坚果香气。通过国家有机认证，无农药残留，是精品咖啡爱好者的理想之选。</div>
+          <div class="pd-specs">
+            <span class="pd-spec">📍 产地: 万宁兴隆</span>
+            <span class="pd-spec">📦 规格: 250g/袋</span>
+            <span class="pd-spec highlight">📅 产季: 全年供应</span>
+            <span class="pd-spec">🔥 烘焙度: 中深度</span>
+            <span class="pd-spec">🌱 有机认证</span>
+            <span class="pd-spec">🔗 区块链溯源</span>
+          </div>
+        </div>
+        <div class="pd-bottom">
+          <span class="pd-price">¥128<small style="font-weight:400;font-size:11px">/袋 (250g)</small></span>
+          <span class="pd-cert">🌱 国家有机认证</span>
+          <a href="/farm-hn-coffee.html" class="pd-link">📋 查看详情 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 产品5: 红心火龙果 -->
+    <div class="prod-detail-card">
+      <div class="pd-img"><img src="https://images.unsplash.com/photo-1514995669114-6081c9345669?w=500&q=80" alt="红心火龙果" loading="lazy"></div>
+      <div class="pd-info">
+        <div>
+          <div class="pd-name">🐉 海南红心火龙果</div>
+          <span class="pd-variety">品种: 台湾大红（红肉种）</span>
+          <div class="pd-desc">乐东黎族自治县优质产区，热带季风气候+火山岩土壤赋予红心火龙果艳丽色泽和超高甜度。果肉深紫红色，甜度高达18-22°Bx，远超普通白心品种。富含花青素和膳食纤维，是天然的抗氧化物。单果350-600g，果皮薄易剥，冷藏后口感更佳。</div>
+          <div class="pd-specs">
+            <span class="pd-spec">📍 产地: 乐东</span>
+            <span class="pd-spec">📦 规格: 单果350-600g</span>
+            <span class="pd-spec highlight">📅 产季: 6-12月</span>
+            <span class="pd-spec">🍬 甜度: 18-22°Bx</span>
+            <span class="pd-spec">🌱 有机认证</span>
+            <span class="pd-spec">🔗 区块链溯源</span>
+          </div>
+        </div>
+        <div class="pd-bottom">
+          <span class="pd-price">¥52<small style="font-weight:400;font-size:11px">/箱 (5斤)</small></span>
+          <span class="pd-cert">🌱 有机转换认证</span>
+          <a href="/shangcheng.html" class="pd-link">🛒 前往购买 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 产品6: 海南木瓜 -->
+    <div class="prod-detail-card">
+      <div class="pd-img"><img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?w=500&q=80" alt="海南木瓜" loading="lazy"></div>
+      <div class="pd-info">
+        <div>
+          <div class="pd-name">🍈 海南木瓜</div>
+          <span class="pd-variety">品种: 日升（Sunrise Solo）</span>
+          <div class="pd-desc">三亚/乐东产区，引进夏威夷日升品种在海南优化栽培。果肉橙红鲜艳、口感细腻软滑、甜度均匀，富含木瓜蛋白酶和维生素A。单果500-800g，果型端正、皮薄肉厚。既可直接食用，也是制作木瓜牛奶、沙拉的上佳食材。全年均有产出。</div>
+          <div class="pd-specs">
+            <span class="pd-spec">📍 产地: 三亚/乐东</span>
+            <span class="pd-spec">📦 规格: 单果500-800g</span>
+            <span class="pd-spec highlight">📅 产季: 全年供应</span>
+            <span class="pd-spec">🍬 甜度: 12-15°Bx</span>
+            <span class="pd-spec">🌱 有机认证</span>
+            <span class="pd-spec">🔗 区块链溯源</span>
+          </div>
+        </div>
+        <div class="pd-bottom">
+          <span class="pd-price">¥38<small style="font-weight:400;font-size:11px">/箱 (5斤)</small></span>
+          <span class="pd-cert">🌱 OFDC有机认证</span>
+          <a href="/shangcheng.html" class="pd-link">🛒 前往购买 →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="/farm-hainan.html" style="border-color:rgba(109,171,126,.2);color:var(--green)">🌴 海南农庄</a>
+    <a href="/farm-hainan-traceability.html" style="border-color:rgba(0,212,255,.2);color:var(--cyan)">🔗 溯源详情</a>
+    <a href="/farm-hainan-experience.html" style="border-color:rgba(240,192,64,.2);color:var(--gold)">🧺 农旅体验</a>
+    <a href="/shangcheng.html" style="border-color:rgba(184,64,69,.2);color:var(--red)">🛒 商业生态</a>
+  </div>
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站: 175.178.55.90 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+  食品安全+退役军人在服务综合平台
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+</body>
+</html>

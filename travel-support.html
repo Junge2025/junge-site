@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<title>出行保障 · 军鸽云链数智</title>
+<meta name="description" content="退役军人出行保障服务——机票酒店专属折扣、旅行保险、自驾救援、分站驿站。军鸽云链为战友出行保驾护航。">
+<style>
+:root {
+--bg-deep:#030712; --bg-base:#060d1a; --bg-card:rgba(8,20,44,0.85);
+--primary:#00d4ff; --accent:#ff2d78; --gold:#f0c040; --green:#6dab7e;
+--red:#b84045; --blue:#4b8ecf; --purple:#a78bfa; --orange:#f59e0b;
+--text:#e8edf5; --text-dim:#8896b0; --text-muted:#4a5568;
+--border:rgba(255,255,255,.06); --border-glow:rgba(0,212,255,.15);
+--radius:12px; --radius-sm:8px; --radius-lg:18px;
+--shadow:0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg-deep);color:var(--text);line-height:1.65;overflow-x:hidden;
+min-height:100vh;
+background-image:
+radial-gradient(ellipse at 20% 0%,rgba(0,212,255,.04) 0%,transparent 55%),
+radial-gradient(ellipse at 80% 15%,rgba(240,192,64,.03) 0%,transparent 55%),
+radial-gradient(ellipse at 40% 70%,rgba(75,142,207,.03) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:#1a2744;border-radius:2px}
+
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 20px;position:sticky;top:0;z-index:999;backdrop-filter:blur(20px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .2s;padding:3px 8px;border-radius:10px}
+.breadcrumb-bar a:hover{color:var(--primary);background:rgba(0,212,255,.08)}
+.breadcrumb-bar .sep{color:var(--text-muted);font-size:9px}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{text-align:center;padding:42px 20px 32px;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(0,212,255,.06) 0%,rgba(6,13,26,.95) 50%,rgba(75,142,207,.04) 100%);border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,212,255,.06),transparent 60%);pointer-events:none}
+.hero .icon{font-size:48px;margin-bottom:8px;position:relative;z-index:1}
+.hero h1{font-size:26px;font-weight:800;letter-spacing:.04em;position:relative;z-index:1;background:linear-gradient(135deg,#00d4ff,#4b8ecf);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:12px;color:var(--text-dim);margin-top:6px;position:relative;z-index:1;letter-spacing:.03em}
+
+.container{max-width:1000px;margin:0 auto;padding:20px 18px 90px}
+
+.section{margin-bottom:28px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(0,212,255,.12)}
+.section-hd .icon{font-size:20px}
+.section-hd .title{font-size:15px;font-weight:650;letter-spacing:.03em;color:var(--primary)}
+.section-hd .tag{font-size:9px;padding:3px 10px;border-radius:10px;background:rgba(0,212,255,.08);color:var(--primary);margin-left:auto;letter-spacing:.06em}
+
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:768px){.g2,.g3{grid-template-columns:1fr}}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .25s;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.card:hover{border-color:var(--border-glow);box-shadow:var(--shadow)}
+.card h3{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card .desc{font-size:11px;color:var(--text-dim);line-height:1.7}
+.card.cyan{border-left:2px solid rgba(0,212,255,.25)}.card.cyan h3{color:var(--primary)}
+.card.gold{border-left:2px solid rgba(240,192,64,.25)}.card.gold h3{color:var(--gold)}
+.card.green{border-left:2px solid rgba(109,171,126,.25)}.card.green h3{color:var(--green)}
+.card.blue{border-left:2px solid rgba(75,142,207,.25)}.card.blue h3{color:var(--blue)}
+
+.benefit-table{width:100%;border-collapse:collapse;font-size:11px}
+.benefit-table th{text-align:left;padding:10px 12px;font-size:10px;color:var(--text-muted);font-weight:600;border-bottom:2px solid rgba(0,212,255,.08);text-transform:uppercase;letter-spacing:.05em}
+.benefit-table td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.03);color:var(--text-dim);line-height:1.6}
+.benefit-table tr:hover td{background:rgba(0,212,255,.02)}
+.benefit-table .highlight{color:var(--primary);font-weight:700}
+
+.partner-row{display:flex;align-items:center;gap:12px;padding:12px;background:rgba(0,212,255,.02);border-radius:var(--radius-sm);border:1px solid var(--border);margin-bottom:8px}
+.partner-row .partner-icon{font-size:24px;flex-shrink:0;width:44px;text-align:center}
+.partner-row .partner-info{flex:1;min-width:0}
+.partner-row .partner-info .name{font-size:12px;font-weight:650;color:var(--text)}
+.partner-row .partner-info .offer{font-size:10px;color:var(--gold);margin-top:2px}
+
+.quote-box{background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.12);border-radius:var(--radius);padding:18px 20px;font-style:italic;color:var(--primary);font-size:13px;margin:16px 0;position:relative}
+.quote-box::before{content:'"';position:absolute;top:-10px;left:12px;font-size:36px;color:var(--primary);opacity:.3}
+
+.btn-ghost{display:inline-flex;align-items:center;gap:4px;padding:8px 20px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .25s;background:transparent;border:1px solid var(--border);color:var(--text-dim)}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+
+.extend-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:var(--text-dim)}
+.ext-trace{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s;background:rgba(0,212,255,.08);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s;background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:var(--primary);color:var(--primary)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(20px);border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:all .2s;color:var(--text-dim);background:rgba(15,34,64,.6);border:1px solid rgba(0,212,255,.08)}
+.bottom-nav a:hover,.bottom-nav a.active{background:rgba(0,212,255,.12);color:var(--primary);border-color:rgba(0,212,255,.25)}
+
+footer{text-align:center;padding:16px 20px 10px;font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);line-height:1.8}
+
+@media(max-width:550px){.hero h1{font-size:20px}.card{padding:14px}.benefit-table{font-size:10px}.benefit-table td,.benefit-table th{padding:6px 8px}}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="出行保障 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/travel-support.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/travel-support.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+<a href="/">🏠 首页</a><span class="sep">▸</span>
+<a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+<span class="current">🚗 出行保障</span>
+</nav>
+
+<div class="hero">
+<div class="icon">🚗</div>
+<h1>出行保障</h1>
+<p class="sub">机酒折扣 · 自驾救援 · 旅行保险 · 全国3000+分站驿站 · 战友出行无忧</p>
+</div>
+
+<div class="container">
+
+<!-- 概述 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🛡️</span><span class="title">战友出行 · 军鸽护航</span><span class="tag">OVERVIEW</span></div>
+<div class="card cyan">
+<div class="desc" style="font-size:13px;line-height:2">
+<p>军鸽云链深知退役军人出行中的各种需求——无论是参加战友聚会、红色旅游、农场体验，还是出差办事、探亲访友。我们整合了机票、酒店、火车票、租车、保险等出行全链条资源，为退役军人及家属提供专属折扣和优先服务。</p>
+<p style="margin-top:12px">更值得一提的是，军鸽云链在全国3000+县级分站均设有"战友驿站"，为出行途中的退役军人提供免费饮水、手机充电、简易维修、路线咨询等基础保障服务。无论你走到哪里，都有一个温暖的地方可以歇歇脚。</p>
+</div>
+</div>
+</div>
+
+<!-- 权益总览 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🎫</span><span class="title">退役军人出行权益总览</span><span class="tag">BENEFITS</span></div>
+<div class="card cyan" style="padding:0;overflow:hidden">
+<table class="benefit-table">
+<tr><th style="width:20%">类别</th><th style="width:35%">权益内容</th><th style="width:20%">折扣力度</th><th style="width:25%">使用方式</th></tr>
+<tr><td>✈️ 机票</td><td>国内主流航司经济舱/商务舱专属折扣，部分航线享优先登机</td><td class="highlight">9.2-9.5折</td><td>军鸽APP内跳转合作平台预订</td></tr>
+<tr><td>🏨 酒店</td><td>全国300+城市、5000+合作酒店（含连锁品牌和特色民宿）</td><td class="highlight">8.5-9折</td><td>APP预订，到店出示退役证</td></tr>
+<tr><td>🚄 火车票</td><td>高铁/动车票专享折扣，火车站军鸽驿站提供候车休息区</td><td class="highlight">9.5折</td><td>通过军鸽合作渠道预订</td></tr>
+<tr><td>🚗 租车自驾</td><td>神州租车、一嗨租车等平台退役军人专属优惠</td><td class="highlight">8-8.5折</td><td>APP领取优惠码，平台下单</td></tr>
+<tr><td>🛡️ 旅行保险</td><td>中国人保/平安保险退役军人专属旅行险（含意外、医疗、行李延误）</td><td class="highlight">7折</td><td>APP内一键购买</td></tr>
+<tr><td>🔧 道路救援</td><td>24小时全国道路救援（搭电、换胎、拖车、送油），退役军人优先响应</td><td class="highlight">免费</td><td>拨打400-888-8888转救援</td></tr>
+<tr><td>🏠 分站驿站</td><td>全国3000+分站提供免费饮水、充电、WiFi、简易维修、路线咨询</td><td class="highlight">免费</td><td>APP查找最近分站，出示电子身份</td></tr>
+<tr><td>🎒 行李寄存</td><td>各主要城市军鸽分站提供短时行李寄存服务（当日免费）</td><td class="highlight">免费</td><td>分站前台寄存</td></tr>
+</table>
+</div>
+</div>
+
+<!-- 合作品牌 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🤝</span><span class="title">合作品牌 · 强强联手</span><span class="tag">PARTNERS</span></div>
+<div class="grid g2">
+<div class="card blue">
+<h3>✈️ 航空出行</h3>
+<div class="desc">
+<div class="partner-row"><div class="partner-icon">🛫</div><div class="partner-info"><div class="name">中国南方航空</div><div class="offer">退役军人专属9.3折 · 额外行李额10kg</div></div></div>
+<div class="partner-row"><div class="partner-icon">🛫</div><div class="partner-info"><div class="name">海南航空</div><div class="offer">退役军人9.2折 · 优先登机 · 贵宾休息室5折</div></div></div>
+<div class="partner-row"><div class="partner-icon">🛫</div><div class="partner-info"><div class="name">中国国际航空</div><div class="offer">退役军人9.5折 · 免费改签一次</div></div></div>
+</div>
+</div>
+<div class="card gold">
+<h3>🏨 酒店住宿</h3>
+<div class="desc">
+<div class="partner-row"><div class="partner-icon">🏩</div><div class="partner-info"><div class="name">锦江之星/如家/汉庭</div><div class="offer">退役军人8.5折 · 延迟退房至14:00</div></div></div>
+<div class="partner-row"><div class="partner-icon">🏩</div><div class="partner-info"><div class="name">全季/亚朵酒店</div><div class="offer">退役军人8.8折 · 免费升房（视房态）</div></div></div>
+<div class="partner-row"><div class="partner-icon">🏩</div><div class="partner-info"><div class="name">军鸽合作民宿</div><div class="offer">退役军人8折 · 含免费农家早餐</div></div></div>
+</div>
+</div>
+<div class="grid g2" style="margin-top:14px">
+<div class="card green">
+<h3>🚗 出行工具</h3>
+<div class="desc">
+<div class="partner-row"><div class="partner-icon">🚙</div><div class="partner-info"><div class="name">神州租车</div><div class="offer">退役军人8折 · 免押金租车</div></div></div>
+<div class="partner-row"><div class="partner-icon">🚙</div><div class="partner-info"><div class="name">一嗨租车</div><div class="offer">退役军人8.5折 · 免费升级车型</div></div></div>
+<div class="partner-row"><div class="partner-icon">🚕</div><div class="partner-info"><div class="name">滴滴出行</div><div class="offer">退役军人专属优惠券包 · 每月4张</div></div></div>
+</div>
+</div>
+<div class="card cyan">
+<h3>🛡️ 保险救援</h3>
+<div class="desc">
+<div class="partner-row"><div class="partner-icon">🏦</div><div class="partner-info"><div class="name">中国人保财险</div><div class="offer">退役军人旅行险7折 · 保额最高50万</div></div></div>
+<div class="partner-row"><div class="partner-icon">🏦</div><div class="partner-info"><div class="name">中国平安保险</div><div class="offer">退役军人意外险7.5折 · 24小时全球救援</div></div></div>
+<div class="partner-row"><div class="partner-icon">🔧</div><div class="partner-info"><div class="name">大陆救援</div><div class="offer">退役军人免费道路救援 · 全国覆盖</div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 分站驿站 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🏠</span><span class="title">战友驿站 · 3000+分站等你歇脚</span><span class="tag">STATIONS</span></div>
+<div class="card gold">
+<h3>📍 分站驿站提供以下免费服务</h3>
+<div class="desc" style="font-size:12px;line-height:2.2">
+<p>🥤 <strong>免费饮水：</strong>冷热饮水机，部分分站提供茶水。</p>
+<p>🔌 <strong>免费充电：</strong>手机、充电宝、笔记本电脑均可充电。</p>
+<p>📶 <strong>免费WiFi：</strong>高速无线网络，方便查询路况和预订下一站。</p>
+<p>🗺️ <strong>路线咨询：</strong>分站工作人员熟悉当地情况，可提供精准路线指导。</p>
+<p>🔧 <strong>简易维修：</strong>自行车打气、简单工具借用（螺丝刀、扳手等）。</p>
+<p>💊 <strong>应急药品：</strong>创可贴、藿香正气水、风油精等常用药品免费提供。</p>
+<p>📱 <strong>代订服务：</strong>协助预订当地酒店、景区门票、车辆维修等。</p>
+<p>🪖 <strong>战友联络：</strong>分站可协助联系当地退役军人战友，方便聚会交流。</p>
+</div>
+</div>
+</div>
+
+<!-- 紧急救援 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🆘</span><span class="title">紧急救援 · 一键求助</span><span class="tag">SOS</span></div>
+<div class="card cyan">
+<h3>📞 24小时退役军人出行救援热线：400-888-8888</h3>
+<div class="desc" style="font-size:12px;line-height:2">
+<p>如果在出行途中遇到车辆故障、突发疾病、自然灾害或其他紧急情况，请立即拨打军鸽云链24小时救援热线。我们将启动以下救援机制：</p>
+<p style="margin-top:8px"><strong>第一步：</strong>客服确认您的退役军人身份和位置信息。</p>
+<p><strong>第二步：</strong>自动匹配最近的军鸽分站或合作救援机构，下达救援指令。</p>
+<p><strong>第三步：</strong>分站工作人员或救援人员在30分钟内（城区）/60分钟内（郊区）到达现场。</p>
+<p><strong>第四步：</strong>全程跟踪救援进度，必要时协调当地退役军人志愿者协助。</p>
+</div>
+</div>
+</div>
+
+<blockquote class="quote-box">
+"曾经你用青春守护祖国的安全，现在军鸽云链守护你的出行。无论走到哪里，退役军人永远是一家人。"
+</blockquote>
+
+<div class="extend-bar"><span class="ext-title">🔗 继续探索：</span><a href="/modern-ranger.html" class="ext-trace">⚔️ 现代游侠</a><a href="/red-tourism.html" class="ext-trace">🚩 红色文旅</a><a href="/farm-experience.html" class="ext-trace">🧑‍🌾 农场体验</a><a href="/index.html" class="ext-mall">🏠 返回情怀首页</a><a href="/shangcheng.html" class="ext-mall">🛒 返回商城</a></div>
+
+</div>
+
+<nav class="bottom-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/taskforce.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+海口总站 · 广州RED-DUAL指挥中心 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+食品安全+退役军人在服务综合平台 · 军魂铸信 · 数智富民
+</footer>
+
+</body>
+</html>

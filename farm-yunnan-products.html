@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>产品中心 · 云南高山生态农庄 · 军鸽云链数智</title>
+<meta name="description" content="景迈古树生普/熟普、高山野生松茸、野生牛肝菌、野生鸡枞菌、有机文山三七——中国+EU双有机认证，区块链溯源。云南高山生态农庄产品中心。">
+<meta name="keywords" content="云南农庄产品,景迈古树茶,普洱茶,野生松茸,有机三七,区块链溯源,双有机认证,军鸽云链">
+<meta property="og:title" content="产品中心 · 云南高山生态农庄">
+<meta property="og:description" content="从千年古树到高原山珍——全品类双有机认证，区块链全程溯源。">
+<link rel="canonical" href="https://junge.中国/farm-yunnan-products.html">
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,0.85);--text:#e8edf5;--dim:#8896b0;--border:rgba(255,255,255,.06);--red:#b84045;--green:#4d9460;--blue:#4b8ecf;--gold:#f0c040;--cyan:#00d4ff;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;line-height:1.7;min-height:100vh;padding-bottom:130px}
+.breadcrumb{position:sticky;top:0;z-index:101;background:rgba(3,7,18,.96);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:6px;font-size:11px;backdrop-filter:blur(12px)}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:.2s}
+.breadcrumb a:hover{color:var(--cyan)}
+.breadcrumb .sep{color:#4a5568}
+.breadcrumb .current{color:var(--cyan);font-weight:700}
+.top-nav{position:sticky;top:33px;z-index:100;background:linear-gradient(90deg,rgba(3,7,18,.98),rgba(10,22,40,.97));backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;overflow-x:auto}
+.top-nav .logo{font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;flex-shrink:0}
+.top-nav .divider{width:1px;height:16px;background:var(--border);flex-shrink:0}
+.top-nav a.nav-link{color:var(--dim);text-decoration:none;font-size:11px;padding:3px 9px;border-radius:10px;border:1px solid transparent;white-space:nowrap;flex-shrink:0;transition:.2s}
+.top-nav a.nav-link:hover,.top-nav a.nav-link.active{color:var(--cyan);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.05)}
+.hero{position:relative;height:320px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=1920&q=80') center/cover;opacity:.18}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,7,18,.4) 0%,rgba(3,7,18,.92) 100%)}
+.hero>*{position:relative;z-index:2}
+.hero h1{font-size:38px;color:var(--gold);margin-bottom:8px;text-shadow:0 0 40px rgba(240,192,64,.15)}
+.hero .sub{font-size:13px;color:var(--dim)}
+.container{max-width:1160px;margin:0 auto;padding:10px 20px 40px}
+.section{margin:36px 0}
+.section-title{font-size:15px;color:var(--cyan);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.quick-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.quick-nav a{padding:6px 16px;border-radius:16px;font-size:11px;color:var(--dim);text-decoration:none;border:1px solid var(--border);transition:.2s;white-space:nowrap}
+.quick-nav a:hover,.quick-nav a.active{color:var(--cyan);border-color:rgba(0,212,255,.25);background:rgba(0,212,255,.05)}
+.prod-detail{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;display:grid;grid-template-columns:280px 1fr;transition:.25s;scroll-margin-top:120px}
+.prod-detail:hover{border-color:rgba(0,212,255,.15)}
+.prod-detail .pd-img{position:relative;min-height:240px;overflow:hidden}
+.prod-detail .pd-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.prod-detail .pd-img .pd-badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:4px;z-index:2}
+.prod-detail .pd-img .pd-badge{padding:3px 10px;border-radius:8px;font-size:9px;font-weight:700;display:inline-block;width:fit-content}
+.pd-badge.org-cn{background:rgba(77,148,96,.15);color:var(--green);border:1px solid rgba(77,148,96,.25)}
+.pd-badge.org-eu{background:rgba(75,142,207,.15);color:var(--blue);border:1px solid rgba(75,142,207,.25)}
+.pd-badge.trace{background:rgba(0,212,255,.1);color:var(--cyan);border:1px solid rgba(0,212,255,.18)}
+.prod-detail .pd-info{padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.prod-detail .pd-info h3{font-size:18px;color:var(--text);margin-bottom:8px}
+.prod-detail .pd-info .pd-variety{font-size:12px;color:var(--dim);margin-bottom:8px;line-height:1.6}
+.prod-detail .pd-info .pd-specs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.prod-detail .pd-info .pd-spec{font-size:10px;color:var(--dim);background:rgba(0,212,255,.04);padding:3px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.04);white-space:nowrap}
+.prod-detail .pd-info .pd-flavor{font-size:12px;color:var(--gold);margin-bottom:8px;font-style:italic}
+.prod-detail .pd-info .pd-season{font-size:10px;color:var(--green);margin-bottom:10px}
+.prod-detail .pd-info .pd-bottom{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.prod-detail .pd-info .pd-price{font-size:18px;font-weight:700;color:var(--red)}
+.prod-detail .pd-info .pd-btns{display:flex;gap:8px;flex-wrap:wrap}
+.pd-btns a{padding:7px 18px;border-radius:18px;font-size:11px;font-weight:600;text-decoration:none;display:inline-block;transition:.2s}
+.pd-btns .btn-buy{color:#030712;background:linear-gradient(135deg,var(--cyan),var(--gold))}
+.pd-btns .btn-buy:hover{box-shadow:0 0 20px rgba(0,212,255,.4)}
+.pd-btns .btn-detail{color:var(--cyan);border:1px solid rgba(0,212,255,.25);background:rgba(0,212,255,.05)}
+.pd-btns .btn-detail:hover{background:rgba(0,212,255,.12)}
+.cat-divider{display:flex;align-items:center;gap:12px;margin:32px 0 16px}
+.cat-divider .cat-line{flex:1;height:1px;background:var(--border)}
+.cat-divider .cat-label{font-size:13px;font-weight:700;color:var(--gold);white-space:nowrap}
+.trust-strip{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
+.trust-strip .ts-item{text-align:center}
+.trust-strip .ts-item .ts-icon{font-size:28px;margin-bottom:4px}
+.trust-strip .ts-item .ts-label{font-size:9px;color:var(--dim)}
+.footer{text-align:center;padding:20px 20px 30px;border-top:1px solid var(--border);font-size:10px;color:#4a5568;line-height:1.8}
+.footer a{color:var(--dim);text-decoration:none}
+.footer a:hover{color:var(--cyan)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.1);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:4px 8px;border-radius:8px;transition:.2s}
+.bottom-nav a:hover{color:var(--cyan)}
+.bottom-nav a.highlight{color:var(--gold);border:1px solid rgba(240,192,64,.2);background:rgba(240,192,64,.05)}
+@media(max-width:768px){
+  .hero h1{font-size:24px}.hero{height:240px}
+  .prod-detail{grid-template-columns:1fr}
+  .prod-detail .pd-img{height:200px}
+  .trust-strip{gap:12px}
+}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/junge/eco-farm.html">🌿 生态农庄</a><span class="sep">▸</span>
+  <a href="/farm-yunnan.html">云南高山生态农庄</a><span class="sep">▸</span>
+  <span class="current">产品中心</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" class="logo">⚔ 军鸽云链</a>
+  <span class="divider"></span>
+  <a href="/index.html" class="nav-link">🛡️ 军鸽首页</a>
+  <a href="/shangcheng.html" class="nav-link">🛒 商业生态</a>
+  <a href="/taskforce.html" class="nav-link">⚡ 数智中心</a>
+  <a href="/fenzhan.html" class="nav-link">🌾 分站家园</a>
+  <span class="divider"></span>
+  <a href="/farm-yunnan.html" class="nav-link">🏔️ 云南农庄</a>
+  <a href="/farm-yunnan-products.html" class="nav-link active">📦 产品中心</a>
+  <a href="/farm-yunnan-traceability.html" class="nav-link">🔍 溯源详情</a>
+  <a href="/farm-yunnan-experience.html" class="nav-link">🌿 农旅体验</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>📦 云南高山生态农庄 · 产品中心</h1>
+    <div class="sub">中国有机认证 + 欧盟有机认证 · 区块链全程溯源 · 古树编号保护体系</div>
+  </div>
+</section>
+
+<div class="container">
+
+<div class="quick-nav">
+  <a href="#tea" class="active">🍵 古树普洱茶</a>
+  <a href="#mushroom">🍄 野生菌菇</a>
+  <a href="#herb">🌿 有机中药材</a>
+</div>
+
+<!-- ==== 古树普洱茶 ==== -->
+<div class="cat-divider" id="tea"><div class="cat-line"></div><div class="cat-label">🍵 古树普洱茶系列</div><div class="cat-line"></div></div>
+
+<div class="prod-detail">
+  <div class="pd-img">
+    <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80" alt="景迈古树生普" loading="lazy">
+    <div class="pd-badges"><span class="pd-badge org-cn">🇨🇳 中国有机</span><span class="pd-badge org-eu">🇪🇺 EU有机</span></div>
+  </div>
+  <div class="pd-info">
+    <h3>🍵 景迈古树生普（生茶）</h3>
+    <div class="pd-variety">品种: 景迈大叶种 · 树龄300年以上古树春茶 · 传统手工杀青石磨压制</div>
+    <div class="pd-specs"><span class="pd-spec">📐 357g/饼</span><span class="pd-spec">🌿 一芽二叶</span><span class="pd-spec">📅 3-4月春茶</span></div>
+    <div class="pd-flavor">🍯 兰香蜜韵 · 山野气韵 · 回甘悠长</div>
+    <div class="pd-season">🌱 产季: 3月中旬-4月下旬（春茶头采）</div>
+    <div class="pd-bottom">
+      <div class="pd-price">¥598/饼</div>
+      <div class="pd-btns">
+        <a href="/shangcheng.html" class="btn-buy">🛒 立即购买</a>
+        <a href="/farm-yn-puer-raw.html" class="btn-detail">📋 产品详情 →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="prod-detail">
+  <div class="pd-img">
+    <img src="https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?w=600&q=80" alt="景迈古树熟普" loading="lazy">
+    <div class="pd-badges"><span class="pd-badge org-cn">🇨🇳 中国有机</span><span class="pd-badge org-eu">🇪🇺 EU有机</span><span class="pd-badge trace">🔗 区块链溯源</span></div>
+  </div>
+  <div class="pd-info">
+    <h3>🍵 景迈古树熟普（熟茶）</h3>
+    <div class="pd-variety">品种: 景迈大叶种 · 古树春茶发酵 · 宫廷级陈香醇厚</div>
+    <div class="pd-specs"><span class="pd-spec">📐 357g/饼</span><span class="pd-spec">🕰️ 传统渥堆发酵</span><span class="pd-spec">📅 春茶原料</span></div>
+    <div class="pd-flavor">🍂 陈香醇厚 · 枣香糯滑 · 汤色红浓透亮</div>
+    <div class="pd-season">🌱 原料: 春茶鲜叶 · 发酵周期45-60天 · 全年可售</div>
+    <div class="pd-bottom">
+      <div class="pd-price">¥498/饼</div>
+      <div class="pd-btns">
+        <a href="/shangcheng.html" class="btn-buy">🛒 立即购买</a>
+        <a href="/farm-yn-puer-ripe.html" class="btn-detail">📋 产品详情 →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==== 野生菌菇 ==== -->
+<div class="cat-divider" id="mushroom"><div class="cat-line"></div><div class="cat-label">🍄 野生菌菇系列</div><div class="cat-line"></div></div>
+
+<div class="prod-detail">
+  <div class="pd-img">
+    <img src="https://images.unsplash.com/photo-1543364195-bfe6e4932397?w=600&q=80" alt="高山野生松茸" loading="lazy">
+    <div class="pd-badges"><span class="pd-badge org-cn">🇨🇳 中国有机</span><span class="pd-badge org-eu">🇪🇺 EU有机</span><span class="pd-badge trace">🔗 溯源可查</span></div>
+  </div>
+  <div class="pd-info">
+    <h3>🍄 高山野生松茸</h3>
+    <div class="pd-variety">品种: 云南高山松茸 · 海拔2000m+原始森林野生采摘 · 鲜品+冻干双规格</div>
+    <div class="pd-specs"><span class="pd-spec">📐 500g/盒</span><span class="pd-spec">🏅 特级5-7cm</span><span class="pd-spec">📦 一级3-5cm</span><span class="pd-spec">❄️ 冻干即食</span></div>
+    <div class="pd-flavor">🌲 松木清香 · 肉质细嫩 · 菌香浓郁</div>
+    <div class="pd-season">🍄 产季: 7-9月（雨季野生） · 冷链48小时直达</div>
+    <div class="pd-bottom">
+      <div class="pd-price">¥398/盒</div>
+      <div class="pd-btns">
+        <a href="/shangcheng.html" class="btn-buy">🛒 立即购买</a>
+        <a href="/farm-yn-matsutake.html" class="btn-detail">📋 产品详情 →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="prod-detail">
+  <div class="pd-img">
+    <img src="https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?w=600&q=80" alt="野生牛肝菌" loading="lazy">
+    <div class="pd-badges"><span class="pd-badge org-cn">🇨🇳 中国有机</span><span class="pd-badge trace">🔗 溯源可查</span></div>
+  </div>
+  <div class="pd-info">
+    <h3>🍄 野生牛肝菌</h3>
+    <div class="pd-variety">品种: 云南高原原始森林采摘 · 鲜品+干品双规格 · 煲汤炖鸡极品</div>
+    <div class="pd-specs"><span class="pd-spec">📐 200g/袋(干品)</span><span class="pd-spec">📐 500g/盒(鲜品)</span><span class="pd-spec">🔥 烘干锁鲜</span></div>
+    <div class="pd-flavor">🥘 肉质肥厚 · 鲜美浓郁 · 营养丰富</div>
+    <div class="pd-season">🍄 产季: 6-10月 · 干品全年有售</div>
+    <div class="pd-bottom">
+      <div class="pd-price">¥168/袋</div>
+      <div class="pd-btns">
+        <a href="/shangcheng.html" class="btn-buy">🛒 立即购买</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="prod-detail">
+  <div class="pd-img">
+    <img src="https://images.unsplash.com/photo-1572584642822-6f8de0243c8d?w=600&q=80" alt="野生鸡枞菌" loading="lazy">
+    <div class="pd-badges"><span class="pd-badge org-cn">🇨🇳 中国有机</span><span class="pd-badge trace">🔗 溯源可查</span></div>
+  </div>
+  <div class="pd-info">
+    <h3>🍄 野生鸡枞菌</h3>
+    <div class="pd-variety">品种: 云南特有珍稀菌种 · 鲜甜如鸡 · 菌中之冠 · 高原红壤野生</div>
+    <div class="pd-specs"><span class="pd-spec">📐 300g/盒(鲜品)</span><span class="pd-spec">🫙 280g/瓶(油浸)</span><span class="pd-spec">🧊 冷链锁鲜</span></div>
+    <div class="pd-flavor">🐔 鲜甜如鸡 · 脆嫩爽滑 · 煲汤极品</div>
+    <div class="pd-season">🍄 产季: 7-9月 · 雨后破土 · 限量采摘</div>
+    <div class="pd-bottom">
+      <div class="pd-price">¥268/盒</div>
+      <div class="pd-btns">
+        <a href="/shangcheng.html" class="btn-buy">🛒 立即购买</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==== 有机中药材 ==== -->
+<div class="cat-divider" id="herb"><div class="cat-line"></div><div class="cat-label">🌿 有机中药材系列</div><div class="cat-line"></div></div>
+
+<div class="prod-detail">
+  <div class="pd-img">
+    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&q=80" alt="有机文山三七" loading="lazy">
+    <div class="pd-badges"><span class="pd-badge org-cn">🇨🇳 中国有机</span><span class="pd-badge org-eu">🇪🇺 EU有机</span><span class="pd-badge trace">🔗 区块链溯源</span></div>
+  </div>
+  <div class="pd-info">
+    <h3>🌿 有机文山三七</h3>
+    <div class="pd-variety">品种: 云南文山产区 · 3年生长期足头采挖 · 超微破壁粉 · 皂苷含量≥5%</div>
+    <div class="pd-specs"><span class="pd-spec">📐 100g/盒</span><span class="pd-spec">📐 250g/盒</span><span class="pd-spec">🔬 超微破壁≥300目</span></div>
+    <div class="pd-flavor">💊 微苦回甘 · 皂苷丰富 · 粉质细腻</div>
+    <div class="pd-season">🌿 3年生长期 · 10月采挖 · 全年供应</div>
+    <div class="pd-bottom">
+      <div class="pd-price">¥288/盒(250g)</div>
+      <div class="pd-btns">
+        <a href="/shangcheng.html" class="btn-buy">🛒 立即购买</a>
+        <a href="/farm-yn-notoginseng.html" class="btn-detail">📋 产品详情 →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="trust-strip">
+  <div class="ts-item"><div class="ts-icon">🏅</div><div class="ts-label">中国有机认证<br>GB/T 19630</div></div>
+  <div class="ts-item"><div class="ts-icon">🇪🇺</div><div class="ts-label">欧盟有机认证<br>EU 2018/848</div></div>
+  <div class="ts-item"><div class="ts-icon">🔗</div><div class="ts-label">军鸽区块链溯源<br>全程可追溯</div></div>
+  <div class="ts-item"><div class="ts-icon">🧪</div><div class="ts-label">SGS检测<br>310项零检出</div></div>
+  <div class="ts-item"><div class="ts-icon">🎖️</div><div class="ts-label">退役军人<br>品质保障</div></div>
+</div>
+
+</div>
+
+<div class="footer">
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站: 175.178.55.90 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+  食品安全+退役军人在服务综合平台
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+</body>
+</html>

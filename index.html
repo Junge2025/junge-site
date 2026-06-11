@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>军鸽云链数智 · 军魂铸信 · 数智富民</title>
+<meta name="description" content="军鸽云链数智——食品安全+退役军人在服务综合平台。铁血丹心聚英才，团结实干抒情怀，品质生活有大爱。">
+<meta name="keywords" content="军鸽云链数智,退役军人服务,食品安全,战友驿站,药食同源,政府监管">
+<!-- [SEO] OpenGraph + Twitter + Canonical + Robots — 2026-06-10 -->
+<meta property="og:title" content="军鸽云链数智 · 军魂铸信 · 数智富民">
+<meta property="og:description" content="军鸽云链数智——食品安全+退役军人在服务综合平台。铁血丹心聚英才，团结实干抒情怀，品质生活有大爱。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/">
+<meta property="og:image" content="https://junge.中国/assets/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="军鸽云链数智 · 军魂铸信 · 数智富民">
+<meta name="twitter:description" content="食品安全+退役军人在服务综合平台。铁血丹心聚英才，团结实干抒情怀。">
+<meta name="twitter:image" content="https://junge.中国/assets/og-home.jpg">
+<link rel="canonical" href="https://junge.中国/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<style>
+:root {
+--red:#b84045; --red-bg:rgba(184,64,69,0.12); --red-glow:rgba(184,64,69,0.4);
+--green:#4d9460; --green-bg:rgba(77,148,96,0.12); --green-glow:rgba(77,148,96,0.4);
+--blue:#4b8ec9; --blue-bg:rgba(75,142,201,0.12); --blue-glow:rgba(75,142,201,0.4);
+--gold:#c4a044; --gold-bg:rgba(196,160,68,0.1);
+--bg:#0a0f16; --bg2:#101820; --bg-card:rgba(16,24,36,0.7);
+--text:#e7ecf2; --text2:#9daab8; --text3:#556070;
+--border:rgba(255,255,255,0.05); --border2:rgba(255,255,255,0.08);
+--radius:16px; --radius-sm:10px;
+--shadow:0 8px 32px rgba(0,0,0,.5);
+--trans:.25s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;
+background-image:
+radial-gradient(ellipse at 20% 0%,rgba(184,64,69,.05) 0%,transparent 55%),
+radial-gradient(ellipse at 80% 15%,rgba(75,142,201,.04) 0%,transparent 55%),
+radial-gradient(ellipse at 40% 70%,rgba(77,148,96,.04) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#253040;border-radius:2px}
+
+/* TOP BAR */
+.top-bar{position:sticky;top:0;z-index:10000;background:rgba(10,15,22,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,.6)}
+.top-inner{max-width:1400px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#c44,#822);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 0 18px var(--red-glow)}
+.brand-text .main{font-size:14px;font-weight:700;letter-spacing:.04em;background:linear-gradient(135deg,#e8edf5 30%,#7ab5db 55%,#6dab7e 85%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.brand-text .sub{font-size:9px;color:var(--text3)}
+.nav-row{display:flex;gap:2px;flex-wrap:wrap}
+.nav-row a{padding:5px 10px;border-radius:14px;font-size:10px;color:var(--text2);text-decoration:none;transition:var(--trans);white-space:nowrap}
+.nav-row a:hover,.nav-row a.on{color:#d47a7e;background:var(--red-bg)}
+.clock{font-variant-numeric:tabular-nums;color:var(--text3);font-size:11px;flex-shrink:0}
+/* ═══ WALLET PILL ═══ */
+.wallet-pill{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:16px;background:rgba(16,24,36,.8);border:1px solid rgba(196,160,68,.25);font-size:10.5px;flex-shrink:0;backdrop-filter:blur(8px);transition:var(--trans)}
+.wallet-pill:hover{border-color:rgba(196,160,68,.5);box-shadow:0 0 12px rgba(196,160,68,.15)}
+.wp-jc{color:#e8d5a0;display:inline-flex;align-items:center;gap:3px}
+.wp-jc b{font-weight:700;font-variant-numeric:tabular-nums;color:var(--gold)}
+.wp-dv{padding:2px 8px;border-radius:8px;background:rgba(77,148,96,.15);color:#6dab7e;font-weight:600;font-size:9.5px;letter-spacing:.04em}
+
+/* MAIN */
+main{max-width:1360px;margin:0 auto;padding:14px 18px 70px}
+
+/* ═══ SLOGAN BAR ═══ */
+.slogan-bar{text-align:center;padding:18px 20px;margin-bottom:16px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(184,64,69,.15),rgba(10,15,22,.95),rgba(75,142,201,.08));border:1px solid rgba(184,64,69,.15);position:relative;overflow:hidden}
+.slogan-bar::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.02),transparent);pointer-events:none}
+.slogan-bar .big{font-size:24px;font-weight:800;letter-spacing:.12em;position:relative;z-index:1;
+background:linear-gradient(120deg,#d47a7e,#e8c4a0,#7ab5db);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.slogan-bar .sub{font-size:11px;color:var(--text2);margin-top:4px;position:relative;z-index:1;letter-spacing:.06em}
+
+/* ═══ HERO ═══ */
+.hero{position:relative;border-radius:var(--radius);padding:36px 24px 28px;margin-bottom:16px;overflow:hidden;text-align:center;
+background:linear-gradient(160deg,rgba(184,64,69,.08) 0%,rgba(16,24,32,.9) 40%,rgba(75,142,201,.06) 100%);
+border:1px solid var(--border2)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% -20%,rgba(255,200,200,.04),transparent 60%);pointer-events:none}
+.hero h1{font-size:26px;font-weight:700;margin-bottom:8px;position:relative;z-index:1;letter-spacing:.03em}
+.hero h1 .r{color:#d47a7e}.hero h1 .g{color:#6dab7e}.hero h1 .b{color:#7ab5db}
+.hero .desc{font-size:12px;color:var(--text2);max-width:560px;margin:0 auto 14px;position:relative;z-index:1;line-height:1.8}
+.hero-values{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;position:relative;z-index:1}
+.hero-values span{padding:6px 14px;border-radius:18px;font-size:10.5px;color:#e0c8c8;background:rgba(184,64,69,.1);border:1px solid rgba(184,64,69,.18);display:inline-flex;align-items:center;gap:5px;letter-spacing:.03em}
+.hero-values span i{font-style:normal;font-size:12px}
+.hero .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+
+/* Hero 3 Buttons — equal size, glow */
+.hero-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:28px;font-size:13px;font-weight:650;text-decoration:none;transition:var(--trans);letter-spacing:.04em;position:relative;overflow:hidden;min-width:160px;justify-content:center}
+.hero-btn::after{content:'';position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .3s}
+.hero-btn:hover{transform:translateY(-2px)}
+.hero-btn:hover::after{opacity:1}
+.hero-btn.blue{background:linear-gradient(135deg,rgba(75,142,201,.25),rgba(40,80,140,.5));border:1px solid rgba(75,142,201,.4);color:#b8d8f5;box-shadow:0 0 24px var(--blue-glow),inset 0 1px 0 rgba(255,255,255,.05)}
+.hero-btn.blue:hover{box-shadow:0 0 40px rgba(75,142,201,.6),inset 0 1px 0 rgba(255,255,255,.1)}
+.hero-btn.green{background:linear-gradient(135deg,rgba(77,148,96,.25),rgba(35,90,55,.5));border:1px solid rgba(77,148,96,.4);color:#b0ddbc;box-shadow:0 0 24px var(--green-glow),inset 0 1px 0 rgba(255,255,255,.05)}
+.hero-btn.green:hover{box-shadow:0 0 40px rgba(77,148,96,.6),inset 0 1px 0 rgba(255,255,255,.1)}
+.hero-btn.red{background:linear-gradient(135deg,rgba(184,64,69,.25),rgba(130,35,40,.5));border:1px solid rgba(184,64,69,.4);color:#e8b0b4;box-shadow:0 0 24px var(--red-glow),inset 0 1px 0 rgba(255,255,255,.05)}
+.hero-btn.red:hover{box-shadow:0 0 40px rgba(184,64,69,.6),inset 0 1px 0 rgba(255,255,255,.1)}
+
+/* ═══ VALUE CORE ═══ */
+.value-strip{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.val-itm{text-align:center;padding:12px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);backdrop-filter:blur(12px);min-width:100px;flex:1;max-width:160px;transition:var(--trans)}
+.val-itm:hover{border-color:var(--border2);box-shadow:var(--shadow)}
+.val-num{font-size:18px;font-weight:700;font-variant-numeric:tabular-nums}
+.val-lbl{font-size:9px;color:var(--text3);margin-top:2px;letter-spacing:.06em}
+
+/* ═══ POLICY GRID ═══ */
+.policy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+@media(max-width:1000px){.policy-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:550px){.policy-grid{grid-template-columns:1fr}}
+.policy-panel{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px;backdrop-filter:blur(12px);transition:var(--trans)}
+.policy-panel:hover{border-color:var(--border2);box-shadow:var(--shadow)}
+.policy-panel .pp-hd{display:flex;align-items:center;gap:8px;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.policy-panel .pp-icon{font-size:17px}
+.policy-panel .pp-title{font-size:11.5px;font-weight:600}
+.policy-panel ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.policy-panel ul li{font-size:10px;color:var(--text2);line-height:1.6;padding:2px 0;border-bottom:1px dotted rgba(255,255,255,.02)}
+.policy-panel ul li:last-child{border-bottom:none}
+.policy-panel ul a{color:var(--blue);text-decoration:none;font-size:9px}
+.policy-panel.r{border-top:2px solid rgba(184,64,69,.3)}.policy-panel.r .pp-title{color:#d47a7e}
+.policy-panel.g{border-top:2px solid rgba(77,148,96,.3)}.policy-panel.g .pp-title{color:#6dab7e}
+.policy-panel.b{border-top:2px solid rgba(75,142,201,.3)}.policy-panel.b .pp-title{color:#7ab5db}
+.policy-panel.k{border-top:2px solid rgba(196,160,68,.3)}.policy-panel.k .pp-title{color:var(--gold)}
+
+/* ═══ SECTIONS ═══ */
+.section{margin-bottom:24px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid rgba(184,64,69,.12);flex-wrap:wrap}
+.section-hd .icon{font-size:22px}
+.section-hd .title{font-size:15px;font-weight:650;letter-spacing:.03em}
+.section-hd .sub{font-size:10px;color:var(--text3);margin-left:4px}
+.section-hd .tag{font-size:9px;padding:3px 10px;border-radius:10px;background:var(--red-bg);color:#d47a7e;margin-left:auto;letter-spacing:.06em}
+
+/* ═══ GRID ═══ */
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+.g4{grid-template-columns:1fr 1fr 1fr 1fr}
+.g-asym{grid-template-columns:1.3fr .7fr}
+.g-asym2{grid-template-columns:.7fr 1.3fr}
+@media(max-width:900px){.g2,.g3,.g4,.g-asym,.g-asym2{grid-template-columns:1fr}}
+
+/* ═══ CARDS ═══ */
+.cd{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:var(--trans);backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.cd:hover{border-color:var(--border2);box-shadow:var(--shadow)}
+.cd h3{font-size:13px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.cd p{font-size:10px;color:var(--text2);line-height:1.35}
+.cd .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}.cd .meta-row .tags{margin-top:0}.cd .meta-row p{margin:0;font-size:10px}
+.tag{padding:3px 8px;border-radius:8px;font-size:9px}
+.cd.r{border-left:2px solid rgba(184,64,69,.25)}.cd.r h3{color:#d47a7e}
+.cd.g{border-left:2px solid rgba(77,148,96,.25)}.cd.g h3{color:#6dab7e}
+.cd.b{border-left:2px solid rgba(75,142,201,.25)}.cd.b h3{color:#7ab5db}
+
+
+/* ═══ IMAGE PLACEHOLDER ═══ */
+.img-block{border-radius:var(--radius-sm);overflow:hidden;position:relative;min-height:120px;display:flex;align-items:center;justify-content:center;font-size:48px;color:rgba(255,255,255,.06)}
+.img-block.r{background:linear-gradient(135deg,rgba(184,64,69,.15),rgba(100,30,35,.3))}
+.img-block.g{background:linear-gradient(135deg,rgba(77,148,96,.15),rgba(35,80,50,.3))}
+.img-block.b{background:linear-gradient(135deg,rgba(75,142,201,.15),rgba(35,60,120,.3))}
+.img-block.k{background:linear-gradient(135deg,rgba(196,160,68,.15),rgba(120,90,30,.3))}
+.img-block img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+
+/* ═══ FEATURE LIST ═══ */
+.ft{display:flex;flex-direction:column;gap:4px}
+.ft-item{display:flex;align-items:center;gap:8px;padding:7px 10px;background:rgba(255,255,255,.015);border-radius:8px;font-size:11px;color:var(--text2)}
+.ft-item .m{color:#d47a7e;flex-shrink:0;font-size:13px}
+
+/* ═══ STAT ═══ */
+.stats{display:flex;gap:8px;flex-wrap:wrap}
+.st{text-align:center;padding:8px 14px;background:rgba(255,255,255,.02);border-radius:8px;flex:1;min-width:60px}
+.st .n{font-size:16px;font-weight:700}
+.st .l{font-size:8px;color:var(--text3);margin-top:1px}
+
+/* ═══ CONTACT TABLE ═══ */
+.contact-table{width:100%;border-collapse:collapse;font-size:10px;margin-top:8px}
+.contact-table td{padding:6px 8px;border-bottom:1px solid var(--border);color:var(--text2)}
+.contact-table td:first-child{color:var(--text3);width:30%}
+.contact-table td:last-child{color:var(--blue)}
+
+/* ═══ NOTICE BOX ═══ */
+.notice{background:rgba(184,64,69,.04);border:1px solid rgba(184,64,69,.12);border-radius:var(--radius);padding:12px 16px;margin-top:10px;font-size:11px;color:var(--text2);line-height:1.7}
+
+/* ═══ BOTTOM NAV ═══ */
+.btm-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(10,15,22,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.btm-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:var(--trans)}
+.btm-nav a.act{background:var(--red-bg);color:#d47a7e;font-weight:600}
+.btm-nav a.gn{color:var(--green);border:1px solid rgba(77,148,96,.2)}.btm-nav a.gn:hover{background:var(--green-bg)}
+.btm-nav a.bl{color:var(--blue);border:1px solid rgba(75,142,201,.2)}.btm-nav a.bl:hover{background:var(--blue-bg)}
+.btm-nav a.gl{color:var(--gold);border:1px solid rgba(196,160,68,.2)}.btm-nav a.gl:hover{background:var(--gold-bg)}
+
+/* ═══ FOOTER ═══ */
+.ft{max-width:1360px;margin:0 auto;padding:10px 0 60px;font-size:9px;color:var(--text3);display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;border-top:1px solid var(--border)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shine{0%,100%{box-shadow:0 0 14px rgba(196,160,68,.5),0 0 28px rgba(77,148,96,.3),0 0 42px rgba(75,142,201,.2);border-color:rgba(196,160,68,.55)}33%{box-shadow:0 0 16px rgba(75,142,201,.5),0 0 30px rgba(196,160,68,.3),0 0 44px rgba(77,148,96,.2);border-color:rgba(75,142,201,.55)}66%{box-shadow:0 0 16px rgba(77,148,96,.5),0 0 30px rgba(75,142,201,.3),0 0 44px rgba(196,160,68,.2);border-color:rgba(77,148,96,.55)}}@keyframes starPulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.6)}}@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+/* ═══ 药食同源 点睛动效 ═══ */
+@keyframes fm-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes fm-pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+@keyframes fm-glow-sweep{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes fm-chain-dot{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+@keyframes fm-border-shift{0%{border-color:rgba(255,255,255,.05)}50%{border-color:rgba(196,160,68,.18)}100%{border-color:rgba(255,255,255,.05)}}
+.fm-card{transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;cursor:pointer;text-decoration:none;color:inherit;display:block;overflow:visible!important}
+.fm-card:hover{transform:translateY(-6px)}
+.fm-card:hover .fm-icon-wrap{animation:fm-float .7s ease-in-out}
+.fm-card .fm-glow{position:absolute;inset:0;border-radius:var(--radius);opacity:0;transition:opacity .4s;pointer-events:none;z-index:0}
+.fm-card:hover .fm-glow{opacity:1}
+.fm-card>*{position:relative;z-index:1}
+.fm-card.g:hover{border-color:rgba(77,148,96,.3)!important}
+.fm-card.g .fm-glow{box-shadow:inset 0 0 50px rgba(77,148,96,.07),0 0 35px rgba(77,148,96,.1)}
+.fm-card.b:hover{border-color:rgba(75,142,201,.3)!important}
+.fm-card.b .fm-glow{box-shadow:inset 0 0 50px rgba(75,142,201,.07),0 0 35px rgba(75,142,201,.1)}
+.fm-card.r:hover{border-color:rgba(184,64,69,.3)!important}
+.fm-card.r .fm-glow{box-shadow:inset 0 0 50px rgba(184,64,69,.07),0 0 35px rgba(184,64,69,.1)}
+.fm-online{display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;animation:fm-pulse-dot 2s infinite;vertical-align:middle}
+.fm-quick{display:flex;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.fm-quick span{padding:2px 8px;border-radius:10px;font-size:9px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);color:var(--text3);transition:all .25s;display:inline-block}
+.fm-quick span:hover{color:#fff;border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.08)}
+.fm-dot-chain{display:flex;gap:3px;justify-content:center;margin-top:6px}
+.fm-dot-chain b{display:block;width:5px;height:5px;border-radius:50%;background:var(--gold);animation:fm-chain-dot 1.4s infinite}
+.fm-dot-chain b:nth-child(2){animation-delay:.2s}.fm-dot-chain b:nth-child(3){animation-delay:.4s}.fm-dot-chain b:nth-child(4){animation-delay:.6s}
+</style>
+<!-- [SEO] JSON-LD Organization + WebSite -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"军鸽云链数智","alternateName":"JunGe CloudLink DI","description":"食品安全+退役军人在服务综合平台。以军人精神守护民生底线，以商业创新激活社会价值。","url":"https://junge.中国","logo":"https://junge.中国/assets/logo.png","foundingDate":"2025","founder":{"@type":"Person","name":"朱文静","jobTitle":"创始人"},"address":{"@type":"PostalAddress","addressCountry":"CN","addressRegion":"海南省","addressLocality":"海口市"},"contactPoint":{"@type":"ContactPoint","telephone":"19809293800","contactType":"customer service","areaServed":"CN"},"sameAs":["https://junge.中国"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"军鸽云链数智","url":"https://junge.中国","potentialAction":{"@type":"SearchAction","target":"https://junge.中国/search-results.html?q={search_term_string}","query-input":"required name=search_term_string"}}
+</script>
+</head>
+<body>
+
+<!-- ═══ TOP BAR ═══ -->
+<header class="top-bar">
+<div class="top-inner">
+<div class="brand"><div class="brand-logo">🕊</div><div class="brand-text"><div class="main">军鸽云链数智</div><div class="sub">军魂铸信 · 数智富民</div></div></div>
+<nav class="nav-row">
+<a href="#hero" class="on">🏠 首页</a><a href="#policy-panels">📋 政策</a><a href="#jobs">🏗 就业创业</a>
+<a href="#comrades">🪖 战友驿站</a><a href="#farm">🌾 生态农庄</a><a href="#base">🎖 军旅基地</a>
+<a href="#food-med">🌿 药食同源</a><a href="#gov">🏛 政府监管</a><a href="#party">🏛 党建公益</a>
+<a href="/standards.html" style="color:#d47a7e">🛡 入网标准</a><a href="#podcast">🎙 播客</a><a href="#geo">🌍 智搜</a><a href="#culture">⚔ 文化</a>
+<a href="/about-junge.html?v=20260524" style="color:#7ab5db">🌐 了解我们</a>
+<a href="/ai-dashboard.html" style="color:#4DC9F6;font-weight:600">🤖 AI 指挥中心</a>
+<a href="/red-dual-arch.html" style="color:#c4a044;font-weight:600" target="_blank">⚔ 联合作战</a>
+</nav>
+<span class="clock" id="clock">--:--:--</span>
+<span class="wallet-pill" id="walletPill" style="display:none">
+  <span class="wp-jc">🪙 <b id="wpJcBal">--</b> JC</span>
+  <span class="wp-dv" id="wpDvLvl">--</span>
+</span>
+</div>
+</header>
+
+<main>
+
+<!-- ═══ SLOGAN ═══ -->
+<div class="slogan-bar" id="hero">
+<div class="big">铁血丹心聚英才 &nbsp; 团结实干抒情怀 &nbsp; 品质生活有大爱</div>
+<div class="sub">军鸽云链数智 · 原产地直供+非转基因 · 食品安全+退役军人在服务综合平台 · 海口总站: 175.178.55.90 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">琼ICP备2025063762号</a> <span style="color:#6dab7e;font-weight:600">[V3.2]</span></div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+<h1><span class="r">军鸽</span><span class="g">云链</span><span class="b">数智</span></h1>
+<p class="desc">以军人精神守护食品安全底线 · 以数字技术赋能退役军人创业就业<br>依托海口总站智慧大脑 + 吉隆坡国际出海节点 · 智慧赋能 3000+ 县级分站协同运作</p>
+  <div class="hero-values">
+    <span><i>🛡</i> 价值回归</span>
+    <span><i>📊</i> 价格透明</span>
+    <span><i>👁</i> 消费者知情</span>
+    <span><i>💪</i> 劳动者受益</span>
+  </div>
+<!-- 便捷通道 ★ 金绿蓝三色炫光 · 科幻星光 -->
+  <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:14px 0 20px;position:relative;z-index:1">
+    <span style="position:absolute;width:3px;height:3px;background:#c4a044;border-radius:50%;top:8%;left:8%;animation:starPulse 2s ease-in-out infinite;box-shadow:0 0 6px #c4a044"></span>
+    <span style="position:absolute;width:2px;height:2px;background:#4b8ec9;border-radius:50%;top:65%;left:12%;animation:starPulse 2.6s ease-in-out .5s infinite;box-shadow:0 0 5px #4b8ec9"></span>
+    <span style="position:absolute;width:2.5px;height:2.5px;background:#4d9460;border-radius:50%;top:15%;right:10%;animation:starPulse 3s ease-in-out 1s infinite;box-shadow:0 0 6px #4d9460"></span>
+    <span style="position:absolute;width:2px;height:2px;background:#c4a044;border-radius:50%;bottom:20%;right:18%;animation:starPulse 2.2s ease-in-out .3s infinite;box-shadow:0 0 5px #c4a044"></span>
+    <span style="position:absolute;width:2.5px;height:2.5px;background:#4b8ec9;border-radius:50%;top:45%;left:28%;animation:starPulse 2.8s ease-in-out 1.6s infinite;box-shadow:0 0 5px #4b8ec9"></span>
+    <span style="position:absolute;width:1.5px;height:1.5px;background:#4d9460;border-radius:50%;bottom:30%;left:22%;animation:starPulse 3.2s ease-in-out .7s infinite;box-shadow:0 0 4px #4d9460"></span>
+    <span style="position:absolute;width:3px;height:3px;background:#c4a044;border-radius:50%;top:70%;right:25%;animation:starPulse 1.8s ease-in-out 2s infinite;box-shadow:0 0 7px #c4a044"></span>
+    <a href="/about-junge.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 30px;border-radius:26px;font-size:12.5px;font-weight:700;text-decoration:none;letter-spacing:.06em;background:linear-gradient(135deg,rgba(15,23,42,.93),rgba(20,35,60,.9));color:#f0e8d0;border:2px solid rgba(196,160,68,.5);transition:all .35s;animation:shine 3.5s ease-in-out infinite;position:relative;overflow:hidden;backdrop-filter:blur(4px)">
+      <span style="position:absolute;inset:-60%;background:conic-gradient(from 0deg,transparent,rgba(196,160,68,.12),transparent,rgba(75,142,201,.08),transparent);animation:spin 5s linear infinite;border-radius:inherit"></span>
+      <span style="position:relative;z-index:1">📖 了解 junge.中国</span>
+    </a>
+    <a href="/join-apply.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 30px;border-radius:26px;font-size:12.5px;font-weight:700;text-decoration:none;letter-spacing:.06em;background:linear-gradient(135deg,rgba(15,23,42,.93),rgba(20,35,60,.9));color:#c8e8d0;border:2px solid rgba(77,148,96,.5);transition:all .35s;animation:shine 3.5s ease-in-out 1.8s infinite;position:relative;overflow:hidden;backdrop-filter:blur(4px)">
+      <span style="position:absolute;inset:-60%;background:conic-gradient(from 180deg,transparent,rgba(77,148,96,.12),transparent,rgba(196,160,68,.08),transparent);animation:spin 5s linear infinite reverse;border-radius:inherit"></span>
+      <span style="position:relative;z-index:1">📝 申请加入</span>
+    </a>
+  </div>
+  <div class="hero-btns">
+<a href="/junge-shuzhi.html" class="hero-btn blue">⚡ 进入数智中心</a>
+<a href="/shangcheng.html" class="hero-btn green">🛒 商业生态</a>
+<a href="/fenzhan.html" class="hero-btn red">🌾 分站家园</a>
+</div>
+</section>
+
+<!-- ═══ VALUE CORE ═══ -->
+<div class="value-strip">
+<div class="val-itm"><div class="val-num" style="color:#d47a7e" id="valTvTotal">--</div><div class="val-lbl">TV 交易商用值</div></div>
+<div class="val-itm"><div class="val-num" style="color:#6dab7e" id="valDvTotal">--</div><div class="val-lbl">DV 数字赋能值</div></div>
+<div class="val-itm"><div class="val-num" style="color:#7ab5db" id="valJcCirc">--</div><div class="val-lbl">JC junge币流通</div></div>
+<div class="val-itm"><div class="val-num" style="color:var(--gold)" id="valJcRate">¥0.01</div><div class="val-lbl">JC实时汇率</div></div>
+</div>
+
+<!-- ═══ FOUR POLICY PANELS ═══ -->
+<div class="policy-grid" id="policy-panels">
+<div class="policy-panel r">
+<div class="pp-hd"><span class="pp-icon">🇨🇳</span><span class="pp-title">国家政策</span><span style="font-size:9px;color:var(--text3)">退役军人·乡村振兴</span></div>
+<ul><li>退役军人创业担保贷款新政，最高可贷50万元</li><li>乡村振兴促进法实施，退役军人返乡创业享多重优惠</li><li>食品安全"四个最严"监管体系全面落地</li><li>药食同源物质目录新增9个品种</li><li><a href="/news-list.html" onclick="earnDV('policy_read','国家政策阅读');return true">→ 查看更多</a></li></ul>
+</div>
+<div class="policy-panel g">
+<div class="pp-hd"><span class="pp-icon">📍</span><span class="pp-title">地方政策</span><span style="font-size:9px;color:var(--text3)">退役军人·乡村振兴</span></div>
+<ul><li>海南自贸港退役军人创业享受零关税+税收优惠</li><li>广东"军创100"计划每年扶持100个创业项目</li><li>云南生态农庄扶持：退役军人优先获得土地流转</li><li>四川退役军人电商培训补贴每人最高8000元</li><li><a href="/news-list.html" onclick="earnDV('policy_read','地方政策阅读');return true">→ 查看更多</a></li></ul>
+</div>
+<div class="policy-panel b">
+<div class="pp-hd"><span class="pp-icon">📡</span><span class="pp-title">junge平台资讯</span></div>
+<ul><li><a href="/food-safety-article.html" style="color:#e8edf2;text-decoration:none" onclick="earnDV('browse_detail','平台资讯阅读')">📰 食安慰殇·数智造基·军旅铸魂 — 平台布局宣言</a></li><li><a href="/food-industry-report-2025.html" style="color:#e8edf2;text-decoration:none" onclick="earnDV('browse_detail','行业报告阅读')">📊 2025中国食品行业深度分析调研报告</a></li><li><a href="/article-shuzhi-qianduan.html" style="color:#f0c040;text-decoration:none;font-weight:700" onclick="earnDV('browse_detail','头题报告')">🔥 数智前沿科技催生旧市场经济体系变革 — 头题报告</a></li><li><a href="/article-shuzhi-academic.html" style="color:#a78bfa;text-decoration:none;font-weight:700" onclick="earnDV('browse_detail','学术版报告')">🎓 学术增强版：三体价值模型与数智新经济 — 海南全省覆盖</a></li><li><a href="/news-list.html" onclick="earnDV('policy_read','平台资讯阅读')">→ 了解更多</a></li></ul>
+</div>
+
+<div class="policy-panel k">
+<div class="pp-hd"><span class="pp-icon">✒</span><span class="pp-title">军旅风采</span><span style="font-size:9px;color:var(--text3)">文学作品</span></div>
+<ul><li>【老兵故事】从南海舰队到海南农庄——一位退役军人的创业路</li><li>【诗歌】《军鸽飞过的地方》——战友好文</li><li>【摄影】雪域高原上的退役军人护边队</li><li>【散文】军旅十年，我最难忘的那个班长</li><li><a href="/contribute-guide.html" onclick="earnDV('publish_article','军旅风采投稿')">→ 投稿你的故事</a></li></ul>
+</div>
+</div>
+
+<!-- ═══ 1. 药食同源 ═══ -->
+<section class="section" id="food-med">
+<div class="section-hd"><span class="icon">🌿</span><span class="title">药食同源</span><span class="sub">传承中医智慧 · 食品安全与营养健康融合</span><span class="tag">FOOD-MEDICINE</span></div>
+<div class="grid g3">
+<a href="/food-medicine-kb.html" onclick="earnDV('browse_detail','药食同源知识库')" class="cd g fm-card" style="text-align:center">
+<div class="fm-glow"></div>
+<div class="fm-icon-wrap" style="font-size:40px;margin-bottom:6px;position:relative;display:inline-block">🍵<span style="position:absolute;top:-5px;right:-20px;background:var(--green);color:#fff;font-size:8px;padding:2px 6px;border-radius:8px;font-weight:600">110种</span></div>
+<h3 style="justify-content:center;font-size:13px">药食同源知识库</h3>
+<p style="font-size:10px;color:var(--text2);margin:4px 0">110种物质详解与科学食用指南</p>
+<div class="fm-quick"><span onclick="event.stopPropagation();location.href='/food-medicine-kb.html?q=枸杞'">枸杞</span><span onclick="event.stopPropagation();location.href='/food-medicine-kb.html?q=黄芪'">黄芪</span><span onclick="event.stopPropagation();location.href='/food-medicine-kb.html?q=当归'">当归</span><span onclick="event.stopPropagation();location.href='/food-medicine-kb.html?q=党参'">党参</span></div>
+</a>
+<a href="/ai-consult.html" onclick="earnDV('ai_consult','药食同源AI咨询')" class="cd b fm-card" style="text-align:center">
+<div class="fm-glow"></div>
+<div class="fm-icon-wrap" style="font-size:40px;margin-bottom:6px;position:relative;display:inline-block">🔍<span style="position:absolute;top:-3px;right:-28px;display:flex;align-items:center;gap:2px;background:rgba(0,0,0,.6);padding:1px 5px;border-radius:8px;font-size:8px;color:#22c55e;white-space:nowrap"><span class="fm-online"></span>在线</span></div>
+<h3 style="justify-content:center;font-size:13px">AI智能咨询</h3>
+<p style="font-size:10px;color:var(--text2);margin:4px 0">24小时AI在线答疑与查询</p>
+<div class="fm-quick"><span onclick="event.stopPropagation();location.href='/ai-consult.html?q=枸杞怎么吃最健康'">枸杞怎么吃?</span><span onclick="event.stopPropagation();location.href='/ai-consult.html?q=黄芪能降血糖吗'">黄芪降血糖?</span><span onclick="event.stopPropagation();location.href='/ai-consult.html?q=药食同源禁忌'">食用禁忌?</span></div>
+</a>
+<a href="/traceability.html" onclick="earnDV('browse_detail','品质溯源认证')" class="cd r fm-card" style="text-align:center">
+<div class="fm-glow"></div>
+<div class="fm-icon-wrap" style="font-size:40px;margin-bottom:6px;position:relative;display:inline-block">✅<span style="position:absolute;top:-5px;right:-16px;background:var(--gold);color:#000;font-size:7px;padding:2px 5px;border-radius:6px;font-weight:700">上链</span></div>
+<h3 style="justify-content:center;font-size:13px">品质溯源认证</h3>
+<p style="font-size:10px;color:var(--text2);margin:4px 0">全链路区块链溯源认证</p>
+<div class="fm-dot-chain"><b></b><b></b><b></b><b></b></div>
+<div style="font-size:9px;color:var(--text3);margin-top:3px">最新批次 · 12,840 已上链</div>
+</a>
+</div>
+<div class="notice">🌿 <strong style="color:#6dab7e">药食同源，健康中国：</strong>食品安全不仅是"无毒无害"，更是"营养健康"。全平台非转基因种子，原产地直供。→ <a href="/ai-consult.html" style="color:var(--blue)">咨询药食同源智能体</a></div>
+</section>
+<section class="section" id="farm">
+<div class="section-hd"><span class="icon">🌾</span><span class="title">生态农庄</span><span class="sub">退役军人守护的食品安全第一线 · 原产地直供 · 非转基因种子</span><span class="tag">ECO-FARM</span></div>
+<div class="grid g3">
+<div class="cd g" style="text-align:center"><div class="img-block g" style="height:110px"><img src="https://images.unsplash.com/photo-1500076656116-558758c991c1?w=600&q=80" alt="海南热带农庄" loading="lazy" onerror="this.style.display='none'"></div><h3 style="justify-content:center;margin-top:8px">海南热带农庄</h3><div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p style="font-size:10px">热带水果·生态养殖·农旅体验<br><span style="color:#6dab7e;font-size:9px">🌱 原产地·非转基因</span></p><a href="/farm-hainan.html" onclick="earnDV('browse_detail','海南农庄')" class="tag" style="display:inline-block;margin-top:6px;background:var(--green-bg);color:var(--green)">了解详情 →</a></div></div>
+<div class="cd g" style="text-align:center"><div class="img-block g" style="height:110px"><img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80" alt="东北黑土农庄" loading="lazy" onerror="this.style.display='none'"></div><h3 style="justify-content:center;margin-top:8px">东北黑土农庄</h3><div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p style="font-size:10px">有机大米·绿色杂粮<br><span style="color:#6dab7e;font-size:9px">🌱 原产地·非转基因</span></p><a href="/farm-northeast.html" onclick="earnDV('browse_detail','东北农庄')" class="tag" style="display:inline-block;margin-top:6px;background:var(--green-bg);color:var(--green)">了解详情 →</a></div></div>
+<div class="cd g" style="text-align:center"><div class="img-block g" style="height:110px"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="云南高原农庄" loading="lazy" onerror="this.style.display='none'"></div><h3 style="justify-content:center;margin-top:8px">云南高原农庄</h3><div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p style="font-size:10px">高山茶叶·野生菌菇<br><span style="color:#6dab7e;font-size:9px">🌱 原产地·非转基因</span></p><a href="/farm-yunnan.html" onclick="earnDV('browse_detail','云南农庄')" class="tag" style="display:inline-block;margin-top:6px;background:var(--green-bg);color:var(--green)">了解详情 →</a></div></div>
+</div>
+<div class="notice">🌱 <strong style="color:#6dab7e">从田间到餐桌，退役军人全程守护：</strong>每一个生态农庄由退役军人管理品控。→ <a href="/origin-farm.html" style="color:var(--blue)">查看更多原产地农场</a></div>
+</section>
+<section class="section" id="jobs">
+<div class="section-hd"><span class="icon">🏗</span><span class="title">就业创业园</span><span class="sub">从军营到商海的桥梁</span><span class="tag">EMPLOYMENT</span></div>
+<div class="grid g-asym">
+<div class="cd r">
+<div class="img-block r" style="margin-bottom:12px"><img src="https://images.unsplash.com/photo-1500076656116-558758c991c1?w=600&q=80" alt="海南退役军人创业园" loading="lazy" onerror="this.style.display='none'"></div>
+<h3>🌴 海南退役军人创业园</h3>
+<p>专注热带农业与跨境电商，一站式创业孵化。</p>
+<div class="stats" style="margin:10px 0">
+<div class="st"><div class="n" style="color:#d47a7e">156</div><div class="l">入驻企业</div></div>
+<div class="st"><div class="n" style="color:#6dab7e">89%</div><div class="l">成功率</div></div>
+<div class="st"><div class="n" style="color:#7ab5db">3.2亿</div><div class="l">融资总额</div></div>
+</div>
+<div class="tags"><span class="tag" style="background:var(--red-bg);color:#d47a7e">政策优惠</span><span class="tag" style="background:var(--green-bg);color:var(--green)">零关税</span></div>
+</div>
+<div class="cd g">
+<div class="img-block g" style="margin-bottom:12px"><img src="https://images.unsplash.com/photo-1605106702734-27722c5cee2d?w=600&q=80" alt="成都军创科技孵化园" loading="lazy" onerror="this.style.display='none'"></div>
+<h3>🏙 成都军创科技孵化园</h3>
+<p>聚焦科技创新，提供技术培训与融资对接。</p>
+<div class="stats" style="margin:10px 0">
+<div class="st"><div class="n" style="color:#6dab7e">89</div><div class="l">孵化企业</div></div>
+<div class="st"><div class="n" style="color:#7ab5db">2,300+</div><div class="l">带动就业</div></div>
+</div>
+<div class="tags"><span class="tag" style="background:var(--blue-bg);color:var(--blue)">科技创新</span></div>
+</div>
+</div>
+<div class="notice">💡 <strong style="color:#d47a7e">退役军人创业绿色通道：</strong>凭退役证享受优先审核、创业贷款贴息、免费技能培训。→ <a href="/employment-service.html" style="color:var(--blue)">进入就业服务平台</a></div>
+</section>
+
+<!-- ═══ 2. 战友驿站 ═══ -->
+<section class="section" id="comrades">
+<div class="section-hd"><span class="icon">🪖</span><span class="title">战友驿站</span><span class="sub">退役军人互助社区 · 经验分享 · 资源对接</span><span class="tag">COMRADES</span></div>
+<div class="grid g3">
+<div class="cd r" style="text-align:center">
+<div class="img-block r" style="height:100px"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="战友互助会" loading="lazy" onerror="this.style.display='none'"></div>
+<h3 style="justify-content:center;margin-top:8px">战友互助会</h3>
+<div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p>全国互助网络，就业创业信息共享。</p><div class="tags" style="justify-content:center"><span class="tag" style="background:var(--red-bg);color:#d47a7e">互助网络</span></div></div>
+</div>
+<div class="cd g" style="text-align:center">
+<div class="img-block g" style="height:100px"><img src="https://images.unsplash.com/photo-1519791883288-dc8bd696e667?w=600&q=80" alt="老兵故事汇" loading="lazy" onerror="this.style.display='none'"></div>
+<h3 style="justify-content:center;margin-top:8px">老兵故事汇</h3>
+<div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p>退役军人创业故事与人生感悟。</p><div class="tags" style="justify-content:center"><span class="tag" style="background:var(--green-bg);color:var(--green)">故事分享</span></div></div>
+</div>
+<div class="cd b" style="text-align:center">
+<div class="img-block b" style="height:100px"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" alt="技能交换站" loading="lazy" onerror="this.style.display='none'"></div>
+<h3 style="justify-content:center;margin-top:8px">技能交换站</h3>
+<div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p>种养殖、电商、机械维修技能互助。</p><div class="tags" style="justify-content:center"><span class="tag" style="background:var(--blue-bg);color:var(--blue)">技能共享</span></div></div>
+</div>
+</div>
+<div class="notice">🪖 <strong style="color:#d47a7e">你不是一个人在战斗：</strong>找到战友、分享经验、共同成长。→ <a href="/join.html" style="color:var(--blue)">加入战友驿站</a></div>
+</section>
+
+<!-- ═══ 3. 生态农庄 ═══ -->
+
+<!-- ═══ 4. 军旅基地 ═══ -->
+<section class="section" id="base">
+<div class="section-hd"><span class="icon">🎖</span><span class="title">军旅基地</span><span class="sub">红色旅游 · 军事体验 · 国防教育</span><span class="tag">MILITARY BASE</span></div>
+<div class="notice">🎖 <strong style="color:#d47a7e">传承军魂，服务社会：</strong>军旅基地不仅是旅游目的地，更是退役军人精神传承的阵地。→ <a href="/red-tourism.html" style="color:var(--blue)">探索红色文旅</a></div>
+<div class="grid g3">
+<div class="cd r" style="text-align:center">
+<div class="img-block r" style="height:180px;position:relative">
+<span class="tag" style="position:absolute;top:8px;left:8px;z-index:2;background:rgba(184,64,69,.85);color:#fff;font-size:8px;padding:3px 8px">军事体验</span>
+<img src="https://images.unsplash.com/photo-1519810755548-39cd217da494?w=600&q=80" alt="军旅体验营地" loading="lazy" onerror="this.style.display='none'">
+</div>
+<h3 style="justify-content:center;margin-top:8px">🏕 军旅体验营地</h3>
+<p style="font-size:10px">军事训练 · 国防教育 · 团队拓展</p>
+</div>
+<div class="cd b" style="text-align:center">
+<div class="img-block b" style="height:180px;position:relative">
+<span class="tag" style="position:absolute;top:8px;left:8px;z-index:2;background:rgba(184,64,69,.85);color:#fff;font-size:8px;padding:3px 8px">红色旅游</span>
+<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="红色文旅路线" loading="lazy" onerror="this.style.display='none'">
+</div>
+<h3 style="justify-content:center;margin-top:8px">🔴 红色文旅路线</h3>
+<p style="font-size:10px">海南根据地 · 长征精神 · 文化研学</p>
+</div>
+<div class="cd g" style="text-align:center">
+<div class="img-block g" style="height:180px;position:relative">
+<span class="tag" style="position:absolute;top:8px;left:8px;z-index:2;background:rgba(77,148,96,.85);color:#fff;font-size:8px;padding:3px 8px">国防教育</span>
+<img src="https://images.unsplash.com/photo-1580073484554-4887fb9e88e8?w=600&q=80" alt="国防教育馆" loading="lazy" onerror="this.style.display='none'">
+</div>
+<h3 style="justify-content:center;margin-top:8px">🏛 国防教育馆</h3>
+<p style="font-size:10px">装备展览 · 知识科普 · 军民共建</p>
+</div>
+</div>
+</section>
+
+
+
+
+
+<!-- ═══ 5. 药食同源 ═══ -->
+
+<!-- ═══ 6. 政府监管 ═══ -->
+<section class="section" id="gov">
+<div class="section-hd"><span class="icon">🏛</span><span class="title">政府监管</span><span class="sub">透明公开 · 区块链存证 · 属地监管 · 社会共治</span><span class="tag">REGULATION</span></div>
+<div class="grid g2">
+<div class="cd r">
+<h3>📊 监管透明看板</h3>
+<div class="stats" style="margin-bottom:10px">
+<div class="st"><div class="n" style="color:#6dab7e">99.7%</div><div class="l">质控通过率</div></div>
+<div class="st"><div class="n" style="color:#7ab5db">12,840</div><div class="l">溯源上链</div></div>
+<div class="st"><div class="n" style="color:var(--gold)">98.2%</div><div class="l">投诉办结</div></div>
+</div>
+<h3 style="margin-top:12px">📋 属地监管责任链</h3>
+<div class="ft"><div class="ft-item"><span class="m">▸</span>生产主体资质公示</div><div class="ft-item"><span class="m">▸</span>属地监管部门信息透明</div><div class="ft-item"><span class="m">▸</span>检测报告链上存证</div><div class="ft-item"><span class="m">▸</span>消费者投诉直通车</div></div>
+</div>
+<div class="cd b">
+<h3>📞 属地监管联系方式</h3>
+<table class="contact-table">
+<tr><td>🔴 投诉举报热线</td><td>12315 · 12345</td></tr>
+<tr><td>🏛 市局监管科室</td><td>各市县市场监督管理局食品科</td></tr>
+<tr><td>👤 分站站长</td><td>由各县退役军人服务站站长兼任</td></tr>
+<tr><td>🔍 质询员</td><td>各分站配备1-2名食品安全质询员</td></tr>
+<tr><td>📱 值班电话</td><td>400-888-8888（转属地分站）</td></tr>
+<tr><td>📧 邮件举报</td><td>jubao@junge.中国</td></tr>
+</table>
+<p style="font-size:10px;color:var(--text3);margin-top:8px">* 各市县监管部门科室电话、分站站长及质询员具体联系方式，请进入对应分站页面查看。</p>
+</div>
+</div>
+<div class="notice" style="border-color:rgba(239,68,68,.15);background:rgba(239,68,68,.03)">
+📢 <strong style="color:#e0555a">投诉曝光台：</strong>食品安全问题零容忍。发现任何问题产品、违规行为，立即投诉上链存证，48小时内响应。→ <a href="/complaint-process.html" style="color:#e0555a">立即投诉</a> | <a href="/traceability.html" style="color:var(--blue)">溯源查询</a>
+</div>
+</section>
+
+<!-- ═══ 7. 党建公益 ═══ -->
+<section class="section" id="party">
+<div class="section-hd"><span class="icon">🏛</span><span class="title">党建公益 · 投诉曝光台</span><span class="sub">党建引领 · 公益基金 · 阳光投诉</span><span class="tag">PARTY & PUBLIC</span></div>
+<div class="grid g2">
+<div class="cd r"><h3>🔴 党建活动</h3><div class="ft"><div class="ft-item"><span class="m">▸</span>退役军人党支部建设</div><div class="ft-item"><span class="m">▸</span>主题党日活动</div><div class="ft-item"><span class="m">▸</span>红色教育基地共建</div><div class="ft-item"><span class="m">▸</span>党员先锋岗评选</div></div><div class="tags"><span class="tag" style="background:var(--red-bg);color:#d47a7e">党建引领</span></div></div>
+<div class="cd g"><h3>💰 公益基金</h3><div class="ft"><div class="ft-item"><span class="m">▸</span>退役军人困难帮扶基金</div><div class="ft-item"><span class="m">▸</span>军创项目公益资助</div><div class="ft-item"><span class="m">▸</span>食品安全公益检测</div><div class="ft-item"><span class="m">▸</span>乡村教育支持计划</div></div><div class="tags"><span class="tag" style="background:var(--gold-bg);color:var(--gold)">JC功勋币</span></div></div>
+</div>
+</section>
+
+<!-- ═══ 8. 播客 ═══ -->
+<section class="section" id="podcast">
+<div class="section-hd"><span class="icon">🎙</span><span class="title">军鸽播客</span><span class="sub">退役军人声音平台 · 讲述军旅故事</span><span class="tag">PODCAST</span></div>
+<div class="grid g3">
+<div class="cd r" style="text-align:center"><div style="font-size:40px;margin-bottom:6px">🎖</div><h3 style="justify-content:center">老兵说</h3><div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p style="font-size:10px">退役军人口述历史，每周更新</p><a href="/ai-podcast.html" class="tag" style="display:inline-block;margin-top:4px;background:var(--red-bg);color:#d47a7e">收听 →</a></div></div>
+<div class="cd g" style="text-align:center"><div style="font-size:40px;margin-bottom:6px">🌾</div><h3 style="justify-content:center">田野之声</h3><div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p style="font-size:10px">从军营到田野的创业故事</p><a href="/ai-podcast.html" class="tag" style="display:inline-block;margin-top:4px;background:var(--green-bg);color:var(--green)">收听 →</a></div></div>
+<div class="cd b" style="text-align:center"><div style="font-size:40px;margin-bottom:6px">🔬</div><h3 style="justify-content:center">食安讲堂</h3><div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p style="font-size:10px">食品安全专家解读系列</p><a href="/ai-podcast.html" class="tag" style="display:inline-block;margin-top:4px;background:var(--blue-bg);color:var(--blue)">收听 →</a></div></div>
+</div>
+</section>
+
+<!-- ═══ 9. 地域智搜 ═══ -->
+<section class="section" id="geo">
+<div class="section-hd"><span class="icon">🌍</span><span class="title">地域智搜</span><span class="sub">AI驱动 · 一图览全国 · 一键到分站</span><span class="tag">GEO-SEARCH</span></div>
+<div class="cd b" style="text-align:center">
+<div class="img-block b" style="height:140px"><img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80" alt="全国分站地图" loading="lazy" onerror="this.style.display='none'"></div>
+<h3 style="justify-content:center;margin-top:10px">全国3000+县级分站 · 智能地域导航</h3>
+<p style="max-width:500px;margin:8px auto;font-size:11px">输入地区，AI匹配最近分站与特色服务点。</p>
+<div style="display:flex;gap:8px;justify-content:center;margin:12px 0;flex-wrap:wrap">
+<input placeholder="输入地区名称..." style="padding:10px 18px;width:240px;border-radius:20px;border:1px solid rgba(75,142,201,.3);background:rgba(16,24,36,.8);color:var(--text);font-size:12px;text-align:center;outline:none" id="geo-input" onkeydown="if(event.key==='Enter')searchRegion()">
+<button style="padding:10px 24px;border-radius:20px;border:none;background:linear-gradient(135deg,var(--blue),#3060a0);color:#fff;font-size:12px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(75,142,201,.3)" onclick="searchRegion()">🔍 智能搜索</button>
+</div>
+<div class="tags" style="justify-content:center">
+<span class="tag" style="background:var(--blue-bg);color:var(--blue)">广州</span><span class="tag" style="background:var(--red-bg);color:#d47a7e">海口</span>
+<span class="tag" style="background:var(--green-bg);color:var(--green)">成都</span><span class="tag" style="background:var(--blue-bg);color:var(--blue)">上海</span>
+<span class="tag" style="background:var(--red-bg);color:#d47a7e">北京</span><span class="tag" style="background:var(--blue-bg);color:var(--blue)">更多→</span>
+</div>
+</div>
+</section>
+
+<!-- ═══ 10. 文化家园 ═══ -->
+<section class="section" id="culture">
+<div class="section-hd"><span class="icon">⚔</span><span class="title">仗剑天涯 · 文化家园</span><span class="sub">退役军人文化阵地 · 诗歌散文 · 书画摄影 · 非遗传承</span><span class="tag">CULTURE</span></div>
+<div class="grid g4">
+<div class="cd r" style="text-align:center"><div style="font-size:30px;margin-bottom:6px">📝</div><h3 style="justify-content:center;font-size:12px">军鸽副刊</h3><div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p style="font-size:9px">退役军人原创文学作品</p><a href="/essay-collection.html" onclick="earnDV('browse_detail','军鸽副刊')" class="tag" style="display:inline-block;margin-top:4px;background:var(--red-bg);color:#d47a7e">阅读 →</a></div></div>
+<div class="cd g" style="text-align:center"><div style="font-size:30px;margin-bottom:6px">🎨</div><h3 style="justify-content:center;font-size:12px">书画摄影</h3><div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p style="font-size:9px">军旅视角书画摄影创作</p><a href="/calligraphy-photography.html" onclick="earnDV('browse_detail','书画摄影')" class="tag" style="display:inline-block;margin-top:4px;background:var(--green-bg);color:var(--green)">欣赏 →</a></div></div>
+<div class="cd b" style="text-align:center"><div style="font-size:30px;margin-bottom:6px">🏺</div><h3 style="justify-content:center;font-size:12px">非遗传承</h3><div class="meta-row" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;margin-top:3px"><p style="font-size:9px">非遗保护与传承推广</p><a href="/non-heritage.html" onclick="earnDV('browse_detail','非遗传承')" class="tag" style="display:inline-block;margin-top:4px;background:var(--blue-bg);color:var(--blue)">探索 →</a></div></div>
+<div class="cd" style="text-align:center;border-left:2px solid rgba(196,160,68,.25)"><div style="font-size:30px;margin-bottom:6px">🗡</div><h3 style="justify-content:center;font-size:12px;color:var(--gold)">现代游侠</h3><p style="font-size:9px">仗剑天涯当代侠客精神</p><a href="/modern-ranger.html" onclick="earnDV('browse_detail','现代游侠')" class="tag" style="display:inline-block;margin-top:4px;background:var(--gold-bg);color:var(--gold)">加入 →</a></div>
+</div>
+</section>
+
+</main>
+
+<!-- ═══ BOTTOM NAV ═══ -->
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap">
+<a href="/" style="color:#d47a7e;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(184,64,69,.1);border:1px solid rgba(184,64,69,.25)">🏠 军鸽云链</a>
+<a href="/shangcheng.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🛒 商业生态</a>
+<a href="/junge-shuzhi.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">⚔ 数智中心</a>
+<a href="/fenzhan.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🌾 分站家园</a>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="ft">
+<span>军鸽云链数智 · junge.中国 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">琼ICP备2025063762号</a></span>
+<span>主办单位：海口市与众军鸽网络科技有限责任公司</span>
+<span>广州总站: 175.178.55.90 · 吉隆坡国际节点 · 账号ID: 100030442552</span>
+<span>食品安全+退役军人在服务综合平台</span>
+</footer>
+
+<script>
+function updateClock(){
+var n=new Date();
+document.getElementById('clock').textContent=String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0')+':'+String(n.getSeconds()).padStart(2,'0');
+}
+setInterval(updateClock,1000);updateClock();
+
+function searchRegion(){
+var q=(document.getElementById('geo-input').value||'').trim();
+if(!q){alert('请输入地区名称');return}
+window.location.href='/fenzhan.html?q='+encodeURIComponent(q);
+}
+
+document.querySelectorAll('.nav-row a[href^="#"]').forEach(function(a){
+a.addEventListener('click',function(e){
+e.preventDefault();var t=document.querySelector(this.getAttribute('href'));
+if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+});
+});
+
+</script>
+
+<!-- ═══ 数字数据价值体系 · 动态引擎 ═══ -->
+<script>
+(function(){
+  const DEMO_DID = 'a0000000-0000-0000-0000-000000000001';
+  const API = '/api/value'; // Nginx proxies to value-engine :8877
+
+  function fmt(n,d){return Number(n||0).toLocaleString('zh-CN',{maximumFractionDigits:d||0})}
+
+  async function fetchVal(path){
+    try{const r=await fetch(API+path);const j=await r.json();return j.ok?j.data:null}catch(e){return null}
+  }
+
+  async function refresh(){
+    // Dashboard (TV pool, DV pool, JC circulation, rate)
+    const db=await fetchVal('/dashboard');
+    if(db){
+      document.getElementById('valTvTotal').textContent=fmt(db.tv_pool_total);
+      document.getElementById('valDvTotal').textContent=fmt(db.dv_pool_total);
+      document.getElementById('valJcCirc').textContent=fmt(db.jc_circulation);
+      if(db.jc_rate){
+        document.getElementById('valJcRate').textContent='¥'+db.jc_rate.final_rate.toFixed(4);
+      }
+    }
+    // User wallet (JC balance + DV level)
+    const dv=await fetchVal('/dv/'+DEMO_DID);
+    const jc=await fetchVal('/jc/wallet/'+DEMO_DID);
+    if(dv&&jc){
+      const pill=document.getElementById('walletPill');
+      pill.style.display='inline-flex';
+      document.getElementById('wpJcBal').textContent=fmt(jc.jc_balance,2);
+      document.getElementById('wpDvLvl').textContent=dv.dv_level;
+    }
+  }
+
+  // Globally accessible DV earn function (fire-and-forget for link clicks)
+  window.earnDV=function(behavior,label){
+    fetch('/api/value/dv/action',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({digital_id:'a0000000-0000-0000-0000-000000000001',behavior_type:behavior,source_page:'/index.html',target_type:label}),
+      keepalive:true}).catch(function(){});
+  };
+
+  refresh();
+  setInterval(refresh,60000); // refresh every 60s
+})();
+</script>
+</body>
+</html>

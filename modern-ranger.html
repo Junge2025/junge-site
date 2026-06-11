@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<title>现代游侠 · 军鸽云链数智</title>
+<meta name="description" content="退役军人新时代风采——从铁血军营到数字江湖，骑行中国、探险边疆、公益助学、创业逐梦。军鸽云链为退役军人游侠提供展示舞台。">
+<style>
+:root {
+--bg-deep:#030712; --bg-base:#060d1a; --bg-card:rgba(8,20,44,0.85);
+--primary:#00d4ff; --accent:#ff2d78; --gold:#f0c040; --green:#6dab7e;
+--red:#b84045; --blue:#4b8ecf; --purple:#a78bfa; --orange:#f59e0b;
+--text:#e8edf5; --text-dim:#8896b0; --text-muted:#4a5568;
+--border:rgba(255,255,255,.06); --border-glow:rgba(0,212,255,.15);
+--radius:12px; --radius-sm:8px; --radius-lg:18px;
+--shadow:0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg-deep);color:var(--text);line-height:1.65;overflow-x:hidden;
+min-height:100vh;
+background-image:
+radial-gradient(ellipse at 20% 0%,rgba(0,212,255,.04) 0%,transparent 55%),
+radial-gradient(ellipse at 80% 15%,rgba(240,192,64,.03) 0%,transparent 55%),
+radial-gradient(ellipse at 40% 70%,rgba(109,171,126,.03) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:#1a2744;border-radius:2px}
+
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 20px;position:sticky;top:0;z-index:999;backdrop-filter:blur(20px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .2s;padding:3px 8px;border-radius:10px}
+.breadcrumb-bar a:hover{color:var(--primary);background:rgba(0,212,255,.08)}
+.breadcrumb-bar .sep{color:var(--text-muted);font-size:9px}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{text-align:center;padding:42px 20px 32px;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(0,212,255,.06) 0%,rgba(6,13,26,.95) 50%,rgba(255,45,120,.04) 100%);border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,212,255,.06),transparent 60%);pointer-events:none}
+.hero .icon{font-size:48px;margin-bottom:8px;position:relative;z-index:1}
+.hero h1{font-size:26px;font-weight:800;letter-spacing:.04em;position:relative;z-index:1;background:linear-gradient(135deg,#00d4ff,#ff2d78);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:12px;color:var(--text-dim);margin-top:6px;position:relative;z-index:1;letter-spacing:.03em}
+
+.container{max-width:1000px;margin:0 auto;padding:20px 18px 90px}
+
+.section{margin-bottom:28px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(0,212,255,.12)}
+.section-hd .icon{font-size:20px}
+.section-hd .title{font-size:15px;font-weight:650;letter-spacing:.03em;color:var(--primary)}
+.section-hd .tag{font-size:9px;padding:3px 10px;border-radius:10px;background:rgba(0,212,255,.08);color:var(--primary);margin-left:auto;letter-spacing:.06em}
+
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:768px){.g2,.g3{grid-template-columns:1fr}}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .25s;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.card:hover{border-color:var(--border-glow);box-shadow:var(--shadow)}
+.card h3{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card .desc{font-size:11px;color:var(--text-dim);line-height:1.7}
+.card.cyan{border-left:2px solid rgba(0,212,255,.25)}.card.cyan h3{color:var(--primary)}
+.card.accent{border-left:2px solid rgba(255,45,120,.25)}.card.accent h3{color:var(--accent)}
+.card.gold{border-left:2px solid rgba(240,192,64,.25)}.card.gold h3{color:var(--gold)}
+.card.green{border-left:2px solid rgba(109,171,126,.25)}.card.green h3{color:var(--green)}
+
+.story-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;transition:all .25s}
+.story-card:hover{border-color:var(--border-glow)}
+.story-card .meta{display:flex;align-items:center;gap:12px;margin-bottom:10px;font-size:11px;color:var(--text-muted)}
+.story-card .meta .author{color:var(--gold);font-weight:600}
+.story-card .meta .tag-badge{padding:2px 8px;border-radius:8px;font-size:9px;background:rgba(0,212,255,.08);color:var(--primary)}
+.story-card h3{font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px}
+.story-card .excerpt{font-size:12px;color:var(--text-dim);line-height:1.8}
+
+.stat-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:8px 0}
+.stat-item{text-align:center;padding:12px 20px;background:rgba(0,212,255,.04);border-radius:var(--radius-sm);border:1px solid var(--border);min-width:100px}
+.stat-item .num{font-size:24px;font-weight:900;color:var(--primary)}
+.stat-item .lbl{font-size:10px;color:var(--text-dim);margin-top:4px}
+
+.quote-box{background:rgba(240,192,64,.04);border:1px solid rgba(240,192,64,.12);border-radius:var(--radius);padding:18px 20px;font-style:italic;color:var(--gold);font-size:13px;margin:16px 0;position:relative}
+.quote-box::before{content:'"';position:absolute;top:-10px;left:12px;font-size:36px;color:var(--gold);opacity:.3}
+
+.btn-ghost{display:inline-flex;align-items:center;gap:4px;padding:8px 20px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .25s;background:transparent;border:1px solid var(--border);color:var(--text-dim)}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+
+.extend-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:var(--text-dim)}
+.ext-trace{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s;background:rgba(0,212,255,.08);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s;background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:var(--primary);color:var(--primary)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(20px);border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:all .2s;color:var(--text-dim);background:rgba(15,34,64,.6);border:1px solid rgba(0,212,255,.08)}
+.bottom-nav a:hover,.bottom-nav a.active{background:rgba(0,212,255,.12);color:var(--primary);border-color:rgba(0,212,255,.25)}
+
+footer{text-align:center;padding:16px 20px 10px;font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);line-height:1.8}
+
+@media(max-width:550px){.hero h1{font-size:20px}.card{padding:14px}.stat-item{min-width:70px;padding:8px 12px}.stat-item .num{font-size:18px}}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="现代游侠 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/modern-ranger.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/modern-ranger.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+<a href="/">🏠 首页</a><span class="sep">▸</span>
+<a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+<span class="current">⚔️ 现代游侠</span>
+</nav>
+
+<div class="hero">
+<div class="icon">⚔️</div>
+<h1>现代游侠</h1>
+<p class="sub">退役不褪色 · 从铁血军营到数字江湖 · 新时代退役军人风采</p>
+</div>
+
+<div class="container">
+
+<!-- Stats Banner -->
+<div class="section">
+<div class="stat-row">
+<div class="stat-item"><div class="num">5000+</div><div class="lbl">注册游侠</div></div>
+<div class="stat-item"><div class="num">300+</div><div class="lbl">骑行故事</div></div>
+<div class="stat-item"><div class="num">120+</div><div class="lbl">探险纪实</div></div>
+<div class="stat-item"><div class="num">80+</div><div class="lbl">公益项目</div></div>
+<div class="stat-item"><div class="num">200+</div><div class="lbl">创业先锋</div></div>
+</div>
+</div>
+
+<!-- 什么是现代游侠 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🔥</span><span class="title">什么是"现代游侠"</span><span class="tag">CONCEPT</span></div>
+<div class="card cyan">
+<div class="desc" style="font-size:13px;line-height:2">
+<p>「现代游侠」是军鸽云链为退役军人打造的全新身份标签。古有侠客仗剑走天涯，今有战友退役后以骑行、探险、公益、创业等方式继续书写人生传奇。他们将军旅生涯淬炼出的纪律性、执行力和团队精神，转化为新时代的"侠义精神"——守护食品安全、帮扶乡村发展、传递红色文化、创业带动就业。</p>
+<p style="margin-top:12px">每一位现代游侠，都是行走的品牌大使。他们穿越山川河海，连接城市与乡村，用行动诠释"退役不褪色"的铮铮誓言。军鸽云链为每位游侠提供数字身份认证、行程记录区块链存证、以及遍布全国3000+分站的后勤保障网络。</p>
+</div>
+</div>
+</div>
+
+<!-- 游侠故事 -->
+<div class="section">
+<div class="section-hd"><span class="icon">📖</span><span class="title">游侠故事 · 铁血丹心</span><span class="tag">STORIES</span></div>
+
+<div class="story-card">
+<div class="meta"><span>2026-05-20</span><span class="author">周游侠</span><span class="tag-badge">骑行中国</span><span>阅读 12.8k</span></div>
+<h3>从战场到数字江湖：一位退役侦察兵的骑行长征</h3>
+<p class="excerpt">退役那天，我把军装叠得整整齐齐，把钢枪擦了又擦。指导员拍着我的肩膀说：「周志强，脱下军装你还是个兵。」这句话，我一直记在心里。退役后，我买了一辆山地车，开始了环中国骑行。从海南椰林到漠河雪原，从东海之滨到帕米尔高原，两年半的时间，骑行里程超过四万公里。每到一个县城，我都会去当地的军鸽云链分站打卡，和当地的战友交流。途中我发现了17处食品安全隐患点，全部通过军鸽平台上报，其中有13处已经完成整改。</p>
+</div>
+
+<div class="story-card">
+<div class="meta"><span>2026-04-28</span><span class="author">李铁军</span><span class="tag-badge">边疆探险</span><span>阅读 9.6k</span></div>
+<h3>雪域孤狼：我在可可西里的365天</h3>
+<p class="excerpt">曾在西藏边防服役八年的我，退役后选择回到可可西里——这片我曾经守护过的土地。不过这一次，我的武器不再是步枪，而是相机和GPS定位仪。我加入了野生动物保护志愿队，同时作为军鸽云链的"边疆游侠"，负责采集高原特色农产品的产地信息。去年冬天，零下35度的极寒中，我们的车队救下了一支被困的牧民家庭和他们的200多只藏羊。那晚在帐篷里，老牧民握住我的手说：「解放军同志，你们永远是人民的守护神。」</p>
+</div>
+
+<div class="story-card">
+<div class="meta"><span>2026-03-15</span><span class="author">陈海燕</span><span class="tag-badge">公益助学</span><span>阅读 15.2k</span></div>
+<h3>女兵连长的第二战场：大凉山里的108个孩子</h3>
+<p class="excerpt">我曾是某部通信连的连长，12年军旅生涯教会我：命令如山，使命必达。退役后我来到四川大凉山，看到那些翻山越岭上学的孩子们，我仿佛看到了小时候的自己。108个孩子，分布在6个自然村，最远的要步行4小时才能到学校。我通过军鸽云链平台发起"战友助学"项目，不到三个月，来自全国300多位退役军人战友筹集了58万元，修了一座桥、建了一间图书室，还给每个孩子配了书包和文具。战友们说：「陈连长，你在前面冲锋，我们在后面保障！」</p>
+</div>
+
+<div class="story-card">
+<div class="meta"><span>2026-02-10</span><span class="author">王云飞</span><span class="tag-badge">创业先锋</span><span>阅读 8.3k</span></div>
+<h3>从特种兵到农场主：我在陇南种出了"军魂苹果"</h3>
+<p class="excerpt">特种部队退役后，我回到甘肃陇南老家。面对荒芜的山地和年迈的父母，我决定留下来创业。利用在部队学到的管理经验和军鸽云链提供的创业孵化服务，我流转了300亩山地，种植有机苹果。军鸽云链帮我对接了区块链溯源系统，每颗苹果从开花到采摘全程上链。去年"军魂苹果"品牌上线军鸽商城，三天售罄，销售额突破86万元。现在我还带动了周边47户乡亲就业，其中12位是退役军人。</p>
+</div>
+</div>
+
+<!-- 游侠分类 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🎯</span><span class="title">游侠类型 · 总有一款适合你</span><span class="tag">TYPES</span></div>
+<div class="grid g3">
+<div class="card accent">
+<h3>🚴 骑行游侠</h3>
+<div class="desc">骑上单车，丈量祖国大地。沿途打卡军鸽分站，采集农产品信息，传播食品安全理念。全国3000+分站为骑行游侠提供免费补给和住宿对接。</div>
+</div>
+<div class="card cyan">
+<h3>🏔️ 探险游侠</h3>
+<div class="desc">深入边疆秘境，探访原生态农场。用镜头记录高原珍品、深山好物，为偏远地区的优质农产品打开通向全国的销售通道。</div>
+</div>
+<div class="card gold">
+<h3>🎗️ 公益游侠</h3>
+<div class="desc">退役不褪爱心。组织战友开展助学、助老、助残等公益活动。军鸽云链提供项目发布、资金募集和志愿者匹配一站式服务。</div>
+</div>
+<div class="card green">
+<h3>💼 创业游侠</h3>
+<div class="desc">把军营养成的执行力转化为创业动力。从农场经营到电商运营，军鸽云链提供培训、资金、渠道全方位孵化支持。</div>
+</div>
+<div class="card cyan">
+<h3>📸 纪录游侠</h3>
+<div class="desc">用镜头讲述退役军人的故事。拍摄纪录片、短视频，记录游侠们的足迹与风采，通过军鸽云链全媒体矩阵传播正能量。</div>
+</div>
+<div class="card accent">
+<h3>🛡️ 守护游侠</h3>
+<div class="desc">食品安全义务监督员。利用游侠身份深入田间地头、农贸市场，发现并上报食品安全隐患，守护百姓餐桌安全。</div>
+</div>
+</div>
+</div>
+
+<!-- 游侠权益 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🛡️</span><span class="title">游侠权益 · 军鸽保障</span><span class="tag">BENEFITS</span></div>
+<div class="card gold">
+<div class="desc" style="font-size:12px;line-height:2.2">
+<table style="width:100%;border-collapse:collapse;font-size:11px">
+<tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+<td style="padding:8px 12px;color:var(--gold);font-weight:700">🏅 数字勋章</td>
+<td style="padding:8px 12px;color:var(--text-dim)">完成骑行里程、探险任务、公益项目可获得区块链数字勋章，永久存证</td>
+</tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+<td style="padding:8px 12px;color:var(--gold);font-weight:700">🪙 军鸽币奖励</td>
+<td style="padding:8px 12px;color:var(--text-dim)">每完成一次打卡、一篇游记、一次公益活动均可获得军鸽币，可在商城兑换商品</td>
+</tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+<td style="padding:8px 12px;color:var(--gold);font-weight:700">🏨 分站驿站</td>
+<td style="padding:8px 12px;color:var(--text-dim)">全国3000+县级分站为游侠提供休息、补给、车辆维修等基础保障服务</td>
+</tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+<td style="padding:8px 12px;color:var(--gold);font-weight:700">📱 专属APP</td>
+<td style="padding:8px 12px;color:var(--text-dim)">游侠专属APP支持轨迹记录、分站导航、一键求助、游记发布等功能</td>
+</tr>
+<tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+<td style="padding:8px 12px;color:var(--gold);font-weight:700">🎫 出行保险</td>
+<td style="padding:8px 12px;color:var(--text-dim)">平台为每位认证游侠提供基础意外伤害保险，合作保险公司提供专属优惠</td>
+</tr>
+<tr>
+<td style="padding:8px 12px;color:var(--gold);font-weight:700">📰 媒体报道</td>
+<td style="padding:8px 12px;color:var(--text-dim)">优秀游侠故事可通过军鸽云链全媒体矩阵（公众号、视频号、抖音）进行专题报道</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+
+<!-- 加入游侠 -->
+<div class="section">
+<div class="section-hd"><span class="icon">🚀</span><span class="title">加入现代游侠 · 开启你的第二战场</span><span class="tag">JOIN</span></div>
+<div class="card cyan">
+<h3>📝 三步成为军鸽游侠</h3>
+<div class="desc" style="font-size:12px;line-height:2">
+<p><strong>第一步：</strong>在军鸽云链平台完成退役军人身份认证（上传退役证照片即可）。</p>
+<p><strong>第二步：</strong>选择自己的游侠类型（骑行/探险/公益/创业/纪录/守护），设定个人目标。</p>
+<p><strong>第三步：</strong>领取游侠数字身份卡，下载游侠APP，开始你的游侠之旅！</p>
+</div>
+<div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="/member-register.html" class="btn-ghost">📋 立即注册</a>
+<a href="/contribute-story.html" class="btn-ghost">📖 投稿游侠故事</a>
+<a href="/travel-support.html" class="btn-ghost">🎫 出行保障</a>
+<a href="/employment-service.html" class="btn-ghost">💼 创业服务</a>
+</div>
+</div>
+</div>
+
+<blockquote class="quote-box">
+"古之侠者，为国为民；今之游侠，退役不褪色。无论你骑行走天涯，还是创业在家乡，军鸽云链都是你最坚实的后盾。"
+</blockquote>
+
+<div class="extend-bar"><span class="ext-title">🔗 继续探索：</span><a href="/travel-support.html" class="ext-trace">🎫 出行保障</a><a href="/red-tourism.html" class="ext-trace">🚩 红色文旅</a><a href="/business-incubation.html" class="ext-trace">🚀 创业孵化</a><a href="/index.html" class="ext-mall">🏠 返回情怀首页</a><a href="/shangcheng.html" class="ext-mall">🛒 返回商城</a></div>
+
+</div>
+
+<nav class="bottom-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/taskforce.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+海口总站 · 广州RED-DUAL指挥中心 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+食品安全+退役军人在服务综合平台 · 军魂铸信 · 数智富民
+</footer>
+
+</body>
+</html>

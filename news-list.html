@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资讯中心 - 军鸽云链</title>
+    <style>
+        :root {
+            --color-primary: #1E3A5F;
+            --color-background: #f8fafc;
+            --color-card: #ffffff;
+            --color-border: #e5e7eb;
+            --color-text: #1f2937;
+            --color-muted: #6b7280;
+            --border-radius-lg: 12px;
+            --shadow-card: 0 6px 16px rgba(0,0,0,0.05);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.1);
+            --gradient-blue: linear-gradient(135deg, #1E3A5F, #2A4F7A);
+            --spacing-lg: 16px;
+            --spacing-xl: 20px;
+            --spacing-2xl: 24px;
+            --spacing-3xl: 32px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+        .header {
+            background: var(--gradient-blue);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .header h1 { font-size: 36px; font-weight: 900; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        .news-list { margin: var(--spacing-3xl) 0; }
+        .news-item {
+            display: flex; gap: var(--spacing-xl); padding: var(--spacing-xl);
+            background: var(--color-card); border-radius: var(--border-radius-lg);
+            margin-bottom: var(--spacing-lg); box-shadow: var(--shadow-card);
+            transition: all 0.3s ease; cursor: pointer;
+        }
+        .news-item:hover { transform: translateX(4px); box-shadow: var(--shadow-hover); }
+        .news-image {
+            width: 200px; height: 140px; object-fit: cover;
+            border-radius: var(--border-radius-lg); flex-shrink: 0;
+        }
+        .news-content { flex: 1; }
+        .news-content h3 { font-size: 20px; color: var(--color-primary); margin-bottom: 8px; }
+        .news-content p { font-size: 14px; color: var(--color-muted); line-height: 1.6; margin-bottom: 8px; }
+        .news-meta { display: flex; gap: 16px; font-size: 12px; color: var(--color-muted); }
+        .news-tag {
+            display: inline-block; padding: 3px 10px; border-radius: 20px;
+            font-size: 11px; font-weight: 600; margin-right: 8px;
+        }
+        .tag-policy { background: #fff3e0; color: #e65100; }
+        .tag-tech { background: #e3f2fd; color: #1565C0; }
+        .tag-event { background: #e8f5e9; color: #2E7D32; }
+        .tag-news { background: #fce4ec; color: #C62828; }
+        
+        .pagination { display: flex; justify-content: center; gap: 8px; margin: var(--spacing-2xl) 0; }
+        .page-btn {
+            padding: 8px 16px; border: 1px solid var(--color-border);
+            border-radius: 6px; cursor: pointer; background: white;
+            font-weight: 600; transition: all 0.3s ease;
+        }
+        .page-btn:hover, .page-btn.active { background: var(--color-primary); color: white; border-color: var(--color-primary); }
+        
+        @media (max-width: 768px) {
+            .news-item { flex-direction: column; }
+            .news-image { width: 100%; height: 180px; }
+        }
+    
+        /* 返回首页按钮 */
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 100;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background: rgba(30,58,95,0.85);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .back-home:hover {
+            background: #1E3A5F;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30,58,95,0.3);
+        }
+        @media (max-width: 768px) {
+            .back-home {
+                bottom: 20px;
+                left: 20px;
+                padding: 8px 14px;
+                font-size: 13px;
+            }
+        }
+
+    
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="资讯中心 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/news-list.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/news-list.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">新闻列表</span>
+</nav>
+    <div class="header">
+        <h1>📰 资讯中心</h1>
+        <p style="opacity: 0.9;">军鸽云链最新动态 · 政策解读 · 行业资讯</p>
+    </div>
+
+    <div class="container">
+        <div class="news-list">
+            <!-- 🔥 头题文章 -->
+<!-- 🎓 学术版 -->
+            <div class="news-item" style="border-left:3px solid #a78bfa;background:linear-gradient(135deg,rgba(167,139,250,.06),rgba(8,20,44,.85))" onclick="location.href='/article-shuzhi-academic.html'">
+                <img src="https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?w=300&h=200&fit=crop" class="news-image" alt="学术报告" style="border:1px solid rgba(167,139,250,.3)">
+                <div class="news-content">
+                    <span class="news-tag tag-tech" style="background:rgba(167,139,250,.15);color:#a78bfa;border:1px solid rgba(167,139,250,.3)">🎓 学术版·头题</span>
+                    <h3 style="color:#a78bfa">数智前沿科技催生旧市场经济体系变革（学术增强版）</h3>
+                    <p>三体价值模型（物理体·数据体·智能体）+ 代理即服务（AaaS）+ 风险分析与治理框架。海南全省全面覆盖推进。含学术引用、对比表格、六维收益模型。微软MAI+谷歌Antigravity+英伟达Cosmos技术栈深度融合。</p>
+                    <div class="news-meta">
+                        <span>📅 2026-06-08</span>
+                        <span>🌴 海南全省覆盖</span>
+                        <span>✍️ junge.中国《军鸽云链数智》创始人</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="news-item" style="border-left:3px solid #f0c040;background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(8,20,44,.85))" onclick="location.href='/article-shuzhi-qianduan.html'">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=300&h=200&fit=crop" class="news-image" alt="数智前沿科技" style="border:1px solid rgba(240,192,64,.3)">
+                <div class="news-content">
+                    <span class="news-tag tag-tech" style="background:rgba(240,192,64,.15);color:#f0c040;border:1px solid rgba(240,192,64,.3)">🔥 头题·深度报告</span>
+                    <h3 style="color:#f0c040">数智前沿科技催生旧市场经济体系变革</h3>
+                    <p>以junge.中国《军鸽云链数智》重构食品安全生态的详实报告——AI智能体、区块链、物联网等技术如何催生公开、公平、公共、公正的新市场经济体系。微软Build·谷歌I/O·英伟达GTC三大科技巨头技术栈深度融合，3000+县域代理网络布局。</p>
+                    <div class="news-meta">
+                        <span>📅 2026-06-08</span>
+                        <span>👁️ 头题发表</span>
+                        <span>✍️ junge.中国《军鸽云链数智》创始人</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-item" onclick="readNews(1)">
+                <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=300&h=200&fit=crop" class="news-image" alt="新闻">
+                <div class="news-content">
+                    <span class="news-tag tag-news">平台动态</span>
+                    <h3>军鸽云链平台正式上线运营</h3>
+                    <p>经过半年的精心筹备，军鸽云链数智平台于2025年5月25日正式上线。平台整合了区块链溯源、军创商城、跨境电商等核心功能，为退役军人创业就业提供全方位服务。</p>
+                    <div class="news-meta">
+                        <span>📅 2025-05-25</span>
+                        <span>👁️ 1,256次阅读</span>
+                        <span>✍️ 编辑部</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-item" onclick="readNews(2)">
+                <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?w=300&h=200&fit=crop" class="news-image" alt="新闻">
+                <div class="news-content">
+                    <span class="news-tag tag-policy">政策解读</span>
+                    <h3>退役军人创业政策最新解读</h3>
+                    <p>2025年退役军人创业扶持政策全面升级，创业担保贷款额度提升至50万元，税收减免年限延长至3年。军鸽云链平台将协助退役军人申请相关政策支持。</p>
+                    <div class="news-meta">
+                        <span>📅 2025-05-22</span>
+                        <span>👁️ 2,345次阅读</span>
+                        <span>✍️ 政策研究部</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-item" onclick="readNews(3)">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=300&h=200&fit=crop" class="news-image" alt="新闻">
+                <div class="news-content">
+                    <span class="news-tag tag-tech">技术前沿</span>
+                    <h3>区块链溯源技术研讨会成功举办</h3>
+                    <p>由军鸽云链主办的"区块链+农业溯源"技术研讨会在海南三亚召开，来自全国各地的专家学者、企业代表共200余人参会，探讨区块链技术在食品安全领域的应用前景。</p>
+                    <div class="news-meta">
+                        <span>📅 2025-05-20</span>
+                        <span>👁️ 3,456次阅读</span>
+                        <span>✍️ 技术部</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-item" onclick="readNews(4)">
+                <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=300&h=200&fit=crop" class="news-image" alt="新闻">
+                <div class="news-content">
+                    <span class="news-tag tag-event">活动通知</span>
+                    <h3>食品安全月活动正式启动</h3>
+                    <p>军鸽云链联合市场监管部门启动"食品安全月"活动，将通过区块链溯源技术展示食品从田间到餐桌的全程信息，提升消费者食品安全意识。</p>
+                    <div class="news-meta">
+                        <span>📅 2025-05-18</span>
+                        <span>👁️ 4,567次阅读</span>
+                        <span>✍️ 市场部</span>
+                    </div>
+                </div>
+            </div>
+            <div class="news-item" onclick="readNews(5)">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=300&h=200&fit=crop" class="news-image" alt="新闻">
+                <div class="news-content">
+                    <span class="news-tag tag-event">展会通知</span>
+                    <h3>军创优品展销会即将开幕</h3>
+                    <p>2025年军创优品全国巡回展销会首站将于6月1日在海口开幕，届时将有200余家军创企业参展，展示包括有机农产品、非遗产品、军事文创等在内的千余种商品。</p>
+                    <div class="news-meta">
+                        <span>📅 2025-05-15</span>
+                        <span>👁️ 5,678次阅读</span>
+                        <span>✍️ 展会组委会</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination">
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">...</button>
+            <button class="page-btn">8</button>
+            <button class="page-btn">下一页 →</button>
+        </div>
+    </div>
+
+    <script>
+        function readNews(id) {
+            alert(`正在打开新闻详情页：新闻ID ${id}`);
+        }
+        document.querySelectorAll('.page-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+  <a href="/index.html" class="back-home">← 返回首页</a>
+  <script src="/js/game-pool.js"></script>
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

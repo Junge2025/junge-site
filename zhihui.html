@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>RED‑DUAL Ω · 一人超级总指挥部</title>
+<style>
+:root {
+  --bg: #020617; --card: rgba(15,23,42,0.85); --border: rgba(30,41,59,0.8);
+  --red: #b84045; --gold: #c9a96e; --blue: #4dc9f6; --green: #4daf7c;
+  --cyan: #22d3ee; --rose: #fb7185; --amber: #fbbf24; --violet: #a78bfa;
+  --text: #e2e8f0; --muted: #94a3b8; --dim: #475569;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 20%,rgba(184,64,69,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 60%,rgba(77,201,246,0.06) 0%,transparent 60%),radial-gradient(ellipse at 40% 80%,rgba(77,175,124,0.05) 0%,transparent 60%);pointer-events:none;z-index:0}
+.container{max-width:1400px;margin:0 auto;padding:1rem;position:relative;z-index:1}
+
+header{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;background:var(--card);border:1px solid var(--border);border-radius:0.75rem;margin-bottom:1rem;backdrop-filter:blur(12px);flex-wrap:wrap;gap:0.5rem}
+.header-left{display:flex;align-items:center;gap:0.75rem}
+.pulse{width:10px;height:10px;background:var(--cyan);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 8px var(--cyan)}50%{opacity:0.3;box-shadow:0 0 2px var(--cyan)}}
+h1{font-size:1.1rem;font-weight:700;letter-spacing:-0.02em}
+h1 span{color:var(--red)}
+.header-badges{display:flex;gap:0.5rem;flex-wrap:wrap}
+.badge{padding:0.2rem 0.6rem;border-radius:1rem;font-size:0.7rem;font-weight:600}
+.badge-red{background:rgba(184,64,69,0.2);color:var(--rose);border:1px solid rgba(184,64,69,0.3)}
+.badge-green{background:rgba(77,175,124,0.2);color:var(--green);border:1px solid rgba(77,175,124,0.3)}
+.badge-blue{background:rgba(77,201,246,0.15);color:var(--cyan);border:1px solid rgba(77,201,246,0.25)}
+
+.command-section{background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:1rem;margin-bottom:1rem;backdrop-filter:blur(12px)}
+.cmd-input-row{display:flex;gap:0.5rem;margin-bottom:0.75rem}
+.cmd-input{flex:1;background:rgba(2,6,23,0.8);border:1px solid var(--border);border-radius:0.5rem;padding:0.6rem 0.8rem;color:var(--text);font-size:0.9rem;outline:none;transition:border 0.2s}
+.cmd-input:focus{border-color:var(--red)}
+.cmd-input::placeholder{color:var(--dim)}
+.btn-fire{background:linear-gradient(135deg,var(--red),#d4303e);color:#fff;border:none;border-radius:0.5rem;padding:0.6rem 1.2rem;font-size:0.85rem;font-weight:700;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.btn-fire:hover{box-shadow:0 0 20px rgba(184,64,69,0.5);transform:translateY(-1px)}
+.quick-cmds{display:flex;flex-wrap:wrap;gap:0.4rem}
+.qcmd{padding:0.3rem 0.7rem;border-radius:1rem;font-size:0.7rem;cursor:pointer;border:1px solid var(--border);background:rgba(30,41,59,0.5);color:var(--muted);transition:all 0.2s;white-space:nowrap}
+.qcmd:hover{background:rgba(184,64,69,0.2);border-color:var(--red);color:var(--text)}
+.qcmd.fire{background:rgba(184,64,69,0.15);border-color:var(--red);color:var(--rose)}
+
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0.75rem;margin-bottom:0.75rem}
+.card{background:var(--card);border:1px solid var(--border);border-radius:0.75rem;padding:0.75rem;backdrop-filter:blur(12px)}
+.card-title{font-size:0.8rem;font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.4rem}
+.card-dot{width:6px;height:6px;border-radius:50%}
+.card-dot.green{background:var(--green);box-shadow:0 0 6px var(--green)}
+.card-dot.yellow{background:var(--amber);box-shadow:0 0 6px var(--amber)}
+.card-dot.cyan{background:var(--cyan);box-shadow:0 0 6px var(--cyan)}
+
+.node-row{display:flex;justify-content:space-between;align-items:center;padding:0.3rem 0;font-size:0.75rem;border-bottom:1px solid rgba(30,41,59,0.3)}
+.node-row:last-child{border-bottom:none}
+.node-name{font-weight:600}
+.node-stats{color:var(--muted);font-size:0.65rem}
+.node-bar{width:60px;height:3px;background:rgba(30,41,59,0.8);border-radius:2px;overflow:hidden}
+.node-bar-fill{height:100%;border-radius:2px;transition:width 0.5s}
+.node-bar-fill.green{background:var(--green)}
+.node-bar-fill.amber{background:var(--amber)}
+
+.agent-mini{display:inline-flex;align-items:center;gap:0.2rem;padding:0.15rem 0.4rem;border-radius:0.3rem;font-size:0.6rem;background:rgba(30,41,59,0.5);margin:0.1rem}
+.agent-dot{width:4px;height:4px;border-radius:50%}
+.agent-dot.red{background:var(--red)}
+.agent-dot.blue{background:var(--blue)}
+.agent-dot.gold{background:var(--gold)}
+.agent-dot.green{background:var(--green)}
+.agent-dot.cyan{background:var(--cyan)}
+.agent-dot.rose{background:var(--rose)}
+
+.timeline{padding:0;list-style:none}
+.tl-item{display:flex;gap:0.5rem;padding:0.4rem 0;font-size:0.7rem;border-left:2px solid var(--border);padding-left:0.75rem;margin-left:0.25rem}
+.tl-item.active{border-left-color:var(--cyan)}
+.tl-item.done{border-left-color:var(--green)}
+.tl-step{font-weight:600;min-width:70px}
+.tl-detail{color:var(--muted);font-size:0.65rem}
+
+.log-line{font-size:0.65rem;color:var(--muted);padding:0.15rem 0;font-family:'JetBrains Mono','Consolas',monospace;border-bottom:1px solid rgba(30,41,59,0.2)}
+.log-line .ts{color:var(--dim)}
+.log-line .event{color:var(--cyan)}
+.log-line .warn{color:var(--amber)}
+
+@media(max-width:768px){
+  header{flex-direction:column;align-items:flex-start}
+  h1{font-size:1rem}
+  .grid-3{grid-template-columns:1fr}
+  .cmd-input-row{flex-direction:column}
+  .btn-fire{width:100%}
+}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="RED‑DUAL Ω · 一人超级总指挥部">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/zhihui.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/zhihui.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">智慧页</span>
+</nav>
+
+<div class="container">
+
+<header>
+  <div class="header-left">
+    <div class="pulse"></div>
+    <h1><span>RED‑DUAL</span> Ω · 一人超级总指挥部</h1>
+  </div>
+  <div class="header-badges">
+    <span class="badge badge-green">🟢 24 智能体在线</span>
+    <span class="badge badge-blue">🌐 GZ·KL·Local</span>
+    <span class="badge badge-red">🔴 红队:ON</span>
+  </div>
+</header>
+
+<div class="command-section">
+  <div class="cmd-input-row">
+    <input class="cmd-input" id="cmdInput" placeholder="一句话下达作战指令，例如：Meta‑Commander，执行三重协同部署 RED‑DUAL Ω…" onkeydown="if(event.key==='Enter')fireCommand()">
+    <button class="btn-fire" onclick="fireCommand()">⚔️ 发起作战</button>
+  </div>
+  <div class="quick-cmds" id="quickCmds">
+    <span class="qcmd fire" onclick="quickCmd('Meta‑Commander，推演全域作战方案')">🧠 战略推演</span>
+    <span class="qcmd fire" onclick="quickCmd('Ω 指挥部，执行三重协同部署 RED‑DUAL Ω')">⚔️ 三重协同</span>
+    <span class="qcmd" onclick="quickCmd('天无敌，启动红队审查链路')">🔍 红队审查</span>
+    <span class="qcmd" onclick="quickCmd('RED‑DUAL，调用本地特战队补强')">⚡ 本地补强</span>
+    <span class="qcmd" onclick="quickCmd('Meta‑Commander，优化模型战力权重')">📊 战力优化</span>
+    <span class="qcmd" onclick="quickCmd('Ω 指挥部，推演最优节点调度')">🌐 节点调度</span>
+    <span class="qcmd" onclick="quickCmd('天无敌，执行云端与本地融合')">🔥 全域融合</span>
+  </div>
+</div>
+
+<div class="grid-3">
+  <div class="card">
+    <div class="card-title"><span class="card-dot green"></span>节点战区</div>
+    <div class="node-row"><span class="node-name">🟢 广州 GZ-MAIN</span><span class="node-stats">45ms / 60%</span><div class="node-bar"><div class="node-bar-fill green" style="width:60%"></div></div></div>
+    <div class="node-row"><span class="node-name">🟡 吉隆坡 KL-INTL</span><span class="node-stats">120ms / 40%</span><div class="node-bar"><div class="node-bar-fill amber" style="width:40%"></div></div></div>
+    <div class="node-row"><span class="node-name">🟢 本地 LOCAL-WIN</span><span class="node-stats">10ms / 20%</span><div class="node-bar"><div class="node-bar-fill green" style="width:20%"></div></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-dot cyan"></span>模型战力</div>
+    <div class="node-row"><span class="node-name">DeepSeek</span><span class="node-stats">战力92 · 权重0.4</span></div>
+    <div class="node-row"><span class="node-name">Gemini</span><span class="node-stats">战力88 · 权重0.3</span></div>
+    <div class="node-row"><span class="node-name">Claude</span><span class="node-stats">战力90 · 权重0.3</span></div>
+    <div class="node-row"><span class="node-name">Qwen-Local</span><span class="node-stats">本地待命</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-dot green"></span>Meta‑Commander 决策</div>
+    <div style="font-size:0.65rem;color:var(--muted);margin-bottom:0.3rem">当前任务: <span style="color:var(--cyan)" id="currentTask">待命中…</span></div>
+    <div style="font-size:0.65rem;line-height:1.6" id="metaDecision">
+      <span style="color:var(--dim)">等待作战指令…</span>
+    </div>
+  </div>
+</div>
+
+<div class="grid-3">
+  <div class="card">
+    <div class="card-title"><span class="card-dot cyan"></span>八大将作战链路</div>
+    <ul class="timeline" id="timeline">
+      <li class="tl-item"><span class="tl-step">① Brainstorm</span><span class="tl-detail">战略构想总参谋 · 待命</span></li>
+      <li class="tl-item"><span class="tl-step">② Spec</span><span class="tl-detail">系统总设计师 · 待命</span></li>
+      <li class="tl-item"><span class="tl-step">③ Plan</span><span class="tl-detail">路线图指挥官 · 待命</span></li>
+      <li class="tl-item"><span class="tl-step">④ Subagent</span><span class="tl-detail">分队调度官 · 待命</span></li>
+      <li class="tl-item"><span class="tl-step">⑤ DevOps</span><span class="tl-detail">基建总工 · 待命</span></li>
+      <li class="tl-item"><span class="tl-step">⑥ Review</span><span class="tl-detail">红队审查官 · 待命</span></li>
+      <li class="tl-item"><span class="tl-step">⑦ Claude Code</span><span class="tl-detail">代码军团 · 待命</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-dot green"></span>智能体军团 (24人)</div>
+    <div style="font-size:0.6rem;line-height:1.8">
+      <div><span class="agent-mini"><span class="agent-dot red"></span>meta-commander</span> <span class="agent-mini"><span class="agent-dot red"></span>hermes-max</span> <span class="agent-mini"><span class="agent-dot blue"></span>brainstorm</span> <span class="agent-mini"><span class="agent-dot blue"></span>spec</span> <span class="agent-mini"><span class="agent-dot blue"></span>plan</span></div>
+      <div><span class="agent-mini"><span class="agent-dot cyan"></span>subagent</span> <span class="agent-mini"><span class="agent-dot green"></span>devops</span> <span class="agent-mini"><span class="agent-dot rose"></span>review</span> <span class="agent-mini"><span class="agent-dot gold"></span>superpowers</span> <span class="agent-mini"><span class="agent-dot gold"></span>claude-code</span></div>
+      <div><span class="agent-mini">market-intel</span> <span class="agent-mini">law-intel</span> <span class="agent-mini">red-tourism</span> <span class="agent-mini">party-intel</span> <span class="agent-mini">rural-intel</span> <span class="agent-mini">community</span></div>
+      <div><span class="agent-mini">tech-ops</span> <span class="agent-mini">trade-intel</span> <span class="agent-mini">content-intel</span> <span class="agent-mini">subsite</span> <span class="agent-mini">id-analytics</span> <span class="agent-mini">local-orch</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-dot green"></span>作战日志</div>
+    <div id="battleLog" style="max-height:150px;overflow-y:auto">
+      <div class="log-line"><span class="ts">19:35:01</span> <span class="event">[系统]</span> RED‑DUAL Ω 指挥部就绪</div>
+      <div class="log-line"><span class="ts">19:35:01</span> <span class="event">[节点]</span> GZ·KL·Local 三节点在线</div>
+      <div class="log-line"><span class="ts">19:35:02</span> <span class="event">[模型]</span> DeepSeek·Gemini·Claude 就绪</div>
+      <div class="log-line"><span class="ts">19:35:02</span> <span class="event">[红队]</span> 全域审查开关: ON</div>
+      <div class="log-line"><span class="ts">19:35:03</span> <span class="warn">[待命]</span> 等待作战指令…</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+const battleLog = document.getElementById('battleLog');
+const timeline = document.getElementById('timeline');
+const metaDecision = document.getElementById('metaDecision');
+const currentTask = document.getElementById('currentTask');
+
+function addLog(msg, type='event') {
+  const now = new Date().toTimeString().slice(0,8);
+  const cls = type==='warn'?'warn':'event';
+  battleLog.innerHTML += `<div class="log-line"><span class="ts">${now}</span> <span class="${cls}">[${type==='warn'?'系统':'作战'}]</span> ${msg}</div>`;
+  battleLog.scrollTop = battleLog.scrollHeight;
+}
+
+function quickCmd(cmd) {
+  document.getElementById('cmdInput').value = cmd;
+  fireCommand();
+}
+
+const STEPS = ['Brainstorm','Spec','Plan','Subagent','DevOps','Review','Claude Code'];
+const NODES = ['gz-main','gz-main','kl-intl','gz-main','gz-main','kl-intl','local-win'];
+const MODELS = ['deepseek+gemini+claude','claude+deepseek','gemini+claude','deepseek','claude+deepseek','claude+deepseek','claude'];
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function fireCommand() {
+  const cmd = document.getElementById('cmdInput').value.trim();
+  if (!cmd) return;
+
+  addLog(`收到指令: ${cmd.slice(0,60)}...`);
+  currentTask.textContent = cmd.slice(0,40)+'…';
+  metaDecision.innerHTML = '<span style="color:var(--cyan)">🧠 Meta‑Commander 战略推演中…</span>';
+
+  const items = timeline.querySelectorAll('.tl-item');
+  items.forEach(i => { i.className = 'tl-item'; i.querySelector('.tl-detail').textContent = '待命'; });
+
+  await sleep(500);
+  metaDecision.innerHTML = `
+    <span style="color:var(--green)">✅ 决策完成</span><br>
+    <span style="color:var(--muted)">模式: ${cmd.includes('三重')?'triple_fusion':'pipeline'}</span><br>
+    <span style="color:var(--muted)">节点: GZ·KL·Local</span><br>
+    <span style="color:var(--muted)">红队: ${cmd.includes('红队')||cmd.includes('审查')?'ON':'OFF'}</span><br>
+    <span style="color:var(--muted)">本地补强: ${cmd.includes('本地')||cmd.includes('补强')||cmd.includes('特战队')?'ON':'OFF'}</span>
+  `;
+
+  addLog('Meta‑Commander 决策生成完毕，启动八大将作战链路');
+
+  for (let i = 0; i < STEPS.length; i++) {
+    items[i].className = 'tl-item active';
+    items[i].querySelector('.tl-detail').textContent = `执行中…`;
+    addLog(`Step ${i+1}: ${STEPS[i]} → ${NODES[i]} · ${MODELS[i]}`);
+    await sleep(400);
+    items[i].className = 'tl-item done';
+    items[i].querySelector('.tl-detail').textContent = `✅ ${NODES[i]} · ${MODELS[i]}`;
+  }
+
+  addLog('✅ 八大将作战链路完成', 'warn');
+  addLog(`📦 最终输出: ${cmd.slice(0,30)}… → 全域作战报告已生成`);
+}
+
+// 初始日志
+console.log('RED‑DUAL Ω · 一人超级总指挥部 · 已就绪');
+</script>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap">
+  <a href="/" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🏠 军鸽云链</a>
+  <a href="/shangcheng.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🛒 商业生态</a>
+  <a href="/junge-shuzhi.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">⚔ 数智中心</a>
+  <a href="/fenzhan.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🌾 分站家园</a>
+  <a href="/shuzhi-zongbu.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🧠 数智总部</a>
+  <a href="/zhihui-ai.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🤖 AI指挥台</a>
+</div>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap"><a href="/" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🏠 军鸽云链</a><a href="/shangcheng.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🛒 商业生态</a><a href="/junge-shuzhi.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">⚔ 数智中心</a><a href="/fenzhan.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🌾 分站家园</a><a href="/shuzhi-zongbu.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🧠 数智总部</a><a href="/zhihui-ai.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🤖 AI指挥台</a></div>
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

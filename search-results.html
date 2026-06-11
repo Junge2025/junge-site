@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果 - 军鸽云链</title>
+    <style>
+        :root {
+            --color-primary: #1E3A5F;
+            --color-background: #f8fafc;
+            --color-card: #ffffff;
+            --color-border: #e5e7eb;
+            --color-text: #1f2937;
+            --color-muted: #6b7280;
+            --color-accent: #C62E2E;
+            --border-radius-lg: 12px;
+            --shadow-card: 0 6px 16px rgba(0,0,0,0.05);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.1);
+            --gradient-blue: linear-gradient(135deg, #1E3A5F, #2A4F7A);
+            --spacing-lg: 16px;
+            --spacing-xl: 20px;
+            --spacing-2xl: 24px;
+            --spacing-3xl: 32px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--spacing-lg) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        .search-bar {
+            display: flex; gap: 12px; align-items: center;
+        }
+        .search-input {
+            flex: 1; padding: 12px 16px; border: 2px solid var(--color-border);
+            border-radius: 8px; font-size: 16px; transition: border-color 0.3s;
+        }
+        .search-input:focus { outline: none; border-color: var(--color-primary); }
+        .search-btn {
+            padding: 12px 24px; background: var(--gradient-blue); color: white;
+            border: none; border-radius: 8px; font-weight: 600; cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .search-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(30,58,95,0.4); }
+        
+        .results-info { margin: var(--spacing-2xl) 0; color: var(--color-muted); }
+        
+        .result-item {
+            background: var(--color-card); border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl); margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-card); transition: all 0.3s ease; cursor: pointer;
+        }
+        .result-item:hover { transform: translateX(4px); box-shadow: var(--shadow-hover); }
+        .result-title { font-size: 20px; color: var(--color-primary); margin-bottom: 8px; }
+        .result-url { font-size: 12px; color: var(--color-secondary); margin-bottom: 8px; }
+        .result-desc { font-size: 14px; color: var(--color-muted); line-height: 1.6; }
+        .result-tags { display: flex; gap: 8px; margin-top: 8px; }
+        .result-tag { padding: 3px 8px; background: #f0f7ff; border-radius: 4px; font-size: 11px; color: var(--color-primary); }
+        .highlight { background: #fff3e0; padding: 1px 3px; border-radius: 2px; }
+        
+        .no-results {
+            text-align: center; padding: 60px 20px; color: var(--color-muted);
+        }
+        .no-results .icon { font-size: 64px; margin-bottom: 16px; }
+        
+        .suggestions {
+            background: var(--color-card); border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl); margin-top: var(--spacing-2xl);
+            box-shadow: var(--shadow-card);
+        }
+        .suggestions h4 { color: var(--color-primary); margin-bottom: 12px; }
+        .suggestion-links { display: flex; flex-wrap: wrap; gap: 8px; }
+        .suggestion-link {
+            padding: 6px 14px; background: #f0f7ff; border-radius: 20px;
+            font-size: 13px; color: var(--color-primary); cursor: pointer;
+            transition: all 0.3s ease; text-decoration: none;
+        }
+        .suggestion-link:hover { background: #d4e3ff; }
+    
+        /* 返回首页按钮 */
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 100;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background: rgba(30,58,95,0.85);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .back-home:hover {
+            background: #1E3A5F;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30,58,95,0.3);
+        }
+        @media (max-width: 768px) {
+            .back-home {
+                bottom: 20px;
+                left: 20px;
+                padding: 8px 14px;
+                font-size: 13px;
+            }
+        }
+
+    
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="搜索结果 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/search-results.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/search-results.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">搜索结果</span>
+</nav>
+    <div class="header">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" class="search-input" id="searchInput" placeholder="搜索分站、产品、资讯..." value="">
+                <button class="search-btn" onclick="doSearch()">🔍 搜索</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="results-info" id="resultsInfo"></div>
+        <div id="resultsContainer"></div>
+        <div class="suggestions" id="suggestions">
+            <h4>💡 您可能还想搜索</h4>
+            <div class="suggestion-links">
+                <span class="suggestion-link" onclick="quickSearch('海口分站')">海口分站</span>
+                <span class="suggestion-link" onclick="quickSearch('有机大米')">有机大米</span>
+                <span class="suggestion-link" onclick="quickSearch('退役军人创业')">退役军人创业</span>
+                <span class="suggestion-link" onclick="quickSearch('区块链溯源')">区块链溯源</span>
+                <span class="suggestion-link" onclick="quickSearch('三亚分站')">三亚分站</span>
+                <span class="suggestion-link" onclick="quickSearch('广州分站')">广州分站</span>
+                <span class="suggestion-link" onclick="quickSearch('生态农庄')">生态农庄</span>
+                <span class="suggestion-link" onclick="quickSearch('跨境电商')">跨境电商</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mockResults = [
+            { title: '海口分站', url: 'haikou.junge.网络', desc: '军鸽云链海口分站，位于海南省海口市龙华区，站长张建国。提供农产品溯源、军创商城、就业服务等一站式服务。', tags: ['分站', '海南', '海口'] },
+            { title: '三亚分站', url: 'sanya.junge.网络', desc: '军鸽云链三亚分站，位于海南省三亚市吉阳区，站长李军。专注于热带农产品和旅游服务。', tags: ['分站', '海南', '三亚'] },
+            { title: '有机大米 - 军创优品', url: 'product-detail-1.html', desc: '海南产地直供有机大米，退役军人信用背书，无农药残留，区块链全程溯源。规格：5kg/10kg/20kg装。', tags: ['产品', '有机食品', '大米'] },
+            { title: '退役军人创业政策解读', url: 'news-detail-2.html', desc: '2025年退役军人创业扶持政策全面升级，创业担保贷款额度提升至50万元，税收减免年限延长。', tags: ['政策', '创业', '退役军人'] },
+            { title: '广州分站', url: 'guangzhou.junge.网络', desc: '军鸽云链广州分站，位于广州市天河区，站长王强。覆盖珠三角地区的军创产品供应链服务。', tags: ['分站', '广东', '广州'] },
+            { title: '区块链溯源技术介绍', url: 'news-detail-3.html', desc: '了解军鸽云链如何利用区块链技术实现产品从种植到销售的全链条可溯源管理。', tags: ['技术', '区块链', '溯源'] },
+            { title: '生态农庄合作项目', url: 'farm-hainan.html', desc: '海南热带生态农庄招募合作伙伴，欢迎退役军人加入生态农业创业项目。', tags: ['生态农庄', '创业', '合作'] },
+        ];
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param) || '';
+        }
+
+        function doSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (query) {
+                window.location.search = `?q=${encodeURIComponent(query)}`;
+            }
+        }
+
+        function quickSearch(query) {
+            document.getElementById('searchInput').value = query;
+            doSearch();
+        }
+
+        function renderResults(query) {
+            const container = document.getElementById('resultsContainer');
+            const info = document.getElementById('resultsInfo');
+            
+            if (!query) {
+                info.innerHTML = '<p>请输入搜索关键词</p>';
+                container.innerHTML = '';
+                return;
+            }
+
+            const filtered = mockResults.filter(r => 
+                r.title.includes(query) || r.desc.includes(query) || r.tags.some(t => t.includes(query))
+            );
+
+            info.innerHTML = `关于"<strong>${query}</strong>"的搜索结果，共找到 <strong>${filtered.length}</strong> 条结果`;
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <div class="icon">🔍</div>
+                        <h3>未找到相关结果</h3>
+                        <p>请尝试使用其他关键词搜索，或浏览下方推荐内容</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(r => `
+                <div class="result-item" onclick="window.open('${r.url}', '_blank')">
+                    <div class="result-title">${highlightText(r.title, query)}</div>
+                    <div class="result-url">${r.url}</div>
+                    <div class="result-desc">${highlightText(r.desc, query)}</div>
+                    <div class="result-tags">
+                        ${r.tags.map(t => `<span class="result-tag">${t}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function highlightText(text, query) {
+            if (!query) return text;
+            const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const query = getQueryParam('q');
+            document.getElementById('searchInput').value = query;
+            renderResults(query);
+            
+            document.getElementById('searchInput').addEventListener('keydown', e => {
+                if (e.key === 'Enter') doSearch();
+            });
+        });
+    </script>
+  <a href="/index.html" class="back-home">← 返回首页</a>
+  <script src="/js/game-pool.js"></script>
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<meta name="theme-color" content="#030712">
+<title>战友互助站 - 军鸽云链</title>
+<meta name="description" content="军鸽云链战友互助站：退役军人互助平台，求助/提供帮助，全国站点分布。战友一家亲，互助暖人心。">
+<style>
+:root {
+  --bg-deep: #030712;
+  --bg-card: rgba(8,20,44,.85);
+  --primary: #00d4ff;
+  --accent: #ff2d78;
+  --gold: #f0c040;
+  --green: #22c55e;
+  --purple: #a78bfa;
+  --red: #d47a7e;
+  --text: #e8edf5;
+  --text-dim: #8896b0;
+  --text-muted: #4a5568;
+  --border: rgba(0,212,255,.1);
+  --border-glow: rgba(0,212,255,.18);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --shadow: 0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg-deep);color:var(--text);line-height:1.7;padding-bottom:72px;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 60% 15%,rgba(255,45,120,.03) 0%,transparent 50%),radial-gradient(ellipse at 25% 85%,rgba(240,192,64,.03) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+.breadcrumb-bar{background:rgba(3,7,18,.95);border-bottom:1px solid var(--border);padding:10px 20px;position:sticky;top:0;z-index:99;backdrop-filter:blur(12px);display:flex;align-items:center;gap:6px;font-size:12px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .25s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:var(--text-muted)}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{position:relative;z-index:1;text-align:center;padding:56px 20px 40px;background:linear-gradient(180deg,rgba(255,45,120,.04) 0%,rgba(3,7,18,.98) 100%)}
+.hero h1{font-size:30px;font-weight:900;margin-bottom:10px;background:linear-gradient(135deg,#ff2d78 0%,#f0c040 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:14px;color:var(--text-dim);max-width:650px;margin:0 auto}
+.hero .stats-row{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.hero .stat-box{text-align:center;padding:10px 18px;background:rgba(255,45,120,.05);border:1px solid rgba(255,45,120,.12);border-radius:var(--radius-sm)}
+.hero .stat-box .val{font-size:22px;font-weight:900;color:var(--accent)}
+.hero .stat-box .lbl{font-size:10px;color:var(--text-dim)}
+
+.container{max-width:1000px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+.section-title{display:flex;align-items:center;gap:10px;margin:36px 0 20px;font-size:18px;font-weight:700}
+.section-title .icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:rgba(255,45,120,.1);color:var(--accent)}
+.section-title span.color{color:var(--accent)}
+
+.aid-type-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px}
+.aid-type{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;text-align:center;backdrop-filter:blur(12px);cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.aid-type::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.3}
+.aid-type:hover{border-color:rgba(255,45,120,.25);box-shadow:0 0 20px rgba(255,45,120,.08);transform:translateY(-2px)}
+.aid-type .type-icon{font-size:32px;display:block;margin-bottom:8px}
+.aid-type h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.aid-type p{font-size:11px;color:var(--text-dim);line-height:1.5}
+
+.tab-bar{display:flex;gap:4px;margin-bottom:20px;background:rgba(255,255,255,.02);border-radius:var(--radius);padding:4px;border:1px solid var(--border)}
+.tab-bar .tab{padding:8px 20px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text-dim);transition:all .25s;flex:1;text-align:center;font-family:inherit}
+.tab-bar .tab:hover{color:var(--text)}
+.tab-bar .tab.active{background:var(--bg-card);color:var(--accent);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+
+.request-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;backdrop-filter:blur(12px);transition:all .3s;display:flex;gap:14px;flex-wrap:wrap}
+.request-card:hover{border-color:var(--border-glow);transform:translateX(3px)}
+.request-card .urgency{flex-shrink:0;padding:4px 12px;border-radius:12px;font-size:10px;font-weight:700;height:fit-content}
+.urgency-high{background:rgba(255,45,120,.15);color:var(--accent)}
+.urgency-mid{background:rgba(240,192,64,.15);color:var(--gold)}
+.urgency-low{background:rgba(34,197,94,.15);color:var(--green)}
+.request-card .req-content{flex:1;min-width:200px}
+.request-card .req-content h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.request-card .req-content .req-desc{font-size:12px;color:var(--text-dim);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.request-card .req-content .req-meta{display:flex;gap:10px;font-size:10px;color:var(--text-muted);margin-top:6px;flex-wrap:wrap}
+.request-card .req-action{display:flex;flex-direction:column;align-items:flex-end;gap:6px;min-width:100px}
+.request-card .req-action .help-btn{padding:7px 20px;border-radius:16px;font-size:11px;font-weight:700;cursor:pointer;background:var(--accent);color:#fff;border:none;transition:all .3s}
+.request-card .req-action .help-btn:hover{transform:scale(1.05);box-shadow:0 4px 16px rgba(255,45,120,.3)}
+
+.station-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:20px}
+.station-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;backdrop-filter:blur(12px);transition:all .3s;position:relative;overflow:hidden}
+.station-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.3}
+.station-card:hover{border-color:rgba(240,192,64,.25);transform:translateY(-2px);box-shadow:0 0 20px rgba(240,192,64,.06)}
+.station-card h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.station-card .station-addr{font-size:11px;color:var(--gold);margin-bottom:8px}
+.station-card .station-services{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.station-card .station-services span{font-size:10px;padding:3px 10px;border-radius:8px;background:rgba(255,45,120,.06);color:var(--accent);border:1px solid rgba(255,45,120,.1)}
+.station-card .station-contact{font-size:11px;color:var(--text-dim);margin-bottom:3px}
+.station-card .station-hours{font-size:11px;color:var(--text-muted)}
+
+.form-section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;backdrop-filter:blur(12px);position:relative;overflow:hidden;margin-bottom:24px}
+.form-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.3}
+.form-section h3{font-size:16px;font-weight:700;margin-bottom:20px;color:var(--accent)}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.form-group label .required{color:var(--accent);margin-left:2px}
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea{width:100%;padding:10px 14px;border-radius:var(--radius-sm);background:rgba(3,7,18,.6);border:1px solid var(--border);color:var(--text);font-size:13px;font-family:inherit;transition:all .25s;outline:none}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 12px rgba(255,45,120,.1)}
+.form-group textarea{min-height:120px;resize:vertical;line-height:1.8}
+.form-group select{appearance:none;cursor:pointer}
+.form-group .hint{font-size:11px;color:var(--text-muted);margin-top:4px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.motto-banner{background:linear-gradient(135deg,rgba(255,45,120,.06),rgba(240,192,64,.04));border:1px solid rgba(255,45,120,.15);border-radius:var(--radius-lg);padding:28px;text-align:center;margin:24px 0;backdrop-filter:blur(12px)}
+.motto-banner .motto{font-size:20px;font-weight:900;color:var(--gold);margin-bottom:8px}
+.motto-banner .sub{font-size:13px;color:var(--text-dim)}
+
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn-primary{padding:10px 32px;border-radius:var(--radius-sm);background:linear-gradient(135deg,#ff2d78,#d41a5a);color:#fff;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:all .3s;font-family:inherit}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,45,120,.25)}
+.btn-secondary{padding:10px 24px;border-radius:var(--radius-sm);background:transparent;color:var(--text-dim);font-size:14px;border:1px solid var(--border);cursor:pointer;transition:all .3s;font-family:inherit}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.btn-gold{padding:8px 20px;border-radius:16px;font-size:11px;font-weight:700;background:linear-gradient(135deg,#f0c040,#d4a020);color:#030712;border:none;cursor:pointer;transition:all .3s}
+.btn-gold:hover{transform:scale(1.05);box-shadow:0 4px 14px rgba(240,192,64,.25)}
+
+.extend-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px;margin:24px 0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;border-top:2px solid var(--border-glow)}
+.extend-bar .ext-title{font-size:12px;font-weight:700;color:var(--text-dim)}
+.extend-bar a{display:inline-flex;align-items:center;gap:5px;padding:8px 18px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .25s}
+.ext-primary{background:rgba(0,212,255,.1);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-primary:hover{background:rgba(0,212,255,.22);color:#fff}
+.ext-secondary{background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-secondary:hover{border-color:var(--primary);color:var(--primary)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:11px;padding:5px 12px;border-radius:12px;background:rgba(8,20,44,.7);border:1px solid rgba(0,212,255,.08);transition:all .25s}
+.bottom-nav a:hover{color:var(--primary);border-color:var(--border-glow)}
+
+footer{text-align:center;padding:16px 20px;font-size:10px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:24px;position:relative;z-index:1}
+footer p{margin:3px 0}
+
+@media(max-width:640px){
+  .hero h1{font-size:22px}
+  .form-row{grid-template-columns:1fr}
+  .request-card{flex-direction:column}
+  .request-card .req-action{flex-direction:row;width:100%;align-items:center}
+  .station-grid{grid-template-columns:1fr}
+  .aid-type-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="战友互助站 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/mutual-aid-stations.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/mutual-aid-stations.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">🆘 战友互助站</span>
+</nav>
+
+<div class="hero">
+  <h1>🆘 战友互助站</h1>
+  <p>一日为战友，终生是兄弟。军鸽云链战友互助站，让每一位退役军人都能找到组织、获得帮助、传递温暖。</p>
+  <div class="stats-row">
+    <div class="stat-box"><div class="val">3,286</div><div class="lbl">互助请求已完成</div></div>
+    <div class="stat-box"><div class="val">1,540</div><div class="lbl">当前活跃求助</div></div>
+    <div class="stat-box"><div class="val">8,920</div><div class="lbl">注册互助战友</div></div>
+    <div class="stat-box"><div class="val">156</div><div class="lbl">线下互助站</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 互助类型 -->
+<div class="section-title"><span class="icon">🤝</span><span>互助<span class="color">类型</span></span></div>
+<div class="aid-type-grid">
+  <div class="aid-type" onclick="switchTab('all')">
+    <span class="type-icon">💼</span><h4>就业互助</h4><p>岗位推荐、简历优化、面试指导、职业规划</p>
+  </div>
+  <div class="aid-type" onclick="switchTab('all')">
+    <span class="type-icon">💰</span><h4>创业互助</h4><p>项目合作、资金对接、资源对接、经验分享</p>
+  </div>
+  <div class="aid-type" onclick="switchTab('all')">
+    <span class="type-icon">🏥</span><h4>医疗互助</h4><p>就医指导、药品互助、健康咨询、心理疏导</p>
+  </div>
+  <div class="aid-type" onclick="switchTab('all')">
+    <span class="type-icon">⚖️</span><h4>法律援助</h4><p>法律咨询、权益维护、政策解读、纠纷调解</p>
+  </div>
+  <div class="aid-type" onclick="switchTab('all')">
+    <span class="type-icon">🏠</span><h4>生活互助</h4><p>搬家帮忙、家电维修、子女教育、婚恋交友</p>
+  </div>
+  <div class="aid-type" onclick="switchTab('all')">
+    <span class="type-icon">🎓</span><h4>技能互助</h4><p>技术指导、考证辅导、外语学习、计算机培训</p>
+  </div>
+</div>
+
+<!-- 互助请求列表 -->
+<div class="section-title"><span class="icon">📢</span><span>最新<span class="color">互助请求</span></span></div>
+
+<div class="tab-bar">
+  <span class="tab active" onclick="switchTab('all',this)">全部</span>
+  <span class="tab" onclick="switchTab('help',this)">🆘 需要帮助</span>
+  <span class="tab" onclick="switchTab('offer',this)">🤝 提供帮助</span>
+  <span class="tab" onclick="switchTab('done',this)">✅ 已完成</span>
+</div>
+
+<div id="requestList">
+  <div class="request-card" data-type="help">
+    <span class="urgency urgency-high">🔴 紧急</span>
+    <div class="req-content">
+      <h4>急寻：广州地区退役军人律师协助劳动仲裁</h4>
+      <div class="req-desc">原陆军某部退伍战士，因工伤赔偿纠纷需申请劳动仲裁。希望有法律背景的战友提供咨询指导，地点广州天河区。</div>
+      <div class="req-meta">
+        <span>👤 王战友 · 原陆军某部</span><span>📍 广州天河</span><span>🕐 2小时前</span><span>👁️ 126次</span>
+      </div>
+    </div>
+    <div class="req-action">
+      <button class="help-btn" onclick="alert('已发送帮助意向！')">我来帮忙</button>
+    </div>
+  </div>
+
+  <div class="request-card" data-type="help">
+    <span class="urgency urgency-mid">🟡 中等</span>
+    <div class="req-content">
+      <h4>退役创业需要短视频运营合伙人（海南三亚）</h4>
+      <div class="req-desc">退伍后在三亚经营海鲜加工厂，想拓展线上销售渠道。急需懂抖音/快手运营的战友合伙创业，可提供食宿+股份。</div>
+      <div class="req-meta">
+        <span>👤 马班长 · 原海军某支队</span><span>📍 海南三亚</span><span>🕐 5小时前</span><span>👁️ 298次</span>
+      </div>
+    </div>
+    <div class="req-action">
+      <button class="help-btn" onclick="alert('已发送帮助意向！')">我来帮忙</button>
+    </div>
+  </div>
+
+  <div class="request-card" data-type="offer">
+    <span class="urgency urgency-low">🟢 提供中</span>
+    <div class="req-content">
+      <h4>免费为退役军人提供计算机基础培训（线上）</h4>
+      <div class="req-desc">原空军某部信息对抗专业退伍，现为IT工程师。每周六晚8点通过腾讯会议免费教授计算机基础课程，欢迎零基础战友参加。</div>
+      <div class="req-meta">
+        <span>👤 李工 · 原空军某部</span><span>📍 线上</span><span>🕐 1天前</span><span>👁️ 562次 · 已报名38人</span>
+      </div>
+    </div>
+    <div class="req-action">
+      <button class="btn-gold" onclick="alert('报名成功！会议链接已发送。')">我要参加</button>
+    </div>
+  </div>
+
+  <div class="request-card" data-type="help">
+    <span class="urgency urgency-mid">🟡 中等</span>
+    <div class="req-content">
+      <h4>寻找云南地区生态农业合作社合作伙伴</h4>
+      <div class="req-desc">原武警某部退伍，在云南红河州有200亩山地，计划发展生态种植+林下养殖。寻找有农业经验的战友一起干，优先退役军人！</div>
+      <div class="req-meta">
+        <span>👤 赵老兵 · 原武警某部</span><span>📍 云南红河</span><span>🕐 8小时前</span><span>👁️ 184次</span>
+      </div>
+    </div>
+    <div class="req-action">
+      <button class="help-btn" onclick="alert('已发送帮助意向！')">我来帮忙</button>
+    </div>
+  </div>
+
+  <div class="request-card" data-type="done">
+    <span class="urgency urgency-low">✅ 已完成</span>
+    <div class="req-content">
+      <h4>【已完成】东北战友急需哈尔滨医院床位协调（已解决）</h4>
+      <div class="req-desc">战友家属因病急需哈尔滨某三甲医院床位，通过军鸽云链互助站联系到该院退役军人医生战友，24小时内协调解决。感谢平台和所有帮忙的战友！</div>
+      <div class="req-meta">
+        <span>👤 匿名战友</span><span>📍 黑龙江哈尔滨</span><span>🕐 3天前发布 · 已解决</span><span>❤️ 感谢信</span>
+      </div>
+    </div>
+    <div class="req-action">
+      <span style="font-size:11px;color:var(--green)">🤝 18人参与帮助</span>
+    </div>
+  </div>
+</div>
+
+<!-- 求助/提供表单 -->
+<div class="section-title"><span class="icon">✋</span><span>发布互助<span class="color">信息</span></span></div>
+<div class="form-section">
+  <h3>📝 发布互助请求</h3>
+  <form onsubmit="alert('互助信息已发布！战友们会看到你的请求。');return false">
+    <div class="form-group">
+      <label>信息类型 <span class="required">*</span></label>
+      <select required>
+        <option value="">请选择类型</option>
+        <option>🆘 我需要帮助</option>
+        <option>🤝 我提供帮助</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>互助类别 <span class="required">*</span></label>
+      <select required>
+        <option value="">请选择互助类别</option>
+        <option>💼 就业互助</option>
+        <option>💰 创业互助</option>
+        <option>🏥 医疗互助</option>
+        <option>⚖️ 法律援助</option>
+        <option>🏠 生活互助</option>
+        <option>🎓 技能互助</option>
+        <option>🌾 农业互助</option>
+        <option>🔧 其他</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>姓名/称呼 <span class="required">*</span></label>
+        <input type="text" placeholder="请输入您的姓名或称呼" required>
+      </div>
+      <div class="form-group">
+        <label>联系电话 <span class="required">*</span></label>
+        <input type="tel" placeholder="方便战友联系您" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>所在地区 <span class="required">*</span></label>
+      <select>
+        <option>北京市</option><option>上海市</option><option selected>广东省广州市</option>
+        <option>广东省深圳市</option><option>海南省三亚市</option><option>云南省昆明市</option>
+        <option>黑龙江省哈尔滨市</option><option>四川省成都市</option><option>其他地区</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>标题 <span class="required">*</span></label>
+      <input type="text" placeholder="简明扼要描述你的需求或提供的帮助（15-40字）" required>
+    </div>
+    <div class="form-group">
+      <label>详细描述 <span class="required">*</span></label>
+      <textarea placeholder="请详细描述：&#10;1. 你的具体情况和需求&#10;2. 希望获得什么样的帮助&#10;3. 时间、地点等关键信息&#10;4. 其他有助于战友了解的信息&#10;&#10;描述越详细，获得帮助的可能性越大！" required></textarea>
+    </div>
+    <div class="btn-row">
+      <button type="submit" class="btn-primary">📤 发布互助信息</button>
+      <button type="button" class="btn-secondary">💾 保存草稿</button>
+    </div>
+  </form>
+</div>
+
+<!-- 线下站点 -->
+<div class="section-title"><span class="icon">📍</span><span>线下互助<span class="color">站点</span></span></div>
+<div class="station-grid">
+  <div class="station-card">
+    <h4>🏛️ 广州总站战友互助中心</h4>
+    <div class="station-addr">📍 广州市天河区体育西路168号</div>
+    <div class="station-services">
+      <span>就业推荐</span><span>法律咨询</span><span>创业对接</span><span>活动组织</span>
+    </div>
+    <div class="station-contact">📞 020-8888-9999 · 站长：陈老兵</div>
+    <div class="station-hours">🕐 周一至周六 9:00-18:00</div>
+  </div>
+  <div class="station-card">
+    <h4>🌴 海南三亚战友服务站</h4>
+    <div class="station-addr">📍 三亚市吉阳区迎宾路88号</div>
+    <div class="station-services">
+      <span>旅游接待</span><span>海鲜产业</span><span>民宿合作</span><span>航海培训</span>
+    </div>
+    <div class="station-contact">📞 0898-3333-6666 · 站长：马班长</div>
+    <div class="station-hours">🕐 每天 8:00-20:00</div>
+  </div>
+  <div class="station-card">
+    <h4>🏔️ 云南昆明战友联络站</h4>
+    <div class="station-addr">📍 昆明市五华区人民中路55号</div>
+    <div class="station-services">
+      <span>农业合作</span><span>旅游接待</span><span>茶叶产业</span><span>技能培训</span>
+    </div>
+    <div class="station-contact">📞 0871-6666-7777 · 站长：赵老兵</div>
+    <div class="station-hours">🕐 周二至周日 9:00-17:00</div>
+  </div>
+  <div class="station-card">
+    <h4>❄️ 东北哈尔滨战友之家</h4>
+    <div class="station-addr">📍 哈尔滨市南岗区学府路102号</div>
+    <div class="station-services">
+      <span>农产品销售</span><span>冷链物流</span><span>冬季运动</span><span>就业对接</span>
+    </div>
+    <div class="station-contact">📞 0451-5555-8888 · 站长：李老兵</div>
+    <div class="station-hours">🕐 周一至周五 8:30-17:30</div>
+  </div>
+  <div class="station-card">
+    <h4>🌶️ 四川成都战友联络站</h4>
+    <div class="station-addr">📍 成都市武侯区高升桥路32号</div>
+    <div class="station-services">
+      <span>餐饮创业</span><span>民宿合作</span><span>文旅开发</span><span>战友联谊</span>
+    </div>
+    <div class="station-contact">📞 028-8888-3333 · 站长：张老兵</div>
+    <div class="station-hours">🕐 周一至周六 9:00-18:00</div>
+  </div>
+  <div class="station-card">
+    <h4>🏙️ 上海战友服务站</h4>
+    <div class="station-addr">📍 上海市浦东新区张江高科技园区</div>
+    <div class="station-services">
+      <span>IT就业</span><span>金融培训</span><span>创业孵化</span><span>国际贸易</span>
+    </div>
+    <div class="station-contact">📞 021-6666-9999 · 站长：周老兵</div>
+    <div class="station-hours">🕐 周一至周五 9:00-18:00</div>
+  </div>
+</div>
+
+<div class="motto-banner">
+  <div class="motto">🤝 战友一家亲，互助暖人心</div>
+  <div class="sub">每一位退役军人都是军鸽云链的家人。无论你遇到什么困难，我们都在一起。</div>
+</div>
+
+<div class="extend-bar">
+  <span class="ext-title">🔗 相关链接：</span>
+  <a href="/base-training.html" class="ext-primary">🎖️ 军旅培训基地</a>
+  <a href="/employment-service.html" class="ext-primary">💼 就业创业服务</a>
+  <a href="/index.html" class="ext-secondary">🏠 返回首页</a>
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台</p>
+</footer>
+
+<script>
+function switchTab(type,btn){
+  if(btn){document.querySelectorAll('.tab-bar .tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active')}
+  document.querySelectorAll('#requestList .request-card').forEach(card=>{
+    card.style.display=(type==='all'||card.dataset.type===type)?'flex':'none';
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<meta name="theme-color" content="#030712">
+<title>投稿指南 - 军鸽云链</title>
+<meta name="description" content="军鸽云链投稿指南：投稿要求、格式规范、审核流程、稿酬说明。退役军人文创平台。">
+<style>
+:root {
+  --bg-deep: #030712;
+  --bg-card: rgba(8,20,44,.85);
+  --primary: #00d4ff;
+  --accent: #ff2d78;
+  --gold: #f0c040;
+  --green: #22c55e;
+  --purple: #a78bfa;
+  --red: #d47a7e;
+  --text: #e8edf5;
+  --text-dim: #8896b0;
+  --text-muted: #4a5568;
+  --border: rgba(0,212,255,.1);
+  --border-glow: rgba(0,212,255,.18);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --shadow: 0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg-deep);color:var(--text);line-height:1.7;padding-bottom:72px;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 20% 20%,rgba(0,212,255,.04) 0%,transparent 60%),radial-gradient(ellipse at 80% 60%,rgba(240,192,64,.03) 0%,transparent 60%);pointer-events:none;z-index:0}
+
+.breadcrumb-bar{background:rgba(3,7,18,.95);border-bottom:1px solid var(--border);padding:10px 20px;position:sticky;top:0;z-index:99;backdrop-filter:blur(12px);display:flex;align-items:center;gap:6px;font-size:12px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .25s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:var(--text-muted)}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{position:relative;z-index:1;text-align:center;padding:56px 20px 40px;background:linear-gradient(180deg,rgba(0,212,255,.07) 0%,rgba(3,7,18,.98) 100%)}
+.hero h1{font-size:30px;font-weight:900;margin-bottom:10px;background:linear-gradient(135deg,#00d4ff 0%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:14px;color:var(--text-dim);max-width:600px;margin:0 auto}
+.hero .badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.hero .badge{display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(0,212,255,.08);color:var(--primary);border:1px solid rgba(0,212,255,.15)}
+
+.container{max-width:960px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+.section-title{display:flex;align-items:center;gap:10px;margin:36px 0 20px;font-size:18px;font-weight:700}
+.section-title .icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:rgba(0,212,255,.1);color:var(--primary)}
+.section-title span.color{color:var(--primary)}
+
+.guide-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;margin-bottom:20px;backdrop-filter:blur(12px);position:relative;overflow:hidden;transition:all .3s}
+.guide-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--primary),transparent);opacity:.4}
+.guide-card:hover{border-color:var(--border-glow);box-shadow:0 0 24px rgba(0,212,255,.08);transform:translateY(-2px)}
+.guide-card h3{font-size:16px;font-weight:700;margin-bottom:14px;color:var(--primary);display:flex;align-items:center;gap:8px}
+.guide-card p,.guide-card li{font-size:13.5px;color:var(--text-dim);line-height:1.9}
+.guide-card ul{padding-left:18px;margin-top:8px}
+.guide-card ul li{margin-bottom:6px}
+.guide-card ul li::marker{color:var(--primary)}
+
+.process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:20px}
+.process-step{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;text-align:center;backdrop-filter:blur(12px);position:relative;transition:all .3s}
+.process-step:hover{border-color:var(--border-glow);transform:translateY(-2px)}
+.process-step .step-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:20px;font-weight:900;background:linear-gradient(135deg,#00d4ff,#a78bfa);color:#fff}
+.process-step h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.process-step p{font-size:12px;color:var(--text-dim);line-height:1.6}
+
+.pay-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+.pay-table th{background:rgba(0,212,255,.06);color:var(--primary);padding:12px 16px;text-align:left;font-weight:700;border-bottom:2px solid var(--border-glow)}
+.pay-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--text-dim)}
+.pay-table tr:hover td{background:rgba(0,212,255,.03)}
+.pay-table .highlight{color:var(--gold);font-weight:700}
+
+.rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:20px}
+.rule-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;backdrop-filter:blur(12px);transition:all .3s}
+.rule-card:hover{border-color:var(--border-glow)}
+.rule-card .rule-icon{font-size:22px;margin-bottom:10px}
+.rule-card h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.rule-card p{font-size:12px;color:var(--text-dim);line-height:1.6}
+
+.faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;margin-bottom:10px;backdrop-filter:blur(12px);cursor:pointer;transition:all .3s}
+.faq-item:hover{border-color:var(--border-glow)}
+.faq-item .q{font-size:14px;font-weight:700;color:var(--primary);margin-bottom:6px}
+.faq-item .a{font-size:12.5px;color:var(--text-dim);line-height:1.7}
+
+.extend-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px;margin:24px 0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;border-top:2px solid var(--border-glow)}
+.extend-bar .ext-title{font-size:12px;font-weight:700;color:var(--text-dim)}
+.extend-bar a{display:inline-flex;align-items:center;gap:5px;padding:8px 18px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .25s}
+.ext-primary{background:rgba(0,212,255,.1);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-primary:hover{background:rgba(0,212,255,.22);color:#fff}
+.ext-secondary{background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-secondary:hover{border-color:var(--primary);color:var(--primary)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:11px;padding:5px 12px;border-radius:12px;background:rgba(8,20,44,.7);border:1px solid rgba(0,212,255,.08);transition:all .25s}
+.bottom-nav a:hover{color:var(--primary);border-color:var(--border-glow)}
+.bottom-nav a.active{color:var(--primary);background:rgba(0,212,255,.1);border-color:var(--border-glow);font-weight:700}
+
+footer{text-align:center;padding:16px 20px;font-size:10px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:24px;position:relative;z-index:1}
+footer p{margin:3px 0}
+
+@media(max-width:640px){
+  .hero h1{font-size:22px}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
+  .rules-grid{grid-template-columns:1fr}
+  .pay-table{font-size:11px}
+  .pay-table th,.pay-table td{padding:8px 10px}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="投稿指南 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/contribute-guide.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/contribute-guide.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">📋 投稿指南</span>
+</nav>
+
+<div class="hero">
+  <h1>📋 投稿指南</h1>
+  <p>欢迎退役军人及军属向军鸽云链平台投稿！请仔细阅读以下指南，确保您的内容符合平台规范，顺利通过审核。</p>
+  <div class="badge-row">
+    <span class="badge">🎯 原创优先</span>
+    <span class="badge">⚡ 快速审核</span>
+    <span class="badge">💰 优稿优酬</span>
+    <span class="badge">🏅 军魂传承</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 投稿类型概览 -->
+<div class="section-title"><span class="icon">📂</span><span>投稿<span class="color">分类</span>一览</span></div>
+<div class="rules-grid">
+  <div class="rule-card">
+    <div class="rule-icon">📝</div>
+    <h4>长文投稿</h4>
+    <p>军事评论、时事分析、创业经验、技术分享、生活随笔等原创长文，字数800-5000字为佳。</p>
+  </div>
+  <div class="rule-card">
+    <div class="rule-icon">📖</div>
+    <h4>故事投稿</h4>
+    <p>军旅故事、创业故事、农庄故事、战友情谊等真实经历分享。要求情感真挚、内容正能量。</p>
+  </div>
+  <div class="rule-card">
+    <div class="rule-icon">🎨</div>
+    <h4>艺术投稿</h4>
+    <p>摄影作品、书法绘画、手工艺品、文创设计等视觉艺术。支持JPG/PNG/MP4格式，单文件≤20MB。</p>
+  </div>
+  <div class="rule-card">
+    <div class="rule-icon">🎙️</div>
+    <h4>影音投稿</h4>
+    <p>短视频、纪录片、播客音频等多媒体内容。时长建议3-15分钟，需附文字简介。</p>
+  </div>
+</div>
+
+<!-- 投稿要求 -->
+<div class="section-title"><span class="icon">✅</span><span>投稿<span class="color">基本要求</span></span></div>
+<div class="guide-card">
+  <h3>🔒 内容红线（触犯不予通过）</h3>
+  <ul>
+    <li>不得包含违反国家法律法规的内容，不得泄露军事机密。</li>
+    <li>不得含有色情、暴力、赌博、诈骗等违法信息。</li>
+    <li>不得恶意攻击他人或组织，不得散布谣言和虚假信息。</li>
+    <li>不得包含任何形式的商业广告软文（合作推广需走商务渠道）。</li>
+    <li>投稿内容必须为原创或已获合法授权，不得抄袭剽窃。</li>
+  </ul>
+</div>
+
+<div class="guide-card">
+  <h3>📐 格式规范</h3>
+  <ul>
+    <li><strong>标题：</strong>简洁有力，10-30字为宜，避免标题党。示例：「从侦察班长到智慧农场主——我的三年创业路」</li>
+    <li><strong>正文：</strong>段落分明，每段不超过300字。适当使用小标题分隔，提升可读性。</li>
+    <li><strong>配图：</strong>建议3-8张高清配图（宽≥1200px），图片需无水印、无版权争议。支持JPG/PNG/WebP。</li>
+    <li><strong>作者信息：</strong>请提供真实姓名或笔名、军旅经历简述（如：原XX部队XX年兵）、联系方式。</li>
+    <li><strong>标签：</strong>投稿时请选择1-3个相关标签，便于分类展示和读者搜索。</li>
+  </ul>
+</div>
+
+<div class="guide-card">
+  <h3>🏷️ 标签体系</h3>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+    <span style="background:rgba(0,212,255,.1);color:var(--primary);padding:4px 12px;border-radius:12px;font-size:12px;border:1px solid rgba(0,212,255,.15)">军旅生涯</span>
+    <span style="background:rgba(0,212,255,.1);color:var(--primary);padding:4px 12px;border-radius:12px;font-size:12px;border:1px solid rgba(0,212,255,.15)">创业故事</span>
+    <span style="background:rgba(240,192,64,.1);color:var(--gold);padding:4px 12px;border-radius:12px;font-size:12px;border:1px solid rgba(240,192,64,.15)">生态农庄</span>
+    <span style="background:rgba(240,192,64,.1);color:var(--gold);padding:4px 12px;border-radius:12px;font-size:12px;border:1px solid rgba(240,192,64,.15)">红色文旅</span>
+    <span style="background:rgba(34,197,94,.1);color:var(--green);padding:4px 12px;border-radius:12px;font-size:12px;border:1px solid rgba(34,197,94,.15)">技术分享</span>
+    <span style="background:rgba(167,139,250,.1);color:var(--purple);padding:4px 12px;border-radius:12px;font-size:12px;border:1px solid rgba(167,139,250,.15)">战友情谊</span>
+    <span style="background:rgba(212,122,126,.1);color:var(--red);padding:4px 12px;border-radius:12px;font-size:12px;border:1px solid rgba(212,122,126,.15)">时事评论</span>
+    <span style="background:rgba(0,212,255,.1);color:var(--primary);padding:4px 12px;border-radius:12px;font-size:12px;border:1px solid rgba(0,212,255,.15)">生活随笔</span>
+  </div>
+</div>
+
+<!-- 审核流程 -->
+<div class="section-title"><span class="icon">🔄</span><span>审核<span class="color">流程</span></span></div>
+<div class="process-grid">
+  <div class="process-step">
+    <div class="step-num">1</div>
+    <h4>提交投稿</h4>
+    <p>通过对应投稿页面上传内容，系统自动检测格式和字数</p>
+  </div>
+  <div class="process-step">
+    <div class="step-num">2</div>
+    <h4>初审筛查</h4>
+    <p>AI+人工结合，1个工作日内完成内容合规性与原创性筛查</p>
+  </div>
+  <div class="process-step">
+    <div class="step-num">3</div>
+    <h4>编辑审核</h4>
+    <p>编辑团队评估内容质量，可提出修改建议，2个工作日内反馈</p>
+  </div>
+  <div class="process-step">
+    <div class="step-num">4</div>
+    <h4>发布上线</h4>
+    <p>通过后安排发布，同步推送至相关社群和分站，作者获得稿酬</p>
+  </div>
+</div>
+
+<div class="guide-card">
+  <h3>⏱️ 审核时效承诺</h3>
+  <ul>
+    <li><strong>快速通道：</strong>星级作者（累计发布≥5篇）享受24小时内优先审核。</li>
+    <li><strong>标准审核：</strong>普通投稿48小时内完成审核并反馈结果。</li>
+    <li><strong>紧急加急：</strong>时事热点类内容可标注「加急」，6小时内响应。</li>
+    <li><strong>修改重投：</strong>被退回的稿件，修改后重新提交，2个工作日内复审。</li>
+  </ul>
+</div>
+
+<!-- 稿酬说明 -->
+<div class="section-title"><span class="icon">💰</span><span>稿酬<span class="color">说明</span></span></div>
+<div class="guide-card">
+  <h3>💎 稿酬标准（2026年度）</h3>
+  <table class="pay-table">
+    <thead>
+      <tr><th>稿件类型</th><th>基础稿酬</th><th>阅读量奖励</th><th>月度TOP奖</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>长文（800-2000字）</td><td class="highlight">50元/篇</td><td>阅读≥5000 +30元</td><td rowspan="4" style="text-align:center;color:var(--gold);font-weight:700">TOP3<br>200-500元</td></tr>
+      <tr><td>长文（2000-5000字）</td><td class="highlight">100元/篇</td><td>阅读≥10000 +50元</td></tr>
+      <tr><td>故事投稿（真实经历）</td><td class="highlight">80元/篇</td><td>阅读≥5000 +40元</td></tr>
+      <tr><td>艺术作品（组图≥5张）</td><td class="highlight">60元/组</td><td>点赞≥200 +30元</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:12px">※ 稿酬每月15日结算，通过平台钱包发放。优质作者可签约成为专栏作者，享受固定月薪+分成。</p>
+</div>
+
+<!-- 常见问题 -->
+<div class="section-title"><span class="icon">❓</span><span>常见<span class="color">问题</span></span></div>
+<div class="faq-item"><div class="q">Q: 非退役军人可以投稿吗？</div><div class="a">A: 可以。我们欢迎军属、军事爱好者、与退役军人事业相关的各界人士投稿。内容须与军旅文化、退役军人创业就业、国防教育等主题相关。</div></div>
+<div class="faq-item"><div class="q">Q: 投稿后多久能知道结果？</div><div class="a">A: 标准审核48小时内反馈。如超时未收到通知，可通过「个人中心-我的投稿」查看状态，或联系客服咨询。</div></div>
+<div class="faq-item"><div class="q">Q: 投稿被退回后还可以修改重投吗？</div><div class="a">A: 当然可以。编辑会注明退回原因和修改建议，您修改后可重新提交，我们会优先复审。</div></div>
+<div class="faq-item"><div class="q">Q: 图片/视频版权如何保障？</div><div class="a">A: 平台采用区块链存证技术，为每篇原创内容生成数字指纹，上链确权。如发生侵权，可凭链上记录维权。</div></div>
+
+<div class="extend-bar">
+  <span class="ext-title">🔗 开始投稿：</span>
+  <a href="/contribute-story.html" class="ext-primary">📖 故事投稿</a>
+  <a href="/contribute-article.html" class="ext-primary">📝 文章投稿</a>
+  <a href="/contribute-art.html" class="ext-primary">🎨 艺术投稿</a>
+  <a href="/index.html" class="ext-secondary">🏠 返回首页</a>
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台</p>
+</footer>
+
+</body>
+</html>

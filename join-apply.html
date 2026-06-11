@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>申请加入 · 军鸽云链数智</title>
+<meta name="description" content="加入军鸽云链数智——分站、会员、企业、群众，四大通道零成本加入。退役军人、食品安全从业者、县域创业者优先。">
+<style>
+:root {
+  --red:#b84045; --red-bg:rgba(184,64,69,0.12); --red-glow:rgba(184,64,69,0.4);
+  --green:#4d9460; --green-bg:rgba(77,148,96,0.12); --green-glow:rgba(77,148,96,0.4);
+  --blue:#4b8ec9; --blue-bg:rgba(75,142,201,0.12); --blue-glow:rgba(75,142,201,0.4);
+  --gold:#c4a044;
+  --bg:#0a0f16; --bg2:#101820; --bg-card:rgba(16,24,36,0.7);
+  --text:#e7ecf2; --text2:#9daab8; --text3:#556070;
+  --border:rgba(255,255,255,0.05); --border2:rgba(255,255,255,0.08);
+  --radius:12px; --radius-lg:18px; --trans:all .3s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;line-height:1.6;min-height:100vh;padding-bottom:60px}
+.container{max-width:800px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.header{background:linear-gradient(135deg,rgba(77,148,96,.15),rgba(10,15,22,.97),rgba(75,142,201,.08));border-bottom:1px solid rgba(77,148,96,.15);padding:12px 20px;position:sticky;top:0;z-index:100;backdrop-filter:blur(16px)}
+.header-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:12px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#c44,#822);display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 0 16px var(--red-glow)}
+.brand-name{color:var(--text);font-size:14px;font-weight:700;letter-spacing:.04em}
+.brand-sub{color:var(--text2);font-size:9px}
+
+/* Hero */
+.hero{text-align:center;padding:40px 20px 24px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(77,148,96,.1),transparent 60%);pointer-events:none}
+.hero-badge{display:inline-block;padding:6px 18px;border-radius:18px;font-size:10px;font-weight:700;letter-spacing:.1em;background:rgba(77,148,96,.12);border:1px solid rgba(77,148,96,.2);color:#6dab7e;margin-bottom:14px;position:relative;z-index:1}
+.hero h1{font-size:32px;font-weight:900;letter-spacing:.06em;margin-bottom:10px;position:relative;z-index:1}
+.hero h1 .g{color:#6dab7e}
+.hero .desc{font-size:13px;color:var(--text2);max-width:550px;margin:0 auto;line-height:1.7;position:relative;z-index:1}
+
+/* Type Selector */
+.type-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0 24px}
+.type-card{background:var(--bg-card);border:2px solid var(--border);border-radius:var(--radius);padding:16px 10px;text-align:center;cursor:pointer;transition:var(--trans);backdrop-filter:blur(12px)}
+.type-card:hover{border-color:rgba(77,148,96,.3);transform:translateY(-2px)}
+.type-card.active{border-color:#6dab7e;background:rgba(77,148,96,.08);box-shadow:0 0 24px rgba(77,148,96,.15)}
+.type-card .icon{font-size:32px;display:block;margin-bottom:8px}
+.type-card .name{font-size:13px;font-weight:700;display:block;margin-bottom:2px}
+.type-card .tip{font-size:9px;color:var(--text2)}
+.type-card .card-link{display:block;font-size:9px;color:var(--blue);margin-top:6px;text-decoration:none;opacity:.7;transition:var(--trans)}
+.type-card .card-link:hover{opacity:1;color:#6dab7e}
+.type-card.active .name{color:#6dab7e}
+.type-card.active .tip{color:#6dab7e}
+.type-card.active .card-link{color:#6dab7e;opacity:1}
+
+@media(max-width:600px){.type-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* Form */
+.form-section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;backdrop-filter:blur(12px);margin-bottom:20px}
+.form-section h3{font-size:16px;font-weight:700;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.form-section h3 .sec-icon{font-size:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.form-row.full{grid-template-columns:1fr}
+@media(max-width:500px){.form-row{grid-template-columns:1fr}}
+
+label{display:block;font-size:10.5px;font-weight:600;color:var(--text2);margin-bottom:4px;letter-spacing:.03em}
+label .req{color:var(--red);margin-left:2px}
+input,select,textarea{width:100%;padding:10px 14px;background:rgba(10,15,22,.6);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:12px;font-family:inherit;transition:border .2s;outline:none}
+input:focus,select:focus,textarea:focus{border-color:rgba(77,148,96,.5);box-shadow:0 0 0 3px rgba(77,148,96,.1)}
+textarea{resize:vertical;min-height:80px}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239daab8'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.hint{font-size:9px;color:var(--text3);margin-top:3px}
+
+/* Submit */
+.submit-bar{text-align:center;padding:20px 0 30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 36px;border-radius:28px;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:.04em;transition:var(--trans);cursor:pointer;border:none}
+.btn-submit{background:linear-gradient(135deg,rgba(77,148,96,.25),rgba(35,90,55,.5));border:1px solid rgba(77,148,96,.4);color:#b0ddbc;box-shadow:0 0 24px var(--green-glow),inset 0 1px 0 rgba(255,255,255,.05)}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(77,148,96,.6),inset 0 1px 0 rgba(255,255,255,.1)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.12);color:var(--text2);margin-left:10px;padding:14px 28px;font-size:12px}
+
+/* Toast */
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:9999;padding:12px 24px;border-radius:8px;font-size:12px;font-weight:600;opacity:0;transition:opacity .4s;pointer-events:none}
+.toast.show{opacity:1}
+.toast.success{background:rgba(77,148,96,.9);color:#fff}
+.toast.error{background:rgba(184,64,69,.9);color:#fff}
+
+/* Footer */
+.footer{text-align:center;padding:24px 20px;font-size:9px;color:var(--text3);border-top:1px solid var(--border)}
+.footer a{color:var(--blue);text-decoration:none}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="申请加入 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/join-apply.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/join-apply.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">申请加入</span>
+</nav>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-inner">
+    <a href="/" class="brand">
+      <div class="brand-icon">🕊</div>
+      <div>
+        <div class="brand-name">军鸽云链数智</div>
+        <div class="brand-sub">JunGe CloudLink DI</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">📝 加入我们</div>
+  <h1>申请加入 <span class="g">军鸽云链</span>数智</h1>
+  <p class="desc">零成本入驻 · 零保证金 · 零技术服务费。智慧赋能三千分站，军魂铸信数智富民。</p>
+</div>
+
+<div class="container">
+
+<!-- 身份选择 -->
+<div class="type-grid" id="typeGrid">
+  <div class="type-card active" data-type="station" onclick="selectType(this,'station')">
+    <span class="icon">🌾</span>
+    <span class="name">分站申请</span>
+    <span class="tip">县级分站运营</span>
+    <a href="/fenzhan.html" class="card-link">了解详情 →</a>
+  </div>
+  <div class="type-card" data-type="member" onclick="selectType(this,'member')">
+    <span class="icon">👤</span>
+    <span class="name">会员注册</span>
+    <span class="tip">个人用户加入</span>
+    <a href="/member-register.html" class="card-link">了解详情 →</a>
+  </div>
+  <div class="type-card" data-type="enterprise" onclick="selectType(this,'enterprise')">
+    <span class="icon">🏢</span>
+    <span class="name">企业入驻</span>
+    <span class="tip">品牌/产品上架</span>
+    <a href="/enterprise-apply.html" class="card-link">了解详情 →</a>
+  </div>
+  <div class="type-card" data-type="public" onclick="selectType(this,'public')">
+    <span class="icon">👥</span>
+    <span class="name">群众参与</span>
+    <span class="tip">监督/共建/志愿者</span>
+    <a href="/public-participation.html" class="card-link">了解详情 →</a>
+  </div>
+</div>
+
+<!-- 表单 -->
+<form id="applyForm" onsubmit="submitForm(event)">
+<div class="form-section">
+  <h3><span class="sec-icon">📋</span> 基本信息</h3>
+  <div class="form-row">
+    <div><label>姓名 <span class="req">*</span></label><input name="name" required placeholder="请输入真实姓名"></div>
+    <div><label>手机号码 <span class="req">*</span></label><input name="phone" required type="tel" placeholder="11位手机号码" pattern="1[3-9]\d{9}" maxlength="11"></div>
+  </div>
+  <div class="form-row">
+    <div><label>所在省份 <span class="req">*</span></label><select name="province" required id="province" onchange="fillCities()">
+      <option value="">请选择</option>
+    </select></div>
+    <div><label>所在城市 <span class="req">*</span></label><select name="city" required id="city">
+      <option value="">请先选择省份</option>
+    </select></div>
+  </div>
+  <div class="form-row">
+    <div><label>所在县/区</label><input name="district" placeholder="选填"></div>
+    <div><label>微信号</label><input name="wechat" placeholder="选填，方便联系"></div>
+  </div>
+</div>
+
+<div class="form-section" id="fieldStation" style="display:block">
+  <h3><span class="sec-icon">🌾</span> 分站信息</h3>
+  <div class="form-row">
+    <div><label>退役军人身份</label><select name="veteran_station"><option value="是">是</option><option value="否">否</option></select></div>
+    <div><label>是否有食品安全相关经验</label><select name="food_safety_exp"><option value="有">有</option><option value="无">无</option></select></div>
+  </div>
+  <div class="form-row full">
+    <div><label>申请理由 / 个人优势</label><textarea name="reason_station" placeholder="请简述您为什么想申请成为分站站长，以及您的优势和资源..."></textarea></div>
+  </div>
+</div>
+
+<div class="form-section" id="fieldMember" style="display:none">
+  <h3><span class="sec-icon">👤</span> 会员信息</h3>
+  <div class="form-row">
+    <div><label>退役军人身份</label><select name="veteran_member"><option value="否">否</option><option value="是">是</option></select></div>
+    <div><label>关注领域</label><select name="interest"><option value="食品安全">食品安全</option><option value="生态产品">生态产品</option><option value="军旅文化">军旅文化</option><option value="创业就业">创业就业</option><option value="综合">综合</option></select></div>
+  </div>
+</div>
+
+<div class="form-section" id="fieldEnterprise" style="display:none">
+  <h3><span class="sec-icon">🏢</span> 企业信息</h3>
+  <div class="form-row">
+    <div><label>企业名称 <span class="req">*</span></label><input name="company_name" placeholder="请输入企业全称"></div>
+    <div><label>统一社会信用代码</label><input name="credit_code" placeholder="18位统一社会信用代码"></div>
+  </div>
+  <div class="form-row">
+    <div><label>主营产品/服务</label><input name="main_product" placeholder="例如：有机蔬菜、绿色水果"></div>
+    <div><label>产品是否有溯源码</label><select name="has_trace"><option value="是">是</option><option value="否">否，愿意建立</option></select></div>
+  </div>
+  <div class="form-row full">
+    <div><label>企业简介</label><textarea name="company_desc" placeholder="请简述企业概况、产品特色和加入平台的期望..."></textarea></div>
+  </div>
+</div>
+
+<div class="form-section" id="fieldPublic" style="display:none">
+  <h3><span class="sec-icon">👥</span> 参与方式</h3>
+  <div class="form-row">
+    <div><label>参与角色</label><select name="public_role">
+      <option value="食品安全监督员">食品安全监督员</option>
+      <option value="农产品品鉴师">农产品品鉴师</option>
+      <option value="社区志愿者">社区志愿者</option>
+      <option value="内容创作者">内容创作者</option>
+      <option value="其他">其他</option>
+    </select></div>
+    <div><label>退役军人身份</label><select name="veteran_public"><option value="否">否</option><option value="是">是</option></select></div>
+  </div>
+  <div class="form-row full">
+    <div><label>为什么想加入我们</label><textarea name="reason_public" placeholder="请简述您的想法..."></textarea></div>
+  </div>
+</div>
+
+<div class="form-section">
+  <h3><span class="sec-icon">📢</span> 其他</h3>
+  <div class="form-row full">
+    <div><label>从哪里了解到我们</label><input name="source" placeholder="例如：战友推荐、微信文章、搜索引擎..."></div>
+  </div>
+  <div class="form-row full">
+    <div><label>备注 / 补充信息</label><textarea name="remark" placeholder="任何您想补充的信息..."></textarea></div>
+  </div>
+</div>
+
+<!-- Submit -->
+<div class="submit-bar">
+  <button type="submit" class="btn btn-submit">✅ 提交申请</button>
+  <a href="/join-intro.html" class="btn btn-outline">📖 了解军鸽云链</a>
+</div>
+</form>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+</div>
+
+<!-- Bottom Nav -->
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap">
+  <a href="/" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🏠 军鸽云链</a>
+  <a href="/shangcheng.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🛒 商业生态</a>
+  <a href="/junge-shuzhi.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">⚔ 数智中心</a>
+  <a href="/fenzhan.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🌾 分站家园</a>
+  <a href="/junge-shuzhi.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🧠 数智总部</a>
+  <a href="/zhihui-ai.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🤖 AI指挥台</a>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台 · 海口总站: 175.178.55.90</p>
+</div>
+
+<script>
+// 省份数据
+var provinces = {
+  '北京':['北京市'],'天津':['天津市'],'上海':['上海市'],'重庆':['重庆市'],
+  '河北':['石家庄','唐山','秦皇岛','邯郸','邢台','保定','张家口','承德','沧州','廊坊','衡水'],
+  '山西':['太原','大同','阳泉','长治','晋城','朔州','晋中','运城','忻州','临汾','吕梁'],
+  '内蒙古':['呼和浩特','包头','乌海','赤峰','通辽','鄂尔多斯','呼伦贝尔','巴彦淖尔','乌兰察布'],
+  '辽宁':['沈阳','大连','鞍山','抚顺','本溪','丹东','锦州','营口','阜新','辽阳','盘锦','铁岭','朝阳','葫芦岛'],
+  '吉林':['长春','吉林','四平','辽源','通化','白山','松原','白城','延边'],
+  '黑龙江':['哈尔滨','齐齐哈尔','鸡西','鹤岗','双鸭山','大庆','伊春','佳木斯','七台河','牡丹江','黑河','绥化'],
+  '江苏':['南京','无锡','徐州','常州','苏州','南通','连云港','淮安','盐城','扬州','镇江','泰州','宿迁'],
+  '浙江':['杭州','宁波','温州','嘉兴','湖州','绍兴','金华','衢州','舟山','台州','丽水'],
+  '安徽':['合肥','芜湖','蚌埠','淮南','马鞍山','淮北','铜陵','安庆','黄山','滁州','阜阳','宿州','六安','亳州','池州','宣城'],
+  '福建':['福州','厦门','莆田','三明','泉州','漳州','南平','龙岩','宁德'],
+  '江西':['南昌','景德镇','萍乡','九江','新余','鹰潭','赣州','吉安','宜春','抚州','上饶'],
+  '山东':['济南','青岛','淄博','枣庄','东营','烟台','潍坊','济宁','泰安','威海','日照','临沂','德州','聊城','滨州','菏泽'],
+  '河南':['郑州','开封','洛阳','平顶山','安阳','鹤壁','新乡','焦作','濮阳','许昌','漯河','三门峡','南阳','商丘','信阳','周口','驻马店'],
+  '湖北':['武汉','黄石','十堰','宜昌','襄阳','鄂州','荆门','孝感','荆州','黄冈','咸宁','随州','恩施'],
+  '湖南':['长沙','株洲','湘潭','衡阳','邵阳','岳阳','常德','张家界','益阳','郴州','永州','怀化','娄底','湘西'],
+  '广东':['广州','韶关','深圳','珠海','汕头','佛山','江门','湛江','茂名','肇庆','惠州','梅州','汕尾','河源','阳江','清远','东莞','中山','潮州','揭阳','云浮'],
+  '广西':['南宁','柳州','桂林','梧州','北海','防城港','钦州','贵港','玉林','百色','贺州','河池','来宾','崇左'],
+  '海南':['海口','三亚','三沙','儋州','五指山','琼海','文昌','万宁','东方'],
+  '四川':['成都','自贡','攀枝花','泸州','德阳','绵阳','广元','遂宁','内江','乐山','南充','眉山','宜宾','广安','达州','雅安','巴中','资阳'],
+  '贵州':['贵阳','六盘水','遵义','安顺','毕节','铜仁','黔西南','黔东南','黔南'],
+  '云南':['昆明','曲靖','玉溪','保山','昭通','丽江','普洱','临沧','楚雄','红河','文山','西双版纳','大理','德宏','怒江','迪庆'],
+  '西藏':['拉萨','日喀则','昌都','林芝','山南','那曲','阿里'],
+  '陕西':['西安','铜川','宝鸡','咸阳','渭南','延安','汉中','榆林','安康','商洛'],
+  '甘肃':['兰州','嘉峪关','金昌','白银','天水','武威','张掖','平凉','酒泉','庆阳','定西','陇南','临夏','甘南'],
+  '青海':['西宁','海东','海北','黄南','海南','果洛','玉树','海西'],
+  '宁夏':['银川','石嘴山','吴忠','固原','中卫'],
+  '新疆':['乌鲁木齐','克拉玛依','吐鲁番','哈密','昌吉','博尔塔拉','巴音郭楞','阿克苏','克孜勒苏','喀什','和田','伊犁','塔城','阿勒泰']
+};
+
+(function(){
+  var s = document.getElementById('province');
+  for(var p in provinces) { var o=document.createElement('option'); o.value=p; o.textContent=p; s.appendChild(o); }
+})();
+
+function fillCities(){
+  var pv = document.getElementById('province').value;
+  var cs = document.getElementById('city');
+  cs.innerHTML = '<option value="">请选择</option>';
+  if(provinces[pv]) { for(var i=0;i<provinces[pv].length;i++){ var o=document.createElement('option'); o.value=provinces[pv][i]; o.textContent=provinces[pv][i]; cs.appendChild(o); } }
+}
+
+var currentType = 'station';
+
+// URL参数预选类型：?type=member|enterprise|public
+(function(){
+  var params = new URLSearchParams(location.search);
+  var t = params.get('type');
+  if(t && ['member','enterprise','public'].includes(t)){
+    currentType = t;
+    document.querySelectorAll('.type-card').forEach(function(c){
+      c.classList.remove('active');
+      if(c.dataset.type === t) c.classList.add('active');
+    });
+    ['station','member','enterprise','public'].forEach(function(ty){
+      var div = document.getElementById('field' + ty.charAt(0).toUpperCase() + ty.slice(1));
+      if(div) div.style.display = ty === t ? 'block' : 'none';
+    });
+  }
+})();
+
+function selectType(el, type){
+  document.querySelectorAll('.type-card').forEach(function(c){ c.classList.remove('active'); });
+  el.classList.add('active');
+  currentType = type;
+  ['station','member','enterprise','public'].forEach(function(t){
+    var div = document.getElementById('field' + t.charAt(0).toUpperCase() + t.slice(1));
+    if(div) div.style.display = t === type ? 'block' : 'none';
+  });
+}
+
+function showToast(msg, type){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + type + ' show';
+  setTimeout(function(){ t.className = 'toast'; }, 3000);
+}
+
+function submitForm(e){
+  e.preventDefault();
+  var fd = new FormData(e.target);
+  fd.append('identity_type', currentType);
+
+  // 简单验证
+  var phone = fd.get('phone');
+  if(!/^1[3-9]\d{9}$/.test(phone)){ showToast('请输入正确的11位手机号码','error'); return; }
+
+  if(currentType === 'enterprise' && !fd.get('company_name')){
+    showToast('请填写企业名称','error'); return;
+  }
+
+  // 模拟提交
+  showToast('✅ 申请已提交成功！我们将尽快与您联系。','success');
+
+  // 3秒后跳转首页
+  setTimeout(function(){ window.location.href='/'; }, 3500);
+  return false;
+}
+</script>
+
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/junge-shuzhi.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

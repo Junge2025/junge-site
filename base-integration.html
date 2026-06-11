@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>军地融合基地 · 军鸽云链</title>
+<meta name="description" content="军鸽云链军地融合基地——军民两用人才培养、技术转化、产业对接。退役军人技能提升，军事技术民用化，产学研一体化。">
+<style>
+:root{--bg:#030712;--bg-card:rgba(8,20,44,.85);--text:#e8edf5;--text-dim:#8896b0;--text-muted:#4a5568;--border:rgba(255,255,255,.06);--border-glow:rgba(0,212,255,.18);--primary:#00d4ff;--gold:#f0c040;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;--radius:12px;--radius-lg:18px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh;line-height:1.8;padding-bottom:80px}
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.hero{background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(3,7,18,.97),rgba(167,139,250,.04));border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px 28px;text-align:center;margin-bottom:24px}
+.hero h1{font-size:30px;font-weight:900;margin-bottom:8px}
+.hero p{font-size:13px;color:var(--text-dim);max-width:700px;margin:0 auto}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+@media(max-width:640px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+.stat-card .sc-num{font-size:24px;font-weight:900;color:var(--primary)}
+.stat-card .sc-label{font-size:10px;color:var(--text-dim);margin-top:4px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+.section h2{font-size:18px;margin-bottom:16px;padding-left:12px;border-left:3px solid var(--purple)}
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:640px){.pillar-grid{grid-template-columns:1fr}}
+.pillar{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:.2s}
+.pillar:hover{border-color:var(--purple);transform:translateY(-4px)}
+.pillar .pi{font-size:40px;margin-bottom:10px}
+.pillar h3{font-size:15px;margin-bottom:8px}
+.pillar p{font-size:11px;color:var(--text-dim)}
+.program-list{list-style:none;padding:0}
+.program-list li{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;font-size:13px}
+.program-list li:last-child{border-bottom:none}
+.program-list .pl-icon{font-size:20px}
+.program-list .pl-name{flex:1;font-weight:600;color:var(--text)}
+.program-list .pl-detail{font-size:10px;color:var(--text-dim)}
+.program-list .pl-tag{font-size:9px;padding:2px 8px;border-radius:10px;background:rgba(0,212,255,.1);color:var(--primary)}
+.partner-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.partner-badge{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);padding:8px 16px;border-radius:20px;font-size:11px;color:var(--purple)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+footer{text-align:center;padding:16px;font-size:9px;color:#556070;border-top:1px solid var(--border);margin-top:16px}
+.cta-bar{background:linear-gradient(135deg,rgba(167,139,250,.08),rgba(3,7,18,.97));border:1px solid var(--border-glow);border-radius:var(--radius);padding:24px;text-align:center;margin-top:16px}
+.cta-bar h3{font-size:16px;color:var(--purple);margin-bottom:8px}
+.cta-bar p{font-size:12px;color:var(--text-dim);margin-bottom:14px}
+.btn{display:inline-block;padding:10px 28px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;transition:.2s}
+.btn-primary{background:var(--purple);color:#fff}
+.btn-primary:hover{opacity:.9;transform:translateY(-2px)}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军地融合基地 · 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/base-integration.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/base-integration.html">
+</head>
+<body>
+<nav class="breadcrumb-bar"><a href="/">首页</a><span class="sep">▸</span><a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span><a href="/base-training.html">🎖 军旅基地</a><span class="sep">▸</span><span class="current">军地融合基地</span></nav>
+
+<div class="container">
+  <div class="hero">
+    <h1>🎖 军地融合基地</h1>
+    <p>军民融合 · 两用人才培养 · 技术转化 · 产业对接。退役不褪色，技能再升级——军鸽云链搭建军地协同桥梁。</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card"><div class="sc-num">36</div><div class="sc-label">合作基地</div></div>
+    <div class="stat-card"><div class="sc-num">8,600+</div><div class="sc-label">培训人次</div></div>
+    <div class="stat-card"><div class="sc-num">52</div><div class="sc-label">技术转化项目</div></div>
+    <div class="stat-card"><div class="sc-num">91%</div><div class="sc-label">就业率</div></div>
+  </div>
+
+  <div class="section">
+    <h2>🏗 三大融合支柱</h2>
+    <div class="pillar-grid">
+      <div class="pillar"><div class="pi">🎓</div><h3>人才培养</h3><p>退役军人职业技能培训：无人机操作、网络安全、智慧农业、电商运营等12个专业方向</p></div>
+      <div class="pillar"><div class="pi">🔬</div><h3>技术转化</h3><p>军事技术民用化：北斗导航农业应用、军用食品保鲜技术、应急通信系统民用方案</p></div>
+      <div class="pillar"><div class="pi">🏭</div><h3>产业对接</h3><p>军创企业与地方产业链对接：农产品深加工、军工配套民品制造、军民两用物流体系</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 重点培训项目</h2>
+    <ul class="program-list">
+      <li><span class="pl-icon">🚁</span><span class="pl-name">无人机操作与航拍</span><span class="pl-detail">108课时 · 农业植保+测绘</span><span class="pl-tag">热门</span></li>
+      <li><span class="pl-icon">🔐</span><span class="pl-name">网络安全工程师</span><span class="pl-detail">160课时 · 等保测评+渗透测试</span><span class="pl-tag">高薪</span></li>
+      <li><span class="pl-icon">🌱</span><span class="pl-name">智慧农业技术</span><span class="pl-detail">80课时 · 物联网+精准种植</span><span class="pl-tag">推荐</span></li>
+      <li><span class="pl-icon">📡</span><span class="pl-name">应急通信保障</span><span class="pl-detail">72课时 · 卫星通信+应急指挥</span></li>
+      <li><span class="pl-icon">🍳</span><span class="pl-name">军用食品加工技术</span><span class="pl-detail">60课时 · 食品保鲜+加工工艺</span></li>
+      <li><span class="pl-icon">🚛</span><span class="pl-name">军民融合物流管理</span><span class="pl-detail">96课时 · 冷链物流+仓储管理</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🤝 合作单位</h2>
+    <div class="partner-row">
+      <span class="partner-badge">🏛 国防科技大学</span>
+      <span class="partner-badge">🏫 中国农业大学</span>
+      <span class="partner-badge">🔬 中科院合肥物质院</span>
+      <span class="partner-badge">🏢 中国航天科工</span>
+      <span class="partner-badge">📡 中国电子科技集团</span>
+      <span class="partner-badge">🌾 国家农业信息化工程中心</span>
+      <span class="partner-badge">🎓 海南大学</span>
+      <span class="partner-badge">🏗 广东省军民融合产业园</span>
+    </div>
+  </div>
+
+  <div class="cta-bar">
+    <h3>⚡ 退役军人免费报名培训</h3>
+    <p>持退役证可免费参加全部培训课程，结业颁发技能证书，推荐就业岗位。</p>
+    <a href="/join-apply.html" class="btn btn-primary">📝 报名培训</a>
+  </div>
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a><a href="/shangcheng.html">🛒 商业生态</a><a href="/junge-shuzhi.html">⚔ 数智中心</a><a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+<footer><p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p><p>食品安全 + 退役军人在服务综合平台 · 原产地直供 · 非转基因</p></footer>
+</body>
+</html>

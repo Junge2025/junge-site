@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>全国3·15食品安全地图 | 军鸽云链</title>
+<style>
+:root{--bg-deep:#030712;--bg-base:#060d1a;--bg-card:rgba(8,20,44,0.85);--primary:#00d4ff;--accent:#22c55e;--gold:#f0c040;--red:#ef4444;--text:#e8edf5;--text-dim:#8896b0;--text-muted:#4a5568;--border:#1a2744;--radius:12px;--radius-lg:18px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:linear-gradient(135deg,var(--bg-deep),#020b1a,var(--bg-deep));color:var(--text);font-family:-apple-system,'Noto Sans SC',sans-serif;min-height:100vh;padding-bottom:80px}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:40px 20px 32px;border-bottom:1px solid var(--border);margin-bottom:32px}
+.header h1{font-size:2rem;background:linear-gradient(135deg,#ef4444,#f59e0b,#22c55e);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header p{color:var(--text-dim);margin-top:8px;font-size:0.9rem}
+.grid2{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.panel{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;margin-bottom:20px}
+.panel h2{font-size:1.1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card-grid{display:flex;flex-direction:column;gap:12px}
+table{width:100%;border-collapse:collapse;font-size:0.85rem}
+th{background:rgba(0,212,255,0.05);color:var(--primary);padding:8px 10px;text-align:left;font-size:0.75rem}
+td{padding:8px 10px;border-bottom:1px solid var(--border)}
+tr:hover td{background:rgba(0,212,255,0.02)}
+.card{background:rgba(8,20,44,0.6);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px}
+.ai-warning{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(245,158,11,0.05));border:1px dashed rgba(239,68,68,0.3);border-radius:var(--radius-lg);padding:20px 24px;margin-top:20px}
+.ai-warning h3{color:var(--red);margin-bottom:8px}
+.footer{text-align:center;padding:24px;color:var(--text-muted);font-size:0.75rem;border-top:1px solid var(--border);margin-top:32px}
+@media(max-width:768px){.grid2{grid-template-columns:1fr}}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="全国3·15食品安全地图 | 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/315-map.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/315-map.html">
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>🗺️ 全国3·15食品安全风险地图</h1>
+  <p>数据来源：军鸽云链食品安全案例库 | 更新：2026-05-31 06:03 | 覆盖10城/11案例</p>
+</div>
+
+<div class="grid2">
+  <div>
+    <div class="panel">
+      <h2>🏙️ 城市风险榜单</h2>
+      <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>#</th><th>城市</th><th>风险指数</th><th>等级</th><th>案件</th><th>3·15</th><th>风险类型</th></tr></thead>
+        <tbody><tr>
+      <td>1</td><td><a href="/station/haikou.html" style="color:var(--primary);text-decoration:none">haikou</a></td>
+      <td><div style="width:100px;height:14px;background:#ef4444;border-radius:7px;display:inline-block"></div> 100</td>
+      <td>🔴 高</td><td>5</td><td>4</td>
+      <td style="font-size:0.75rem">⚠️🧪❄️🦠</td></tr><tr>
+      <td>2</td><td><a href="/station/全国.html" style="color:var(--primary);text-decoration:none">全国</a></td>
+      <td><div style="width:80px;height:14px;background:#ef4444;border-radius:7px;display:inline-block"></div> 80</td>
+      <td>🔴 高</td><td>4</td><td>4</td>
+      <td style="font-size:0.75rem"></td></tr><tr>
+      <td>3</td><td><a href="/station/sanya.html" style="color:var(--primary);text-decoration:none">sanya</a></td>
+      <td><div style="width:5px;height:14px;background:#22c55e;border-radius:7px;display:inline-block"></div> 5</td>
+      <td>🟢 低</td><td>1</td><td>0</td>
+      <td style="font-size:0.75rem">☠️</td></tr><tr>
+      <td>4</td><td><a href="/station/wuhan.html" style="color:var(--primary);text-decoration:none">wuhan</a></td>
+      <td><div style="width:15px;height:14px;background:#22c55e;border-radius:7px;display:inline-block"></div> 15</td>
+      <td>🟢 低</td><td>1</td><td>0</td>
+      <td style="font-size:0.75rem">🦠</td></tr><tr>
+      <td>5</td><td><a href="/station/guangzhou.html" style="color:var(--primary);text-decoration:none">guangzhou</a></td>
+      <td><div style="width:15px;height:14px;background:#22c55e;border-radius:7px;display:inline-block"></div> 15</td>
+      <td>🟢 低</td><td>1</td><td>0</td>
+      <td style="font-size:0.75rem">🦠</td></tr><tr>
+      <td>6</td><td><a href="/station/chengdu.html" style="color:var(--primary);text-decoration:none">chengdu</a></td>
+      <td><div style="width:5px;height:14px;background:#22c55e;border-radius:7px;display:inline-block"></div> 5</td>
+      <td>🟢 低</td><td>1</td><td>0</td>
+      <td style="font-size:0.75rem"></td></tr></tbody>
+      </table>
+      </div>
+    </div>
+    
+    <div class="ai-warning">
+      <h3>🤖 AI 风险预警中心</h3>
+      <p style="font-size:0.85rem;color:var(--text-dim);line-height:1.7">
+        📊 <b>本周趋势</b>：海口3·15曝光案例集中(冷链+过期+非法添加三连发)，建议加强冷链追溯和校园周边专项检查。<br>
+        ⚠️ <b>高危品类</b>：奶茶、海鲜、校园周边食品连续多城出现，触发品类预警。<br>
+        🎯 <b>重点监管建议</b>：①连锁餐饮门店冷链专项检查 ②学校周边流动摊贩整治 ③海鲜批发市场标签溯源核查。
+      </p>
+    </div>
+    
+    <div class="panel">
+      <h2>📋 最新案例</h2>
+      <div class="card-grid"><div class="card" style="border-left:4px solid #ef4444">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:8px;font-size:0.7rem;font-weight:800">🔴 3·15</span> <span style="font-size:0.75rem;color:var(--text-muted)">2025 · 海南·海口·美兰区</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">非法添加/校园周边风险/无证经营</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">海口美兰区学校周边小吃摊使用工业级色素案</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 依法取缔，追查上游供货渠道，启动校园周边食品安全专项整治。</p>
+    </div><div class="card" style="border-left:4px solid #ef4444">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:8px;font-size:0.7rem;font-weight:800">🔴 3·15</span> <span style="font-size:0.75rem;color:var(--text-muted)">2025 · 海南·海口·秀英区</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">过期原料/后厨卫生/连锁门店风险</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">海口秀英区网红奶茶店使用过期奶浆案</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 罚款12万元，责令停业15天，纳入重点监管名单。</p>
+    </div><div class="card" style="border-left:4px solid #ef4444">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:8px;font-size:0.7rem;font-weight:800">🔴 3·15</span> <span style="font-size:0.75rem;color:var(--text-muted)">2025 · 海南·海口·龙华区</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">标签造假/来源不明/冷链风险</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">海口龙华区冷链海鲜标签造假案</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 罚款8万元，责令停业整顿，建立冷链追溯台账。</p>
+    </div><div class="card" style="border-left:4px solid #ef4444">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:8px;font-size:0.7rem;font-weight:800">🔴 3·15</span> <span style="font-size:0.75rem;color:var(--text-muted)">2024 · 全国</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">原料造假+卫生失控</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">央视3·15曝光：多家企业使用劣质原料加工预制菜</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 涉事企业全部停业整顿，吊销食品生产许可证，罚款累计超500万元，多名责任人被刑拘。</p>
+    </div><div class="card" style="border-left:4px solid #ef4444">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:8px;font-size:0.7rem;font-weight:800">🔴 3·15</span> <span style="font-size:0.75rem;color:var(--text-muted)">2024 · 海南·海口</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">温控造假/微生物风险</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">海口某冷链企业温控造假致微生物风险</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 责令停业整顿，罚款15万元，相关批次产品全部召回。</p>
+    </div><div class="card" style="border-left:4px solid #f59e0b">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="font-size:0.75rem;color:var(--text-muted)">2024 · 广东·广州</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">微生物超标+重金属</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">进口冷链食品检出致病菌被海关拦截</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 退运处理，进口商被列入重点监控名单。</p>
+    </div><div class="card" style="border-left:4px solid #ef4444">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:8px;font-size:0.7rem;font-weight:800">🔴 3·15</span> <span style="font-size:0.75rem;color:var(--text-muted)">2023 · 全国</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">食品欺诈+添加剂滥用</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">央视3·15曝光："泰国香米"实为香精勾兑</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 涉事企业被查封，罚款200万元，吊销许可证，企业负责人被立案调查。全国开展大米行业专项整治。</p>
+    </div><div class="card" style="border-left:4px solid #f59e0b">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="font-size:0.75rem;color:var(--text-muted)">2023 · 四川·成都</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">添加剂滥用</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">川味调料违法添加非食用物质案</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 吊销许可证，罚款30万元，移送司法机关追究刑事责任。</p>
+    </div><div class="card" style="border-left:4px solid #f59e0b">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="font-size:0.75rem;color:var(--text-muted)">2023 · 海南·海口</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">微生物超标</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">某水产企业冷链管理不当导致微生物超标</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 责令整改，罚款8万元，相关批次产品下架召回。</p>
+    </div><div class="card" style="border-left:4px solid #ef4444">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:8px;font-size:0.7rem;font-weight:800">🔴 3·15</span> <span style="font-size:0.75rem;color:var(--text-muted)">2022 · 湖南·岳阳</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">卫生失控+添加剂滥用</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">央视3·15曝光：知名酸菜企业"土坑酸菜"卫生乱象</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 涉事企业被查封，罚款300万元，吊销许可证，多名负责人被刑拘。多家方便面品牌紧急下架相关产品，品牌形象严重受损。</p>
+    </div><div class="card" style="border-left:4px solid #f59e0b">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="font-size:0.75rem;color:var(--text-muted)">2022 · 海南·三亚</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">农残超标</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">热带水果种植基地农药残留超标案</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 没收不合格产品，罚款5万元，停业整顿30天。</p>
+    </div><div class="card" style="border-left:4px solid #ef4444">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px">
+        <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:8px;font-size:0.7rem;font-weight:800">🔴 3·15</span> <span style="font-size:0.75rem;color:var(--text-muted)">2021 · 河北·沧州</span>
+        <span style="background:rgba(239,68,68,0.1);color:#ef4444;padding:2px 6px;border-radius:4px;font-size:0.65rem">违禁药物使用</span>
+      </div>
+      <p style="font-size:0.85rem;line-height:1.5">央视3·15曝光：瘦肉精羊流入市场</p>
+      <p style="font-size:0.72rem;color:var(--text-dim)">📋 涉事养殖户和贩运商被刑拘，当地农业和市场监管部门多名责任人被问责。全国开展瘦肉精专项排查。</p>
+    </div></div>
+    </div>
+  </div>
+  
+  <div>
+    <div class="panel">
+      <h2>📊 风险类型分布</h2>
+      <div style="margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:2px"><span>过期食品</span><span style="color:var(--primary)">1件</span></div>
+      <div style="height:8px;background:var(--border);border-radius:4px"><div style="width:7%;height:100%;background:linear-gradient(90deg,#ef4444,#f59e0b);border-radius:4px"></div></div>
+    </div><div style="margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:2px"><span>非法添加</span><span style="color:var(--primary)">1件</span></div>
+      <div style="height:8px;background:var(--border);border-radius:4px"><div style="width:7%;height:100%;background:linear-gradient(90deg,#ef4444,#f59e0b);border-radius:4px"></div></div>
+    </div><div style="margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:2px"><span>冷链风险</span><span style="color:var(--primary)">1件</span></div>
+      <div style="height:8px;background:var(--border);border-radius:4px"><div style="width:7%;height:100%;background:linear-gradient(90deg,#ef4444,#f59e0b);border-radius:4px"></div></div>
+    </div><div style="margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:2px"><span>微生物超标</span><span style="color:var(--primary)">4件</span></div>
+      <div style="height:8px;background:var(--border);border-radius:4px"><div style="width:30%;height:100%;background:linear-gradient(90deg,#ef4444,#f59e0b);border-radius:4px"></div></div>
+    </div><div style="margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:2px"><span>农残超标</span><span style="color:var(--primary)">1件</span></div>
+      <div style="height:8px;background:var(--border);border-radius:4px"><div style="width:7%;height:100%;background:linear-gradient(90deg,#ef4444,#f59e0b);border-radius:4px"></div></div>
+    </div><div style="margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:2px"><span>标签造假</span><span style="color:var(--primary)">3件</span></div>
+      <div style="height:8px;background:var(--border);border-radius:4px"><div style="width:23%;height:100%;background:linear-gradient(90deg,#ef4444,#f59e0b);border-radius:4px"></div></div>
+    </div>
+      <div style="margin-top:16px;padding:12px;background:rgba(0,212,255,0.03);border-radius:8px;font-size:0.8rem;color:var(--text-dim)">
+        📋 案例总数：<b style="color:var(--primary)">13</b> 件 | 3·15曝光：<b style="color:var(--red)">8</b> 件
+      </div>
+    </div>
+    
+    <div class="panel">
+      <h2>🔍 案例筛选</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <span style="cursor:pointer;padding:6px 12px;border-radius:16px;background:rgba(239,68,68,0.1);color:#ef4444;font-size:0.8rem;font-weight:600">🔴 3·15案例</span>
+        <span style="cursor:pointer;padding:6px 12px;border-radius:16px;background:rgba(0,212,255,0.1);color:var(--primary);font-size:0.8rem">🏙️ 海口</span>
+        <span style="cursor:pointer;padding:6px 12px;border-radius:16px;background:rgba(0,212,255,0.1);color:var(--primary);font-size:0.8rem">🏙️ 广州</span>
+        <span style="cursor:pointer;padding:6px 12px;border-radius:16px;background:rgba(245,158,11,0.1);color:#f59e0b;font-size:0.8rem">⚠️ 高危害</span>
+        <a href="/standards/" style="padding:6px 12px;border-radius:16px;background:rgba(34,197,94,0.1);color:#22c55e;font-size:0.8rem;text-decoration:none">📋 查看标准库</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="footer">军鸽云链数智 · junge.中国 · 全国3·15食品安全风险地图 · 数据更新: 2026-05-31 06:03</div>
+</body>
+</html>

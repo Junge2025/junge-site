@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>企业入驻 · 军鸽云链数智</title>
+<meta name="description" content="品牌/产品上架军鸽云链——零成本入驻、零保证金、零技术服务费。食品安全溯源+退役军人服务平台，3000分站渠道覆盖全国。">
+<style>
+:root{
+  --red:#b84045; --red-bg:rgba(184,64,69,0.12); --red-glow:rgba(184,64,69,0.4);
+  --green:#4d9460; --green-bg:rgba(77,148,96,0.12); --green-glow:rgba(77,148,96,0.4);
+  --blue:#4b8ec9; --blue-bg:rgba(75,142,201,0.12); --blue-glow:rgba(75,142,201,0.4);
+  --gold:#c4a044; --orange:#d4883c;
+  --bg:#0a0f16; --bg2:#101820; --bg-card:rgba(16,24,36,0.7);
+  --text:#e7ecf2; --text2:#9daab8; --text3:#556070;
+  --border:rgba(255,255,255,0.05); --border2:rgba(255,255,255,0.08);
+  --radius:12px; --radius-lg:18px; --trans:all .3s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;line-height:1.6;min-height:100vh;padding-bottom:60px}
+.container{max-width:800px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.header{background:linear-gradient(135deg,rgba(212,136,60,.15),rgba(10,15,22,.97),rgba(75,142,201,.08));border-bottom:1px solid rgba(212,136,60,.15);padding:12px 20px;position:sticky;top:0;z-index:100;backdrop-filter:blur(16px)}
+.header-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:12px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#c44,#822);display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 0 16px var(--red-glow)}
+.brand-name{color:var(--text);font-size:14px;font-weight:700;letter-spacing:.04em}
+.brand-sub{color:var(--text2);font-size:9px}
+
+/* Hero */
+.hero{text-align:center;padding:44px 20px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,136,60,.12),transparent 60%);pointer-events:none}
+.hero-badge{display:inline-block;padding:6px 18px;border-radius:18px;font-size:10px;font-weight:700;letter-spacing:.1em;background:rgba(212,136,60,.12);border:1px solid rgba(212,136,60,.2);color:#e0a55b;margin-bottom:14px;position:relative;z-index:1}
+.hero h1{font-size:32px;font-weight:900;letter-spacing:.06em;margin-bottom:10px;position:relative;z-index:1}
+.hero h1 .g{color:#e0a55b}
+.hero .desc{font-size:13px;color:var(--text2);max-width:550px;margin:0 auto;line-height:1.7;position:relative;z-index:1}
+
+/* Sections */
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;backdrop-filter:blur(12px);margin-bottom:20px}
+.section h3{font-size:16px;font-weight:700;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.section h3 .sec-icon{font-size:20px}
+
+/* Benefits grid */
+.benefit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:500px){.benefit-grid{grid-template-columns:1fr}}
+.benefit-item{background:rgba(212,136,60,.06);border:1px solid rgba(212,136,60,.12);border-radius:var(--radius);padding:16px}
+.benefit-item .bi-icon{font-size:22px;margin-bottom:8px;display:block}
+.benefit-item .bi-title{font-size:13px;font-weight:700;margin-bottom:4px}
+.benefit-item .bi-desc{font-size:10px;color:var(--text2);line-height:1.5}
+
+/* Process */
+.process{display:flex;gap:12px;flex-wrap:wrap}
+.process-step{flex:1;min-width:100px;text-align:center;padding:14px 10px;background:rgba(75,142,201,.06);border:1px solid rgba(75,142,201,.12);border-radius:var(--radius);position:relative}
+.process-step .ps-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,rgba(212,136,60,.3),rgba(180,100,30,.4));border:1px solid rgba(212,136,60,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:12px;font-weight:700;color:#e0a55b}
+.process-step .ps-title{font-size:12px;font-weight:700;margin-bottom:3px}
+.process-step .ps-desc{font-size:9px;color:var(--text2)}
+@media(max-width:600px){.process{flex-direction:column}.process-step{flex:none}}
+
+/* Requirement list */
+.req-list{list-style:none}
+.req-list li{padding:8px 12px;margin-bottom:6px;background:rgba(255,255,255,.02);border-radius:8px;font-size:12px;display:flex;align-items:flex-start;gap:8px}
+.req-list li::before{content:'✓';color:#4d9460;font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* CTA */
+.cta-bar{text-align:center;padding:20px 0 30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 36px;border-radius:28px;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:.04em;transition:var(--trans);cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,rgba(212,136,60,.25),rgba(140,80,20,.5));border:1px solid rgba(212,136,60,.4);color:#f0c88a;box-shadow:0 0 24px rgba(212,136,60,.3),inset 0 1px 0 rgba(255,255,255,.05)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(212,136,60,.5),inset 0 1px 0 rgba(255,255,255,.1)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.12);color:var(--text2);padding:14px 28px;font-size:12px;margin-left:10px}
+.btn-outline:hover{border-color:rgba(212,136,60,.3);color:#e0a55b}
+
+/* Footer */
+.footer{text-align:center;padding:24px 20px;font-size:9px;color:var(--text3);border-top:1px solid var(--border)}
+.footer a{color:var(--blue);text-decoration:none}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="企业入驻 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/enterprise-apply.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/enterprise-apply.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">企业申请</span>
+</nav>
+
+
+<div class="header">
+  <div class="header-inner">
+    <a href="/" class="brand">
+      <div class="brand-icon">🕊</div>
+      <div><div class="brand-name">军鸽云链数智</div><div class="brand-sub">JunGe CloudLink DI</div></div>
+    </a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">🏢 企业入驻</div>
+  <h1>品牌/产品上架 <span class="g">军鸽云链</span></h1>
+  <p class="desc">零成本入驻 · 零保证金 · 零技术服务费。您的产品直达全国3000分站，食品安全溯源体系为品质背书。</p>
+</div>
+
+<div class="container">
+
+<!-- 入驻权益 -->
+<div class="section">
+  <h3><span class="sec-icon">🎁</span> 入驻权益</h3>
+  <div class="benefit-grid">
+    <div class="benefit-item">
+      <span class="bi-icon">🛒</span>
+      <div class="bi-title">全渠道分销</div>
+      <div class="bi-desc">产品同步上架军鸽云链商城、3000县级分站、跨境电商通道，一键触达全国消费者。</div>
+    </div>
+    <div class="benefit-item">
+      <span class="bi-icon">🔍</span>
+      <div class="bi-title">区块链溯源</div>
+      <div class="bi-desc">免费接入食品安全区块链溯源系统，每件产品可查、可信、可追溯，增强消费者信任。</div>
+    </div>
+    <div class="benefit-item">
+      <span class="bi-icon">📊</span>
+      <div class="bi-title">数据赋能</div>
+      <div class="bi-desc">获得销售数据分析、用户画像、市场趋势报告，精准指导生产和营销决策。</div>
+    </div>
+    <div class="benefit-item">
+      <span class="bi-icon">🏅</span>
+      <div class="bi-title">品牌背书</div>
+      <div class="bi-desc">"军鸽云链优选"认证标识，退役军人创业平台公信力加持，提升品牌溢价。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 入驻流程 -->
+<div class="section">
+  <h3><span class="sec-icon">📋</span> 入驻流程</h3>
+  <div class="process">
+    <div class="process-step">
+      <div class="ps-num">1</div>
+      <div class="ps-title">提交申请</div>
+      <div class="ps-desc">在线填写企业信息和产品资料</div>
+    </div>
+    <div class="process-step">
+      <div class="ps-num">2</div>
+      <div class="ps-title">资质审核</div>
+      <div class="ps-desc">1-3个工作日完成企业资质审核</div>
+    </div>
+    <div class="process-step">
+      <div class="ps-num">3</div>
+      <div class="ps-title">产品上架</div>
+      <div class="ps-desc">产品信息录入、溯源对接、定价上架</div>
+    </div>
+    <div class="process-step">
+      <div class="ps-num">4</div>
+      <div class="ps-title">正式运营</div>
+      <div class="ps-desc">全渠道销售启动，数据看板上线</div>
+    </div>
+  </div>
+</div>
+
+<!-- 入驻要求 -->
+<div class="section">
+  <h3><span class="sec-icon">✅</span> 入驻要求</h3>
+  <ul class="req-list">
+    <li>具备合法经营资质（营业执照、食品经营许可证等）</li>
+    <li>产品符合国家食品安全标准，优先支持有溯源体系的企业</li>
+    <li>认同军鸽云链"军魂铸信·数智富民"理念</li>
+    <li>退役军人创办企业、军创品牌、地理标志产品优先入驻</li>
+    <li>愿意接受平台品控监督和消费者评价体系</li>
+  </ul>
+</div>
+
+<!-- 费用说明 -->
+<div class="section">
+  <h3><span class="sec-icon">💰</span> 费用说明</h3>
+  <ul class="req-list">
+    <li><strong>零入驻费</strong> — 不收取任何入驻费用和保证金</li>
+    <li><strong>零技术服务费</strong> — 免费使用平台溯源、数据分析系统</li>
+    <li><strong>交易佣金</strong> — 仅按实际成交额收取极低比例，远低于主流电商平台</li>
+    <li><strong>增值服务</strong> — 品牌推广、精准营销等增值服务按需选用，明码标价</li>
+  </ul>
+</div>
+
+<!-- CTA -->
+<div class="cta-bar">
+  <a href="join-apply.html?type=enterprise" class="btn btn-primary">📝 立即申请入驻</a>
+  <a href="/enterprise-cooperation.html" class="btn btn-outline">🤝 了解更多合作方式</a>
+</div>
+
+</div>
+
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap">
+  <a href="/" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🏠 首页</a>
+  <a href="/shangcheng.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🛒 商业生态</a>
+  <a href="/join-apply.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">📝 申请加入</a>
+  <a href="/fenzhan.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🌾 分站家园</a>
+</div>
+
+<div class="footer">
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台 · 海口总站: 175.178.55.90</p>
+</div>
+
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

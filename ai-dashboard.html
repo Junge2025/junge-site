@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache">
+<title>军鸽云链 · AI 智慧成果仪表盘</title>
+<meta name="description" content="Hermes MAX v5 · Neo4j 知识图谱 · 3D 战情室 · 记忆中枢 · CF 双保险">
+<style>
+:root {
+--red:#b84045; --red-bg:rgba(184,64,69,0.12); --red-glow:rgba(184,64,69,0.4);
+--green:#4d9460; --green-bg:rgba(77,148,96,0.12);
+--blue:#4b8ec9; --blue-bg:rgba(75,142,201,0.12);
+--gold:#c4a044; --gold-bg:rgba(196,160,68,0.1);
+--bg:#0a0f16; --bg2:#101820; --bg-card:rgba(16,24,36,0.7);
+--text:#e7ecf2; --text2:#9daab8; --text3:#556070;
+--border:rgba(255,255,255,0.05); --border2:rgba(255,255,255,0.08);
+--radius:14px; --radius-sm:10px;
+--shadow:0 8px 32px rgba(0,0,0,.5);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;
+background-image:
+radial-gradient(ellipse at 30% 0%,rgba(75,142,201,.05) 0%,transparent 50%),
+radial-gradient(ellipse at 70% 10%,rgba(184,64,69,.04) 0%,transparent 50%);
+}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:#253040;border-radius:2px}
+
+/* Top Bar */
+.top-bar{position:sticky;top:0;z-index:100;background:rgba(10,15,22,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:10px 16px}
+.top-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:8px}
+.brand-logo{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#c44,#822);display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 0 16px var(--red-glow)}
+.brand-text{font-size:13px;font-weight:700;letter-spacing:.04em;background:linear-gradient(135deg,#e8edf5,#7ab5db);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.brand-sub{font-size:9px;color:var(--text3);-webkit-text-fill-color:var(--text3)}
+.back-link{padding:6px 12px;border-radius:14px;font-size:11px;color:var(--text2);text-decoration:none;border:1px solid var(--border2);transition:.2s}
+.back-link:hover{color:#d47a7e;border-color:rgba(184,64,69,.3)}
+
+/* Main */
+main{max-width:1100px;margin:0 auto;padding:16px 14px 60px}
+
+/* Hero */
+.hero{text-align:center;padding:24px 16px;margin-bottom:14px;border-radius:var(--radius);
+background:linear-gradient(160deg,rgba(75,142,201,.06),rgba(16,24,32,.9),rgba(184,64,69,.04));
+border:1px solid var(--border2);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% -30%,rgba(255,255,255,.03),transparent 60%);pointer-events:none}
+.hero h1{font-size:22px;font-weight:700;position:relative;z-index:1;letter-spacing:.04em}
+.hero h1 .r{color:#d47a7e}.hero h1 .g{color:#6dab7e}.hero h1 .b{color:#7ab5db}
+.hero p{font-size:11px;color:var(--text2);margin-top:6px;position:relative;z-index:1}
+.hero-meta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px;position:relative;z-index:1}
+.hero-tag{padding:3px 10px;border-radius:10px;font-size:10px;font-weight:600;letter-spacing:.04em}
+.tag-v5{background:rgba(75,142,201,.15);color:#7ab5db}
+.tag-live{background:rgba(77,148,96,.15);color:#6dab7e}
+.tag-warn{background:rgba(196,160,68,.12);color:#c4a044}
+
+/* Grid */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-bottom:10px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:10px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:10px}
+
+/* Card */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;backdrop-filter:blur(12px);transition:.2s}
+.card:hover{border-color:rgba(255,255,255,0.1)}
+.card-title{font-size:12px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;letter-spacing:.03em}
+.card-title .icon{font-size:15px}
+
+/* Stat Row */
+.stat-row{display:flex;gap:6px;flex-wrap:wrap}
+.stat-pill{padding:5px 10px;border-radius:10px;font-size:10.5px;display:inline-flex;align-items:center;gap:4px;font-weight:600}
+.stat-red{background:var(--red-bg);color:#d47a7e}
+.stat-blue{background:var(--blue-bg);color:#7ab5db}
+.stat-green{background:var(--green-bg);color:#6dab7e}
+.stat-gold{background:var(--gold-bg);color:#c4a044}
+
+/* Link Card */
+.link-card{display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;transition:.2s;position:relative;overflow:hidden}
+.link-card:hover{border-color:rgba(75,142,201,.3);box-shadow:0 0 20px rgba(75,142,201,.08)}
+.link-card .arrow{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:18px;opacity:0;transition:.2s}
+.link-card:hover .arrow{opacity:1}
+.link-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px}
+.link-desc{font-size:10px;color:var(--text3);line-height:1.5}
+.link-badge{display:inline-block;padding:2px 6px;border-radius:6px;font-size:8.5px;font-weight:600;margin-left:4px;letter-spacing:.03em}
+.badge-3d{background:rgba(184,64,69,.15);color:#d47a7e}
+.badge-graph{background:rgba(75,142,201,.15);color:#7ab5db}
+.badge-new{background:rgba(77,148,96,.15);color:#6dab7e}
+
+/* Status */
+.status-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:3px}
+.dot-ok{background:#6dab7e;box-shadow:0 0 6px rgba(77,148,96,.5)}
+.dot-warn{background:#c4a044;box-shadow:0 0 6px rgba(196,160,68,.5)}
+.dot-fail{background:#d47a7e;box-shadow:0 0 6px rgba(184,64,69,.5)}
+
+/* Platform List */
+.platform-list{display:flex;gap:4px;flex-wrap:wrap;font-size:10px;color:var(--text2)}
+.platform-item{padding:2px 6px;border-radius:6px;background:rgba(255,255,255,0.03)}
+.platform-item .cnt{color:var(--text3)}
+
+/* Footer */
+.footer{text-align:center;padding:20px;font-size:10px;color:var(--text3);border-top:1px solid var(--border);margin-top:20px}
+.footer a{color:var(--text2);text-decoration:none}
+
+@media(max-width:600px){
+main{padding:10px 8px 60px}
+.hero h1{font-size:18px}
+.grid2,.grid3,.grid4{grid-template-columns:1fr}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链 · AI 智慧成果仪表盘">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/ai-dashboard.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/ai-dashboard.html">
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+<div class="top-inner">
+<div style="display:flex;align-items:center;gap:8px">
+<div class="brand-logo">🕊</div>
+<div>
+<div class="brand-text">AI 智慧成果仪表盘</div>
+<div class="brand-sub">Hermes MAX v5 · RED-DUAL Ω</div>
+</div>
+</div>
+<a href="/" class="back-link">← 返回首页</a>
+</div>
+</div>
+
+<main>
+
+<!-- Hero -->
+<div class="hero">
+<h1><span class="b">Hermes</span> <span class="r">MAX</span> <span class="g">v5</span> · 军鸽云链 AI 指挥系统</h1>
+<p>GZ 主节点 (175.178.55.90) + JP 东京节点 (10.100.0.2) · DeepSeek-V4 + Gemini + GPT-5.5 · Ollama 本地 4模型</p>
+<div class="hero-meta">
+<span class="hero-tag tag-v5">8 服务 Docker Compose</span>
+<span class="hero-tag tag-v5">17 节点 Pipeline</span>
+<span class="hero-tag tag-v5">3 模型 RL 调度</span>
+<span class="hero-tag tag-live">Neo4j 图谱在线</span>
+<span class="hero-tag tag-warn">CF Worker KV 双保险</span>
+</div>
+</div>
+
+<!-- Neo4j Knowledge Graph -->
+<div class="card" style="margin-bottom:10px">
+<div class="card-title"><span class="icon">🕸</span> Neo4j 知识图谱 · 实时统计</div>
+<div class="stat-row">
+<span class="stat-pill stat-blue">🤖 24 Agent</span>
+<span class="stat-pill stat-red">⚡ 13 Skill</span>
+<span class="stat-pill stat-green">🗄 45 Database</span>
+<span class="stat-pill stat-gold">📌 14 Topic</span>
+<span class="stat-pill stat-blue">📅 50 Event</span>
+<span class="stat-pill stat-red">📏 2 Rule</span>
+</div>
+<div style="font-size:10px;color:var(--text3);margin-top:6px">Agent ↔ Skill ↔ Database ↔ Topic 全关联图谱 · Cypher 查询模板 · 自动导入脚本</div>
+</div>
+
+<!-- Quick Links -->
+<div class="grid2">
+<!-- 3D War Room -->
+<a href="/war-room" class="link-card" style="border-left:3px solid #d47a7e">
+<div class="link-name">🌐 3D 战情室 <span class="link-badge badge-3d">Three.js</span></div>
+<div class="link-desc">3D 可视化实时态势 · Agent 舰队 · 节点拓扑 · 粒子光效战场</div>
+<span class="arrow">→</span>
+</a>
+
+<!-- Knowledge Graph -->
+<a href="/graph" class="link-card" style="border-left:3px solid #7ab5db">
+<div class="link-name">🕸 知识图谱 <span class="link-badge badge-graph">Neo4j</span></div>
+<div class="link-desc">Agent/Skill/Database 交互式图谱 · D3.js 力导向 · 关系钻探</div>
+<span class="arrow">→</span>
+</a>
+
+<!-- Memory Hub -->
+<a href="/memory-hub" class="link-card" style="border-left:3px solid #6dab7e">
+<div class="link-name">🧠 记忆中枢 <span class="link-badge badge-new">Memory/Dreams/Conway</span></div>
+<div class="link-desc">三层记忆架构 · 主题簇感知路由 · 自演化规则 · 图谱同步</div>
+<span class="arrow">→</span>
+</a>
+
+<!-- Evolution War Room -->
+<a href="/evolution-warroom" class="link-card" style="border-left:3px solid #c4a044">
+<div class="link-name">⚡ 自演化战情室 <span class="link-badge badge-new">Conway</span></div>
+<div class="link-desc">控制循环 · 策略学习 · 规则冲突检测 · 自动纠错 · 决策阈值调优</div>
+<span class="arrow">→</span>
+</a>
+
+<!-- Topics -->
+<a href="/topics" class="link-card" style="border-left:3px solid #7ab5db">
+<div class="link-name">📊 主题分析</div>
+<div class="link-desc">14 主题簇 · 智能体聚焦分布 · 能力矩阵 · 交叉覆盖分析</div>
+<span class="arrow">→</span>
+</a>
+
+<!-- Routing -->
+<a href="/routing" class="link-card" style="border-left:3px solid #d47a7e">
+<div class="link-name">🔀 智能路由</div>
+<div class="link-desc">多模型调度 · 延迟自适应 · GZ⇄JP 三级 fallback · 健康矩阵</div>
+<span class="arrow">→</span>
+</a>
+</div>
+
+<!-- Status Grid -->
+<div class="grid3">
+
+<!-- System Health -->
+<div class="card">
+<div class="card-title"><span class="icon">💚</span> 系统健康</div>
+<div style="font-size:10px;line-height:1.8">
+<div><span class="status-dot dot-ok"></span> GZ hq_web OK</div>
+<div><span class="status-dot dot-ok"></span> GZ Ollama OK</div>
+<div><span class="status-dot dot-ok"></span> GZ PostgreSQL OK</div>
+<div><span class="status-dot dot-ok"></span> Tokyo Orchestrator OK</div>
+<div><span class="status-dot dot-ok"></span> DeepSeek-V4 OK</div>
+<div><span class="status-dot dot-fail"></span> CF Worker KV FAIL</div>
+</div>
+</div>
+
+<!-- Agent Fleet -->
+<div class="card">
+<div class="card-title"><span class="icon">🤖</span> Agent 舰队</div>
+<div style="font-size:10px;color:var(--text2);line-height:1.8">
+<div>24 智能体 · 12 分组</div>
+<div style="margin-top:4px">
+<span class="stat-pill stat-blue">7 操作型</span>
+<span class="stat-pill stat-green">7 业务型</span>
+</div>
+<div style="margin-top:4px">keyword 匹配路由 · 14 agent registry</div>
+<div style="margin-top:2px;color:var(--text3)">agent_page_binding.yaml · 4 页面绑定</div>
+</div>
+</div>
+
+<!-- Platform Handshake -->
+<div class="card">
+<div class="card-title"><span class="icon">🤝</span> 多平台握手</div>
+<div style="font-size:10px;line-height:1.8">
+<div>20 活跃会话 · 7 平台</div>
+<div class="platform-list" style="margin-top:4px">
+<span class="platform-item">💬 微信 <span class="cnt">4</span></span>
+<span class="platform-item">🏢 企微 <span class="cnt">3</span></span>
+<span class="platform-item">📋 飞书 <span class="cnt">3</span></span>
+<span class="platform-item">📧 邮件 <span class="cnt">3</span></span>
+<span class="platform-item">💳 支付 <span class="cnt">2</span></span>
+<span class="platform-item">🎵 抖音 <span class="cnt">3</span></span>
+<span class="platform-item">📕 小红书 <span class="cnt">2</span></span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Infrastructure -->
+<div class="grid2">
+<div class="card">
+<div class="card-title"><span class="icon">☁</span> CF Worker KV 双保险</div>
+<div style="font-size:10px;color:var(--text2);line-height:1.7">
+<div>junge.中国/* → Worker 路由 (fail_open)</div>
+<div>16 页面 · 565KB KV 快照 · 每 10 分钟推送</div>
+<div style="margin-top:3px;color:var(--text3)">/health · /kv-status 端点 · CF 边缘择优切换</div>
+<div style="margin-top:4px"><span class="stat-pill stat-gold">⚠ 当前 KV 状态 FAIL — 排查中</span></div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-title"><span class="icon">🚪</span> AI 网关</div>
+<div style="font-size:10px;color:var(--text2);line-height:1.7">
+<div>Flask · 端口 8400 · 127.0.0.1</div>
+<div>反向代理源站 8080 + 本地缓存 + 自愈</div>
+<div style="margin-top:3px;color:var(--text3)">origin: healthy · cache: 0 files</div>
+</div>
+</div>
+</div>
+
+<!-- Old AI Pages -->
+<div class="card" style="margin-top:10px">
+<div class="card-title"><span class="icon">📜</span> 已有 AI 基础设施</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<a href="/ai-war-plan.html" style="padding:5px 12px;border-radius:12px;font-size:10px;color:#7ab5db;text-decoration:none;background:var(--blue-bg)">⚔ AI 作战计划</a>
+<a href="/super-agent-hq.html" style="padding:5px 12px;border-radius:12px;font-size:10px;color:#7ab5db;text-decoration:none;background:var(--blue-bg)">🏢 超级特工 HQ</a>
+<a href="/command.html" style="padding:5px 12px;border-radius:12px;font-size:10px;color:#d47a7e;text-decoration:none;background:var(--red-bg)">🎯 指挥中心</a>
+<a href="/ops.html" style="padding:5px 12px;border-radius:12px;font-size:10px;color:#6dab7e;text-decoration:none;background:var(--green-bg)">⚙ 运维调度</a>
+<a href="/red-dual-arch.html" style="padding:5px 12px;border-radius:12px;font-size:10px;color:#c4a044;text-decoration:none;background:var(--gold-bg)">⚔ RED-DUAL Ω</a>
+<a href="/junge-shuzhi.html" style="padding:5px 12px;border-radius:12px;font-size:10px;color:#7ab5db;text-decoration:none;background:var(--blue-bg)">📊 数智总览</a>
+</div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+🕊 军鸽云链数智 · junge.中国 · Hermes MAX v5 · RED-DUAL Ω 总指挥<br>
+广州总站 175.178.55.90 · 东京节点 10.100.0.2 · 琼ICP备2025063762号<br>
+<span style="color:var(--text3)">实时数据更新时间: <span id="updateTime">--</span></span>
+</div>
+
+</main>
+
+<script>
+document.getElementById('updateTime').textContent = new Date().toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'});
+</script>
+</body>
+</html>

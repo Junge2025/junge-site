@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>云南高山生态农庄 · 军鸽云链数智</title>
+<meta name="description" content="云南高山生态农庄坐落于普洱市景迈山，海拔1800米云海茶山，占地2600亩。古树普洱茶、野生松茸、有机三七，12位退役军人联合少数民族茶农，区块链溯源+世界遗产茶山。">
+<meta name="keywords" content="云南农庄,景迈古树茶,普洱茶,野生松茸,有机三七,区块链溯源,退役军人创业,世界遗产茶山,军鸽云链">
+<meta property="og:title" content="云南高山生态农庄 · 军鸽云链数智">
+<meta property="og:description" content="云端之上的生态秘境，千年古树·区块链溯源·退役军人在服务。">
+<meta property="og:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://junge.中国/farm-yunnan.html">
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,0.85);--text:#e8edf5;--dim:#8896b0;--border:rgba(255,255,255,.06);--red:#b84045;--green:#4d9460;--blue:#4b8ecf;--gold:#f0c040;--cyan:#00d4ff;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;line-height:1.7;min-height:100vh;padding-bottom:130px}
+.breadcrumb{position:sticky;top:0;z-index:101;background:rgba(3,7,18,.96);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:6px;font-size:11px;backdrop-filter:blur(12px)}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:.2s}
+.breadcrumb a:hover{color:var(--cyan)}
+.breadcrumb .sep{color:#4a5568}
+.breadcrumb .current{color:var(--cyan);font-weight:700}
+.top-nav{position:sticky;top:33px;z-index:100;background:linear-gradient(90deg,rgba(3,7,18,.98),rgba(10,22,40,.97));backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;overflow-x:auto}
+.top-nav .logo{font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;flex-shrink:0}
+.top-nav .divider{width:1px;height:16px;background:var(--border);flex-shrink:0}
+.top-nav a.nav-link{color:var(--dim);text-decoration:none;font-size:11px;padding:3px 9px;border-radius:10px;border:1px solid transparent;white-space:nowrap;flex-shrink:0;transition:.2s}
+.top-nav a.nav-link:hover,.top-nav a.nav-link.active{color:var(--cyan);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.05)}
+.hero{position:relative;height:480px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') center/cover;opacity:.22}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,7,18,.4) 0%,rgba(3,7,18,.92) 100%)}
+.hero>*{position:relative;z-index:2}
+.hero h1{font-size:44px;color:var(--gold);margin-bottom:12px;text-shadow:0 0 40px rgba(240,192,64,.15);letter-spacing:2px}
+.hero .location{font-size:15px;color:var(--dim);margin-bottom:6px}
+.hero .stars{font-size:18px;color:var(--gold);margin-bottom:12px}
+.hero .badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero .badge{padding:4px 14px;border-radius:14px;font-size:11px;font-weight:600;border:1px solid}
+.container{max-width:1160px;margin:0 auto;padding:10px 20px 40px}
+.section{margin:36px 0}
+.section-title{font-size:15px;color:var(--cyan);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:18px}
+.intro-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:start}
+.intro-text{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.intro-text h3{font-size:18px;color:var(--gold);margin-bottom:14px}
+.intro-text p{color:var(--dim);font-size:13px;line-height:1.9;margin-bottom:10px}
+.intro-img{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.intro-img img{width:100%;height:100%;object-fit:cover;min-height:260px}
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+.dash-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 14px;text-align:center;transition:.25s}
+.dash-item:hover{border-color:rgba(0,212,255,.2);transform:translateY(-2px)}
+.dash-item .dash-icon{font-size:28px;margin-bottom:6px}
+.dash-item .dash-val{font-size:24px;font-weight:700;color:var(--cyan)}
+.dash-item .dash-lbl{font-size:10px;color:var(--dim);margin-top:2px}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.prod-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.25s;position:relative}
+.prod-card:hover{transform:translateY(-3px);border-color:rgba(0,212,255,.2)}
+.prod-card img{width:100%;height:170px;object-fit:cover;display:block}
+.prod-card .info{padding:14px}
+.prod-card h4{font-size:14px;color:var(--text);margin-bottom:4px}
+.prod-card .desc{font-size:11px;color:var(--dim);margin-bottom:8px;line-height:1.5}
+.prod-card .price{font-size:16px;font-weight:700;color:var(--red);margin-bottom:6px}
+.prod-card .trace-tag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:9px;font-weight:600;background:rgba(0,212,255,.08);color:var(--cyan);border:1px solid rgba(0,212,255,.15)}
+.prod-overlay{position:absolute;inset:0;background:rgba(3,7,18,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:5;border-radius:var(--radius)}
+.prod-card:hover .prod-overlay{opacity:1;pointer-events:auto}
+.prod-overlay .ov-name{font-size:15px;font-weight:700;color:var(--gold);margin-bottom:4px}
+.prod-overlay .ov-price{font-size:18px;font-weight:700;color:var(--red);margin-bottom:8px}
+.prod-overlay .ov-trace{font-size:10px;color:var(--cyan);background:rgba(0,212,255,.1);padding:3px 10px;border-radius:10px;margin-bottom:14px;border:1px solid rgba(0,212,255,.15)}
+.prod-overlay .ov-btn{display:inline-block;padding:8px 22px;border-radius:20px;font-size:12px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--cyan),var(--gold));text-decoration:none;transition:.2s}
+.prod-overlay .ov-btn:hover{box-shadow:0 0 20px rgba(0,212,255,.4)}
+.trace-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.trace-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.trace-block{background:rgba(0,212,255,.03);border:1px solid rgba(0,212,255,.08);border-radius:10px;padding:18px}
+.trace-block h4{font-size:13px;color:var(--cyan);margin-bottom:10px}
+.trace-block .cert-id{font-family:monospace;font-size:12px;color:var(--gold);background:rgba(240,192,64,.06);padding:8px 12px;border-radius:6px;word-break:break-all;border-left:3px solid var(--gold)}
+.trace-block .report-link{display:block;margin-top:6px;font-size:11px;color:var(--dim)}
+.trace-block .report-link a{color:var(--cyan);text-decoration:none}
+.trace-block .report-link a:hover{text-decoration:underline}
+.timeline{grid-column:span 2;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
+.tl-step{background:rgba(0,212,255,.03);border:1px solid rgba(0,212,255,.08);border-radius:10px;padding:14px 10px;text-align:center;cursor:pointer;transition:.25s;position:relative}
+.tl-step:hover,.tl-step.active{border-color:rgba(0,212,255,.3);background:rgba(0,212,255,.06)}
+.tl-step .tl-icon{font-size:28px;margin-bottom:4px;transition:.3s}
+.tl-step.active .tl-icon{transform:scale(1.2)}
+.tl-step .tl-title{font-size:11px;font-weight:600;color:var(--text)}
+.tl-step .tl-info{font-size:9px;color:var(--dim)}
+.tl-step .tl-detail{max-height:0;overflow:hidden;transition:max-height .4s,.3s margin;font-size:10px;color:var(--dim);margin-top:0;line-height:1.6;text-align:left}
+.tl-step.active .tl-detail{max-height:120px;margin-top:8px}
+.tl-step .tl-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--cyan);margin-right:4px}
+.cal-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:4px}
+.cal-month{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 4px;text-align:center;font-size:10px;transition:.25s}
+.cal-month .mon{font-weight:700;color:var(--dim);font-size:11px}
+.cal-month .crops{font-size:8px;color:var(--dim);margin-top:2px;line-height:1.4}
+.cal-month.active{background:rgba(0,212,255,.06);border-color:rgba(0,212,255,.25)}
+.cal-month.active .mon{color:var(--cyan)}
+.cal-month.active .crops{color:var(--text)}
+.cal-month.peak{background:rgba(240,192,64,.06);border-color:rgba(240,192,64,.3)}
+.cal-month.peak .mon{color:var(--gold)}
+.scene-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.scene-item{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);position:relative;height:200px}
+.scene-item img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.scene-item:hover img{transform:scale(1.05)}
+.scene-item .caption{position:absolute;bottom:0;left:0;right:0;padding:8px 12px;background:linear-gradient(0deg,rgba(3,7,18,.9),transparent);font-size:11px;color:var(--text)}
+.review-list{display:flex;flex-direction:column;gap:12px}
+.review-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;cursor:pointer;transition:.25s}
+.review-item:hover{border-color:rgba(0,212,255,.15)}
+.review-item .reviewer{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.review-item .avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff}
+.review-item .name{font-size:13px;font-weight:600;color:var(--text)}
+.review-item .review-stars{font-size:11px;color:var(--gold);margin-left:auto;cursor:pointer;padding:2px 6px;border-radius:6px;transition:.2s}
+.review-item .review-stars:hover{background:rgba(240,192,64,.1)}
+.review-item .rev-date{font-size:10px;color:var(--dim)}
+.review-item .rev-content{font-size:12px;color:var(--dim);line-height:1.8;max-height:48px;overflow:hidden;transition:max-height .4s}
+.review-item.expanded .rev-content{max-height:500px}
+.review-item .rev-expand{font-size:10px;color:var(--cyan);margin-top:4px;text-align:right;display:block}
+.story-tl{position:relative;padding-left:30px}
+.story-tl::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--cyan),var(--gold),var(--green))}
+.story-item{position:relative;margin-bottom:20px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
+.story-item::before{content:'';position:absolute;left:-26px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--cyan);border:3px solid var(--bg);z-index:2}
+.story-item .st-year{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:4px}
+.story-item .st-title{font-size:13px;color:var(--text);margin-bottom:4px}
+.story-item .st-desc{font-size:11px;color:var(--dim);line-height:1.6}
+.map-placeholder{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:30px;text-align:center;position:relative;overflow:hidden}
+.map-placeholder .map-bg{font-size:80px;opacity:.15;margin-bottom:10px}
+.map-placeholder .map-coords{font-size:11px;color:var(--dim);font-family:monospace}
+.map-placeholder .map-link{display:inline-block;margin-top:10px;padding:8px 18px;border-radius:20px;font-size:11px;color:var(--cyan);border:1px solid rgba(0,212,255,.2);text-decoration:none;transition:.2s}
+.map-placeholder .map-link:hover{background:rgba(0,212,255,.08)}
+.fixed-cta{position:fixed;bottom:52px;left:0;right:0;z-index:998;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.15);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.fixed-cta .cta-text{font-size:13px;color:var(--text)}
+.fixed-cta .cta-countdown{font-size:12px;color:var(--gold);background:rgba(240,192,64,.1);padding:4px 12px;border-radius:12px;border:1px solid rgba(240,192,64,.2);white-space:nowrap}
+.fixed-cta .cta-countdown .num{font-weight:700;font-size:16px}
+.fixed-cta .cta-btn-fixed{display:inline-block;padding:10px 28px;border-radius:24px;font-size:14px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--cyan),var(--gold));text-decoration:none;transition:.25s;box-shadow:0 4px 20px rgba(0,212,255,.2)}
+.fixed-cta .cta-btn-fixed:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(0,212,255,.4)}
+.footer{text-align:center;padding:20px 20px 30px;border-top:1px solid var(--border);font-size:10px;color:#4a5568;line-height:1.8}
+.footer a{color:var(--dim);text-decoration:none}
+.footer a:hover{color:var(--cyan)}
+.footer-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{padding:4px 12px;border-radius:12px;border:1px solid var(--border);font-size:10px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.1);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:4px 8px;border-radius:8px;transition:.2s}
+.bottom-nav a:hover{color:var(--cyan)}
+.bottom-nav a.highlight{color:var(--gold);border:1px solid rgba(240,192,64,.2);background:rgba(240,192,64,.05)}
+/* 虚拟导览360 */
+.tour-360{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;position:relative;overflow:hidden}
+.tour-360 .tour-viewport{width:100%;height:320px;border-radius:10px;overflow:hidden;position:relative;background:#0a1628;border:1px solid var(--border)}
+.tour-360 .tour-viewport img{width:100%;height:100%;object-fit:cover;opacity:.35;transition:transform .4s}
+.tour-360 .tour-viewport .tour-overlay-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+.tour-360 .tour-viewport .tour-overlay-text .tour-icon{font-size:48px;margin-bottom:8px}
+.tour-360 .tour-viewport .tour-overlay-text .tour-label{font-size:13px;color:var(--dim)}
+.tour-360 .tour-controls{display:flex;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.tour-360 .tour-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(0,212,255,.25);background:rgba(0,212,255,.06);color:var(--cyan);font-size:18px;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center}
+.tour-360 .tour-btn:hover{background:rgba(0,212,255,.15);border-color:rgba(0,212,255,.5);box-shadow:0 0 16px rgba(0,212,255,.2)}
+.tour-360 .tour-btn.zoom{width:52px;font-size:14px;font-weight:700}
+.tour-360 .tour-info{font-size:10px;color:var(--dim);margin-top:10px}
+/* 预售 */
+.presale-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.presale-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center;transition:.25s;position:relative;overflow:hidden}
+.presale-card:hover{border-color:rgba(240,192,64,.3);transform:translateY(-2px)}
+.presale-card .pre-badge{position:absolute;top:10px;right:10px;background:linear-gradient(135deg,var(--gold),#f59e0b);color:#030712;font-size:9px;font-weight:700;padding:3px 10px;border-radius:10px}
+.presale-card .pre-icon{font-size:38px;margin-bottom:10px}
+.presale-card h4{font-size:14px;color:var(--text);margin-bottom:4px}
+.presale-card .pre-desc{font-size:11px;color:var(--dim);margin-bottom:8px;line-height:1.5}
+.presale-card .pre-progress{height:6px;background:rgba(255,255,255,.06);border-radius:3px;margin:10px 0;overflow:hidden}
+.presale-card .pre-progress-bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--cyan));border-radius:3px;transition:width .6s}
+.presale-card .pre-meta{font-size:10px;color:var(--dim);display:flex;justify-content:space-between;margin-bottom:10px}
+.presale-card .pre-price{font-size:15px;font-weight:700;color:var(--red)}
+.presale-card .pre-btn{display:inline-block;padding:8px 22px;border-radius:20px;font-size:11px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--gold),var(--cyan));text-decoration:none;cursor:pointer;transition:.2s;border:none}
+.presale-card .pre-btn:hover{box-shadow:0 0 20px rgba(240,192,64,.4);transform:translateY(-1px)}
+/* 活动日历 */
+.act-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.act-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;gap:14px;align-items:flex-start;transition:.25s}
+.act-item:hover{border-color:rgba(0,212,255,.15)}
+.act-item .act-date{flex-shrink:0;width:56px;height:56px;border-radius:10px;background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.act-item .act-date .act-day{font-size:20px;font-weight:700;color:var(--cyan);line-height:1}
+.act-item .act-date .act-mon{font-size:9px;color:var(--dim)}
+.act-item .act-info{flex:1}
+.act-item .act-info h4{font-size:13px;color:var(--text);margin-bottom:4px}
+.act-item .act-info .act-desc{font-size:10px;color:var(--dim);line-height:1.5;margin-bottom:6px}
+.act-item .act-info .act-meta{font-size:9px;color:var(--dim);display:flex;gap:10px;flex-wrap:wrap}
+.act-item .act-signup{flex-shrink:0;padding:6px 14px;border-radius:16px;font-size:10px;font-weight:600;color:var(--cyan);border:1px solid rgba(0,212,255,.3);background:rgba(0,212,255,.05);cursor:pointer;transition:.2s;text-decoration:none;white-space:nowrap}
+.act-item .act-signup:hover{background:rgba(0,212,255,.15);border-color:rgba(0,212,255,.5)}
+/* 会员体系 */
+.member-table{width:100%;border-collapse:collapse;font-size:12px}
+.member-table th,.member-table td{padding:12px 10px;text-align:center;border:1px solid var(--border)}
+.member-table thead th{background:rgba(0,212,255,.04);color:var(--cyan);font-weight:600;font-size:11px}
+.member-table thead th.gold-hd{color:var(--gold);background:rgba(240,192,64,.06)}
+.member-table tbody td{color:var(--dim)}
+.member-table tbody td.yes{color:var(--green)}
+.member-table tbody td.highlight{color:var(--gold)}
+.member-table tbody tr:hover{background:rgba(0,212,255,.02)}
+.member-table .tier-icon{font-size:24px;display:block;margin-bottom:4px}
+.member-table .tier-name{font-size:13px;font-weight:700;color:var(--text)}
+.member-table .tier-sub{font-size:9px;color:var(--dim)}
+.member-cta{text-align:center;margin-top:16px}
+.member-cta a{display:inline-block;padding:10px 28px;border-radius:24px;font-size:12px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--gold),var(--cyan));text-decoration:none;transition:.2s}
+.member-cta a:hover{box-shadow:0 0 20px rgba(240,192,64,.4)}
+/* 交通指南 */
+.transport-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.transport-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:.25s}
+.transport-card:hover{border-color:rgba(0,212,255,.15)}
+.transport-card .tp-icon{font-size:36px;margin-bottom:10px}
+.transport-card h4{font-size:13px;color:var(--text);margin-bottom:8px}
+.transport-card .tp-detail{font-size:10px;color:var(--dim);line-height:1.7;text-align:left}
+.transport-card .tp-detail .tp-line{margin-bottom:4px}
+.transport-card .tp-link{display:inline-block;margin-top:10px;font-size:10px;color:var(--cyan);text-decoration:none;border-bottom:1px dashed rgba(0,212,255,.3)}
+.transport-card .tp-link:hover{border-color:rgba(0,212,255,.8)}
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:8px}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.25s}
+.faq-item:hover{border-color:rgba(0,212,255,.12)}
+.faq-q{padding:14px 18px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--text);user-select:none}
+.faq-q .faq-arrow{font-size:10px;color:var(--dim);transition:transform .3s}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--cyan)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s,padding .4s;font-size:11px;color:var(--dim);line-height:1.8;padding:0 18px}
+.faq-item.open .faq-a{max-height:200px;padding:0 18px 14px}
+/* 在线咨询浮动按钮 */
+.chat-float{position:fixed;bottom:120px;right:24px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.chat-float .chat-btn{width:52px;height:52px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#fff;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,212,255,.35);transition:.3s;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.chat-float .chat-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(0,212,255,.5)}
+.chat-float .chat-btn.pulse{animation:chatPulse 2s infinite}
+@keyframes chatPulse{0%,100%{box-shadow:0 4px 20px rgba(0,212,255,.35)}50%{box-shadow:0 4px 32px rgba(0,212,255,.65)}}
+.chat-float .chat-label{font-size:9px;color:var(--dim);background:var(--card);padding:3px 10px;border-radius:10px;border:1px solid var(--border);margin-top:-4px}
+@media(max-width:768px){
+  .hero h1{font-size:28px}.hero{height:340px}
+  .intro-grid{grid-template-columns:1fr}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .scene-grid{grid-template-columns:repeat(2,1fr)}
+  .trace-grid{grid-template-columns:1fr}
+  .timeline{grid-template-columns:repeat(2,1fr)}
+  .cal-grid{grid-template-columns:repeat(6,1fr)}
+  .dash-grid{grid-template-columns:repeat(2,1fr)}
+  .fixed-cta{gap:8px;padding:8px 12px}
+  .fixed-cta .cta-text{font-size:11px}
+  .presale-grid{grid-template-columns:1fr}
+  .act-grid{grid-template-columns:1fr}
+  .transport-grid{grid-template-columns:1fr}
+  .chat-float{bottom:100px;right:12px}
+  .chat-float .chat-btn{width:44px;height:44px;font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🛡️ 情怀首页</a><span class="sep">▸</span>
+  <a href="/junge/eco-farm.html">🌿 生态农庄</a><span class="sep">▸</span>
+  <span class="current">云南高山生态农庄</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" class="logo">⚔ 军鸽云链</a>
+  <span class="divider"></span>
+  <a href="/index.html" class="nav-link">🛡️ 军鸽首页</a>
+  <a href="/shangcheng.html" class="nav-link">🛒 商业生态</a>
+  <a href="/taskforce.html" class="nav-link">⚡ 数智中心</a>
+  <a href="/fenzhan.html" class="nav-link">🌾 分站家园</a>
+  <span class="divider"></span>
+  <a href="/junge/eco-farm.html" class="nav-link active">🌿 生态农庄</a>
+  <a href="/junge/comrades.html" class="nav-link">战友驿站</a>
+  <a href="/junge/overview.html" class="nav-link">军鸽总览</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>🍵 云南高山生态农庄</h1>
+    <div class="location">📍 云南省普洱市景迈山 · 海拔1800米云海茶山</div>
+    <div class="stars">⭐⭐⭐⭐⭐ <span style="font-size:11px;color:var(--dim);font-weight:400">4.9分 · 218条评价</span></div>
+    <div class="badge-row">
+      <span class="badge" style="border-color:rgba(77,148,96,.3);color:var(--green)">🌱 有机认证</span>
+      <span class="badge" style="border-color:rgba(0,212,255,.3);color:var(--cyan)">🔗 区块链溯源</span>
+      <span class="badge" style="border-color:rgba(240,192,64,.3);color:var(--gold)">🎖️ 退役军人在服务</span>
+      <span class="badge" style="border-color:rgba(240,192,64,.3);color:var(--gold)">🏔️ 世界遗产茶山</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+<div class="section">
+  <div class="section-title"><span class="icon">📊</span> 农场数据看板</div>
+  <div class="dash-grid">
+    <div class="dash-item"><div class="dash-icon">🏔️</div><div class="dash-val">2,600</div><div class="dash-lbl">亩农庄面积</div></div>
+    <div class="dash-item"><div class="dash-icon">🌳</div><div class="dash-val">800</div><div class="dash-lbl">亩古茶园</div></div>
+    <div class="dash-item"><div class="dash-icon">👨‍🌾</div><div class="dash-val">12</div><div class="dash-lbl">退役军人在服务</div></div>
+    <div class="dash-item"><div class="dash-icon">🏅</div><div class="dash-val">10年</div><div class="dash-lbl">有机认证年限</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">🏡</span> 农庄介绍</div>
+  <div class="intro-grid">
+    <div class="intro-text">
+      <h3>🏔️ 云端之上的生态秘境</h3>
+      <p>云南高山生态农庄坐落于普洱市景迈山古茶林核心区，海拔1800米，常年云雾缭绕、雨量充沛，是世界文化遗产"普洱景迈山古茶林文化景观"的重要组成部分。农庄占地2600亩，拥有古茶园800亩、有机菌菇培育基地200亩、三七等中药材种植区300亩，以及高山生态养殖区。</p>
+      <p>农庄由12位退役军人联合当地少数民族茶农共同创办，传承景迈山千年茶文化精髓，融合现代有机农业技术。古茶园中的茶树树龄从百年到千年不等，遵循"林下种植"的古法传统，不施任何化学肥料，形成了茶树与森林共生的独特生态系统。</p>
+      <p>2024年荣获"全国退役军人创业带动就业示范项目"和"云南省农业产业化重点龙头企业"称号。所有茶叶、菌菇和中药材产品均接入军鸽云链区块链溯源平台，每一饼普洱茶都拥有唯一的数字身份和全程可追溯档案，让千年茶文化在数字时代焕发新生。</p>
+    </div>
+    <div class="intro-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="云南高山茶园" loading="lazy"></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">🍄</span> 产品中心 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">区块链溯源 · 品质保障 · hover查看详情</span></div>
+  <div class="prod-grid">
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=400&q=80" alt="景迈古树普洱茶" loading="lazy">
+      <div class="info">
+        <h4>🍵 景迈古树普洱茶</h4>
+        <div class="desc">千年古树·手工揉捻·兰花香韵</div>
+        <div class="price">¥598<small style="font-weight:400">/饼 (357g)</small></div>
+        <span class="trace-tag">🔗 溯源可查</span>
+      </div>
+      <div class="prod-overlay">
+        <div class="ov-name">🍵 景迈古树普洱茶</div>
+        <div class="ov-price">¥598/饼 (357g)</div>
+        <div class="ov-trace">🔗 区块链存证: YN-JGC-20260401-TEA-3P9X</div>
+        <a href="/shangcheng.html" class="ov-btn">🛒 立即购买</a>
+        <a href="/farm-yn-puer-raw.html" class="ov-btn" style="background:rgba(0,212,255,.12);color:var(--cyan);margin-top:6px;font-size:10px">📋 查看详情</a>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1543364195-bfe6e4932397?w=400&q=80" alt="野生松茸" loading="lazy">
+      <div class="info">
+        <h4>🍄 高山野生松茸</h4>
+        <div class="desc">海拔3000米采摘·冷链锁鲜·出口级</div>
+        <div class="price">¥398<small style="font-weight:400">/盒 (500g)</small></div>
+        <span class="trace-tag">🔗 溯源可查</span>
+      </div>
+      <div class="prod-overlay">
+        <div class="ov-name">🍄 高山野生松茸</div>
+        <div class="ov-price">¥398/盒 (500g)</div>
+        <div class="ov-trace">🔗 区块链存证: YN-JGC-20260401-MU-8R4W</div>
+        <a href="/shangcheng.html" class="ov-btn">🛒 立即购买</a>
+        <a href="/farm-yn-matsutake.html" class="ov-btn" style="background:rgba(0,212,255,.12);color:var(--cyan);margin-top:6px;font-size:10px">📋 查看详情</a>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&q=80" alt="文山三七" loading="lazy">
+      <div class="info">
+        <h4>🌿 有机文山三七</h4>
+        <div class="desc">云南文山·足头采挖·皂苷含量高</div>
+        <div class="price">¥288<small style="font-weight:400">/盒 (250g)</small></div>
+        <span class="trace-tag">🔗 溯源可查</span>
+      </div>
+      <div class="prod-overlay">
+        <div class="ov-name">🌿 有机文山三七</div>
+        <div class="ov-price">¥288/盒 (250g)</div>
+        <div class="ov-trace">🔗 区块链存证: YN-JGC-20260401-HB-1Q5S</div>
+        <a href="/shangcheng.html" class="ov-btn">🛒 立即购买</a>
+        <a href="/farm-yn-notoginseng.html" class="ov-btn" style="background:rgba(0,212,255,.12);color:var(--cyan);margin-top:6px;font-size:10px">📋 查看详情</a>
+      </div>
+    </div>
+    <div class="prod-card">
+      <img src="https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?w=400&q=80" alt="野生牛肝菌" loading="lazy">
+      <div class="info">
+        <h4>🍄 野生牛肝菌</h4>
+        <div class="desc">云南深山采摘·烘干锁鲜·煲汤极品</div>
+        <div class="price">¥168<small style="font-weight:400">/袋 (200g)</small></div>
+        <span class="trace-tag">🔗 溯源可查</span>
+      </div>
+      <div class="prod-overlay">
+        <div class="ov-name">🍄 野生牛肝菌</div>
+        <div class="ov-price">¥168/袋 (200g)</div>
+        <div class="ov-trace">🔗 区块链存证: YN-JGC-20260401-FU-6T2M</div>
+        <a href="/shangcheng.html" class="ov-btn">🛒 立即购买</a>
+        <a href="/farm-yunnan-products.html" class="ov-btn" style="background:rgba(0,212,255,.12);color:var(--cyan);margin-top:6px;font-size:10px">📋 查看详情</a>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:right;margin-top:12px"><a href="/farm-yunnan-products.html" style="color:var(--cyan);font-size:11px;text-decoration:none;padding:6px 16px;border-radius:16px;border:1px solid rgba(0,212,255,.2);transition:.2s;display:inline-block">📦 查看全部产品中心 →</a></div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">📅</span> 季节性产品日历 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">🟡金色=当季盛产 · 🔵青色=有产</span></div>
+  <div class="cal-grid">
+    <div class="cal-month"><div class="mon">1月</div><div class="crops">普洱仓储</div></div>
+    <div class="cal-month"><div class="mon">2月</div><div class="crops">普洱仓储</div></div>
+    <div class="cal-month active"><div class="mon">3月</div><div class="crops">春茶萌芽</div></div>
+    <div class="cal-month peak"><div class="mon">4月</div><div class="crops">🍵春茶·头采</div></div>
+    <div class="cal-month active"><div class="mon">5月</div><div class="crops">春茶·三七</div></div>
+    <div class="cal-month"><div class="mon">6月</div><div class="crops">茶园管理</div></div>
+    <div class="cal-month peak"><div class="mon">7月</div><div class="crops">🍄松茸·菌菇</div></div>
+    <div class="cal-month peak"><div class="mon">8月</div><div class="crops">🍄牛肝菌·松茸</div></div>
+    <div class="cal-month active"><div class="mon">9月</div><div class="crops">秋茶采摘</div></div>
+    <div class="cal-month peak"><div class="mon">10月</div><div class="crops">🍵秋茶·三七</div></div>
+    <div class="cal-month"><div class="mon">11月</div><div class="crops">茶叶加工</div></div>
+    <div class="cal-month"><div class="mon">12月</div><div class="crops">仓储陈化</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">🔍</span> 区块链溯源信息 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">👆 点击每步查看详情</span></div>
+  <div class="trace-section">
+    <div class="trace-grid">
+      <div class="trace-block">
+        <h4>📜 区块链存证编号</h4>
+        <div class="cert-id">YN-JGC-20260401-TEA-3P9X</div>
+        <div class="report-link">存证时间: 2026-04-01 09:42:18 · 区块高度: #1,847,243</div>
+        <div class="report-link" style="margin-top:8px">验证平台: <a href="/traceability.html">军鸽云链区块链溯源平台 →</a></div>
+      </div>
+      <div class="trace-block">
+        <h4>📋 检测报告</h4>
+        <div class="report-link"><a href="#">📄 中国有机产品认证 (OFDC-2026-YN-0815) · 有效期至2027年</a></div>
+        <div class="report-link"><a href="#">📄 普洱茶地理标志产品 (GB/T 22111-2008) · 产地认证</a></div>
+        <div class="report-link"><a href="#">📄 农残及重金属检测 (SGS-20260401-KMG) · 310项零检出</a></div>
+        <div class="report-link"><a href="#">📄 菌菇野生采集备案 (YN-FP-2026-042) · 合法可追溯</a></div>
+      </div>
+      <div class="timeline">
+        <div class="tl-step active" onclick="toggleTimeline(this)">
+          <div class="tl-icon">🌳</div>
+          <div class="tl-title">古树采摘</div>
+          <div class="tl-info">GPS定位·树龄档案</div>
+          <div class="tl-detail"><span class="tl-dot"></span>古树编号: JM-GT-0327<br><span class="tl-dot"></span>GPS坐标: 22.10°N, 100.01°E<br><span class="tl-dot"></span>树龄: 约800年·景迈大叶种<br><span class="tl-dot"></span>采摘标准: 一芽二叶·春茶头采</div>
+        </div>
+        <div class="tl-step" onclick="toggleTimeline(this)">
+          <div class="tl-icon">🤲</div>
+          <div class="tl-title">手工制茶</div>
+          <div class="tl-info">非遗工艺·时间戳</div>
+          <div class="tl-detail"><span class="tl-dot"></span>制茶师傅: 傣族非遗传承人<br><span class="tl-dot"></span>工艺: 摊青→杀青→揉捻→晒干<br><span class="tl-dot"></span>制作时间: 2026-03-28至04-02<br><span class="tl-dot"></span>全程温湿度传感器监控</div>
+        </div>
+        <div class="tl-step" onclick="toggleTimeline(this)">
+          <div class="tl-icon">📦</div>
+          <div class="tl-title">仓储陈化</div>
+          <div class="tl-info">温湿度·批次号</div>
+          <div class="tl-detail"><span class="tl-dot"></span>仓储地点: 景迈山茶仓<br><span class="tl-dot"></span>温度: 22°C±2°C 湿度: 65%±5%<br><span class="tl-dot"></span>批次编号: YN-PE-0328<br><span class="tl-dot"></span>陈化监控: IoT传感器持续记录</div>
+        </div>
+        <div class="tl-step" onclick="toggleTimeline(this)">
+          <div class="tl-icon">✈️</div>
+          <div class="tl-title">物流配送</div>
+          <div class="tl-info">全程追踪·签收</div>
+          <div class="tl-detail"><span class="tl-dot"></span>包装: 双层棉纸+竹壳传统包装<br><span class="tl-dot"></span>路径: 景迈→昆明→全国分拨<br><span class="tl-dot"></span>预计时效: 下单后3-5天送达<br><span class="tl-dot"></span>每饼茶附带NFC芯片防伪</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:right;margin-top:12px"><a href="/farm-yunnan-traceability.html" style="color:var(--cyan);font-size:11px;text-decoration:none;padding:6px 16px;border-radius:16px;border:1px solid rgba(0,212,255,.2);transition:.2s;display:inline-block">🔍 查看完整溯源详情 →</a></div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">📸</span> 农场实景</div>
+  <div class="scene-grid">
+    <div class="scene-item">
+      <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=500&q=80" alt="景迈古茶园" loading="lazy">
+      <div class="caption">🌳 景迈山千年古茶园 · 世界文化遗产</div>
+    </div>
+    <div class="scene-item">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80" alt="云海茶山" loading="lazy">
+      <div class="caption">☁️ 1800米云海茶山 · 日出采茶</div>
+    </div>
+    <div class="scene-item">
+      <img src="https://images.unsplash.com/photo-1599634135020-16dcbfac404c?w=500&q=80" alt="菌菇培育基地" loading="lazy">
+      <div class="caption">🍄 有机菌菇培育基地 · 松茸牛肝菌</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">📖</span> 农场故事</div>
+  <div class="story-tl">
+    <div class="story-item">
+      <div class="st-year">2014年</div>
+      <div class="st-title">🪖 12位战友扎根景迈山</div>
+      <div class="st-desc">退役军官李景云在部队服役20载后退役，被景迈山千年古茶林深深吸引，联合11位退伍战友和当地傣族、布朗族茶农，在海拔1800米的云雾深处创办高山生态农庄，守护世界文化遗产古茶林。</div>
+    </div>
+    <div class="story-item">
+      <div class="st-year">2016年</div>
+      <div class="st-title">🌱 获得有机认证</div>
+      <div class="st-desc">经过2年生态修复，农庄800亩古茶园通过国家OFDC有机认证。古茶树坚持"林下种植、不施化肥农药"的古法传统，茶树与森林共生，形成独特的高山生态茶园系统。</div>
+    </div>
+    <div class="story-item">
+      <div class="st-year">2021年</div>
+      <div class="st-title">🔗 区块链溯源码上线</div>
+      <div class="st-desc">接入军鸽云链区块链溯源平台，每一饼普洱茶拥有唯一数字身份——扫码可追溯古树GPS坐标、采摘时间、制茶师傅、仓储温湿度全部数据。同年启动菌菇和中草药种植。</div>
+    </div>
+    <div class="story-item">
+      <div class="st-year">2024年</div>
+      <div class="st-title">🏆 全国示范+世界遗产</div>
+      <div class="st-desc">荣获"全国退役军人创业带动就业示范项目"和"云南省农业产业化重点龙头企业"称号。景迈山古茶林被列入世界文化遗产名录。农庄面积达2600亩，年产古树茶超15吨。</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">📍</span> 地图位置示意</div>
+  <div class="map-placeholder">
+    <div class="map-bg">🗺️</div>
+    <div style="font-size:14px;color:var(--text);margin-bottom:6px">云南省普洱市景迈山 · 海拔1800米云海茶山</div>
+    <div class="map-coords">GPS坐标: 22.1015°N, 100.0128°E · 海拔: 1800m</div>
+    <a href="https://map.baidu.com/search/景迈山古茶林" target="_blank" rel="noopener" class="map-link">🗺️ 在百度地图中查看 →</a>
+    <a href="https://uri.amap.com/search?keyword=景迈山古茶林" target="_blank" rel="noopener" class="map-link" style="margin-left:8px">📍 在高德地图中查看 →</a>
+  </div>
+</div>
+
+<!-- 虚拟导览360 -->
+<div class="section">
+  <div class="section-title"><span class="icon">🔄</span> 360° 虚拟导览 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">🖱️ 点击方向按钮旋转视角</span></div>
+  <div class="tour-360">
+    <div class="tour-viewport" id="tourViewport">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80" alt="360全景" id="tourImg">
+      <div class="tour-overlay-text">
+        <div class="tour-icon">🌐</div>
+        <div class="tour-label">360° 全景漫游 · 云南高山生态农庄</div>
+      </div>
+    </div>
+    <div class="tour-controls">
+      <button class="tour-btn" onclick="rotateTour(-45)" title="左转">◀</button>
+      <button class="tour-btn" onclick="rotateTour(-15)" title="微调左">↖</button>
+      <button class="tour-btn zoom" onclick="zoomTour('in')" title="放大">🔍+</button>
+      <button class="tour-btn zoom" onclick="zoomTour('out')" title="缩小">🔍−</button>
+      <button class="tour-btn" onclick="rotateTour(15)" title="微调右">↗</button>
+      <button class="tour-btn" onclick="rotateTour(45)" title="右转">▶</button>
+    </div>
+    <div class="tour-info">📷 场景: 景迈山云海茶山 | 当前角度: <span id="tourAngle">0</span>° | 缩放: <span id="tourZoom">1.0</span>x</div>
+  </div>
+</div>
+
+<!-- 农产品预售 -->
+<div class="section">
+  <div class="section-title"><span class="icon">📦</span> 即将上市 · 预售专区 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">🔥 提前预定享早鸟价</span></div>
+  <div class="presale-grid">
+    <div class="presale-card">
+      <div class="pre-badge">🔥 热销中</div>
+      <div class="pre-icon">🍵</div>
+      <h4>2026春茶·景迈古树普洱（生茶）</h4>
+      <div class="pre-desc">预计7月上市 · 800年古树头春 · 兰花香韵</div>
+      <div class="pre-progress"><div class="pre-progress-bar" style="width:78%"></div></div>
+      <div class="pre-meta"><span>已预售 850饼</span><span>剩余 250饼</span></div>
+      <div class="pre-price">预售价 ¥358<small style="font-weight:400;font-size:10px">/饼(357g) 原价¥468</small></div>
+      <a href="/shangcheng.html" class="pre-btn">🛒 立即预购</a>
+    </div>
+    <div class="presale-card">
+      <div class="pre-badge">🆕 新品</div>
+      <div class="pre-icon">🍄</div>
+      <h4>野生松茸（特级）</h4>
+      <div class="pre-desc">预计8月采季 · 景迈高海拔 · 冷链48小时直达</div>
+      <div class="pre-progress"><div class="pre-progress-bar" style="width:55%"></div></div>
+      <div class="pre-meta"><span>已预售 420份</span><span>剩余 380份</span></div>
+      <div class="pre-price">预售价 ¥298<small style="font-weight:400;font-size:10px">/份(500g) 原价¥398</small></div>
+      <a href="/shangcheng.html" class="pre-btn">🛒 立即预购</a>
+    </div>
+    <div class="presale-card">
+      <div class="pre-badge">⭐ 限量</div>
+      <div class="pre-icon">🌿</div>
+      <h4>有机三七粉（超微破壁）</h4>
+      <div class="pre-desc">预计9月上市 · 3年生长期 · 限量1500盒</div>
+      <div class="pre-progress"><div class="pre-progress-bar" style="width:32%"></div></div>
+      <div class="pre-meta"><span>已预售 480盒</span><span>剩余 1,020盒</span></div>
+      <div class="pre-price">预售价 ¥168<small style="font-weight:400;font-size:10px">/盒(200g) 原价¥228</small></div>
+      <a href="/shangcheng.html" class="pre-btn">🛒 立即预购</a>
+    </div>
+  </div>
+</div>
+
+<!-- 农庄活动日历 -->
+<div class="section">
+  <div class="section-title"><span class="icon">📆</span> 本月农庄活动 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">📋 名额有限·先到先得</span></div>
+  <div class="act-grid">
+    <div class="act-item">
+      <div class="act-date"><div class="act-day">12</div><div class="act-mon">6月</div></div>
+      <div class="act-info">
+        <h4>🍵 古树茶采摘制茶体验</h4>
+        <div class="act-desc">深入景迈千年古茶园，跟随傣族茶农采茶、炒茶、压饼，带走自制普洱茶饼。</div>
+        <div class="act-meta"><span>⏰ 08:00-17:00</span><span>👥 限30人</span><span>💰 ¥398/人</span></div>
+      </div>
+      <a href="/farm-experience.html" class="act-signup">📝 报名</a>
+    </div>
+    <div class="act-item">
+      <div class="act-date"><div class="act-day">20</div><div class="act-mon">6月</div></div>
+      <div class="act-info">
+        <h4>🌿 高山中草药研学营</h4>
+        <div class="act-desc">识别野生中草药、学习三七种植技术，适合中医药爱好者，含午餐+标本手册。</div>
+        <div class="act-meta"><span>⏰ 09:00-16:00</span><span>👥 限20人</span><span>💰 ¥268/人</span></div>
+      </div>
+      <a href="/farm-experience.html" class="act-signup">📝 报名</a>
+    </div>
+    <div class="act-item">
+      <div class="act-date"><div class="act-day">8</div><div class="act-mon">7月</div></div>
+      <div class="act-info">
+        <h4>🎖️ 云岭战友创业分享会</h4>
+        <div class="act-desc">12位退役军人分享高山创业经历，退役军人及家属免费，含茶山徒步+篝火晚会。</div>
+        <div class="act-meta"><span>⏰ 全天</span><span>👥 限50人</span><span>💰 免费（需报名）</span></div>
+      </div>
+      <a href="/farm-experience.html" class="act-signup">📝 报名</a>
+    </div>
+    <div class="act-item">
+      <div class="act-date"><div class="act-day">22</div><div class="act-mon">7月</div></div>
+      <div class="act-info">
+        <h4>☁️ 云海日出茶会</h4>
+        <div class="act-desc">清晨观云海日出+古树茶品鉴+茶道表演，一场视觉与味觉的盛宴。</div>
+        <div class="act-meta"><span>⏰ 05:30-12:00</span><span>👥 限35人</span><span>💰 ¥188/人</span></div>
+      </div>
+      <a href="/farm-experience.html" class="act-signup">📝 报名</a>
+    </div>
+  </div>
+  <div style="text-align:right;margin-top:12px"><a href="/farm-yunnan-experience.html" style="color:var(--cyan);font-size:11px;text-decoration:none;padding:6px 16px;border-radius:16px;border:1px solid rgba(0,212,255,.2);transition:.2s;display:inline-block">🌿 查看完整农旅体验 →</a></div>
+</div>
+
+<!-- 会员体系 -->
+<div class="section">
+  <div class="section-title"><span class="icon">👑</span> 会员体系 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">🎖️ 退役军人及家属享专属优惠</span></div>
+  <div style="overflow-x:auto">
+  <table class="member-table">
+    <thead>
+      <tr>
+        <th style="width:18%">权益项目</th>
+        <th style="width:27%"><span class="tier-icon">🌱</span><span class="tier-name">普通会员</span><br><span class="tier-sub">免费注册</span></th>
+        <th style="width:27%"><span class="tier-icon">🥈</span><span class="tier-name">银卡会员</span><br><span class="tier-sub">年消费≥¥2,000</span></th>
+        <th class="gold-hd" style="width:28%"><span class="tier-icon">👑</span><span class="tier-name" style="color:var(--gold)">金卡会员</span><br><span class="tier-sub" style="color:var(--dim)">年消费≥¥5,000 或退役军人</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>产品折扣</td><td>无</td><td class="yes">9.5折</td><td class="highlight">8.8折</td></tr>
+      <tr><td>包邮门槛</td><td>满¥199</td><td class="yes">满¥99</td><td class="highlight">全场包邮</td></tr>
+      <tr><td>预售优先权</td><td>无</td><td class="yes">提前12小时</td><td class="highlight">提前48小时</td></tr>
+      <tr><td>专属客服</td><td>在线客服</td><td class="yes">专属顾问</td><td class="highlight">1对1管家</td></tr>
+      <tr><td>农场体验</td><td>原价</td><td class="yes">8折</td><td class="highlight">每年2次免费</td></tr>
+      <tr><td>新品试用</td><td>无</td><td>无</td><td class="highlight">每季1次</td></tr>
+      <tr><td>生日礼遇</td><td>优惠券</td><td class="yes">礼盒+券</td><td class="highlight">定制茶礼+¥200券</td></tr>
+      <tr><td>区块链溯源报告</td><td>基础版</td><td class="yes">详细版</td><td class="highlight">完整版+专属哈希</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="member-cta">
+    <a href="/member-register.html">🎖️ 立即注册/升级会员 →</a>
+  </div>
+</div>
+
+<!-- 用户评价（5条） -->
+<div class="section">
+  <div class="section-title"><span class="icon">💬</span> 用户评价 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">⭐ 点击评价展开全文</span></div>
+  <div class="review-list">
+    <div class="review-item" onclick="this.classList.toggle('expanded')">
+      <div class="reviewer">
+        <div class="avatar">杨</div>
+        <div><div class="name">杨紫涵 · 广州茶友</div><div class="rev-date">2026年5月8日</div></div>
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="rev-content">喝普洱茶十几年了，市面上古树茶鱼龙混杂。军鸽云链这个溯源系统解决了最大的痛点——扫码就能看到这饼茶来自景迈山哪棵古树、何时采摘、哪位师傅手工制作。兰花香韵清雅悠长，回甘持久，是真正的景迈古树茶！区块链给了老茶客最大的信心。</div>
+      <div class="rev-expand">▼ 展开全文</div>
+    </div>
+    <div class="review-item" onclick="this.classList.toggle('expanded')">
+      <div class="reviewer">
+        <div class="avatar" style="background:linear-gradient(135deg,var(--green),#22c55e)">周</div>
+        <div><div class="name">周志强 · 退役军人</div><div class="rev-date">2026年4月18日</div></div>
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="rev-content">12位战友在云南高山创业的故事太励志了！买了松茸和三七，品质完全超出预期。松茸用冰袋冷链发过来，打开箱子还有山野的清香味。三七粉给老母亲泡水喝，老人家说比药店买的更实在。支持战友们扎根云岭、守护古茶山！</div>
+      <div class="rev-expand">▼ 展开全文</div>
+    </div>
+    <div class="review-item" onclick="this.classList.toggle('expanded')">
+      <div class="reviewer">
+        <div class="avatar" style="background:linear-gradient(135deg,#8b6914,var(--gold))">林</div>
+        <div><div class="name">林婉清 · 上海访客</div><div class="rev-date">2026年5月3日</div></div>
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="rev-content">五一假期参加了农庄的"茶山之旅"深度体验，从采茶、炒茶到压饼全程参与。清晨在云海里采茶，那种感觉太震撼了！夜晚住在茶园民宿，满天繁星触手可及。亲自压制了一饼普洱茶带回家做纪念，上面还有我的签名和区块链存证编号，太有意义了！</div>
+      <div class="rev-expand">▼ 展开全文</div>
+    </div>
+    <div class="review-item" onclick="this.classList.toggle('expanded')">
+      <div class="reviewer">
+        <div class="avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">黄</div>
+        <div><div class="name">黄大伟 · 成都茶商</div><div class="rev-date">2026年5月15日</div></div>
+        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+      <div class="rev-content">做了二十年茶叶生意，对原料要求极为严苛。军鸽云链的景迈古树茶让我非常惊喜——每一饼都有NFC芯片+区块链存证，古树GPS坐标清晰可查。茶汤金黄透亮，兰花香高扬持久，是真正的景迈山古树纯料。已经签订了长期合作协议！</div>
+      <div class="rev-expand">▼ 展开全文</div>
+    </div>
+    <div class="review-item" onclick="this.classList.toggle('expanded')">
+      <div class="reviewer">
+        <div class="avatar" style="background:linear-gradient(135deg,var(--red),#dc2626)">马</div>
+        <div><div class="name">马丽娜 · 北京养生达人</div><div class="rev-date">2026年4月25日</div></div>
+        <div class="review-stars">⭐⭐⭐⭐<span style="color:var(--dim)">☆</span></div>
+      </div>
+      <div class="rev-content">有机三七粉品质很好，粉质细腻，泡水后没有杂质。给爸妈各买了一份，他们都说效果不错。唯一的小遗憾是包装可以再精致一些，送礼的话略显朴素。客服非常耐心地解答了三七的食用方法和注意事项，好评！</div>
+      <div class="rev-expand">▼ 展开全文</div>
+    </div>
+  </div>
+</div>
+
+<!-- 交通指南 -->
+<div class="section">
+  <div class="section-title"><span class="icon">🚗</span> 交通指南 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">📍 云南省普洱市景迈山</span></div>
+  <div class="transport-grid">
+    <div class="transport-card">
+      <div class="tp-icon">🚗</div>
+      <h4>自驾前往</h4>
+      <div class="tp-detail">
+        <div class="tp-line">📍 导航搜索: 云南高山生态农庄</div>
+        <div class="tp-line">🛣️ 昆磨高速普洱南出口 → G214国道 → 景迈山景区公路 → 农庄</div>
+        <div class="tp-line">🅿️ 免费停车位40个+新能源充电桩8个</div>
+        <div class="tp-line">⏱️ 普洱市区出发约1.5小时</div>
+      </div>
+      <a href="https://map.baidu.com/search/景迈山古茶林" target="_blank" rel="noopener" class="tp-link">🗺️ 百度地图导航 →</a>
+    </div>
+    <div class="transport-card">
+      <div class="tp-icon">🚌</div>
+      <h4>公共交通</h4>
+      <div class="tp-detail">
+        <div class="tp-line">🚌 普洱客运站 → 惠民镇（每日多班）→ 换乘农庄接驳车</div>
+        <div class="tp-line">🚐 农庄接驳车: 惠民镇 ↔ 农庄（免费·需提前预约）</div>
+        <div class="tp-line">🚕 普洱市区打车约1.5小时（约¥200）</div>
+        <div class="tp-line">⏱️ 公共交通全程约2.5-3小时</div>
+      </div>
+      <a href="https://map.baidu.com/search/普洱客运站" target="_blank" rel="noopener" class="tp-link">🚏 客运班次查询 →</a>
+    </div>
+    <div class="transport-card">
+      <div class="tp-icon">🚄</div>
+      <h4>高铁/飞机</h4>
+      <div class="tp-detail">
+        <div class="tp-line">✈️ 普洱思茅机场 → 打车约1.5小时（约¥180）</div>
+        <div class="tp-line">✈️ 西双版纳嘎洒机场 → 打车约2小时（约¥280）</div>
+        <div class="tp-line">🚄 普洱站（建设中·预计2027年通车）</div>
+        <div class="tp-line">🎁 金卡会员享普洱市区/机场免费接站</div>
+      </div>
+      <a href="/farm-experience.html" class="tp-link">📅 预约接送服务 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+  <div class="section-title"><span class="icon">❓</span> 常见问题 FAQ</div>
+  <div class="faq-list">
+    <div class="faq-item open">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>🍵 古树普洱茶如何辨别真伪？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">每一饼军鸽云链景迈古树茶均配备NFC芯片和区块链溯源二维码，扫码可查：古树GPS坐标、树龄档案、采摘时间、制茶师傅、仓储温湿度全程数据。所有信息均上链存证，不可篡改。也可通过军鸽云链溯源平台输入存证编号独立验证。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>🍄 松茸如何保鲜配送？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">松茸采摘后2小时内完成预冷处理，采用专业冷链包装（恒温0-4°C），顺丰冷链航空直达。省内24小时达，全国主要城市48小时内送达。收到后请冷藏保存并尽快食用。如出现品质问题，拍照联系客服即享赔付。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>🎖️ 退役军人有什么专属优惠？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">退役军人凭有效证件自动升级为金卡会员，享受8.8折、全场包邮、每年2次免费农场体验（含食宿）、1对1管家服务等专属权益。农庄现有12位退役军人创业者，欢迎更多战友加入我们守护古茶山的行列。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>📅 景迈山什么季节最美？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">景迈山四季皆美：3-4月春茶采摘季，漫山茶香；5-10月云海季，清晨云海日出壮观无比；7-9月菌菇季，可体验野生菌采摘；11-2月冬季樱花盛开，茶山如画。建议提前3天预约，金卡会员每年享有2次免费体验名额。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>💳 支持哪些支付方式？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">支持微信支付、支付宝、银联卡、数字人民币等多种支付方式。会员可使用账户余额和优惠券。企业团购支持对公转账和增值税发票开具。所有交易均在军鸽云链平台上完成，保障支付安全。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span>📦 普洱茶如何保存？发货周期？</span><span class="faq-arrow">▼</span></div>
+      <div class="faq-a">普洱茶采用传统双层棉纸+竹壳包装，建议存放在通风、干燥、无异味的环境中，避免阳光直射。下单后48小时内发货，全国3-5天送达。预售春茶标注预计上市时间后按订单顺序发货。每饼茶附带收藏证书和NFC防伪芯片。</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- 在线咨询浮动按钮 -->
+<div class="chat-float">
+  <a href="/contact.html" class="chat-btn pulse" title="在线咨询">💬</a>
+  <span class="chat-label">在线咨询</span>
+</div>
+
+<div class="fixed-cta" id="fixedCta">
+  <span class="cta-text">📅 预约参观 · 探访云端茶山秘境</span>
+  <span class="cta-countdown">🔥 今日剩余 <span class="num" id="ctaCount">34</span> 个名额</span>
+  <a href="/farm-experience.html" class="cta-btn-fixed">🍵 立即预约</a>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="/junge/eco-farm.html" style="border-color:rgba(77,148,96,.2);color:var(--green)">🌿 生态农庄</a>
+    <a href="/shangcheng.html" style="border-color:rgba(0,212,255,.2);color:var(--cyan)">🛒 商业生态</a>
+    <a href="/traceability.html" style="border-color:rgba(240,192,64,.2);color:var(--gold)">🔗 区块链溯源</a>
+    <a href="/index.html" style="border-color:rgba(184,64,69,.2);color:var(--red)">🏠 返回首页</a>
+  </div>
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站: 175.178.55.90 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+  食品安全+退役军人在服务综合平台
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<script src="/js/share-reward.js"></script>
+<script>
+function toggleTimeline(el){el.classList.toggle('active')}
+(function(){var n=Math.floor(Math.random()*44)+34;document.getElementById('ctaCount').textContent=n;var t=setInterval(function(){if(n<=1){n=Math.floor(Math.random()*44)+34;document.getElementById('ctaCount').textContent=n}else{n--;document.getElementById('ctaCount').textContent=n}},30000)})()
+document.querySelectorAll('.review-item').forEach(function(r){r.addEventListener('click',function(){var s=this.classList.contains('expanded');this.querySelector('.rev-expand').textContent=s?'▼ 展开全文':'▲ 收起'})})
+// 360虚拟导览
+var tourAngle=0,tourZoom=1;
+function rotateTour(deg){tourAngle+=deg;var img=document.getElementById('tourImg');if(img)img.style.transform='rotate('+tourAngle+'deg) scale('+tourZoom+')';var el=document.getElementById('tourAngle');if(el)el.textContent=tourAngle}
+function zoomTour(dir){if(dir==='in')tourZoom=Math.min(2,tourZoom+0.2);else tourZoom=Math.max(0.5,tourZoom-0.2);var img=document.getElementById('tourImg');if(img)img.style.transform='rotate('+tourAngle+'deg) scale('+tourZoom+')';var el=document.getElementById('tourZoom');if(el)el.textContent=tourZoom.toFixed(1)}
+</script>
+</body>
+</html>

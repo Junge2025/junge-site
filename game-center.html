@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎮 大众游戏池 · 军鸽云链数智</title>
+<meta name="description" content="军鸽云链数智大众游戏池——抽奖、盲盒、好品、好景、好文，实物现金奖励等你拿！在平台规则和法律法规内自由参与。">
+<meta name="keywords" content="军鸽云链,游戏池,抽奖,盲盒,好品抽奖,好景抽奖,好文抽奖,退役军人福利">
+<style>
+  :root{
+    --bg-primary:#060e1e;--bg-secondary:#0a1628;--bg-card:rgba(15,34,64,0.6);
+    --text-primary:#e8edf5;--text-secondary:#94a3b8;--text-muted:#64748b;
+    --accent-cyan:#00d4ff;--accent-gold:#d4af37;--accent-green:#4caf50;
+    --accent-purple:#7c3aed;--accent-pink:#ff0080;--accent-orange:#ff8200;
+    --border-color:rgba(255,255,255,0.06);--border-hover:rgba(0,212,255,0.2);
+    --shadow:0 4px 20px rgba(0,0,0,0.3);
+    --radius:16px;--radius-sm:10px;
+    --transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  ::-webkit-scrollbar{width:6px}
+  ::-webkit-scrollbar-track{background:var(--bg-primary)}
+  ::-webkit-scrollbar-thumb{background:rgba(0,212,255,0.2);border-radius:3px}
+  body{
+    font-family:'Inter','-apple-system','BlinkMacSystemFont','Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+    background:var(--bg-primary);color:var(--text-primary);min-height:100vh;
+    line-height:1.6;overflow-x:hidden;
+  }
+  /* ====== Header ====== */
+  .site-header{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    background:rgba(6,14,30,0.85);backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border-color);padding:0 24px;
+    height:60px;display:flex;align-items:center;justify-content:space-between;
+  }
+  .site-header .logo{font-size:18px;font-weight:800;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+  .site-header .logo small{font-size:10px;font-weight:400;color:var(--text-muted);-webkit-text-fill-color:var(--text-muted);margin-left:6px}
+  .header-actions{display:flex;align-items:center;gap:16px}
+  .ticket-badge{
+    display:flex;align-items:center;gap:6px;
+    background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(255,128,0,0.1));
+    border:1px solid rgba(212,175,55,0.15);border-radius:20px;
+    padding:4px 14px;font-size:13px;font-weight:600;
+  }
+  .ticket-badge .num{color:var(--accent-gold);font-size:16px}
+  .back-link{color:var(--text-muted);font-size:13px;text-decoration:none;transition:var(--transition)}
+  .back-link:hover{color:var(--accent-cyan)}
+
+  /* ====== Main ====== */
+  .main-wrap{padding-top:80px;max-width:1200px;margin:0 auto;padding-left:20px;padding-right:20px;padding-bottom:60px}
+
+  /* ====== Hero ====== */
+  .game-hero{
+    text-align:center;padding:40px 20px 30px;
+    background:linear-gradient(135deg,rgba(0,212,255,0.03),rgba(212,175,55,0.03));
+    border:1px solid var(--border-color);border-radius:var(--radius);margin-bottom:30px;
+  }
+  .game-hero h1{font-size:32px;font-weight:800;margin-bottom:8px}
+  .game-hero h1 .highlight{background:linear-gradient(135deg,var(--accent-cyan),var(--accent-gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .game-hero p{color:var(--text-secondary);font-size:14px;max-width:600px;margin:0 auto}
+
+  /* ====== 数据面板 ====== */
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:12px;margin-bottom:30px;
+  }
+  .stat-card{
+    background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-sm);
+    padding:16px;text-align:center;transition:var(--transition);
+  }
+  .stat-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+  .stat-card .label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+  .stat-card .value{font-size:26px;font-weight:800}
+  .stat-card .value.gold{color:var(--accent-gold)}
+  .stat-card .value.cyan{color:var(--accent-cyan)}
+  .stat-card .value.green{color:var(--accent-green)}
+  .stat-card .value.red{color:var(--accent-pink)}
+
+  /* ====== 签到 ====== */
+  .checkin-bar{
+    display:flex;align-items:center;justify-content:space-between;
+    background:linear-gradient(135deg,rgba(76,175,80,0.05),rgba(0,212,255,0.05));
+    border:1px solid rgba(76,175,80,0.12);border-radius:var(--radius-sm);
+    padding:14px 20px;margin-bottom:30px;
+  }
+  .checkin-bar .left{display:flex;align-items:center;gap:12px}
+  .checkin-bar .left .text{font-size:14px;font-weight:600}
+  .checkin-bar .left .sub{font-size:11px;color:var(--text-muted)}
+  .checkin-btn{
+    background:linear-gradient(135deg,var(--accent-green),#2e7d32);
+    border:none;color:#fff;padding:8px 24px;border-radius:20px;
+    font-weight:600;font-size:13px;cursor:pointer;transition:var(--transition);
+    font-family:inherit;
+  }
+  .checkin-btn:hover{transform:translateY(-1px);box-shadow:0 4px 15px rgba(76,175,80,0.2)}
+  .checkin-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+  .checkin-btn.done{background:var(--text-muted)}
+
+  /* ====== 游戏卡片网格 ====== */
+  .game-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:16px;margin-bottom:30px;
+  }
+  .game-card{
+    background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius);
+    padding:24px;transition:var(--transition);cursor:pointer;position:relative;overflow:hidden;
+  }
+  .game-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--accent-cyan),transparent);
+    opacity:0;transition:var(--transition);
+  }
+  .game-card:hover{transform:translateY(-4px);border-color:var(--border-hover)}
+  .game-card:hover::before{opacity:1}
+  .game-card .g-icon{font-size:36px;margin-bottom:10px;display:block}
+  .game-card .g-title{font-size:18px;font-weight:700;margin-bottom:4px}
+  .game-card .g-desc{font-size:12px;color:var(--text-muted);margin-bottom:12px}
+  .game-card .g-meta{display:flex;align-items:center;gap:12px;font-size:12px}
+  .game-card .g-cost{
+    background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.12);
+    padding:2px 10px;border-radius:10px;color:var(--accent-gold);font-weight:600;
+  }
+  .game-card .g-cost.free{background:rgba(76,175,80,0.08);border-color:rgba(76,175,80,0.12);color:var(--accent-green)}
+  .game-card .g-play-btn{
+    margin-left:auto;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.12);
+    color:var(--accent-cyan);padding:6px 18px;border-radius:20px;font-weight:600;font-size:12px;
+    transition:var(--transition);cursor:pointer;font-family:inherit;
+  }
+  .game-card .g-play-btn:hover{background:rgba(0,212,255,0.15)}
+
+  /* ====== 奖池展示 ====== */
+  .prize-section{margin-bottom:30px}
+  .prize-section .sec-title{font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .prize-banner{
+    display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;
+  }
+  .prize-item{
+    flex-shrink:0;width:140px;
+    background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-sm);
+    padding:14px;text-align:center;transition:var(--transition);
+  }
+  .prize-item:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+  .prize-item .pi-icon{font-size:28px;display:block;margin-bottom:6px}
+  .prize-item .pi-name{font-size:11px;font-weight:600;color:var(--text-secondary);line-height:1.3}
+  .prize-item .pi-tier{
+    display:inline-block;font-size:9px;padding:1px 8px;border-radius:8px;
+    margin-top:6px;font-weight:600;
+  }
+  .pi-tier.common{background:rgba(100,116,139,0.15);color:#94a3b8}
+  .pi-tier.uncommon{background:rgba(0,212,255,0.1);color:var(--accent-cyan)}
+  .pi-tier.rare{background:rgba(124,58,237,0.12);color:var(--accent-purple)}
+  .pi-tier.legendary{background:rgba(212,175,55,0.12);color:var(--accent-gold)}
+  .pi-tier.limited{background:rgba(255,0,128,0.12);color:var(--accent-pink)}
+
+  /* ====== 游戏结果弹窗 ====== */
+  #game-result-overlay{
+    position:fixed;top:0;left:0;right:0;bottom:0;
+    background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);
+    z-index:999999;display:flex;align-items:center;justify-content:center;
+    animation:groFade 0.3s ease;
+  }
+  @keyframes groFade{from{opacity:0}to{opacity:1}}
+  .gro-modal{
+    background:linear-gradient(135deg,#0f2240,#0a1628);
+    border:1px solid rgba(0,212,255,0.15);border-radius:20px;
+    padding:30px;width:90%;max-width:380px;text-align:center;
+    animation:groSlide 0.4s ease;
+  }
+  @keyframes groSlide{from{opacity:0;transform:scale(0.9) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+  .gro-icon{font-size:48px;margin-bottom:10px;display:block;animation:groBounce 0.6s ease}
+  @keyframes groBounce{0%{transform:scale(0)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+  .gro-tier{
+    display:inline-block;font-size:11px;padding:2px 14px;border-radius:12px;
+    font-weight:600;margin-bottom:10px;
+  }
+  .gro-tier.common{background:rgba(100,116,139,0.15);color:#94a3b8}
+  .gro-tier.uncommon{background:rgba(0,212,255,0.1);color:var(--accent-cyan)}
+  .gro-tier.rare{background:rgba(124,58,237,0.15);color:var(--accent-purple)}
+  .gro-tier.legendary{background:rgba(212,175,55,0.15);color:var(--accent-gold)}
+  .gro-tier.limited{background:rgba(255,0,128,0.15);color:var(--accent-pink)}
+  .gro-name{font-size:22px;font-weight:800;margin-bottom:6px}
+  .gro-value{font-size:13px;color:var(--text-secondary);margin-bottom:20px}
+  .gro-btn{
+    background:linear-gradient(135deg,var(--accent-cyan),#0099cc);
+    border:none;color:#fff;padding:10px 32px;border-radius:20px;
+    font-weight:600;font-size:14px;cursor:pointer;transition:var(--transition);
+    font-family:inherit;
+  }
+  .gro-btn:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,212,255,0.2)}
+  .gro-error{color:var(--accent-pink);font-size:14px;padding:20px}
+
+  /* ====== 滚动动画/粒子 ====== */
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+  /* ====== 盲盒专用动画 ====== */
+  .box-shake{animation:boxShake 0.5s ease}
+  @keyframes boxShake{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}75%{transform:rotate(-4deg)}}
+
+  /* ====== 响应式 ====== */
+  @media(max-width:768px){
+    .main-wrap{padding-left:12px;padding-right:12px}
+    .game-hero h1{font-size:22px}
+    .game-grid{grid-template-columns:1fr}
+    .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .checkin-bar{flex-direction:column;gap:10px;text-align:center}
+  }
+
+  /* ====== 历史记录 ====== */
+  .history-section{max-height:200px;overflow-y:auto;margin-top:20px}
+  .history-section::-webkit-scrollbar{width:4px}
+  .history-item{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.03);
+    font-size:12px;color:var(--text-muted);
+  }
+  .history-item .hi-game{color:var(--text-secondary);font-weight:600}
+  .history-item .hi-prize{color:var(--accent-cyan)}
+  .history-item .hi-time{font-size:10px}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="🎮 大众游戏池 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/game-center.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/game-center.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">游戏中心</span>
+</nav>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a href="/" class="logo">🎮 大众游戏池 <small>· 军鸽云链数智</small></a>
+    <div class="header-actions">
+      <span class="ticket-badge">🎫 <span class="num" data-game-tickets>0</span> 张</span>
+      <a href="login.html" class="header-btn" style="font-size:12px;padding:4px 10px;border-radius:6px;background:var(--accent-cyan-dim);color:var(--accent-cyan);border:1px solid rgba(0,212,255,0.15)"><i class="fas fa-sign-in-alt"></i> 登录</a>
+      <a href="member-register.html" class="header-btn" style="font-size:12px;padding:4px 10px;border-radius:6px;background:var(--accent-gold-dim);color:var(--accent-gold);border:1px solid rgba(212,175,55,0.2)"><i class="fas fa-user-plus"></i> 注册</a>
+      <a href="/junge-shuzhi.html" class="back-link">← 返回首页</a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <div class="main-wrap">
+
+    <!-- Hero -->
+    <div class="game-hero">
+      <h1><span class="highlight">🎲 大众游戏池</span></h1>
+      <p>抽奖、盲盒、好品、好景、好文……在平台规则与法律法规内，自由设立，自由参与。<br>实物奖励 · 现金红包 · 价值积分，等你来赢！</p>
+    </div>
+
+    <!-- Stats Dashboard -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="label">🎫 游戏券</div>
+        <div class="value gold" data-game-tickets>0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">今日已抽</div>
+        <div class="value cyan" id="stat-draws">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">剩余次数</div>
+        <div class="value green" id="stat-remaining">50</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">💰 今日现金奖池</div>
+        <div class="value" id="stat-cash" style="color:var(--accent-gold)">¥0</div>
+      </div>
+    </div>
+
+    <!-- Check-in -->
+    <div class="checkin-bar" id="checkin-bar">
+      <div class="left">
+        <span style="font-size:28px">👋</span>
+        <div>
+          <div class="text">每日签到领游戏券</div>
+          <div class="sub">每日访问即可领取 <strong>1张</strong> 游戏券 · 积分和奖励随签到天数递增</div>
+        </div>
+      </div>
+      <button class="checkin-btn" id="checkin-btn" onclick="doCheckIn()">签到领券</button>
+    </div>
+
+    <!-- Games Grid -->
+    <h2 style="font-size:18px;font-weight:700;margin-bottom:14px">🎯 选择游戏</h2>
+    <div class="game-grid" id="game-grid"></div>
+
+    <!-- 奖池展示 -->
+    <div class="prize-section">
+      <div class="sec-title">🏆 当前奖池热门奖品</div>
+      <div class="prize-banner" id="prize-banner"></div>
+    </div>
+
+    <!-- 获得游戏券方式 -->
+    <div class="prize-section">
+      <div class="sec-title">💡 如何获得游戏券</div>
+      <div class="stats-grid" id="earn-ways" style="grid-template-columns:repeat(auto-fit,minmax(130px,1fr))"></div>
+    </div>
+
+    <!-- 历史记录 -->
+    <details style="margin-top:20px">
+      <summary style="cursor:pointer;color:var(--text-muted);font-size:13px;font-weight:600">📜 抽奖记录</summary>
+      <div class="history-section" id="history-section">
+        <div style="color:var(--text-muted);font-size:12px;padding:10px 0">暂无记录，开始你的第一次抽奖吧！</div>
+      </div>
+    </details>
+
+  </div>
+
+  <!-- 游戏结果弹窗容器 -->
+  <div id="result-container"></div>
+
+  <!-- Scripts -->
+  <script src="/js/game-pool.js"></script>
+  <script src="/js/share-reward.js"></script>
+  <script>
+    // ====== 初始化页面 ======
+    function initPage() {
+      updateStats();
+      renderGames();
+      renderPrizeBanner();
+      renderEarnWays();
+      updateCheckinBtn();
+      renderHistory();
+    }
+
+    // ====== 更新统计 ======
+    function updateStats() {
+      const s = JungeGamePool.getStats();
+      document.querySelectorAll('[data-game-tickets]').forEach(el => el.textContent = s.tickets);
+      document.getElementById('stat-draws').textContent = s.dailyDraws;
+      document.getElementById('stat-remaining').textContent = s.dailyRemaining;
+      document.getElementById('stat-cash').textContent = '¥' + s.dailyCash + ' / ¥' + s.cashLimit;
+    }
+
+    // ====== 渲染游戏卡片 ======
+    function renderGames() {
+      const grid = document.getElementById('game-grid');
+      const games = JungeGamePool.getGames();
+      const pageMap = {goodProduct:'game-good-product.html',goodScenery:'game-good-scenery.html',goodArticle:'game-good-article.html'};
+      grid.innerHTML = '';
+      games.forEach(g => {
+        const isFree = g.cost === 0;
+        const costHtml = isFree
+          ? '<span class="g-cost free">🎉 免费</span>'
+          : '<span class="g-cost">🎫 x' + g.cost + '</span>';
+        const card = document.createElement('div');
+        card.className = 'game-card';
+        const maxTier = g.items.reduce((best, item) => {
+          const tiers = ['common','uncommon','rare','legendary','limited'];
+          return tiers.indexOf(item.tier) > tiers.indexOf(best) ? item.tier : best;
+        }, 'common');
+        const hasDedicated = pageMap[g.id];
+        const btnHtml = hasDedicated
+          ? `<a href="${pageMap[g.id]}" class="g-play-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">进入专区</a>`
+          : `<button class="g-play-btn" onclick="playGame('${g.id}')">立即参与</button>`;
+        card.innerHTML = `
+          <span class="g-icon">${g.icon}</span>
+          <div class="g-title">${g.title}</div>
+          <div class="g-desc">消耗游戏券随机获得各种奖励 · 最高可出 ${maxTier === 'limited' ? '👑限定级' : maxTier === 'legendary' ? '💎传说级' : maxTier === 'rare' ? '💜珍贵级' : '⭐'}</div>
+          <div class="g-meta">
+            ${costHtml}
+            <span style="color:var(--text-muted);font-size:11px">${g.items.length}种奖品</span>
+            ${btnHtml}
+          </div>
+        `;
+        // 点击卡片本身也跳转到专区页（如有）
+        if (hasDedicated) {
+          card.style.cursor = 'pointer';
+          card.addEventListener('click', function(e) {
+            if (e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON') {
+              window.location.href = pageMap[g.id];
+            }
+          });
+        }
+        grid.appendChild(card);
+      });
+    }
+
+    // ====== 奖池热门奖品 ======
+    function renderPrizeBanner() {
+      const banner = document.getElementById('prize-banner');
+      const games = JungeGamePool.getGames();
+      const allPrizes = [];
+      games.forEach(g => {
+        g.items.forEach(item => {
+          if (item.tier === 'legendary' || item.tier === 'limited') {
+            allPrizes.push({...item, gameIcon: g.icon});
+          }
+        });
+      });
+      // 打乱取前12个
+      const shuffled = allPrizes.sort(() => Math.random() - 0.5).slice(0, 12);
+      banner.innerHTML = shuffled.map(p => `
+        <div class="prize-item">
+          <span class="pi-icon">${p.icon}</span>
+          <div class="pi-name">${p.name}</div>
+          <span class="pi-tier ${p.tier}">${p.tier === 'limited' ? '👑限定' : p.tier === 'legendary' ? '💎传说' : p.tier}</span>
+        </div>
+      `).join('');
+    }
+
+    // ====== 获取游戏券方式 ======
+    function renderEarnWays() {
+      const grid = document.getElementById('earn-ways');
+      const ways = JungeGamePool.getEarnWays();
+      grid.innerHTML = ways.map(w => `
+        <div class="stat-card">
+          <div style="font-size:24px;margin-bottom:4px">${w.icon}</div>
+          <div style="font-size:13px;font-weight:600;color:var(--text-secondary)">${w.method}</div>
+          <div style="font-size:11px;color:var(--accent-gold);font-weight:600;margin-top:2px">${w.reward}</div>
+        </div>
+      `).join('');
+    }
+
+    // ====== 签到 ======
+    function doCheckIn() {
+      const result = JungeGamePool.dailyCheckIn();
+      if (result.done) {
+        document.getElementById('checkin-btn').disabled = true;
+        document.getElementById('checkin-btn').textContent = '✅ 已签到';
+        document.getElementById('checkin-btn').classList.add('done');
+      } else {
+        alert('🎉 签到成功！获得 ' + result.tickets + ' 张游戏券');
+        updateStats();
+        updateCheckinBtn();
+      }
+    }
+
+    function updateCheckinBtn() {
+      const btn = document.getElementById('checkin-btn');
+      if (JungeGamePool.hasCheckedIn()) {
+        btn.disabled = true;
+        btn.textContent = '✅ 已签到';
+        btn.classList.add('done');
+      } else {
+        btn.disabled = false;
+        btn.textContent = '🎫 签到领券';
+        btn.classList.remove('done');
+      }
+    }
+
+    // ====== 执行游戏 ======
+    function playGame(gameType) {
+      const container = document.getElementById('result-container');
+      const g = JungeGamePool.getGames().find(x => x.id === gameType);
+
+      // 盲盒加shake动画
+      if (gameType === 'mysteryBox') {
+        const card = event.target.closest('.game-card');
+        if (card) card.classList.add('box-shake');
+      }
+
+      const result = JungeGamePool.draw(gameType);
+
+      if (result.error) {
+        container.innerHTML = `
+          <div id="game-result-overlay" onclick="if(event.target===this)this.remove()">
+            <div class="gro-modal">
+              <div class="gro-error">⚠️ ${result.error}</div>
+              <button class="gro-btn" onclick="document.getElementById('game-result-overlay').remove()">我知道了</button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const p = result.prize;
+      const tierLabels = {common:'普通',uncommon:'稀有',rare:'珍贵',legendary:'传说',limited:'👑限定'};
+
+      container.innerHTML = `
+        <div id="game-result-overlay" onclick="if(event.target===this)this.remove()">
+          <div class="gro-modal">
+            <span class="gro-icon">${p.icon}</span>
+            <div class="gro-tier ${p.tier}">${tierLabels[p.tier] || p.tier}</div>
+            <div class="gro-name">${p.name}</div>
+            <div class="gro-value">${p.type === 'cash' ? '💰 现金奖励已到账' : p.type === 'physical' ? '🎁 请联系客服领取实物' : p.type === 'coupon' ? '🎫 查看优惠券' : '✅ 价值已计入您的数字ID账户'}</div>
+            <button class="gro-btn" onclick="onResultClose()">太棒了！继续玩</button>
+          </div>
+        </div>
+      `;
+
+      updateStats();
+      renderHistory();
+    }
+
+    function onResultClose() {
+      document.getElementById('game-result-overlay').remove();
+      updateStats();
+    }
+
+    // ====== 渲染记录 ======
+    function renderHistory() {
+      const section = document.getElementById('history-section');
+      const logs = JungeGamePool.getHistory(10);
+      if (logs.length === 0) {
+        section.innerHTML = '<div style="color:var(--text-muted);font-size:12px;padding:10px 0">暂无记录，开始你的第一次抽奖吧！</div>';
+        return;
+      }
+      section.innerHTML = logs.map(l => {
+        const d = l.data;
+        const time = new Date(d.time || d.ts).toLocaleString('zh-CN', {hour:'2-digit',minute:'2-digit'});
+        const gameIcon = ({spin:'🎡',mysteryBox:'🎁',goodProduct:'🎯',goodScenery:'🏔️',goodArticle:'📚'})[d.gameType] || '🎲';
+        const prizeName = d.prize ? d.prize.name : (d.reason || '');
+        return `
+          <div class="history-item">
+            <span class="hi-game">${gameIcon} ${d.gameType || '签到'}</span>
+            <span class="hi-prize">${prizeName}</span>
+            <span class="hi-time">${time}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 页面加载
+    document.addEventListener('DOMContentLoaded', initPage);
+  </script>
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

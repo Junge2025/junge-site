@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投诉处理中心 - 军鸽云链</title>
+    <style>
+        :root {
+            --color-primary: #1E3A5F;
+            --color-secondary: #2E7D32;
+            --color-accent: #C62E2E;
+            --color-warning: #D4AF37;
+            --color-background: #f8fafc;
+            --color-card: #ffffff;
+            --color-border: #e5e7eb;
+            --color-text: #1f2937;
+            --color-muted: #6b7280;
+            --border-radius-lg: 12px;
+            --border-radius-md: 8px;
+            --shadow-card: 0 6px 16px rgba(0,0,0,0.05);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.1);
+            --gradient-blue: linear-gradient(135deg, #1E3A5F, #2A4F7A);
+            --gradient-red: linear-gradient(135deg, #C62E2E, #E53935);
+            --spacing-lg: 16px;
+            --spacing-xl: 20px;
+            --spacing-2xl: 24px;
+            --spacing-3xl: 32px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--gradient-red);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        /* 处理流程 */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: var(--spacing-lg);
+            margin: var(--spacing-2xl) 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 30px;
+            font-size: 24px;
+            color: var(--color-muted);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            margin: 0 auto 12px;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            font-size: 12px;
+            color: var(--color-muted);
+        }
+
+        /* 统计 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-xl);
+        }
+
+        .stat-card {
+            background: var(--color-card);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+            box-shadow: var(--shadow-card);
+        }
+
+        .stat-icon {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--color-primary);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--color-muted);
+        }
+
+        /* 投诉表单 */
+        .complaint-form-section {
+            background: var(--color-card);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-3xl);
+            box-shadow: var(--shadow-card);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .form-full {
+            grid-column: span 2;
+        }
+
+        .form-group {
+            margin-bottom: 4px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--color-border);
+            border-radius: var(--border-radius-md);
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .urgency-options {
+            display: flex;
+            gap: 12px;
+        }
+
+        .urgency-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid var(--color-border);
+            border-radius: var(--border-radius-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            font-weight: 600;
+        }
+
+        .urgency-btn:hover {
+            border-color: var(--color-primary);
+        }
+
+        .urgency-btn.active {
+            background: var(--color-accent);
+            color: white;
+            border-color: var(--color-accent);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-submit {
+            background: var(--gradient-red);
+            color: white;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(198,46,46,0.4);
+        }
+
+        /* 案例展示 */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .case-card {
+            background: var(--color-card);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-card);
+            border-left: 4px solid var(--color-secondary);
+        }
+
+        .case-card.resolved {
+            border-left-color: var(--color-secondary);
+        }
+
+        .case-card.processing {
+            border-left-color: var(--color-warning);
+        }
+
+        .case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .case-id {
+            font-size: 12px;
+            color: var(--color-muted);
+        }
+
+        .case-status {
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .status-resolved {
+            background: #e8f5e9;
+            color: #2E7D32;
+        }
+
+        .status-processing {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .case-title {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        .case-desc {
+            font-size: 13px;
+            color: var(--color-muted);
+            margin-bottom: 8px;
+        }
+
+        .case-time {
+            font-size: 11px;
+            color: var(--color-muted);
+        }
+
+        /* 监督委员会 */
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .committee-card {
+            background: var(--color-card);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+            box-shadow: var(--shadow-card);
+        }
+
+        .committee-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #f0f7ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 8px;
+        }
+
+        .committee-name {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .committee-role {
+            font-size: 12px;
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            .process-step::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -20px;
+                transform: translateX(50%);
+            }
+            .process-step:last-child::after {
+                display: none;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-full {
+                grid-column: span 1;
+            }
+            .urgency-options {
+                flex-wrap: wrap;
+            }
+        }
+    
+        /* 返回首页按钮 */
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 100;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background: rgba(30,58,95,0.85);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .back-home:hover {
+            background: #1E3A5F;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30,58,95,0.3);
+        }
+        @media (max-width: 768px) {
+            .back-home {
+                bottom: 20px;
+                left: 20px;
+                padding: 8px 14px;
+                font-size: 13px;
+            }
+        }
+
+    
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="投诉处理中心 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/complaint-process.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/complaint-process.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">投诉流程</span>
+</nav>
+
+    <div class="header">
+        <h1>📋 投诉处理中心</h1>
+        <p style="font-size: 16px; opacity: 0.9;">透明处理 · 快速响应 · 退役军人监督 · 结果公示</p>
+    </div>
+
+    <div class="container">
+        <!-- 处理流程 -->
+        <div class="section" style="margin-top: var(--spacing-3xl);">
+            <h2 style="text-align: center; color: var(--color-primary); margin-bottom: var(--spacing-2xl);">📌 投诉处理流程</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">提交投诉</div>
+                    <div class="step-desc">在线提交投诉信息</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">受理审核</div>
+                    <div class="step-desc">24小时内受理</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">调查处理</div>
+                    <div class="step-desc">72小时内给出意见</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">结果反馈</div>
+                    <div class="step-desc">通知处理结果</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-title">公示监督</div>
+                    <div class="step-desc">典型案例公示</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 统计 -->
+        <div class="stats-grid" style="margin: var(--spacing-3xl) 0;">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value">256</div>
+                <div class="stat-label">本季度投诉</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-value">248</div>
+                <div class="stat-label">已处理完成</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-value">36h</div>
+                <div class="stat-label">平均处理时间</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-value">95.3%</div>
+                <div class="stat-label">处理满意率</div>
+            </div>
+        </div>
+
+        <!-- 投诉表单 -->
+        <div class="section">
+            <div class="complaint-form-section">
+                <h2 style="color: var(--color-primary); margin-bottom: var(--spacing-2xl); text-align: center;">📝 提交投诉</h2>
+                <form class="form-grid" onsubmit="submitComplaint(event)">
+                    <div class="form-group">
+                        <label>投诉类型 *</label>
+                        <select required id="complaintType">
+                            <option value="">请选择</option>
+                            <option value="product">商品质量问题</option>
+                            <option value="delivery">物流配送问题</option>
+                            <option value="service">客户服务问题</option>
+                            <option value="fraud">虚假宣传/欺诈</option>
+                            <option value="refund">退款纠纷</option>
+                            <option value="other">其他问题</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>订单编号（选填）</label>
+                        <input type="text" placeholder="如有订单编号请填写">
+                    </div>
+                    <div class="form-group">
+                        <label>联系人姓名 *</label>
+                        <input type="text" required placeholder="请输入您的姓名">
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话 *</label>
+                        <input type="tel" required placeholder="请输入您的联系电话">
+                    </div>
+                    <div class="form-group form-full">
+                        <label>紧急程度</label>
+                        <div class="urgency-options">
+                            <button type="button" class="urgency-btn" data-urgency="low">一般</button>
+                            <button type="button" class="urgency-btn active" data-urgency="normal">普通</button>
+                            <button type="button" class="urgency-btn" data-urgency="urgent">紧急</button>
+                        </div>
+                    </div>
+                    <div class="form-group form-full">
+                        <label>投诉内容 *</label>
+                        <textarea required placeholder="请详细描述您遇到的问题，包括时间、地点、涉及的商品或服务等信息..."></textarea>
+                    </div>
+                    <div class="form-group form-full">
+                        <label>上传证据（选填）</label>
+                        <input type="file" multiple accept="image/*,.pdf" style="padding: 10px;">
+                        <small style="color: var(--color-muted);">支持图片和PDF文件，单个文件不超过10MB</small>
+                    </div>
+                    <div class="form-full">
+                        <button type="submit" class="btn btn-submit">提交投诉</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 案例展示 -->
+        <div class="section">
+            <h2 style="color: var(--color-primary); margin-bottom: var(--spacing-2xl); text-align: center;">📋 投诉案例公示</h2>
+            <div class="cases-grid">
+                <div class="case-card resolved">
+                    <div class="case-header">
+                        <span class="case-id">TS20250501</span>
+                        <span class="case-status status-resolved">已解决</span>
+                    </div>
+                    <div class="case-title">商品包装破损问题</div>
+                    <div class="case-desc">消费者反映收到的大米包装破损，经核实为物流运输原因。已补发新品并加强包装。</div>
+                    <div class="case-time">提交：2025-05-01 | 解决：2025-05-03</div>
+                </div>
+                <div class="case-card resolved">
+                    <div class="case-header">
+                        <span class="case-id">TS20250502</span>
+                        <span class="case-status status-resolved">已解决</span>
+                    </div>
+                    <div class="case-title">水果新鲜度投诉</div>
+                    <div class="case-desc">消费者反映部分水果不够新鲜。经核实已全额退款，并优化冷链配送方案。</div>
+                    <div class="case-time">提交：2025-05-02 | 解决：2025-05-04</div>
+                </div>
+                <div class="case-card processing">
+                    <div class="case-header">
+                        <span class="case-id">TS20250503</span>
+                        <span class="case-status status-processing">处理中</span>
+                    </div>
+                    <div class="case-title">物流延迟投诉</div>
+                    <div class="case-desc">消费者反映订单超过承诺时效未送达。正在与物流公司协调，已联系消费者说明情况。</div>
+                    <div class="case-time">提交：2025-05-03 | 预计解决：2025-05-06</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 监督委员会 -->
+        <div class="section">
+            <h2 style="color: var(--color-primary); margin-bottom: var(--spacing-2xl); text-align: center;">🎖️ 退役军人监督委员会</h2>
+            <div class="committee-grid">
+                <div class="committee-card">
+                    <div class="committee-avatar">👨‍✈️</div>
+                    <div class="committee-name">张建国</div>
+                    <div class="committee-role">监督委员会主任</div>
+                    <p style="font-size: 12px; color: var(--color-muted); margin-top: 4px;">退役军人，消费维权专家</p>
+                </div>
+                <div class="committee-card">
+                    <div class="committee-avatar">👩‍✈️</div>
+                    <div class="committee-name">李军</div>
+                    <div class="committee-role">监督委员</div>
+                    <p style="font-size: 12px; color: var(--color-muted); margin-top: 4px;">退役军人，法律顾问</p>
+                </div>
+                <div class="committee-card">
+                    <div class="committee-avatar">👨‍💼</div>
+                    <div class="committee-name">王强</div>
+                    <div class="committee-role">监督委员</div>
+                    <p style="font-size: 12px; color: var(--color-muted); margin-top: 4px;">退役军人，质量检测专家</p>
+                </div>
+                <div class="committee-card">
+                    <div class="committee-avatar">👩‍💼</div>
+                    <div class="committee-name">陈明</div>
+                    <div class="committee-role">监督委员</div>
+                    <p style="font-size: 12px; color: var(--color-muted); margin-top: 4px;">退役军人，消费者代表</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 紧急程度选择
+        document.querySelectorAll('.urgency-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.urgency-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 提交投诉
+        function submitComplaint(event) {
+            event.preventDefault();
+            const urgency = document.querySelector('.urgency-btn.active').dataset.urgency;
+            const type = document.getElementById('complaintType').value;
+            
+            alert(`投诉提交成功！\n\n投诉编号：TS${Date.now().toString(36).toUpperCase()}\n投诉类型：${type}\n紧急程度：${urgency === 'urgent' ? '紧急' : urgency === 'normal' ? '普通' : '一般'}\n\n我们将在24小时内受理您的投诉，并通过您提供的联系方式反馈处理进度。\n\n退役军人监督委员会将对处理过程进行全程监督。`);
+            
+            event.target.reset();
+            document.querySelectorAll('.urgency-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.urgency-btn[data-urgency="normal"]').classList.add('active');
+        }
+    </script>
+  <a href="/index.html" class="back-home">← 返回首页</a>
+  <!-- 停留分享奖励机制 -->
+  <script src="/js/game-pool.js"></script>
+  <script src="/js/share-reward.js"></script>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap">
+  <a href="/" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🏠 军鸽云链</a>
+  <a href="/shangcheng.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🛒 商业生态</a>
+  <a href="/junge-shuzhi.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">⚔ 数智中心</a>
+  <a href="/fenzhan.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🌾 分站家园</a>
+  <a href="/shuzhi-zongbu.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🧠 数智总部</a>
+  <a href="/zhihui-ai.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🤖 AI指挥台</a>
+</div>
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

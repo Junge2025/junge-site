@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>📚 好文抽奖 · 抽知识文化好礼 | 军鸽云链数智</title>
+<meta name="description" content="好文抽奖 · 免费参与，抽知识文化好礼。数字赋能值、交易商用值、游戏券、好文推荐勋章、现金红包等你来拿！">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --color-bg:#0a0e1a;
+  --color-surface:#121626;
+  --color-primary:#00d4ff;
+  --color-gold:#d4af37;
+  --color-accent:#e53935;
+  --color-success:#4caf50;
+  --color-text:#ccd6f0;
+  --color-muted:#8896b0;
+  --shadow-card:0 8px 32px rgba(0,0,0,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{
+  font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
+  background:var(--color-bg);color:var(--color-text);line-height:1.6;overflow-x:hidden;
+  background-image:radial-gradient(ellipse at 20% 30%,rgba(0,212,255,0.03) 0%,transparent 60%),
+                  radial-gradient(ellipse at 80% 70%,rgba(212,175,55,0.02) 0%,transparent 60%);
+}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0a0e1a}
+::-webkit-scrollbar-thumb{background:#1a2a4a;border-radius:3px}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
+
+/* ===== Header (from index.html) ===== */
+header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(10,22,40,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:12px}
+.brandbox{display:flex;align-items:center;gap:8px;flex-shrink:0;cursor:pointer}
+.brand-logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#00d4ff,#0088cc);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;box-shadow:0 0 16px rgba(0,212,255,0.15)}
+.brand-title .cn{font-size:16px;font-weight:700;color:#e8edf5;letter-spacing:1px}
+.brand-title .en{font-size:9px;color:#5a6a85;letter-spacing:1px}
+.nav-wrapper{overflow-x:auto;white-space:nowrap;scrollbar-width:none;-ms-overflow-style:none;flex:1}
+.nav-wrapper::-webkit-scrollbar{display:none}
+.navbar{display:flex;gap:4px;padding:4px 0}
+.navbar a{
+  color:#8896b0;padding:6px 10px;border-radius:6px;font-size:12px;
+  transition:all .25s;white-space:nowrap;text-decoration:none;
+}
+.navbar a:hover{color:#e8edf5;background:rgba(0,212,255,0.08)}
+.navbar a.active{color:#00d4ff;background:rgba(0,212,255,0.1)}
+.navbar a i{margin-right:4px}
+.nav-highlight{border:1px solid rgba(0,212,255,0.15);background:rgba(0,212,255,0.04)}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.header-actions a{color:#8896b0;text-decoration:none;transition:all .25s;display:flex;align-items:center;gap:4px;font-size:13px}
+.header-actions a:hover{color:#00d4ff}
+.btn-cart{position:relative}
+.cart-badge{position:absolute;top:-6px;right:-8px;background:#e53935;color:#fff;font-size:10px;padding:1px 5px;border-radius:10px;min-width:16px;text-align:center}
+.btn-user{font-size:20px}
+.btn-did{border:1px solid rgba(212,175,55,0.2);padding:4px 10px;border-radius:20px;background:rgba(212,175,55,0.06);font-size:12px}
+.btn-did:hover{border-color:rgba(212,175,55,0.4);color:#d4af37}
+.did-text{display:inline}@media(max-width:480px){.did-text{display:none}}
+.btn-login{border:1px solid rgba(0,212,255,0.2);padding:4px 12px;border-radius:20px;background:rgba(0,212,255,0.06);font-size:12px}
+.login-text{display:inline}@media(max-width:480px){.login-text{display:none}}
+.mobile-toggle{display:none;background:none;border:none;color:#8896b0;font-size:22px;cursor:pointer;padding:4px}
+@media(max-width:768px){
+  .mobile-toggle{display:block}
+  .nav-wrapper{position:fixed;top:0;right:-300px;width:280px;height:100vh;background:rgba(10,22,40,0.98);backdrop-filter:blur(20px);border-left:1px solid rgba(255,255,255,0.06);z-index:1001;transition:right .35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;padding:60px 20px 20px;white-space:normal}
+  .nav-wrapper.open{right:0}
+  .nav-wrapper .navbar{flex-direction:column;gap:2px}
+  .nav-wrapper .navbar a{padding:10px 14px;font-size:14px;border-radius:8px;width:100%}
+  .mobile-toggle-close{position:fixed;top:14px;right:14px;z-index:1002;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:#8896b0;font-size:18px;width:36px;height:36px;border-radius:8px;cursor:pointer;display:none!important;align-items:center;justify-content:center}
+  .mobile-toggle-close.show{display:flex!important}
+  .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;opacity:0;pointer-events:none;transition:opacity .35s}
+  .nav-overlay.show{opacity:1;pointer-events:auto}
+}
+.policy-ticker-container{margin-top:6px;border-top:1px solid rgba(255,255,255,0.03);padding:4px 0}
+.policy-ticker{overflow:hidden;white-space:nowrap;font-size:11px;color:#5a6a85}
+.policy-ticker .ticker-content{display:inline-block;animation:ticker 30s linear infinite}
+@keyframes ticker{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+
+/* ===== Page Layout ===== */
+.page-main{padding:40px 0 60px;min-height:80vh;position:relative}
+.page-header{text-align:center;margin-bottom:36px}
+.page-header .tag{
+  display:inline-block;padding:5px 18px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;
+  background:rgba(0,212,255,0.08);color:var(--color-primary);border:1px solid rgba(0,212,255,0.12);margin-bottom:10px;
+}
+.page-header h1{font-size:2rem;font-weight:800;margin-bottom:6px}
+.page-header h1 .highlight{color:var(--color-primary)}
+.page-header p{color:var(--color-muted);font-size:0.9rem;max-width:600px;margin:0 auto 4px}
+.badge-free{
+  display:inline-flex;align-items:center;gap:5px;padding:3px 14px;border-radius:12px;
+  background:rgba(76,175,80,0.12);color:var(--color-success);border:1px solid rgba(76,175,80,0.2);
+  font-size:12px;font-weight:600;
+}
+
+/* ===== Stats Bar ===== */
+.stats-bar{
+  display:flex;justify-content:center;gap:24px;flex-wrap:wrap;
+  padding:18px 24px;border-radius:14px;
+  background:var(--color-surface);border:1px solid rgba(255,255,255,0.04);
+  max-width:600px;margin:0 auto 28px;
+}
+.stats-bar .s-item{text-align:center}
+.stats-bar .s-item .num{font-size:1.4rem;font-weight:800;color:var(--color-primary)}
+.stats-bar .s-item .label{font-size:11px;color:var(--color-muted);margin-top:2px}
+.stats-bar .s-item .num.gold{color:var(--color-gold)}
+.stats-bar .s-item .num.green{color:var(--color-success)}
+
+/* ===== Prize Grid ===== */
+.prize-grid-title{
+  font-size:1.1rem;font-weight:700;margin-bottom:14px;text-align:center;
+  color:var(--color-text);
+}
+.prize-grid-title i{color:var(--color-primary);margin-right:6px}
+.prize-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:10px;max-width:800px;margin:0 auto 28px;
+}
+.prize-card{
+  background:var(--color-surface);border:1px solid rgba(255,255,255,0.05);
+  border-radius:12px;padding:14px 10px;text-align:center;transition:all .3s;
+}
+.prize-card:hover{transform:translateY(-3px);border-color:rgba(0,212,255,0.12);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+.prize-card .p-icon{font-size:26px;margin-bottom:6px}
+.prize-card .p-name{font-size:13px;font-weight:600;margin-bottom:3px}
+.prize-card .p-tier{
+  display:inline-block;padding:1px 8px;border-radius:8px;font-size:10px;font-weight:600;
+}
+.tier-common{background:rgba(136,150,176,0.1);color:var(--color-muted);border:1px solid rgba(136,150,176,0.1)}
+.tier-uncommon{background:rgba(0,212,255,0.08);color:var(--color-primary);border:1px solid rgba(0,212,255,0.1)}
+.tier-rare{background:rgba(212,175,55,0.08);color:var(--color-gold);border:1px solid rgba(212,175,55,0.1)}
+.tier-legendary{background:rgba(124,58,237,0.08);color:#a78bfa;border:1px solid rgba(124,58,237,0.1)}
+.tier-limited{background:rgba(229,57,53,0.08);color:var(--color-accent);border:1px solid rgba(229,57,53,0.1)}
+.prize-card .p-weight{font-size:10px;color:var(--color-muted);margin-top:4px;opacity:0.7}
+
+/* ===== Draw Section ===== */
+.draw-section{text-align:center;margin-bottom:36px}
+.draw-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 44px;border-radius:50px;border:none;cursor:pointer;
+  font-size:18px;font-weight:700;letter-spacing:2px;
+  background:linear-gradient(135deg,var(--color-primary),#0088cc);
+  color:#0a0e1a;box-shadow:0 4px 24px rgba(0,212,255,0.2);
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.draw-btn:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,212,255,0.3)}
+.draw-btn:active{transform:translateY(-1px)}
+.draw-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.draw-btn .btn-spinner{display:none;width:18px;height:18px;border:2px solid rgba(10,14,26,0.2);border-top-color:#0a0e1a;border-radius:50%;animation:spin .6s linear infinite}
+.draw-btn.loading .btn-spinner{display:inline-block}
+.draw-btn.loading .btn-text{opacity:0.7}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.draw-hint{font-size:12px;color:var(--color-muted);margin-top:10px}
+.draw-hint i{color:var(--color-success);margin-right:4px}
+
+/* ===== History ===== */
+.history-section{max-width:700px;margin:0 auto}
+.history-header{
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid rgba(255,255,255,0.04);padding-bottom:10px;margin-bottom:14px;
+}
+.history-header h3{font-size:1rem;font-weight:700}
+.history-header h3 i{color:var(--color-primary);margin-right:6px}
+.btn-clear-history{
+  background:none;border:1px solid rgba(229,57,53,0.15);color:var(--color-accent);
+  padding:4px 12px;border-radius:8px;font-size:11px;cursor:pointer;transition:all .2s;
+}
+.btn-clear-history:hover{background:rgba(229,57,53,0.08);border-color:rgba(229,57,53,0.25)}
+.history-list{max-height:320px;overflow-y:auto}
+.history-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;border-radius:10px;
+  border-left:3px solid rgba(255,255,255,0.05);
+  background:rgba(18,22,38,0.3);margin-bottom:6px;
+  transition:all .2s;
+}
+.history-item:hover{background:rgba(18,22,38,0.6)}
+.history-item .h-icon{font-size:20px;width:28px;text-align:center}
+.history-item .h-info{flex:1}
+.history-item .h-info .h-name{font-size:13px;font-weight:600}
+.history-item .h-info .h-time{font-size:10px;color:var(--color-muted);margin-top:1px}
+.history-item .h-tier{
+  font-size:10px;padding:2px 8px;border-radius:6px;font-weight:600;
+}
+.h-empty{text-align:center;padding:30px;color:var(--color-muted);font-size:13px}
+.h-empty i{font-size:28px;display:block;margin-bottom:8px;opacity:0.5}
+
+/* ===== Result Modal ===== */
+.modal-overlay{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.65);z-index:2000;
+  justify-content:center;align-items:center;
+  backdrop-filter:blur(4px);
+}
+.modal-overlay.show{display:flex}
+.modal-box{
+  background:var(--color-surface);border:1px solid rgba(255,255,255,0.06);
+  border-radius:20px;padding:36px 32px 28px;max-width:380px;width:90%;
+  text-align:center;position:relative;animation:modalIn .35s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes modalIn{from{transform:scale(0.8) translateY(20px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.modal-close{
+  position:absolute;top:12px;right:16px;background:none;border:none;
+  color:var(--color-muted);font-size:22px;cursor:pointer;transition:color .2s;
+}
+.modal-close:hover{color:var(--color-text)}
+.modal-box .m-icon{font-size:48px;margin-bottom:10px}
+.modal-box .m-title{font-size:18px;font-weight:700;margin-bottom:4px}
+.modal-box .m-subtitle{font-size:13px;color:var(--color-muted);margin-bottom:14px}
+.modal-box .m-tier{
+  display:inline-block;padding:3px 14px;border-radius:10px;font-size:11px;font-weight:700;margin-bottom:14px;
+}
+.modal-box .m-confetti{font-size:14px;color:var(--color-muted);margin-bottom:16px}
+.modal-box .m-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 28px;border-radius:25px;border:none;cursor:pointer;
+  font-size:14px;font-weight:600;transition:all .25s;
+  background:linear-gradient(135deg,var(--color-primary),#0088cc);color:#0a0e1a;
+}
+.modal-box .m-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,212,255,0.2)}
+.modal-box .m-btn-secondary{
+  background:rgba(255,255,255,0.05);color:var(--color-text);
+  border:1px solid rgba(255,255,255,0.08);margin-top:8px;
+}
+.modal-box .m-btn-secondary:hover{background:rgba(255,255,255,0.1)}
+
+/* ===== Back Button ===== */
+.back-corner{position:fixed;left:20px;bottom:20px;z-index:900}
+.back-corner a{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 16px;border-radius:25px;
+  background:var(--color-surface);border:1px solid rgba(255,255,255,0.06);
+  color:var(--color-muted);text-decoration:none;font-size:13px;
+  transition:all .25s;backdrop-filter:blur(8px);
+}
+.back-corner a:hover{color:var(--color-primary);border-color:rgba(0,212,255,0.2);background:rgba(18,22,38,0.9)}
+
+/* ===== Footer (from index.html) ===== */
+footer{background:rgba(10,22,40,0.9);border-top:1px solid rgba(255,255,255,0.04);padding:30px 0 16px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:20px;padding-bottom:20px}
+.footer-grid h4{font-size:14px;font-weight:700;margin-bottom:10px;color:#e8edf5}
+.footer-grid p,.footer-grid a{font-size:12px;color:#5a6a85;display:block;margin-bottom:4px;text-decoration:none}
+.footer-grid a:hover{color:#00d4ff}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.03);padding-top:14px;font-size:12px;color:#5a6a85}
+
+/* ===== Share Reward Styles ===== */
+#junge-reward-progress{
+  position:fixed;bottom:0;left:0;width:100%;z-index:1999;transition:all .3s;
+  background:rgba(10,14,26,0.85);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,0.04);
+}
+#junge-reward-progress.jrp-hidden{transform:translateY(100%)}
+.jrp-fill{
+  height:32px;background:linear-gradient(90deg,var(--color-primary),#0088cc);
+  transition:width .5s;display:flex;align-items:center;padding:0 14px;white-space:nowrap;
+  min-width:0;border-radius:0;
+}
+.jrp-fill .jrp-label{font-size:12px;font-weight:600;color:#0a0e1a}
+.jrp-fill .jrp-time{font-weight:800}
+#junge-reward-progress.jrp-ready .jrp-fill{background:linear-gradient(90deg,#4caf50,#2e7d32)}
+#junge-share-overlay{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.7);z-index:3000;display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(6px);
+}
+.jso-modal{
+  background:var(--color-surface);border:1px solid rgba(255,255,255,0.06);
+  border-radius:20px;padding:28px 24px;max-width:380px;width:90%;position:relative;
+  animation:modalIn .35s cubic-bezier(0.34,1.56,0.64,1);
+}
+.jso-close{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--color-muted);font-size:24px;cursor:pointer}
+.jso-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.jso-tier-icon{font-size:36px}
+.jso-tier-name{font-size:16px;font-weight:700}
+.jso-duration{font-size:11px;color:var(--color-muted);margin-top:2px}
+.jso-reward-box{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
+.jso-reward-item{background:rgba(255,255,255,0.03);border-radius:10px;padding:10px;text-align:center}
+.jso-rl{display:block;font-size:10px;color:var(--color-muted);margin-bottom:4px}
+.jso-rv{font-size:16px;font-weight:800;color:var(--color-primary)}
+.jso-rv.gold{color:var(--color-gold)}
+.jso-share-title{font-size:13px;margin-bottom:10px;text-align:center;color:var(--color-muted)}
+.jso-share-btns{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
+.jso-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:10px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:all .2s}
+.jso-btn.wechat{background:rgba(7,193,96,0.12);color:#07c160}
+.jso-btn.douyin{background:rgba(0,0,0,0.2);color:#fff}
+.jso-btn.weibo{background:rgba(255,119,0,0.12);color:#ff7700}
+.jso-btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
+.jso-share-result{display:flex;align-items:center;gap:8px;justify-content:center;padding:10px;color:var(--color-success);font-size:13px}
+.jso-actions{text-align:center;margin-top:8px}
+.jso-skip{background:none;border:none;color:var(--color-muted);font-size:12px;cursor:pointer;text-decoration:underline;padding:6px}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .page-header h1{font-size:1.5rem}
+  .prize-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-bar{gap:14px;padding:14px 16px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .draw-btn{padding:12px 30px;font-size:16px}
+}
+@media(max-width:480px){
+  .prize-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-bar{gap:10px;padding:12px}
+  .stats-bar .s-item .num{font-size:1.1rem}
+  .footer-grid{grid-template-columns:1fr}
+  .back-corner a{font-size:11px;padding:6px 12px}
+}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="📚 好文抽奖 · 抽知识文化好礼 | 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/game-good-article.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/game-good-article.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">好文推荐</span>
+</nav>
+
+
+<!-- ===== Header (copied from index.html) ===== -->
+<header>
+  <div class="container topbar">
+    <div class="brandbox">
+      <div class="brand-logo">&#x1F426;</div>
+      <div class="brand-title">
+        <div class="cn">军鸽云链数智</div>
+        <div class="en">JunGe CloudLink DI</div>
+      </div>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><i class="fas fa-bars"></i></button>
+    <div class="nav-wrapper" id="navWrapper">
+      <nav class="navbar" id="mainNav">
+        <a href="/index.html"><i class="fas fa-home"></i> 首页</a>
+        <a href="junge-shuzhi.html" class="nav-highlight"><i class="fas fa-crown"></i> junge数智</a>
+        <a href="shangcheng.html"><i class="fas fa-store"></i> 军创商城</a>
+        <a href="youpin.html"><i class="fas fa-star"></i> 军创优品</a>
+        <a href="cross-border.html"><i class="fas fa-globe"></i> 跨境电商</a>
+        <a href="zero-tariff.html"><i class="fas fa-tag"></i> 零关税</a>
+        <a href="game-center.html" class="nav-highlight active" style="border-color:rgba(212,175,55,0.25);background:rgba(212,175,55,0.04)"><i class="fas fa-gamepad"></i> 🎮游戏池</a>
+        <a href="fenzhan.html"><i class="fas fa-sitemap"></i> 分站</a>
+        <a href="enterprise-cooperation.html"><i class="fas fa-building"></i> 企业合作</a>
+        <a href="employment-service.html"><i class="fas fa-briefcase"></i> 就业服务</a>
+        <a href="culture-home.html"><i class="fas fa-book-open"></i> 文化家园</a>
+        <a href="mission-system.html"><i class="fas fa-bullseye"></i> 任务系统</a>
+        <a href="party-public.html"><i class="fas fa-flag"></i> 党建公益</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> 关于我们</a>
+      </nav>
+    </div>
+    <div class="header-actions">
+      <a class="btn-cart" href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-badge">0</span></a>
+      <a class="btn-user" href="personal-center.html"><i class="fas fa-user-circle"></i></a>
+      <a class="btn-did" href="digital-id.html"><i class="fas fa-id-card"></i> <span class="did-text">数字ID</span></a>
+      <a class="btn-login" href="login.html"><i class="fas fa-sign-in-alt"></i> <span class="login-text">登录</span></a>
+      <button class="mobile-toggle-close" id="mobileClose" aria-label="关闭菜单"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+  <div class="container policy-ticker-container">
+    <div class="policy-ticker"><div class="ticker-content">&#x1F4F0; 退役军人创业贷款新政发布 · 乡村振兴示范区名单公布 · 食品安全监管新规实施 · 数字经济发展规划出台</div></div>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ===== Main Content ===== -->
+<section class="page-main">
+  <div class="container">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <span class="tag"><i class="fas fa-book-open"></i> FREE DRAW</span>
+      <h1>📚 好文抽奖 <span class="highlight">· 抽知识文化好礼</span></h1>
+      <p>品读好文，免费抽奖！无需消耗游戏券，每日都有机会赢取丰厚奖励</p>
+      <br>
+      <span class="badge-free"><i class="fas fa-check-circle"></i> 免费参与 · 0消耗</span>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="s-item">
+        <div class="num" id="totalDraws">0</div>
+        <div class="label">累计抽奖次数</div>
+      </div>
+      <div class="s-item">
+        <div class="num gold" id="todayDraws">0</div>
+        <div class="label">今日已抽</div>
+      </div>
+      <div class="s-item">
+        <div class="num green" id="dailyRemaining">50</div>
+        <div class="label">今日剩余</div>
+      </div>
+    </div>
+
+    <!-- Prize Grid -->
+    <div class="prize-grid-title"><i class="fas fa-gift"></i> 奖品一览</div>
+    <div class="prize-grid" id="prizeGrid">
+      <!-- Filled by JS -->
+    </div>
+
+    <!-- Draw Section -->
+    <div class="draw-section">
+      <button class="draw-btn" id="drawBtn">
+        <span class="btn-spinner"></span>
+        <span class="btn-text"><i class="fas fa-gem"></i> 免费抽奖</span>
+      </button>
+      <div class="draw-hint"><i class="fas fa-info-circle"></i> 免费参与，不消耗游戏券 · 每日上限50次</div>
+    </div>
+
+    <!-- History -->
+    <div class="history-section">
+      <div class="history-header">
+        <h3><i class="fas fa-history"></i> 抽奖记录</h3>
+        <button class="btn-clear-history" id="clearHistory"><i class="fas fa-trash-alt"></i> 清空记录</button>
+      </div>
+      <div class="history-list" id="historyList">
+        <div class="h-empty"><i class="fas fa-inbox"></i>暂无抽奖记录，快来试试手气吧！</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Result Modal ===== -->
+<div class="modal-overlay" id="resultModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div class="m-icon" id="mIcon">🎉</div>
+    <div class="m-title" id="mTitle">恭喜获得</div>
+    <div class="m-tier" id="mTier">普通</div>
+    <div class="m-subtitle" id="mSubtitle">好文抽奖奖励</div>
+    <div class="m-confetti" id="mConfetti">🎊 知识就是力量，阅读改变人生 🎊</div>
+    <button class="m-btn" id="modalConfirm"><i class="fas fa-check"></i> 太棒了！</button>
+  </div>
+</div>
+
+<!-- ===== Back Button ===== -->
+<div class="back-corner">
+  <a href="game-center.html"><i class="fas fa-arrow-left"></i> 返回游戏中心</a>
+</div>
+
+<!-- ===== Footer (from index.html) ===== -->
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>军鸽云链数智</h4>
+        <p>退役军人信用背书 · 区块链溯源 · AI智能调度</p>
+        <p>全国3000+分站实时联动 · 食品安全综合运营</p>
+        <p style="margin-top:8px;color:#5a6a85">让每一份消费都有价值，让每一次贡献都得到回馈</p>
+      </div>
+      <div>
+        <h4>快速链接</h4>
+        <a href="junge-shuzhi.html">junge数智</a>
+        <a href="shangcheng.html">军创商城</a>
+        <a href="fenzhan.html">分站网络</a>
+        <a href="join.html">申请建站</a>
+      </div>
+      <div>
+        <h4>服务</h4>
+        <a href="enterprise-cooperation.html">企业合作</a>
+        <a href="employment-service.html">就业服务</a>
+        <a href="digital-id.html">数字ID</a>
+        <a href="member-register.html">会员注册</a>
+      </div>
+      <div>
+        <h4>关于</h4>
+        <a href="about.html">关于我们</a>
+        <a href="culture-home.html">文化家园</a>
+        <a href="party-public.html">党建公益</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025-2026 军鸽云链数智 版权所有</span>
+      <span>琼ICP备2025063762号-2 | 技术支持：AI超级智能体编队</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Mobile Nav JS ===== -->
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var toggle=document.getElementById('mobileToggle');
+  var navWrap=document.getElementById('navWrapper');
+  var overlay=document.getElementById('navOverlay');
+  var closeBtn=document.getElementById('mobileClose');
+  function openNav(){if(navWrap)navWrap.classList.add('open');if(overlay)overlay.classList.add('show');if(closeBtn)closeBtn.classList.add('show');document.body.style.overflow='hidden'}
+  function closeNav(){if(navWrap)navWrap.classList.remove('open');if(overlay)overlay.classList.remove('show');if(closeBtn)closeBtn.classList.remove('show');document.body.style.overflow=''}
+  if(toggle)toggle.addEventListener('click',openNav);
+  if(closeBtn)closeBtn.addEventListener('click',closeNav);
+  if(overlay)overlay.addEventListener('click',closeNav);
+  if(navWrap)navWrap.querySelectorAll('a').forEach(function(l){l.addEventListener('click',closeNav)});
+});
+</script>
+
+<!-- ===== Game Pool JS ===== -->
+<script src="/js/game-pool.js"></script>
+<script src="/js/share-reward.js"></script>
+
+<!-- ===== Page Logic ===== -->
+<script>
+(function() {
+  'use strict';
+
+  const GAME_TYPE = 'goodArticle';
+  const PRIZE_POOL = {
+    items: [
+      { name: '数字赋能值 +1',   weight: 35, tier: 'common', type: 'digital', value: 1, icon: '🔋' },
+      { name: '交易商用值 +2',   weight: 30, tier: 'common', type: 'trade', value: 2, icon: '🪙' },
+      { name: '1张游戏券',      weight: 15, tier: 'uncommon', type: 'ticket', value: 1, icon: '🎫' },
+      { name: '好文推荐勋章',    weight: 10, tier: 'rare', type: 'badge', value: '阅读达人', icon: '🏅' },
+      { name: '数字赋能值 +20',  weight: 6,  tier: 'legendary', type: 'digital', value: 20, icon: '💎' },
+      { name: '¥5 现金红包',    weight: 3,  tier: 'legendary', type: 'cash', value: 5, icon: '💰' },
+      { name: '¥20 现金红包',   weight: 1,  tier: 'limited', type: 'cash', value: 20, icon: '💰' },
+    ]
+  };
+
+  const TIER_LABELS = {
+    common: '普通',
+    uncommon: '稀有',
+    rare: '珍贵',
+    legendary: '传说',
+    limited: '限定'
+  };
+
+  const TIER_COLORS = {
+    common: 'var(--color-muted)',
+    uncommon: 'var(--color-primary)',
+    rare: 'var(--color-gold)',
+    legendary: '#a78bfa',
+    limited: 'var(--color-accent)'
+  };
+
+  // DOM refs
+  const drawBtn = document.getElementById('drawBtn');
+  const totalDrawsEl = document.getElementById('totalDraws');
+  const todayDrawsEl = document.getElementById('todayDraws');
+  const dailyRemainingEl = document.getElementById('dailyRemaining');
+  const prizeGrid = document.getElementById('prizeGrid');
+  const historyList = document.getElementById('historyList');
+  const clearHistoryBtn = document.getElementById('clearHistory');
+  const resultModal = document.getElementById('resultModal');
+  const modalClose = document.getElementById('modalClose');
+  const modalConfirm = document.getElementById('modalConfirm');
+  const mIcon = document.getElementById('mIcon');
+  const mTitle = document.getElementById('mTitle');
+  const mTier = document.getElementById('mTier');
+  const mSubtitle = document.getElementById('mSubtitle');
+  const mConfetti = document.getElementById('mConfetti');
+
+  // --- Render Prize Grid ---
+  function renderPrizeGrid() {
+    prizeGrid.innerHTML = '';
+    PRIZE_POOL.items.forEach(function(item) {
+      const card = document.createElement('div');
+      card.className = 'prize-card';
+      card.innerHTML =
+        '<div class="p-icon">' + item.icon + '</div>' +
+        '<div class="p-name">' + item.name + '</div>' +
+        '<span class="p-tier tier-' + item.tier + '">' + TIER_LABELS[item.tier] + '</span>' +
+        '<div class="p-weight">概率 ' + (item.weight / PRIZE_POOL.items.reduce(function(s,i){return s+i.weight},0) * 100).toFixed(1) + '%</div>';
+      prizeGrid.appendChild(card);
+    });
+  }
+
+  // --- Update Stats ---
+  function updateStats() {
+    if (typeof JungeGamePool === 'undefined') return;
+    const draws = JungeGamePool.getDailyDraws();
+    const limit = 50;
+    todayDrawsEl.textContent = draws;
+    dailyRemainingEl.textContent = Math.max(0, limit - draws);
+
+    // Total draws from history log count filtered to goodArticle
+    const history = JungeGamePool.getHistory(1000);
+    const goodArticleDraws = history.filter(function(h) {
+      return h.data && h.data.gameType === GAME_TYPE && h.action === 'draw';
+    });
+    totalDrawsEl.textContent = goodArticleDraws.length;
+  }
+
+  // --- Render History ---
+  function renderHistory() {
+    if (typeof JungeGamePool === 'undefined') return;
+    const history = JungeGamePool.getHistory(50);
+    const goodArticleHistory = history.filter(function(h) {
+      return h.data && h.data.gameType === GAME_TYPE && h.action === 'draw' && h.data.prize;
+    });
+
+    historyList.innerHTML = '';
+    if (goodArticleHistory.length === 0) {
+      historyList.innerHTML = '<div class="h-empty"><i class="fas fa-inbox"></i>暂无抽奖记录，快来试试手气吧！</div>';
+      return;
+    }
+
+    goodArticleHistory.forEach(function(h) {
+      const prize = h.data.prize;
+      const time = new Date(h.data.time || h.ts).toLocaleString('zh-CN');
+      const item = document.createElement('div');
+      item.className = 'history-item';
+      item.innerHTML =
+        '<div class="h-icon">' + (prize.icon || '🎁') + '</div>' +
+        '<div class="h-info">' +
+          '<div class="h-name">' + prize.name + '</div>' +
+          '<div class="h-time">' + time + '</div>' +
+        '</div>' +
+        '<span class="h-tier tier-' + prize.tier + '" style="color:' + TIER_COLORS[prize.tier] + ';border:1px solid ' + TIER_COLORS[prize.tier] + '20;background:' + TIER_COLORS[prize.tier] + '10">' + TIER_LABELS[prize.tier] + '</span>';
+      historyList.appendChild(item);
+    });
+  }
+
+  // --- Draw ---
+  function doDraw() {
+    if (typeof JungeGamePool === 'undefined') {
+      alert('游戏池引擎未加载，请刷新页面重试');
+      return;
+    }
+
+    drawBtn.classList.add('loading');
+    drawBtn.disabled = true;
+
+    // Simulate a short delay for UX
+    setTimeout(function() {
+      var result = JungeGamePool.draw(GAME_TYPE);
+
+      drawBtn.classList.remove('loading');
+      drawBtn.disabled = false;
+
+      if (result.error) {
+        alert(result.error);
+        return;
+      }
+
+      if (result.success && result.prize) {
+        showResult(result.prize);
+        updateStats();
+        renderHistory();
+      }
+    }, 600);
+  }
+
+  // --- Show Result Modal ---
+  function showResult(prize) {
+    mIcon.textContent = prize.icon || '🎉';
+    mTitle.textContent = '🎊 恭喜获得：' + prize.name;
+    mTier.textContent = TIER_LABELS[prize.tier] || '普通';
+    mTier.style.color = TIER_COLORS[prize.tier] || 'var(--color-muted)';
+    mTier.style.border = '1px solid ' + (TIER_COLORS[prize.tier] || 'var(--color-muted)') + '30';
+    mTier.style.background = (TIER_COLORS[prize.tier] || 'var(--color-muted)') + '12';
+
+    var subtitles = {
+      'common': '知识就是力量，每一次阅读都有收获',
+      'uncommon': '好文相伴，好运相随',
+      'rare': '珍贵好礼，非你莫属！',
+      'legendary': '传说级奖励！知识改变命运！',
+      'limited': '🎉 限定大奖！你太幸运了！'
+    };
+    mSubtitle.textContent = subtitles[prize.tier] || '好文抽奖奖励';
+
+    var confettis = {
+      'common': '📚 阅读使人进步，好运自然来',
+      'uncommon': '🎊 继续阅读，更多惊喜等着你',
+      'rare': '🌟 珍贵的你值得珍贵的好礼',
+      'legendary': '💫 传说降临！知识的力量无穷大',
+      'limited': '👑 限定王者！今天运气爆棚！'
+    };
+    mConfetti.textContent = confettis[prize.tier] || '🎊 好文相伴，好运连连 🎊';
+
+    resultModal.classList.add('show');
+  }
+
+  function closeModal() {
+    resultModal.classList.remove('show');
+  }
+
+  // --- Clear History ---
+  function clearHistory() {
+    if (typeof JungeGamePool === 'undefined') return;
+    // We can't selectively clear, but we can reset by clearing all game data
+    if (confirm('确定要清空所有抽奖记录吗？此操作不可恢复。')) {
+      // Remove only the logs
+      try {
+        var keys = [];
+        for (var i = 0; i < localStorage.length; i++) {
+          var k = localStorage.key(i);
+          if (k && k.indexOf('junge_game_logs') !== -1) {
+            keys.push(k);
+          }
+        }
+        keys.forEach(function(k) { localStorage.removeItem(k); });
+        renderHistory();
+        updateStats();
+      } catch(e) {}
+    }
+  }
+
+  // --- Init ---
+  function init() {
+    renderPrizeGrid();
+    if (typeof JungeGamePool !== 'undefined') {
+      updateStats();
+      renderHistory();
+    } else {
+      // Retry after game-pool.js loads
+      var checkPool = setInterval(function() {
+        if (typeof JungeGamePool !== 'undefined') {
+          clearInterval(checkPool);
+          updateStats();
+          renderHistory();
+        }
+      }, 200);
+      setTimeout(function() { clearInterval(checkPool); }, 10000);
+    }
+  }
+
+  // --- Event Listeners ---
+  drawBtn.addEventListener('click', doDraw);
+  modalClose.addEventListener('click', closeModal);
+  modalConfirm.addEventListener('click', closeModal);
+  resultModal.addEventListener('click', function(e) {
+    if (e.target === resultModal) closeModal();
+  });
+  if (clearHistoryBtn) {
+    clearHistoryBtn.addEventListener('click', clearHistory);
+  }
+
+  // Keyboard shortcut
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Expose for debugging
+  window.goodArticleGame = {
+    doDraw: doDraw,
+    refresh: function() { renderHistory(); updateStats(); }
+  };
+
+  // Start
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

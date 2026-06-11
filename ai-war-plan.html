@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>铸剑行动 · AI自力推广作战方案 | junge.中国 RED-DUAL Ω</title>
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,.85);--cyan:#00d4ff;--gold:#f0c040;--red:#ef4444;--green:#22c55e;--purple:#a78bfa;--text:#e8edf5;--dim:#8896b0;--muted:#4a5568;--border:rgba(0,212,255,.08);--glow:rgba(0,212,255,.15)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;padding-bottom:60px}
+.container{max-width:960px;margin:0 auto;padding:20px 24px}
+
+/* Hero */
+.hero{text-align:center;padding:80px 20px 50px;background:linear-gradient(180deg,rgba(0,180,255,.04),rgba(3,7,18,.97));border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,255,.06),transparent 70%);pointer-events:none}
+.hero h1{font-size:32px;font-weight:900;background:linear-gradient(135deg,#e8edf5 20%,#7ab5db 50%,#f0c040 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px;position:relative;z-index:1}
+.hero .tagline{font-size:16px;color:var(--cyan);font-weight:700;letter-spacing:.05em;margin-bottom:8px;position:relative;z-index:1}
+.hero .meta{font-size:12px;color:var(--dim);position:relative;z-index:1}
+.hero .formula{margin:24px auto 0;padding:16px 24px;background:rgba(8,20,44,.9);border:2px solid rgba(0,212,255,.15);border-radius:16px;display:inline-block;position:relative;z-index:1}
+.hero .formula .eq{font-size:14px;color:var(--gold);font-weight:900;letter-spacing:.02em}
+.hero .formula .eq span{color:var(--cyan)}
+
+/* Badges */
+.badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700}
+.badge-r{background:rgba(239,68,68,.1);color:var(--red);border:1px solid rgba(239,68,68,.2)}
+.badge-c{background:rgba(0,212,255,.08);color:var(--cyan);border:1px solid rgba(0,212,255,.2)}
+.badge-g{background:rgba(240,192,64,.08);color:var(--gold);border:1px solid rgba(240,192,64,.2)}
+.badge-p{background:rgba(167,139,250,.08);color:var(--purple);border:1px solid rgba(167,139,250,.2)}
+
+/* Headings */
+h2{font-size:20px;font-weight:800;margin:44px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--glow);display:flex;align-items:center;gap:10px}
+h2 .n{font-size:13px;background:rgba(0,212,255,.12);color:var(--cyan);padding:2px 10px;border-radius:10px;font-weight:700}
+h3{font-size:16px;font-weight:700;margin:28px 0 10px;color:#b8d8f0}
+h4{font-size:14px;font-weight:700;margin:20px 0 8px;color:var(--gold)}
+p{font-size:14px;margin:10px 0;color:var(--dim)}
+strong{color:var(--text)}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+th{background:rgba(0,212,255,.06);color:var(--cyan);font-weight:700;padding:10px 14px;text-align:left;border-bottom:2px solid var(--glow)}
+td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--dim)}
+tr:hover td{background:rgba(0,212,255,.02);color:var(--text)}
+td:first-child,th:first-child{border-radius:8px 0 0 8px}
+td:last-child,th:last-child{border-radius:0 8px 8px 0}
+
+/* Cards */
+.card-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .25s}
+.card:hover{border-color:var(--glow);box-shadow:0 0 20px rgba(0,212,255,.08)}
+.card .emoji{font-size:28px;margin-bottom:8px}
+.card h3{font-size:14px;margin:0 0 6px;color:var(--cyan)}
+.card p{font-size:12px;color:var(--dim);margin:0}
+.card .stat{font-size:26px;font-weight:900;color:var(--gold);margin:8px 0}
+
+/* KPIs */
+.kpi-strip{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
+.kpi{flex:1;min-width:140px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+.kpi .v{font-size:30px;font-weight:900;color:var(--cyan)}
+.kpi .l{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* Code/Pre */
+pre{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:10px;padding:18px;overflow-x:auto;margin:16px 0;font-size:12px;line-height:1.7}
+pre code{color:#94a3b8}
+code{background:rgba(0,0,0,.3);padding:2px 6px;border-radius:4px;font-size:12px;color:var(--cyan)}
+
+/* Quotes */
+blockquote{background:rgba(0,212,255,.03);border-left:3px solid var(--cyan);padding:14px 20px;margin:16px 0;border-radius:0 10px 10px 0;font-size:13px;color:var(--dim)}
+
+/* Highlight Box */
+.hl-box{background:linear-gradient(135deg,rgba(239,68,68,.06),rgba(240,192,64,.04));border:1px solid rgba(240,192,64,.15);border-radius:14px;padding:20px 24px;margin:20px 0;text-align:center}
+.hl-box .big{font-size:20px;font-weight:900;color:var(--gold);margin-bottom:6px}
+.hl-box .sub{font-size:13px;color:var(--dim)}
+
+/* Arsenal grid */
+.arsenal{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.arsenal-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.arsenal-item .icon{font-size:24px;margin-bottom:6px}
+.arsenal-item .name{font-size:11px;font-weight:700;color:var(--text)}
+.arsenal-item .cost{font-size:10px;color:var(--green);margin-top:4px}
+
+/* Pipeline flow */
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;margin:16px 0;font-size:12px}
+.flow-node{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center}
+.flow-node .fn{font-weight:700;color:var(--cyan);font-size:13px}
+.flow-node .fd{color:var(--dim);font-size:10px;margin-top:2px}
+.flow-arrow{color:var(--gold);font-size:18px;font-weight:900}
+
+/* Footer */
+.btm-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid var(--glow);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.btm-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:10px;border-top:1px solid var(--border);margin-top:40px}
+
+@media(max-width:768px){
+  .card-row,.arsenal{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:22px}
+}
+@media(max-width:480px){
+  .card-row,.arsenal{grid-template-columns:1fr}
+  .kpi-strip{flex-direction:column}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="铸剑行动 · AI自力推广作战方案 | junge.中国 RED-DUAL Ω">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/ai-war-plan.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/ai-war-plan.html">
+</head>
+<body>
+
+<div class="hero">
+<div class="tagline">⚔ 铸剑行动 · 自力更生 AI 推广</div>
+<h1>junge.中国 AI 自力推广作战方案</h1>
+<div class="meta">代号：铸剑行动 · RED-DUAL Ω · 2026年5月28日 · V2.0</div>
+<div class="formula">
+<div class="eq"><span>战斗力</span> = AI产出 ÷ 人力投入<br><span>分母趋零，战斗力无限大</span></div>
+</div>
+<div class="badge-row">
+<span class="badge badge-r">🪖 自力更生</span>
+<span class="badge badge-c">🤖 AI驱动</span>
+<span class="badge badge-g">⚡ 零成本推广</span>
+<span class="badge badge-p">∞ 无限战力</span>
+</div>
+</div>
+
+<div class="container">
+
+<h2><span class="n">〇</span> 总纲：以AI为刃，以自力为盾</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0">
+<div style="background:var(--card);border:1px solid rgba(239,68,68,.15);border-radius:12px;padding:18px;text-align:center">
+<div style="font-size:13px;color:var(--dim);margin-bottom:8px">❌ 传统推广模式</div>
+<div style="font-size:12px;color:var(--muted);line-height:2">
+人力堆砌 → 地推铁军<br>
+广告轰炸 → 客服团队<br>
+<span style="color:var(--red)">¥¥¥ + 人人人</span>
+</div>
+</div>
+<div style="background:var(--card);border:2px solid rgba(0,212,255,.2);border-radius:12px;padding:18px;text-align:center">
+<div style="font-size:13px;color:var(--cyan);margin-bottom:8px">✅ junge.中国 AI模式</div>
+<div style="font-size:12px;color:var(--text);line-height:2">
+AI武器库 → 自动推广<br>
+无人运维 → 智能服务<br>
+<span style="color:var(--green);font-weight:900">¥0 + 0人</span>
+</div>
+</div>
+</div>
+
+<blockquote>
+<strong>三条铁律：</strong><br>
+① 能用AI的，不用人。能自动的，不手动。<br>
+② 每花一分钱推广之前，先问：AI能不能免费做到？<br>
+③ 每个运维动作之前，先问：能不能写成cron？
+</blockquote>
+
+<h2><span class="n">一</span> AI武器库全量火力清单</h2>
+
+<div class="arsenal">
+<div class="arsenal-item"><div class="icon">🧠</div><div class="name">Ollama qwen2.5:3b</div><div class="cost">L0 · ¥0/次</div></div>
+<div class="arsenal-item"><div class="icon">⚡</div><div class="name">junge-api :8866</div><div class="cost">L1 · 模型路由</div></div>
+<div class="arsenal-item"><div class="icon">🎯</div><div class="name">Hermes Agent</div><div class="cost">L2 · 15工具</div></div>
+<div class="arsenal-item"><div class="icon">🔗</div><div class="name">SuperAgentX</div><div class="cost">编排 · 14Agents</div></div>
+<div class="arsenal-item"><div class="icon">📊</div><div class="name">value-engine</div><div class="cost">TV/DV/JC追踪</div></div>
+<div class="arsenal-item"><div class="icon">🏗</div><div class="name">IA静态工厂</div><div class="cost">30页·392块</div></div>
+<div class="arsenal-item"><div class="icon">🐳</div><div class="name">Docker 8容器</div><div class="cost">自愈架构</div></div>
+<div class="arsenal-item"><div class="icon">⏰</div><div class="name">cronjob调度</div><div class="cost">无人值守</div></div>
+<div class="arsenal-item"><div class="icon">🗄</div><div class="name">PG 39表</div><div class="cost">数据底座</div></div>
+<div class="arsenal-item"><div class="icon">🎨</div><div class="name">image_generate</div><div class="cost">AI生图</div></div>
+<div class="arsenal-item"><div class="icon">🎙</div><div class="name">TTS多引擎</div><div class="cost">语音合成</div></div>
+<div class="arsenal-item"><div class="icon">🌐</div><div class="name">215 HTML页</div><div class="cost">在线运行</div></div>
+</div>
+
+<h3>AI替代率矩阵</h3>
+<table>
+<tr><th>作战域</th><th>AI武器</th><th>传统做法</th><th>替代率</th></tr>
+<tr><td>内容生产</td><td>Hermes生成文案/海报/落地页</td><td>雇人写</td><td style="color:var(--green)">95%</td></tr>
+<tr><td>页面搭建</td><td>IA工厂自动生成HTML</td><td>前端开发</td><td style="color:var(--green)">100%</td></tr>
+<tr><td>市场调研</td><td>3子代理并行侦察</td><td>调研公司</td><td style="color:var(--green)">90%</td></tr>
+<tr><td>会员服务</td><td>Ollama自动问答</td><td>客服团队</td><td style="color:var(--cyan)">80%</td></tr>
+<tr><td>数据分析</td><td>value-engine自动追踪</td><td>数据分析师</td><td style="color:var(--green)">100%</td></tr>
+<tr><td>运维监控</td><td>Watchdog自愈</td><td>运维工程师</td><td style="color:var(--green)">95%</td></tr>
+<tr><td>定时推广</td><td>cronjob自动发帖</td><td>运营手动</td><td style="color:var(--green)">100%</td></tr>
+<tr><td>风险预警</td><td>assess_risk_local</td><td>人工审核</td><td style="color:var(--cyan)">85%</td></tr>
+<tr style="font-weight:900"><td>加权平均</td><td colspan="2"></td><td style="color:var(--gold);font-size:16px">92%</td></tr>
+</table>
+
+<h2><span class="n">二</span> 六大AI推广引擎</h2>
+
+<div class="card-row">
+<div class="card">
+<div class="emoji">📝</div>
+<h3>引擎一：AI内容工厂</h3>
+<div class="stat">155件/日</div>
+<p>软文·短视频脚本·海报·邀请函·朋友圈心语·产品文案<br>L0 Ollama ¥0批量生产</p>
+</div>
+<div class="card">
+<div class="emoji">🏗</div>
+<h3>引擎二：AI页面工厂</h3>
+<div class="stat">5分钟/页</div>
+<p>需求→HTML→部署→上线<br>IA结构树30页·392块自动生成</p>
+</div>
+<div class="card">
+<div class="emoji">🎯</div>
+<h3>引擎三：AI智能触达</h3>
+<div class="stat">精准找人</div>
+<p>风险评估→热点聚类→精准策略<br>自动生成裂变海报+社群话术</p>
+</div>
+<div class="card">
+<div class="emoji">🔄</div>
+<h3>引擎四：AI会员转化</h3>
+<div class="stat">无人值守漏斗</div>
+<p>流量→落地页→注册→支付→激活→裂变→留存<br>全程AI驱动</p>
+</div>
+<div class="card">
+<div class="emoji">💬</div>
+<h3>引擎五：AI社群运营</h3>
+<div class="stat">1人管1000群</div>
+<p>早安海报·创业故事·佣金排行·培训微课<br>全部cronjob自动推送</p>
+</div>
+<div class="card">
+<div class="emoji">📊</div>
+<h3>引擎六：AI数据指挥舱</h3>
+<div class="stat">零人工分析</div>
+<p>TV/DV/JC实时追踪·日报/周报/月报自动生成<br>AI自动解读+优化建议</p>
+</div>
+</div>
+
+<h3>AI内容工厂日产能力</h3>
+<table>
+<tr><th>物料类型</th><th>日产</th><th>AI引擎</th><th>成本</th></tr>
+<tr><td>公众号推广软文</td><td>20篇</td><td>Hermes Agent</td><td style="color:var(--green)">¥0</td></tr>
+<tr><td>短视频脚本</td><td>10条</td><td>Hermes Agent</td><td style="color:var(--green)">¥0</td></tr>
+<tr><td>推广海报配图</td><td>20张</td><td>image_generate</td><td style="color:var(--green)">¥0</td></tr>
+<tr><td>朋友圈每日心语</td><td>30条</td><td>L0 Ollama</td><td style="color:var(--green)">¥0</td></tr>
+<tr><td>社群早安/晚安海报</td><td>20条</td><td>L0 Ollama</td><td style="color:var(--green)">¥0</td></tr>
+<tr><td>产品推荐短文案</td><td>50条</td><td>L0 Ollama</td><td style="color:var(--green)">¥0</td></tr>
+<tr><td>定向邀请函变体</td><td>5版</td><td>Hermes Agent</td><td style="color:var(--green)">¥0</td></tr>
+<tr style="font-weight:900"><td>合计</td><td style="color:var(--gold);font-size:16px">155件</td><td>全AI武器库</td><td style="color:var(--green);font-size:16px">¥0</td></tr>
+</table>
+
+<h3>AI会员转化漏斗（全自动）</h3>
+<div class="flow">
+<div class="flow-node"><div class="fn">🌐 流量入口</div><div class="fd">AI生成内容分发</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn">📄 落地页</div><div class="fd">215主题页精准匹配</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn">📝 注册</div><div class="fd">自动识别退役军人</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn">💳 支付</div><div class="fd">微信/支付宝</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn">🚀 激活</div><div class="fd">AI发欢迎语+裂变海报</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn">🔄 裂变</div><div class="fd">AI追踪佣金排行</div></div>
+<div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn">💎 留存</div><div class="fd">AI自动续费提醒</div></div>
+</div>
+
+<h2><span class="n">三</span> 自动运维 · 零Touch基础设施</h2>
+
+<div class="kpi-strip">
+<div class="kpi"><div class="v">30s</div><div class="l">Watchdog检测间隔</div></div>
+<div class="kpi"><div class="v">8</div><div class="l">Docker容器自愈</div></div>
+<div class="kpi"><div class="v">7天+</div><div class="l">无需人工运行</div></div>
+<div class="kpi"><div class="v">¥0</div><div class="l">运维人力成本</div></div>
+</div>
+
+<table>
+<tr><th>频率</th><th>任务</th><th>执行者</th></tr>
+<tr><td>每30秒</td><td>容器健康检查</td><td>junge-watchdog</td></tr>
+<tr><td>每小时</td><td>API端点验证</td><td>cronjob + curl</td></tr>
+<tr><td>每日</td><td>数据备份 (PG dump)</td><td>cronjob</td></tr>
+<tr><td>每日</td><td>推广日报自动生成</td><td>Hermes cronjob</td></tr>
+<tr><td>每日</td><td>SSL证书有效期检查</td><td>cronjob</td></tr>
+<tr><td>每周</td><td>内容去重+聚类</td><td>cluster_events</td></tr>
+<tr><td>每周</td><td>风险自动评估</td><td>assess_risk_local (L0 ¥0)</td></tr>
+<tr><td>每月</td><td>页面健康检查(4层侦察)</td><td>Hermes</td></tr>
+</table>
+
+<h2><span class="n">四</span> 三阶段AI推广路线图</h2>
+
+<div class="card-row">
+<div class="card">
+<div class="emoji">⚔</div>
+<h3>铸剑期 0-30天</h3>
+<p>AI武器打造<br>
+6大引擎上线<br>
+100种子激活<br>
+3标杆县AI测试</p>
+<div class="stat" style="font-size:18px;color:var(--green)">成本 ¥0</div>
+</div>
+<div class="card">
+<div class="emoji">🔥</div>
+<h3>淬火期 30-90天</h3>
+<p>AI规模化验证<br>
+50县AI推广包<br>
+500人社群AI运营<br>
+日产200+物料</p>
+<div class="stat" style="font-size:18px;color:var(--green)">成本 ¥0</div>
+</div>
+<div class="card">
+<div class="emoji">🚀</div>
+<h3>出鞘期 90-180天</h3>
+<p>AI全国覆盖<br>
+2000+县域AI指挥<br>
+总部无人·AI当值<br>
+日产500+物料</p>
+<div class="stat" style="font-size:18px;color:var(--green)">成本 ¥0</div>
+</div>
+</div>
+
+<h2><span class="n">五</span> AI vs 传统 · 战斗力对比</h2>
+
+<table>
+<tr><th>维度</th><th>传统推广</th><th>junge AI推广</th><th>战力倍率</th></tr>
+<tr><td>内容生产</td><td>10人团队·日产30篇</td><td>0人·AI日产155篇</td><td style="color:var(--gold);font-weight:900">5x</td></tr>
+<tr><td>页面搭建</td><td>前端3人·1天/页</td><td>0人·AI 5分钟/页</td><td style="color:var(--gold);font-weight:900">288x</td></tr>
+<tr><td>社群运营</td><td>50人管1000群</td><td>1人+AI管1000群</td><td style="color:var(--gold);font-weight:900">50x</td></tr>
+<tr><td>数据分析</td><td>3人日报周报</td><td>0人·AI自动生成</td><td style="color:var(--gold);font-weight:900">∞</td></tr>
+<tr><td>运维监控</td><td>2人24h轮值</td><td>0人·Watchdog自愈</td><td style="color:var(--gold);font-weight:900">∞</td></tr>
+<tr><td>客服应答</td><td>20人客服团队</td><td>0人·Ollama自动应答</td><td style="color:var(--gold);font-weight:900">∞</td></tr>
+<tr style="font-weight:900;background:rgba(240,192,64,.06)"><td>推广月成本</td><td style="color:var(--red)">50-100万</td><td style="color:var(--green);font-size:16px">≈ ¥0</td><td style="color:var(--gold);font-size:18px">∞</td></tr>
+</table>
+
+<h2><span class="n">六</span> 30天AI铸剑行动清单</h2>
+
+<table>
+<tr><th>天数</th><th>行动</th><th>AI武器</th><th>产出</th></tr>
+<tr><td>D1-3</td><td>AI内容工厂上线</td><td>Hermes+Ollama</td><td>日产50+物料</td></tr>
+<tr><td>D4-5</td><td>AI裂变海报生成器</td><td>Hermes+image_gen</td><td>一键生成海报</td></tr>
+<tr><td>D6-7</td><td>AI社群运营cronjob</td><td>cronjob+Hermes</td><td>自动早安/排行/培训</td></tr>
+<tr><td>D8-10</td><td>100名种子AI集训</td><td>Hermes课程+主持</td><td>种子激活</td></tr>
+<tr><td>D11-14</td><td>3标杆县AI推广包</td><td>Hermes+IA工厂</td><td>专属落地页+文案</td></tr>
+<tr><td>D15-17</td><td>AI会员转化漏斗</td><td>junge-api+自动化</td><td>注册→支付全自动</td></tr>
+<tr><td>D18-21</td><td>AI日报系统上线</td><td>value-engine+cron</td><td>每日自动战报</td></tr>
+<tr><td>D22-25</td><td>AI客服上线</td><td>Ollama自动应答</td><td>常见问题秒回</td></tr>
+<tr><td>D26-28</td><td>全链路压测</td><td>全部AI武器</td><td>承载力验证</td></tr>
+<tr><td>D29-30</td><td>数据复盘+Prompt库V2</td><td>Hermes</td><td>模型迭代</td></tr>
+</table>
+
+<div class="hl-box">
+<div class="big">30天总成本：¥0</div>
+<div class="sub">人力投入：总指挥 + AI参谋长 · 全部使用现有RED-DUAL Ω AI武器库</div>
+</div>
+
+<h2><span class="n">七</span> 战斗力检验标准</h2>
+
+<blockquote>
+<strong>不看你花了多少钱，不看你雇了多少人。</strong>
+</blockquote>
+
+<table>
+<tr><th>检验项</th><th>达标标准</th></tr>
+<tr><td>AI内容生产率</td><td>日产 100+ 推广物料</td></tr>
+<tr><td>AI页面搭建速度</td><td>需求→上线 ＜ 5分钟</td></tr>
+<tr><td>AI社群管理倍率</td><td>1人管理 ＞ 500群</td></tr>
+<tr><td>AI转化自动化率</td><td>注册→首单 AI占比 ＞ 80%</td></tr>
+<tr><td>AI运维无人化率</td><td>无人工干预运行 ＞ 7天</td></tr>
+<tr><td>推广零成本率</td><td>推广费用÷GMV ＜ 1%</td></tr>
+<tr><td>AI武器自进化</td><td>每月新增 ≥ 1个AI能力</td></tr>
+</table>
+
+<div class="hl-box" style="border-color:rgba(0,212,255,.3);background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(167,139,250,.04))">
+<div class="big" style="color:var(--cyan)">核心KPI：AI推广贡献GMV ÷ 总GMV ＞ 90%</div>
+<div class="sub">让人去做AI做不到的事——战略决策和关系建立。其余全部交给AI。</div>
+</div>
+
+<h2><span class="n">八</span> AI武器持续进化</h2>
+
+<div class="card-row">
+<div class="card">
+<div class="emoji">🔄</div>
+<h3>每周AI迭代</h3>
+<p>AI自动分析推广数据<br>更新最优prompt模板<br>识别低转化页面→优化<br>生成本周策略建议</p>
+</div>
+<div class="card">
+<div class="emoji">📈</div>
+<h3>每月战力升级</h3>
+<p>Hermes自我评估<br>Ollama模型评估<br>新增AI能力评估<br>Token成本复盘</p>
+</div>
+<div class="card">
+<div class="emoji">🧬</div>
+<h3>知识资产化</h3>
+<p>每次任务→自动保存Skill<br>关键经验→自动写入Memory<br>下次同类任务：零学习成本</p>
+</div>
+</div>
+
+<div style="text-align:center;padding:40px 20px;margin:30px 0;background:linear-gradient(135deg,rgba(239,68,68,.08),rgba(240,192,64,.06));border-radius:20px;border:2px solid rgba(240,192,64,.2)">
+<div style="font-size:28px;font-weight:900;color:var(--gold);margin-bottom:10px">铸剑为犁 · AI当值</div>
+<div style="font-size:18px;color:var(--cyan);margin-bottom:6px">自力更生 · 艰苦奋斗</div>
+<div style="font-size:14px;color:var(--dim);margin-bottom:16px">junge.中国 · RED-DUAL Ω</div>
+<div style="font-size:13px;color:var(--gold)">战斗力 = AI产出 ÷ 人力投入 · 分母趋零 · 战力无限</div>
+</div>
+
+</div>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+食品安全 + 退役军人在服务综合平台 · AI自力推广作战方案 V2.0<br>
+附：<a href="/national-plan.html" style="color:var(--dim)">V1.0传统推广方案</a> 仍有效，本版为AI增强叠加方案
+</footer>
+
+<div class="btm-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/ai-dashboard.html" style="color:#4DC9F6;font-weight:600">🤖 AI 指挥中心</a>
+<a href="/junge-shuzhi.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</div>
+</body>
+</html>

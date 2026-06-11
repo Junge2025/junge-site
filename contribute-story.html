@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<meta name="theme-color" content="#030712">
+<title>故事投稿 - 军鸽云链</title>
+<meta name="description" content="军鸽云链故事投稿：分享军旅故事、创业故事、农庄故事。退役军人的真实人生，等你来讲述。">
+<style>
+:root {
+  --bg-deep: #030712;
+  --bg-card: rgba(8,20,44,.85);
+  --primary: #00d4ff;
+  --accent: #ff2d78;
+  --gold: #f0c040;
+  --green: #22c55e;
+  --purple: #a78bfa;
+  --red: #d47a7e;
+  --text: #e8edf5;
+  --text-dim: #8896b0;
+  --text-muted: #4a5568;
+  --border: rgba(0,212,255,.1);
+  --border-glow: rgba(0,212,255,.18);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --shadow: 0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg-deep);color:var(--text);line-height:1.7;padding-bottom:72px;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 50% 10%,rgba(240,192,64,.04) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(0,212,255,.03) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+.breadcrumb-bar{background:rgba(3,7,18,.95);border-bottom:1px solid var(--border);padding:10px 20px;position:sticky;top:0;z-index:99;backdrop-filter:blur(12px);display:flex;align-items:center;gap:6px;font-size:12px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .25s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:var(--text-muted)}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{position:relative;z-index:1;text-align:center;padding:56px 20px 40px;background:linear-gradient(180deg,rgba(240,192,64,.06) 0%,rgba(3,7,18,.98) 100%)}
+.hero h1{font-size:30px;font-weight:900;margin-bottom:10px;background:linear-gradient(135deg,#f0c040 0%,#e8a820 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:14px;color:var(--text-dim);max-width:600px;margin:0 auto}
+.hero .story-stats{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.hero .stat{text-align:center}
+.hero .stat .num{font-size:26px;font-weight:900;color:var(--gold)}
+.hero .stat .lbl{font-size:11px;color:var(--text-dim)}
+
+.container{max-width:960px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+.section-title{display:flex;align-items:center;gap:10px;margin:36px 0 20px;font-size:18px;font-weight:700}
+.section-title .icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:rgba(240,192,64,.1);color:var(--gold)}
+.section-title span.color{color:var(--gold)}
+
+.story-type-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:20px}
+.story-type-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;backdrop-filter:blur(12px);cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.story-type-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.4}
+.story-type-card:hover{border-color:rgba(240,192,64,.25);box-shadow:0 0 24px rgba(240,192,64,.08);transform:translateY(-2px)}
+.story-type-card.selected{border-color:var(--gold);box-shadow:0 0 28px rgba(240,192,64,.14)}
+.story-type-card .type-icon{font-size:28px;margin-bottom:10px}
+.story-type-card h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.story-type-card p{font-size:12px;color:var(--text-dim);line-height:1.6}
+
+.story-glimpse{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:20px}
+.glimpse-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;backdrop-filter:blur(12px);transition:all .3s}
+.glimpse-card:hover{border-color:var(--border-glow);transform:translateY(-2px)}
+.glimpse-card .glimpse-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.glimpse-card .avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;background:rgba(240,192,64,.15);color:var(--gold)}
+.glimpse-card .author-info .name{font-size:13px;font-weight:700}
+.glimpse-card .author-info .unit{font-size:11px;color:var(--text-dim)}
+.glimpse-card .story-excerpt{font-size:12.5px;color:var(--text-dim);line-height:1.7;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.glimpse-card .story-meta{display:flex;gap:12px;font-size:11px;color:var(--text-muted)}
+
+.form-section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;backdrop-filter:blur(12px);position:relative;overflow:hidden;margin-bottom:24px}
+.form-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.4}
+.form-section h3{font-size:16px;font-weight:700;margin-bottom:20px;color:var(--gold)}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.form-group label .required{color:var(--accent);margin-left:2px}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea{width:100%;padding:10px 14px;border-radius:var(--radius-sm);background:rgba(3,7,18,.6);border:1px solid var(--border);color:var(--text);font-size:13px;font-family:inherit;transition:all .25s;outline:none}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 12px rgba(240,192,64,.1)}
+.form-group textarea{min-height:180px;resize:vertical;line-height:1.8}
+.form-group select{appearance:none;cursor:pointer}
+.form-group .hint{font-size:11px;color:var(--text-muted);margin-top:4px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.file-upload{border:2px dashed var(--border);border-radius:var(--radius);padding:24px;text-align:center;cursor:pointer;transition:all .3s}
+.file-upload:hover{border-color:var(--gold);background:rgba(240,192,64,.03)}
+.file-upload .upload-icon{font-size:32px;margin-bottom:8px}
+.file-upload p{font-size:12px;color:var(--text-dim)}
+.file-upload .upload-hint{font-size:11px;color:var(--text-muted);margin-top:4px}
+
+.tag-select{display:flex;flex-wrap:wrap;gap:8px}
+.tag-select .tag{display:inline-flex;align-items:center;gap:4px;padding:5px 14px;border-radius:16px;font-size:11px;cursor:pointer;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text-dim);transition:all .25s}
+.tag-select .tag:hover{border-color:var(--gold);color:var(--gold)}
+.tag-select .tag.active{background:rgba(240,192,64,.12);border-color:var(--gold);color:var(--gold);font-weight:600}
+
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn-primary{padding:10px 32px;border-radius:var(--radius-sm);background:linear-gradient(135deg,#f0c040,#e8a820);color:#030712;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:all .3s;font-family:inherit}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(240,192,64,.25)}
+.btn-secondary{padding:10px 24px;border-radius:var(--radius-sm);background:transparent;color:var(--text-dim);font-size:14px;border:1px solid var(--border);cursor:pointer;transition:all .3s;font-family:inherit}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+
+.extend-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px;margin:24px 0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;border-top:2px solid var(--border-glow)}
+.extend-bar .ext-title{font-size:12px;font-weight:700;color:var(--text-dim)}
+.extend-bar a{display:inline-flex;align-items:center;gap:5px;padding:8px 18px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .25s}
+.ext-primary{background:rgba(0,212,255,.1);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-primary:hover{background:rgba(0,212,255,.22);color:#fff}
+.ext-secondary{background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-secondary:hover{border-color:var(--primary);color:var(--primary)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:11px;padding:5px 12px;border-radius:12px;background:rgba(8,20,44,.7);border:1px solid rgba(0,212,255,.08);transition:all .25s}
+.bottom-nav a:hover{color:var(--primary);border-color:var(--border-glow)}
+
+footer{text-align:center;padding:16px 20px;font-size:10px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:24px;position:relative;z-index:1}
+footer p{margin:3px 0}
+
+@media(max-width:640px){
+  .hero h1{font-size:22px}
+  .form-row{grid-template-columns:1fr}
+  .story-type-grid{grid-template-columns:1fr}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="故事投稿 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/contribute-story.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/contribute-story.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">✍️ 故事投稿</span>
+</nav>
+
+<div class="hero">
+  <h1>✍️ 故事投稿</h1>
+  <p>每一段军旅生涯都是一部史诗。分享你的真实故事，让战友情谊跨越山海，让军魂精神薪火相传。</p>
+  <div class="story-stats">
+    <div class="stat"><div class="num">2,386</div><div class="lbl">已收录故事</div></div>
+    <div class="stat"><div class="num">156万</div><div class="lbl">累计阅读</div></div>
+    <div class="stat"><div class="num">8,920</div><div class="lbl">作者参与</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 故事类型选择 -->
+<div class="section-title"><span class="icon">📚</span><span>选择故事<span class="color">类型</span></span></div>
+<div class="story-type-grid">
+  <div class="story-type-card selected" id="type-military" onclick="selectType(this)">
+    <div class="type-icon">🎖️</div>
+    <h4>军旅故事</h4>
+    <p>训练场上的汗水、演习中的惊险、边防哨所的坚守、维和任务的荣耀……分享你刻骨铭心的军旅记忆。</p>
+  </div>
+  <div class="story-type-card" id="type-business" onclick="selectType(this)">
+    <div class="type-icon">🚀</div>
+    <h4>创业故事</h4>
+    <p>从军营到商海，从战士到企业家。分享你的创业历程、成败经验，激励更多战友勇敢转身。</p>
+  </div>
+  <div class="story-type-card" id="type-farm" onclick="selectType(this)">
+    <div class="type-icon">🌾</div>
+    <h4>农庄故事</h4>
+    <p>回归田园，扎根土地。生态种植、智慧养殖、乡村建设——退役军人在田野上的新战场。</p>
+  </div>
+  <div class="story-type-card" id="type-comrade" onclick="selectType(this)">
+    <div class="type-icon">🤝</div>
+    <h4>战友情谊</h4>
+    <p>生死与共的兄弟、退伍后的重逢、互帮互助的温暖。那些关于战友的感人瞬间。</p>
+  </div>
+  <div class="story-type-card" id="type-family" onclick="selectType(this)">
+    <div class="type-icon">👨‍👩‍👧</div>
+    <h4>军属故事</h4>
+    <p>军嫂的坚守、军娃的成长、父母的牵挂。军人背后的家庭，同样值得被铭记和传颂。</p>
+  </div>
+  <div class="story-type-card" id="type-other" onclick="selectType(this)">
+    <div class="type-icon">✨</div>
+    <h4>其他故事</h4>
+    <p>国防教育、红色传承、退役军人公益等与军旅文化相关的各类故事。</p>
+  </div>
+</div>
+
+<!-- 精选故事展示 -->
+<div class="section-title"><span class="icon">⭐</span><span>战友<span class="color">精选</span></span></div>
+<div class="story-glimpse">
+  <div class="glimpse-card">
+    <div class="glimpse-header">
+      <div class="avatar">张</div>
+      <div class="author-info">
+        <div class="name">张建国</div>
+        <div class="unit">原陆军第72集团军·12年兵</div>
+      </div>
+    </div>
+    <div class="story-excerpt">1998年特大洪水，我们连奉命驰援九江。连续奋战72小时，没有一个人喊累。我记得老班长说："老百姓在看着我们，军人就该冲在最前面！"那一刻，我真正理解了什么叫"人民子弟兵"……</div>
+    <div class="story-meta">
+      <span>🏷️ 军旅故事</span><span>❤️ 2.3k</span><span>💬 486</span><span>📅 2026-05-20</span>
+    </div>
+  </div>
+  <div class="glimpse-card">
+    <div class="glimpse-header">
+      <div class="avatar">李</div>
+      <div class="author-info">
+        <div class="name">李卫国</div>
+        <div class="unit">原空军某部·8年兵</div>
+      </div>
+    </div>
+    <div class="story-excerpt">退伍那年，我把全部积蓄投进了一个智慧农场。第一年亏得只剩裤衩，老婆差点跟我离婚。但我记得连长说过：认准的事，就要像攻山头一样拿下来！第三年，我们农场的有机蔬菜进了省城超市……</div>
+    <div class="story-meta">
+      <span>🏷️ 创业故事</span><span>❤️ 1.8k</span><span>💬 352</span><span>📅 2026-05-15</span>
+    </div>
+  </div>
+  <div class="glimpse-card">
+    <div class="glimpse-header">
+      <div class="avatar">王</div>
+      <div class="author-info">
+        <div class="name">王守诚</div>
+        <div class="unit">原海军某支队·16年兵</div>
+      </div>
+    </div>
+    <div class="story-excerpt">亚丁湾护航的第47天，我们遇到了一艘遇险的中国渔船。全舰官兵二话不说，立刻展开救援。当看到获救渔民眼中闪烁的泪光，我明白了——无论身在何方，祖国永远是我们的坚强后盾……</div>
+    <div class="story-meta">
+      <span>🏷️ 军旅故事</span><span>❤️ 3.1k</span><span>💬 728</span><span>📅 2026-05-10</span>
+    </div>
+  </div>
+</div>
+
+<!-- 投稿表单 -->
+<div class="section-title"><span class="icon">📝</span><span>提交你的<span class="color">故事</span></span></div>
+<div class="form-section">
+  <h3>✍️ 故事投稿表单</h3>
+  <form onsubmit="alert('感谢投稿！我们将在48小时内审核。');return false">
+    <div class="form-row">
+      <div class="form-group">
+        <label>真实姓名/笔名 <span class="required">*</span></label>
+        <input type="text" placeholder="请输入您的姓名或笔名" required>
+      </div>
+      <div class="form-group">
+        <label>原服役部队 <span class="required">*</span></label>
+        <input type="text" placeholder="如：原陆军第72集团军" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>联系电话</label>
+        <input type="tel" placeholder="用于稿酬发放通知">
+      </div>
+      <div class="form-group">
+        <label>电子邮箱</label>
+        <input type="email" placeholder="example@email.com">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>故事标题 <span class="required">*</span></label>
+      <input type="text" placeholder="给故事起一个吸引人的标题（10-30字）" required>
+      <div class="hint">好的标题能吸引更多读者。示例：「从侦察班长到智慧农场主——我的三年创业路」</div>
+    </div>
+    <div class="form-group">
+      <label>故事正文 <span class="required">*</span></label>
+      <textarea placeholder="请在此写下您的故事……&#10;&#10;建议：&#10;1. 开头引人入胜，迅速抓住读者注意力&#10;2. 中间情节饱满，细节真实生动&#10;3. 结尾有感悟或升华，传递正能量&#10;4. 适当分段，每段不超过300字&#10;&#10;字数建议：800-3000字" required></textarea>
+    </div>
+    <div class="form-group">
+      <label>故事配图</label>
+      <div class="file-upload" onclick="alert('文件上传功能已就绪')">
+        <div class="upload-icon">📷</div>
+        <p>点击上传图片（支持JPG/PNG/WebP，单张≤10MB）</p>
+        <div class="upload-hint">建议上传3-8张相关照片，让故事更加生动</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>选择标签</label>
+      <div class="tag-select">
+        <span class="tag active">军旅生涯</span>
+        <span class="tag">战友情深</span>
+        <span class="tag">难忘经历</span>
+        <span class="tag">军营趣事</span>
+        <span class="tag">退伍转型</span>
+        <span class="tag">成长感悟</span>
+        <span class="tag">家庭故事</span>
+        <span class="tag">红色传承</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label style="display:flex;align-items:center;gap:8px">
+        <input type="checkbox" style="width:16px;height:16px;accent-color:var(--gold)"> 我承诺以上内容为本人原创或已获授权，且不包含任何违法违规信息
+      </label>
+    </div>
+    <div class="btn-row">
+      <button type="submit" class="btn-primary">📤 提交投稿</button>
+      <button type="button" class="btn-secondary" onclick="alert('草稿已保存')">💾 保存草稿</button>
+    </div>
+  </form>
+</div>
+
+<div class="extend-bar">
+  <span class="ext-title">🔗 相关链接：</span>
+  <a href="/contribute-guide.html" class="ext-primary">📋 投稿指南</a>
+  <a href="/contribute-article.html" class="ext-primary">📝 文章投稿</a>
+  <a href="/contribute-art.html" class="ext-primary">🎨 艺术投稿</a>
+  <a href="/index.html" class="ext-secondary">🏠 返回首页</a>
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台</p>
+</footer>
+
+<script>
+function selectType(el){document.querySelectorAll('.story-type-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected')}
+document.querySelectorAll('.tag-select .tag').forEach(t=>{t.addEventListener('click',function(){this.classList.toggle('active')})})
+</script>
+
+</body>
+</html>

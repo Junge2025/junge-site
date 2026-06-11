@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>五常市军创米业合作社 · 合作伙伴 · 军鸽云链</title>
+<meta name="description" content="五常市军创米业合作社——28位退役军人联合创立，深耕五常大米核心产区，有机认证+区块链溯源，东北黑土粮仓战略合作伙伴。">
+<style>
+:root{
+  --bg:#030712;--bg-card:rgba(8,20,44,.85);--text:#e8edf5;--text-dim:#8896b0;
+  --text-muted:#4a5568;--border:rgba(255,255,255,.06);--border-glow:rgba(0,212,255,.18);
+  --primary:#00d4ff;--gold:#f0c040;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;
+  --radius:12px;--radius-lg:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh;line-height:1.8;padding-bottom:80px}
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+.top-nav{position:sticky;top:36px;z-index:98;background:linear-gradient(135deg,rgba(8,20,44,.94),rgba(3,7,18,.97));border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;backdrop-filter:blur(10px)}
+.top-nav a{color:var(--text-dim);text-decoration:none;font-size:11px;padding:4px 10px;border-radius:12px;transition:.2s}
+.top-nav a:hover{color:var(--primary)}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+.partner-hero{background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(3,7,18,.97),rgba(75,142,207,.05));border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 28px;text-align:center;margin-bottom:20px}
+.partner-hero .ph-icon{font-size:56px;margin-bottom:12px}
+.partner-hero h1{font-size:26px;font-weight:900;color:var(--text);margin-bottom:6px}
+.partner-hero .tagline{font-size:13px;color:var(--gold);margin-bottom:16px}
+.partner-hero .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.partner-hero .badge{padding:5px 14px;border-radius:16px;font-size:10px;font-weight:700}
+.info-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.info-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center}
+.info-card .ic-icon{font-size:28px;margin-bottom:6px}
+.info-card .ic-val{font-size:22px;font-weight:800;color:var(--primary)}
+.info-card .ic-lbl{font-size:10px;color:var(--text-dim);margin-top:2px}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;margin-bottom:18px;backdrop-filter:blur(12px)}
+.section h2{font-size:18px;font-weight:700;color:var(--gold);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(240,192,64,.15)}
+.section h3{font-size:15px;font-weight:700;color:var(--primary);margin:18px 0 10px}
+.section p{font-size:12px;color:var(--text-dim);line-height:2;margin-bottom:12px;text-align:justify}
+.section ul,.section ol{margin:10px 0 14px 18px}
+.section li{font-size:12px;color:var(--text-dim);line-height:2;margin-bottom:4px}
+.section li::marker{color:var(--primary)}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.product-item{background:rgba(8,20,44,.5);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center}
+.product-item .pi-icon{font-size:32px;margin-bottom:6px}
+.product-item .pi-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px}
+.product-item .pi-desc{font-size:10px;color:var(--text-muted);line-height:1.5}
+.contact-bar{background:var(--bg-card);border:1px solid rgba(0,212,255,.15);border-radius:var(--radius-lg);padding:20px 24px;text-align:center;margin-bottom:20px}
+.contact-bar h3{font-size:16px;color:var(--primary);margin-bottom:8px}
+.contact-bar p{font-size:11px;color:var(--text-dim);margin-bottom:12px}
+.contact-bar a{display:inline-block;padding:10px 24px;border-radius:24px;font-size:12px;font-weight:700;text-decoration:none;margin:4px 6px;transition:.2s}
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin:20px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:var(--text-dim)}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:var(--primary);color:var(--primary)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:10px;padding:5px 10px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1);transition:.2s}
+.bottom-nav a:hover{color:var(--primary);border-color:var(--primary)}
+.bottom-nav .active{color:var(--gold);border-color:rgba(240,192,64,.4);background:rgba(240,192,64,.08)}
+.footer{text-align:center;padding:24px 20px 80px;font-size:10px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:28px;line-height:1.8}
+@media(max-width:768px){
+  .info-cards{grid-template-columns:repeat(2,1fr)}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .partner-hero h1{font-size:20px}
+}
+@media(max-width:480px){
+  .info-cards,.product-grid{grid-template-columns:1fr}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="五常市军创米业合作社 · 合作伙伴 · 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/partner-2.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/partner-2.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <a href="/eco-farm.html">🌾 生态农庄</a><span class="sep">▸</span>
+  <span class="current">东北黑土农庄</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" style="font-weight:700;color:var(--gold)">⚔ 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<div class="container">
+
+<div class="partner-hero">
+  <div class="ph-icon">🌾</div>
+  <h1>五常市军创米业合作社</h1>
+  <div class="tagline">28位退役军人联合创立 · 五常核心产区 · 国家地理标志 · 有机认证 · 非转基因</div>
+  <div class="badges">
+    <span class="badge" style="background:rgba(240,192,64,.12);color:#f0c040">国家地理标志</span>
+    <span class="badge" style="background:rgba(34,197,94,.12);color:#22c55e">有机认证</span>
+    <span class="badge" style="background:rgba(0,212,255,.12);color:#00d4ff">区块链溯源</span>
+    <span class="badge" style="background:rgba(167,139,250,.12);color:#a78bfa">退役军人创办</span>
+  </div>
+</div>
+
+<div class="info-cards">
+  <div class="info-card">
+    <div class="ic-icon">👥</div>
+    <div class="ic-val">28</div>
+    <div class="ic-lbl">退役军人创业者</div>
+  </div>
+  <div class="info-card">
+    <div class="ic-icon">🌾</div>
+    <div class="ic-val">8,200亩</div>
+    <div class="ic-lbl">有机稻田面积</div>
+  </div>
+  <div class="info-card">
+    <div class="ic-icon">🍚</div>
+    <div class="ic-val">4,800吨</div>
+    <div class="ic-lbl">年产量</div>
+  </div>
+  <div class="info-card">
+    <div class="ic-icon">📍</div>
+    <div class="ic-val">N45.7°</div>
+    <div class="ic-lbl">黑土地纬度</div>
+  </div>
+  <div class="info-card">
+    <div class="ic-icon">🏅</div>
+    <div class="ic-val">国家级</div>
+    <div class="ic-lbl">示范合作社</div>
+  </div>
+  <div class="info-card">
+    <div class="ic-icon">🤝</div>
+    <div class="ic-val">2023年</div>
+    <div class="ic-lbl">与军鸽云链战略合作</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🏢 企业概况</h2>
+  <p>五常市军创米业合作社成立于2018年，由28位从各军兵种退役的老兵在黑龙江省五常市安家镇联合创立。五常市地处北纬45.7°，是世界三大黑土带之一，拥有得天独厚的水稻种植条件。合作社扎根五常大米核心产区，坚持"有机种植、古法耕作、全程溯源"的理念，守护"中国最好吃的大米"的品质尊严。</p>
+  <p>合作社拥有有机认证稻田8200亩，年产优质五常大米4800吨。种植品种以"五优稻4号"（稻花香2号）为主，该品种为国家审定品种，具有独特的天然稻花香。合作社所有稻田采用拉林河水系天然矿泉水灌溉，生长期长达147天，充分积累营养物质。</p>
+  <p>2023年，合作社成为军鸽云链的首批战略合作伙伴和黑龙江五常溯源基地的核心入驻企业。目前已有超过12万批次的五常大米溯源数据在军鸽云链上完成存证，成为国内最早实现全链路区块链溯源的五常大米品牌之一。</p>
+</div>
+
+<div class="section">
+  <h2>🎖️ 军旅基因</h2>
+  <h3>守护黑土地的"老兵连"</h3>
+  <p>合作社理事长赵卫国，原陆军某边防团三级军士长，在黑龙江边防线上服役16年。2017年退役后回到家乡五常，看到市场上假冒五常大米泛滥——据行业统计，市面上标称"五常大米"的产品中，真正产自五常核心产区的不足40%——他决心做一件"对得起良心、对得起家乡"的事。</p>
+  <p>"在边防线上，我守护的是国土。回到家乡，我要守护的是这片黑土地上的每一粒大米。"赵卫国说。他联络了27位同样是退役军人的老乡和战友，以"军人合作社"的形式抱团创业。28人中，有曾经的炊事班长（负责品控）、侦察兵（负责溯源巡查）、通信兵（负责电商运营）、汽车兵（负责物流调度）——恰好组成了一支完整的"战斗班组"。</p>
+  <p>合作社实行"军事化品控"：从插秧到收割，每一块田都有专人负责，每日填写田间日志并拍照上链。合作社还建立了"老兵品鉴团"——由28位创始人轮流担任"当值品控官"，对每一批次大米进行蒸煮品鉴，确保口感和品质的稳定性。</p>
+</div>
+
+<div class="section">
+  <h2>🍚 核心产品</h2>
+  <div class="product-grid">
+    <div class="product-item">
+      <div class="pi-icon">🍚</div>
+      <div class="pi-name">稻花香2号</div>
+      <div class="pi-desc">五优稻4号·有机认证·147天生长期·天然稻香</div>
+    </div>
+    <div class="product-item">
+      <div class="pi-icon">🌾</div>
+      <div class="pi-name">有机糙米</div>
+      <div class="pi-desc">轻碾保留胚芽·膳食纤维丰富·营养全面</div>
+    </div>
+    <div class="product-item">
+      <div class="pi-icon">🎁</div>
+      <div class="pi-name">老兵礼盒</div>
+      <div class="pi-desc">5kg真空装·退役军人签名·送礼体面</div>
+    </div>
+    <div class="product-item">
+      <div class="pi-icon">🌽</div>
+      <div class="pi-name">有机玉米碴</div>
+      <div class="pi-desc">非转基因·传统石磨·粗粮细作</div>
+    </div>
+    <div class="product-item">
+      <div class="pi-icon">🫘</div>
+      <div class="pi-name">有机黄豆</div>
+      <div class="pi-desc">黑土地种植·非转基因·蛋白质≥40%</div>
+    </div>
+    <div class="product-item">
+      <div class="pi-icon">🍄</div>
+      <div class="pi-name">长白山榛蘑</div>
+      <div class="pi-desc">野生采摘·自然晾晒·小鸡炖蘑菇标配</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🔗 溯源保障</h2>
+  <p>作为军鸽云链黑龙江五常溯源基地的核心合作伙伴，合作社建立了行业领先的大米全链路溯源体系：</p>
+  <ul>
+    <li><strong>环境溯源：</strong>每块稻田GPS坐标精确到地块，土壤有机质含量（≥3%）、灌溉水（拉林河水系）和气候数据全部上链。</li>
+    <li><strong>种子溯源：</strong>五优稻4号的品种审定证书、种子来源、发芽率检测（≥95%）和非转基因认证全部可查。</li>
+    <li><strong>生长溯源：</strong>147天生长期的施肥（有机肥）、除草（人工3次/季）、防虫（赤眼蜂生物防治）和灌溉（8次）全程记录。</li>
+    <li><strong>监管溯源：</strong>SGS第三方189项农残检测+5项重金属检测+黄曲霉毒素检测，退役军人质询员逐批次核验。</li>
+    <li><strong>餐桌溯源：</strong>真空包装日期、保质期和烹饪建议可扫码查看，消费者累计评分4.9分。</li>
+  </ul>
+  <p>合作社的溯源体系不仅是技术工具，更是"28位老兵的信用承诺"——每一袋大米的溯源报告上都有当值品控官的数字签名。</p>
+</div>
+
+<div class="section">
+  <h2>🏭 加工工艺</h2>
+  <p>合作社投资1200万元建设了日产80吨的现代化大米加工中心，采用"低温碾米+色选+真空包装"工艺：</p>
+  <ul>
+    <li><strong>低温储存：</strong>稻谷在15℃恒温库中储存，保持新米活性。</li>
+    <li><strong>轻碾工艺：</strong>采用三道轻碾，最大限度保留大米胚芽和营养成分。</li>
+    <li><strong>光电色选：</strong>AI视觉分选系统，剔除异色粒、碎米和杂质，保证每一粒米的纯净度。</li>
+    <li><strong>真空包装：</strong>5kg真空装+2.5kg礼盒装，充氮保鲜，12个月保质期。</li>
+  </ul>
+</div>
+
+<div class="contact-bar">
+  <h3>🤝 合作联系</h3>
+  <p>欢迎采购商、社区团购、企事业单位团购联系。退役军人创业者优先，支持一件代发。</p>
+  <a href="/enterprise-contact.html" style="background:rgba(0,212,255,.12);color:var(--primary);border:1px solid rgba(0,212,255,.2)">📞 商务合作</a>
+  <a href="/shangcheng.html" style="background:transparent;color:var(--text-dim);border:1px solid var(--border)">🛒 查看产品</a>
+</div>
+
+</div>
+
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/partner-1.html" class="ext-trace">🌴 海南热带农庄</a>
+  <a href="/partner-3.html" class="ext-mall">🏔️ 云南高原农庄</a>
+  <a href="/shangcheng.html" class="ext-mall">🛒 商业生态</a>
+  <a href="/index.html" class="ext-mall">🏠 返回首页</a>
+</div>
+
+<nav class="bottom-nav">
+  <a href="/" class="active">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<div class="footer">
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站 · 食品安全+退役军人在服务综合平台
+</div>
+
+</body>
+</html>

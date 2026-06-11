@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>军创商城 · 商业旗舰版 · 军鸽云链数智</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="军创商城商业旗舰版：零关税专区、军创优品、生态农庄、红色旅游，全链溯源与透明定价。">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --blue:#0B1C3D;
+  --blue-soft:#1E3A5F;
+  --blue-grad:linear-gradient(135deg,#0B1C3D 0%,#1E3A5F 40%,#2B5C9A 100%);
+  --gold:#D4AF37;
+  --gold-soft:#FFE9A6;
+  --bg:#050814;
+  --card:#0E172A;
+  --muted:#8A94B0;
+  --border:#1F2940;
+  --danger:#C62E2E;
+  --green:#2E7D32;
+  --shadow-strong:0 18px 45px rgba(0,0,0,.55);
+  --radius-lg:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;background:radial-gradient(circle at top,#101935 0%,#050814 55%,#02030A 100%);color:#f5f7ff;line-height:1.6;}
+a{color:inherit;text-decoration:none}
+body{min-height:100vh}
+.container{max-width:1280px;margin:0 auto;padding:0 18px}
+
+/* 顶部导航 */
+header{position:sticky;top:0;z-index:1000;backdrop-filter:blur(18px);background:linear-gradient(90deg,rgba(5,8,20,.96),rgba(5,8,20,.85));border-bottom:1px solid rgba(255,255,255,.06);}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:16px;flex-wrap:wrap;}
+.brandbox{display:flex;align-items:center;gap:12px}
+.brand-logo{width:46px;height:46px;border-radius:14px;background:radial-gradient(circle at 20% 0%,#4F8DFF 0%,#1E3A5F 40%,#050814 100%);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.18);}
+.brand-title .cn{font-size:18px;font-weight:800;letter-spacing:1px}
+.brand-title .en{font-size:11px;opacity:.8;color:#A9B4D8}
+.nav-main{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.nav-main a{font-size:13px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:#D5DDF5;transition:.25s}
+.nav-main a:hover{background:rgba(255,255,255,.12);color:#fff;transform:translateY(-1px)}
+.nav-main a.active{background:linear-gradient(135deg,#F9D976,#F39F86);color:#1B2340;border-color:transparent}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-tag{font-size:11px;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);color:#F5E6B3}
+.btn-mini{padding:7px 12px;border-radius:999px;border:none;cursor:pointer;font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#2B5C9A,#4F8DFF);color:#fff;box-shadow:0 8px 18px rgba(0,0,0,.45);}
+.btn-mini i{font-size:13px}
+
+/* Hero */
+.hero{position:relative;margin:14px 0 18px;border-radius:24px;padding:22px 20px 20px;background:radial-gradient(circle at 10% 0%,rgba(79,141,255,.35) 0%,transparent 55%),radial-gradient(circle at 90% 0%,rgba(212,175,55,.35) 0%,transparent 55%),linear-gradient(135deg,#050814 0%,#0B1C3D 40%,#050814 100%);overflow:hidden;box-shadow:var(--shadow-strong);border:1px solid rgba(255,255,255,.08);}
+.hero::before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 0 0,rgba(255,255,255,.08) 0%,transparent 55%);opacity:.4;mix-blend-mode:screen;animation:heroGlow 12s linear infinite;}
+@keyframes heroGlow{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(12px,18px,0)}100%{transform:translate3d(0,0,0)}}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.4fr 1fr;gap:18px;}
+.hero-left h1{font-size:26px;color:#fff;margin-bottom:6px}
+.hero-left h1 span{background:linear-gradient(135deg,#F9D976,#F39F86);-webkit-background-clip:text;color:transparent}
+.hero-sub{font-size:13px;color:#C3CCE8;margin-bottom:12px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.hero-badge{font-size:11px;padding:4px 9px;border-radius:999px;background:rgba(5,8,20,.7);border:1px solid rgba(255,255,255,.16);color:#F5E6B3}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+.btn-hero-primary{padding:9px 16px;border-radius:999px;border:none;cursor:pointer;background:linear-gradient(135deg,#F9D976,#F39F86);color:#1B2340;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;box-shadow:0 10px 24px rgba(0,0,0,.6);}
+.btn-hero-secondary{padding:9px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(5,8,20,.7);color:#D5DDF5;font-size:12px;display:flex;align-items:center;gap:6px;cursor:pointer;}
+.hero-kpis{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:#A9B4D8}
+.hero-kpis div strong{display:block;font-size:15px;color:#fff}
+.hero-right{position:relative}
+.hero-card{position:relative;background:radial-gradient(circle at 0 0,#2B5C9A 0%,#050814 55%);border-radius:18px;padding:12px;border:1px solid rgba(255,255,255,.12);box-shadow:0 14px 32px rgba(0,0,0,.7);overflow:hidden;}
+.hero-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:11px;color:#C3CCE8;}
+.hero-card-tag{padding:3px 8px;border-radius:999px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.18);color:#F5E6B3}
+.hero-product-name{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+.hero-product-meta{font-size:11px;color:#C3CCE8;margin-bottom:8px}
+.hero-product-img{width:100%;height:150px;border-radius:12px;background:url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop") center/cover;box-shadow:0 10px 26px rgba(0,0,0,.7);margin-bottom:8px;}
+.hero-product-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.hero-product-badges span{font-size:10px;padding:3px 7px;border-radius:999px;background:rgba(5,8,20,.7);border:1px solid rgba(255,255,255,.18);}
+.hero-product-footer{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#C3CCE8}
+.hero-price strong{font-size:16px;color:#F9D976}
+.hero-btn{padding:6px 10px;border-radius:999px;border:none;cursor:pointer;background:linear-gradient(135deg,#4F8DFF,#7BC6FF);color:#fff;font-size:11px;font-weight:600;}
+
+/* 横向品类 */
+.section{margin-bottom:18px}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.section-title h2{font-size:16px;color:#F5F7FF}
+.section-title small{font-size:11px;color:#8A94B0}
+.category-strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;}
+.category-pill{flex:0 0 auto;padding:7px 12px;border-radius:999px;background:rgba(10,16,35,.9);border:1px solid rgba(255,255,255,.08);font-size:12px;color:#C3CCE8;display:flex;align-items:center;gap:6px;cursor:pointer;transition:.2s;}
+.category-pill i{font-size:13px}
+.category-pill.active{background:linear-gradient(135deg,#F9D976,#F39F86);color:#1B2340;border-color:transparent}
+
+/* 四大专区 */
+.zone-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.zone-card{position:relative;background:radial-gradient(circle at 0 0,rgba(249,217,118,.18) 0%,transparent 55%),radial-gradient(circle at 100% 100%,rgba(79,141,255,.25) 0%,transparent 55%),#050814;border-radius:18px;padding:12px;border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 26px rgba(0,0,0,.7);overflow:hidden;cursor:pointer;transition:.25s;}
+.zone-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.85);border-color:rgba(249,217,118,.6);}
+.zone-tag{font-size:11px;color:#F5E6B3;margin-bottom:4px}
+.zone-title{font-size:14px;font-weight:700;margin-bottom:4px}
+.zone-desc{font-size:11px;color:#A9B4D8;margin-bottom:8px}
+.zone-meta{font-size:10px;color:#8A94B0}
+
+/* 商品楼层 */
+.floor{margin-top:18px}
+.floor-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.floor-header h3{font-size:15px}
+.floor-header span{font-size:11px;color:#8A94B0}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.product-card{background:rgba(5,8,20,.95);border-radius:14px;padding:10px;border:1px solid rgba(255,255,255,.06);box-shadow:0 8px 20px rgba(0,0,0,.7);transition:.22s;cursor:pointer;}
+.product-card:hover{transform:translateY(-4px);border-color:rgba(249,217,118,.6);}
+.product-img{width:100%;height:120px;border-radius:10px;background-size:cover;background-position:center;margin-bottom:6px}
+.product-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.product-meta{font-size:11px;color:#A9B4D8;margin-bottom:4px}
+.product-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.product-tags span{font-size:10px;padding:2px 6px;border-radius:999px;background:rgba(10,16,35,.9);border:1px solid rgba(255,255,255,.12);}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#C3CCE8}
+.product-price strong{color:#F9D976;font-size:14px}
+footer{margin:20px 0 16px;font-size:11px;color:#7E88A8;text-align:center}
+footer span{color:#F5E6B3}
+@media(max-width:1024px){.hero-inner{grid-template-columns:1fr}.zone-grid{grid-template-columns:repeat(2,1fr)}.product-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.zone-grid{grid-template-columns:1fr}.product-grid{grid-template-columns:1fr}}
+/* === Link Chain Components === */
+.breadcrumb-bar{display:flex;align-items:center;gap:6px;padding:8px 16px;font-size:12px;color:#8A94B0;background:rgba(10,22,40,.6);border-bottom:1px solid #1F2940;flex-wrap:wrap;margin:0}
+.breadcrumb-bar a{color:#D4AF37;text-decoration:none;transition:.2s}
+.breadcrumb-bar a:hover{color:#F9D976}
+.breadcrumb-bar .sep{color:#5a6a85;margin:0 2px}
+.breadcrumb-bar .current{color:#f5f7ff;font-weight:600}
+.extend-bar{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 16px;margin:8px 0 16px;background:rgba(10,22,40,.5);border:1px solid #1F2940;border-radius:12px;flex-wrap:wrap}
+.extend-bar a{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:12px;color:#f5f7ff;background:rgba(15,34,64,.7);border:1px solid rgba(212,175,55,.12);text-decoration:none;transition:.2s}
+.extend-bar a:hover{background:rgba(212,175,55,.12);border-color:#D4AF37;color:#D4AF37}
+.extend-bar .label{font-size:11px;color:#8A94B0;margin-right:4px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1);transition:all .2s}
+.bottom-nav a:hover,.bottom-nav a.active{color:#00d4ff;border-color:rgba(0,212,255,.35);background:rgba(0,212,255,.08)}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军创商城 · 商业旗舰版 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/shop.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/shop.html">
+</head>
+<body>
+<div class="breadcrumb-bar"><a href="/">首页</a><span class="sep">›</span><a href="/shangcheng.html">商业生态</a><span class="sep">›</span><span class="current">军创商城</span></div>
+
+<header><div class="container topbar">
+  <div class="brandbox">
+    <div class="brand-logo">JG</div>
+    <div class="brand-title"><div class="cn">军创商城 · 军鸽云链</div><div class="en">JunGe Veteran Commerce · Full Chain Transparency</div></div>
+  </div>
+  <nav class="nav-main">
+    <a href="#zones" class="active">首页</a><a href="#zero">零关税专区</a><a href="#veteran">军创优品</a><a href="#farm">生态农庄</a><a href="#red">红色旅游</a>
+  </nav>
+  <div class="nav-right"><div class="nav-tag">退役军人信用背书 · 全链溯源</div><button class="btn-mini"><i class="fas fa-user-shield"></i> 分站登录</button></div>
+</div></header>
+
+<main class="container">
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <h1><span>军创商城 · 商业旗舰版</span></h1>
+      <div class="hero-sub">零关税跨境 · 军创优品 · 生态农庄 · 红色旅游，一站式军鸽云链数智商城。退役军人信用背书 + 区块链溯源 + 透明定价。</div>
+      <div class="hero-badges"><div class="hero-badge"><i class="fas fa-shield-alt"></i> 全链条质控与溯源</div><div class="hero-badge"><i class="fas fa-coins"></i> 军鸽币权益联动</div><div class="hero-badge"><i class="fas fa-globe-asia"></i> 零关税跨境专区</div></div>
+      <div class="hero-cta"><button class="btn-hero-primary"><i class="fas fa-store"></i> 进入零关税专区</button><button class="btn-hero-secondary"><i class="fas fa-play-circle"></i> 查看军创生态全景</button></div>
+      <div class="hero-kpis"><div><strong>300+</strong>在册军创优品</div><div><strong>98%</strong>主体资质完整率</div><div><strong>95%</strong>溯源记录完整度</div><div><strong>85%</strong>利润归一线参与者</div></div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-header"><span>今日主推 · 生态农庄认养季</span><span class="hero-card-tag"><i class="fas fa-leaf"></i> IoT 实时监测</span></div>
+        <div class="hero-product-name">云南高山生态农庄 · 一季认养</div>
+        <div class="hero-product-meta">认养编号：JG-FARM-001 · 退役军人农场主 · 全程直播</div>
+        <div class="hero-product-img"></div>
+        <div class="hero-product-badges"><span>物联网土壤监测</span><span>零化学农药原则</span><span>区块链农事上链</span></div>
+        <div class="hero-product-footer"><div class="hero-price"><div>认养季套餐价</div><strong>¥ 920 / 季</strong></div><button class="hero-btn"><i class="fas fa-shopping-cart"></i> 立即认养</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><h2>品类导航 · 一键直达</h2><small>有机食品 · 地理标志 · 非遗 · 生态农庄 · 军旅文旅</small></div>
+  <div class="category-strip">
+    <div class="category-pill active"><i class="fas fa-star"></i> 今日主推</div>
+    <div class="category-pill"><i class="fas fa-globe-asia"></i> 零关税跨境</div>
+    <div class="category-pill"><i class="fas fa-medal"></i> 军创优品</div>
+    <div class="category-pill"><i class="fas fa-seedling"></i> 生态农庄</div>
+    <div class="category-pill"><i class="fas fa-flag"></i> 红色旅游</div>
+    <div class="category-pill"><i class="fas fa-gift"></i> 礼盒与团购</div>
+  </div>
+</section>
+
+<section class="section" id="zones">
+  <div class="section-title"><h2>四大核心专区</h2><small>围绕"食安 + 军旅 + 数智 + 跨境"的一体化运营</small></div>
+  <div class="zone-grid">
+    <article class="zone-card" id="zero"><div class="zone-tag">ZERO TARIFF</div><div class="zone-title">零关税跨境专区</div><div class="zone-desc">自贸港零关税政策加持，引入全球健康食品、营养品与功能性食品。</div><div class="zone-meta">跨境清关 · 双重检测 · 区块链溯源</div></article>
+    <article class="zone-card" id="veteran"><div class="zone-tag">VETERAN BRAND</div><div class="zone-title">军创优品专区</div><div class="zone-desc">退役军人创业品牌，覆盖有机大米、地标水果、非遗食品等。</div><div class="zone-meta">退役军人信用背书 · 透明定价</div></article>
+    <article class="zone-card" id="farm"><div class="zone-tag">ECO FARM</div><div class="zone-title">生态农庄认养</div><div class="zone-desc">一人一地块，IoT 实时监测，农事直播，全程可视化。</div><div class="zone-meta">零化学农药原则 · 季度认养</div></article>
+    <article class="zone-card" id="red"><div class="zone-tag">RED TOURISM</div><div class="zone-title">红色旅游与军旅康养</div><div class="zone-desc">红色线路 + 军旅康养基地，军鸽币可兑换专属名额。</div><div class="zone-meta">党性教育 · 退役军人优先</div></article>
+  </div>
+</section>
+
+<section class="floor">
+  <div class="floor-header"><h3>F1 · 爆款推荐</h3><span>高复购 · 高口碑 · 高溯源完整度</span></div>
+  <div class="product-grid">
+    <article class="product-card"><div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1506806732259-39c2d0268443?q=80&w=1200&auto=format&fit=crop')"></div><div class="product-name">有机大米（军创优选）5kg</div><div class="product-meta">产地：海南 · 溯源编号：JG-2025001</div><div class="product-tags"><span>有机认证</span><span>退役军人种植</span><span>冷链抽检</span></div><div class="product-bottom"><div class="product-price"><span>到手价</span><strong>¥ 89</strong></div><div><i class="fas fa-qrcode"></i> 溯源</div></div></article>
+    <article class="product-card"><div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop')"></div><div class="product-name">地理标志水果 · 礼盒装</div><div class="product-meta">产地：广西 · 溯源编号：JG-2025002</div><div class="product-tags"><span>地理标志</span><span>温控轨迹公示</span></div><div class="product-bottom"><div class="product-price"><span>到手价</span><strong>¥ 129</strong></div><div><i class="fas fa-qrcode"></i> 溯源</div></div></article>
+    <article class="product-card"><div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=800&auto=format&fit=crop')"></div><div class="product-name">非遗工艺辣酱 · 礼盒</div><div class="product-meta">产地：四川 · 溯源编号：JG-2025003</div><div class="product-tags"><span>非遗工艺</span><span>批次盲测</span></div><div class="product-bottom"><div class="product-price"><span>到手价</span><strong>¥ 59</strong></div><div><i class="fas fa-qrcode"></i> 溯源</div></div></article>
+    <article class="product-card"><div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop')"></div><div class="product-name">生态农庄 · 认养季套餐</div><div class="product-meta">地点：云南 · 认养编号：JG-FARM-001</div><div class="product-tags"><span>IoT 监测</span><span>农事直播</span></div><div class="product-bottom"><div class="product-price"><span>认养价</span><strong>¥ 920</strong></div><div><i class="fas fa-qrcode"></i> 溯源</div></div></article>
+  </div>
+</section>
+
+</main>
+
+<div class="extend-bar"><span class="label">🔗 快捷入口：</span><a href="/traceability.html"><i class="fas fa-link"></i> 区块链溯源</a><a href="/shangcheng.html"><i class="fas fa-store"></i> 返回商城</a><a href="/digital-id.html"><i class="fas fa-id-card"></i> 数字ID</a></div>
+
+<footer>军鸽云链 · 军创商城 · <span>愿每一份付出都被发现，让每一份信任都有回应</span></footer>
+
+<div class="bottom-nav">
+  <a href="/">🏠 首页</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+  <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</div>
+</body>
+</html>

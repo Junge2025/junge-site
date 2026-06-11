@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>联系我们 · 军鸽云链数智</title>
+<meta name="description" content="军鸽云链数智平台联系方式——海口总站、广州RED-DUAL指挥中心、吉隆坡国际出海节点。退役军人服务热线、食品安全投诉专线。">
+<style>
+:root {
+--bg-deep:#030712; --bg-base:#060d1a; --bg-card:rgba(8,20,44,0.85);
+--primary:#00d4ff; --accent:#ff2d78; --gold:#f0c040; --green:#6dab7e;
+--red:#b84045; --blue:#4b8ecf; --purple:#a78bfa;
+--text:#e8edf5; --text-dim:#8896b0; --text-muted:#4a5568;
+--border:rgba(255,255,255,.06); --border-glow:rgba(0,212,255,.15);
+--radius:12px; --radius-sm:8px; --radius-lg:18px;
+--shadow:0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg-deep);color:var(--text);line-height:1.65;overflow-x:hidden;
+min-height:100vh;
+background-image:
+radial-gradient(ellipse at 20% 0%,rgba(0,212,255,.04) 0%,transparent 55%),
+radial-gradient(ellipse at 80% 15%,rgba(240,192,64,.03) 0%,transparent 55%),
+radial-gradient(ellipse at 40% 70%,rgba(109,171,126,.03) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:#1a2744;border-radius:2px}
+
+/* Breadcrumb */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 20px;position:sticky;top:0;z-index:999;backdrop-filter:blur(20px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .2s;padding:3px 8px;border-radius:10px}
+.breadcrumb-bar a:hover{color:var(--primary);background:rgba(0,212,255,.08)}
+.breadcrumb-bar .sep{color:var(--text-muted);font-size:9px}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+/* Hero */
+.hero{text-align:center;padding:42px 20px 32px;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(0,212,255,.06) 0%,rgba(6,13,26,.95) 50%,rgba(240,192,64,.04) 100%);border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,212,255,.06),transparent 60%);pointer-events:none}
+.hero .icon{font-size:48px;margin-bottom:8px;position:relative;z-index:1}
+.hero h1{font-size:26px;font-weight:800;letter-spacing:.04em;position:relative;z-index:1;background:linear-gradient(135deg,#00d4ff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:12px;color:var(--text-dim);margin-top:6px;position:relative;z-index:1;letter-spacing:.03em}
+
+/* Container */
+.container{max-width:1000px;margin:0 auto;padding:20px 18px 90px}
+
+/* Section */
+.section{margin-bottom:28px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(0,212,255,.12)}
+.section-hd .icon{font-size:20px}
+.section-hd .title{font-size:15px;font-weight:650;letter-spacing:.03em;color:var(--primary)}
+.section-hd .tag{font-size:9px;padding:3px 10px;border-radius:10px;background:rgba(0,212,255,.08);color:var(--primary);margin-left:auto;letter-spacing:.06em}
+
+/* Grid */
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+.g-asym{grid-template-columns:1.2fr .8fr}
+@media(max-width:768px){.g2,.g3,.g-asym{grid-template-columns:1fr}}
+
+/* Cards */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .25s;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.card:hover{border-color:var(--border-glow);box-shadow:var(--shadow)}
+.card h3{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card p,.card .desc{font-size:11px;color:var(--text-dim);line-height:1.7}
+.card.cyan{border-left:2px solid rgba(0,212,255,.25)}.card.cyan h3{color:var(--primary)}
+.card.gold{border-left:2px solid rgba(240,192,64,.25)}.card.gold h3{color:var(--gold)}
+.card.green{border-left:2px solid rgba(109,171,126,.25)}.card.green h3{color:var(--green)}
+.card.red{border-left:2px solid rgba(184,64,69,.25)}.card.red h3{color:#d47a7e}
+
+/* Contact Detail */
+.contact-detail{display:flex;flex-direction:column;gap:10px}
+.contact-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px dotted rgba(255,255,255,.03)}
+.contact-row:last-child{border-bottom:none}
+.contact-row .ic{font-size:16px;flex-shrink:0;width:28px;text-align:center}
+.contact-row .lb{font-size:10px;color:var(--text-muted);min-width:50px}
+.contact-row .vl{font-size:11px;color:var(--text-dim);word-break:break-all}
+.contact-row .vl strong{color:var(--text)}
+
+/* Map Placeholder */
+.map-block{border-radius:var(--radius);overflow:hidden;min-height:200px;position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(8,20,44,.95));border:1px solid var(--border)}
+.map-block .map-inner{text-align:center;z-index:1}
+.map-block .map-icon{font-size:52px;margin-bottom:8px}
+.map-block .map-text{font-size:12px;color:var(--text-dim);line-height:1.8;max-width:400px}
+.map-block .map-pins{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.map-pin{padding:6px 14px;border-radius:16px;font-size:10px;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.15);display:flex;align-items:center;gap:5px;color:var(--primary)}
+.map-pin.gold{border-color:rgba(240,192,64,.25);color:var(--gold);background:rgba(240,192,64,.06)}
+.map-pin .dot{width:7px;height:7px;border-radius:50%;background:var(--primary);animation:fm-pulse-dot 2s infinite}
+.map-pin.gold .dot{background:var(--gold)}
+@keyframes fm-pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(0,212,255,.5)}50%{box-shadow:0 0 0 6px rgba(0,212,255,0)}}
+
+/* Form */
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:11px;color:var(--text-dim);margin-bottom:5px;font-weight:600}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:10px 14px;border-radius:var(--radius-sm);border:1px solid var(--border);background:rgba(3,7,18,.8);color:var(--text);font-size:12px;font-family:inherit;transition:border-color .2s;outline:none;resize:vertical}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:rgba(0,212,255,.4);box-shadow:0 0 0 3px rgba(0,212,255,.06)}
+.form-group textarea{min-height:120px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 28px;border-radius:22px;font-size:12px;font-weight:650;text-decoration:none;cursor:pointer;border:none;transition:all .25s;letter-spacing:.04em;font-family:inherit}
+.btn-primary{background:linear-gradient(135deg,rgba(0,212,255,.25),rgba(0,140,180,.5));border:1px solid rgba(0,212,255,.4);color:#b8e8f8;box-shadow:0 0 20px rgba(0,212,255,.15)}
+.btn-primary:hover{box-shadow:0 0 36px rgba(0,212,255,.35);transform:translateY(-1px)}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text-dim)}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+
+/* QR */
+.qr-box{text-align:center;padding:12px}
+.qr-box .qr-img{width:100px;height:100px;border-radius:10px;background:var(--bg-deep);display:inline-flex;align-items:center;justify-content:center;font-size:36px;border:1px solid var(--border)}
+
+/* Bottom Nav */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(20px);border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:all .2s;color:var(--text-dim);background:rgba(15,34,64,.6);border:1px solid rgba(0,212,255,.08)}
+.bottom-nav a:hover,.bottom-nav a.active{background:rgba(0,212,255,.12);color:var(--primary);border-color:rgba(0,212,255,.25)}
+
+/* Footer */
+footer{text-align:center;padding:16px 20px 10px;font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);line-height:1.8}
+footer .divider{color:var(--text-muted);margin:0 6px}
+
+/* Responsive */
+@media(max-width:550px){
+.hero h1{font-size:20px}
+.card{padding:14px}
+.contact-row{flex-wrap:wrap}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="联系我们 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/contact.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/contact.html">
+</head>
+<body>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb-bar">
+<a href="/">🏠 首页</a><span class="sep">▸</span>
+<a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+<span class="current">📞 联系我们</span>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+<div class="icon">📞</div>
+<h1>联系我们</h1>
+<p class="sub">海口总站 · 广州RED-DUAL指挥中心 · 吉隆坡国际出海节点 · 退役军人服务热线</p>
+</div>
+
+<div class="container">
+
+<!-- Offices Grid -->
+<div class="section">
+<div class="section-hd"><span class="icon">📍</span><span class="title">三大枢纽 · 全球布局</span><span class="tag">OFFICES</span></div>
+<div class="grid g3">
+<div class="card cyan">
+<h3>🌴 海口总站</h3>
+<div class="contact-detail">
+<div class="contact-row"><span class="ic">📍</span><span class="lb">地址</span><span class="vl">海南省海口市美兰区 · 军鸽云链数智总部大厦</span></div>
+<div class="contact-row"><span class="ic">📞</span><span class="lb">电话</span><span class="vl"><strong>0898-6688-6888</strong></span></div>
+<div class="contact-row"><span class="ic">📱</span><span class="lb">值班</span><span class="vl">139-xxxx-xxxx（24小时退役军人服务专线）</span></div>
+<div class="contact-row"><span class="ic">✉️</span><span class="lb">邮箱</span><span class="vl">contact@junge.中国</span></div>
+<div class="contact-row"><span class="ic">🕐</span><span class="lb">时间</span><span class="vl">周一至周五 9:00-18:00 · 周六 9:00-12:00</span></div>
+</div>
+</div>
+<div class="card gold">
+<h3>⚔ 广州RED-DUAL指挥中心</h3>
+<div class="contact-detail">
+<div class="contact-row"><span class="ic">📍</span><span class="lb">地址</span><span class="vl">广东省广州市天河区 · RED-DUAL Ω数智作战指挥中心</span></div>
+<div class="contact-row"><span class="ic">🖥</span><span class="lb">服务器</span><span class="vl"><strong>175.178.55.90</strong></span></div>
+<div class="contact-row"><span class="ic">📞</span><span class="lb">电话</span><span class="vl"><strong>020-8888-6688</strong></span></div>
+<div class="contact-row"><span class="ic">✉️</span><span class="lb">邮箱</span><span class="vl">ops@junge.中国</span></div>
+<div class="contact-row"><span class="ic">🔐</span><span class="lb">职能</span><span class="vl">数智运维总控 · 全国3000+分站指挥调度 · 区块链价值引擎</span></div>
+</div>
+</div>
+<div class="card green">
+<h3>🌏 吉隆坡国际节点</h3>
+<div class="contact-detail">
+<div class="contact-row"><span class="ic">📍</span><span class="lb">地址</span><span class="vl">马来西亚吉隆坡 · KLCC国际商务区 · 东盟出海总部</span></div>
+<div class="contact-row"><span class="ic">📞</span><span class="lb">电话</span><span class="vl"><strong>+60-3-2xxx-xxxx</strong></span></div>
+<div class="contact-row"><span class="ic">✉️</span><span class="lb">邮箱</span><span class="vl">global@junge.中国</span></div>
+<div class="contact-row"><span class="ic">🚢</span><span class="lb">职能</span><span class="vl">跨境电商 · 东盟非转基因供应链 · 国际食品安全认证互通</span></div>
+<div class="contact-row"><span class="ic">🌐</span><span class="lb">覆盖</span><span class="vl">马来西亚·新加坡·泰国·印尼·越南·菲律宾</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Map Illustration -->
+<div class="section">
+<div class="section-hd"><span class="icon">🗺️</span><span class="title">三地枢纽 · 战略布局</span><span class="tag">MAP</span></div>
+<div class="map-block">
+<div class="map-inner">
+<div class="map-icon">🌍</div>
+<div class="map-text">
+军鸽云链以<strong style="color:var(--primary)">海口总站</strong>为智慧大脑，<strong style="color:var(--gold)">广州RED-DUAL</strong>为作战指挥中枢，<strong style="color:var(--green)">吉隆坡</strong>为国际出海桥头堡，构建覆盖全国3000+县级分站的数智服务网络。
+</div>
+<div class="map-pins">
+<span class="map-pin"><span class="dot"></span>海口总站 · 智慧大脑</span>
+<span class="map-pin gold"><span class="dot"></span>广州 · RED-DUAL Ω</span>
+<span class="map-pin"><span class="dot"></span>吉隆坡 · 国际节点</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Contact Form + Quick Links -->
+<div class="section">
+<div class="section-hd"><span class="icon">💬</span><span class="title">在线留言 · 快速联系</span><span class="tag">MESSAGE</span></div>
+<div class="grid g-asym">
+<div class="card cyan">
+<h3>✍️ 给我们留言</h3>
+<form onsubmit="event.preventDefault();alert('感谢您的留言！我们将在24小时内回复。')">
+<div class="form-group"><label>您的姓名 *</label><input type="text" placeholder="请输入您的姓名" required></div>
+<div class="form-group"><label>联系电话 *</label><input type="tel" placeholder="请输入您的手机号码" required></div>
+<div class="form-group"><label>邮箱地址</label><input type="email" placeholder="请输入邮箱（选填）"></div>
+<div class="form-group"><label>咨询类型</label><select><option>请选择咨询类型</option><option>食品安全咨询</option><option>退役军人服务</option><option>分站加盟咨询</option><option>商户入驻咨询</option><option>跨境电商合作</option><option>区块链溯源</option><option>投诉与建议</option><option>其他</option></select></div>
+<div class="form-group"><label>留言内容 *</label><textarea placeholder="请详细描述您的需求或问题，我们将尽快回复..." required></textarea></div>
+<button type="submit" class="btn btn-primary">📨 发送留言</button>
+</form>
+</div>
+<div class="card gold">
+<h3>🔗 快捷通道</h3>
+<div class="contact-detail">
+<div class="contact-row"><span class="ic">🔴</span><span class="lb">投诉举报</span><span class="vl"><strong>12315 · 12345</strong> · jubao@junge.中国</span></div>
+<div class="contact-row"><span class="ic">🪖</span><span class="lb">战友服务</span><span class="vl"><strong>400-888-8888</strong>（转属地分站）</span></div>
+<div class="contact-row"><span class="ic">🛒</span><span class="lb">商务合作</span><span class="vl">business@junge.中国</span></div>
+<div class="contact-row"><span class="ic">🌾</span><span class="lb">分站加盟</span><span class="vl">fenzhan@junge.中国</span></div>
+<div class="contact-row"><span class="ic">📰</span><span class="lb">媒体联系</span><span class="vl">media@junge.中国</span></div>
+<div class="contact-row"><span class="ic">👤</span><span class="lb">账号ID</span><span class="vl">100030442552</span></div>
+</div>
+<div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+<a href="/feedback.html" class="btn btn-ghost" style="font-size:11px">💬 意见反馈</a>
+<a href="/complaint-process.html" class="btn btn-ghost" style="font-size:11px">📋 投诉流程</a>
+<a href="/join-apply.html" class="btn btn-ghost" style="font-size:11px">📝 申请加入</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- QR & Social -->
+<div class="section">
+<div class="section-hd"><span class="icon">📱</span><span class="title">社交媒体 · 企业微信</span><span class="tag">SOCIAL</span></div>
+<div class="grid g3">
+<div class="card cyan" style="text-align:center">
+<div class="qr-box"><div class="qr-img">🟦</div></div>
+<h3 style="justify-content:center;margin-top:8px">企业微信</h3>
+<p style="text-align:center">扫码添加企业微信<br>工作日9:00-18:00在线</p>
+</div>
+<div class="card gold" style="text-align:center">
+<div class="qr-box"><div class="qr-img">📱</div></div>
+<h3 style="justify-content:center;margin-top:8px">微信公众号</h3>
+<p style="text-align:center">搜索「军鸽云链」<br>关注最新动态与政策</p>
+</div>
+<div class="card green" style="text-align:center">
+<div class="qr-box"><div class="qr-img">🎥</div></div>
+<h3 style="justify-content:center;margin-top:8px">视频号 / 抖音</h3>
+<p style="text-align:center">搜索「军鸽云链数智」<br>观看退役军人创业故事</p>
+</div>
+</div>
+</div>
+
+<!-- Warning note -->
+<div style="background:rgba(184,64,69,.04);border:1px solid rgba(184,64,69,.12);border-radius:var(--radius);padding:14px 18px;font-size:11px;color:var(--text-dim);line-height:1.8;margin-bottom:20px">
+🔴 <strong style="color:#d47a7e">防诈骗提醒：</strong>军鸽云链数智平台不会以任何名义要求用户转账至个人账户。所有业务往来通过平台官方渠道完成。如遇可疑情况，请立即拨打<strong style="color:var(--primary)">400-888-8888</strong>核实。
+</div>
+
+</div>
+
+<!-- Bottom Nav -->
+<nav class="bottom-nav">
+<a href="/" class="active">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/taskforce.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+海口总站: 175.178.55.90 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+食品安全+退役军人在服务综合平台 · 军魂铸信 · 数智富民
+</footer>
+
+</body>
+</html>

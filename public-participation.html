@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>群众参与 · 军鸽云链数智</title>
+<meta name="description" content="加入军鸽云链群众监督共建体系——食品安全监督员、农产品品鉴师、社区志愿者、内容创作者。共建透明可信的食品安全生态。">
+<style>
+:root{
+  --red:#b84045; --red-bg:rgba(184,64,69,0.12); --red-glow:rgba(184,64,69,0.4);
+  --green:#4d9460; --green-bg:rgba(77,148,96,0.12); --green-glow:rgba(77,148,96,0.4);
+  --blue:#4b8ec9; --blue-bg:rgba(75,142,201,0.12); --blue-glow:rgba(75,142,201,0.4);
+  --gold:#c4a044; --purple:#8b5cf6;
+  --bg:#0a0f16; --bg2:#101820; --bg-card:rgba(16,24,36,0.7);
+  --text:#e7ecf2; --text2:#9daab8; --text3:#556070;
+  --border:rgba(255,255,255,0.05); --border2:rgba(255,255,255,0.08);
+  --radius:12px; --radius-lg:18px; --trans:all .3s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;line-height:1.6;min-height:100vh;padding-bottom:60px}
+.container{max-width:800px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.header{background:linear-gradient(135deg,rgba(139,92,246,.12),rgba(10,15,22,.97),rgba(77,148,96,.08));border-bottom:1px solid rgba(139,92,246,.15);padding:12px 20px;position:sticky;top:0;z-index:100;backdrop-filter:blur(16px)}
+.header-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;gap:12px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#c44,#822);display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 0 16px var(--red-glow)}
+.brand-name{color:var(--text);font-size:14px;font-weight:700;letter-spacing:.04em}
+.brand-sub{color:var(--text2);font-size:9px}
+
+/* Hero */
+.hero{text-align:center;padding:44px 20px 28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(139,92,246,.12),transparent 60%);pointer-events:none}
+.hero-badge{display:inline-block;padding:6px 18px;border-radius:18px;font-size:10px;font-weight:700;letter-spacing:.1em;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.2);color:#a78bfa;margin-bottom:14px;position:relative;z-index:1}
+.hero h1{font-size:32px;font-weight:900;letter-spacing:.06em;margin-bottom:10px;position:relative;z-index:1}
+.hero h1 .g{color:#a78bfa}
+.hero .desc{font-size:13px;color:var(--text2);max-width:550px;margin:0 auto;line-height:1.7;position:relative;z-index:1}
+
+/* Sections */
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;backdrop-filter:blur(12px);margin-bottom:20px}
+.section h3{font-size:16px;font-weight:700;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.section h3 .sec-icon{font-size:20px}
+
+/* Role cards */
+.role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:500px){.role-grid{grid-template-columns:1fr}}
+.role-card{background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.12);border-radius:var(--radius);padding:20px 16px;text-align:center;transition:var(--trans)}
+.role-card:hover{border-color:rgba(139,92,246,.3);transform:translateY(-2px)}
+.role-card .rc-icon{font-size:32px;margin-bottom:10px;display:block}
+.role-card .rc-title{font-size:14px;font-weight:700;margin-bottom:6px;color:var(--text)}
+.role-card .rc-desc{font-size:10px;color:var(--text2);line-height:1.5}
+
+/* Benefits */
+.benefit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:500px){.benefit-grid{grid-template-columns:1fr}}
+.benefit-item{background:rgba(77,148,96,.06);border:1px solid rgba(77,148,96,.12);border-radius:var(--radius);padding:16px}
+.benefit-item .bi-icon{font-size:20px;margin-bottom:8px;display:block}
+.benefit-item .bi-title{font-size:13px;font-weight:700;margin-bottom:4px}
+.benefit-item .bi-desc{font-size:10px;color:var(--text2);line-height:1.5}
+
+/* Join list */
+.join-list{list-style:none}
+.join-list li{padding:10px 14px;margin-bottom:6px;background:rgba(255,255,255,.02);border-radius:8px;font-size:12px;display:flex;align-items:flex-start;gap:10px;border-left:3px solid rgba(139,92,246,.3)}
+.join-list li .jl-num{color:#a78bfa;font-weight:700;font-size:14px;flex-shrink:0;margin-top:1px}
+
+/* CTA */
+.cta-bar{text-align:center;padding:20px 0 30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 36px;border-radius:28px;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:.04em;transition:var(--trans);cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(100,50,200,.5));border:1px solid rgba(139,92,246,.4);color:#c4b5fd;box-shadow:0 0 24px rgba(139,92,246,.3),inset 0 1px 0 rgba(255,255,255,.05)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(139,92,246,.5),inset 0 1px 0 rgba(255,255,255,.1)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.12);color:var(--text2);padding:14px 28px;font-size:12px;margin-left:10px}
+.btn-outline:hover{border-color:rgba(139,92,246,.3);color:#a78bfa}
+
+/* Footer */
+.footer{text-align:center;padding:24px 20px;font-size:9px;color:var(--text3);border-top:1px solid var(--border)}
+.footer a{color:var(--blue);text-decoration:none}
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="群众参与 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/public-participation.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/public-participation.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">公众参与</span>
+</nav>
+
+
+<div class="header">
+  <div class="header-inner">
+    <a href="/" class="brand">
+      <div class="brand-icon">🕊</div>
+      <div><div class="brand-name">军鸽云链数智</div><div class="brand-sub">JunGe CloudLink DI</div></div>
+    </a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">👥 群众参与</div>
+  <h1>监督共建 · <span class="g">志愿同行</span></h1>
+  <p class="desc">食品安全需要每个人的参与。加入军鸽云链群众监督体系，成为食品安全守护者、社区共建志愿者。</p>
+</div>
+
+<div class="container">
+
+<!-- 参与角色 -->
+<div class="section">
+  <h3><span class="sec-icon">🎭</span> 参与角色</h3>
+  <div class="role-grid">
+    <div class="role-card">
+      <span class="rc-icon">🔍</span>
+      <div class="rc-title">食品安全监督员</div>
+      <div class="rc-desc">参与食品抽检、溯源核验、商家评价监督，守护餐桌安全。</div>
+    </div>
+    <div class="role-card">
+      <span class="rc-icon">👅</span>
+      <div class="rc-title">农产品品鉴师</div>
+      <div class="rc-desc">参与新品品鉴、产地探访、品质打分，用味蕾为优质农产品代言。</div>
+    </div>
+    <div class="role-card">
+      <span class="rc-icon">🤝</span>
+      <div class="rc-title">社区志愿者</div>
+      <div class="rc-desc">组织社区团购、邻里互助、食品安全宣传，共建美好社区。</div>
+    </div>
+    <div class="role-card">
+      <span class="rc-icon">✍️</span>
+      <div class="rc-title">内容创作者</div>
+      <div class="rc-desc">撰写农产品故事、拍摄产地视频、分享美食体验，传播食安文化。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 参与权益 -->
+<div class="section">
+  <h3><span class="sec-icon">🎁</span> 参与权益</h3>
+  <div class="benefit-grid">
+    <div class="benefit-item">
+      <span class="bi-icon">🪙</span>
+      <div class="bi-title">junge币奖励</div>
+      <div class="bi-desc">参与监督、品鉴、创作均可获得junge币，可在平台兑换优质农产品。</div>
+    </div>
+    <div class="benefit-item">
+      <span class="bi-icon">🏅</span>
+      <div class="bi-title">荣誉认证</div>
+      <div class="bi-desc">优秀参与者获得"军鸽食安卫士"认证标识，个人主页展示贡献值。</div>
+    </div>
+    <div class="benefit-item">
+      <span class="bi-icon">📚</span>
+      <div class="bi-title">专业培训</div>
+      <div class="bi-desc">免费参加食品安全知识培训、品鉴技能提升课程。</div>
+    </div>
+    <div class="benefit-item">
+      <span class="bi-icon">🌟</span>
+      <div class="bi-title">优先体验</div>
+      <div class="bi-desc">新品抢先品尝、产地溯源旅行优先报名、平台活动VIP席位。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 如何加入 -->
+<div class="section">
+  <h3><span class="sec-icon">🚀</span> 如何加入</h3>
+  <ul class="join-list">
+    <li><span class="jl-num">01</span> <span><strong>提交申请</strong> — 选择您感兴趣的参与角色，填写基本信息</span></li>
+    <li><span class="jl-num">02</span> <span><strong>身份确认</strong> — 平台1个工作日内与您联系确认</span></li>
+    <li><span class="jl-num">03</span> <span><strong>入门培训</strong> — 参与在线培训，了解监督/品鉴/创作标准和流程</span></li>
+    <li><span class="jl-num">04</span> <span><strong>正式参与</strong> — 开始您的食安守护之旅，积累贡献值</span></li>
+  </ul>
+</div>
+
+<!-- 谁可以加入 -->
+<div class="section">
+  <h3><span class="sec-icon">👋</span> 谁可以加入</h3>
+  <ul class="join-list">
+    <li><span class="jl-num">✓</span> <span>关心食品安全的每一位消费者</span></li>
+    <li><span class="jl-num">✓</span> <span>退役军人及家属（优先）</span></li>
+    <li><span class="jl-num">✓</span> <span>有食品、农业、检测相关专业背景者</span></li>
+    <li><span class="jl-num">✓</span> <span>热爱写作、摄影、短视频创作的内容达人</span></li>
+    <li><span class="jl-num">✓</span> <span>热心社区公益的志愿者</span></li>
+  </ul>
+  <p style="font-size:11px;color:var(--text2);margin-top:12px;text-align:center">零门槛加入 · 零费用参与 · 人人都是食安守护者</p>
+</div>
+
+<!-- CTA -->
+<div class="cta-bar">
+  <a href="join-apply.html?type=public" class="btn btn-primary">📝 立即加入</a>
+  <a href="/party-public.html" class="btn btn-outline">❤️ 了解更多公益活动</a>
+</div>
+
+</div>
+
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap">
+  <a href="/" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🏠 首页</a>
+  <a href="/shangcheng.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🛒 商业生态</a>
+  <a href="/join-apply.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">📝 申请加入</a>
+  <a href="/fenzhan.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🌾 分站家园</a>
+</div>
+
+<div class="footer">
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台 · 海口总站: 175.178.55.90</p>
+</div>
+
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

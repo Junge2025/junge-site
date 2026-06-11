@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>军鸽币 · 军鸽云链</title>
+<meta name="description" content="军鸽币(JC)——军鸽云链数智平台数字积分体系。贡献即挖矿，消费即确权。了解军鸽币的获取方式、使用场景和兑换规则。">
+<style>
+:root{--bg:#030712;--bg-card:rgba(8,20,44,.85);--text:#e8edf5;--text-dim:#8896b0;--text-muted:#4a5568;--border:rgba(255,255,255,.06);--border-glow:rgba(0,212,255,.18);--primary:#00d4ff;--gold:#f0c040;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;--radius:12px;--radius-lg:18px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh;line-height:1.8;padding-bottom:80px}
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+.container{max-width:960px;margin:0 auto;padding:24px 16px}
+.hero{background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(3,7,18,.97),rgba(0,212,255,.04));border:1px solid rgba(240,192,64,.15);border-radius:var(--radius-lg);padding:40px 28px;text-align:center;margin-bottom:24px}
+.hero h1{font-size:30px;font-weight:900;margin-bottom:8px}
+.hero .subtitle{font-size:16px;color:var(--gold);margin-bottom:16px;font-weight:700}
+.hero p{font-size:13px;color:var(--text-dim);max-width:700px;margin:0 auto}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+@media(max-width:640px){.info-grid{grid-template-columns:1fr}}
+.info-card{background:linear-gradient(135deg,rgba(240,192,64,.04),rgba(8,20,44,.85));border:1px solid rgba(240,192,64,.12);border-radius:var(--radius);padding:20px;text-align:center}
+.info-card .ic-icon{font-size:36px;margin-bottom:8px}
+.info-card h3{font-size:14px;color:var(--gold);margin-bottom:6px}
+.info-card p{font-size:11px;color:var(--text-dim)}
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px}
+.section h2{font-size:18px;margin-bottom:16px;padding-left:12px;border-left:3px solid var(--gold)}
+.earn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:480px){.earn-grid{grid-template-columns:1fr}}
+.earn-item{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:flex-start;gap:12px}
+.earn-item .ei-icon{font-size:28px}
+.earn-item .ei-info h4{font-size:13px;color:var(--text)}
+.earn-item .ei-info p{font-size:10px;color:var(--text-dim);margin-top:4px}
+.earn-item .ei-info .ei-rate{font-size:11px;color:var(--gold);font-weight:700;margin-top:4px}
+.table-wrap{overflow-x:auto}
+.rate-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px}
+.rate-table th{background:rgba(240,192,64,.08);color:var(--gold);padding:10px 14px;text-align:left;border-bottom:1px solid rgba(240,192,64,.15);font-size:11px}
+.rate-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-dim)}
+.rate-table tr:hover td{background:rgba(255,255,255,.02)}
+.flow-steps{display:flex;gap:0;margin-top:12px;overflow-x:auto}
+.flow-step{flex:1;min-width:120px;background:rgba(240,192,64,.04);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+.flow-step .fs-icon{font-size:32px;margin-bottom:6px}
+.flow-step h4{font-size:12px}
+.flow-step p{font-size:10px;color:var(--text-dim);margin-top:4px}
+.formula{background:rgba(0,212,255,.06);border:1px solid var(--border-glow);border-radius:var(--radius);padding:16px;text-align:center;font-family:monospace;font-size:13px;margin:12px 0;color:var(--primary)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)}
+footer{text-align:center;padding:16px;font-size:9px;color:#556070;border-top:1px solid var(--border);margin-top:16px}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽币 · 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/junge-coin.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/junge-coin.html">
+</head>
+<body>
+<nav class="breadcrumb-bar"><a href="/">首页</a><span class="sep">▸</span><a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span><a href="/digital-id.html">🆔 数字身份</a><span class="sep">▸</span><span class="current">军鸽币</span></nav>
+
+<div class="container">
+  <div class="hero">
+    <h1>🪙 军鸽币（JC）</h1>
+    <div class="subtitle">贡献即挖矿 · 消费即确权</div>
+    <p>军鸽币是军鸽云链数智平台的原生数字积分，基于区块链技术发行。用户通过贡献行为获取，可用于平台内消费抵扣、权益兑换、身份升级。1 JC = 0.01 元人民币等值积分。</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card"><div class="ic-icon">👥</div><h3>12,840人</h3><p>持有军鸽币用户</p></div>
+    <div class="info-card"><div class="ic-icon">💰</div><h3>2,860万JC</h3><p>累计发行量</p></div>
+    <div class="info-card"><div class="ic-icon">📈</div><h3>98.6%</h3><p>活跃流通率</p></div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 获取方式</h2>
+    <div class="earn-grid">
+      <div class="earn-item"><div class="ei-icon">📖</div><div class="ei-info"><h4>浏览内容</h4><p>阅读平台文章、查看商品详情</p><span class="ei-rate">+5-20 JC/次</span></div></div>
+      <div class="earn-item"><div class="ei-icon">✍️</div><div class="ei-info"><h4>投稿创作</h4><p>发表文章、故事、艺术作品</p><span class="ei-rate">+100-500 JC/篇</span></div></div>
+      <div class="earn-item"><div class="ei-icon">🛒</div><div class="ei-info"><h4>购物消费</h4><p>在军鸽商城购买商品</p><span class="ei-rate">消费额x1% JC返利</span></div></div>
+      <div class="earn-item"><div class="ei-icon">📢</div><div class="ei-info"><h4>分享推广</h4><p>分享平台页面到社交媒体</p><span class="ei-rate">+10-50 JC/次</span></div></div>
+      <div class="earn-item"><div class="ei-icon">🤝</div><div class="ei-info"><h4>邀请注册</h4><p>邀请新用户注册入驻平台</p><span class="ei-rate">+200 JC/人</span></div></div>
+      <div class="earn-item"><div class="ei-icon">⭐</div><div class="ei-info"><h4>评价反馈</h4><p>对商品/服务进行客观评价</p><span class="ei-rate">+20-50 JC/条</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔄 积分兑换规则</h2>
+    <div class="table-wrap">
+      <table class="rate-table">
+        <tr><th>使用场景</th><th>兑换比例</th><th>说明</th></tr>
+        <tr><td>🛒 商城消费抵扣</td><td>100 JC = 1元</td><td>单笔订单最多抵扣50%</td></tr>
+        <tr><td>🚚 运费抵扣</td><td>50 JC = 1元</td><td>全额抵扣标准运费</td></tr>
+        <tr><td>🎫 会员升级</td><td>5,000 JC → 银卡</td><td>享受95折优惠</td></tr>
+        <tr><td>🎫 会员升级</td><td>20,000 JC → 金卡</td><td>享受9折优惠+优先发货</td></tr>
+        <tr><td>🎫 会员升级</td><td>50,000 JC → 钻石卡</td><td>享受85折+专属客服</td></tr>
+        <tr><td>🔍 区块链溯源查询</td><td>10 JC/次</td><td>查询产品全链条溯源信息</td></tr>
+        <tr><td>📊 数据报告下载</td><td>500-2,000 JC</td><td>行业分析报告、市场数据</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔗 价值流转体系</h2>
+    <div class="flow-steps">
+      <div class="flow-step"><div class="fs-icon">👤</div><h4>用户贡献</h4><p>浏览/创作/推广</p></div>
+      <div class="flow-step"><div class="fs-icon">🪙</div><h4>获取JC</h4><p>区块链自动发放</p></div>
+      <div class="flow-step"><div class="fs-icon">💎</div><h4>积累确权</h4><p>数字身份价值确权</p></div>
+      <div class="flow-step"><div class="fs-icon">🔄</div><h4>消费兑换</h4><p>购物/升级/服务</p></div>
+      <div class="flow-step"><div class="fs-icon">📈</div><h4>生态循环</h4><p>价值回流平台</p></div>
+    </div>
+    <div class="formula">TV（总价值）= DV（数据价值）× 活跃系数 + JC（积分余额）× 0.01</div>
+    <p style="font-size:11px;color:var(--text-dim);text-align:center;margin-top:8px">军鸽云链独创的TV/DV/JC三层价值体系，让用户的每一次贡献都被记录、被确权、可量化。</p>
+  </div>
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a><a href="/shangcheng.html">🛒 商业生态</a><a href="/junge-shuzhi.html">⚔ 数智中心</a><a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+<footer><p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p><p>食品安全 + 退役军人在服务综合平台 · 原产地直供 · 非转基因</p></footer>
+</body>
+</html>

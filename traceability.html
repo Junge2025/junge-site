@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<title>区块链溯源 · 军鸽云链数智食品安全溯源系统</title>
+<meta name="description" content="军鸽云链区块链溯源系统：五阶段全链路溯源模型，退役军人人证+区块链机证双重验证，从种子到餐桌不可篡改。扫码溯源查询入口。">
+<style>
+:root{
+  --bg:#030712;--bg-card:rgba(8,20,44,.85);--text:#e8edf5;--text-dim:#8896b0;
+  --text-muted:#4a5568;--border:rgba(255,255,255,.06);--border-glow:rgba(0,212,255,.18);
+  --primary:#00d4ff;--gold:#f0c040;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;--blue:#4b8ecf;
+  --radius:12px;--radius-lg:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding-bottom:60px}
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+.top-nav{position:sticky;top:36px;z-index:98;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,212,255,.12);padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top-nav a{color:var(--text-dim);text-decoration:none;font-size:11px;padding:5px 12px;border-radius:14px;border:1px solid transparent;transition:.2s}
+.top-nav a:hover{color:var(--primary);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.06)}
+.top-nav .logo{font-size:15px;font-weight:700;color:var(--gold);text-decoration:none}
+.hero{position:relative;text-align:center;padding:48px 20px 32px;background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(3,7,18,.97),rgba(240,192,64,.04));border-bottom:1px solid var(--border);overflow:hidden}
+.hero h1{font-size:28px;font-weight:900;margin-bottom:8px;position:relative;z-index:1}
+.hero .sub{font-size:13px;color:var(--text-dim);position:relative;z-index:1;max-width:600px;margin:0 auto 18px}
+.hero-tags{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
+.hero-tags span{padding:5px 16px;border-radius:16px;font-size:10px;font-weight:700}
+.chain-bar{display:flex;justify-content:center;gap:0;flex-wrap:wrap;margin:24px 0 8px;position:relative;z-index:1}
+.chain-step{text-align:center;padding:10px 16px;min-width:80px;position:relative}
+.chain-step::after{content:'▸';position:absolute;right:-8px;top:50%;transform:translateY(-50%);color:var(--green);font-size:14px;z-index:2}
+.chain-step:last-child::after{content:''}
+.chain-step .cs-icon{font-size:30px;margin-bottom:4px}
+.chain-step .cs-label{font-size:9px;color:var(--text-dim)}
+.chain-step .cs-status{font-size:8px;color:var(--green);margin-top:2px}
+.container{max-width:1000px;margin:0 auto;padding:0 16px}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+.kpi{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+.kpi .k-icon{font-size:24px;margin-bottom:4px}
+.kpi .k-val{font-size:24px;font-weight:800;color:var(--primary)}
+.kpi .k-lbl{font-size:10px;color:var(--text-dim)}
+.stage{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:16px;overflow:hidden}
+.stage-hd{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid transparent;transition:.2s}
+.stage-hd:hover{background:rgba(255,255,255,.02)}
+.stage-number{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;flex-shrink:0}
+.stage-icon{font-size:28px;flex-shrink:0}
+.stage-hd h2{font-size:17px;font-weight:700}
+.stage-hd .stage-sub{font-size:11px;color:var(--text-dim);margin-top:2px}
+.stage-body{padding:0 20px 20px}
+.stage-body .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.info-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:12px}
+.info-item .lbl{color:var(--text-dim)}
+.info-item .val{font-weight:600;color:var(--text)}
+.section-title{font-size:16px;font-weight:700;color:var(--gold);padding:20px 0 12px;border-bottom:1px solid rgba(240,192,64,.15);margin-bottom:16px;text-align:center}
+.query-box{background:var(--bg-card);border:1px solid rgba(0,212,255,.2);border-radius:var(--radius-lg);padding:24px;text-align:center;margin:24px 0}
+.query-box h3{font-size:18px;color:var(--primary);margin-bottom:8px}
+.query-box p{font-size:12px;color:var(--text-dim);margin-bottom:16px}
+.query-input{display:flex;gap:8px;max-width:500px;margin:0 auto 12px;flex-wrap:wrap;justify-content:center}
+.query-input input{flex:1;min-width:200px;padding:12px 16px;border-radius:24px;border:1px solid rgba(0,212,255,.3);background:rgba(8,20,44,.8);color:var(--text);font-size:13px;outline:none;transition:.2s}
+.query-input input:focus{border-color:var(--primary);box-shadow:0 0 16px rgba(0,212,255,.15)}
+.query-input button{padding:12px 28px;border-radius:24px;background:linear-gradient(135deg,rgba(0,212,255,.2),rgba(0,150,200,.15));color:var(--primary);border:1px solid rgba(0,212,255,.4);font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
+.query-input button:hover{background:rgba(0,212,255,.3);color:#fff}
+.tech-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:16px 0}
+.tech-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.tech-card h4{font-size:14px;color:var(--primary);margin-bottom:8px}
+.tech-card p{font-size:11px;color:var(--text-dim);line-height:1.8}
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin:20px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:var(--text-dim)}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:var(--primary);color:var(--primary)}
+.cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:24px 0}
+.cta-row a{display:inline-block;padding:12px 28px;border-radius:24px;font-size:13px;font-weight:700;text-decoration:none;transition:.2s}
+.btn-primary{background:linear-gradient(135deg,rgba(0,212,255,.18),rgba(0,150,200,.12));color:var(--primary);border:1px solid rgba(0,212,255,.4)}
+.btn-primary:hover{background:rgba(0,212,255,.3);color:#fff}
+.btn-secondary{background:transparent;color:var(--text-dim);border:1px solid var(--border)}
+.btn-secondary:hover{border-color:var(--primary);color:var(--primary)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:10px;padding:5px 10px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1);transition:.2s}
+.bottom-nav a:hover{color:var(--primary);border-color:var(--primary)}
+.bottom-nav .active{color:var(--gold);border-color:rgba(240,192,64,.4);background:rgba(240,192,64,.08)}
+.footer{text-align:center;padding:24px 20px 80px;font-size:10px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:28px;line-height:1.8}
+@media(max-width:768px){
+  .kpi-row{grid-template-columns:repeat(2,1fr)}
+  .stage-body .info-grid{grid-template-columns:1fr}
+  .tech-grid{grid-template-columns:1fr}
+  .hero h1{font-size:22px}
+  .chain-step{padding:8px 8px;min-width:55px}
+  .chain-step::after{right:-4px;font-size:10px}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="区块链溯源 · 军鸽云链数智食品安全溯源系统">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/traceability.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/traceability.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/shangcheng.html">🛒 商业生态</a><span class="sep">▸</span>
+  <span class="current">区块链溯源</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" class="logo">🔗 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<div class="hero">
+  <h1>🔗 军鸽区块链溯源系统</h1>
+  <p class="sub">五阶段 · 全链路 · 不可篡改 · 人机共证<br>从种子到餐桌，让每一口食物都经得起检验</p>
+  <div class="hero-tags">
+    <span style="background:rgba(34,197,94,.12);color:#22c55e">区块链存证</span>
+    <span style="background:rgba(0,212,255,.12);color:#00d4ff">一物一码</span>
+    <span style="background:rgba(240,192,64,.12);color:#f0c040">退役军人认证</span>
+    <span style="background:rgba(167,139,250,.12);color:#a78bfa">AI质控</span>
+  </div>
+  <div class="chain-bar">
+    <div class="chain-step"><div class="cs-icon">🌍</div><div class="cs-label">环境溯源</div><div class="cs-status">产地认证</div></div>
+    <div class="chain-step"><div class="cs-icon">🌱</div><div class="cs-label">种子溯源</div><div class="cs-status">品种认证</div></div>
+    <div class="chain-step"><div class="cs-icon">🌿</div><div class="cs-label">生长溯源</div><div class="cs-status">过程记录</div></div>
+    <div class="chain-step"><div class="cs-icon">🔍</div><div class="cs-label">监管溯源</div><div class="cs-status">多重检测</div></div>
+    <div class="chain-step"><div class="cs-icon">🍽️</div><div class="cs-label">餐桌溯源</div><div class="cs-status">全程可查</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- KPI -->
+  <div class="kpi-row">
+    <div class="kpi"><div class="k-icon">📦</div><div class="k-val">180万+</div><div class="k-lbl">区块链存证记录</div></div>
+    <div class="kpi"><div class="k-icon">🏷️</div><div class="k-val">38类</div><div class="k-lbl">溯源产品品类</div></div>
+    <div class="kpi"><div class="k-icon">🎖️</div><div class="k-val">500人</div><div class="k-lbl">退役军人质询员</div></div>
+    <div class="kpi"><div class="k-icon">🏭</div><div class="k-val">3座</div><div class="k-lbl">溯源基地运营中</div></div>
+  </div>
+
+  <!-- 溯源查询入口 -->
+  <div class="query-box">
+    <h3>🔍 溯源查询</h3>
+    <p>输入产品包装上的16位溯源码，立即查看该产品的完整生命周期数据</p>
+    <div class="query-input">
+      <input type="text" placeholder="请输入16位溯源码，如：WC20250925001" maxlength="16">
+      <button>立即查询</button>
+    </div>
+    <p style="font-size:10px;color:var(--text-muted);margin-top:8px">💡 也可以使用微信扫描产品包装上的二维码直接查询</p>
+  </div>
+
+  <div class="section-title">📋 五阶段溯源模型详解</div>
+
+  <!-- 阶段1: 环境 -->
+  <div class="stage">
+    <div class="stage-hd">
+      <div class="stage-number" style="background:rgba(75,142,207,.12);color:#4b8ecf">1</div>
+      <span class="stage-icon">🌍</span>
+      <div><h2 style="color:#4b8ecf">环境溯源 · 产地认证</h2><div class="stage-sub">每一寸土地的数据画像——位置·土壤·水源·气候·生态</div></div>
+    </div>
+    <div class="stage-body">
+      <div class="info-grid">
+        <div class="info-item"><span class="lbl">📍 产地GPS坐标</span><span class="val">精确到地块级别</span></div>
+        <div class="info-item"><span class="lbl">🕳️ 土壤有机质含量</span><span class="val">每年检测更新</span></div>
+        <div class="info-item"><span class="lbl">💧 灌溉水源检测</span><span class="val">季度水质报告</span></div>
+        <div class="info-item"><span class="lbl">🧪 土壤重金属检测</span><span class="val">铅·镉·汞·砷·铬5项</span></div>
+        <div class="info-item"><span class="lbl">🛰️ 卫星遥感监测</span><span class="val">Sentinel-2季度影像</span></div>
+        <div class="info-item"><span class="lbl">🌤️ 气候数据记录</span><span class="val">积温·降水·日照·霜期</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 阶段2: 种子 -->
+  <div class="stage">
+    <div class="stage-hd">
+      <div class="stage-number" style="background:rgba(240,192,64,.12);color:#f0c040">2</div>
+      <span class="stage-icon">🌱</span>
+      <div><h2 style="color:#f0c040">种子溯源 · 品种认证</h2><div class="stage-sub">从源头确保品质——品种·来源·基因·处理·认证</div></div>
+    </div>
+    <div class="stage-body">
+      <div class="info-grid">
+        <div class="info-item"><span class="lbl">🌾 品种名称与审定编号</span><span class="val">国家/省级审定品种</span></div>
+        <div class="info-item"><span class="lbl">🧬 转基因检测</span><span class="val">非转基因认证</span></div>
+        <div class="info-item"><span class="lbl">🏢 供种单位资质</span><span class="val">持证种子企业/机构</span></div>
+        <div class="info-item"><span class="lbl">📦 种子批次编号</span><span class="val">全程可追溯批次号</span></div>
+        <div class="info-item"><span class="lbl">🔬 发芽率检测</span><span class="val">≥国家标准</span></div>
+        <div class="info-item"><span class="lbl">🧪 种子处理方式</span><span class="val">无化学包衣·生物处理</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 阶段3: 生长 -->
+  <div class="stage">
+    <div class="stage-hd">
+      <div class="stage-number" style="background:rgba(34,197,94,.12);color:#22c55e">3</div>
+      <span class="stage-icon">🌿</span>
+      <div><h2 style="color:#22c55e">生长溯源 · 过程记录</h2><div class="stage-sub">完整的田间管理日志——种植·施肥·除草·防虫·灌溉</div></div>
+    </div>
+    <div class="stage-body">
+      <div class="info-grid">
+        <div class="info-item"><span class="lbl">🌱 种植方式</span><span class="val">有机/绿色/常规（明确标注）</span></div>
+        <div class="info-item"><span class="lbl">📅 播种/定植日期</span><span class="val">精确到日</span></div>
+        <div class="info-item"><span class="lbl">💩 施肥方案</span><span class="val">肥料类型·用量·次数</span></div>
+        <div class="info-item"><span class="lbl">🌿 除草方式</span><span class="val">人工/机械/化学（明确标注）</span></div>
+        <div class="info-item"><span class="lbl">🐞 病虫害防治</span><span class="val">生物/物理/化学（明确标注）</span></div>
+        <div class="info-item"><span class="lbl">📸 田间影像记录</span><span class="val">每周拍照+链上存证</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 阶段4: 监管 -->
+  <div class="stage">
+    <div class="stage-hd">
+      <div class="stage-number" style="background:rgba(239,68,68,.12);color:#ef4444">4</div>
+      <span class="stage-icon">🔍</span>
+      <div><h2 style="color:#ef4444">监管溯源 · 多重检测</h2><div class="stage-sub">第三方检测+退役军人核验——农残·重金属·微生物·品质</div></div>
+    </div>
+    <div class="stage-body">
+      <div class="info-grid">
+        <div class="info-item"><span class="lbl">🧪 检测机构</span><span class="val">SGS/中国食品安全检测中心</span></div>
+        <div class="info-item"><span class="lbl">📋 农残检测</span><span class="val">189项·全部达标</span></div>
+        <div class="info-item"><span class="lbl">⚖️ 重金属检测</span><span class="val">5项·全部达标</span></div>
+        <div class="info-item"><span class="lbl">🦠 微生物检测</span><span class="val">菌落·大肠·致病菌</span></div>
+        <div class="info-item"><span class="lbl">🎖️ 退役军人核验</span><span class="val">质询员现场核验+数字签名</span></div>
+        <div class="info-item"><span class="lbl">🔗 区块链存证哈希</span><span class="val">联盟链+公链锚定</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 阶段5: 餐桌 -->
+  <div class="stage">
+    <div class="stage-hd">
+      <div class="stage-number" style="background:rgba(0,212,255,.12);color:#00d4ff">5</div>
+      <span class="stage-icon">🍽️</span>
+      <div><h2 style="color:#00d4ff">餐桌溯源 · 全程可查</h2><div class="stage-sub">从包装到餐桌的最后100米——包装·物流·营养·评价</div></div>
+    </div>
+    <div class="stage-body">
+      <div class="info-grid">
+        <div class="info-item"><span class="lbl">📦 包装规格</span><span class="val">真空/充氮/普通·明确标注</span></div>
+        <div class="info-item"><span class="lbl">📅 加工/包装日期</span><span class="val">精确到批次</span></div>
+        <div class="info-item"><span class="lbl">⏳ 保质期与储存条件</span><span class="val">科学标注·冷链提示</span></div>
+        <div class="info-item"><span class="lbl">🚛 冷链物流温控</span><span class="val">全程温控记录可查</span></div>
+        <div class="info-item"><span class="lbl">🏷️ 质量标准</span><span class="val">GB/有机/地理标志</span></div>
+        <div class="info-item"><span class="lbl">⭐ 消费者真实评价</span><span class="val">评分·评价·晒单</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 技术特色 -->
+  <div class="section-title">⚙️ 技术架构与核心优势</div>
+
+  <div class="tech-grid">
+    <div class="tech-card">
+      <h4>🔗 联盟链+公链双重锚定</h4>
+      <p>溯源数据首先在军鸽联盟链上生成哈希指纹，每24小时批量锚定至以太坊等公链。即使联盟链节点全部失效，公链上的锚定记录仍可独立验证数据的完整性和时间戳。目前已部署12个联盟链节点，分布于三大基地和广州总站。</p>
+    </div>
+    <div class="tech-card">
+      <h4>🎖️ 退役军人人证+区块链机证</h4>
+      <p>军鸽云链独创的"人机共证"机制：每一条溯源数据由IoT设备自动采集（机证）+退役军人质询员现场核验签名（人证），双重验证后上链。确保数据不仅"不可篡改"，而且"采集即真实"——从源头杜绝"垃圾进、垃圾出"。</p>
+    </div>
+    <div class="tech-card">
+      <h4>🤖 AI智能质控与风险预警</h4>
+      <p>部署DeepSeek-V4大模型进行溯源数据的智能分析：自动识别异常的种植记录模式，比对历史数据发现潜在风险，预测冷链断链概率。AI不是替代人，而是武装人——让500名质询员的监管效率提升10倍。</p>
+    </div>
+    <div class="tech-card">
+      <h4>📱 一物一码·扫码即查</h4>
+      <p>每个最小零售单元拥有全球唯一的溯源码（QR码+数字码）。消费者使用微信或军鸽云链APP扫码，0.5秒内即可获取该件商品的完整溯源报告——包含五阶段全部数据、检测报告原件和退役军人质询员签名。信息完全公开透明。</p>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <a href="/product-detail-1.html" class="btn-primary">🛒 查看溯源产品</a>
+    <a href="/sy.html" class="btn-primary">🔗 扫码溯源验证</a>
+    <a href="/shangcheng.html" class="btn-secondary">🛒 返回商城</a>
+  </div>
+
+</div>
+
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/news-detail-5.html" class="ext-trace">📰 溯源基地挂牌</a>
+  <a href="/taskforce.html" class="ext-mall">⚔ 数智中心</a>
+  <a href="/shangcheng.html" class="ext-mall">🛒 商业生态</a>
+  <a href="/index.html" class="ext-mall">🏠 返回首页</a>
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html" class="active">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<div class="footer">
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站 · 食品安全+退役军人在服务综合平台
+</div>
+
+</body>
+</html>

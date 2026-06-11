@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<meta name="theme-color" content="#030712">
+<title>艺术投稿 - 军鸽云链</title>
+<meta name="description" content="军鸽云链艺术投稿：摄影、书画、手工艺作品提交。退役军人艺术展示平台。">
+<style>
+:root {
+  --bg-deep: #030712;
+  --bg-card: rgba(8,20,44,.85);
+  --primary: #00d4ff;
+  --accent: #ff2d78;
+  --gold: #f0c040;
+  --green: #22c55e;
+  --purple: #a78bfa;
+  --red: #d47a7e;
+  --text: #e8edf5;
+  --text-dim: #8896b0;
+  --text-muted: #4a5568;
+  --border: rgba(0,212,255,.1);
+  --border-glow: rgba(0,212,255,.18);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --shadow: 0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg-deep);color:var(--text);line-height:1.7;padding-bottom:72px;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 70% 20%,rgba(255,45,120,.03) 0%,transparent 50%),radial-gradient(ellipse at 30% 80%,rgba(167,139,250,.04) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+.breadcrumb-bar{background:rgba(3,7,18,.95);border-bottom:1px solid var(--border);padding:10px 20px;position:sticky;top:0;z-index:99;backdrop-filter:blur(12px);display:flex;align-items:center;gap:6px;font-size:12px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .25s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:var(--text-muted)}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{position:relative;z-index:1;text-align:center;padding:56px 20px 40px;background:linear-gradient(180deg,rgba(167,139,250,.05) 0%,rgba(3,7,18,.98) 100%)}
+.hero h1{font-size:30px;font-weight:900;margin-bottom:10px;background:linear-gradient(135deg,#a78bfa 0%,#ff2d78 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:14px;color:var(--text-dim);max-width:600px;margin:0 auto}
+
+.container{max-width:960px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+.section-title{display:flex;align-items:center;gap:10px;margin:36px 0 20px;font-size:18px;font-weight:700}
+.section-title .icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:rgba(167,139,250,.1);color:var(--purple)}
+.section-title span.color{color:var(--purple)}
+
+.art-cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px}
+.art-cat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px 20px;text-align:center;backdrop-filter:blur(12px);cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.art-cat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent);opacity:.3}
+.art-cat-card:hover{border-color:rgba(167,139,250,.25);box-shadow:0 0 24px rgba(167,139,250,.08);transform:translateY(-2px)}
+.art-cat-card .cat-emoji{font-size:36px;margin-bottom:10px;display:block}
+.art-cat-card h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.art-cat-card p{font-size:11px;color:var(--text-dim);line-height:1.5}
+
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px}
+.gallery-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .3s;cursor:pointer}
+.gallery-item:hover{border-color:var(--border-glow);transform:translateY(-2px);box-shadow:0 0 20px rgba(0,212,255,.08)}
+.gallery-item .thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:48px;background:rgba(255,255,255,.02)}
+.gallery-item .info{padding:10px 12px}
+.gallery-item .info .author{font-size:11px;font-weight:600;color:var(--text)}
+.gallery-item .info .title{font-size:11px;color:var(--text-dim);margin-top:2px}
+.gallery-item .info .stats{font-size:10px;color:var(--text-muted);margin-top:4px;display:flex;gap:6px}
+
+.form-section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;backdrop-filter:blur(12px);position:relative;overflow:hidden;margin-bottom:24px}
+.form-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent);opacity:.3}
+.form-section h3{font-size:16px;font-weight:700;margin-bottom:20px;color:var(--purple)}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.form-group label .required{color:var(--accent);margin-left:2px}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea{width:100%;padding:10px 14px;border-radius:var(--radius-sm);background:rgba(3,7,18,.6);border:1px solid var(--border);color:var(--text);font-size:13px;font-family:inherit;transition:all .25s;outline:none}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--purple);box-shadow:0 0 12px rgba(167,139,250,.1)}
+.form-group textarea{min-height:120px;resize:vertical;line-height:1.8}
+.form-group select{appearance:none;cursor:pointer}
+.form-group .hint{font-size:11px;color:var(--text-muted);margin-top:4px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.file-dropzone{border:2px dashed var(--border);border-radius:var(--radius);padding:28px;text-align:center;cursor:pointer;transition:all .3s;background:rgba(167,139,250,.02)}
+.file-dropzone:hover{border-color:var(--purple);background:rgba(167,139,250,.04)}
+.file-dropzone .drop-icon{font-size:40px;margin-bottom:8px}
+.file-dropzone p{font-size:13px;color:var(--text-dim)}
+.file-dropzone .drop-hint{font-size:11px;color:var(--text-muted);margin-top:6px}
+.file-dropzone .formats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.file-dropzone .fmt-badge{padding:3px 10px;border-radius:10px;font-size:10px;background:rgba(167,139,250,.1);color:var(--purple);border:1px solid rgba(167,139,250,.15)}
+
+.file-list{margin-top:12px}
+.file-item{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:6px;font-size:12px;color:var(--text-dim)}
+.file-item .progress{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+.file-item .progress-bar{height:100%;background:var(--purple);border-radius:2px;width:0%}
+
+.tag-select{display:flex;flex-wrap:wrap;gap:8px}
+.tag-select .tag{display:inline-flex;align-items:center;gap:4px;padding:5px 14px;border-radius:16px;font-size:11px;cursor:pointer;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text-dim);transition:all .25s}
+.tag-select .tag:hover{border-color:var(--purple);color:var(--purple)}
+.tag-select .tag.active{background:rgba(167,139,250,.1);border-color:var(--purple);color:var(--purple)}
+
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn-primary{padding:10px 32px;border-radius:var(--radius-sm);background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:all .3s;font-family:inherit}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(167,139,250,.25)}
+.btn-secondary{padding:10px 24px;border-radius:var(--radius-sm);background:transparent;color:var(--text-dim);font-size:14px;border:1px solid var(--border);cursor:pointer;transition:all .3s;font-family:inherit}
+.btn-secondary:hover{border-color:var(--purple);color:var(--purple)}
+
+.extend-bar{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px;margin:24px 0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;border-top:2px solid var(--border-glow)}
+.extend-bar .ext-title{font-size:12px;font-weight:700;color:var(--text-dim)}
+.extend-bar a{display:inline-flex;align-items:center;gap:5px;padding:8px 18px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .25s}
+.ext-primary{background:rgba(0,212,255,.1);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-primary:hover{background:rgba(0,212,255,.22);color:#fff}
+.ext-secondary{background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-secondary:hover{border-color:var(--primary);color:var(--primary)}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:11px;padding:5px 12px;border-radius:12px;background:rgba(8,20,44,.7);border:1px solid rgba(0,212,255,.08);transition:all .25s}
+.bottom-nav a:hover{color:var(--primary);border-color:var(--border-glow)}
+
+footer{text-align:center;padding:16px 20px;font-size:10px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:24px;position:relative;z-index:1}
+footer p{margin:3px 0}
+
+@media(max-width:640px){
+  .hero h1{font-size:22px}
+  .form-row{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .art-cat-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="艺术投稿 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/contribute-art.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/contribute-art.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">🎨 艺术投稿</span>
+</nav>
+
+<div class="hero">
+  <h1>🎨 艺术投稿</h1>
+  <p>军人的双手不仅能握枪，也能执笔、按快门、做手艺。展示你的艺术才华，让军旅之美绽放光彩。</p>
+</div>
+
+<div class="container">
+
+<!-- 艺术类别 -->
+<div class="section-title"><span class="icon">🎭</span><span>艺术<span class="color">类别</span></span></div>
+<div class="art-cat-grid">
+  <div class="art-cat-card" onclick="document.getElementById('artType').value='摄影'">
+    <span class="cat-emoji">📷</span>
+    <h4>摄影作品</h4>
+    <p>军事摄影、风光摄影、人文纪实、战地影像</p>
+  </div>
+  <div class="art-cat-card" onclick="document.getElementById('artType').value='书法'">
+    <span class="cat-emoji">🖌️</span>
+    <h4>书法作品</h4>
+    <p>楷行草隶篆、军旅主题对联、碑帖临摹</p>
+  </div>
+  <div class="art-cat-card" onclick="document.getElementById('artType').value='绘画'">
+    <span class="cat-emoji">🎨</span>
+    <h4>绘画作品</h4>
+    <p>国画、油画、水彩、素描、军事题材创作</p>
+  </div>
+  <div class="art-cat-card" onclick="document.getElementById('artType').value='手工艺'">
+    <span class="cat-emoji">🧶</span>
+    <h4>手工艺品</h4>
+    <p>木雕、剪纸、编织、军事模型、文创设计</p>
+  </div>
+  <div class="art-cat-card" onclick="document.getElementById('artType').value='数字'">
+    <span class="cat-emoji">💻</span>
+    <h4>数字艺术</h4>
+    <p>数字绘画、3D建模、动画、军旅主题设计</p>
+  </div>
+  <div class="art-cat-card" onclick="document.getElementById('artType').value='短视频'">
+    <span class="cat-emoji">🎬</span>
+    <h4>短视频/微电影</h4>
+    <p>军旅纪录片、创意短片、训练花絮</p>
+  </div>
+</div>
+
+<!-- 精选作品画廊 -->
+<div class="section-title"><span class="icon">⭐</span><span>战友<span class="color">佳作</span>精选</span></div>
+<div class="gallery-grid">
+  <div class="gallery-item">
+    <div class="thumb" style="background:linear-gradient(135deg,#1a2a4a,#0f2240);display:flex;align-items:center;justify-content:center">🏔️</div>
+    <div class="info">
+      <div class="author">王大山</div>
+      <div class="title">《边关晨曦》</div>
+      <div class="stats"><span>📷 摄影</span><span>❤️ 1.2k</span></div>
+    </div>
+  </div>
+  <div class="gallery-item">
+    <div class="thumb" style="background:linear-gradient(135deg,#2a1a1a,#1a0f0f);display:flex;align-items:center;justify-content:center">🖌️</div>
+    <div class="info">
+      <div class="author">刘红军</div>
+      <div class="title">《军魂》行书横幅</div>
+      <div class="stats"><span>🖌️ 书法</span><span>❤️ 860</span></div>
+    </div>
+  </div>
+  <div class="gallery-item">
+    <div class="thumb" style="background:linear-gradient(135deg,#1a2a1a,#132213);display:flex;align-items:center;justify-content:center">🎨</div>
+    <div class="info">
+      <div class="author">张志远</div>
+      <div class="title">《训练归来》</div>
+      <div class="stats"><span>🎨 国画</span><span>❤️ 1.5k</span></div>
+    </div>
+  </div>
+  <div class="gallery-item">
+    <div class="thumb" style="background:linear-gradient(135deg,#2a2520,#1a1510);display:flex;align-items:center;justify-content:center">🧶</div>
+    <div class="info">
+      <div class="author">陈建国</div>
+      <div class="title">99A主战坦克模型</div>
+      <div class="stats"><span>🧶 手工艺</span><span>❤️ 2.1k</span></div>
+    </div>
+  </div>
+  <div class="gallery-item">
+    <div class="thumb" style="background:linear-gradient(135deg,#2a152a,#1a0a1a);display:flex;align-items:center;justify-content:center">💻</div>
+    <div class="info">
+      <div class="author">李明辉</div>
+      <div class="title">《空天卫士》CG</div>
+      <div class="stats"><span>💻 数字</span><span>❤️ 780</span></div>
+    </div>
+  </div>
+  <div class="gallery-item">
+    <div class="thumb" style="background:linear-gradient(135deg,#1a2a3a,#0a1a2a);display:flex;align-items:center;justify-content:center">🎬</div>
+    <div class="info">
+      <div class="author">赵卫国</div>
+      <div class="title">《空降兵的一天》</div>
+      <div class="stats"><span>🎬 视频</span><span>❤️ 3.2k</span></div>
+    </div>
+  </div>
+  <div class="gallery-item">
+    <div class="thumb" style="background:linear-gradient(135deg,#2a2a1a,#1a1a0a);display:flex;align-items:center;justify-content:center">📷</div>
+    <div class="info">
+      <div class="author">孙志强</div>
+      <div class="title">《南沙礁堡》组照</div>
+      <div class="stats"><span>📷 摄影</span><span>❤️ 2.6k</span></div>
+    </div>
+  </div>
+  <div class="gallery-item">
+    <div class="thumb" style="background:linear-gradient(135deg,#201a25,#100a15);display:flex;align-items:center;justify-content:center">🖌️</div>
+    <div class="info">
+      <div class="author">周文彬</div>
+      <div class="title">《满江红》草书</div>
+      <div class="stats"><span>🖌️ 书法</span><span>❤️ 680</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 投稿表单 -->
+<div class="section-title"><span class="icon">📤</span><span>提交你的<span class="color">作品</span></span></div>
+<div class="form-section">
+  <h3>🎨 艺术作品投稿表单</h3>
+  <form onsubmit="alert('感谢投稿！我们将在48小时内审核。');return false">
+    <div class="form-row">
+      <div class="form-group">
+        <label>作者姓名/笔名 <span class="required">*</span></label>
+        <input type="text" placeholder="请输入您的姓名或笔名" required>
+      </div>
+      <div class="form-group">
+        <label>原服役部队</label>
+        <input type="text" placeholder="如：原空军某部（选填）">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>联系电话</label>
+        <input type="tel" placeholder="用于稿酬发放通知">
+      </div>
+      <div class="form-group">
+        <label>电子邮箱 <span class="required">*</span></label>
+        <input type="email" placeholder="example@email.com" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>作品类别 <span class="required">*</span></label>
+      <select id="artType" required>
+        <option value="">请选择作品类别</option>
+        <option>📷 摄影作品</option>
+        <option>🖌️ 书法作品</option>
+        <option>🎨 绘画作品</option>
+        <option>🧶 手工艺品</option>
+        <option>💻 数字艺术</option>
+        <option>🎬 短视频/微电影</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>作品标题 <span class="required">*</span></label>
+      <input type="text" placeholder="为你的作品命名（5-20字）" required>
+      <div class="hint">好名字让作品更有灵魂。示例：「边关晨曦」「军魂」「训练归来」</div>
+    </div>
+    <div class="form-group">
+      <label>作品描述</label>
+      <textarea placeholder="请描述你的作品：&#10;1. 创作背景和灵感来源&#10;2. 使用的材料/技法/设备&#10;3. 想传达的思想或情感&#10;4. 作品尺寸/规格（如适用）&#10;&#10;字数建议：100-500字"></textarea>
+    </div>
+    <div class="form-group">
+      <label>上传作品文件 <span class="required">*</span></label>
+      <div class="file-dropzone" onclick="simUpload()">
+        <div class="drop-icon">📁</div>
+        <p>点击上传或将文件拖拽到此处</p>
+        <div class="drop-hint">支持JPG/PNG/WebP/MP4/PDF · 单文件≤20MB · 最多10个文件</div>
+        <div class="formats">
+          <span class="fmt-badge">JPG</span><span class="fmt-badge">PNG</span><span class="fmt-badge">WebP</span>
+          <span class="fmt-badge">MP4</span><span class="fmt-badge">PDF</span>
+        </div>
+      </div>
+      <div class="file-list" id="fileList">
+        <div class="file-item" style="display:none" id="demoFile">
+          <span>📎</span><span>示例_边关组照_01.jpg</span><span style="margin-left:auto;font-size:11px;color:var(--green)">✓ 已就绪</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>选择标签</label>
+      <div class="tag-select">
+        <span class="tag active">军事题材</span><span class="tag">风光摄影</span><span class="tag">人物肖像</span>
+        <span class="tag">军营生活</span><span class="tag">传统书法</span><span class="tag">现代艺术</span>
+        <span class="tag">手工制作</span><span class="tag">数字创作</span><span class="tag">影视制作</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label style="display:flex;align-items:center;gap:8px">
+        <input type="checkbox" style="width:16px;height:16px;accent-color:var(--purple)"> 我承诺本作品为本人原创，拥有完整著作权，不侵犯他人权益
+      </label>
+    </div>
+    <div class="btn-row">
+      <button type="submit" class="btn-primary">📤 提交作品</button>
+      <button type="button" class="btn-secondary">💾 保存草稿</button>
+    </div>
+  </form>
+</div>
+
+<div class="extend-bar">
+  <span class="ext-title">🔗 相关链接：</span>
+  <a href="/contribute-guide.html" class="ext-primary">📋 投稿指南</a>
+  <a href="/contribute-story.html" class="ext-primary">📖 故事投稿</a>
+  <a href="/contribute-article.html" class="ext-primary">📝 文章投稿</a>
+  <a href="/index.html" class="ext-secondary">🏠 返回首页</a>
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+  <p>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2</p>
+  <p>食品安全 + 退役军人在服务综合平台</p>
+</footer>
+
+<script>
+function simUpload(){
+  var item=document.getElementById('demoFile');
+  item.style.display='flex';
+  setTimeout(function(){item.style.display='none'},3000);
+}
+document.querySelectorAll('.tag-select .tag').forEach(t=>{
+  t.addEventListener('click',function(){this.classList.toggle('active')})
+});
+</script>
+
+</body>
+</html>

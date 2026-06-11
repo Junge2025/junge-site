@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>产品中心 · 东北黑土地有机农场 · 军鸽云链数智</title>
+<meta name="description" content="东北黑土地有机农场产品中心——五常稻花香2号大米、有机黄豆、小米、黑豆、红小豆、五谷杂粮礼盒，全部有机双认证+区块链溯源，黑土地优质农产品。">
+<meta name="keywords" content="五常大米,有机黄豆,有机小米,有机黑豆,有机红小豆,五谷杂粮礼盒,有机认证,区块链溯源,东北农场,军鸽云链">
+<meta property="og:title" content="产品中心 · 东北黑土地有机农场">
+<meta property="og:description" content="有机双认证·区块链溯源·黑土地优质农产品，从田间到餐桌全链路品质保障。">
+<link rel="canonical" href="https://junge.中国/farm-northeast-products.html">
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,0.85);--text:#e8edf5;--dim:#8896b0;--border:rgba(255,255,255,.06);--red:#b84045;--green:#4d9460;--blue:#4b8ecf;--gold:#f0c040;--cyan:#00d4ff;--farm-green:#6dab7e;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;line-height:1.7;min-height:100vh;padding-bottom:130px}
+.breadcrumb{position:sticky;top:0;z-index:101;background:rgba(3,7,18,.96);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:6px;font-size:11px;backdrop-filter:blur(12px)}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:.2s}
+.breadcrumb a:hover{color:var(--cyan)}
+.breadcrumb .sep{color:#4a5568}
+.breadcrumb .current{color:var(--cyan);font-weight:700}
+.top-nav{position:sticky;top:33px;z-index:100;background:linear-gradient(90deg,rgba(3,7,18,.98),rgba(10,22,40,.97));backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;overflow-x:auto}
+.top-nav .logo{font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;flex-shrink:0}
+.top-nav .divider{width:1px;height:16px;background:var(--border);flex-shrink:0}
+.top-nav a.nav-link{color:var(--dim);text-decoration:none;font-size:11px;padding:3px 9px;border-radius:10px;border:1px solid transparent;white-space:nowrap;flex-shrink:0;transition:.2s}
+.top-nav a.nav-link:hover,.top-nav a.nav-link.active{color:var(--cyan);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.05)}
+.container{max-width:1160px;margin:0 auto;padding:10px 20px 40px}
+.section{margin:36px 0}
+.section-title{font-size:15px;color:var(--cyan);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:18px}
+.page-hero{background:linear-gradient(180deg,rgba(3,7,18,.3),rgba(3,7,18,.95)),url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920&q=80') center/cover;height:200px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border)}
+.page-hero h1{font-size:32px;color:var(--gold);text-shadow:0 0 30px rgba(240,192,64,.15)}
+.prod-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.prod-detail-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.prod-detail-card:hover{border-color:rgba(0,212,255,.2);transform:translateY(-2px)}
+.prod-detail-card img{width:100%;height:200px;object-fit:cover}
+.prod-detail-card .pdc-body{padding:20px;flex:1;display:flex;flex-direction:column}
+.prod-detail-card h3{font-size:17px;color:var(--text);margin-bottom:6px}
+.prod-detail-card .pdc-variety{font-size:11px;color:var(--cyan);margin-bottom:10px;font-weight:600}
+.prod-detail-card .pdc-specs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.prod-detail-card .pdc-spec{font-size:10px;padding:3px 10px;border-radius:10px;border:1px solid rgba(0,212,255,.15);color:var(--dim);background:rgba(0,212,255,.03)}
+.prod-detail-card .pdc-desc{font-size:12px;color:var(--dim);line-height:1.7;margin-bottom:12px;flex:1}
+.prod-detail-card .pdc-season{font-size:10px;color:var(--farm-green);margin-bottom:8px}
+.prod-detail-card .pdc-cert{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.prod-detail-card .pdc-cert span{padding:3px 10px;border-radius:8px;font-size:9px;font-weight:600;border:1px solid}
+.prod-detail-card .pdc-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.prod-detail-card .pdc-price{font-size:18px;font-weight:700;color:var(--red)}
+.prod-detail-card .pdc-btn{display:inline-block;padding:8px 20px;border-radius:20px;font-size:11px;font-weight:700;color:#030712;background:linear-gradient(135deg,var(--cyan),var(--gold));text-decoration:none;transition:.2s}
+.prod-detail-card .pdc-btn:hover{box-shadow:0 0 18px rgba(0,212,255,.3)}
+.prod-detail-card .pdc-detail-btn{display:inline-block;padding:7px 16px;border-radius:16px;font-size:10px;font-weight:600;color:var(--farm-green);border:1px solid rgba(109,171,126,.3);background:rgba(109,171,126,.05);text-decoration:none;transition:.2s;margin-left:8px}
+.prod-detail-card .pdc-detail-btn:hover{background:rgba(109,171,126,.15);border-color:rgba(109,171,126,.5)}
+.feature-highlight{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:36px}
+.feature-highlight h3{font-size:16px;color:var(--gold);margin-bottom:14px}
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.feature-item{text-align:center;padding:16px 8px;background:rgba(0,212,255,.03);border-radius:10px;border:1px solid rgba(0,212,255,.06)}
+.feature-item .fi-icon{font-size:32px;margin-bottom:8px}
+.feature-item .fi-title{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px}
+.feature-item .fi-desc{font-size:10px;color:var(--dim);line-height:1.5}
+.back-link{text-align:center;margin:30px 0}
+.back-link a{display:inline-block;padding:10px 24px;border-radius:20px;font-size:12px;color:var(--cyan);border:1px solid rgba(0,212,255,.2);text-decoration:none;transition:.2s}
+.back-link a:hover{background:rgba(0,212,255,.08)}
+.footer{text-align:center;padding:20px 20px 30px;border-top:1px solid var(--border);font-size:10px;color:#4a5568;line-height:1.8}
+.footer a{color:var(--dim);text-decoration:none}
+.footer a:hover{color:var(--cyan)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.1);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:4px 8px;border-radius:8px;transition:.2s}
+.bottom-nav a:hover{color:var(--cyan)}
+.bottom-nav a.highlight{color:var(--gold);border:1px solid rgba(240,192,64,.2);background:rgba(240,192,64,.05)}
+@media(max-width:768px){.prod-detail-grid{grid-template-columns:1fr}.feature-grid{grid-template-columns:repeat(2,1fr)}.page-hero h1{font-size:24px}}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🛡️ 情怀首页</a><span class="sep">▸</span>
+  <a href="/junge/eco-farm.html">🌿 生态农庄</a><span class="sep">▸</span>
+  <a href="/farm-northeast.html">🌾 东北黑土地有机农场</a><span class="sep">▸</span>
+  <span class="current">📦 产品中心</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" class="logo">⚔ 军鸽云链</a>
+  <span class="divider"></span>
+  <a href="/index.html" class="nav-link">🛡️ 军鸽首页</a>
+  <a href="/shangcheng.html" class="nav-link">🛒 商业生态</a>
+  <a href="/taskforce.html" class="nav-link">⚡ 数智中心</a>
+  <a href="/fenzhan.html" class="nav-link">🌾 分站家园</a>
+  <span class="divider"></span>
+  <a href="/farm-northeast.html" class="nav-link active">🌾 东北农庄</a>
+  <a href="/farm-northeast-traceability.html" class="nav-link">🔍 溯源详情</a>
+  <a href="/farm-northeast-experience.html" class="nav-link">🌿 农旅体验</a>
+</nav>
+
+<div class="page-hero">
+  <h1>📦 产品中心 · 黑土地有机好物</h1>
+</div>
+
+<div class="container">
+
+<div class="feature-highlight">
+  <h3>🏅 品质承诺 · 四大保障</h3>
+  <div class="feature-grid">
+    <div class="feature-item"><div class="fi-icon">🌱</div><div class="fi-title">有机双认证</div><div class="fi-desc">中国COFCC + 欧盟EU Organic双认证，全程有机种植</div></div>
+    <div class="feature-item"><div class="fi-icon">🔗</div><div class="fi-title">区块链溯源</div><div class="fi-desc">每件产品唯一存证编号，扫码可查全链路档案</div></div>
+    <div class="feature-item"><div class="fi-icon">🌍</div><div class="fi-title">黑土地滋养</div><div class="fi-desc">北纬45°世界黄金水稻带，有机质含量5%-8%</div></div>
+    <div class="feature-item"><div class="fi-icon">🎖️</div><div class="fi-title">退役军人品控</div><div class="fi-desc">18位退伍战友严格品控，军人标准把关</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="icon">🌽</span> 全部产品 <span style="font-size:10px;color:var(--dim);font-weight:400;margin-left:auto">共6款 · 点击"详细页"查看完整信息</span></div>
+  <div class="prod-detail-grid">
+
+    <!-- 产品1: 五常稻花香2号大米 -->
+    <div class="prod-detail-card">
+      <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&q=80" alt="五常稻花香2号大米" loading="lazy">
+      <div class="pdc-body">
+        <h3>🍚 五常稻花香2号大米</h3>
+        <div class="pdc-variety">品种: 五优稻4号 · 稻花香2号</div>
+        <div class="pdc-specs">
+          <span class="pdc-spec">📦 1kg装</span><span class="pdc-spec">📦 2.5kg装</span><span class="pdc-spec">📦 5kg装</span>
+        </div>
+        <div class="pdc-desc">长粒型粳稻，胶稠度≥70mm，直链淀粉含量15-17%，富含天然芳香物质2-乙酰-1-吡咯啉。米饭油亮、软糯弹牙、冷饭不回生。五常龙凤山核心产区，龙凤山水库自流灌溉。</div>
+        <div class="pdc-season">🌾 产季: 9-10月新米 · 当季现碾真空锁鲜</div>
+        <div class="pdc-cert">
+          <span style="border-color:rgba(77,148,96,.3);color:var(--green);background:rgba(77,148,96,.06)">🌱 有机认证</span>
+          <span style="border-color:rgba(0,212,255,.3);color:var(--cyan);background:rgba(0,212,255,.06)">🔗 溯源可查</span>
+          <span style="border-color:rgba(240,192,64,.3);color:var(--gold);background:rgba(240,192,64,.06)">🏅 地理标志</span>
+        </div>
+        <div class="pdc-bottom">
+          <span class="pdc-price">¥168/袋 (5kg)</span>
+          <span>
+            <a href="/shangcheng.html" class="pdc-btn">🛒 购买</a>
+            <a href="/farm-ne-rice.html" class="pdc-detail-btn">📋 详细页</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 产品2: 有机黄豆 -->
+    <div class="prod-detail-card">
+      <img src="https://images.unsplash.com/photo-1515543904379-3d757afe72e4?w=600&q=80" alt="有机黄豆" loading="lazy">
+      <div class="pdc-body">
+        <h3>🫘 有机黄豆</h3>
+        <div class="pdc-variety">品种: 黑龙江非转基因传统品种</div>
+        <div class="pdc-specs">
+          <span class="pdc-spec">📦 500g装</span><span class="pdc-spec">📦 1kg装</span>
+        </div>
+        <div class="pdc-desc">蛋白质含量≥38%，颗粒饱满、色泽金黄。非转基因传统品种，黑土地种植，全程有机标准。打豆浆香浓醇厚，做豆腐细腻嫩滑，出浆率高出普通黄豆15%。</div>
+        <div class="pdc-season">🌾 产季: 10月新豆 · 人工筛选颗粒均匀</div>
+        <div class="pdc-cert">
+          <span style="border-color:rgba(77,148,96,.3);color:var(--green);background:rgba(77,148,96,.06)">🌱 有机认证</span>
+          <span style="border-color:rgba(0,212,255,.3);color:var(--cyan);background:rgba(0,212,255,.06)">🔗 溯源可查</span>
+          <span style="border-color:rgba(75,142,207,.3);color:var(--blue);background:rgba(75,142,207,.06)">🧬 非转基因</span>
+        </div>
+        <div class="pdc-bottom">
+          <span class="pdc-price">¥48/袋 (2.5kg)</span>
+          <span>
+            <a href="/shangcheng.html" class="pdc-btn">🛒 购买</a>
+            <a href="/farm-ne-soybean.html" class="pdc-detail-btn">📋 详细页</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 产品3: 有机小米 -->
+    <div class="prod-detail-card">
+      <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&q=80" alt="有机小米" loading="lazy">
+      <div class="pdc-body">
+        <h3>🌾 有机小米</h3>
+        <div class="pdc-variety">品种: 龙谷系列 · 金黄饱满</div>
+        <div class="pdc-specs">
+          <span class="pdc-spec">📦 500g装</span><span class="pdc-spec">📦 1kg装</span>
+        </div>
+        <div class="pdc-desc">龙谷系列优质品种，色泽金黄、颗粒饱满均匀。熬粥粘稠出油，米油层厚达3mm以上。养胃健脾，老人儿童皆宜。黑龙江寒地黑土种植，日照充足、昼夜温差大，淀粉积累充分。</div>
+        <div class="pdc-season">🌾 产季: 9月底新米 · 石碾轻加工保留胚芽</div>
+        <div class="pdc-cert">
+          <span style="border-color:rgba(77,148,96,.3);color:var(--green);background:rgba(77,148,96,.06)">🌱 有机认证</span>
+          <span style="border-color:rgba(0,212,255,.3);color:var(--cyan);background:rgba(0,212,255,.06)">🔗 溯源可查</span>
+        </div>
+        <div class="pdc-bottom">
+          <span class="pdc-price">¥38/袋 (2kg)</span>
+          <a href="/shangcheng.html" class="pdc-btn">🛒 购买</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 产品4: 有机黑豆 -->
+    <div class="prod-detail-card">
+      <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&q=80" alt="有机黑豆" loading="lazy">
+      <div class="pdc-body">
+        <h3>🖤 有机黑豆</h3>
+        <div class="pdc-variety">品种: 青仁乌豆 · 花青素丰富</div>
+        <div class="pdc-specs">
+          <span class="pdc-spec">📦 500g装</span>
+        </div>
+        <div class="pdc-desc">青仁乌豆品种，外皮乌黑发亮、内仁翠绿。花青素含量丰富，蛋白质≥36%。适合打黑豆浆、煲汤、制作黑豆腐。黑土地有机种植，非转基因传统品种。</div>
+        <div class="pdc-season">🌾 产季: 10月新豆 · 手工精选去杂</div>
+        <div class="pdc-cert">
+          <span style="border-color:rgba(77,148,96,.3);color:var(--green);background:rgba(77,148,96,.06)">🌱 有机认证</span>
+          <span style="border-color:rgba(0,212,255,.3);color:var(--cyan);background:rgba(0,212,255,.06)">🔗 溯源可查</span>
+          <span style="border-color:rgba(75,142,207,.3);color:var(--blue);background:rgba(75,142,207,.06)">🧬 非转基因</span>
+        </div>
+        <div class="pdc-bottom">
+          <span class="pdc-price">¥35/袋 (500g)</span>
+          <a href="/shangcheng.html" class="pdc-btn">🛒 购买</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 产品5: 有机红小豆 -->
+    <div class="prod-detail-card">
+      <img src="https://images.unsplash.com/photo-1609526382585-dd1157f74956?w=600&q=80" alt="有机红小豆" loading="lazy">
+      <div class="pdc-body">
+        <h3>🫘 有机红小豆</h3>
+        <div class="pdc-variety">品种: 龙小豆系列 · 粒大出沙率高</div>
+        <div class="pdc-specs">
+          <span class="pdc-spec">📦 500g装</span><span class="pdc-spec">📦 1kg装</span>
+        </div>
+        <div class="pdc-desc">龙小豆系列优质品种，颗粒饱满、色泽红润鲜亮。出沙率高达75%以上，煮豆沙细腻绵密。适合制作豆沙馅、红豆汤、五谷粥。东北黑土地种植，传统农耕管理。</div>
+        <div class="pdc-season">🌾 产季: 9-10月新豆 · 色选机精选粒粒均匀</div>
+        <div class="pdc-cert">
+          <span style="border-color:rgba(77,148,96,.3);color:var(--green);background:rgba(77,148,96,.06)">🌱 有机认证</span>
+          <span style="border-color:rgba(0,212,255,.3);color:var(--cyan);background:rgba(0,212,255,.06)">🔗 溯源可查</span>
+        </div>
+        <div class="pdc-bottom">
+          <span class="pdc-price">¥42/袋 (1kg)</span>
+          <a href="/shangcheng.html" class="pdc-btn">🛒 购买</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 产品6: 五谷杂粮礼盒 -->
+    <div class="prod-detail-card">
+      <img src="https://images.unsplash.com/photo-1609412439836-2b3a38e0b8f2?w=600&q=80" alt="五谷杂粮礼盒" loading="lazy">
+      <div class="pdc-body">
+        <h3>🎁 五谷杂粮礼盒</h3>
+        <div class="pdc-variety">组合: 大米+小米+黄豆+黑豆+红豆+绿豆</div>
+        <div class="pdc-specs">
+          <span class="pdc-spec">📦 3kg礼盒装</span><span class="pdc-spec">🎀 6种杂粮</span>
+        </div>
+        <div class="pdc-desc">精选六种黑土地有机杂粮，五谷丰登寓意吉祥。含五常大米、有机小米、有机黄豆、有机黑豆、有机红小豆、有机绿豆各500g。精美礼盒包装，送礼自用两相宜，企业福利首选。</div>
+        <div class="pdc-season">🌾 产季: 9-10月新粮组合 · 真空分装保鲜</div>
+        <div class="pdc-cert">
+          <span style="border-color:rgba(77,148,96,.3);color:var(--green);background:rgba(77,148,96,.06)">🌱 有机认证</span>
+          <span style="border-color:rgba(0,212,255,.3);color:var(--cyan);background:rgba(0,212,255,.06)">🔗 溯源可查</span>
+          <span style="border-color:rgba(240,192,64,.3);color:var(--gold);background:rgba(240,192,64,.06)">🎁 精美礼盒</span>
+        </div>
+        <div class="pdc-bottom">
+          <span class="pdc-price">¥198/盒 (3kg)</span>
+          <span>
+            <a href="/shangcheng.html" class="pdc-btn">🛒 购买</a>
+            <a href="/farm-ne-giftbox.html" class="pdc-detail-btn">📋 详细页</a>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="back-link">
+  <a href="/farm-northeast.html">← 返回东北黑土地有机农场主页</a>
+  <a href="/farm-northeast-traceability.html" style="margin-left:10px">🔍 查看溯源详情 →</a>
+  <a href="/farm-northeast-experience.html" style="margin-left:10px">🌿 农旅体验 →</a>
+</div>
+
+</div>
+
+<div class="footer">
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站: 175.178.55.90 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+  食品安全+退役军人在服务综合平台
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+</body>
+</html>

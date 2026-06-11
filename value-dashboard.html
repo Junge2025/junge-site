@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>军鸽 · 价值体系运营大盘</title>
+<style>
+:root{--bg:#0a0f16;--bg2:#101820;--card:rgba(16,24,36,.85);--red:#b84045;--green:#4d9460;--blue:#4b8ec9;--gold:#c4a044;--text:#e7ecf2;--text2:#9daab8;--border:rgba(255,255,255,.06);--radius:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:20px}
+h1{font-size:22px;margin-bottom:4px}h1 span{color:var(--gold)}
+.sub{color:var(--text2);font-size:12px;margin-bottom:24px}
+.grid{display:grid;gap:14px}
+.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:1fr 1fr}
+@media(max-width:900px){.g4{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;backdrop-filter:blur(12px)}
+.card .label{font-size:10px;color:var(--text2);letter-spacing:.06em;text-transform:uppercase}
+.card .value{font-size:28px;font-weight:800;margin:4px 0;font-variant-numeric:tabular-nums}
+.card .subv{font-size:11px;color:var(--text2)}
+.red{color:var(--red)}.green{color:var(--green)}.blue{color:var(--blue)}.gold{color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;padding:8px 10px;border-bottom:2px solid var(--border);color:var(--text2);font-size:10px;letter-spacing:.04em}
+td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.03)}
+.badge{display:inline-block;padding:2px 8px;border-radius:6px;font-size:10px;font-weight:600}
+.badge.gold{background:rgba(196,160,68,.15);color:var(--gold)}
+.badge.green{background:rgba(77,148,96,.15);color:var(--green)}
+.badge.blue{background:rgba(75,142,201,.15);color:var(--blue)}
+.badge.red{background:rgba(184,64,69,.15);color:var(--red)}
+.toolbar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.toolbar button{padding:8px 18px;border-radius:20px;border:1px solid var(--border);background:var(--card);color:var(--text2);cursor:pointer;font-size:12px;transition:.2s}
+.toolbar button:hover{color:var(--text);border-color:var(--gold)}
+.toolbar button.active{background:rgba(196,160,68,.12);border-color:var(--gold);color:var(--gold)}
+.loading{text-align:center;color:var(--text2);padding:40px;font-size:14px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.loading span{animation:pulse 1.5s infinite}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽 · 价值体系运营大盘">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/value-dashboard.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/value-dashboard.html">
+</head>
+<body>
+<h1>📊 数字数据价值体系 <span>运营大盘</span></h1>
+<p class="sub">TV交易值 · DV赋能值 · JC军鸽币 · 全链路实时监控 | <span id="clock">--</span></p>
+
+<div class="toolbar">
+  <button onclick="refresh()" class="active">🔄 刷新</button>
+  <button onclick="calcRate()">💰 计算今日汇率</button>
+  <span style="margin-left:auto;color:var(--text2);font-size:11px;align-self:center">API: value-engine :8877</span>
+</div>
+
+<div class="grid g4" id="kpiGrid">
+  <div class="card"><div class="label">TV池总额</div><div class="value red" id="kpiTV">--</div><div class="subv">商品交易值总量</div></div>
+  <div class="card"><div class="label">DV池总额</div><div class="value green" id="kpiDV">--</div><div class="subv">用户赋能值总量</div></div>
+  <div class="card"><div class="label">JC流通量</div><div class="value gold" id="kpiJC">--</div><div class="subv">全平台统一JC池</div></div>
+  <div class="card"><div class="label">JC实时汇率</div><div class="value blue" id="kpiRate">--</div><div class="subv">1JC = ¥?</div></div>
+</div>
+
+<div class="grid g2" style="margin-top:14px">
+  <div class="card">
+    <h3 style="font-size:14px;margin-bottom:12px">📈 TV分层分布</h3>
+    <div id="tvTiers"></div>
+  </div>
+  <div class="card">
+    <h3 style="font-size:14px;margin-bottom:12px">👥 DV等级分布</h3>
+    <div id="dvLevels"></div>
+  </div>
+</div>
+
+<div class="grid g2" style="margin-top:14px">
+  <div class="card">
+    <h3 style="font-size:14px;margin-bottom:12px">🏆 TV排行榜</h3>
+    <table><thead><tr><th>商品ID</th><th>TV分</th><th>层级</th></tr></thead><tbody id="tvRank"></tbody></table>
+  </div>
+  <div class="card">
+    <h3 style="font-size:14px;margin-bottom:12px">⭐ DV排行榜</h3>
+    <table><thead><tr><th>用户</th><th>DV</th><th>等级</th><th>连续活跃</th></tr></thead><tbody id="dvRank"></tbody></table>
+  </div>
+</div>
+
+<div class="card" style="margin-top:14px">
+  <h3 style="font-size:14px;margin-bottom:12px">📜 最近DV流水</h3>
+  <table><thead><tr><th>时间</th><th>用户</th><th>行为</th><th>DV</th><th>来源</th></tr></thead><tbody id="dvRecent"></tbody></table>
+</div>
+
+<script>
+const API='/api/value';
+async function f(p){try{const r=await fetch(API+p);const j=await r.json();return j.ok?j.data:null}catch(e){return null}}
+function fmt(n,d){return Number(n||0).toLocaleString('zh-CN',{maximumFractionDigits:d||0})}
+
+async function refresh(){
+  const db=await f('/dashboard');
+  if(db){
+    document.getElementById('kpiTV').textContent=fmt(db.tv_pool_total);
+    document.getElementById('kpiDV').textContent=fmt(db.dv_pool_total);
+    document.getElementById('kpiJC').textContent=fmt(db.jc_circulation,2);
+    if(db.jc_rate)document.getElementById('kpiRate').textContent='¥'+db.jc_rate.final_rate.toFixed(4);
+
+    // TV tiers
+    let tiers='';
+    db.tv_tier_distribution.forEach(t=>{tiers+=`<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:12px"><span>L${t.tv_tier} ${t.tv_label}</span><span style="color:var(--gold)">${t.cnt}</span></div>`});
+    document.getElementById('tvTiers').innerHTML=tiers||'<span class="loading">无数据</span>';
+
+    // DV levels
+    let lvls='';
+    db.dv_level_distribution.forEach(l=>{lvls+=`<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:12px"><span>${l.dv_level}</span><span style="color:var(--green)">${l.cnt}</span></div>`});
+    document.getElementById('dvLevels').innerHTML=lvls||'<span class="loading">无数据</span>';
+  }
+
+  // TV rank
+  const tvR=await f('/rank/tv?limit=10');
+  if(tvR){
+    let rows='';
+    tvR.forEach(r=>{rows+=`<tr><td style="font-size:10px">${r.product_id.substring(0,12)}...</td><td class="red">${fmt(r.tv_score,1)}</td><td><span class="badge gold">L${r.tv_tier}</span></td></tr>`});
+    document.getElementById('tvRank').innerHTML=rows||'<tr><td colspan="3">无数据</td></tr>';
+  }
+
+  // DV rank
+  const dvR=await f('/rank/dv?limit=10');
+  if(dvR){
+    let rows='';
+    dvR.forEach(r=>{rows+=`<tr><td style="font-size:10px">${r.digital_id.substring(0,10)}...</td><td class="green">${fmt(r.dv_total,1)}</td><td><span class="badge green">${r.dv_level||'--'}</span></td><td>${r.activity_streak||0}天</td></tr>`});
+    document.getElementById('dvRank').innerHTML=rows||'<tr><td colspan="4">无数据</td></tr>';
+  }
+
+  // Recent DV transactions from demo user
+  const dv=await f('/dv/a0000000-0000-0000-0000-000000000001');
+  if(dv&&dv.recent_transactions){
+    let rows='';
+    dv.recent_transactions.slice(0,10).forEach(t=>{
+      const d=new Date(t.created_at);
+      rows+=`<tr><td>${d.toLocaleString('zh-CN')}</td><td style="font-size:10px">${(t.digital_id||'').substring(0,10)}...</td><td><span class="badge blue">${t.behavior_type}</span></td><td class="green">+${fmt(t.dv_amount,1)}</td><td style="font-size:10px">${t.source_page||'--'}</td></tr>`;
+    });
+    document.getElementById('dvRecent').innerHTML=rows||'<tr><td colspan="5">无流水</td></tr>';
+  }
+}
+
+async function calcRate(){
+  try{
+    const r=await fetch(API+'/jc/calc-rate',{method:'POST'});
+    const j=await r.json();
+    if(j.ok)alert('汇率已更新: ¥'+j.final_rate+(j.capped?' (熔断)' : ''));
+    else alert('计算失败');
+  }catch(e){alert('Error: '+e)}
+  refresh();
+}
+
+// Clock
+setInterval(()=>{document.getElementById('clock').textContent=new Date().toLocaleString('zh-CN')},1000);
+refresh();
+setInterval(refresh,30000);
+</script>
+</body>
+</html>

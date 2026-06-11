@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>海南热带生态农庄联合体 · 合作伙伴 · 军鸽云链</title>
+<meta name="description" content="海南热带生态农庄联合体——12位退役军人在三亚联合创业，专注热带水果有机种植与农旅融合，军鸽云链海南溯源基地战略合作伙伴。">
+<style>
+:root{
+  --bg:#030712;--bg-card:rgba(8,20,44,.85);--text:#e8edf5;--text-dim:#8896b0;
+  --text-muted:#4a5568;--border:rgba(255,255,255,.06);--border-glow:rgba(0,212,255,.18);
+  --primary:#00d4ff;--gold:#f0c040;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;
+  --radius:12px;--radius-lg:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",sans-serif;min-height:100vh;line-height:1.8;padding-bottom:80px}
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:var(--primary)}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+.top-nav{position:sticky;top:36px;z-index:98;background:linear-gradient(135deg,rgba(8,20,44,.94),rgba(3,7,18,.97));border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;backdrop-filter:blur(10px)}
+.top-nav a{color:var(--text-dim);text-decoration:none;font-size:11px;padding:4px 10px;border-radius:12px;transition:.2s}
+.top-nav a:hover{color:var(--primary)}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+
+/* 企业头图区 */
+.partner-hero{background:linear-gradient(135deg,rgba(34,197,94,.08),rgba(3,7,18,.97),rgba(240,192,64,.05));border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 28px;text-align:center;margin-bottom:20px}
+.partner-hero .ph-icon{font-size:56px;margin-bottom:12px}
+.partner-hero h1{font-size:26px;font-weight:900;color:var(--text);margin-bottom:6px}
+.partner-hero .tagline{font-size:13px;color:var(--gold);margin-bottom:16px}
+.partner-hero .badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.partner-hero .badge{padding:5px 14px;border-radius:16px;font-size:10px;font-weight:700}
+
+/* 企业信息卡片 */
+.info-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.info-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-align:center}
+.info-card .ic-icon{font-size:28px;margin-bottom:6px}
+.info-card .ic-val{font-size:22px;font-weight:800;color:var(--primary)}
+.info-card .ic-lbl{font-size:10px;color:var(--text-dim);margin-top:2px}
+
+/* 正文区 */
+.section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;margin-bottom:18px;backdrop-filter:blur(12px)}
+.section h2{font-size:18px;font-weight:700;color:var(--gold);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(240,192,64,.15)}
+.section h3{font-size:15px;font-weight:700;color:var(--primary);margin:18px 0 10px}
+.section p{font-size:12px;color:var(--text-dim);line-height:2;margin-bottom:12px;text-align:justify}
+.section ul,.section ol{margin:10px 0 14px 18px}
+.section li{font-size:12px;color:var(--text-dim);line-height:2;margin-bottom:4px}
+.section li::marker{color:var(--primary)}
+
+/* 产品展示网格 */
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.product-item{background:rgba(8,20,44,.5);border:1px solid var(--border);border-radius:var(--radius);padding:14px;text-align:center}
+.product-item .pi-icon{font-size:32px;margin-bottom:6px}
+.product-item .pi-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px}
+.product-item .pi-desc{font-size:10px;color:var(--text-muted);line-height:1.5}
+
+/* 联系区域 */
+.contact-bar{background:var(--bg-card);border:1px solid rgba(0,212,255,.15);border-radius:var(--radius-lg);padding:20px 24px;text-align:center;margin-bottom:20px}
+.contact-bar h3{font-size:16px;color:var(--primary);margin-bottom:8px}
+.contact-bar p{font-size:11px;color:var(--text-dim);margin-bottom:12px}
+.contact-bar a{display:inline-block;padding:10px 24px;border-radius:24px;font-size:12px;font-weight:700;text-decoration:none;margin:4px 6px;transition:.2s}
+
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin:20px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:var(--text-dim)}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:var(--primary);border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:var(--text-dim);border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:var(--primary);color:var(--primary)}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--text-dim);text-decoration:none;font-size:10px;padding:5px 10px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1);transition:.2s}
+.bottom-nav a:hover{color:var(--primary);border-color:var(--primary)}
+.bottom-nav .active{color:var(--gold);border-color:rgba(240,192,64,.4);background:rgba(240,192,64,.08)}
+.footer{text-align:center;padding:24px 20px 80px;font-size:10px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:28px;line-height:1.8}
+@media(max-width:768px){
+  .info-cards{grid-template-columns:repeat(2,1fr)}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .partner-hero h1{font-size:20px}
+}
+@media(max-width:480px){
+  .info-cards,.product-grid{grid-template-columns:1fr}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="海南热带生态农庄联合体 · 合作伙伴 · 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/partner-1.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/partner-1.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <a href="/eco-farm.html">🌴 生态农庄</a><span class="sep">▸</span>
+  <span class="current">海南热带农庄</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" style="font-weight:700;color:var(--gold)">⚔ 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<div class="container">
+
+<!-- 企业头图 -->
+<div class="partner-hero">
+  <div class="ph-icon">🌴</div>
+  <h1>海南热带生态农庄联合体</h1>
+  <div class="tagline">退役军人在三亚 · 12人联合创业 · 热带水果 · 农旅融合 · 有机认证</div>
+  <div class="badges">
+    <span class="badge" style="background:rgba(34,197,94,.12);color:#22c55e">有机认证</span>
+    <span class="badge" style="background:rgba(0,212,255,.12);color:#00d4ff">区块链溯源</span>
+    <span class="badge" style="background:rgba(240,192,64,.12);color:#f0c040">退役军人创办</span>
+    <span class="badge" style="background:rgba(167,139,250,.12);color:#a78bfa">农旅融合</span>
+  </div>
+</div>
+
+<!-- 关键指标 -->
+<div class="info-cards">
+  <div class="info-card">
+    <div class="ic-icon">👥</div>
+    <div class="ic-val">12</div>
+    <div class="ic-lbl">退役军人创业者</div>
+  </div>
+  <div class="info-card">
+    <div class="ic-icon">🌴</div>
+    <div class="ic-val">3,600亩</div>
+    <div class="ic-lbl">种植基地面积</div>
+  </div>
+  <div class="info-card">
+    <div class="ic-icon">🍍</div>
+    <div class="ic-val">28种</div>
+    <div class="ic-lbl">热带水果品类</div>
+  </div>
+  <div class="info-card">
+    <div class="ic-icon">📅</div>
+    <div class="ic-val">2019年</div>
+    <div class="ic-lbl">创立时间</div>
+  </div>
+  <div class="info-card">
+    <div class="ic-icon">🏅</div>
+    <div class="ic-val">省示范</div>
+    <div class="ic-lbl">退役军人创业基地</div>
+  </div>
+  <div class="info-card">
+    <div class="ic-icon">🤝</div>
+    <div class="ic-val">2024年</div>
+    <div class="ic-lbl">与军鸽云链战略合作</div>
+  </div>
+</div>
+
+<!-- 企业简介 -->
+<div class="section">
+  <h2>🏢 企业概况</h2>
+  <p>海南热带生态农庄联合体成立于2019年，由12位来自陆军、海军和空军不同部队的退役军人在三亚市崖州区联合创立。创业的初心很简单：在部队守护祖国边疆，回到地方守护人民餐桌。联合体以"退伍不褪色、耕耘新热土"为宗旨，专注热带水果的有机种植、品质加工和农旅融合发展。</p>
+  <p>经过七年发展，联合体现在拥有3600亩种植基地（其中有机认证面积1800亩），年产热带水果超过1.2万吨。产品涵盖芒果、火龙果、菠萝蜜、荔枝、龙眼、番石榴、百香果等28个品类。基地分布在海南三亚、陵水、乐东三地，充分利用北纬18°热带气候优势，实现全年不间断供应。</p>
+  <p>2024年，联合体与军鸽云链达成战略合作，成为军鸽云链海南三亚溯源基地的首批入驻企业和核心合作伙伴。联合体的全部产品已完成区块链溯源上链，消费者扫码即可查看从"热带阳光到餐桌"的完整旅程。</p>
+</div>
+
+<!-- 创始人故事 -->
+<div class="section">
+  <h2>🎖️ 军旅基因</h2>
+  <h3>从"哨兵"到"果农"：12段不平凡的转身</h3>
+  <p>联合体创始人兼理事长陈志强，原海军某部四级军士长，2018年退役。谈起创业历程，他感慨万千："在部队的时候，我们站岗放哨，守护的是国土安全。退役后回到三亚老家，看到优质的热带水果因为没有品牌、没有渠道，被中间商低价收购，心里很不甘。我们12个战友一合计，决定自己干——种最好的水果，打最硬的品牌，给退役军人争口气。"</p>
+  <p>联合体实行"军事化管理+市场化运营"的独特模式：每日晨会制度、责任田包干制、品质"一票否决"——这些从部队带来的管理基因，让联合体在散乱的热带水果种植行业中脱颖而出。2019年，联合体成为海南省退役军人事务厅首批授牌的"退役军人创业示范基地"。</p>
+  <h3>与军鸽云链的结缘</h3>
+  <p>"第一次听到军鸽云链要做食品安全溯源，还要用退役军人当质询员，我当时就觉得——这不就是为我们量身定做的吗？"陈志强说。2024年初，联合体一次性将全部28个产品品类接入军鸽云链溯源系统。陈志强本人也参加了首批退役军人食品安全质询员培训，拿到了编号为#HN-00001的质询员证书。</p>
+</div>
+
+<!-- 产品展示 -->
+<div class="section">
+  <h2>🍍 核心产品</h2>
+  <div class="product-grid">
+    <div class="product-item">
+      <div class="pi-icon">🥭</div>
+      <div class="pi-name">贵妃芒果</div>
+      <div class="pi-desc">北纬18°·有机种植·树上熟·可溯源</div>
+    </div>
+    <div class="product-item">
+      <div class="pi-icon">🐉</div>
+      <div class="pi-name">红心火龙果</div>
+      <div class="pi-desc">甜度22°+·欧盟有机认证·冷链直达</div>
+    </div>
+    <div class="product-item">
+      <div class="pi-icon">🍈</div>
+      <div class="pi-name">金钻凤梨</div>
+      <div class="pi-desc">不用挖眼·无需泡盐水·自然成熟</div>
+    </div>
+    <div class="product-item">
+      <div class="pi-icon">🥥</div>
+      <div class="pi-name">新鲜椰子</div>
+      <div class="pi-desc">海南文昌椰·老树果·清甜解暑</div>
+    </div>
+    <div class="product-item">
+      <div class="pi-icon">🍌</div>
+      <div class="pi-name">小米香蕉</div>
+      <div class="pi-desc">原生品种·非催熟·软糯香甜</div>
+    </div>
+    <div class="product-item">
+      <div class="pi-icon">🍋</div>
+      <div class="pi-name">无核青柠</div>
+      <div class="pi-desc">有机认证·出口品质·全年供应</div>
+    </div>
+  </div>
+</div>
+
+<!-- 溯源信息 -->
+<div class="section">
+  <h2>🔗 溯源保障</h2>
+  <p>作为军鸽云链海南三亚溯源基地的核心合作伙伴，联合体所有产品均实现五阶段全链路溯源：</p>
+  <ul>
+    <li><strong>环境溯源：</strong>每块种植基地完成GPS定位、土壤检测、水源检测和气候数据记录，数据年度更新。</li>
+    <li><strong>种子溯源：</strong>所有种苗来源可追溯至持证苗圃，非转基因认证，品种信息完整上链。</li>
+    <li><strong>生长溯源：</strong>施肥（有机肥为主）、除草（人工+覆盖）、防虫（生物防治+物理诱捕）全流程记录。</li>
+    <li><strong>监管溯源：</strong>SGS第三方检测（189项农残+5项重金属），退役军人质询员现场核验并数字签名。</li>
+    <li><strong>餐桌溯源：</strong>冷链运输全程温控记录上链，消费者扫码即可查看完整溯源报告。</li>
+  </ul>
+  <p>截止2026年4月，联合体已有超过8.6万批次的溯源数据在军鸽云链上完成存证。消费者评价显示，接入溯源体系后产品复购率提升了47%。</p>
+</div>
+
+<!-- 农旅体验 -->
+<div class="section">
+  <h2>🌴 农旅融合体验</h2>
+  <p>联合体不仅是种植基地，更是"退役军人+热带农业+军旅文化"的农旅综合体。每年接待游客超过3万人次，提供以下体验项目：</p>
+  <ul>
+    <li><strong>热带果园采摘：</strong>全年可采摘芒果、火龙果、百香果等当季水果，现场品尝树上熟的甜蜜。</li>
+    <li><strong>军旅拓展训练：</strong>由退役军人为教官的团队拓展、野外生存和青少年军事夏令营。</li>
+    <li><strong>有机种植研学：</strong>了解热带水果的有机种植技术，体验从采摘到包装的全过程。</li>
+    <li><strong>退役军人故事馆：</strong>12位创始人的军旅故事和创业历程展览，传承军旅精神。</li>
+  </ul>
+</div>
+
+<!-- 联系合作 -->
+<div class="contact-bar">
+  <h3>🤝 合作联系</h3>
+  <p>欢迎采购商、渠道商、农旅机构联系合作。退役军人创业者优先对接。</p>
+  <a href="/enterprise-contact.html" style="background:rgba(0,212,255,.12);color:var(--primary);border:1px solid rgba(0,212,255,.2)">📞 商务合作</a>
+  <a href="/shangcheng.html" style="background:transparent;color:var(--text-dim);border:1px solid var(--border)">🛒 查看产品</a>
+</div>
+
+</div>
+
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/partner-2.html" class="ext-trace">🌾 东北黑土农庄</a>
+  <a href="/partner-3.html" class="ext-mall">🏔️ 云南高原农庄</a>
+  <a href="/shangcheng.html" class="ext-mall">🛒 商业生态</a>
+  <a href="/index.html" class="ext-mall">🏠 返回首页</a>
+</div>
+
+<nav class="bottom-nav">
+  <a href="/" class="active">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<div class="footer">
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站 · 食品安全+退役军人在服务综合平台
+</div>
+
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文化家园投稿管理 · 军鸽云链数智</title>
+<style>
+:root {
+  --bg-deep: #030712; --bg-base: #060d1a;
+  --bg-card: rgba(8,20,44,0.85);
+  --primary: #00d4ff; --gold: #f0c040; --green: #4daf7c;
+  --red: #b84045; --blue: #4b8ecf;
+  --text: #e8edf5; --text-dim: #8896b0; --text-muted: #4a5568;
+  --border: rgba(255,255,255,.08);
+  --radius: 12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg-deep);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;padding:20px}
+.container{max-width:900px;margin:0 auto}
+h1{font-size:20px;color:var(--gold);margin-bottom:4px}
+h1 .sub{font-size:12px;color:var(--text-dim);font-weight:400;margin-left:8px}
+.back{display:inline-block;color:var(--text-dim);text-decoration:none;font-size:11px;margin-bottom:16px;padding:4px 12px;border:1px solid var(--border);border-radius:20px}
+.back:hover{color:var(--primary);border-color:rgba(0,212,255,.3)}
+
+/* Tabs */
+.tabs{display:flex;gap:0;margin:20px 0 0;border-bottom:2px solid var(--border)}
+.tab{padding:10px 24px;background:none;border:none;color:var(--text-dim);font-size:13px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s}
+.tab.active{color:var(--primary);border-bottom-color:var(--primary)}
+.tab .badge{display:inline-block;background:var(--red);color:#fff;border-radius:10px;padding:0 6px;font-size:10px;margin-left:4px;line-height:16px}
+.tab .badge.green{background:var(--green)}
+
+/* Panel */
+.panel{display:none;padding:20px 0}
+.panel.active{display:block}
+
+/* Form */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+input,select,textarea{width:100%;background:rgba(15,34,64,.7);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:rgba(0,212,255,.3)}
+textarea{min-height:100px;resize:vertical;font-family:inherit;margin-bottom:10px}
+.btn{display:inline-block;padding:10px 24px;border-radius:20px;border:none;font-size:13px;font-weight:600;cursor:pointer;transition:all .3s}
+.btn-primary{background:linear-gradient(135deg,var(--red),#d47a7e);color:#fff}
+.btn-primary:hover{box-shadow:0 0 20px rgba(184,64,69,.3)}
+.btn-sm{padding:5px 14px;font-size:11px;border-radius:14px}
+.msg{font-size:11px;margin-top:8px;display:none}
+.msg.success{color:var(--green)}
+.msg.error{color:#d47a7e}
+.msg.info{color:var(--blue)}
+
+/* Lists */
+.list-header{font-size:11px;color:var(--text-dim);padding:8px 0;border-bottom:1px solid var(--border);margin-bottom:8px}
+.empty{color:var(--text-muted);font-size:11px;padding:16px 0;text-align:center}
+.item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;margin-bottom:8px;flex-wrap:wrap}
+.item .info{flex:1;min-width:200px}
+.item .info .title{font-size:13px;font-weight:600;color:var(--text)}
+.item .info .meta{font-size:10px;color:var(--text-muted);margin-top:2px}
+.item .actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.btn-approve{background:rgba(77,175,124,.12);color:var(--green);border:1px solid rgba(77,175,124,.25)}
+.btn-reject{background:rgba(184,64,69,.12);color:#d47a7e;border:1px solid rgba(184,64,69,.25)}
+.btn-publish{background:rgba(75,142,207,.12);color:var(--blue);border:1px solid rgba(75,142,207,.25)}
+.btn-edit{background:rgba(240,192,64,.1);color:var(--gold);border:1px solid rgba(240,192,64,.2)}
+.btn-delete{background:rgba(184,64,69,.08);color:#d47a7e;border:1px solid rgba(184,64,69,.15)}
+
+.summary-bar{display:flex;gap:20px;padding:12px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px;font-size:12px}
+.summary-bar span{color:var(--text-dim)}
+.summary-bar strong{color:var(--gold)}
+
+footer{text-align:center;padding:30px 0 10px;font-size:10px;color:var(--text-muted)}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="文化家园投稿管理 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/culture-admin.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/culture-admin.html">
+</head>
+<body>
+<div class="container">
+  <a href="/" class="back">← 返回首页</a>
+  <h1>⚔ 文化家园投稿管理<span class="sub">仗剑天涯 · 军旅文学 · 书画摄影 · 非遗传承</span></h1>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('upload',this)">📤 P1 上传投稿</button>
+    <button class="tab" onclick="switchTab('review',this)">🔍 P2 审核<span id="review-badge" class="badge" style="display:none"></span></button>
+    <button class="tab" onclick="switchTab('publish',this)">📰 P3 发表<span id="publish-badge" class="badge green" style="display:none"></span></button>
+  </div>
+
+  <!-- P1: Upload -->
+  <div class="panel active" id="panel-upload">
+    <div class="form-row">
+      <select id="culture-column">
+        <option value="essay">军鸽副刊</option>
+        <option value="calligraphy">书画摄影</option>
+        <option value="heritage">非遗传承</option>
+        <option value="ranger">现代游侠</option>
+      </select>
+      <input type="text" id="culture-author" placeholder="作者署名（选填，默认佚名）">
+    </div>
+    <input type="text" id="culture-title" placeholder="文章标题 *必填">
+    <textarea id="culture-content" placeholder="正文内容... *必填"></textarea>
+    <button class="btn btn-primary" onclick="submitCulture()">📤 提交投稿</button>
+    <div id="upload-msg" class="msg"></div>
+  </div>
+
+  <!-- P2: Review -->
+  <div class="panel" id="panel-review">
+    <div class="summary-bar" id="review-summary"></div>
+    <div class="list-header">待审核稿件：</div>
+    <div id="review-list"><div class="empty">暂无待审核稿件</div></div>
+  </div>
+
+  <!-- P3: Publish -->
+  <div class="panel" id="panel-publish">
+    <div class="summary-bar" id="publish-summary"></div>
+    <div class="list-header">已审核 · 待发表：</div>
+    <div id="publish-list"><div class="empty">暂无待发表稿件</div></div>
+  </div>
+
+  <footer>军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>广州总站: 175.178.55.90 · 食品安全+退役军人在服务综合平台</footer>
+</div>
+
+<script>
+var COLUMN_NAMES={essay:"军鸽副刊",calligraphy:"书画摄影",heritage:"非遗传承",ranger:"现代游侠"};
+
+function switchTab(name,btn){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
+  btn.classList.add('active');
+  document.getElementById('panel-'+name).classList.add('active');
+  if(name==='review'||name==='publish')loadSubmissions();
+}
+
+function showMsg(id,text,type){
+  var el=document.getElementById(id);
+  el.textContent=text;el.className='msg '+type;el.style.display='block';
+  setTimeout(function(){el.style.display='none'},5000);
+}
+
+function submitCulture(){
+  var col=document.getElementById('culture-column').value;
+  var author=document.getElementById('culture-author').value.trim()||'佚名';
+  var title=document.getElementById('culture-title').value.trim();
+  var content=document.getElementById('culture-content').value.trim();
+  if(!title){showMsg('upload-msg','请输入标题','error');return}
+  if(!content){showMsg('upload-msg','请输入正文内容','error');return}
+  showMsg('upload-msg','⏳ 提交中...','info');
+  fetch('/api/culture/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({column:col,author:author,title:title,content:content})})
+  .then(function(r){return r.json()})
+  .then(function(d){
+    if(d.ok){showMsg('upload-msg','✅ '+d.message,'success');document.getElementById('culture-title').value='';document.getElementById('culture-content').value='';document.getElementById('culture-author').value='';loadSubmissions()}
+    else{showMsg('upload-msg','❌ '+(d.detail||d.error||'提交失败'),'error')}
+  })
+  .catch(function(e){showMsg('upload-msg','❌ 网络错误: '+e.message,'error')});
+}
+
+function approveSubmission(id){
+  fetch('/api/culture/approve/'+id,{method:'POST'})
+  .then(function(r){return r.json()})
+  .then(function(d){if(d.ok){loadSubmissions()}else{alert(d.detail||'审核失败')}})
+  .catch(function(e){alert('网络错误: '+e.message)});
+}
+
+function rejectSubmission(id){
+  if(!confirm('确认退回此稿件？'))return;
+  fetch('/api/culture/reject/'+id,{method:'POST'})
+  .then(function(r){return r.json()})
+  .then(function(d){if(d.ok){loadSubmissions()}else{alert(d.detail||'退回失败')}})
+  .catch(function(e){alert('网络错误: '+e.message)});
+}
+
+function publishSubmission(id,title,btn){
+  btn.disabled=true;btn.textContent='发表中...';
+  fetch('/api/culture/publish/'+id,{method:'POST'})
+  .then(function(r){return r.json()})
+  .then(function(d){
+    if(d.ok){loadSubmissions()}
+    else{alert(d.detail||d.message||'发表失败');btn.disabled=false;btn.textContent='📰 一键发表'}
+  })
+  .catch(function(e){alert('网络错误: '+e.message);btn.disabled=false;btn.textContent='📰 一键发表'});
+}
+
+function editPublished(id){
+  var phone=prompt('请输入投稿时填写的手机号验证身份：');
+  if(!phone)return;
+  fetch('/api/culture/all').then(function(r){return r.json()}).then(function(data){
+    var items=data.items||[];
+    var art=null;
+    for(var i=0;i<items.length;i++){if(items[i].id===id){art=items[i];break}}
+    if(!art)return alert('文章未找到');
+    if(art.phone&&art.phone!==phone)return alert('手机号不匹配，无权修改');
+
+    var titleEscaped=art.title.replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;');
+    var contentEscaped=art.content.replace(/\\/g,'\\\\').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    var artPhone=(art.phone||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+
+    var w=window.open('','_blank','width=800,height=650');
+    w.document.write(
+      '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>编辑 - '+titleEscaped+'</title>'+
+      '<style>body{background:#0a0f16;color:#e8edf5;font-family:-apple-system,sans-serif;padding:24px}'+
+      'input,textarea{width:100%;background:rgba(15,34,64,.7);color:#e8edf5;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px;margin:8px 0;font-size:13px;box-sizing:border-box}'+
+      'textarea{min-height:300px;resize:vertical}'+
+      'button{padding:10px 24px;background:#b84045;color:#fff;border:none;border-radius:20px;cursor:pointer;font-size:13px;font-weight:600}'+
+      '.note{font-size:11px;color:#4a5568;margin:8px 0}'+
+      '</style></head><body>'+
+      '<h2 style="color:#f0c040;font-size:18px">✏ 编辑文章</h2>'+
+      '<input id="etitle" value="'+titleEscaped+'">'+
+      '<textarea id="econtent">'+contentEscaped+'</textarea>'+
+      '<div class="note">修改后将重新进入审核流程</div>'+
+      '<button onclick="saveEdit()">💾 保存修改</button>'+
+      '<script>'+
+      'var artData={id:"'+id+'",column:"'+art.column+'",author:"'+(art.author||'').replace(/\\\\/g,"\\\\\\\\").replace(/'/g,"\\\\'")+'",phone:"'+artPhone+'"};'+
+      'function saveEdit(){'+
+        'var t=document.getElementById("etitle").value.trim();'+
+        'var c=document.getElementById("econtent").value.trim();'+
+        'if(!t||!c)return alert("标题和内容不能为空");'+
+        'fetch("/api/culture/self-publish/"+artData.id+"?phone="+encodeURIComponent(artData.phone),{'+
+          'method:"POST",headers:{"Content-Type":"application/json"},'+
+          'body:JSON.stringify({title:t,content:c,column:artData.column,author:artData.author,phone:artData.phone})'+
+        '}).then(function(r){return r.json()}).then(function(d){'+
+          'if(d.ok){alert("修改已保存，进入审核队列");window.close();if(window.opener)window.opener.location.reload()}'+
+          'else{alert(d.detail||"保存失败")}'+
+        '}).catch(function(e){alert("网络错误: "+e.message)})'+
+      '}'+
+      '<\/script></body></html>'
+    );
+  });
+}
+
+function deletePublished(id,title){
+  if(!confirm('确认删除《'+title+'》？此操作不可撤销！'))return;
+  var phone=prompt('请输入投稿时填写的手机号验证身份：');
+  if(!phone)return;
+  fetch('/api/culture/my?phone='+encodeURIComponent(phone)).then(function(r){return r.json()}).then(function(d){
+    var items=d.items||[];
+    var art=null;
+    for(var i=0;i<items.length;i++){if(items[i].id===id){art=items[i];break}}
+    if(!art)return alert('手机号不匹配或文章不存在，无权删除');
+    fetch('/api/culture/reject/'+id,{method:'POST',headers:{'X-Admin-Token':'junge-red-dual-2026'}}).then(function(r){return r.json()}).then(function(d2){
+      if(d2.ok){alert('已删除');loadSubmissions()}else{alert(d2.detail||'删除失败')}
+    });
+  });
+}
+
+function loadSubmissions(){
+  fetch('/api/culture/all').then(function(r){return r.json()}).then(function(data){
+    var s=data.summary||{};
+    var items=data.items||[];
+
+    // Summary bars
+    var revSum=document.getElementById('review-summary');
+    if(revSum)revSum.innerHTML='<span>📊 待审: <strong>'+(s.pending||0)+'</strong></span><span>已审: <strong>'+(s.approved||0)+'</strong></span><span>已发: <strong>'+(s.published||0)+'</span>';
+
+    // Badges
+    var rBadge=document.getElementById('review-badge');
+    if(s.pending>0){rBadge.textContent=s.pending;rBadge.style.display='inline-block'}
+    else{rBadge.style.display='none'}
+    var pBadge=document.getElementById('publish-badge');
+    if(s.approved>0){pBadge.textContent=s.approved;pBadge.style.display='inline-block'}
+    else{pBadge.style.display='none'}
+
+    renderReviews(items);
+    renderPublish(items);
+  }).catch(function(e){console.error('加载投稿数据失败',e)});
+}
+
+function renderReviews(items){
+  var list=document.getElementById('review-list');
+  if(!list)return;
+  var pending=[];
+  for(var i=0;i<items.length;i++){if(items[i].status==='pending')pending.push(items[i])}
+  if(pending.length===0){list.innerHTML='<div class="empty">暂无待审核稿件</div>';return}
+  var h='';
+  for(var j=0;j<pending.length;j++){
+    var s=pending[j];
+    h+='<div class="item"><div class="info"><div class="title">⏳ 《'+escHtml(s.title)+'》</div><div class="meta">'+(COLUMN_NAMES[s.column]||s.column)+' · 投稿人：'+escHtml(s.author)+' · '+escHtml(s.time)+'</div></div><div class="actions"><button class="btn btn-sm btn-approve" onclick="approveSubmission(\''+s.id+'\')">✓ 通过</button><button class="btn btn-sm btn-reject" onclick="rejectSubmission(\''+s.id+'\')">✗ 退回</button></div></div>';
+  }
+  list.innerHTML=h;
+}
+
+function renderPublish(items){
+  var list=document.getElementById('publish-list');
+  if(!list)return;
+  var approved=[],published=[];
+  for(var i=0;i<items.length;i++){
+    if(items[i].status==='approved')approved.push(items[i]);
+    if(items[i].status==='published')published.push(items[i]);
+  }
+  var h='';
+
+  for(var j=0;j<approved.length;j++){
+    var s=approved[j];
+    var safeTitle=escHtml(s.title);
+    var escTitle=s.title.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    h+='<div class="item"><div class="info"><div class="title">✅ 已审核 · 《'+safeTitle+'》</div><div class="meta">'+(COLUMN_NAMES[s.column]||s.column)+' · '+escHtml(s.author)+' · '+(s.approved_at||'')+'</div></div><div class="actions"><button class="btn btn-sm btn-publish" onclick="var b=this;publishSubmission(\''+s.id+'\',\''+escTitle+'\',b)">📰 一键发表</button></div></div>';
+  }
+
+  for(var k=0;k<published.length;k++){
+    var p=published[k];
+    var safeTitle2=escHtml(p.title);
+    var escTitle2=p.title.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    var url=p.url||'/culture/'+p.id+'.html';
+    h+='<div class="item"><div class="info"><div class="title">📰 已发表 · 《'+safeTitle2+'》</div><div class="meta">'+(COLUMN_NAMES[p.column]||p.column)+' · '+(p.published_at||'')+'</div></div><div class="actions"><a href="'+url+'" target="_blank" class="btn btn-sm btn-publish" style="text-decoration:none">查看</a><button class="btn btn-sm btn-edit" onclick="editPublished(\''+p.id+'\')">✏</button><button class="btn btn-sm btn-delete" onclick="deletePublished(\''+p.id+'\',\''+escTitle2+'\')">🗑</button></div></div>';
+  }
+
+  if(!h)h='<div class="empty">暂无待发表稿件</div>';
+  list.innerHTML=h;
+}
+
+function escHtml(str){
+  if(!str)return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Load on start
+loadSubmissions();
+// Auto-refresh every 15 seconds
+setInterval(loadSubmissions,15000);
+</script>
+</body>
+</html>

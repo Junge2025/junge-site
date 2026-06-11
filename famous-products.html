@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名优名品总览 - 军鸽云链</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f8fafc; color: #1f2937; line-height: 1.6; }
+        .hero { background: linear-gradient(135deg, #1E3A5F, #2A4F7A); color: white; padding: 60px 20px 50px; text-align: center; position: relative; }
+        .hero h1 { font-size: 36px; font-weight: 900; margin-bottom: 12px; }
+        .hero p { font-size: 16px; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .section { background: white; border-radius: 12px; padding: 30px; margin: 24px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .section-title { font-size: 22px; color: #1E3A5F; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 3px solid #1E3A5F; }
+        .product-list { list-style: none; padding: 0; display: grid; gap: 12px; }
+        .product-list li { padding: 14px 18px; background: #f8fafc; border-radius: 8px; font-size: 15px; border-left: 4px solid #D4AF37; transition: all 0.2s; }
+        .product-list li:hover { background: #f0f4ff; transform: translateX(4px); }
+        .product-list li::before { content: "🏆 "; }
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; margin-left: 8px; font-weight: 600; }
+        .tag-gold { background: #fff8e1; color: #5D4037; }
+        .tag-blue { background: #e3f2fd; color: #1E3A5F; }
+        .tag-green { background: #e8f5e9; color: #2E7D32; }
+        .desc { color: #6b7280; font-size: 13px; margin-top: 4px; display: block; }
+        .intro-text { color: #4b5563; font-size: 15px; line-height: 1.8; }
+        .back-home { position: fixed; bottom: 80px; left: 30px; z-index: 100; display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; background: rgba(30,58,95,0.85); color: white; border: none; border-radius: 25px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.3s ease; backdrop-filter: blur(6px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .back-home:hover { background: #1E3A5F; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(30,58,95,0.3); }
+        .back-home.second { bottom: 30px; }
+        @media (max-width: 768px) { .hero h1 { font-size: 26px; } .back-home { bottom: 70px; left: 20px; padding: 8px 16px; font-size: 13px; } .back-home.second { bottom: 20px; } }
+        .breadcrumb-bar{display:flex;align-items:center;gap:6px;padding:10px 20px;background:rgba(0,0,0,0.25);backdrop-filter:blur(8px);font-size:13px;color:#fff;position:relative;z-index:10;flex-wrap:wrap}
+        .breadcrumb-bar a{color:rgba(255,255,255,0.85);text-decoration:none;transition:color .2s}
+        .breadcrumb-bar a:hover{color:#fff;text-decoration:underline}
+        .breadcrumb-bar .sep{color:rgba(255,255,255,0.5);margin:0 2px}
+        .breadcrumb-bar .cur{color:#fff;font-weight:600}
+        .extend-bar{position:fixed;bottom:46px;left:0;right:0;z-index:998;display:flex;justify-content:center;gap:12px;padding:6px 16px;background:linear-gradient(90deg,rgba(3,7,18,.95),rgba(10,22,40,.92));border-top:1px solid rgba(0,212,255,.08)}
+        .extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;color:#8896b0;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1);transition:all .2s}
+        .extend-bar a:hover{color:#00d4ff;border-color:rgba(0,212,255,.3);transform:translateY(-1px)}
+        .bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:5px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+        .bottom-nav a{color:#8896b0;text-decoration:none;font-size:11px;padding:4px 10px;border-radius:12px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1);transition:all .2s}
+        .bottom-nav a:hover{color:#00d4ff;border-color:rgba(0,212,255,.25)}
+    </style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="名优名品总览 - 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/famous-products.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/famous-products.html">
+</head>
+<body>
+    <div class="breadcrumb-bar"><a href="/">首页</a><span class="sep">›</span><a href="/shangcheng.html">商业生态</a><span class="sep">›</span><span class="cur">名优产品</span></div>
+    <div class="hero">
+        <h1>🏆 名优名品总览</h1>
+        <p>汇聚全国优质名优产品，品质保障，信誉如一。每件商品均经严格筛选认证，让您买得放心、用得安心。</p>
+    </div>
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">📦 名优名品</h2>
+            <p class="intro-text">名优名品涵盖各地知名品牌、老字号产品、行业标杆商品。以下为部分精选名优名品：</p>
+            <ul class="product-list">
+                <li>贵州茅台酒 53° 飞天 <span class="tag tag-gold">中华老字号</span><span class="desc">酱香型白酒，国酒典范</span></li>
+                <li>五粮液 普五 52° <span class="tag tag-gold">中华老字号</span><span class="desc">浓香型白酒，中国名酒</span></li>
+                <li>云南普洱茶 古树生普 357g <span class="tag tag-blue">地理标志</span><span class="desc">云南核心产区古树原料</span></li>
+                <li>阳澄湖大闸蟹 礼盒装 <span class="tag tag-blue">地理标志</span><span class="desc">膏满黄肥，蟹中极品</span></li>
+                <li>西湖龙井茶 明前特级 <span class="tag tag-green">有机认证</span><span class="desc">核心产区手工采摘</span></li>
+                <li>五常大米 有机稻花香 5kg <span class="tag tag-green">有机认证</span><span class="desc">中国最好的大米之一</span></li>
+                <li>培罗蒙西装 定制款 <span class="tag tag-gold">中华老字号</span><span class="desc">经典男装品牌</span></li>
+                <li>老凤祥黄金首饰 <span class="tag tag-gold">中华老字号</span><span class="desc">百年金饰品牌</span></li>
+                <li>张裕解百纳干红 橡木桶陈酿 <span class="tag tag-gold">中华老字号</span><span class="desc">百年葡萄酒品牌</span></li>
+                <li>青岛啤酒 经典1903 <span class="tag tag-gold">中华老字号</span><span class="desc">百年啤酒品牌</span></li>
+                <li>双汇冷鲜肉 精选五花 <span class="tag tag-blue">驰名商标</span><span class="desc">安全放心肉品</span></li>
+                <li>光明乳液 优倍鲜奶 <span class="tag tag-blue">驰名商标</span><span class="desc">新鲜健康每一天</span></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2 class="section-title">🔍 品牌特色</h2>
+            <ul class="product-list" style="list-style: none;">
+                <li style="border-left-color:#1E3A5F;">✅ 严格筛选 — 所有名优商品均经过品牌资质、生产标准、质量检测三重审核</li>
+                <li style="border-left-color:#1E3A5F;">✅ 信誉背书 — 联合退役军人信用背书体系，确保正品保障</li>
+                <li style="border-left-color:#1E3A5F;">✅ 溯源可查 — 区块链溯源技术，全程可追溯</li>
+                <li style="border-left-color:#1E3A5F;">✅ 售后无忧 — 7天无理由退换，品质有保障</li>
+            </ul>
+        </div>
+        <div style="height:100px;"></div>
+    </div>
+    <a href="/index.html" class="back-home" style="bottom:80px;">← 返回首页</a>
+    <a href="index.html#mall" class="back-home second">← 返回名优名品</a>
+    69|<!-- 停留分享奖励机制 -->
+    69|<script src="/js/game-pool.js"></script>
+  <script src="/js/share-reward.js"></script>
+  <div class="extend-bar"><a href="/sy.html">🔍 溯源查询</a><a href="/shangcheng.html">🛒 返回商城</a></div>
+  <div class="bottom-nav"><a href="/">🏠 军鸽云链</a><a href="/shangcheng.html">🛒 商业生态</a><a href="/taskforce.html">⚔ 数智中心</a><a href="/fenzhan.html">🌾 分站家园</a></div>
+    69|</body>
+</html>

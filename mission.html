@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>使命愿景 · 军鸽云链数智</title>
+<meta name="description" content="军鸽云链数智平台使命——以军魂铸诚信，以数智富万民。零费用创业赋能3000+县域分站，非转基因种子守护食品安全，区块链溯源重建消费信任。">
+<style>
+:root {
+--bg-deep:#030712; --bg-base:#060d1a; --bg-card:rgba(8,20,44,0.85);
+--primary:#00d4ff; --accent:#ff2d78; --gold:#f0c040; --green:#6dab7e;
+--red:#b84045; --blue:#4b8ecf;
+--text:#e8edf5; --text-dim:#8896b0; --text-muted:#4a5568;
+--border:rgba(255,255,255,.06); --border-glow:rgba(0,212,255,.15);
+--radius:12px; --radius-sm:8px; --radius-lg:18px;
+--shadow:0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg-deep);color:var(--text);line-height:1.65;overflow-x:hidden;
+min-height:100vh;
+background-image:
+radial-gradient(ellipse at 30% 0%,rgba(0,212,255,.05) 0%,transparent 50%),
+radial-gradient(ellipse at 70% 20%,rgba(109,171,126,.03) 0%,transparent 50%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:#1a2744;border-radius:2px}
+
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 20px;position:sticky;top:0;z-index:999;backdrop-filter:blur(20px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .2s;padding:3px 8px;border-radius:10px}
+.breadcrumb-bar a:hover{color:var(--primary);background:rgba(0,212,255,.08)}
+.breadcrumb-bar .sep{color:var(--text-muted);font-size:9px}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{text-align:center;padding:50px 20px 40px;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(0,212,255,.08) 0%,rgba(6,13,26,.95) 40%,rgba(109,171,126,.04) 100%);border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% -10%,rgba(0,212,255,.08),transparent 55%);pointer-events:none}
+.hero .icon{font-size:56px;margin-bottom:12px;position:relative;z-index:1;display:block}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:.06em;position:relative;z-index:1;background:linear-gradient(135deg,#00d4ff,#6dab7e,#f0c040);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:13px;color:var(--text-dim);margin-top:8px;position:relative;z-index:1;letter-spacing:.04em;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.8}
+.hero .motto{display:inline-block;padding:6px 24px;border:2px solid rgba(0,212,255,.3);border-radius:20px;color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.1em;margin-top:16px;position:relative;z-index:1}
+
+.container{max-width:1000px;margin:0 auto;padding:20px 18px 90px}
+
+.section{margin-bottom:30px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(0,212,255,.12)}
+.section-hd .icon{font-size:20px}
+.section-hd .title{font-size:15px;font-weight:650;letter-spacing:.03em;color:var(--primary)}
+.section-hd .tag{font-size:9px;padding:3px 10px;border-radius:10px;background:rgba(0,212,255,.08);color:var(--primary);margin-left:auto;letter-spacing:.06em}
+
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:768px){.g2,.g3{grid-template-columns:1fr}}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all .25s;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.card:hover{border-color:var(--border-glow);box-shadow:var(--shadow)}
+.card h3{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card p,.card .desc{font-size:11px;color:var(--text-dim);line-height:1.7}
+
+/* Mission Statement */
+.mission-statement{background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(8,20,44,.9),rgba(109,171,126,.04));border:1px solid rgba(0,212,255,.15);border-radius:var(--radius-lg);padding:28px 24px;position:relative;overflow:hidden}
+.mission-statement::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(0,212,255,.4),rgba(109,171,126,.3),transparent)}
+.mission-statement .ms-quote{font-size:18px;font-weight:700;line-height:1.8;color:var(--text);text-align:center;letter-spacing:.03em}
+.mission-statement .ms-quote .hl{color:var(--primary)}
+.mission-statement .ms-quote .hg{color:var(--green)}
+.mission-statement .ms-quote .hgld{color:var(--gold)}
+.mission-statement .ms-by{text-align:center;font-size:10px;color:var(--text-muted);margin-top:10px;letter-spacing:.06em}
+
+/* Timeline */
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,rgba(0,212,255,.3),rgba(109,171,126,.2))}
+.tl-item{position:relative;margin-bottom:20px;padding-left:8px}
+.tl-item::before{content:'';position:absolute;left:-19px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--primary);box-shadow:0 0 10px rgba(0,212,255,.4)}
+.tl-item:nth-child(even)::before{background:var(--green);box-shadow:0 0 10px rgba(109,171,126,.4)}
+.tl-item .tl-yr{font-size:9px;color:var(--text-muted);font-weight:700}
+.tl-item h4{font-size:13px;color:var(--text);margin:2px 0}
+.tl-item p{font-size:10px;color:var(--text-dim);line-height:1.6}
+
+/* Metric */
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+@media(max-width:600px){.metric-grid{grid-template-columns:repeat(2,1fr)}}
+.metric{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 10px;text-align:center}
+.metric .val{font-size:22px;font-weight:700;margin-bottom:4px}
+.metric .lbl{font-size:9px;color:var(--text-muted);letter-spacing:.04em}
+
+/* Pillars */
+.pillar{text-align:center;padding:20px 14px}
+.pillar .p-icon{font-size:36px;margin-bottom:8px}
+.pillar h4{font-size:13px;margin-bottom:6px}
+.pillar p{font-size:10px;color:var(--text-dim);line-height:1.6}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(20px);border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:all .2s;color:var(--text-dim);background:rgba(15,34,64,.6);border:1px solid rgba(0,212,255,.08)}
+.bottom-nav a:hover,.bottom-nav a.active{background:rgba(0,212,255,.12);color:var(--primary);border-color:rgba(0,212,255,.25)}
+
+footer{text-align:center;padding:16px 20px 10px;font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);line-height:1.8}
+
+@media(max-width:550px){
+.hero h1{font-size:22px}
+.mission-statement .ms-quote{font-size:15px}
+.card{padding:14px}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="使命愿景 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/mission.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/mission.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+<a href="/">🏠 首页</a><span class="sep">▸</span>
+<a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+<span class="current">🎯 使命愿景</span>
+</nav>
+
+<div class="hero">
+<div class="icon">🕊️</div>
+<h1>使命 · 愿景 · 价值观</h1>
+<p class="sub">以军魂铸诚信，以数智富万民——军鸽云链数智平台立身之本，从食品安全守护到退役军人赋能，从区块链溯源到乡村振兴，我们立志做中国食品安全+退役军人服务的标杆平台。</p>
+<div class="motto">军魂铸信 · 数智富民</div>
+</div>
+
+<div class="container">
+
+<!-- Mission Statement -->
+<div class="mission-statement" style="margin-bottom:28px">
+<div class="ms-quote">
+<strong class="hl">使命</strong>：以军人精神守护食品安全底线，以数字技术赋能退役军人创业就业，以<span class="hg">非转基因种子</span>和<span class="hl">区块链溯源</span>重构消费信任，以<span class="hgld">零费用创业</span>理念激活3000+县域经济。<br><br>
+<strong class="hl">愿景</strong>：成为全球领先的<span class="hgld">食品安全+退役军人服务</span>综合平台，让每一口食物都追溯到种子，让每一位退役军人都找到创业舞台。
+</div>
+<div class="ms-by">—— 军鸽云链数智 · 创始人团队 · 2026年5月</div>
+</div>
+
+<!-- Core Metrics -->
+<div class="metric-grid">
+<div class="metric"><div class="val" style="color:var(--primary)">3,000+</div><div class="lbl">县级分站目标</div></div>
+<div class="metric"><div class="val" style="color:var(--green)">100万+</div><div class="lbl">目标数字ID用户</div></div>
+<div class="metric"><div class="val" style="color:var(--gold)">10,000+</div><div class="lbl">退役军人就业目标</div></div>
+<div class="metric"><div class="val" style="color:#d47a7e">100%</div><div class="lbl">非转基因承诺</div></div>
+</div>
+
+<!-- Five Pillars -->
+<div class="section">
+<div class="section-hd"><span class="icon">🏛</span><span class="title">五大使命支柱</span><span class="tag">PILLARS</span></div>
+<div class="grid g3">
+<div class="card pillar" style="border-top:2px solid rgba(0,212,255,.25)">
+<div class="p-icon">🛡️</div>
+<h4 style="color:var(--primary)">食品安全守护</h4>
+<p>十不入网铁律 · 原产地直供 · 非转基因种子 · 区块链全链路溯源 · 属地监管责任链 · 消费者投诉48小时响应</p>
+</div>
+<div class="card pillar" style="border-top:2px solid rgba(184,64,69,.25)">
+<div class="p-icon">🪖</div>
+<h4 style="color:#d47a7e">退役军人赋能</h4>
+<p>零费用创业平台 · 3000+县域分站 · 退役军人优先录用 · 创业贷款贴息对接 · 技能培训 + 就业推荐一体化</p>
+</div>
+<div class="card pillar" style="border-top:2px solid rgba(109,171,126,.25)">
+<div class="p-icon">🌾</div>
+<h4 style="color:var(--green)">乡村振兴助力</h4>
+<p>原产地农庄直连 · 非转基因种子推广 · 生态农业技术赋能 · 农产品品牌打造 · 打通田间到餐桌最后一公里</p>
+</div>
+<div class="card pillar" style="border-top:2px solid rgba(240,192,64,.25)">
+<div class="p-icon">⛓️</div>
+<h4 style="color:var(--gold)">数字信任重建</h4>
+<p>区块链溯源存证 · TV/DV/JC三层价值体系 · 价格透明公示 · 消费者知情权保障 · 数据不可篡改</p>
+</div>
+<div class="card pillar" style="border-top:2px solid rgba(75,142,201,.25)">
+<div class="p-icon">🌏</div>
+<h4 style="color:#7ab5db">国际出海战略</h4>
+<p>吉隆坡国际节点 · 跨境电商 · 东盟非转基因供应链 · 中国食品安全标准输出 · 海南自贸港零关税优势</p>
+</div>
+<div class="card pillar" style="border-top:2px solid rgba(167,139,250,.25)">
+<div class="p-icon">🤖</div>
+<h4 style="color:var(--purple)">AI数智驱动</h4>
+<p>SuperAgentX总指挥系统 · 全自动AI推广 · 药食同源智能咨询 · 地域智搜 · 3000+分站AI协同作战</p>
+</div>
+</div>
+</div>
+
+<!-- Development Roadmap -->
+<div class="section">
+<div class="section-hd"><span class="icon">🗺️</span><span class="title">发展路线图</span><span class="tag">ROADMAP</span></div>
+<div class="card" style="padding:24px">
+<div class="timeline">
+<div class="tl-item">
+<div class="tl-yr">🚀 2024 — 启航</div>
+<h4>平台创立 · 海口总站落成</h4>
+<p>创始人团队完成平台顶层设计；确立「军魂铸信·数智富民」使命；海口总站智慧大脑投入运营；十不入网标准制定发布。</p>
+</div>
+<div class="tl-item">
+<div class="tl-yr">⚡ 2025 — 筑基</div>
+<h4>数智引擎上线 · 首批分站部署</h4>
+<p>SuperAgentX AI指挥系统上线；TV/DV/JC价值引擎运转；广州RED-DUAL Ω指挥中心建成；首批128个示范县级分站完成部署；区块链溯源系统V1上线。</p>
+</div>
+<div class="tl-item">
+<div class="tl-yr">🌏 2026 — 扩张</div>
+<h4>国际化布局 · 分站网络加速</h4>
+<p>吉隆坡国际出海节点投入运营；分站网络扩展至1000+县级站；AI全自动推广体系成熟；跨境电商零关税专区上线；药食同源AI智能咨询系统全面开放。</p>
+</div>
+<div class="tl-item">
+<div class="tl-yr">🏆 2027 — 突破</div>
+<h4>3000分站全覆盖 · 产业生态成型</h4>
+<p>完成3000+县级分站部署；数字ID用户突破100万；原产地生态农庄联盟覆盖全国主要产区；TV交易商用值体系成熟运转。</p>
+</div>
+<div class="tl-item">
+<div class="tl-yr">🌐 2028 — 引领</div>
+<h4>全球食品安全标准引领者</h4>
+<p>中国食品安全+退役军人服务模式出海；东盟10国供应链全链路覆盖；成为全球最大的非转基因食品区块链溯源平台。</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Core Commitments -->
+<div class="section">
+<div class="section-hd"><span class="icon">🤝</span><span class="title">我们对各方的承诺</span><span class="tag">COMMITMENTS</span></div>
+<div class="grid g2">
+<div class="card" style="border-left:2px solid rgba(0,212,255,.25)">
+<h3 style="color:var(--primary)">👨‍🌾 对生产者</h3>
+<p>零费用入驻平台 · 区块链溯源免费上链 · 原产地品牌联合推广 · 退役军人优先合作 · 技术赋能生态种植 · 价格透明不压价 · 产地环境评测支持 · 产品故事专业包装</p>
+</div>
+<div class="card" style="border-left:2px solid rgba(109,171,126,.25)">
+<h3 style="color:var(--green)">🛒 对消费者</h3>
+<p>100%非转基因承诺 · 全链路溯源可查 · 价格透明无中间商 · 48小时投诉响应 · 药食同源科学指导 · 产地直供新鲜直达 · 食品安全零容忍 · 消费者知情权保障</p>
+</div>
+<div class="card" style="border-left:2px solid rgba(184,64,69,.25)">
+<h3 style="color:#d47a7e">🪖 对退役军人</h3>
+<p>零费用创业平台 · 分站站长优先选用 · 创业贷款贴息对接 · 免费技能培训 · 战友互助网络 · 产品审核优先通道 · 退役军人在验证 · 军旅文化传承平台</p>
+</div>
+<div class="card" style="border-left:2px solid rgba(240,192,64,.25)">
+<h3 style="color:var(--gold)">🏛 对政府/社会</h3>
+<p>食品安全属地监管配合 · 数据透明开放 · 区块链存证不可篡改 · 退役军人就业数据上报 · 乡村振兴成果展示 · 消费者权益保护 · 行业标准制定参与</p>
+</div>
+</div>
+</div>
+
+<!-- Values -->
+<div class="section">
+<div class="section-hd"><span class="icon">💎</span><span class="title">平台核心价值观</span><span class="tag">VALUES</span></div>
+<div class="grid g2">
+<a href="/core-value.html" class="card" style="text-decoration:none;color:inherit;border-left:2px solid rgba(0,212,255,.25);cursor:pointer">
+<h3 style="color:var(--primary)">🛡️ 价值回归</h3>
+<p>让商品回归使用价值本身，去除过度包装和营销溢价。TV交易商用值体系确保每一笔交易都创造真实价值，而非虚假繁荣。</p>
+<p style="margin-top:8px;font-size:10px;color:var(--primary)">了解更多 →</p>
+</a>
+<a href="/core-value.html" class="card" style="text-decoration:none;color:inherit;border-left:2px solid rgba(109,171,126,.25);cursor:pointer">
+<h3 style="color:var(--green)">📊 价格透明</h3>
+<p>从种子到餐桌，每一步成本公开透明。原产地直供去除中间环节，消费者明明白白消费，生产者踏踏实实获利。</p>
+<p style="margin-top:8px;font-size:10px;color:var(--green)">了解更多 →</p>
+</a>
+</div>
+</div>
+
+<!-- CTA -->
+<div style="text-align:center;padding:24px;margin-top:10px">
+<p style="color:var(--text-dim);font-size:12px;margin-bottom:16px">加入军鸽云链，成为食品安全守护者和退役军人赋能者</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="/join-apply.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:linear-gradient(135deg,rgba(0,212,255,.2),rgba(8,20,44,.8));border:1px solid rgba(0,212,255,.3);color:var(--primary);transition:all .2s">📝 申请加入</a>
+<a href="/core-value.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:transparent;border:1px solid var(--border);color:var(--text-dim);transition:all .2s">💎 了解核心价值</a>
+<a href="/vision.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;background:transparent;border:1px solid var(--border);color:var(--text-dim);transition:all .2s">🔭 展望未来</a>
+</div>
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/taskforce.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+食品安全+退役军人在服务综合平台 · 军魂铸信 · 数智富民
+</footer>
+
+</body>
+</html>

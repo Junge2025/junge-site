@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>意见反馈 · 军鸽云链数智</title>
+<meta name="description" content="军鸽云链数智平台用户反馈通道——食品安全监督、服务质量评价、平台功能建议。您的每一条意见，都是我们前进的动力。">
+<style>
+:root {
+--bg-deep:#030712; --bg-base:#060d1a; --bg-card:rgba(8,20,44,0.85);
+--primary:#00d4ff; --accent:#ff2d78; --gold:#f0c040; --green:#6dab7e;
+--red:#b84045; --blue:#4b8ecf; --yellow:#f59e0b;
+--text:#e8edf5; --text-dim:#8896b0; --text-muted:#4a5568;
+--border:rgba(255,255,255,.06); --border-glow:rgba(0,212,255,.15);
+--radius:12px; --radius-sm:8px; --radius-lg:18px;
+--shadow:0 12px 40px rgba(0,0,0,.6);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:var(--bg-deep);color:var(--text);line-height:1.65;overflow-x:hidden;
+min-height:100vh;
+background-image:
+radial-gradient(ellipse at 20% 0%,rgba(0,212,255,.04) 0%,transparent 55%),
+radial-gradient(ellipse at 80% 15%,rgba(255,45,120,.03) 0%,transparent 55%);
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:#1a2744;border-radius:2px}
+
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid var(--border);padding:8px 20px;position:sticky;top:0;z-index:999;backdrop-filter:blur(20px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:var(--text-dim);text-decoration:none;transition:color .2s;padding:3px 8px;border-radius:10px}
+.breadcrumb-bar a:hover{color:var(--primary);background:rgba(0,212,255,.08)}
+.breadcrumb-bar .sep{color:var(--text-muted);font-size:9px}
+.breadcrumb-bar .current{color:var(--primary);font-weight:700}
+
+.hero{text-align:center;padding:42px 20px 32px;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(255,45,120,.04) 0%,rgba(6,13,26,.95) 50%,rgba(0,212,255,.05) 100%);border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,45,120,.05),transparent 60%);pointer-events:none}
+.hero .icon{font-size:48px;margin-bottom:8px;position:relative;z-index:1}
+.hero h1{font-size:26px;font-weight:800;letter-spacing:.04em;position:relative;z-index:1;background:linear-gradient(135deg,#ff2d78,#f0c040);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:12px;color:var(--text-dim);margin-top:6px;position:relative;z-index:1;letter-spacing:.03em}
+
+.container{max-width:1000px;margin:0 auto;padding:20px 18px 90px}
+
+.section{margin-bottom:28px}
+.section-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid rgba(255,45,120,.12)}
+.section-hd .icon{font-size:20px}
+.section-hd .title{font-size:15px;font-weight:650;letter-spacing:.03em;color:var(--accent)}
+.section-hd .tag{font-size:9px;padding:3px 10px;border-radius:10px;background:rgba(255,45,120,.08);color:var(--accent);margin-left:auto;letter-spacing:.06em}
+
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+@media(max-width:768px){.g2{grid-template-columns:1fr}}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:all .25s;backdrop-filter:blur(12px);position:relative;overflow:hidden}
+.card:hover{border-color:var(--border-glow);box-shadow:var(--shadow)}
+.card h3{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card p,.card .desc{font-size:11px;color:var(--text-dim);line-height:1.7}
+
+/* Feedback type chips */
+.fb-types{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.fb-type{flex:1;min-width:120px;padding:14px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:rgba(8,20,44,.6);text-align:center;cursor:pointer;transition:all .2s;user-select:none}
+.fb-type:hover{border-color:rgba(255,45,120,.25)}
+.fb-type.selected{border-color:rgba(255,45,120,.5);background:rgba(255,45,120,.08);box-shadow:0 0 16px rgba(255,45,120,.1)}
+.fb-type .ticon{font-size:28px;margin-bottom:4px;display:block}
+.fb-type .tlabel{font-size:11px;color:var(--text-dim);font-weight:600}
+.fb-type.selected .tlabel{color:var(--accent)}
+
+/* Star Rating */
+.stars{display:flex;gap:4px;cursor:pointer;user-select:none}
+.stars .star{font-size:22px;color:var(--text-muted);transition:color .15s}
+.stars .star:hover,.stars .star.active{color:var(--gold)}
+
+/* Form */
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:11px;color:var(--text-dim);margin-bottom:5px;font-weight:600}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:10px 14px;border-radius:var(--radius-sm);border:1px solid var(--border);background:rgba(3,7,18,.8);color:var(--text);font-size:12px;font-family:inherit;transition:border-color .2s;outline:none;resize:vertical}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:rgba(255,45,120,.4);box-shadow:0 0 0 3px rgba(255,45,120,.06)}
+.form-group textarea{min-height:140px}
+.form-row{display:flex;gap:12px}
+.form-row .form-group{flex:1}
+@media(max-width:550px){.form-row{flex-direction:column}}
+
+.checkbox-group{display:flex;align-items:flex-start;gap:8px;font-size:11px;color:var(--text-dim);line-height:1.6}
+.checkbox-group input[type=checkbox]{margin-top:3px;accent-color:var(--accent)}
+
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 28px;border-radius:22px;font-size:12px;font-weight:650;text-decoration:none;cursor:pointer;border:none;transition:all .25s;letter-spacing:.04em;font-family:inherit}
+.btn-primary{background:linear-gradient(135deg,rgba(255,45,120,.25),rgba(180,20,60,.5));border:1px solid rgba(255,45,120,.4);color:#f8b8c8;box-shadow:0 0 20px rgba(255,45,120,.1)}
+.btn-primary:hover{box-shadow:0 0 36px rgba(255,45,120,.3);transform:translateY(-1px)}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text-dim)}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+
+/* Stats */
+.stats-row{display:flex;gap:10px;flex-wrap:wrap}
+.stat-pill{padding:8px 16px;border-radius:10px;font-size:10px;background:rgba(8,20,44,.6);border:1px solid var(--border);text-align:center;flex:1;min-width:80px}
+.stat-pill .sn{font-size:18px;font-weight:700;color:var(--primary)}
+.stat-pill .sl{font-size:8px;color:var(--text-muted);margin-top:2px}
+
+/* Feedback History */
+.fb-item{background:rgba(8,20,44,.5);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+.fb-item .fb-status{font-size:9px;padding:2px 8px;border-radius:8px;font-weight:600;white-space:nowrap}
+.fb-status.resolved{background:rgba(109,171,126,.12);color:var(--green)}
+.fb-status.pending{background:rgba(245,158,11,.12);color:var(--yellow)}
+.fb-item .fb-body{flex:1}
+.fb-item .fb-body h4{font-size:12px;margin-bottom:3px}
+.fb-item .fb-body p{font-size:10px;color:var(--text-dim);line-height:1.5}
+.fb-item .fb-meta{font-size:9px;color:var(--text-muted);margin-top:4px}
+
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));backdrop-filter:blur(20px);border-top:1px solid rgba(0,212,255,.12);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{padding:6px 16px;border-radius:16px;font-size:10.5px;text-decoration:none;transition:all .2s;color:var(--text-dim);background:rgba(15,34,64,.6);border:1px solid rgba(0,212,255,.08)}
+.bottom-nav a:hover,.bottom-nav a.active{background:rgba(0,212,255,.12);color:var(--primary);border-color:rgba(0,212,255,.25)}
+
+footer{text-align:center;padding:16px 20px 10px;font-size:9px;color:var(--text-muted);border-top:1px solid var(--border);line-height:1.8}
+
+@media(max-width:550px){
+.hero h1{font-size:20px}
+.card{padding:14px}
+.fb-type{min-width:90px}
+}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="意见反馈 · 军鸽云链数智">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/feedback.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/feedback.html">
+</head>
+<body>
+
+<nav class="breadcrumb-bar">
+<a href="/">🏠 首页</a><span class="sep">▸</span>
+<a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+<span class="current">💬 意见反馈</span>
+</nav>
+
+<div class="hero">
+<div class="icon">💬</div>
+<h1>意见反馈</h1>
+<p class="sub">您的每一条意见，都是军鸽云链前进的动力 · 48小时响应承诺</p>
+</div>
+
+<div class="container">
+
+<!-- Stats Banner -->
+<div class="stats-row" style="margin-bottom:20px">
+<div class="stat-pill"><div class="sn">12,840</div><div class="sl">累计反馈</div></div>
+<div class="stat-pill"><div class="sn">98.2%</div><div class="sl">办结率</div></div>
+<div class="stat-pill"><div class="sn">&lt;36h</div><div class="sl">平均响应</div></div>
+<div class="stat-pill"><div class="sn">92.6%</div><div class="sl">满意度</div></div>
+</div>
+
+<!-- Feedback Form -->
+<div class="section">
+<div class="section-hd"><span class="icon">✍️</span><span class="title">提交反馈</span><span class="tag">SUBMIT</span></div>
+<div class="card">
+<form onsubmit="event.preventDefault();alert('✅ 感谢您的反馈！我们将在48小时内通过预留联系方式回复。');this.reset();document.querySelectorAll('.fb-type').forEach(e=>e.classList.remove('selected'))">
+
+<!-- Feedback Type -->
+<div style="margin-bottom:6px"><label style="display:block;font-size:11px;color:var(--text-dim);margin-bottom:8px;font-weight:600">反馈类型 *（请选择）</label></div>
+<div class="fb-types" id="fbTypes">
+<div class="fb-type selected" data-type="quality" onclick="this.parentElement.querySelectorAll('.fb-type').forEach(e=>e.classList.remove('selected'));this.classList.add('selected')">
+<span class="ticon">🔍</span><span class="tlabel">产品质量</span>
+</div>
+<div class="fb-type" data-type="service" onclick="this.parentElement.querySelectorAll('.fb-type').forEach(e=>e.classList.remove('selected'));this.classList.add('selected')">
+<span class="ticon">🛎️</span><span class="tlabel">服务质量</span>
+</div>
+<div class="fb-type" data-type="function" onclick="this.parentElement.querySelectorAll('.fb-type').forEach(e=>e.classList.remove('selected'));this.classList.add('selected')">
+<span class="ticon">⚙️</span><span class="tlabel">功能建议</span>
+</div>
+<div class="fb-type" data-type="complaint" onclick="this.parentElement.querySelectorAll('.fb-type').forEach(e=>e.classList.remove('selected'));this.classList.add('selected')">
+<span class="ticon">🚨</span><span class="tlabel">投诉举报</span>
+</div>
+<div class="fb-type" data-type="other" onclick="this.parentElement.querySelectorAll('.fb-type').forEach(e=>e.classList.remove('selected'));this.classList.add('selected')">
+<span class="ticon">💡</span><span class="tlabel">其他建议</span>
+</div>
+</div>
+
+<!-- Rating -->
+<div style="margin-bottom:16px">
+<label style="display:block;font-size:11px;color:var(--text-dim);margin-bottom:5px;font-weight:600">整体满意度评价</label>
+<div class="stars" id="starRating">
+<span class="star" data-v="1" onclick="rate(this)">☆</span>
+<span class="star" data-v="2" onclick="rate(this)">☆</span>
+<span class="star" data-v="3" onclick="rate(this)">☆</span>
+<span class="star" data-v="4" onclick="rate(this)">☆</span>
+<span class="star" data-v="5" onclick="rate(this)">☆</span>
+</div>
+<script>
+function rate(el){var v=parseInt(el.dataset.v);var stars=el.parentElement.querySelectorAll('.star');stars.forEach(function(s,i){if(i<v){s.textContent='★';s.classList.add('active')}else{s.textContent='☆';s.classList.remove('active')}})}
+</script>
+</div>
+
+<!-- Description -->
+<div class="form-group">
+<label>问题/建议详细描述 *</label>
+<textarea placeholder="请详细描述您遇到的问题、建议或想法。包括：发生了什么、在哪里发生、涉及的商品/服务是什么、您期望的解决方案...&#10;&#10;我们珍视每一条反馈，详尽的信息能帮助我们更快做出改进。" required></textarea>
+</div>
+
+<div class="form-row">
+<div class="form-group"><label>您的姓名 *</label><input type="text" placeholder="请输入姓名" required></div>
+<div class="form-group"><label>联系电话 *</label><input type="tel" placeholder="请输入手机号码" required></div>
+</div>
+
+<div class="form-group"><label>邮箱地址</label><input type="email" placeholder="请输入邮箱（用于接收处理结果通知）"></div>
+
+<div class="form-group"><label>涉及的商品/服务/页面（选填）</label><input type="text" placeholder="如：订单号、商品名称、访问的页面URL等"></div>
+
+<div class="form-group">
+<label>上传截图（选填）</label>
+<input type="file" accept="image/*" multiple style="padding:8px;font-size:11px">
+<small style="color:var(--text-muted);display:block;margin-top:4px;font-size:9px">支持JPG/PNG，单张不超过5MB，最多3张</small>
+</div>
+
+<div class="checkbox-group" style="margin-bottom:16px">
+<input type="checkbox" id="agree" required>
+<label for="agree">我已阅读并同意《军鸽云链用户反馈处理规则》，知晓平台将在48小时内响应我的反馈，并同意平台通过预留联系方式与我沟通处理进展。</label>
+</div>
+
+<button type="submit" class="btn btn-primary">📨 提交反馈</button>
+</form>
+</div>
+</div>
+
+<!-- Feedback History Demo -->
+<div class="section">
+<div class="section-hd"><span class="icon">📋</span><span class="title">近期反馈处理公示</span><span class="tag">TRANSPARENCY</span></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div class="fb-item">
+<span class="fb-status resolved">已解决</span>
+<div class="fb-body">
+<h4>关于东北黑土农庄有机大米包装标识的建议</h4>
+<p>用户反馈包装袋上的生产日期字体过小，建议加大字号并增加盲文标识。已采纳，新批次包装已更新。</p>
+<div class="fb-meta">2026-05-25 · 反馈人：李** · 响应时间：8小时</div>
+</div>
+</div>
+<div class="fb-item">
+<span class="fb-status resolved">已解决</span>
+<div class="fb-body">
+<h4>分站家园页面在iOS Safari上图片加载异常</h4>
+<p>技术排查为WebP格式兼容性问题，已统一转换为渐进式JPEG，iOS端显示正常。</p>
+<div class="fb-meta">2026-05-22 · 反馈人：王** · 响应时间：12小时</div>
+</div>
+</div>
+<div class="fb-item">
+<span class="fb-status pending">处理中</span>
+<div class="fb-body">
+<h4>建议增加语音搜索功能方便老年退役军人使用</h4>
+<p>已纳入产品路线图，预计2026年Q3上线AI语音搜索功能，支持方言识别。</p>
+<div class="fb-meta">2026-05-27 · 反馈人：陈** · 预计完成：2026年9月</div>
+</div>
+</div>
+<div class="fb-item">
+<span class="fb-status resolved">已解决</span>
+<div class="fb-body">
+<h4>云南高原农庄野生菌菇溯源信息更新不及时</h4>
+<p>已督促云南分站更新区块链溯源节点数据，最新批次24小时内完成上链。</p>
+<div class="fb-meta">2026-05-20 · 反馈人：赵** · 响应时间：6小时</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Hotline -->
+<div class="section">
+<div class="section-hd"><span class="icon">📞</span><span class="title">紧急反馈通道</span><span class="tag">URGENT</span></div>
+<div class="grid g2">
+<div class="card" style="border-left:2px solid rgba(184,64,69,.25)">
+<h3 style="color:#d47a7e">🔴 食品安全投诉专线</h3>
+<p>如发现食品安全问题（变质、异物、虚假宣传等），请立即拨打投诉热线。<br><br>
+<strong style="color:#d47a7e">12315</strong> · <strong style="color:#d47a7e">12345</strong><br>
+平台值班：<strong style="color:var(--primary)">400-888-8888</strong><br>
+邮件：<strong style="color:var(--primary)">jubao@junge.中国</strong></p>
+</div>
+<div class="card" style="border-left:2px solid rgba(0,212,255,.25)">
+<h3 style="color:var(--primary)">🪖 退役军人服务专线</h3>
+<p>退役军人创业咨询、就业帮扶、战友互助等，请通过以下方式联系我们。<br><br>
+<strong style="color:var(--primary)">400-888-8888</strong>（转属地分站）<br>
+邮件：<strong style="color:var(--primary)">veteran@junge.中国</strong><br>
+企业微信：搜索「军鸽云链」</p>
+</div>
+</div>
+</div>
+
+<!-- Note -->
+<div style="background:rgba(0,212,255,.03);border:1px solid rgba(0,212,255,.1);border-radius:var(--radius);padding:14px 18px;font-size:11px;color:var(--text-dim);line-height:1.8;margin-bottom:20px">
+📌 <strong style="color:var(--primary)">反馈处理规则：</strong>（1）所有反馈48小时内响应；（2）食品安全投诉2小时内响应；（3）涉及人身安全的紧急问题30分钟内响应；（4）实名反馈优先处理并反馈结果；（5）匿名反馈同样有效处理但不单独回复结果。反馈处理进度可在<strong style="color:var(--gold)">个人中心</strong>查看。
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+<a href="/">🏠 军鸽云链</a>
+<a href="/shangcheng.html">🛒 商业生态</a>
+<a href="/taskforce.html">⚔ 数智中心</a>
+<a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+<footer>
+军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+食品安全+退役军人在服务综合平台 · 48小时响应承诺 · 军魂铸信
+</footer>
+
+</body>
+</html>

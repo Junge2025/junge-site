@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>生态农庄认养 · 军创商城 · 军鸽云链</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="生态农庄认养：一人一地块，IoT 实时监测，农事直播，全程可视化的生态认养体系。">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--blue:#0B1C3D;--green:#2E7D32;--gold:#D4AF37;--bg:#050814;--card:#0E172A;--muted:#8A94B0;--border:#1F2940;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;background:radial-gradient(circle at top,#101935 0%,#050814 55%,#02030A 100%);color:#f5f7ff;line-height:1.6;}
+a{color:inherit;text-decoration:none}
+.container{max-width:1280px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;z-index:1000;backdrop-filter:blur(18px);background:linear-gradient(90deg,rgba(5,8,20,.96),rgba(5,8,20,.85));border-bottom:1px solid rgba(255,255,255,.06);}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:16px;flex-wrap:wrap}
+.brandbox{display:flex;align-items:center;gap:12px}
+.brand-logo{width:46px;height:46px;border-radius:14px;background:radial-gradient(circle at 20% 0%,#4F8DFF 0%,#1E3A5F 40%,#050814 100%);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#fff;border:1px solid rgba(255,255,255,.18);}
+.brand-title .cn{font-size:18px;font-weight:800}
+.brand-title .en{font-size:11px;opacity:.8;color:#A9B4D8}
+.nav-main{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.nav-main a{font-size:13px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:#D5DDF5;transition:.25s;}
+.nav-main a:hover{background:rgba(255,255,255,.12);color:#fff;transform:translateY(-1px)}
+.nav-main a.active{background:linear-gradient(135deg,#F9D976,#F39F86);color:#1B2340;border-color:transparent;}
+.hero{margin:14px 0 18px;border-radius:24px;padding:22px 20px 20px;background:radial-gradient(circle at 10% 0%,rgba(79,141,255,.35) 0%,transparent 55%),radial-gradient(circle at 90% 0%,rgba(46,125,50,.45) 0%,transparent 55%),linear-gradient(135deg,#050814 0%,#0B1C3D 40%,#050814 100%);border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 45px rgba(0,0,0,.55);}
+.hero-inner{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.hero-left h1{font-size:26px;margin-bottom:6px}
+.hero-left h1 span{background:linear-gradient(135deg,#A8E063,#56AB2F);-webkit-background-clip:text;color:transparent;}
+.hero-sub{font-size:13px;color:#C3CCE8;margin-bottom:12px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.hero-badge{font-size:11px;padding:4px 9px;border-radius:999px;background:rgba(5,8,20,.7);border:1px solid rgba(255,255,255,.16);color:#C8F5C0;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+.btn-hero-primary{padding:9px 16px;border-radius:999px;border:none;cursor:pointer;background:linear-gradient(135deg,#A8E063,#56AB2F);color:#0B1C3D;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.btn-hero-secondary{padding:9px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(5,8,20,.7);color:#D5DDF5;font-size:12px;display:flex;align-items:center;gap:6px;cursor:pointer;}
+.hero-kpis{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:#A9B4D8}
+.hero-kpis div strong{display:block;font-size:15px;color:#fff}
+.hero-iot{background:rgba(5,8,20,.9);border-radius:18px;padding:12px;border:1px solid rgba(255,255,255,.12);font-size:12px;color:#C3CCE8;}
+.hero-iot h3{font-size:13px;margin-bottom:6px}
+.iot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.iot-item{background:rgba(10,16,35,.9);border-radius:10px;padding:8px;border:1px solid rgba(255,255,255,.08);font-size:11px;color:#C3CCE8;}
+.iot-item strong{display:block;font-size:14px;margin-bottom:2px}
+.section{margin-bottom:18px}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.section-title h2{font-size:16px}
+.section-title small{font-size:11px;color:#8A94B0}
+.package-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.package-card{background:rgba(5,8,20,.95);border-radius:16px;padding:12px;border:1px solid rgba(255,255,255,.08);font-size:12px;color:#C3CCE8;}
+.package-card h3{font-size:14px;margin-bottom:4px}
+.package-meta{font-size:11px;color:#A9B4D8;margin-bottom:6px}
+.package-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.package-tags span{font-size:10px;padding:2px 6px;border-radius:999px;background:rgba(10,16,35,.9);border:1px solid rgba(255,255,255,.12);}
+.package-bottom{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#C3CCE8;margin-top:6px;}
+.package-price strong{color:#A8E063;font-size:14px}
+.timeline{background:rgba(5,8,20,.95);border-radius:16px;padding:12px;border:1px solid rgba(255,255,255,.08);font-size:12px;color:#C3CCE8;}
+.timeline h3{font-size:14px;margin-bottom:6px}
+.timeline-list{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.timeline-list li{padding:6px 8px;border-radius:10px;background:rgba(10,16,35,.9);border:1px solid rgba(255,255,255,.08);}
+footer{margin:20px 0 16px;font-size:11px;color:#7E88A8;text-align:center}
+footer span{color:#C8F5C0}
+@media(max-width:1024px){.hero-inner{grid-template-columns:1fr}.package-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.package-grid{grid-template-columns:1fr}}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="生态农庄认养 · 军创商城 · 军鸽云链">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/eco-farm.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/eco-farm.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">生态农庄</span>
+</nav>
+<header><div class="container topbar">
+  <div class="brandbox"><div class="brand-logo">JG</div><div class="brand-title"><div class="cn">生态农庄认养</div><div class="en">Eco Farm Adoption · IoT & Traceability</div></div></div>
+  <nav class="nav-main"><a href="/index.html">商城首页</a><a href="/zero-tariff.html">零关税专区</a><a href="/veteran-mall.html">军创优品</a><a href="/eco-farm.html" class="active">生态农庄</a></nav>
+</div></header>
+<main class="container">
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <h1><span>一人一地块 · 看得见的生态认养</span></h1>
+      <div class="hero-sub">由退役军人或本地农场主运营的生态农庄，一人一地块，IoT 实时监测 + 农事直播 + 区块链上链，让每一份收获都有记录。</div>
+      <div class="hero-badges"><div class="hero-badge"><i class="fas fa-seedling"></i> 零化学农药原则</div><div class="hero-badge"><i class="fas fa-broadcast-tower"></i> IoT 实时监测</div><div class="hero-badge"><i class="fas fa-video"></i> 农事直播</div></div>
+      <div class="hero-cta"><button class="btn-hero-primary"><i class="fas fa-leaf"></i> 立即认养一块地</button><button class="btn-hero-secondary"><i class="fas fa-play-circle"></i> 查看农场直播示意</button></div>
+      <div class="hero-kpis"><div><strong>20%+</strong>生长周期延长</div><div><strong>100%</strong>农事记录上链</div><div><strong>0</strong>化学农药使用（原则）</div></div>
+    </div>
+    <aside class="hero-iot">
+      <h3><i class="fas fa-microchip"></i> IoT 实时数据（示意）</h3>
+      <div class="iot-grid"><div class="iot-item"><strong>22.6℃</strong><span>地表温度 · 实时</span></div><div class="iot-item"><strong>68%</strong><span>土壤湿度 · 实时</span></div><div class="iot-item"><strong>6.8</strong><span>土壤 pH 值 · 周期检测</span></div><div class="iot-item"><strong>优</strong><span>水质等级 · 定期检测</span></div></div>
+    </aside>
+  </div>
+</section>
+<section class="section">
+  <div class="section-title"><h2>认养套餐 · 按周期选择</h2><small>一季 · 半年 · 一年</small></div>
+  <div class="package-grid">
+    <article class="package-card"><h3>一季认养 · 基础体验</h3><div class="package-meta">周期：约 3 个月 · 适合首次体验</div><div class="package-tags"><span>IoT 数据查看</span><span>农事记录上链</span><span>季末实物配送</span></div><p>适合想先体验生态认养模式的用户，周期较短，可直观感受从播种到收获的完整过程。</p><div class="package-bottom"><div class="package-price"><span>认养价</span><strong>¥ 920 / 季</strong></div><div style="display:flex;gap:4px"><button class="btn-xs" onclick="openPricing('JG-FARM-001')"><i class="fas fa-coins"></i> 定价</button><button class="btn-xs" onclick="openTrace('JG-FARM-001')"><i class="fas fa-qrcode"></i> 溯源</button></div></div></article>
+    <article class="package-card"><h3>半年认养 · 深度参与</h3><div class="package-meta">周期：约 6 个月 · 多季作物组合</div><div class="package-tags"><span>多次实地探访</span><span>直播互动</span><span>组合配送</span></div><p>适合家庭或小团体，支持多次实地探访与线上直播互动，收获多批次农产品与农场体验。</p><div class="package-bottom"><div class="package-price"><span>认养价</span><strong>¥ 1680 / 半年</strong></div><div style="display:flex;gap:4px"><button class="btn-xs" onclick="openPricing('JG-FARM-002')"><i class="fas fa-coins"></i> 定价</button><button class="btn-xs" onclick="openTrace('JG-FARM-002')"><i class="fas fa-qrcode"></i> 溯源</button></div></div></article>
+    <article class="package-card"><h3>年度认养 · 共建伙伴</h3><div class="package-meta">周期：约 12 个月 · 全年共建</div><div class="package-tags"><span>品牌共建</span><span>定制农产品</span><span>团建与研学</span></div><p>适合企业、机构或社群，支持品牌共建、定制农产品包装，可结合团建、研学与公益活动。</p><div class="package-bottom"><div class="package-price"><span>认养价</span><strong>¥ 2980 / 年</strong></div><div style="display:flex;gap:4px"><button class="btn-xs" onclick="openPricing('JG-FARM-003')"><i class="fas fa-coins"></i> 定价</button><button class="btn-xs" onclick="openTrace('JG-FARM-003')"><i class="fas fa-qrcode"></i> 溯源</button></div></div></article>
+  </div>
+</section>
+<section class="section">
+  <div class="section-title"><h2>农事时间轴 · 示例</h2><small>从播种到收获，每一步都有记录</small></div>
+  <div class="timeline"><h3><i class="fas fa-seedling"></i> 一季认养 · 农事节点</h3>
+    <ul class="timeline-list">
+      <li>第 1 周：整地与播种 · 土壤检测结果上链 · 播种视频记录</li>
+      <li>第 3–4 周：出苗观察 · IoT 数据稳定监测 · 农事巡田直播</li>
+      <li>第 6–8 周：中耕与除草 · 不使用化学除草剂 · 记录人工除草情况</li>
+      <li>第 10–12 周：成熟期监测 · 随机抽样检测 · 采收计划公示</li>
+      <li>第 12–14 周：采收与分拣 · 冷链入仓 · 打包与配送 · 签收留档</li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer>军鸽云链 · 生态农庄认养 · <span>让每一块土地的故事被看见</span></footer>
+<!-- ====== 通用透明定价 Modal ====== -->
+<div class="modal" id="pricingModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>透明定价 · 成本构成</h3>
+      <button class="close" onclick="closePricing()">&times;</button>
+    </div>
+    <div id="pricingTitle" style="font-weight:700;color:#A9B4D8;font-size:14px"></div>
+    <table class="table" style="margin-top:8px">
+      <thead><tr><th>构成项</th><th>金额/占比</th><th>说明</th></tr></thead>
+      <tbody id="pricingBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ====== 通用溯源 Modal ====== -->
+<div class="modal" id="traceModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>区块链溯源 · 全链条信息</h3>
+      <button class="close" onclick="closeTrace()">&times;</button>
+    </div>
+    <div id="traceTitle" style="font-weight:700;color:#A9B4D8;font-size:14px"></div>
+    <ul class="trace-list" id="traceList"></ul>
+  </div>
+</div>
+
+<style>
+/* ====== 通用 Modal 样式 ====== */
+.modal{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;
+  background:rgba(0,0,0,.7);backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;
+}
+.modal-content{
+  background:rgba(14,23,42,.98);border-radius:20px;
+  padding:24px 20px;border:1px solid rgba(255,255,255,.1);
+  max-width:500px;width:92%;max-height:80vh;overflow-y:auto;
+  position:relative;
+}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.modal-header h3{font-size:16px;color:#F5F7FF;margin:0}
+.close{background:none;border:none;color:#8A94B0;font-size:22px;cursor:pointer;padding:0 4px}
+.table{width:100%;border-collapse:collapse;font-size:12px;color:#D5DDF5}
+.table th{background:rgba(5,8,20,.8);padding:6px 8px;text-align:left;font-weight:600;color:#C3CCE8;border-bottom:1px solid rgba(255,255,255,.08)}
+.table td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.05)}
+.table tr:last-child td{border-bottom:none}
+.table tr:hover td{background:rgba(255,255,255,.02)}
+.trace-list{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:6px}
+.trace-list li{
+  padding:8px 10px;border-radius:10px;
+  background:rgba(10,16,35,.9);border:1px solid rgba(255,255,255,.08);
+  font-size:12px;color:#D5DDF5;
+}
+.trace-list li::before{content:"🔗 ";font-size:11px}
+.btn-xs{font-size:10px;padding:3px 7px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(5,8,20,.7);color:#C3CCE8;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:3px}
+.btn-xs:hover{background:rgba(212,175,55,.15);border-color:#D4AF37;color:#F5E6B3}
+</style>
+
+<script>
+// ====== 定价数据源（可扩展） ======
+const pricingMap = {
+  "JG-2025001": {
+    title:"有机大米（5kg）· 成本构成",
+    rows:[
+      ["原料与种植","¥48（37.5%）","有机肥/人工"],
+      ["加工与包装","¥22（17.2%）","分装/材料"],
+      ["物流与冷链","¥18（14.1%）","产地→仓→消费者"],
+      ["平台服务费","¥6（4.7%）","技术/分站"],
+      ["公益金","¥1（0.8%）","纯利润中提取1%"],
+      ["供货人利润","¥33（25.7%）","透明边界约束"]
+    ]
+  },
+  "JG-2025002": {
+    title:"地理标志水果礼盒 · 成本构成",
+    rows:[
+      ["原料与种植","¥72（37.2%）","鲜果/分拣"],
+      ["加工与包装","¥28（14.5%）","环保礼盒"],
+      ["物流与冷链","¥38（19.6%）","产地→仓→消费者"],
+      ["平台服务费","¥8（4.1%）","技术/分站"],
+      ["公益金","¥1.3（0.7%）","纯利润中提取1%"],
+      ["供货人利润","¥46.7（23.9%）","透明边界约束"]
+    ]
+  },
+  "JG-2025003": {
+    title:"非遗工艺辣酱礼盒 · 成本构成",
+    rows:[
+      ["原料与加工","¥26（44.1%）","非遗配方/手工"],
+      ["包装与物流","¥18（30.5%）","玻璃瓶/冷链"],
+      ["平台服务费","¥4（6.8%）","技术/分站"],
+      ["公益金","¥0.6（1%）","纯利润中提取1%"],
+      ["供货人利润","¥10.4（17.6%）","透明边界约束"]
+    ]
+  },
+  "JG-FARM-001": {
+    title:"生态农庄认养（季）· 成本构成",
+    rows:[
+      ["农事管理","¥560（60.9%）","耕种/巡检/直播"],
+      ["IoT监测","¥120（13%）","传感器/上链"],
+      ["配送","¥140（15.2%）","冷链/末端"],
+      ["平台服务费","¥60（6.5%）","技术/分站"],
+      ["公益金","¥10（1.1%）","纯利润中提取1%"],
+      ["农场利润","¥30（3.3%）","季末结算"]
+    ]
+  },
+  "JG-FARM-002": {
+    title:"生态农庄认养（半年）· 成本构成",
+    rows:[
+      ["农事管理","¥1,080（64.3%）","多季轮作/全程管理"],
+      ["IoT监测","¥200（11.9%）","传感器/上链"],
+      ["配送","¥220（13.1%）","多批次冷链"],
+      ["平台服务费","¥80（4.8%）","技术/分站"],
+      ["公益金","¥17（1%）","纯利润中提取1%"],
+      ["农场利润","¥83（4.9%）","半年结算"]
+    ]
+  },
+  "JG-FARM-003": {
+    title:"生态农庄认养（年度）· 成本构成",
+    rows:[
+      ["农事管理","¥1,880（63.1%）","全年定制耕作/品牌共建"],
+      ["IoT监测","¥360（12.1%）","全年数据/趋势分析"],
+      ["配送","¥380（12.7%）","年度配送/团建接待"],
+      ["平台服务费","¥120（4%）","技术/分站"],
+      ["公益金","¥30（1%）","纯利润中提取1%"],
+      ["农场利润","¥210（7.1%）","年度结算"]
+    ]
+  },
+  "ZT-2025001": {
+    title:"进口营养蛋白粉·成本构成",
+    rows:[
+      ["境外采购","¥168（56.2%）","新西兰出厂价"],
+      ["跨境清关","¥35（11.7%）","税费/检验"],
+      ["仓储与温控","¥22（7.4%）","自贸仓"],
+      ["物流配送","¥30（10%）","境内配送"],
+      ["平台服务费","¥12（4%）","技术/分站"],
+      ["供货人利润","¥32（10.7%）","跨境合规"]
+    ]
+  },
+  "ZT-2025002": {
+    title:"复合维生素软糖·成本构成",
+    rows:[
+      ["境外采购","¥88（52.1%）","德国出厂价"],
+      ["跨境清关","¥28（16.6%）","税费/检验"],
+      ["仓储与温控","¥14（8.3%）","自贸仓"],
+      ["物流配送","¥18（10.6%）","境内配送"],
+      ["平台服务费","¥8（4.7%）","技术/分站"],
+      ["供货人利润","¥13（7.7%）","跨境合规"]
+    ]
+  },
+  "ZT-2025003": {
+    title:"关节健康营养片·成本构成",
+    rows:[
+      ["境外采购","¥148（57.1%）","美国出厂价"],
+      ["跨境清关","¥38（14.7%）","税费/检验"],
+      ["仓储与温控","¥18（6.9%）","自贸仓"],
+      ["物流配送","¥24（9.3%）","境内配送"],
+      ["平台服务费","¥10（3.9%）","技术/分站"],
+      ["供货人利润","¥21（8.1%）","跨境合规"]
+    ]
+  },
+  "ZT-2025004": {
+    title:"益生菌固体饮料·成本构成",
+    rows:[
+      ["境外采购","¥98（51.9%）","日本出厂价"],
+      ["跨境清关","¥32（16.9%）","税费/检验"],
+      ["仓储与温控","¥16（8.5%）","自贸仓"],
+      ["物流配送","¥20（10.6%）","境内配送"],
+      ["平台服务费","¥8（4.2%）","技术/分站"],
+      ["供货人利润","¥15（7.9%）","跨境合规"]
+    ]
+  }
+};
+
+// ====== 溯源数据源（可扩展） ======
+const traceMap = {
+  "JG-2025001": {
+    title:"溯源：有机大米 · JG-2025001",
+    list:[
+      "生产者：林某（退役军人） · 海南",
+      "种植坐标：N19.9, E110.3",
+      "农事记录：零化学农药 · 有机肥施用台账",
+      "检测报告：农残/重金属合格",
+      "物流轨迹：冷链温控曲线",
+      "责任签名：生产者/分站/品控员"
+    ]
+  },
+  "JG-2025002": {
+    title:"溯源：地理标志水果 · JG-2025002",
+    list:[
+      "产地：广西 · 地理标志保护区",
+      "种植标准：GAP良好农业规范",
+      "采收记录：成熟度检测/糖度曲线",
+      "物流轨迹：温控轨迹公示",
+      "责任签名：合作社/分站/品控员"
+    ]
+  },
+  "JG-2025003": {
+    title:"溯源：非遗辣酱 · JG-2025003",
+    list:[
+      "工坊：四川非遗传承人家族工坊",
+      "原料溯源：辣椒/花椒产地证明",
+      "工艺记录：非遗标准化流程",
+      "批次盲测：抽样盲测结果",
+      "责任签名：非遗传承人/分站/品控员"
+    ]
+  },
+  "JG-FARM-001": {
+    title:"溯源：生态农庄认养 · JG-FARM-001",
+    list:[
+      "认养地块：云南某县 · IoT土壤监测",
+      "农事直播：巡田/操作公示",
+      "零化学农药原则",
+      "配送：冷链到家",
+      "责任签名：农场主/分站/品控员"
+    ]
+  },
+  "JG-FARM-002": {
+    title:"溯源：生态农庄认养 · JG-FARM-002（半年）",
+    list:[
+      "认养地块：云南某县 · 半年多季轮作",
+      "IoT监测：温湿度/光照长期曲线",
+      "农事直播：定期巡田互动",
+      "配送：多批次组合配送",
+      "责任签名：农场主/分站/品控员"
+    ]
+  },
+  "JG-FARM-003": {
+    title:"溯源：生态农庄认养 · JG-FARM-003（年度）",
+    list:[
+      "认养地块：云南某县 · 全年定制耕作",
+      "IoT监测：全年数据沉淀/趋势分析",
+      "品牌共建：定制包装/企业联名",
+      "团建研学：可安排实地探访",
+      "责任签名：农场主/分站/品控员"
+    ]
+  },
+  "JG-FARM-002": {
+    title:"溯源：生态农庄认养 · JG-FARM-002（半年）",
+    list:[
+      "认养地块：云南某县 · 半年多季轮作",
+      "IoT监测：温湿度/光照长期曲线",
+      "农事直播：定期巡田互动",
+      "配送：多批次组合配送",
+      "责任签名：农场主/分站/品控员"
+    ]
+  },
+  "JG-FARM-003": {
+    title:"溯源：生态农庄认养 · JG-FARM-003（年度）",
+    list:[
+      "认养地块：云南某县 · 全年定制耕作",
+      "IoT监测：全年数据沉淀/趋势分析",
+      "品牌共建：定制包装/企业联名",
+      "团建研学：可安排实地探访",
+      "责任签名：农场主/分站/品控员"
+    ]
+  },
+  "ZT-2025001": {
+    title:"溯源：进口蛋白粉 · ZT-2025001",
+    list:[
+      "境外品牌：新西兰 · 生产许可备案",
+      "海关申报：关税豁免清单匹配",
+      "检验检疫：卫健委/出入境检验",
+      "自贸仓入库：温控记录存证",
+      "责任签名：跨境合作商/平台/分站"
+    ]
+  },
+  "ZT-2025002": {
+    title:"溯源：维生素软糖 · ZT-2025002",
+    list:[
+      "境外品牌：德国 · 配方备案完成",
+      "海关申报：正面清单匹配通过",
+      "检验检疫：营养成分检测合格",
+      "自贸仓入库：批次留样可追溯",
+      "责任签名：跨境合作商/平台/分站"
+    ]
+  },
+  "ZT-2025003": {
+    title:"溯源：关节营养片 · ZT-2025003",
+    list:[
+      "境外品牌：美国 · FDA工厂认证",
+      "海关申报：成分审查/归类审核",
+      "检验检疫：功效声明合规审查",
+      "自贸仓入库：温控/防拆封保存",
+      "责任签名：跨境合作商/平台/分站"
+    ]
+  },
+  "ZT-2025004": {
+    title:"溯源：益生菌饮料 · ZT-2025004",
+    list:[
+      "境外品牌：日本 · 菌株备案完成",
+      "海关申报：功能性食品归类",
+      "检验检疫：活菌数检测合格",
+      "自贸仓入库：批次留样/活性追踪",
+      "责任签名：跨境合作商/平台/分站"
+    ]
+  }
+};
+
+// ====== 打开透明定价 ======
+function openPricing(code){
+  var modal = document.getElementById('pricingModal');
+  var data = pricingMap[code];
+  document.getElementById('pricingTitle').textContent = data ? data.title : '编号：' + code;
+  var body = document.getElementById('pricingBody');
+  body.innerHTML = '';
+  if(data && data.rows){
+    for(var i=0;i<data.rows.length;i++){
+      var r = data.rows[i];
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td>';
+      body.appendChild(tr);
+    }
+  }
+  modal.style.display = 'flex';
+}
+
+// ====== 打开溯源 ======
+function openTrace(code){
+  var modal = document.getElementById('traceModal');
+  var data = traceMap[code];
+  document.getElementById('traceTitle').textContent = data ? data.title : '编号：' + code;
+  var list = document.getElementById('traceList');
+  list.innerHTML = '';
+  if(data && data.list){
+    for(var i=0;i<data.list.length;i++){
+      var li = document.createElement('li');
+      li.textContent = data.list[i];
+      list.appendChild(li);
+    }
+  }
+  modal.style.display = 'flex';
+}
+
+// ====== 关闭 ======
+function closePricing(){ document.getElementById('pricingModal').style.display = 'none'; }
+function closeTrace(){ document.getElementById('traceModal').style.display = 'none'; }
+
+// ====== 点击遮罩关闭 ======
+window.addEventListener('click',function(e){
+  if(e.target === document.getElementById('pricingModal')) closePricing();
+  if(e.target === document.getElementById('traceModal')) closeTrace();
+});
+</script>
+
+
+<!-- 统一底部导航 + 微信入口 -->
+<!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<div class="bottom-nav">
+  <a href="/index.html"><i class="fas fa-home"></i><span>首页</span></a>
+  <a href="/command.html"><i class="fas fa-robot"></i><span>指挥中心</span></a>
+  <a href="/taskforce.html"><i class="fas fa-users"></i><span>特战队</span></a>
+  <a href="/ops.html"><i class="fas fa-cog"></i><span>调度中心</span></a>
+  <a href="/files/"><i class="fas fa-folder"></i><span>文件</span></a>
+</div>
+
+<button class="wechat-float" onclick="showWechatModal()"><i class="fab fa-weixin"></i></button>
+
+<div id="wechatModal" class="wechat-modal" onclick="if(event.target===this)hideWechatModal()">
+  <div class="wechat-modal-content">
+    <span class="wechat-close" onclick="hideWechatModal()">&times;</span>
+    <i class="fab fa-weixin" style="font-size:40px;color:#07C160;margin-bottom:8px"></i>
+    <p style="font-size:14px;margin-bottom:4px">联系总指挥</p>
+    <p style="font-size:12px;color:#8A94B0;margin-bottom:8px">微信扫码或复制微信号</p>
+    <div class="wechat-qr"><i class="fab fa-weixin" style="font-size:48px;color:#07C160"></i></div>
+    <div class="wechat-id" onclick="copyWechat('v19809293800')" style="cursor:pointer;background:rgba(7,193,96,0.1);border:1px solid rgba(7,193,96,0.3);border-radius:10px;padding:8px 14px;margin-top:8px;font-size:14px;color:#07C160;font-weight:700">
+      📱 @军鸽老兵 点击复制微信号
+    </div>
+  </div>
+</div>
+
+<style>
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:9999;
+  display:flex;justify-content:space-around;align-items:center;
+  background:rgba(5,8,20,.96);backdrop-filter:blur(16px);
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:6px 0 max(6px,env(safe-area-inset-bottom));
+  font-size:10px;
+}
+.bottom-nav a{display:flex;flex-direction:column;align-items:center;gap:2px;color:#8A94B0;text-decoration:none;padding:4px 8px;transition:.2s;font-size:10px}
+.bottom-nav a i{font-size:16px}
+.bottom-nav a:hover,.bottom-nav a:active{color:#fff}
+.wechat-float{
+  position:fixed;bottom:68px;right:16px;z-index:9998;
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,#07C160,#06ad56);
+  color:#fff;border:none;font-size:22px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(7,193,96,.4);
+  cursor:pointer;transition:.25s;
+}
+.wechat-float:hover{transform:scale(1.1)}
+.wechat-modal{
+  position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;
+  background:rgba(0,0,0,.7);backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;
+}
+.wechat-modal-content{
+  background:rgba(14,23,42,.98);border-radius:20px;
+  padding:24px 20px;text-align:center;
+  border:1px solid rgba(255,255,255,.1);
+  max-width:300px;width:90%;position:relative;
+}
+.wechat-close{position:absolute;top:10px;right:14px;font-size:22px;color:#8A94B0;cursor:pointer}
+.wechat-qr{width:100px;height:100px;margin:0 auto;background:rgba(255,255,255,.05);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.wechat-id:hover{background:rgba(7,193,96,0.2)!important}
+.breadcrumb { position: sticky; top: 0; z-index: 998; backdrop-filter: blur(18px); background: rgba(5,8,20,0.85); border-bottom: 1px solid rgba(0,212,255,0.12); padding: 8px 20px; font-size: 12px; color: #8896b0; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.breadcrumb a { color: #00d4ff; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #4a5568; }
+
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+
+<script>
+function showWechatModal(){document.getElementById('wechatModal').style.display='flex'}
+function hideWechatModal(){document.getElementById('wechatModal').style.display='none'}
+function copyWechat(id){
+  if(navigator.clipboard){navigator.clipboard.writeText(id).then(function(){
+    var el=document.querySelector('.wechat-id');el.innerHTML='✅ 已复制：'+id;
+    setTimeout(function(){el.innerHTML='📱 点击复制微信号'},2000);
+  })}
+  // 检查是否微信内置浏览器 -> 唤起添加好友
+  if(/MicroMessenger/i.test(navigator.userAgent)){
+    window.open('weixin://contacts/profile/'+id);
+  }
+}
+// 不显示底部导航的话，点击空白处关闭
+document.addEventListener('click',function(e){
+  if(e.target.classList.contains('wechat-modal'))hideWechatModal();
+});
+</script>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.12);padding:4px 8px;display:flex;gap:4px;justify-content:center;flex-wrap:wrap">
+  <a href="/" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🏠 军鸽云链</a>
+  <a href="/shangcheng.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🛒 商业生态</a>
+  <a href="/junge-shuzhi.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">⚔ 数智中心</a>
+  <a href="/fenzhan.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🌾 分站家园</a>
+  <a href="/shuzhi-zongbu.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🧠 数智总部</a>
+  <a href="/zhihui-ai.html" style="color:#8896b0;text-decoration:none;font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(15,34,64,.7);border:1px solid rgba(0,212,255,.1)">🤖 AI指挥台</a>
+</div>
+</body>
+</html>

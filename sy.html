@@ -1,0 +1,3877 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="军鸽云链数智：退役军人信用背书 + 区块链溯源 + 军创生态，融合食品安全、生态农业与红色旅游。">
+  <meta name="keywords" content="军鸽云链,退役军人,区块链溯源,军创,生态农业,红色旅游,数字资产,军鸽币,退役军人创业,食品安全溯源">
+  <meta name="theme-color" content="#1E3A5F">
+  <title>军鸽云链数智 · 军魂铸信 · 数智富民</title>
+  <!-- 预加载关键资源 -->
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "军鸽云链数智",
+    "alternateName": "JunGe CloudLink DI",
+    "description": "以军人精神守护民生底线，以商业创新激活社会价值，退役军人创业就业服务平台",
+    "url": "https://junge.网络",
+    "logo": "https://junge.网络/logo.png",
+    "founder": "退役军人创业团队",
+    "foundingDate": "2025",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CN",
+      "addressRegion": "海南"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "400-888-8888",
+      "contactType": "customer service",
+      "areaServed": "CN"
+    }
+  }
+  </script>
+  <style>
+    /* ====== CSS 变量和设计令牌 ====== */
+    :root {
+      /* 颜色系统 */
+      --color-primary: #1E3A5F;
+      --color-primary-light: #2A4F7A;
+      --color-primary-pale: #3A6AA5;
+      --color-secondary: #2E7D32;
+      --color-secondary-light: #4CAF50;
+      --color-accent: #C62E2E;
+      --color-accent-light: #E53935;
+      --color-warning: #D4AF37;
+      --color-warning-light: #FFD54F;
+      --color-warning-pale: #FFECB3;
+      --color-success: #27AE60;
+      --color-info: #3498DB;
+      /* 中性色 */
+      --color-background: #f8fafc;
+      --color-card: #ffffff;
+      --color-muted: #6b7280;
+      --color-border: #e5e7eb;
+      --color-text: #1f2937;
+      --color-text-light: rgba(255, 255, 255, 0.9);
+      /* 阴影 */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --shadow-card: 0 6px 16px rgba(0, 0, 0, 0.05);
+      /* 渐变 */
+      --gradient-blue: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+      --gradient-blue-pale: linear-gradient(135deg, var(--color-primary-pale), #4a7ab8);
+      --gradient-green: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light));
+      --gradient-red: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+      --gradient-gold: linear-gradient(135deg, var(--color-warning), var(--color-warning-light));
+      --gradient-button: linear-gradient(135deg, #e8f1ff, #dbe8ff);
+      --gradient-button-hover: linear-gradient(135deg, #d4e3ff, #c7daff);
+      --gradient-button-active: linear-gradient(135deg, #c0d6ff, #b3ccff);
+      --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
+      /* 边框 */
+      --border-radius-sm: 6px;
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+      --border-radius-xl: 16px;
+      --border-width: 1px;
+      --border-color: var(--color-border);
+      --border-button: #c2d6ff;
+      /* 排版 */
+      --font-family-base: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      --font-size-xs: 12px;
+      --font-size-sm: 13px;
+      --font-size-base: 14px;
+      --font-size-md: 16px;
+      --font-size-lg: 18px;
+      --font-size-xl: 20px;
+      --font-size-2xl: 24px;
+      --font-size-3xl: 28px;
+      --line-height-tight: 1.2;
+      --line-height-base: 1.4;
+      --line-height-relaxed: 1.6;
+      /* 间距 */
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 12px;
+      --spacing-lg: 16px;
+      --spacing-xl: 20px;
+      --spacing-2xl: 24px;
+      --spacing-3xl: 32px;
+      /* 响应式断点 */
+      --breakpoint-sm: 576px;
+      --breakpoint-md: 768px;
+      --breakpoint-lg: 992px;
+      --breakpoint-xl: 1200px;
+      /* 动画 */
+      --transition-fast: 150ms ease;
+      --transition-base: 200ms ease;
+      --transition-slow: 300ms ease;
+    }
+    /* ====== 重置和基础样式 ====== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    html {
+      font-size: var(--font-size-base);
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      font-family: var(--font-family-base);
+      background-color: var(--color-background);
+      color: var(--color-text);
+      line-height: var(--line-height-base);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    /* 键盘导航焦点样式 */
+    .keyboard-navigation :focus-visible {
+      outline: 3px solid var(--color-primary-light);
+      outline-offset: 2px;
+      border-radius: var(--border-radius-sm);
+    }
+    /* ====== 工具类 ====== */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .container {
+      width: 100%;
+      max-width: var(--breakpoint-xl);
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    /* ====== 排版 ====== */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all var(--transition-base);
+    }
+    /* ====== 触摸友好的交互元素 ====== */
+    button, .btn, .ai-btn, .search-btn, .category-btn, nav.navbar a,
+    .dashboard-item, .product-item, .trade-item, .category-item,
+    .group-item, .rush-item, .culture-item, .action-btn {
+      min-height: 36px;
+      min-width: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+      -webkit-appearance: none;
+    }
+    button:disabled, .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    /* ====== Header ====== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--gradient-blue);
+      color: var(--color-text-light);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(10px);
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--spacing-md) 0;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+    }
+    .brandbox {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--border-radius-md);
+      background: var(--gradient-blue-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      font-size: var(--font-size-md);
+      box-shadow: var(--shadow-md);
+    }
+    .brand-title .cn {
+      font-size: var(--font-size-lg);
+      font-weight: 800;
+      line-height: var(--line-height-tight);
+      letter-spacing: 0.5px;
+    }
+    .brand-title .en {
+      font-size: var(--font-size-xs);
+      opacity: 0.9;
+      line-height: var(--line-height-tight);
+      letter-spacing: 0.5px;
+    }
+    /* ====== 移动端菜单 ====== */
+    .mobile-menu-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: var(--border-radius-md);
+      transition: all var(--transition-base);
+    }
+    .mobile-menu-toggle:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    /* ====== 导航 ====== */
+    nav.navbar {
+      display: flex;
+      gap: var(--spacing-xs);
+      flex-wrap: wrap;
+      transition: all var(--transition-base);
+    }
+    nav.navbar ul {
+      display: flex;
+      gap: var(--spacing-xs);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav.navbar a {
+      color: rgba(255, 255, 255, 0.95);
+      padding: 6px 10px;
+      border-radius: var(--border-radius-md);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: var(--font-size-sm);
+      white-space: nowrap;
+      transition: all var(--transition-base);
+      font-weight: 500;
+      line-height: var(--line-height-tight);
+    }
+    nav.navbar a:hover,
+    nav.navbar a:focus,
+    nav.navbar a:active,
+    nav.navbar a.active {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    /* ====== 政策信息条 ====== */
+    .policy-ticker-container {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      font-size: var(--font-size-xs);
+      width: 100%;
+      justify-content: space-between;
+      padding: var(--spacing-sm) 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .policy-ticker,
+    .local-policy-ticker {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      font-size: var(--font-size-xs);
+      width: 48%;
+    }
+    .policy-ticker .title,
+    .local-policy-ticker .title {
+      font-weight: 700;
+      color: var(--color-warning-light);
+      white-space: nowrap;
+      font-size: var(--font-size-sm);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    .ticker-list,
+    .local-ticker-list {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: var(--border-radius-md);
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .ticker-content,
+    .local-ticker-content {
+      display: inline-block;
+      animation: ticker-scroll 25s linear infinite;
+    }
+    .local-ticker-content {
+      animation-duration: 30s;
+    }
+    @keyframes ticker-scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    /* ====== 主布局 - 优化高度对齐 ====== */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 2.6fr 1.2fr;
+      gap: var(--spacing-md);
+      margin: var(--spacing-md) auto;
+      width: 100%;
+      max-width: var(--breakpoint-xl);
+      padding: 0 15px;
+      align-items: start;
+    }
+    .left-sidebar,
+    .center-main,
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    /* ====== 左侧栏 - AI模块 ====== */
+    .ai-module {
+      background: var(--gradient-card);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+    }
+    .ai-module:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    .ai-module h3 {
+      font-size: var(--font-size-md);
+      color: var(--color-primary);
+      font-weight: 700;
+      margin: 0 0 var(--spacing-sm);
+      text-align: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      letter-spacing: 0.5px;
+      line-height: var(--line-height-tight);
+    }
+    /* ====== 搜索条样式 ====== */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
+    }
+    .search-label {
+      font-size: var(--font-size-sm);
+      color: var(--color-primary);
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .station-input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-md);
+      font-size: var(--font-size-sm);
+      transition: all var(--transition-base);
+      font-family: inherit;
+    }
+    .station-input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+    }
+    .search-btn {
+      padding: 8px 14px;
+      background: var(--gradient-button);
+      border: 1px solid var(--border-button);
+      border-radius: var(--border-radius-md);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: var(--font-size-sm);
+      color: var(--color-primary);
+      transition: all var(--transition-base);
+      white-space: nowrap;
+    }
+    .search-btn:hover,
+    .search-btn:focus {
+      background: var(--gradient-button-hover);
+      transform: translateY(-1px);
+    }
+    /* ====== 模块列表样式 ====== */
+    .ai-module ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+    .ai-module li {
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+    .ai-module a {
+      background: #f5f8ff;
+      border: 1px solid #d0d8f0;
+      border-radius: var(--border-radius-md);
+      padding: 8px 12px;
+      color: var(--color-primary);
+      font-weight: 500;
+      transition: all var(--transition-base);
+      display: flex;
+      align-items: center;
+    }
+    .ai-module a:hover,
+    .ai-module a:focus {
+      background: #e8f0ff;
+      border-color: #a8c5ff;
+      box-shadow: var(--shadow-sm);
+      transform: translateX(2px);
+    }
+    /* ====== 分站入口样式 ====== */
+    .substation-module a {
+      background: #f5f8ff;
+      border: 1px solid #d0d8f0;
+      color: var(--color-primary);
+    }
+    .substation-module a:hover,
+    .substation-module a:focus {
+      background: #e8f0ff;
+      border-color: #a8c5ff;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    /* ====== 企业入口样式 ====== */
+    .enterprise-module a {
+      background: #fff8e1;
+      border: 1px solid var(--color-warning-light);
+      color: #92400e;
+    }
+    .enterprise-module a:hover,
+    .enterprise-module a:focus {
+      background: var(--color-warning-pale);
+      border-color: #ffca28;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    /* ====== 中间核心区 - 优化高度 ====== */
+    .banner-main {
+      background: 
+        linear-gradient(135deg, rgba(30, 58, 95, 0.88), rgba(74, 119, 41, 0.85)),
+        url('https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+      color: var(--color-text-light);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl) var(--spacing-lg);
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: var(--shadow-card);
+      min-height: 360px; /* 优化高度 */
+      overflow: hidden;
+      flex: 1;
+    }
+    .banner-main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+      z-index: 0;
+    }
+    .banner-main > * {
+      position: relative;
+      z-index: 1;
+    }
+    .banner-main h1 {
+      font-size: var(--font-size-2xl);
+      font-weight: 900;
+      margin: 0 0 var(--spacing-sm);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      letter-spacing: 1px;
+      line-height: var(--line-height-tight);
+    }
+    .banner-main p {
+      font-size: var(--font-size-sm);
+      opacity: 0.96;
+      margin: 0 auto var(--spacing-md);
+      max-width: 800px;
+      line-height: var(--line-height-base);
+    }
+    /* ====== 核心价值观网格 - 优化布局 ====== */
+    .core-values {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-md);
+    }
+    .core-value {
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: var(--border-radius-md);
+      padding: var(--spacing-md);
+      text-align: center;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all var(--transition-base);
+      min-height: 80px; /* 优化高度 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .core-value:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+    .core-value h3 {
+      font-size: var(--font-size-sm);
+      margin-bottom: 4px;
+      color: #fff;
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    .core-value p {
+      font-size: var(--font-size-xs);
+      margin: 0;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: var(--line-height-base);
+    }
+    /* ====== 行动号召按钮行 ====== */
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      flex-wrap: wrap;
+      margin-top: var(--spacing-lg);
+      margin-bottom: var(--spacing-md);
+    }
+    /* ====== 通用按钮样式 ====== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: var(--border-radius-md);
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition-base);
+      text-align: center;
+      font-size: var(--font-size-sm);
+      letter-spacing: 0.3px;
+      box-shadow: var(--shadow-sm);
+      line-height: var(--line-height-tight);
+    }
+    .btn.primary,
+    .btn.trade {
+      background: var(--gradient-button);
+      color: var(--color-primary);
+      border: 1px solid var(--border-button);
+    }
+    .btn.primary:hover,
+    .btn.primary:focus,
+    .btn.primary:active,
+    .btn.trade:hover,
+    .btn.trade:focus,
+    .btn.trade:active {
+      background: var(--gradient-button-hover);
+      border-color: #a8c5ff;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .btn.small {
+      padding: 4px 8px;
+      font-size: var(--font-size-xs);
+      min-height: 28px;
+    }
+    /* ====== 右侧信息模块 - 优化高度 ====== */
+    .contact-module,
+    .news-module,
+    .culture-module {
+      background: var(--gradient-card);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+    }
+    .contact-module:hover,
+    .news-module:hover,
+    .culture-module:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    .module-title {
+      font-size: var(--font-size-md);
+      color: var(--color-primary);
+      font-weight: 700;
+      margin: 0 0 var(--spacing-sm);
+      text-align: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      letter-spacing: 0.5px;
+      line-height: var(--line-height-tight);
+    }
+    .contact-content {
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: stretch;
+    }
+    .contact-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    .ai-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+    .ai-btn {
+      padding: 10px;
+      background: var(--gradient-button);
+      border: 1px solid var(--border-button);
+      border-radius: var(--border-radius-md);
+      color: var(--color-primary);
+      font-weight: 600;
+      text-align: center;
+      transition: all var(--transition-base);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-tight);
+      min-height: 44px;
+    }
+    .ai-btn:hover,
+    .ai-btn:focus,
+    .ai-btn:active {
+      background: var(--gradient-button-hover);
+      border-color: #a8c5ff;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .contact-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .qrcode {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #f5f5f5, #f0f0f0);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .qrcode::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.3) 50%, transparent 52%);
+      background-size: 20px 20px;
+    }
+    .qrcode span {
+      color: var(--color-muted);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      z-index: 1;
+    }
+    .qrcode-label {
+      margin-top: var(--spacing-sm);
+      font-size: var(--font-size-xs);
+      color: var(--color-muted);
+      text-align: center;
+      font-weight: 500;
+      line-height: var(--line-height-tight);
+    }
+    /* ====== 新闻列表 ====== */
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .news-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f3f4f6;
+      transition: all var(--transition-base);
+      line-height: var(--line-height-base);
+    }
+    .news-list li:hover {
+      background: #f9fafb;
+      padding-left: 6px;
+      border-radius: 5px;
+    }
+    .news-list li:last-child {
+      border-bottom: none;
+    }
+    .news-list a {
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all var(--transition-base);
+      padding: 0;
+    }
+    .news-list a:hover,
+    .news-list a:focus,
+    .news-list a:active {
+      color: var(--color-primary);
+    }
+    .news-time {
+      font-size: var(--font-size-xs);
+      color: var(--color-muted);
+      min-width: 46px;
+      font-weight: 500;
+      background: var(--gradient-button);
+      padding: 3px 6px;
+      border-radius: 5px;
+      text-align: center;
+      border: 1px solid var(--border-button);
+      line-height: var(--line-height-tight);
+    }
+    /* ====== 文化模块样式 ====== */
+    .culture-module .module-title {
+      margin-bottom: var(--spacing-md);
+    }
+    .culture-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    .culture-title {
+      font-size: var(--font-size-md);
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+      line-height: var(--line-height-tight);
+    }
+    /* ====== 快速入口栏 ====== */
+    .quickbar {
+      margin-top: var(--spacing-md);
+      background: linear-gradient(135deg, #f0f3f8, #e8edf5);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+    .quickbar-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+      padding: var(--spacing-lg) 0;
+    }
+    .quick-label {
+      color: #fff;
+      background: var(--gradient-blue);
+      padding: 8px 14px;
+      border-radius: var(--border-radius-md);
+      font-weight: 700;
+      font-size: var(--font-size-base);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(30, 58, 95, 0.2);
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      height: 36px;
+      line-height: var(--line-height-tight);
+    }
+    .quick-links {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      gap: var(--spacing-sm);
+      flex-wrap: wrap;
+    }
+    .search-pair {
+      display: flex;
+      gap: var(--spacing-sm);
+      margin-right: 6px;
+    }
+    .search-btn.plant,
+    .search-btn.breed {
+      padding: 8px 14px;
+      border-radius: var(--border-radius-md);
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      transition: all var(--transition-base);
+      font-size: var(--font-size-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      white-space: nowrap;
+      height: 36px;
+      line-height: var(--line-height-tight);
+      background: var(--gradient-button);
+      color: var(--color-primary);
+      border: 1px solid var(--border-button);
+    }
+    .search-btn.plant:hover,
+    .search-btn.plant:focus,
+    .search-btn.breed:hover,
+    .search-btn.breed:focus {
+      background: var(--gradient-button-hover);
+      border-color: #a8c5ff;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .quick-links a {
+      color: #12395f;
+      background: var(--gradient-button);
+      border: 1px solid var(--border-button);
+      padding: 8px 12px;
+      border-radius: var(--border-radius-md);
+      transition: all var(--transition-base);
+      font-size: var(--font-size-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      box-shadow: var(--shadow-sm);
+      white-space: nowrap;
+      height: 36px;
+      line-height: var(--line-height-tight);
+    }
+    .quick-links a:hover,
+    .quick-links a:focus {
+      background: var(--gradient-button-hover);
+      border-color: #a8c5ff;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      color: var(--color-primary);
+    }
+    /* ====== AI数据看板 - 修改后样式 ====== */
+    .ai-dashboard {
+      margin-top: var(--spacing-md);
+      position: relative;
+    }
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--spacing-md);
+      padding-left: var(--spacing-sm);
+    }
+    .dashboard-title {
+      font-size: var(--font-size-sm);
+      color: var(--color-primary);
+      font-weight: 700;
+      background: #f0f7ff;
+      padding: 6px 12px;
+      border-radius: var(--border-radius-md);
+      border: 1px solid #c2d6ff;
+      margin-right: var(--spacing-md);
+      white-space: nowrap;
+      line-height: var(--line-height-tight);
+    }
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: var(--spacing-md);
+      margin-top: 0;
+    }
+    .dashboard-item {
+      background: var(--color-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 90px;
+      cursor: pointer;
+    }
+    .dashboard-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .dashboard-item h3 {
+      font-size: var(--font-size-xl);
+      font-weight: 800;
+      color: var(--color-primary);
+      margin: 0 0 6px;
+      line-height: var(--line-height-tight);
+    }
+    .dashboard-item p {
+      font-size: var(--font-size-sm);
+      color: var(--color-muted);
+      margin: 0;
+      line-height: var(--line-height-base);
+      font-weight: 500;
+    }
+    /* ====== 通用卡片样式 ====== */
+    .card {
+      background: var(--color-card);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: var(--spacing-xl);
+      border: 1px solid var(--border-color);
+      margin-bottom: var(--spacing-lg);
+      width: 100%;
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+    .section-title {
+      margin: 0 0 var(--spacing-lg);
+      font-weight: 800;
+      font-size: var(--font-size-2xl);
+      color: var(--color-primary);
+      text-align: center;
+      line-height: var(--line-height-tight);
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+    /* 去掉所有下划线 */
+    .underline {
+      display: none;
+    }
+    /* ====== 产品卡片快捷按钮样式 ====== */
+    .product-actions {
+      display: flex;
+      gap: var(--spacing-xs);
+      margin-top: var(--spacing-sm);
+      justify-content: center;
+    }
+    .action-btn {
+      padding: 4px 8px;
+      border-radius: var(--border-radius-sm);
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      transition: all var(--transition-base);
+      min-height: 28px;
+      min-width: 60px;
+    }
+    .action-btn.detail {
+      background: #f0f7ff;
+      color: var(--color-primary);
+      border: 1px solid #c2d6ff;
+    }
+    .action-btn.buy {
+      background: #e8f5e8;
+      color: var(--color-secondary);
+      border: 1px solid #a5d6a7;
+    }
+    .action-btn.order {
+      background: #fff3e0;
+      color: #e65100;
+      border: 1px solid #ffcc80;
+    }
+    .action-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    .action-btn.detail:hover {
+      background: #e3f2fd;
+      border-color: #90caf9;
+    }
+    .action-btn.buy:hover {
+      background: #d0f0c0;
+      border-color: #81c784;
+    }
+    .action-btn.order:hover {
+      background: #ffe0b2;
+      border-color: #ffb74d;
+    }
+    /* ====== 展示窗与园区 ====== */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+    }
+    .products-showcase {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 改为3列 */
+      gap: var(--spacing-lg);
+    }
+    .product-item {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+    .product-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .product-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-md);
+      transition: all var(--transition-base);
+    }
+    .product-item:hover img {
+      transform: scale(1.03);
+    }
+    .product-item h4 {
+      margin: 0 0 var(--spacing-sm);
+      color: var(--color-primary);
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    .product-item p {
+      margin: 0 0 var(--spacing-md);
+      color: #4c5970;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+      flex-grow: 1;
+    }
+    /* ====== 就业创业园 - 图片文字结合 ====== */
+    .career-park {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+    .career-item {
+      background: #f8fafc;
+      border: 1px solid #edf2f7;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-shadow: var(--shadow-card);
+    }
+    .career-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .career-item h3 {
+      margin: 0 0 var(--spacing-md);
+      font-size: var(--font-size-lg);
+      color: var(--color-primary);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+      text-align: center;
+    }
+    .career-content {
+      display: flex;
+      gap: var(--spacing-xl);
+      align-items: center;
+    }
+    .career-image {
+      flex: 1;
+    }
+    .career-image img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+    .career-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+    .career-info p {
+      margin: 0 0 var(--spacing-sm);
+      font-size: var(--font-size-sm);
+      color: var(--color-muted);
+      line-height: var(--line-height-base);
+    }
+    .career-stats {
+      display: flex;
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-sm);
+    }
+    .stat-item {
+      text-align: center;
+      flex: 1;
+    }
+    .stat-number {
+      font-size: var(--font-size-xl);
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: var(--line-height-tight);
+    }
+    .stat-label {
+      font-size: var(--font-size-xs);
+      color: var(--color-muted);
+      margin-top: 2px;
+    }
+    /* ====== 跨境与零关税 ====== */
+    .trade-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+    }
+    .trade-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-lg);
+    }
+    .trade-item {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .trade-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .trade-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-md);
+      transition: all var(--transition-base);
+    }
+    .trade-item:hover img {
+      transform: scale(1.03);
+    }
+    .trade-item h4 {
+      margin: 0 0 var(--spacing-sm);
+      color: var(--color-primary);
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    .trade-item p {
+      margin: 0 0 var(--spacing-md);
+      color: #4c5970;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+      flex-grow: 1;
+    }
+    /* ====== 分类橱窗 ====== */
+    .category-showcase {
+      margin-top: var(--spacing-lg);
+    }
+    .category-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+      justify-content: center;
+      margin-bottom: var(--spacing-xl);
+    }
+    .category-btn {
+      padding: 8px 16px;
+      background: var(--gradient-button);
+      border: 1px solid var(--border-button);
+      border-radius: var(--border-radius-md);
+      color: var(--color-primary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      font-size: var(--font-size-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      line-height: var(--line-height-tight);
+    }
+    .category-btn:hover,
+    .category-btn:focus,
+    .category-btn.active,
+    .category-btn:active {
+      background: var(--gradient-button-active);
+      color: var(--color-primary);
+      border-color: #8cb8ff;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-lg);
+    }
+    .category-item {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .category-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .category-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-md);
+      transition: all var(--transition-base);
+    }
+    .category-item:hover img {
+      transform: scale(1.03);
+    }
+    .category-item h4 {
+      margin: 0 0 var(--spacing-sm);
+      color: var(--color-primary);
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    .category-item p {
+      margin: 0 0 var(--spacing-md);
+      color: #4c5970;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+    /* ====== 团购 ====== */
+    .group-purchase {
+      margin-top: var(--spacing-lg);
+    }
+    .group-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+    .group-item {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .group-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .group-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-md);
+      transition: all var(--transition-base);
+    }
+    .group-item:hover img {
+      transform: scale(1.03);
+    }
+    .group-item h4 {
+      margin: 0 0 var(--spacing-sm);
+      color: var(--color-primary);
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    .group-item p {
+      margin: 0 0 var(--spacing-md);
+      color: #4c5970;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+    /* ====== 天天抢 ====== */
+    .daily-rush {
+      margin-top: var(--spacing-lg);
+    }
+    .rush-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+    .rush-item {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .rush-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .rush-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-md);
+      transition: all var(--transition-base);
+    }
+    .rush-item:hover img {
+      transform: scale(1.03);
+    }
+    .rush-item h4 {
+      margin: 0 0 var(--spacing-sm);
+      color: var(--color-primary);
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    .rush-item p {
+      margin: 0 0 var(--spacing-md);
+      color: #4c5970;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+    .rush-time {
+      display: inline-block;
+      background: var(--gradient-button);
+      color: var(--color-primary);
+      padding: 6px 12px;
+      border-radius: var(--border-radius-md);
+      font-size: var(--font-size-sm);
+      margin-top: 8px;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-button);
+      line-height: var(--line-height-tight);
+    }
+    /* ====== 新增模块：生态农庄 ====== */
+    .ecological-farm {
+      margin-top: var(--spacing-lg);
+    }
+    .farm-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+    .farm-item {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+    .farm-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .farm-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-lg);
+      transition: all var(--transition-base);
+    }
+    .farm-item:hover img {
+      transform: scale(1.03);
+    }
+    .farm-item h4 {
+      margin: 0 0 var(--spacing-md);
+      color: var(--color-primary);
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    .farm-item p {
+      margin: 0 0 var(--spacing-lg);
+      color: #4c5970;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+      flex-grow: 1;
+    }
+    .farm-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+      justify-content: center;
+      margin-bottom: var(--spacing-lg);
+    }
+    .farm-feature {
+      background: #f0f7ff;
+      color: var(--color-primary);
+      padding: 4px 8px;
+      border-radius: var(--border-radius-sm);
+      font-size: var(--font-size-xs);
+      font-weight: 500;
+    }
+    /* ====== 新增模块：军旅基地 - 修改为4个卡片 ====== */
+    .military-base {
+      margin-top: var(--spacing-lg);
+    }
+    .base-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 改为4列 */
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+    }
+    .base-item {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      text-align: center;
+    }
+    .base-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .base-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-lg);
+      transition: all var(--transition-base);
+    }
+    .base-item:hover img {
+      transform: scale(1.03);
+    }
+    .base-item h4 {
+      margin: 0 0 var(--spacing-md);
+      color: var(--color-primary);
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    .base-item p {
+      margin: 0 0 var(--spacing-lg);
+      color: #4c5970;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+      flex-grow: 1;
+    }
+    /* ====== 新增模块：党建公益与投诉曝光台 ====== */
+    .party-complaint-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-lg);
+    }
+    .party-public {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+    .party-item, .complaint-item {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+    }
+    .party-item:hover, .complaint-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .party-item h3, .complaint-item h3 {
+      margin: 0 0 var(--spacing-lg);
+      color: var(--color-primary);
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+      text-align: center;
+    }
+    /* ====== 党建公益内容 - 增加双拥活动和公益捐赠 ====== */
+    .party-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+    .party-activity {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-lg);
+    }
+    .party-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-red);
+      border-radius: var(--border-radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .party-info h4 {
+      margin: 0 0 var(--spacing-sm);
+      color: var(--color-primary);
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    .party-info p {
+      margin: 0;
+      color: #4c5970;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+    /* ====== 投诉曝光台 - 修改为展示内容 ====== */
+    .complaint-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xl);
+    }
+    .complaint-form {
+      display: none; /* 隐藏表单 */
+    }
+    .complaint-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+    .complaint-video {
+      width: 100%;
+      height: 200px;
+      background: #f5f5f5;
+      border-radius: var(--border-radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--border-color);
+    }
+    .complaint-video img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .complaint-video .play-button {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+    .complaint-video .play-button:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: scale(1.1);
+    }
+    .complaint-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-md);
+    }
+    .complaint-image {
+      width: 100%;
+      height: 120px;
+      background: #f5f5f5;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    .complaint-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all var(--transition-base);
+    }
+    .complaint-image:hover img {
+      transform: scale(1.05);
+    }
+    .complaint-text {
+      background: #f9fafb;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      border: 1px solid var(--border-color);
+      line-height: var(--line-height-base);
+    }
+    .complaint-text h4 {
+      color: var(--color-primary);
+      margin: 0 0 var(--spacing-sm);
+      font-size: var(--font-size-md);
+    }
+    .complaint-text p {
+      margin: 0 0 var(--spacing-sm);
+      color: #4c5970;
+      font-size: var(--font-size-sm);
+    }
+    .complaint-text ul {
+      margin: var(--spacing-sm) 0;
+      padding-left: var(--spacing-lg);
+    }
+    .complaint-text li {
+      margin-bottom: 4px;
+      color: #4c5970;
+      font-size: var(--font-size-sm);
+    }
+    /* ====== 文化家园 ====== */
+    .culture-section {
+      margin-top: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
+    }
+    .culture-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+      align-items: stretch;
+    }
+    .culture-main {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-lg);
+    }
+    .culture-item {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .culture-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .culture-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-lg);
+      transition: all var(--transition-base);
+    }
+    .culture-item:hover img {
+      transform: scale(1.03);
+    }
+    .culture-item h4 {
+      margin: 0 0 var(--spacing-md);
+      color: var(--color-primary);
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    .culture-item p {
+      margin: 0 0 var(--spacing-lg);
+      color: #4c5970;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+      flex-grow: 1;
+    }
+    .culture-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+    .sidebar-item {
+      background: #fff;
+      border: 1px solid #eef2f9;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .sidebar-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .sidebar-item img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: var(--border-radius-md);
+      margin-bottom: var(--spacing-lg);
+      transition: all var(--transition-base);
+    }
+    .sidebar-item:hover img {
+      transform: scale(1.03);
+    }
+    .sidebar-item h4 {
+      margin: 0 0 var(--spacing-md);
+      color: var(--color-primary);
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    /* ====== 投稿快捷方式 ====== */
+    .contribute-section {
+      background: linear-gradient(135deg, #f8fafc, #f0f4f8);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+      margin-top: var(--spacing-lg);
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+    .contribute-title {
+      color: var(--color-primary);
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--spacing-md);
+      font-weight: 700;
+    }
+    .contribute-options {
+      display: flex;
+      gap: var(--spacing-lg);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--spacing-xl);
+    }
+    .contribute-option {
+      background: white;
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+      width: 180px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition-base);
+      border: 1px solid var(--border-color);
+    }
+    .contribute-option:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--color-primary-light);
+    }
+    .contribute-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--spacing-lg);
+      color: white;
+      font-size: 24px;
+    }
+    .contribute-option h4 {
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-sm);
+      font-size: var(--font-size-md);
+    }
+    .contribute-option p {
+      color: var(--color-muted);
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+    /* ====== Footer ====== */
+    footer {
+      margin-top: var(--spacing-3xl);
+      background: var(--gradient-blue);
+      color: #e9eef8;
+      padding: 32px 0 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: var(--font-size-sm);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-xl);
+      margin-bottom: var(--spacing-xl);
+    }
+    .footer-column h3 {
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-lg);
+      color: var(--color-warning-light);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 8px;
+      line-height: var(--line-height-tight);
+      font-weight: 700;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: var(--font-size-sm);
+      transition: all var(--transition-base);
+      display: block;
+      padding: 2px 0;
+      font-weight: 500;
+      line-height: var(--line-height-base);
+    }
+    .footer-column a:hover,
+    .footer-column a:focus,
+    .footer-column a:active {
+      color: var(--color-warning-light);
+      padding-left: 6px;
+      transform: translateX(2px);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: var(--spacing-xl);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      line-height: var(--line-height-base);
+    }
+    .phone-footer {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--color-warning-light);
+      margin: 8px 0;
+      display: block;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      line-height: var(--line-height-tight);
+    }
+    .copyright {
+      font-size: var(--font-size-base);
+      margin-bottom: 8px;
+      line-height: var(--line-height-base);
+      opacity: 0.9;
+    }
+    .tech-support {
+      font-size: var(--font-size-xs);
+      opacity: 0.8;
+      margin-bottom: 8px;
+      line-height: var(--line-height-base);
+    }
+    .tech-stack {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-top: 12px;
+      line-height: var(--line-height-base);
+    }
+    /* ====== 返回顶部按钮 ====== */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      background: var(--gradient-blue);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition-slow);
+      z-index: 999;
+      box-shadow: var(--shadow-lg);
+      border: none;
+      font-size: 18px;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover,
+    .back-to-top:focus {
+      background: var(--color-primary-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    /* ====== 响应式设计 ====== */
+    @media (max-width: 1200px) {
+      .main-layout {
+        grid-template-columns: 1fr 2fr 1fr;
+      }
+      .dashboard-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .group-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .farm-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .base-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .products-showcase {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 992px) {
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+      .showcase-grid,
+      .trade-grid,
+      .culture-grid,
+      .party-complaint-grid,
+      .base-grid {
+        grid-template-columns: 1fr;
+      }
+      .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .rush-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .culture-main {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+      }
+      .contact-content {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+      }
+      .policy-ticker,
+      .local-policy-ticker {
+        width: 100%;
+      }
+      .policy-ticker-container {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+      }
+      nav.navbar {
+        justify-content: center;
+      }
+      .banner-main {
+        min-height: 340px;
+      }
+      .career-content {
+        flex-direction: column;
+      }
+      .career-image img {
+        height: 200px;
+      }
+      .complaint-images {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: block;
+      }
+      nav.navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: var(--spacing-sm);
+        background: rgba(30, 58, 95, 0.95);
+        border-radius: var(--border-radius-md);
+        padding: var(--spacing-md);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+      }
+      nav.navbar.active {
+        display: flex;
+      }
+      nav.navbar ul {
+        flex-direction: column;
+        width: 100%;
+      }
+      nav.navbar a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        margin-bottom: 4px;
+      }
+      .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .products-showcase {
+        grid-template-columns: 1fr;
+      }
+      .trade-section {
+        grid-template-columns: 1fr;
+      }
+      .category-grid,
+      .group-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .rush-grid {
+        grid-template-columns: 1fr;
+      }
+      .farm-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+      }
+      .quickbar-wrap {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg) 0;
+      }
+      .quick-label {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      .quick-links {
+        width: 100%;
+        justify-content: center;
+      }
+      .search-pair {
+        width: 100%;
+        justify-content: center;
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+      }
+      .search-pair .search-btn {
+        flex: 1;
+        min-width: 120px;
+      }
+      .quick-links a {
+        flex: 1;
+        min-width: 100px;
+        text-align: center;
+        height: 34px;
+        padding: 6px 8px;
+        font-size: var(--font-size-xs);
+      }
+      .back-to-top {
+        bottom: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+      }
+      .banner-main {
+        min-height: 320px;
+        padding: var(--spacing-lg);
+      }
+      .contribute-options {
+        flex-direction: column;
+        align-items: center;
+      }
+      .contribute-option {
+        width: 100%;
+        max-width: 300px;
+      }
+      /* 移动端图片高度调整 */
+      .product-item img,
+      .trade-item img,
+      .category-item img,
+      .group-item img,
+      .rush-item img,
+      .culture-item img,
+      .sidebar-item img {
+        height: 120px;
+      }
+      .farm-item img {
+        height: 140px;
+      }
+      .base-item img {
+        height: 120px;
+      }
+      .career-image img {
+        height: 150px;
+      }
+      .complaint-images {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 576px) {
+      .dashboard-grid,
+      .category-grid,
+      .group-grid {
+        grid-template-columns: 1fr;
+      }
+      .banner-main {
+        padding: var(--spacing-xl) var(--spacing-md);
+        min-height: 300px;
+      }
+      .btn {
+        padding: 8px 12px;
+        font-size: var(--font-size-sm);
+      }
+      .category-buttons {
+        gap: var(--spacing-xs);
+      }
+      .category-btn {
+        padding: 6px 10px;
+        font-size: var(--font-size-xs);
+      }
+      .back-to-top {
+        width: 36px;
+        height: 36px;
+        bottom: 12px;
+        right: 12px;
+        font-size: var(--font-size-md);
+      }
+      .quickbar-wrap {
+        padding: var(--spacing-md) 0;
+      }
+      .quick-links {
+        gap: var(--spacing-xs);
+      }
+      .quick-links a {
+        flex: 1 1 calc(50% - 6px);
+        min-width: 0;
+        height: 32px;
+        font-size: 11px;
+        padding: 6px 8px;
+      }
+      .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .station-input {
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+      }
+      .search-btn {
+        width: 100%;
+        font-size: var(--font-size-sm);
+      }
+      .core-values {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+      }
+      .core-value {
+        min-height: 70px;
+        padding: var(--spacing-md);
+      }
+      /* 移动端图片高度调整 */
+      .product-item img,
+      .trade-item img,
+      .category-item img,
+      .group-item img,
+      .rush-item img,
+      .culture-item img,
+      .sidebar-item img {
+        height: 100px;
+      }
+      .farm-item img {
+        height: 120px;
+      }
+      .base-item img {
+        height: 100px;
+      }
+      .career-image img {
+        height: 150px;
+      }
+    }
+    @media (max-width: 400px) {
+      .brand-title .cn {
+        font-size: var(--font-size-md);
+      }
+      .brand-title .en {
+        font-size: 10px;
+      }
+      .banner-main h1 {
+        font-size: var(--font-size-xl);
+      }
+      .banner-main p {
+        font-size: var(--font-size-xs);
+      }
+      .dashboard-item h3 {
+        font-size: var(--font-size-lg);
+      }
+      .section-title {
+        font-size: var(--font-size-xl);
+      }
+      .product-item h4,
+      .career-item h3,
+      .culture-item h4 {
+        font-size: var(--font-size-md);
+      }
+      .quick-links a {
+        flex: 1 1 100%;
+        font-size: var(--font-size-xs);
+        padding: 6px;
+      }
+      .substation-module a,
+      .enterprise-module a {
+        font-size: var(--font-size-xs);
+        padding: 6px 8px;
+      }
+      /* 移动端图片高度调整 */
+      .product-item img,
+      .trade-item img,
+      .category-item img,
+      .group-item img,
+      .rush-item img,
+      .culture-item img,
+      .sidebar-item img {
+        height: 90px;
+      }
+      .farm-item img {
+        height: 100px;
+      }
+      .base-item img {
+        height: 90px;
+      }
+    }
+  
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链数智 · 军魂铸信 · 数智富民">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/sy.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/sy.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">溯源查询</span>
+</nav>
+
+  <!-- Header -->
+  <header role="banner" aria-label="站点头部">
+    <div class="container topbar">
+      <div class="brandbox">
+        <div class="brand-logo" aria-hidden="true" role="img" aria-label="军鸽云链数智">JG</div>
+        <div class="brand-title">
+          <div class="cn">军鸽云链数智</div>
+          <div class="en">JunGe CloudLink DI</div>
+        </div>
+      </div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="菜单开关" aria-expanded="false">☰</button>
+      <nav class="navbar" id="mainNav" aria-label="主导航">
+        <ul role="menubar">
+          <li role="none"><a href="/about.html" class="nav-link" role="menuitem">关于我们</a></li>
+          <li role="none"><a href="#policy" class="nav-link" role="menuitem">政策资讯</a></li>
+          <li role="none"><a href="#mall" class="nav-link" role="menuitem">军创商城</a></li>
+          <li role="none"><a href="#park" class="nav-link" role="menuitem">就业创业园</a></li>
+          <li role="none"><a href="#eco" class="nav-link" role="menuitem">生态农庄</a></li>
+          <li role="none"><a href="#base" class="nav-link" role="menuitem">军旅基地</a></li>
+          <li role="none"><a href="#party" class="nav-link" role="menuitem">党建公益</a></li>
+          <li role="none"><a href="#complaint" class="nav-link" role="menuitem">投诉曝光台</a></li>
+          <li role="none"><a href="#adventure" class="nav-link" role="menuitem">仗剑天涯</a></li>
+          <li role="none"><a href="#userID" class="nav-link" role="menuitem">数字ID</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- 政策信息条 -->
+    <div class="container policy-ticker-container" aria-label="政策信息滚动条">
+      <div class="policy-ticker">
+        <div class="title">国家政策：</div>
+        <div class="ticker-list">
+          <div class="ticker-content">
+            退役军人创业贷款新政发布 · 乡村振兴示范区名单公布 · 食品安全监管新规实施 · 数字经济发展规划出台 · 退役军人技能培训补贴政策 · 退役军人就业创业税收优惠政策
+          </div>
+        </div>
+      </div>
+      <div class="local-policy-ticker">
+        <div class="title">地方政策：</div>
+        <div class="local-ticker-list">
+          <div class="local-ticker-content">
+            海南军创基地开放日启动 · 广州退役军人创业补贴指引 · 深圳食品安全示范区建设 · 重庆红色旅游扶持政策 · 上海退役军人就业新举措 · 成都退役军人创业孵化园招募
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- 主内容 -->
+<main class="container main-layout" role="main" id="main-content">
+  <!-- 左侧栏：AI智联-分站和企业入口 -->
+  <div class="left-sidebar">
+    <!-- AI智联-分站 -->
+    <div class="ai-module substation-module" aria-label="分站入口">
+      <h3>AI智联-分站</h3>
+      <form onsubmit="return goStation(event)" class="search-bar" role="search" aria-label="搜索分站">
+        <input id="stationInput" type="text" 
+               placeholder="请输入分站名称或编号" 
+               class="station-input" 
+               aria-label="分站搜索输入框"
+               list="stationList">
+        <button type="submit" class="search-btn" aria-label="搜索分站">搜索分站</button>
+          <!-- 自动补全候选列表：清空硬编码option，仅保留标签 -->
+          <datalist id="stationList">
+          </datalist>
+        <!-- 无匹配提示元素 -->
+        <span id="searchTip" style="display: none; color: #ff4444; font-size: 12px; margin-top: 8px; display: block;"></span>
+    </form>
+        <ul role="menu" aria-label="分站相关链接">
+          <li role="menuitem"><a href="fenzhan.html?station=manage" target="_blank" rel="noopener noreferrer">管理分站</a></li>
+          <li role="menuitem"><a href="fenzhan.html?station=app" target="_blank" rel="noopener noreferrer">分站APP下载</a></li>
+          <li role="menuitem"><a href="fenzhan.html?station=partner" target="_blank" rel="noopener noreferrer">分站合伙人入口</a></li>
+          <li role="menuitem"><a href="fenzhan.html?station=register" target="_blank" rel="noopener noreferrer">会员注册加盟入口（免费）</a></li>
+        </ul>
+      </div>
+      <!-- AI智联-企业 -->
+      <div class="ai-module enterprise-module" aria-label="企业入口">
+        <h3>AI智联-企业</h3>
+        <ul role="menu" aria-label="企业相关链接">
+          <li role="menuitem"><a href="/enterprise-cooperation.html" target="_blank" rel="noopener noreferrer">企业合作入口</a></li>
+          <li role="menuitem"><a href="/enterprise-union.html" target="_blank" rel="noopener noreferrer">企业联盟入口</a></li>
+          <li role="menuitem"><a href="/enterprise-portal.html" target="_blank" rel="noopener noreferrer">企业官网（门户网）APP</a></li>
+          <li role="menuitem"><a href="/enterprise-contact.html" target="_blank" rel="noopener noreferrer">联系客服</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- 中间核心区 - 优化高度 -->
+    <div class="center-main">
+      <div class="banner-main">
+        <h1>军魂铸信 · 数智富民</h1>
+        <p>以军人精神守护民生底线 以商业创新激活社会价值</p>
+        <p>食品安全 乡村振兴 退役军人创业 合作共享 数智化服务</p>
+        <div class="cta-row">
+          <a class="btn trade" href="/cross-border.html" target="_blank" rel="noopener noreferrer">跨境电商</a>
+          <a class="btn trade" href="/zero-tariff.html" target="_blank" rel="noopener noreferrer">零关税</a>
+          <a class="btn primary" href="/fenzhan.html" target="_blank" rel="noopener noreferrer">进入分站模板页</a>
+          <a class="btn primary" href="/shangcheng.html" target="_blank" rel="noopener noreferrer">进入商城</a>
+        </div>
+        <div class="core-values">
+          <div class="core-value"><h3>价值回归</h3><p>优质配优价</p></div>
+          <div class="core-value"><h3>价格透明</h3><p>公开成本溯源</p></div>
+          <div class="core-value"><h3>消费者知情</h3><p>区块链全链条</p></div>
+          <div class="core-value"><h3>劳动者受益</h3><p>科学分润激励</p></div>
+        </div>
+        <div class="core-values">
+          <div class="core-value"><h3>信任为本</h3><p>退役军人信用证书 + 区块链全程溯源</p></div>
+          <div class="core-value"><h3>责任担当</h3><p>责任化链条 + 全程品控 + 责任回溯</p></div>
+          <div class="core-value"><h3>荣誉激励</h3><p>功勋荣誉榜 + 老兵风采展示 + 贡献积分</p></div>
+          <div class="core-value"><h3>共富共享</h3><p>科学分润机制 + 帮扶基金 + 合伙人生态</p></div>
+        </div>
+      </div>
+    </div>
+    <!-- 右侧信息 - 去掉文化模块，保留联系和新闻 -->
+    <div class="right-sidebar">
+      <div class="contact-module">
+        <h3 class="module-title">junge.网络</h3>
+        <div class="contact-content">
+          <div class="contact-left">
+            <div class="ai-buttons">
+              <button class="ai-btn" onclick="window.open('ai-podcast.html', '_blank')" aria-label="AI播客">AI.播客</button>
+              <button class="ai-btn" onclick="window.open('ai-consult.html', '_blank')" aria-label="AI智能咨询">AI智咨询</button>
+              <button class="ai-btn" onclick="window.open('ai-assistant.html', '_blank')" aria-label="AI智能助手">AI智能助手</button>
+            </div>
+          </div>
+          <div class="contact-right">
+            <div class="qrcode" aria-label="微信公众号二维码"><span>微信二维码</span></div>
+            <div class="qrcode-label">扫描关注公众号</div>
+          </div>
+        </div>
+      </div>
+      <div class="news-module" id="policy">
+        <h3 class="module-title">junge.网络资讯.通告栏</h3>
+        <ul class="news-list">
+          <li><a href="/news-detail-1.html" target="_blank" rel="noopener noreferrer"><span class="news-time">05-25</span>军鸽云链平台正式上线</a></li>
+          <li><a href="/news-detail-2.html" target="_blank" rel="noopener noreferrer"><span class="news-time">05-22</span>退役军人创业政策解读</a></li>
+          <li><a href="/news-detail-3.html" target="_blank" rel="noopener noreferrer"><span class="news-time">05-20</span>区块链溯源技术研讨会</a></li>
+          <li><a href="/news-detail-4.html" target="_blank" rel="noopener noreferrer"><span class="news-time">05-18</span>食品安全月活动启动</a></li>
+          <li><a href="/news-detail-5.html" target="_blank" rel="noopener noreferrer"><span class="news-time">05-15</span>军创优品展销会通知</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <!-- 快速入口 -->
+  <section class="quickbar" aria-label="快速入口">
+    <div class="container quickbar-wrap">
+      <span class="quick-label">快速入口</span>
+      <div class="quick-links">
+        <div class="search-pair">
+          <button class="search-btn plant" onclick="window.open('plant-search.html', '_blank')" aria-label="种植搜索">种植</button>
+          <button class="search-btn breed" onclick="window.open('breed-search.html', '_blank')" aria-label="养殖搜索">养殖</button>
+        </div>
+        <a href="/organic-products.html" target="_blank" rel="noopener noreferrer">有机产品</a>
+        <a href="/non-heritage.html" target="_blank" rel="noopener noreferrer">非遗产品</a>
+        <a href="/geographical-products.html" target="_blank" rel="noopener noreferrer">地理标志保护产品</a>
+        <a href="#mall">军创优品</a>
+        <a href="/famous-products.html" target="_blank" rel="noopener noreferrer">名优名品</a>
+        <a href="#group">团购集中营</a>
+        <a href="/seasonal-products.html" target="_blank" rel="noopener noreferrer">季节农产品</a>
+        <a href="#champion">冠军榜</a>
+        <a href="#rush">天天抢</a>
+      </div>
+    </div>
+  </section>
+  <!-- AI数据看板 - 修改后 -->
+  <section class="ai-dashboard card" aria-label="AI数据看板">
+    <div class="container">
+      <div class="dashboard-header">
+        <h2 class="dashboard-title">AI数据看板</h2>
+      </div>
+      <div class="dashboard-grid">
+        <!-- 商品数据 -->
+        <div class="dashboard-item" tabindex="0">
+          <h3 id="product-count">12,560</h3>
+          <p>产商品数据</p>
+        </div>
+        <!-- 溯源商品 -->
+        <div class="dashboard-item" tabindex="0">
+          <h3 id="trace-count">9,865</h3>
+          <p>溯源商品</p>
+        </div>
+        <!-- 合作企业 -->
+        <div class="dashboard-item" tabindex="0">
+          <h3 id="partner-count">1,520</h3>
+          <p>合作企业（商户+农户)</p>
+        </div>
+        <!-- 公益基金 -->
+        <div class="dashboard-item" tabindex="0">
+          <h3 id="fund-amount">256.8万</h3>
+          <p>公益基金</p>
+        </div>
+        <!-- junge币 -->
+        <div class="dashboard-item" tabindex="0">
+          <h3 id="employment-count">3,250</h3>
+          <p>junge币 · 查看你的junge · 欢迎进入</p>
+        </div>
+        <!-- 数字ID中心 -->
+        <div class="dashboard-item" tabindex="0" id="userID">
+          <h3>数字ID中心</h3>
+          <p>军鸽数字身份系统 · 查看你的数字价值 · 欢迎进入</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 军创优品展示窗和就业创业园 -->
+  <section class="showcase-section" aria-label="军创优品和就业创业">
+    <div class="container">
+      <div class="showcase-grid">
+        <!-- 军创优品展示窗 - 添加2个产品，改为3列 -->
+        <div class="card">
+          <h2 class="section-title">军创优品展示窗</h2>
+          <div class="products-showcase">
+            <div class="product-item">
+              <img src="https://images.unsplash.com/photo-1518834103328-93d45986dce1?q=80&w=800&auto=format&fit=crop" alt="军创优选有机大米，海南产地，无农药残留，退役军人信用背书" loading="lazy">
+              <h4>有机大米</h4>
+              <p>军创优选 · 海南产地 · 无农药残留 · 退役军人信用背书</p>
+              <div class="product-actions">
+                <button class="action-btn detail" onclick="window.open('product-detail-1.html', '_blank')">看详情</button>
+                <button class="action-btn buy" onclick="window.open('product-buy-1.html', '_blank')">下单购</button>
+                <button class="action-btn order" onclick="window.open('product-order-1.html', '_blank')">下订单</button>
+              </div>
+            </div>
+            <div class="product-item">
+              <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=800&auto=format&fit=crop" alt="地理标志水果，广西特产，新鲜直达，区块链溯源" loading="lazy">
+              <h4>地理标志水果</h4>
+              <p>广西特产 · 新鲜直达 · 当季优选 · 区块链溯源</p>
+              <div class="product-actions">
+                <button class="action-btn detail" onclick="window.open('product-detail-2.html', '_blank')">看详情</button>
+                <button class="action-btn buy" onclick="window.open('product-buy-2.html', '_blank')">下单购</button>
+                <button class="action-btn order" onclick="window.open('product-order-2.html', '_blank')">下订单</button>
+              </div>
+            </div>
+            <div class="product-item">
+              <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800&auto=format&fit=crop" alt="非遗辣酱，四川风味，传统工艺，百年传承，退役军人监制" loading="lazy">
+              <h4>非遗辣酱</h4>
+              <p>四川风味 · 传统工艺 · 百年传承 · 退役军人监制</p>
+              <div class="product-actions">
+                <button class="action-btn detail" onclick="window.open('product-detail-3.html', '_blank')">看详情</button>
+                <button class="action-btn buy" onclick="window.open('product-buy-3.html', '_blank')">下单购</button>
+                <button class="action-btn order" onclick="window.open('product-order-3.html', '_blank')">下订单</button>
+              </div>
+            </div>
+            <div class="product-item">
+              <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=800&auto=format&fit=crop" alt="生态农庄礼盒，云南特产，四季优选，体验装，退役军人创业项目" loading="lazy">
+              <h4>生态农庄礼盒</h4>
+              <p>云南特产 · 四季优选 · 体验装 · 退役军人创业项目</p>
+              <div class="product-actions">
+                <button class="action-btn detail" onclick="window.open('product-detail-4.html', '_blank')">看详情</button>
+                <button class="action-btn buy" onclick="window.open('product-buy-4.html', '_blank')">下单购</button>
+                <button class="action-btn order" onclick="window.open('product-order-4.html', '_blank')">下订单</button>
+              </div>
+            </div>
+            <!-- 新增产品1 -->
+            <div class="product-item">
+              <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=800&auto=format&fit=crop" alt="有机蜂蜜，深山采蜜，纯正天然，退役军人生态养殖" loading="lazy">
+              <h4>有机蜂蜜</h4>
+              <p>深山采蜜 · 纯正天然 · 退役军人生态养殖 · 无添加</p>
+              <div class="product-actions">
+                <button class="action-btn detail" onclick="window.open('product-detail-5.html', '_blank')">看详情</button>
+                <button class="action-btn buy" onclick="window.open('product-buy-5.html', '_blank')">下单购</button>
+                <button class="action-btn order" onclick="window.open('product-order-5.html', '_blank')">下订单</button>
+              </div>
+            </div>
+            <!-- 新增产品2 -->
+            <div class="product-item">
+              <img src="https://images.unsplash.com/photo-1570913199992-91d07c140e7a?q=80&w=800&auto=format&fit=crop" alt="西湖龙井茶，明前特级，地理标志，退役军人品质监控" loading="lazy">
+              <h4>西湖龙井茶</h4>
+              <p>明前特级 · 地理标志 · 退役军人品质监控 · 传统工艺</p>
+              <div class="product-actions">
+                <button class="action-btn detail" onclick="window.open('product-detail-6.html', '_blank')">看详情</button>
+                <button class="action-btn buy" onclick="window.open('product-buy-6.html', '_blank')">下单购</button>
+                <button class="action-btn order" onclick="window.open('product-order-6.html', '_blank')">下订单</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 就业创业园 - 优化为图片文字结合 -->
+        <div class="card" id="park">
+          <h2 class="section-title">就业创业园</h2>
+          <p style="text-align:center;color:#4c5970;margin-bottom: var(--spacing-2xl); line-height: var(--line-height-base);">为退役军人提供全方位就业创业支持，全国军创园区联动</p>
+          <div class="career-park">
+            <div class="career-item">
+              <h3>海南退役军人创业园</h3>
+              <div class="career-content">
+                <div class="career-image">
+                  <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=800&auto=format&fit=crop" alt="海南退役军人创业园，热带农业创业基地，退役军人创业孵化" loading="lazy">
+                </div>
+                <div class="career-info">
+                  <p>位于海南自由贸易港，专注于热带农业、跨境电商、旅游服务等领域的退役军人创业孵化。提供办公场地、创业指导、资金对接等一站式服务。</p>
+                  <p>园区特色：政策优惠、零关税优势、国际资源对接、军创品牌打造。</p>
+                  <div class="career-stats">
+                    <div class="stat-item">
+                      <div class="stat-number">156</div>
+                      <div class="stat-label">入驻企业</div>
+                    </div>
+                    <div class="stat-item">
+                      <div class="stat-number">89%</div>
+                      <div class="stat-label">创业成功率</div>
+                    </div>
+                    <div class="stat-item">
+                      <div class="stat-number">3.2亿</div>
+                      <div class="stat-label">融资总额</div>
+                    </div>
+                  </div>
+                  <button class="btn primary" style="margin-top: var(--spacing-lg);" onclick="window.open('employment-service.html', '_blank')" aria-label="查看海南创业园详情">了解详情</button>
+                </div>
+              </div>
+            </div>
+            <div class="career-item">
+              <h3>成都军创科技孵化园</h3>
+              <div class="career-content">
+                <div class="career-image">
+                  <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop" alt="成都军创科技孵化园，科技创新创业基地，退役军人科技创业" loading="lazy">
+                </div>
+                <div class="career-info">
+                  <p>聚焦科技创新、智能制造、数字经济等领域，为退役军人提供技术研发、市场推广、融资对接等全方位创业支持。</p>
+                  <p>园区特色：技术导师制、产学研结合、军民融合项目、创业大赛平台。</p>
+                  <div class="career-stats">
+                    <div class="stat-item">
+                      <div class="stat-number">203</div>
+                      <div class="stat-label">创业项目</div>
+                    </div>
+                    <div class="stat-item">
+                      <div class="stat-number">92%</div>
+                      <div class="stat-label">就业安置率</div>
+                    </div>
+                    <div class="stat-item">
+                      <div class="stat-number">5.8亿</div>
+                      <div class="stat-label">产值规模</div>
+                    </div>
+                  </div>
+                  <button class="btn primary" style="margin-top: var(--spacing-lg);" onclick="window.open('business-incubation.html', '_blank')" aria-label="查看成都孵化园详情">了解详情</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 跨境电商和零关税 -->
+  <section class="trade-section-card card" aria-label="跨境电商和零关税">
+    <div class="container">
+      <h2 class="section-title">跨境电商 & 零关税</h2>
+      <div class="trade-grid">
+        <div>
+          <h3 style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-2xl); font-size: var(--font-size-xl); font-weight: 800;">跨境电商</h3>
+          <div class="trade-section">
+            <div class="trade-item" onclick="window.open('import-food.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=800&auto=format&fit=crop" alt="进口有机食品，全球精选，直邮到家，退役军人信用担保" loading="lazy">
+              <h4>进口有机食品</h4>
+              <p>全球精选 · 直邮到家 · 退役军人信用担保</p>
+              <div class="product-actions">
+                <button class="action-btn detail">看详情</button>
+                <button class="action-btn buy">下单购</button>
+                <button class="action-btn order">下订单</button>
+              </div>
+            </div>
+            <div class="trade-item" onclick="window.open('international-brands.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop" alt="国际名品，品牌授权，正品保证，退役军人直采" loading="lazy">
+              <h4>国际名品</h4>
+              <p>品牌授权 · 正品保证 · 退役军人直采</p>
+              <div class="product-actions">
+                <button class="action-btn detail">看详情</button>
+                <button class="action-btn buy">下单购</button>
+                <button class="action-btn order">下订单</button>
+              </div>
+            </div>
+            <div class="trade-item" onclick="window.open('health-products.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop" alt="海外保健品，健康优选，官方溯源，退役军人质量监督" loading="lazy">
+              <h4>海外保健品</h4>
+              <p>健康优选 · 官方溯源 · 退役军人质量监督</p>
+              <div class="product-actions">
+                <button class="action-btn detail">看详情</button>
+                <button class="action-btn buy">下单购</button>
+                <button class="action-btn order">下订单</button>
+              </div>
+            </div>
+            <div class="trade-item" onclick="window.open('maternal-child.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=800&auto=format&fit=crop" alt="国际母婴产品，安全可靠，全球直采，退役军人品质把关" loading="lazy">
+              <h4>国际母婴</h4>
+              <p>安全可靠 · 全球直采 · 退役军人品质把关</p>
+              <div class="product-actions">
+                <button class="action-btn detail">看详情</button>
+                <button class="action-btn buy">下单购</button>
+                <button class="action-btn order">下订单</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 style="color: var(--color-primary); text-align: center; margin-bottom: var(--spacing-2xl); font-size: var(--font-size-xl); font-weight: 800;">零关税</h3>
+          <div class="trade-section">
+            <div class="trade-item" onclick="window.open('zero-tax-food.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=800&auto=format&fit=crop" alt="零关税食品，海南自贸港，政策优惠，退役军人专享" loading="lazy">
+              <h4>零关税食品</h4>
+              <p>海南自贸港 · 政策优惠 · 退役军人专享</p>
+              <div class="product-actions">
+                <button class="action-btn detail">看详情</button>
+                <button class="action-btn buy">下单购</button>
+                <button class="action-btn order">下订单</button>
+              </div>
+            </div>
+            <div class="trade-item" onclick="window.open('zero-tax-electronics.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?q=80&w=800&auto=format&fit=crop" alt="免税电子产品，品牌数码，零关税优惠，退役军人特供" loading="lazy">
+              <h4>免税电子产品</h4>
+              <p>品牌数码 · 零关税优惠 · 退役军人特供</p>
+              <div class="product-actions">
+                <button class="action-btn detail">看详情</button>
+                <button class="action-btn buy">下单购</button>
+                <button class="action-btn order">下订单</button>
+              </div>
+            </div>
+            <div class="trade-item" onclick="window.open('zero-tax-cosmetics.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1556228578-9c360e1d8d34?q=80&w=800&auto=format&fit=crop" alt="免税美妆，国际大牌，免税直购，退役军人品质保障" loading="lazy">
+              <h4>免税美妆</h4>
+              <p>国际大牌 · 免税直购 · 退役军人品质保障</p>
+              <div class="product-actions">
+                <button class="action-btn detail">看详情</button>
+                <button class="action-btn buy">下单购</button>
+                <button class="action-btn order">下订单</button>
+              </div>
+            </div>
+            <div class="trade-item" onclick="window.open('zero-tax-alcohol.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800&auto=format&fit=crop" alt="免税酒水，全球名酒，零关税专享，退役军人直供" loading="lazy">
+              <h4>免税酒水</h4>
+              <p>全球名酒 · 零关税专享 · 退役军人直供</p>
+              <div class="product-actions">
+                <button class="action-btn detail">看详情</button>
+                <button class="action-btn buy">下单购</button>
+                <button class="action-btn order">下订单</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 名优品分类橱窗 -->
+  <section class="category-showcase card" id="mall" aria-label="名优品分类橱窗">
+    <div class="container">
+      <h2 class="section-title">名优名品 · 分类橱窗</h2>
+      <div class="category-buttons" role="tablist" aria-label="商品分类">
+        <button class="category-btn active" data-category="all" role="tab" aria-selected="true" aria-controls="all-content">全部</button>
+        <button class="category-btn" data-category="organic" role="tab" aria-selected="false" aria-controls="organic-content">有机食品</button>
+        <button class="category-btn" data-category="geographical" role="tab" aria-selected="false" aria-controls="geographical-content">地理标志产品</button>
+        <button class="category-btn" data-category="green" role="tab" aria-selected="false" aria-controls="green-content">绿色食品</button>
+        <button class="category-btn" data-category="ecological" role="tab" aria-selected="false" aria-controls="ecological-content">生态食品</button>
+        <button class="category-btn" data-category="non-heritage" role="tab" aria-selected="false" aria-controls="non-heritage-content">非遗产品</button>
+        <button class="category-btn" data-category="farm" role="tab" aria-selected="false" aria-controls="farm-content">农庄体验礼盒</button>
+        <button class="category-btn" data-category="military" role="tab" aria-selected="false" aria-controls="military-content">军旅行装及其他</button>
+      </div>
+      <div class="category-grid" id="category-content" role="tabpanel">
+        <div class="category-item" data-category="organic" onclick="window.open('organic-vegetables.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop" alt="有机蔬菜礼盒，当季新鲜，无农药残留，退役军人农场直供" loading="lazy">
+          <h4>有机蔬菜礼盒</h4>
+          <p>当季新鲜 · 无农药残留 · 退役军人农场直供</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="category-item" data-category="organic" onclick="window.open('organic-eggs.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1566385101042-1a0f0c126a96?q=80&w=800&auto=format&fit=crop" alt="有机土鸡蛋，山林散养，营养丰富，退役军人生态养殖" loading="lazy">
+          <h4>有机土鸡蛋</h4>
+          <p>山林散养 · 营养丰富 · 退役军人生态养殖</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="category-item" data-category="geographical" onclick="window.open('west-lake-tea.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1570913199992-91d07c140e7a?q=80&w=800&auto=format&fit=crop" alt="西湖龙井茶，地理标志，明前特级，退役军人品质监控" loading="lazy">
+          <h4>西湖龙井茶</h4>
+          <p>地理标志 · 明前特级 · 退役军人品质监控</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="category-item" data-category="geographical" onclick="window.open('wuchang-rice.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=800&auto=format&fit=crop" alt="五常大米，地理标志，东北特产，退役军人精选" loading="lazy">
+          <h4>五常大米</h4>
+          <p>地理标志 · 东北特产 · 退役军人精选</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="category-item" data-category="green" onclick="window.open('green-fruits.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=800&auto=format&fit=crop" alt="绿色认证水果，无公害，健康优选，退役军人果园直供" loading="lazy">
+          <h4>绿色认证水果</h4>
+          <p>无公害 · 健康优选 · 退役军人果园直供</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="category-item" data-category="green" onclick="window.open('green-honey.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=800&auto=format&fit=crop" alt="绿色蜂蜜，天然采集，纯正无添加，退役军人养蜂场" loading="lazy">
+          <h4>绿色蜂蜜</h4>
+          <p>天然采集 · 纯正无添加 · 退役军人养蜂场</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="category-item" data-category="non-heritage" onclick="window.open('non-heritage-pickles.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=800&auto=format&fit=crop" alt="非遗酱菜，传统工艺，百年传承，退役军人传承保护" loading="lazy">
+          <h4>非遗酱菜</h4>
+          <p>传统工艺 · 百年传承 · 退役军人传承保护</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="category-item" data-category="farm" onclick="window.open('farm-experience.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=800&auto=format&fit=crop" alt="农庄体验礼盒，四季特产，体验装，退役军人创业项目" loading="lazy">
+          <h4>农庄体验礼盒</h4>
+          <p>四季特产 · 体验装 · 退役军人创业项目</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: var(--spacing-2xl);">
+        <a href="/shangcheng.html" target="_blank" rel="noopener noreferrer" class="btn primary">点击进入军创商城页面</a>
+      </div>
+    </div>
+  </section>
+  <!-- 团购集中营 -->
+  <section class="group-purchase card" id="group" aria-label="团购集中营">
+    <div class="container">
+      <h2 class="section-title">团购集中营</h2>
+      <div class="group-grid">
+        <div class="group-item" onclick="window.open('group-eco-products.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop" alt="生态农产品团购专区，当季新鲜，产地直供，退役军人农场团购" loading="lazy">
+          <h4>生态农产品团购专区</h4>
+          <p>当季新鲜 · 产地直供 · 退役军人农场团购</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="group-item" onclick="window.open('group-military-products.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=800&auto=format&fit=crop" alt="退役军人企业优品，军创品牌，品质保证，战友专享特惠" loading="lazy">
+          <h4>退役军人企业优品</h4>
+          <p>军创品牌 · 品质保证 · 战友专享特惠</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="group-item" onclick="window.open('group-geographical.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1570913199992-91d07c140e7a?q=80&w=800&auto=format&fit=crop" alt="地理标志产品特惠，地域特产，正品保证，退役军人团购专享" loading="lazy">
+          <h4>地理标志产品特惠</h4>
+          <p>地域特产 · 正品保证 · 退役军人团购专享</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="group-item" onclick="window.open('group-seasonal-fruits.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=800&auto=format&fit=crop" alt="季节性水果直供，时令水果，新鲜直达，退役军人果园团购" loading="lazy">
+          <h4>季节性水果直供</h4>
+          <p>时令水果 · 新鲜直达 · 退役军人果园团购</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="group-item" onclick="window.open('group-military-supplies.html', '_blank')" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=800&auto=format&fit=crop" alt="军供产品，军需品质，特供标准，退役军人专享渠道" loading="lazy">
+          <h4>军供产品</h4>
+          <p>军需品质 · 特供标准 · 退役军人专享渠道</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 天天抢 -->
+  <section class="daily-rush card" id="rush" aria-label="天天抢">
+    <div class="container">
+      <h2 class="section-title">天天抢（市场）</h2>
+      <div class="rush-grid">
+        <div class="rush-item" onclick="window.open('rush-vegetables.html', '_blank')" tabindex="0">
+          <div class="rush-time">09:00</div>
+          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop" alt="新鲜蔬菜专场，当季蔬菜，限时抢购，退役军人农场特供" loading="lazy">
+          <h4>新鲜蔬菜专场</h4>
+          <p>当季蔬菜 · 限时抢购 · 退役军人农场特供</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="rush-item" onclick="window.open('rush-eggs.html', '_blank')" tabindex="0">
+          <div class="rush-time">12:00</div>
+          <img src="https://images.unsplash.com/photo-1566385101042-1a0f0c126a96?q=80&w=800&auto=format&fit=crop" alt="生态禽蛋限时抢，山林散养，营养丰富，退役军人生态养殖" loading="lazy">
+          <h4>生态禽蛋限时抢</h4>
+          <p>山林散养 · 营养丰富 · 退役军人生态养殖</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="rush-item" onclick="window.open('rush-geographical.html', '_blank')" tabindex="0">
+          <div class="rush-time">15:00</div>
+          <img src="https://images.unsplash.com/photo-1570913199992-91d07c140e7a?q=80&w=800&auto=format&fit=crop" alt="地理标志产品，地域特产，正品保证，退役军人精选特价" loading="lazy">
+          <h4>地理标志产品</h4>
+          <p>地域特产 · 正品保证 · 退役军人精选特价</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+        <div class="rush-item" onclick="window.open('rush-military-products.html', '_blank')" tabindex="0">
+          <div class="rush-time">18:00</div>
+          <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=800&auto=format&fit=crop" alt="退役军人优品，军创品牌，品质保证，战友专享限时抢" loading="lazy">
+          <h4>退役军人优品</h4>
+          <p>军创品牌 · 品质保证 · 战友专享限时抢</p>
+          <div class="product-actions">
+            <button class="action-btn detail">看详情</button>
+            <button class="action-btn buy">下单购</button>
+            <button class="action-btn order">下订单</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 新增：生态农庄 -->
+  <section class="ecological-farm card" id="eco" aria-label="生态农庄">
+    <div class="container">
+      <h2 class="section-title">生态农庄</h2>
+      <p style="text-align: center; color: var(--color-muted); margin-bottom: var(--spacing-2xl); line-height: var(--line-height-base); max-width: 800px; margin-left: auto; margin-right: auto;">
+        军鸽云链生态农庄项目，整合全国退役军人农场资源，打造从田间到餐桌的全程可溯源生态农业体系，为退役军人提供创业就业平台，为消费者提供安全健康的农产品。
+      </p>
+      <div class="farm-grid">
+        <div class="farm-item">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800&auto=format&fit=crop" alt="海南热带生态农庄，退役军人创业项目，热带水果种植" loading="lazy">
+          <h4>海南热带生态农庄</h4>
+          <p>位于海南三亚，专注于热带水果种植和生态农业，为退役军人提供创业平台，实现从种植到销售的全链条管理。</p>
+          <div class="farm-features">
+            <span class="farm-feature">热带水果</span>
+            <span class="farm-feature">生态种植</span>
+            <span class="farm-feature">旅游体验</span>
+          </div>
+          <button class="btn primary" onclick="window.open('farm-hainan.html', '_blank')">了解详情</button>
+        </div>
+        <div class="farm-item">
+          <img src="https://images.unsplash.com/photo-1589923186741-7d1d6ccee3c3?q=80&w=800&auto=format&fit=crop" alt="云南高山有机茶园，退役军人管理，有机茶叶生产" loading="lazy">
+          <h4>云南高山有机茶园</h4>
+          <p>云南普洱高山有机茶园，退役军人管理和运营，采用传统工艺与现代技术结合，生产高品质有机茶叶。</p>
+          <div class="farm-features">
+            <span class="farm-feature">有机茶叶</span>
+            <span class="farm-feature">高山种植</span>
+            <span class="farm-feature">非遗工艺</span>
+          </div>
+          <button class="btn primary" onclick="window.open('farm-yunnan.html', '_blank')">了解详情</button>
+        </div>
+        <div class="farm-item">
+          <img src="https://images.unsplash.com/photo-1559131397-f94da358a9d5?q=80&w=800&auto=format&fit=crop" alt="东北黑土地生态农场，退役军人集体创业，粮食生产基地" loading="lazy">
+          <h4>东北黑土地生态农场</h4>
+          <p>黑龙江黑土地生态农场，退役军人集体创业项目，生产优质大米和杂粮，采用生态循环农业模式。</p>
+          <div class="farm-features">
+            <span class="farm-feature">黑土地</span>
+            <span class="farm-feature">生态循环</span>
+            <span class="farm-feature">粮食安全</span>
+          </div>
+          <button class="btn primary" onclick="window.open('farm-northeast.html', '_blank')">了解详情</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 新增：军旅基地 - 修改为4个卡片 -->
+  <section class="military-base card" id="base" aria-label="军旅基地">
+    <div class="container">
+      <h2 class="section-title">军旅基地</h2>
+      <p style="text-align: center; color: var(--color-muted); margin-bottom: var(--spacing-2xl); line-height: var(--line-height-base); max-width: 800px; margin-left: auto; margin-right: auto;">
+        军旅基地是退役军人创业就业的重要平台，提供军事训练体验、红色旅游、军旅文化传承等服务，为退役军人创造就业机会，为社会提供正能量。
+      </p>
+      <div class="base-grid">
+        <div class="base-item">
+          <img src="https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?q=80&w=800&auto=format&fit=crop" alt="红色军旅文化基地，退役军人运营，军事体验旅游" loading="lazy">
+          <h4>红色军旅文化基地</h4>
+          <p>位于革命老区的红色军旅文化基地，由退役军人运营管理，提供军事体验、红色教育、团队建设等服务。</p>
+          <button class="btn primary" style="margin-top: var(--spacing-lg); width: 100%;" onclick="window.open('base-red-culture.html', '_blank')">文化体验</button>
+        </div>
+        <div class="base-item">
+          <img src="https://images.unsplash.com/photo-1507829805356-29a2d8f4eb57?q=80&w=800&auto=format&fit=crop" alt="军事拓展训练基地，退役军人教练团队，企业团队建设" loading="lazy">
+          <h4>军事拓展训练基地</h4>
+          <p>专业的军事拓展训练基地，由退役军人组成教练团队，为企业、学校等提供军事化团队建设和素质拓展服务。</p>
+          <button class="btn primary" style="margin-top: var(--spacing-lg); width: 100%;" onclick="window.open('base-training.html', '_blank')">训练服务</button>
+        </div>
+        <div class="base-item">
+          <img src="https://images.unsplash.com/photo-1580136601596-a3d20e8c4c9c?q=80&w=800&auto=format&fit=crop" alt="退役军人创业培训基地，技能培训，创业指导" loading="lazy">
+          <h4>退役军人创业培训基地</h4>
+          <p>为退役军人提供创业培训、技能提升、项目指导等服务，帮助退役军人顺利转型创业。</p>
+          <button class="btn primary" style="margin-top: var(--spacing-lg); width: 100%;" onclick="window.open('base-training-center.html', '_blank')">培训服务</button>
+        </div>
+        <div class="base-item">
+          <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?q=80&w=800&auto=format&fit=crop" alt="军民融合示范基地，科技研发，产业合作" loading="lazy">
+          <h4>军民融合示范基地</h4>
+          <p>推动军民融合深度发展，促进军事技术民用化，为退役军人提供科技研发和产业合作平台。</p>
+          <button class="btn primary" style="margin-top: var(--spacing-lg); width: 100%;" onclick="window.open('base-integration.html', '_blank')">融合服务</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 新增：党建公益与投诉曝光台 -->
+  <section class="card" id="party-complaint">
+    <div class="container">
+      <h2 class="section-title">党建公益 & 投诉曝光台</h2>
+      <div class="party-complaint-grid">
+        <!-- 党建公益 - 增加双拥活动和公益捐赠 -->
+        <div class="party-public">
+          <div class="party-item" id="party">
+            <h3>党建公益</h3>
+            <div class="party-content">
+              <div class="party-activity">
+                <div class="party-icon">🏅</div>
+                <div class="party-info">
+                  <h4>退役军人党员先锋岗</h4>
+                  <p>设立退役军人党员先锋岗，发挥党员先锋模范作用，带领退役军人创业就业，服务社会。</p>
+                </div>
+              </div>
+              <div class="party-activity">
+                <div class="party-icon">❤️</div>
+                <div class="party-info">
+                  <h4>军鸽公益基金</h4>
+                  <p>设立军鸽公益基金，用于帮扶困难退役军人家庭、支持退役军人创业项目、开展公益活动。</p>
+                </div>
+              </div>
+              <div class="party-activity">
+                <div class="party-icon">🤝</div>
+                <div class="party-info">
+                  <h4>红色志愿服务</h4>
+                  <p>组织退役军人红色志愿服务队，开展社区服务、扶贫帮困、抢险救灾等公益活动。</p>
+                </div>
+              </div>
+              <!-- 新增：双拥活动 -->
+              <div class="party-activity">
+                <div class="party-icon">🎖️</div>
+                <div class="party-info">
+                  <h4>双拥活动</h4>
+                  <p>定期开展拥军优属、拥政爱民活动，组织退役军人慰问现役军人家庭，搭建军民桥梁。</p>
+                </div>
+              </div>
+              <!-- 新增：公益捐赠 -->
+              <div class="party-activity">
+                <div class="party-icon">🎁</div>
+                <div class="party-info">
+                  <h4>公益捐赠</h4>
+                  <p>组织退役军人开展物资捐赠、资金募集等公益活动，支持贫困地区教育、医疗等事业发展。</p>
+                </div>
+              </div>
+              <!-- 活动剪影 -->
+              <div style="margin-top: var(--spacing-lg);">
+                <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-md); text-align: center;">活动剪影</h4>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-md);">
+                  <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?q=80&w=400&auto=format&fit=crop" alt="党建活动剪影1" style="width: 100%; height: 80px; object-fit: cover; border-radius: var(--border-radius-sm);">
+                  <img src="https://images.unsplash.com/photo-1518834103328-93d45986dce1?q=80&w=400&auto=format&fit=crop" alt="党建活动剪影2" style="width: 100%; height: 80px; object-fit: cover; border-radius: var(--border-radius-sm);">
+                  <img src="https://images.unsplash.com/photo-1559131397-f94da358a9d5?q=80&w=400&auto=format&fit=crop" alt="党建活动剪影3" style="width: 100%; height: 80px; object-fit: cover; border-radius: var(--border-radius-sm);">
+                </div>
+              </div>
+              <button class="btn primary" style="margin-top: var(--spacing-lg); width: 100%;" onclick="window.open('party-public.html', '_blank')">了解更多</button>
+            </div>
+          </div>
+        </div>
+        <!-- 投诉曝光台 - 修改为展示内容 -->
+        <div class="party-public">
+          <div class="complaint-item" id="complaint">
+            <h3>投诉曝光台</h3>
+            <div class="complaint-content">
+              <!-- 投诉表单隐藏 -->
+              <div class="complaint-form" style="display: none;">
+                <!-- 原投诉表单内容已隐藏 -->
+              </div>
+              <!-- 展示内容：视频、图片和文字 -->
+              <div class="complaint-showcase">
+                <!-- 视频展示 -->
+                <div class="complaint-video">
+                  <img src="https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?q=80&w=800&auto=format&fit=crop" alt="投诉处理流程视频封面">
+                  <div class="play-button">▶</div>
+                </div>
+                <!-- 图片展示 -->
+                <div class="complaint-images">
+                  <div class="complaint-image">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=400&auto=format&fit=crop" alt="投诉处理现场1">
+                  </div>
+                  <div class="complaint-image">
+                    <img src="https://images.unsplash.com/photo-1566385101042-1a0f0c126a96?q=80&w=400&auto=format&fit=crop" alt="投诉处理现场2">
+                  </div>
+                  <div class="complaint-image">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=400&auto=format&fit=crop" alt="投诉处理现场3">
+                  </div>
+                </div>
+                <!-- 文字内容 -->
+                <div class="complaint-text">
+                  <h4>投诉处理流程与成果</h4>
+                  <p>军鸽云链平台建立完善的投诉处理机制，确保消费者权益得到有效保障：</p>
+                  <ul>
+                    <li><strong>快速响应：</strong> 收到投诉后24小时内响应，72小时内给出初步处理意见</li>
+                    <li><strong>透明处理：</strong> 处理过程全程记录，消费者可随时查看处理进度</li>
+                    <li><strong>退役军人监督：</strong> 由退役军人监督委员会对投诉处理进行监督</li>
+                    <li><strong>结果公示：</strong> 典型投诉案例在平台公示，接受社会监督</li>
+                    <li><strong>持续改进：</strong> 根据投诉情况优化平台服务和产品质量</li>
+                  </ul>
+                  <p>2025年第一季度，平台共收到投诉256件，已处理完成248件，处理满意率达到95.3%。</p>
+                  <button class="btn primary" style="margin-top: var(--spacing-md); width: 100%;" onclick="window.open('complaint-process.html', '_blank')">查看详细投诉流程</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 文化家园 -->
+  <section class="culture-section card" id="adventure" aria-label="仗剑天涯军鸽副刊">
+    <div class="container">
+      <h2 class="section-title">仗剑天涯 · 军鸽副刊 · 文化家园</h2>
+      <div class="culture-grid">
+        <div>
+          <div class="culture-main">
+            <div class="culture-item" onclick="window.open('modern-ranger.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1542639861-27d045032e47?q=80&w=800&auto=format&fit=crop" alt="现代游侠精神家园，骑行互助侠义，退役军人互助网络" loading="lazy">
+              <h4>现代游侠精神家园</h4>
+              <p>骑行 · 互助 · 侠义</p>
+              <p style="line-height: var(--line-height-base);">打造全国退役军人互助网络，让每位战友在旅途中找到温暖的港湾。记录骑行故事，分享旅途见闻，传承战友情怀。</p>
+              <button class="btn primary" style="margin-top: var(--spacing-md);">阅读故事</button>
+            </div>
+            <div class="culture-item" onclick="window.open('mutual-aid-stations.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800&auto=format&fit=crop" alt="全国互助驿站网络，已建立156个互助驿站，退役军人互助服务" loading="lazy">
+              <h4>全国互助驿站网络</h4>
+              <p>已建立 156 个互助驿站</p>
+              <p style="line-height: var(--line-height-base);">覆盖全国28省份，累计服务超过5000名退役军人。提供住宿接待、路线规划、紧急救助等服务。</p>
+              <button class="btn primary" style="margin-top: var(--spacing-md);">查看驿站</button>
+            </div>
+            <div class="culture-item" onclick="window.open('cycling-journals.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1520095972714-909e91b038e5?q=80&w=800&auto=format&fit=crop" alt="战友骑行游记分享，骑行故事旅途见闻，退役军人正能量" loading="lazy">
+              <h4>战友骑行游记分享</h4>
+              <p>骑行故事 · 旅途见闻 · 经验分享</p>
+              <p style="line-height: var(--line-height-base);">记录旅途点滴，传递战友情谊与正能量。分享骑行经验、路线推荐、装备心得等实用信息。</p>
+              <button class="btn primary" style="margin-top: var(--spacing-md);">阅读游记</button>
+            </div>
+            <div class="culture-item" onclick="window.open('travel-support.html', '_blank')" tabindex="0">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop" alt="旅途互助接待体系，住宿接待紧急救助，退役军人互助网络" loading="lazy">
+              <h4>旅途互助接待体系</h4>
+              <p>住宿接待 · 紧急救助 · 路线规划</p>
+              <p style="line-height: var(--line-height-base);">提供路线规划、接待与救助，让旅途更安心。建立退役军人互助接待网络，实现全国战友一家亲。</p>
+              <button class="btn primary" style="margin-top: var(--spacing-md);">申请接待</button>
+            </div>
+          </div>
+          <!-- 投稿快捷方式 -->
+          <div class="contribute-section">
+            <h3 class="contribute-title">投稿快捷通道</h3>
+            <p style="color: var(--color-muted); margin-bottom: var(--spacing-lg); line-height: var(--line-height-base);">
+              欢迎退役军人及家属投稿，分享您的军旅故事、创业经历、骑行游记、艺术创作等，我们将择优刊登在军鸽副刊。
+            </p>
+            <div class="contribute-options">
+              <div class="contribute-option" onclick="window.open('contribute-story.html', '_blank')">
+                <div class="contribute-icon">📝</div>
+                <h4>故事投稿</h4>
+                <p>分享军旅故事、创业经历、生活感悟</p>
+              </div>
+              <div class="contribute-option" onclick="window.open('contribute-article.html', '_blank')">
+                <div class="contribute-icon">✍️</div>
+                <h4>文章投稿</h4>
+                <p>发表评论文章、技术分享、行业分析</p>
+              </div>
+              <div class="contribute-option" onclick="window.open('contribute-art.html', '_blank')">
+                <div class="contribute-icon">🎨</div>
+                <h4>艺术投稿</h4>
+                <p>展示书法、绘画、摄影等艺术作品</p>
+              </div>
+            </div>
+            <button class="btn primary" style="margin-top: var(--spacing-2xl);" onclick="window.open('contribute-guide.html', '_blank')">查看投稿指南</button>
+          </div>
+        </div>
+        <div class="culture-sidebar">
+          <div class="sidebar-item" onclick="window.open('mission-system.html', '_blank')" tabindex="0">
+            <h4>江湖令任务系统</h4>
+            <p>发布任务 · 接取任务 · 完成奖励</p>
+            <p style="line-height: var(--line-height-base);">战友发布求助或提供帮助，形成互帮互助的良性循环。完成任务可获得积分和奖励。</p>
+            <button class="btn primary" style="margin-top: var(--spacing-md);">查看任务</button>
+          </div>
+          <div class="sidebar-item" onclick="window.open('calligraphy-photography.html', '_blank')" tabindex="0">
+            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=800&auto=format&fit=crop" alt="书法摄影国画，文化创作展示与拍卖，退役军人艺术才华" loading="lazy">
+            <h4>书法 · 摄影 · 国画</h4>
+            <p>文化创作展示与拍卖</p>
+            <p style="line-height: var(--line-height-base);">展示退役军人艺术才华，作品拍卖用于公益。定期举办艺术展览和拍卖活动。</p>
+            <button class="btn primary" style="margin-top: var(--spacing-md);">欣赏作品</button>
+          </div>
+          <div class="sidebar-item" onclick="window.open('essay-collection.html', '_blank')" tabindex="0">
+            <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=800&auto=format&fit=crop" alt="征文与回忆，战友情怀与红色故事，退役军人文化传承" loading="lazy">
+            <h4>征文与回忆</h4>
+            <p>战友情怀与红色故事征集</p>
+            <p style="line-height: var(--line-height-base);">征集军旅回忆与红色故事，传承红色基因。优秀作品将结集出版。</p>
+            <button class="btn primary" style="margin-top: var(--spacing-md);">阅读征文</button>
+          </div>
+          <div style="text-align: center; margin-top: var(--spacing-lg);">
+            <a href="/culture-home.html" target="_blank" rel="noopener noreferrer" class="btn primary">进入文化家园首页</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+
+<footer aria-label="页脚">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-column">
+          <h3>军鸽云链数智</h3>
+          <ul>
+            <li><a href="/core-value.html" target="_blank" rel="noopener noreferrer">核心价值-以军人精神守护民生底线</a></li>
+            <li><a href="/core-value.html" target="_blank" rel="noopener noreferrer">以商业创新激活社会价值</a></li>
+            <li><a href="/vision.html" target="_blank" rel="noopener noreferrer">愿每一份付出被发现</a></li>
+            <li><a href="/vision.html" target="_blank" rel="noopener noreferrer">让每一份信任有回应</a></li>
+            <li><a href="/mission.html" target="_blank" rel="noopener noreferrer">使命：服务退役军人创业就业</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>快速链接</h3>
+          <ul>
+            <li><a href="/about.html" target="_blank" rel="noopener noreferrer">关于我们</a></li>
+            <li><a href="#park">就业创业园</a></li>
+            <li><a href="#eco">生态农庄</a></li>
+            <li><a href="#base">军旅基地</a></li>
+            <li><a href="#party">党建公益</a></li>
+            <li><a href="#complaint">投诉曝光台</a></li>
+            <li><a href="#adventure">仗剑天涯</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>合作伙伴</h3>
+          <ul>
+            <li><a href="/partner-1.html" target="_blank" rel="noopener noreferrer">退役军人事务部</a></li>
+            <li><a href="/partner-2.html" target="_blank" rel="noopener noreferrer">农业农村部</a></li>
+            <li><a href="/partner-3.html" target="_blank" rel="noopener noreferrer">商务部</a></li>
+            <li><a href="partner-4.html" target="_blank" rel="noopener noreferrer">市场监管总局</a></li>
+            <li><a href="partner-5.html" target="_blank" rel="noopener noreferrer">乡村振兴局</a></li>
+            <li><a href="partner-6.html" target="_blank" rel="noopener noreferrer">全国工商联</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>联系我们</h3>
+          <ul>
+            <li><span class="phone-footer">400-888-8888</span></li>
+            <li><a href="mailto:service@junge.com">service@junge.com</a></li>
+            <li><a href="/contact.html" target="_blank" rel="noopener noreferrer">在线客服</a></li>
+            <li><a href="feedback.html" target="_blank" rel="noopener noreferrer">意见建议</a></li>
+            <li><a href="join.html" target="_blank" rel="noopener noreferrer">加入我们</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">海南退役军人创业园 400-888-8888 版权所有 © 2025 军鸽云链数智 | 琼ICP备2025063762号-2</div>
+        <div class="tech-support">
+          技术支持：区块链溯源系统 · 人工智能推荐算法 · 大数据分析平台 · 云计算服务
+          前端层（展示与交互）· 应用层（业务逻辑）· 数据层（存储与缓存）· 接口层（API网关）· 安全层（加密防护）
+        </div>
+        <div class="tech-stack">构建安全可信的数字生态，服务退役军人创业就业，助力乡村振兴战略，守护食品安全底线</div>
+      </div>
+    </div>
+  </footer>
+  <!-- 返回顶部 -->
+  <button class="back-to-top" id="backToTop" aria-label="返回顶部" title="返回顶部">↑</button>
+  <!-- 面包屑导航（辅助功能） -->
+  <nav class="visually-hidden" aria-label="面包屑导航">
+    <ol>
+      <li><a href="#">首页</a></li>
+    </ol>
+  </nav>
+  <!-- 跳过导航链接 -->
+  <a href="#main-content" class="skip-to-main visually-hidden">跳转到主要内容</a>
+  <script>
+    // ====== 搜索功能模块 ======
+    const SubstationSearch = {
+      config: {
+        HISTORY_MAX_LENGTH: 5,
+        DEBOUNCE_DELAY: 200,
+        BASE_DOMAIN: "junge.网络"
+      },
+      init: function() {
+        console.log("SubstationSearch模块初始化，配置:", this.config);
+        this.setupSearchDomEvents();
+        this.initAdminDivisionData();
+        this.initInputBehavior();
+        return this;
+      },
+        this.ALL_ADMIN_DATA = [
+          ...this.PREFECTURE_CITIES,
+          ...this.COUNTY_LEVEL_CITIES,
+          ...this.COUNTIES,
+          ...this.COUNTY_LEVEL_DISTRICTS
+        ];
+        console.log(`已加载${this.ALL_ADMIN_DATA.length}个行政区划数据`);
+        console.log(`已加载${Object.keys(this.stationMap).length}个站点映射`);
+      },
+      debounce: function(func, delay = this.config.DEBOUNCE_DELAY) {
+        let timer = null;
+        return function(...args) {
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            func.apply(this, args);
+          }, delay);
+        };
+      },
+      getSearchHistory: function() {
+        try {
+          const history = localStorage.getItem('stationSearchHistory');
+          return history ? JSON.parse(history).sort((a,b) => b.time - a.time) : [];
+        } catch (error) {
+          console.error('读取历史记录失败:', error);
+          return [];
+        }
+      },
+      saveSearchHistory: function(stationName) {
+        try {
+          let history = this.getSearchHistory();
+          history = history.filter(item => item.name !== stationName);
+          history.unshift({ 
+            name: stationName, 
+            time: Date.now(),
+            date: new Date().toLocaleString('zh-CN')
+          });
+          if (history.length > this.config.HISTORY_MAX_LENGTH) {
+            history = history.slice(0, this.config.HISTORY_MAX_LENGTH);
+          }
+          localStorage.setItem('stationSearchHistory', JSON.stringify(history));
+          console.log('已保存搜索历史:', history);
+        } catch (error) {
+          console.error('保存历史记录失败:', error);
+        }
+      },
+      highlightKeyword: function(text, keyword) {
+        if (!keyword || !keyword.trim()) return text;
+        try {
+          const regex = new RegExp(`(${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+          return text.replace(regex, '<span class="search-highlight">$1</span>');
+        } catch (error) {
+          return text;
+        }
+      },
+      updateStationList: function(options, keyword = '') {
+        const datalist = document.getElementById('stationList');
+        if (!datalist) {
+          console.warn('未找到stationList元素');
+          return;
+        }
+        datalist.innerHTML = '';
+        if (!options || options.length === 0) {
+          const history = this.getSearchHistory();
+          if (history.length > 0) {
+            options = history.map(item => item.name);
+          }
+        }
+        options.forEach(option => {
+          const optionElement = document.createElement('option');
+          const isHistory = !option.includes("-");
+          let displayText = isHistory ? option : option;
+          if (keyword) {
+            displayText = this.highlightKeyword(displayText, keyword);
+          }
+          const fillValue = isHistory ? option : option.split("-")[1];
+          optionElement.value = fillValue;
+          optionElement.innerHTML = displayText;
+          datalist.appendChild(optionElement);
+        });
+        console.log(`更新候选列表，共${options.length}个选项`);
+      },
+      getSearchResult: function(keyword) {
+        const keywordLower = keyword.trim().toLowerCase();
+        if (!keywordLower) {
+          const history = this.getSearchHistory();
+          return history.map(item => item.name);
+        }
+        const inputMatches = this.ALL_ADMIN_DATA.filter(item => {
+          const [prefix, name] = item.split("-");
+          return name.toLowerCase().includes(keywordLower) || 
+                 prefix.toLowerCase().includes(keywordLower);
+        });
+        const nameExactMatches = this.ALL_ADMIN_DATA.filter(item => {
+          const [_, name] = item.split("-");
+          return name.toLowerCase() === keywordLower;
+        });
+        const provinceExactMatches = this.ALL_ADMIN_DATA.filter(item => {
+          const [province, _] = item.split("-");
+          return province.toLowerCase() === keywordLower;
+        });
+        const combinedMatches = [...new Set([
+          ...nameExactMatches,
+          ...provinceExactMatches,
+          ...inputMatches
+        ])];
+        if (combinedMatches.length > 0) {
+          return combinedMatches;
+        }
+        const history = this.getSearchHistory();
+        return history.map(item => item.name);
+      },
+      debouncedSearchStation: function(keyword) {
+        const tip = document.getElementById('searchTip');
+        const searchResult = this.getSearchResult(keyword);
+        if (keyword.trim() && searchResult.length === 0) {
+          tip.textContent = `暂无相关行政区划，请尝试其他关键词`;
+          tip.style.display = 'block';
+        } else {
+          tip.style.display = 'none';
+          this.updateStationList(searchResult, keyword);
+        }
+      },
+      initInputBehavior: function() {
+        const input = document.getElementById('stationInput');
+        if (!input) {
+          console.error('未找到stationInput元素');
+          return;
+        }
+        let isSelecting = false;
+        const debouncedFunc = this.debounce(this.debouncedSearchStation.bind(this), this.config.DEBOUNCE_DELAY);
+        input.addEventListener('input', e => {
+          if (!isSelecting) {
+            debouncedFunc(e.target.value);
+          }
+          isSelecting = false;
+        });
+        input.addEventListener('change', () => {
+          isSelecting = true;
+        });
+        input.addEventListener('focus', () => {
+          this.updateStationList([]);
+          input.select();
+        });
+        input.addEventListener('keydown', e => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            this.handleSearch();
+          }
+        });
+        this.updateStationList([]);
+      },
+      setupSearchDomEvents: function() {
+        const searchForm = document.querySelector('.substation-module form');
+        if (searchForm) {
+          searchForm.addEventListener('submit', e => {
+            e.preventDefault();
+            this.handleSearch();
+          });
+        }
+        const searchBtn = document.querySelector('.substation-module .search-btn');
+        if (searchBtn) {
+          searchBtn.addEventListener('click', () => {
+            this.handleSearch();
+          });
+        }
+        console.log('已绑定搜索DOM事件');
+      },
+      handleSearch: function() {
+        const input = document.getElementById('stationInput');
+        const stationName = input.value.trim();
+        if (!stationName) {
+          alert('请输入地级市/县级市/县/区县名称');
+          input.focus();
+          return;
+        }
+        console.log('开始搜索:', stationName);
+        this.saveSearchHistory(stationName);
+        this.aiDirectSearch(stationName);
+      },
+      aiDirectSearch: function(query) {
+        console.log('执行AI直搜:', query);
+        let matchedSub = "";
+        Object.keys(this.stationMap).forEach(name => {
+          if (query.includes(name)) {
+            matchedSub = this.stationMap[name];
+            console.log(`匹配到站点映射: ${name} -> ${matchedSub}`);
+          }
+        });
+        if (matchedSub) {
+          const url = `https://${matchedSub}.${this.config.BASE_DOMAIN}`;
+          console.log('跳转到分站:', url);
+          window.location.href = url;
+          return;
+        }
+        const fallbackUrl = `search-results.html?q=${encodeURIComponent(query)}`;
+        console.log('跳转到兜底搜索页:', fallbackUrl);
+        window.open(fallbackUrl, '_blank');
+      }
+    };
+    // ====== 军鸽云链数智平台主脚本 ======
+    (function() {
+      'use strict';
+      const JungePlatform = {
+        config: {
+          apiBase: '/api',
+          animationDuration: 1400,
+          breakpoints: {
+            sm: 576,
+            md: 768,
+            lg: 992,
+            xl: 1200
+          }
+        },
+        init: function() {
+          this.setupMobileMenu();
+          this.setupBackToTop();
+          this.setupCategoryFilter();
+          this.animateDashboard();
+          this.setupKeyboardNavigation();
+          this.setupEventListeners();
+          this.loadDashboardData();
+          this.setupAccessibility();
+          this.setupTouchFeedback();
+          this.setupComplaintForm();
+          this.setupProductActions();
+          this.setupSearchFunctionality();
+          console.log('军鸽云链数智平台已初始化');
+        },
+        setupMobileMenu: function() {
+          const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+          const mainNav = document.getElementById('mainNav');
+          if (!mobileMenuToggle || !mainNav) return;
+          this.updateNavVisibility();
+          mobileMenuToggle.addEventListener('click', () => {
+            const isExpanded = mainNav.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+            mobileMenuToggle.innerHTML = isExpanded ? '✕' : '☰';
+            if (window.innerWidth <= this.config.breakpoints.md) {
+              mainNav.style.display = isExpanded ? 'flex' : 'none';
+            }
+          });
+          const navLinks = mainNav.querySelectorAll('a');
+          navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              if (window.innerWidth <= this.config.breakpoints.md) {
+                mainNav.classList.remove('active');
+                mainNav.style.display = 'none';
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.innerHTML = '☰';
+              }
+            });
+          });
+          window.addEventListener('resize', () => {
+            this.updateNavVisibility();
+          });
+        },
+        updateNavVisibility: function() {
+          const mainNav = document.getElementById('mainNav');
+          const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+          if (!mainNav || !mobileMenuToggle) return;
+          if (window.innerWidth > this.config.breakpoints.md) {
+            mainNav.style.display = 'flex';
+            mainNav.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.innerHTML = '☰';
+          } else {
+            if (!mainNav.classList.contains('active')) {
+              mainNav.style.display = 'none';
+            }
+          }
+        },
+        setupBackToTop: function() {
+          const backToTop = document.getElementById('backToTop');
+          if (!backToTop) return;
+          backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+              backToTop.classList.add('visible');
+            } else {
+              backToTop.classList.remove('visible');
+            }
+          });
+        },
+        setupCategoryFilter: function() {
+          const categoryButtons = document.querySelectorAll('.category-btn');
+          const categoryItems = document.querySelectorAll('.category-item');
+          if (!categoryButtons.length || !categoryItems.length) return;
+          categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              categoryButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+              });
+              button.classList.add('active');
+              button.setAttribute('aria-selected', 'true');
+              const category = button.getAttribute('data-category');
+              categoryItems.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                  item.style.display = 'flex';
+                  item.setAttribute('aria-hidden', 'false');
+                } else {
+                  item.style.display = 'none';
+                  item.setAttribute('aria-hidden', 'true');
+                }
+              });
+            });
+          });
+        },
+        animateDashboard: function() {
+          this.animateCounter('product-count', 0, 12560, this.config.animationDuration);
+          this.animateCounter('trace-count', 0, 9865, this.config.animationDuration);
+          this.animateCounter('partner-count', 0, 1520, this.config.animationDuration);
+          this.animateCounter('fund-amount', 0, 256.8, this.config.animationDuration, '万');
+          this.animateCounter('employment-count', 0, 3250, this.config.animationDuration);
+        },
+        animateCounter: function(id, start, end, duration, suffix = '') {
+          const el = document.getElementById(id);
+          if (!el) return;
+          let startTime = null;
+          const animate = (currentTime) => {
+            if (!startTime) startTime = currentTime;
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            if (suffix === '万') {
+              el.textContent = (start + progress * (end - start)).toFixed(1) + suffix;
+            } else {
+              const value = Math.floor(progress * (end - start) + start);
+              el.textContent = value.toLocaleString();
+            }
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            }
+          };
+          requestAnimationFrame(animate);
+        },
+        setupKeyboardNavigation: function() {
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+              document.body.classList.add('keyboard-navigation');
+            }
+          });
+          document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+          });
+        },
+        setupEventListeners: function() {
+          document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+              const href = this.getAttribute('href');
+              if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                  const offset = 80;
+                  const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                  window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+              }
+            });
+          });
+          document.querySelectorAll('.dashboard-item, .trade-item, .category-item, .group-item, .rush-item, .culture-item, .sidebar-item, .farm-item, .base-item').forEach(item => {
+            item.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                if (item.onclick) item.onclick();
+              }
+            });
+          });
+        },
+        setupSearchFunctionality: function() {
+          SubstationSearch.init();
+        },
+        loadDashboardData: function() {
+          setTimeout(() => {
+            const mockData = {
+              productCount: 12560,
+              traceCount: 9865,
+              partnerCount: 1520,
+              fundAmountWan: 256.8,
+              employmentCount: 3250
+            };
+            console.log('数据看板加载完成', mockData);
+          }, 1000);
+        },
+        setupComplaintForm: function() {
+          const complaintForm = document.getElementById('complaintForm');
+          if (!complaintForm) return;
+          const complaintTypes = document.querySelectorAll('.complaint-type');
+          complaintTypes.forEach(type => {
+            type.addEventListener('click', function() {
+              complaintTypes.forEach(t => t.classList.remove('active'));
+              this.classList.add('active');
+            });
+          });
+          complaintForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const type = document.getElementById('complaintType').value;
+            const content = document.getElementById('complaintContent').value;
+            const contact = document.getElementById('contactInfo').value;
+            const urgency = document.querySelector('.complaint-type.active').dataset.type;
+            if (!type || !content || !contact) {
+              alert('请填写完整的投诉信息');
+              return;
+            }
+            const complaintData = {
+              type,
+              content,
+              contact,
+              urgency,
+              timestamp: new Date().toISOString()
+            };
+            console.log('投诉提交:', complaintData);
+            alert('投诉提交成功！我们将在24小时内处理您的投诉，并通过您提供的联系方式反馈处理结果。');
+            complaintForm.reset();
+            complaintTypes.forEach(t => t.classList.remove('active'));
+            document.querySelector('.complaint-type[data-type="normal"]').classList.add('active');
+          });
+        },
+        setupProductActions: function() {
+          document.querySelectorAll('.action-btn.detail').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              const productItem = this.closest('.product-item, .trade-item, .category-item, .group-item, .rush-item');
+              if (productItem && productItem.onclick) {
+                console.log('查看产品详情');
+              }
+            });
+          });
+          document.querySelectorAll('.action-btn.buy').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              console.log('下单购买');
+            });
+          });
+          document.querySelectorAll('.action-btn.order').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              console.log('下订单');
+            });
+          });
+        },
+        setupAccessibility: function() {
+          document.querySelectorAll('img:not([alt])').forEach(img => {
+            const altText = img.getAttribute('data-alt') || img.src.split('/').pop().split('.')[0] || '图片';
+            img.setAttribute('alt', altText);
+          });
+          const mainContent = document.querySelector('.main-layout');
+          if (mainContent) {
+            mainContent.id = 'main-content';
+          }
+        },
+        setupTouchFeedback: function() {
+          document.querySelectorAll('.trade-item, .category-item, .group-item, .rush-item, .culture-item, .sidebar-item, .dashboard-item, .farm-item, .base-item').forEach(item => {
+            item.addEventListener('touchstart', function() {
+              this.style.transform = 'scale(0.98)';
+            }, { passive: true });
+            item.addEventListener('touchend', function() {
+              this.style.transform = '';
+            }, { passive: true });
+          });
+        },
+        debounce: function(func, wait) {
+          let timeout;
+          return function executedFunction(...args) {
+            const later = () => {
+              clearTimeout(timeout);
+              func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+          };
+        },
+        throttle: function(func, limit) {
+          let inThrottle;
+          return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+              func.apply(context, args);
+              inThrottle = true;
+              setTimeout(() => inThrottle = false, limit);
+            }
+          };
+        }
+      };
+      document.addEventListener('DOMContentLoaded', () => {
+        JungePlatform.init();
+        const style = document.createElement('style');
+        style.textContent = `
+          .search-highlight {
+            color: #ff4444;
+            font-weight: bold;
+            background-color: rgba(255, 68, 68, 0.1);
+            padding: 0 2px;
+            border-radius: 2px;
+          }
+          #searchTip {
+            display: none;
+            color: #ff4444;
+            font-size: 12px;
+            margin-top: 8px;
+            padding: 4px 8px;
+            background-color: rgba(255, 68, 68, 0.05);
+            border-radius: 4px;
+            border-left: 3px solid #ff4444;
+          }
+        `;
+        document.head.appendChild(style);
+      });
+      window.addEventListener('error', (e) => {
+        console.error('平台错误:', e.error);
+      });
+    })();
+  </script>
+ <script src="substation-search.js"></script>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>溯源详情 · 云南高山生态农庄 · 军鸽云链数智</title>
+<meta name="description" content="景迈山UNESCO世界文化遗产古茶林、中欧双有机认证、军鸽区块链古树溯源体系、SGS检测报告。每一饼普洱茶都有唯一数字身份。">
+<meta name="keywords" content="景迈山世界遗产,古茶树溯源,区块链存证,有机认证,军鸽云链,SGS检测,普洱茶溯源,云南农庄">
+<meta property="og:title" content="溯源详情 · 云南高山生态农庄">
+<meta property="og:description" content="从古树GPS到茶杯——区块链让每一片茶叶都有来处、有身份、有故事。">
+<link rel="canonical" href="https://junge.中国/farm-yunnan-traceability.html">
+<style>
+:root{--bg:#030712;--card:rgba(8,20,44,0.85);--text:#e8edf5;--dim:#8896b0;--border:rgba(255,255,255,.06);--red:#b84045;--green:#4d9460;--blue:#4b8ecf;--gold:#f0c040;--cyan:#00d4ff;--radius:12px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;line-height:1.7;min-height:100vh;padding-bottom:130px}
+.breadcrumb{position:sticky;top:0;z-index:101;background:rgba(3,7,18,.96);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:6px;font-size:11px;backdrop-filter:blur(12px)}
+.breadcrumb a{color:var(--dim);text-decoration:none;transition:.2s}
+.breadcrumb a:hover{color:var(--cyan)}
+.breadcrumb .sep{color:#4a5568}
+.breadcrumb .current{color:var(--cyan);font-weight:700}
+.top-nav{position:sticky;top:33px;z-index:100;background:linear-gradient(90deg,rgba(3,7,18,.98),rgba(10,22,40,.97));backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;overflow-x:auto}
+.top-nav .logo{font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;flex-shrink:0}
+.top-nav .divider{width:1px;height:16px;background:var(--border);flex-shrink:0}
+.top-nav a.nav-link{color:var(--dim);text-decoration:none;font-size:11px;padding:3px 9px;border-radius:10px;border:1px solid transparent;white-space:nowrap;flex-shrink:0;transition:.2s}
+.top-nav a.nav-link:hover,.top-nav a.nav-link.active{color:var(--cyan);border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.05)}
+.hero{position:relative;height:300px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1634757439914-9b5886d1ce6d?w=1920&q=80') center/cover;opacity:.15}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,7,18,.4) 0%,rgba(3,7,18,.92) 100%)}
+.hero>*{position:relative;z-index:2}
+.hero h1{font-size:38px;color:var(--gold);margin-bottom:8px;text-shadow:0 0 40px rgba(240,192,64,.15)}
+.hero .sub{font-size:13px;color:var(--dim)}
+.container{max-width:1160px;margin:0 auto;padding:10px 20px 40px}
+.section{margin:36px 0}
+.section-title{font-size:15px;color:var(--cyan);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:18px}
+.card h3{font-size:16px;color:var(--gold);margin-bottom:12px}
+.card p{font-size:12px;color:var(--dim);line-height:1.9;margin-bottom:8px}
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.cert-item{background:rgba(0,212,255,.03);border:1px solid rgba(0,212,255,.08);border-radius:10px;padding:18px}
+.cert-item .cert-icon{font-size:28px;margin-bottom:8px}
+.cert-item h4{font-size:13px;color:var(--cyan);margin-bottom:6px}
+.cert-item .cert-num{font-family:monospace;font-size:11px;color:var(--gold);background:rgba(240,192,64,.06);padding:6px 10px;border-radius:6px;border-left:3px solid var(--gold);word-break:break-all}
+.cert-item .cert-detail{font-size:10px;color:var(--dim);margin-top:4px;line-height:1.6}
+.tree-protect{background:rgba(77,148,96,.04);border:1px solid rgba(77,148,96,.12);border-radius:10px;padding:18px}
+.tree-protect h4{font-size:13px;color:var(--green);margin-bottom:8px}
+.tree-protect .tree-code{font-family:monospace;font-size:11px;color:var(--text);margin-bottom:4px}
+.tree-protect .tree-meta{font-size:10px;color:var(--dim);line-height:1.6}
+.chain-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.chain-step{background:rgba(0,212,255,.03);border:1px solid rgba(0,212,255,.08);border-radius:10px;padding:16px 12px;text-align:center;transition:.25s}
+.chain-step:hover{border-color:rgba(0,212,255,.2);background:rgba(0,212,255,.06)}
+.chain-step .cs-icon{font-size:30px;margin-bottom:6px}
+.chain-step .cs-title{font-size:11px;font-weight:600;color:var(--text)}
+.chain-step .cs-detail{font-size:9px;color:var(--dim);margin-top:4px;line-height:1.5}
+.report-table{width:100%;border-collapse:collapse;font-size:11px}
+.report-table th,.report-table td{padding:10px 12px;text-align:left;border:1px solid var(--border)}
+.report-table thead th{background:rgba(0,212,255,.04);color:var(--cyan);font-size:10px}
+.report-table tbody td{color:var(--dim)}
+.report-table tbody tr:hover{background:rgba(0,212,255,.02)}
+.report-table .pass{color:var(--green);font-weight:600}
+.hash-block{background:#0a1628;border:1px solid rgba(0,212,255,.15);border-radius:8px;padding:14px;font-family:"Courier New",monospace;font-size:10px;color:var(--cyan);word-break:break-all;overflow-x:auto;line-height:1.8}
+.back-link{text-align:center;margin-top:10px}
+.back-link a{color:var(--cyan);text-decoration:none;font-size:11px;padding:8px 20px;border-radius:20px;border:1px solid rgba(0,212,255,.2);display:inline-block;transition:.2s}
+.back-link a:hover{background:rgba(0,212,255,.08)}
+.footer{text-align:center;padding:20px 20px 30px;border-top:1px solid var(--border);font-size:10px;color:#4a5568;line-height:1.8}
+.footer a{color:var(--dim);text-decoration:none}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,rgba(3,7,18,.97),rgba(10,22,40,.95));border-top:1px solid rgba(0,212,255,.1);padding:6px 12px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.bottom-nav a{color:var(--dim);text-decoration:none;font-size:10px;padding:4px 8px;border-radius:8px;transition:.2s}
+.bottom-nav a:hover{color:var(--cyan)}
+@media(max-width:768px){
+  .hero h1{font-size:24px}.hero{height:220px}
+  .cert-grid{grid-template-columns:1fr}
+  .chain-steps{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="/">🏠 首页</a><span class="sep">▸</span>
+  <a href="/junge/eco-farm.html">🌿 生态农庄</a><span class="sep">▸</span>
+  <a href="/farm-yunnan.html">云南高山生态农庄</a><span class="sep">▸</span>
+  <span class="current">溯源详情</span>
+</nav>
+
+<nav class="top-nav">
+  <a href="/" class="logo">⚔ 军鸽云链</a>
+  <span class="divider"></span>
+  <a href="/index.html" class="nav-link">🛡️ 军鸽首页</a>
+  <a href="/shangcheng.html" class="nav-link">🛒 商业生态</a>
+  <a href="/taskforce.html" class="nav-link">⚡ 数智中心</a>
+  <a href="/fenzhan.html" class="nav-link">🌾 分站家园</a>
+  <span class="divider"></span>
+  <a href="/farm-yunnan.html" class="nav-link">🏔️ 云南农庄</a>
+  <a href="/farm-yunnan-products.html" class="nav-link">📦 产品中心</a>
+  <a href="/farm-yunnan-traceability.html" class="nav-link active">🔍 溯源详情</a>
+  <a href="/farm-yunnan-experience.html" class="nav-link">🌿 农旅体验</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>🔍 区块链溯源 · 品质详情</h1>
+    <div class="sub">世界遗产古茶林 × 中欧双有机认证 × 军鸽区块链存证</div>
+  </div>
+</section>
+
+<div class="container">
+
+<!-- 景迈山世界遗产 -->
+<div class="section">
+  <div class="section-title"><span class="icon">🏛️</span> 景迈山 · UNESCO世界文化遗产</div>
+  <div class="card">
+    <h3>🌍 "普洱景迈山古茶林文化景观"</h3>
+    <p>2023年9月17日，联合国教科文组织第45届世界遗产大会将"普洱景迈山古茶林文化景观"列入《世界遗产名录》，成为全球首个茶主题世界文化遗产。这一殊荣标志着景迈山千年古茶林生态系统、少数民族茶文化和传统制茶技艺获得了全人类的认可。</p>
+    <p>云南高山生态农庄位于景迈山古茶林核心区，农庄内的古茶树资源是这片世界遗产的重要组成部分。这里保存着从唐代以来延续至今的"林下种植"传统——茶树与原始森林共生，不施任何化学肥料，依靠森林生态系统的自然循环维持肥力。</p>
+    <p>景迈山古茶林面积约2.8万亩，现存古茶树超过120万株，树龄从百年到千年不等。布朗族、傣族、拉祜族等少数民族世代在此种茶、制茶、饮茶，形成了人与自然和谐共生的独特文化景观。</p>
+  </div>
+</div>
+
+<!-- 古茶树编号保护 -->
+<div class="section">
+  <div class="section-title"><span class="icon">🌳</span> 古茶树编号保护体系</div>
+  <div class="card">
+    <h3>📋 每一棵古茶树都有唯一"身份证"</h3>
+    <p>云南高山生态农庄对古茶园中800亩、共计3,800余株古茶树建立了完整的编号保护体系。每棵古茶树均配备GPS定位、树龄鉴定、品种认定和健康档案，所有数据接入军鸽云链区块链平台，永久存证、不可篡改。</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px">
+      <div class="tree-protect">
+        <h4>🌳 古树编号示例</h4>
+        <div class="tree-code">JM-GT-0327</div>
+        <div class="tree-meta">品种: 景迈大叶种<br>树龄: 约800年<br>GPS: 22.1015°N, 100.0128°E<br>海拔: 1,820m<br>保护等级: 一级古树</div>
+      </div>
+      <div class="tree-protect">
+        <h4>🌳 古树编号示例</h4>
+        <div class="tree-code">JM-GT-0891</div>
+        <div class="tree-meta">品种: 景迈大叶种<br>树龄: 约500年<br>GPS: 22.0982°N, 100.0151°E<br>海拔: 1,750m<br>保护等级: 二级古树</div>
+      </div>
+      <div class="tree-protect">
+        <h4>🌳 古树编号示例</h4>
+        <div class="tree-code">JM-GT-1523</div>
+        <div class="tree-meta">品种: 景迈大叶种<br>树龄: 约300年<br>GPS: 22.1031°N, 100.0104°E<br>海拔: 1,860m<br>保护等级: 三级古树</div>
+      </div>
+    </div>
+    <p style="margin-top:12px">每年春茶采摘前，由退役军人和当地茶农组成的工作队逐棵巡查古树健康状况，记录发芽密度、病虫害情况和土壤数据。采摘时严格遵循"一芽二叶"标准，确保每片茶叶在最佳状态下被采摘。</p>
+  </div>
+</div>
+
+<!-- 中欧双有机认证 -->
+<div class="section">
+  <div class="section-title"><span class="icon">🏅</span> 中欧双有机认证</div>
+  <div class="cert-grid">
+    <div class="cert-item">
+      <div class="cert-icon">🇨🇳</div>
+      <h4>中国有机产品认证</h4>
+      <div class="cert-num">OFDC-2026-YN-0815</div>
+      <div class="cert-detail">标准: GB/T 19630-2019<br>认证机构: 南京国环有机产品认证中心(OFDC)<br>认证范围: 古树普洱茶、野生菌菇、有机三七<br>颁证日期: 2026-01-15<br>有效期至: 2027-01-14</div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">🇪🇺</div>
+      <h4>欧盟有机产品认证</h4>
+      <div class="cert-num">EU-2026-ORG-BIO-14270</div>
+      <div class="cert-detail">标准: EU 2018/848<br>认证机构: ECOCERT SA (法国)<br>认证范围: 古树普洱茶、野生松茸<br>颁证日期: 2026-02-20<br>有效期至: 2027-02-19</div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">📋</div>
+      <h4>普洱茶地理标志产品</h4>
+      <div class="cert-num">GB/T 22111-2008</div>
+      <div class="cert-detail">标准: 普洱茶地理标志产品国家标准<br>产地: 云南省普洱市景迈山<br>认证范围: 景迈古树普洱茶（生茶/熟茶）<br>保护区域: 普洱茶地理标志保护范围</div>
+    </div>
+    <div class="cert-item">
+      <div class="cert-icon">🧪</div>
+      <h4>SGS农残及重金属检测</h4>
+      <div class="cert-num">SGS-20260401-KMG</div>
+      <div class="cert-detail">检测机构: SGS通标标准技术服务有限公司<br>检测项目: 310项农残+5项重金属<br>结果: 310项零检出 ✅<br>检测日期: 2026-04-01<br>报告编号: KMG-2026-FT-0042</div>
+    </div>
+  </div>
+</div>
+
+<!-- 军鸽区块链溯源 -->
+<div class="section">
+  <div class="section-title"><span class="icon">⛓️</span> 军鸽云链 · 区块链古茶溯源</div>
+  <div class="card">
+    <h3>🔗 从古树到茶杯，每一步都上链存证</h3>
+    <p>每一饼云南高山生态农庄出品的景迈古树普洱茶，均配备NFC防伪芯片和区块链溯源二维码。消费者扫码即可查看到以下全部溯源信息，所有数据均通过军鸽云链区块链平台存证，确保数据真实、不可篡改。</p>
+
+    <div class="chain-steps" style="margin-top:16px">
+      <div class="chain-step">
+        <div class="cs-icon">🌳</div>
+        <div class="cs-title">古树采摘</div>
+        <div class="cs-detail">GPS定位记录<br>古树编号档案<br>采摘时间戳<br>采摘人员信息</div>
+      </div>
+      <div class="chain-step">
+        <div class="cs-icon">🤲</div>
+        <div class="cs-title">手工制茶</div>
+        <div class="cs-detail">制茶师傅身份<br>工艺步骤记录<br>温湿度传感器<br>制作时间区间</div>
+      </div>
+      <div class="chain-step">
+        <div class="cs-icon">📦</div>
+        <div class="cs-title">仓储陈化</div>
+        <div class="cs-detail">仓储GPS坐标<br>IoT温湿度监控<br>陈化时间记录<br>批次编号管理</div>
+      </div>
+      <div class="chain-step">
+        <div class="cs-icon">✈️</div>
+        <div class="cs-title">物流配送</div>
+        <div class="cs-detail">包装防伪信息<br>物流全程追踪<br>签收确认存证<br>NFC芯片验证</div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px">
+      <h4 style="font-size:12px;color:var(--cyan);margin-bottom:8px">📜 区块链存证哈希示例</h4>
+      <div class="hash-block">
+        区块高度: #1,847,243<br>
+        存证编号: YN-JGC-20260401-TEA-3P9X<br>
+        上链哈希: 0x8a7f3e9b2c1d5f6a8b4c2e0d1f3a5b7c9d8e6f4a2b0c1d3e5f7a9b<br>
+        时间戳: 2026-04-01 09:42:18 UTC+8<br>
+        验证平台: <a href="/traceability.html" style="color:var(--gold)">军鸽云链区块链溯源平台</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 菌菇及中草药溯源 -->
+<div class="section">
+  <div class="section-title"><span class="icon">🍄</span> 菌菇及中药材溯源体系</div>
+  <div class="card">
+    <h3>🔬 同样的严苛标准</h3>
+    <p>除古树普洱茶外，农庄出品的野生松茸、牛肝菌、鸡枞菌和有机三七同样接入了军鸽云链区块链溯源体系：</p>
+    <div style="margin-top:12px">
+      <table class="report-table">
+        <thead>
+          <tr><th>产品类别</th><th>溯源要点</th><th>检测标准</th><th>存证编号示例</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🍄 野生松茸</td><td>采摘GPS坐标、海拔、采摘人、预冷时间</td><td>GB 7096-2014</td><td>YN-JGC-20260401-MU-8R4W</td></tr>
+          <tr><td>🍄 野生牛肝菌</td><td>采摘GPS坐标、烘干温度/时间、批次号</td><td>GB 7096-2014</td><td>YN-JGC-20260401-FU-6T2M</td></tr>
+          <tr><td>🍄 野生鸡枞菌</td><td>GPS坐标、采摘时间、冷链温控记录</td><td>GB 7096-2014</td><td>YN-JGC-20260501-JZ-2K7P</td></tr>
+          <tr><td>🌿 有机三七</td><td>种植地块GPS、生长周期、采挖日期、加工批次</td><td>《中国药典》2020版</td><td>YN-JGC-20260401-HB-1Q5S</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:12px">菌菇产品额外配备野生采集备案证明（编号: YN-FP-2026-042），确保所有野生菌菇来源合法、可追溯、可持续。</p>
+  </div>
+</div>
+
+<div class="back-link">
+  <a href="/traceability.html">🔗 进入军鸽云链区块链溯源平台 →</a>
+  <a href="/farm-yunnan.html" style="margin-left:10px">🏔️ 返回云南农庄主页 →</a>
+</div>
+
+</div>
+
+<div class="footer">
+  <a href="/junge/eco-farm.html">🌿 生态农庄</a> ·
+  <a href="/farm-yunnan-products.html">📦 产品中心</a> ·
+  <a href="/shangcheng.html">🛒 商业生态</a> ·
+  <a href="/">🏠 首页</a><br>
+  军鸽云链数智 · junge.中国 · 琼ICP备2025063762号-2<br>
+  广州总站: 175.178.55.90 · 吉隆坡国际节点 · 账号ID: 100030442552<br>
+  食品安全+退役军人在服务综合平台
+</div>
+
+<nav class="bottom-nav">
+  <a href="/">🏠 军鸽云链</a>
+  <a href="/shangcheng.html">🛒 商业生态</a>
+  <a href="/taskforce.html">⚔ 数智中心</a>
+  <a href="/fenzhan.html">🌾 分站家园</a>
+</nav>
+
+</body>
+</html>

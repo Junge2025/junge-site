@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="军鸽云链数智·文化家园 — 军事文化、老兵故事、文化活动、图片画廊，退役军人精神家园">
+  <meta name="theme-color" content="#0a1628">
+  <title>军鸽云链数智·文化家园 | 退役军人食品安全服务平台</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+:root{
+  --primary:#0a1628;--primary-light:#0f2240;--primary-mid:#1a3a5f;
+  --accent-cyan:#00d4ff;--accent-cyan-dim:rgba(0,212,255,0.15);
+  --accent-gold:#d4af37;--accent-gold-dim:rgba(212,175,55,0.15);
+  --accent-red:#e53935;--accent-red-dim:rgba(229,57,53,0.12);
+  --accent-green:#4caf50;--accent-green-dim:rgba(76,175,80,0.12);
+  --accent-purple:#7c3aed;--accent-orange:#fb8b24;
+  --text-primary:#e8edf5;--text-secondary:#8896b0;--text-muted:#5a6a85;
+  --card-bg:rgba(15,34,64,0.6);--card-border:rgba(0,212,255,0.08);
+  --card-hover-border:rgba(0,212,255,0.25);
+  --shadow-card:0 8px 32px rgba(0,0,0,0.3);--shadow-glow-cyan:0 0 20px rgba(0,212,255,0.15);
+  --glass-bg:rgba(10,22,40,0.75);--glass-border:rgba(255,255,255,0.06);
+  --font-family:'PingFang SC','Microsoft YaHei','Helvetica Neue',Arial,sans-serif;
+  --radius-sm:6px;--radius-md:10px;--radius-lg:16px;--radius-xl:20px;
+  --transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:var(--font-family);background:var(--primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden;min-height:100vh}
+::selection{background:var(--accent-cyan);color:var(--primary)}
+a{color:inherit;text-decoration:none;transition:var(--transition)}
+button,.btn{cursor:pointer;font-family:inherit;border:none;outline:none;transition:var(--transition)}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
+#particle-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.6}
+.glow-cyan{box-shadow:0 0 30px rgba(0,212,255,0.08),0 0 60px rgba(0,212,255,0.04)}
+.glow-gold{box-shadow:0 0 30px rgba(212,175,55,0.08),0 0 60px rgba(212,175,55,0.04)}
+.section-header{text-align:center;margin-bottom:40px;position:relative;z-index:2}
+.section-header .tag{display:inline-block;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;background:var(--accent-cyan-dim);color:var(--accent-cyan);border:1px solid rgba(0,212,255,0.15);margin-bottom:12px}
+.section-header h2{font-size:2rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.section-header h2 span{color:var(--accent-cyan)}
+.section-header h2 .gold{color:var(--accent-gold)}
+.section-header p{color:var(--text-secondary);font-size:0.95rem;max-width:600px;margin:0 auto}
+.section-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--accent-cyan),var(--accent-gold));border-radius:2px;margin:16px auto}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.glass-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);padding:24px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:var(--transition);position:relative;overflow:hidden}
+.glass-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent-cyan),transparent);opacity:0.3}
+.glass-card:hover{border-color:var(--card-hover-border);box-shadow:var(--shadow-glow-cyan);transform:translateY(-2px)}
+.glass-card .card-icon{width:44px;height:44px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px}
+.card-icon.cyan{background:var(--accent-cyan-dim);color:var(--accent-cyan)}
+.card-icon.gold{background:var(--accent-gold-dim);color:var(--accent-gold)}
+.card-icon.green{background:var(--accent-green-dim);color:var(--accent-green)}
+.card-icon.red{background:var(--accent-red-dim);color:var(--accent-red)}
+.card-icon.purple{background:rgba(124,58,237,0.15);color:var(--accent-purple)}
+.card-icon.orange{background:rgba(251,139,36,0.15);color:var(--accent-orange)}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,22,40,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.04);transition:var(--transition)}
+header.scrolled{background:rgba(10,22,40,0.96);box-shadow:0 4px 30px rgba(0,0,0,0.35)}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:8px;min-height:56px}
+.brandbox{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.brand-logo{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));font-size:16px;font-weight:800;color:#fff}
+.brand-title .cn{font-size:15px;font-weight:700;color:var(--text-primary);letter-spacing:1px}
+.brand-title .en{font-size:9px;color:var(--text-secondary);letter-spacing:2px}
+.nav-wrapper{flex:1;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent);mask-image:linear-gradient(90deg,transparent 0,#000 8px,#000 calc(100% - 30px),transparent)}
+nav.navbar{display:flex;gap:2px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none;padding:0 4px;scroll-behavior:smooth}
+nav.navbar::-webkit-scrollbar{display:none}
+nav.navbar a{padding:6px 10px;border-radius:6px;font-size:12.5px;font-weight:500;color:var(--text-secondary);white-space:nowrap;border:1px solid transparent;transition:var(--transition);display:flex;align-items:center;gap:4px;flex-shrink:0}
+nav.navbar a i{font-size:12px;opacity:0.7}
+nav.navbar a:hover,nav.navbar a.active{color:var(--accent-cyan);background:var(--accent-cyan-dim);border-color:rgba(0,212,255,0.1)}
+nav.navbar a.active{color:#fff;background:rgba(0,212,255,0.12)}
+nav.navbar a:hover i,nav.navbar a.active i{opacity:1}
+.header-actions{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.header-actions .btn-cart,.header-actions .btn-user{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text-secondary);background:rgba(255,255,255,0.03);border:1px solid transparent;position:relative;transition:var(--transition)}
+.header-actions .btn-cart:hover,.header-actions .btn-user:hover{color:var(--accent-cyan);background:var(--accent-cyan-dim);border-color:rgba(0,212,255,0.1)}
+.header-actions .cart-badge{position:absolute;top:-2px;right:-2px;min-width:16px;height:16px;padding:0 4px;border-radius:10px;background:var(--accent-red);color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1;box-shadow:0 0 6px rgba(229,57,53,0.4)}
+.header-actions .btn-did{padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;background:linear-gradient(135deg,var(--accent-gold-dim),var(--accent-gold-dim));border:1px solid rgba(212,175,55,0.2);color:var(--accent-gold);letter-spacing:0.5px;white-space:nowrap}
+.header-actions .btn-did:hover{background:var(--accent-gold-dim);border-color:var(--accent-gold)}
+.header-actions .btn-login{padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;background:var(--accent-cyan-dim);border:1px solid rgba(0,212,255,0.15);color:var(--accent-cyan);white-space:nowrap}
+.header-actions .btn-login:hover{background:rgba(0,212,255,0.2)}
+.mobile-toggle,.mobile-toggle-close{display:none;color:var(--text-primary);font-size:20px;background:none;padding:6px;border-radius:6px}
+.mobile-toggle:hover{background:rgba(255,255,255,0.05)}
+.policy-ticker-container{border-top:1px solid rgba(255,255,255,0.04);overflow:hidden;font-size:12px;color:var(--text-muted);max-height:0;transition:max-height 0.3s}
+header.scrolled .policy-ticker-container{max-height:28px}
+.policy-ticker{display:flex;align-items:center;gap:8px;padding:4px 0;white-space:nowrap;overflow:hidden}
+.ticker-content{display:inline-block;animation:ticker-scroll 40s linear infinite}
+@keyframes ticker-scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+.hero-section{position:relative;z-index:1;min-height:60vh;display:flex;align-items:center;padding:100px 0 60px;overflow:hidden}
+.hero-content{text-align:center;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 20px;border-radius:30px;background:var(--accent-cyan-dim);border:1px solid rgba(0,212,255,0.15);font-size:12px;font-weight:600;color:var(--accent-cyan);letter-spacing:2px;margin-bottom:20px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-green);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-title{font-size:2.8rem;font-weight:800;line-height:1.2;margin-bottom:16px;background:linear-gradient(135deg,#e8edf5 30%,var(--accent-cyan) 70%,var(--accent-gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-subtitle{font-size:1.1rem;color:var(--text-secondary);margin-bottom:32px;max-width:700px;margin-left:auto;margin-right:auto}
+.hero-metrics{display:flex;justify-content:center;gap:40px;margin-bottom:36px;flex-wrap:wrap}
+.hero-metric{text-align:center}
+.hero-metric .num{font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-metric .label{font-size:13px;color:var(--text-muted);margin-top:4px}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-hero{padding:12px 28px;border-radius:10px;font-size:14px;font-weight:600;letter-spacing:1px;position:relative;overflow:hidden}
+.btn-hero.primary{background:linear-gradient(135deg,var(--accent-cyan),rgba(0,212,255,0.7));color:var(--primary)}
+.btn-hero.primary:hover{box-shadow:0 0 30px rgba(0,212,255,0.3);transform:translateY(-2px)}
+.btn-hero.secondary{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--text-primary)}
+.btn-hero.secondary:hover{background:rgba(255,255,255,0.1);border-color:var(--accent-cyan);color:var(--accent-cyan)}
+.btn-hero.gold{background:linear-gradient(135deg,var(--accent-gold),rgba(212,175,55,0.7));color:var(--primary)}
+.btn-hero.gold:hover{box-shadow:0 0 30px rgba(212,175,55,0.3);transform:translateY(-2px)}
+.btn-hero.outline-cyan{background:transparent;border:1px solid var(--accent-cyan);color:var(--accent-cyan)}
+.btn-hero.outline-cyan:hover{background:var(--accent-cyan-dim);box-shadow:0 0 20px rgba(0,212,255,0.15)}
+.section{padding:60px 0;position:relative;z-index:1}
+.section.alt{background:rgba(15,34,64,0.3)}
+/* Article Cards */
+.article-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);position:relative}
+.article-card:hover{border-color:var(--card-hover-border);transform:translateY(-3px);box-shadow:var(--shadow-glow-cyan)}
+.article-card .art-img{width:100%;height:180px;object-fit:cover;display:block}
+.article-card .art-body{padding:16px 18px}
+.article-card .art-tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:10px;font-weight:600;margin-bottom:8px}
+.article-card .art-tag.military{background:var(--accent-red-dim);color:var(--accent-red);border:1px solid rgba(229,57,53,0.15)}
+.article-card .art-tag.story{background:var(--accent-gold-dim);color:var(--accent-gold);border:1px solid rgba(212,175,55,0.15)}
+.article-card .art-tag.culture{background:var(--accent-cyan-dim);color:var(--accent-cyan);border:1px solid rgba(0,212,255,0.15)}
+.article-card .art-tag.activity{background:var(--accent-green-dim);color:var(--accent-green);border:1px solid rgba(76,175,80,0.15)}
+.article-card h3{font-size:15px;font-weight:700;margin-bottom:6px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.article-card p{font-size:12px;color:var(--text-muted);margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.article-card .art-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--text-secondary);border-top:1px solid rgba(255,255,255,0.04);padding-top:10px}
+/* Story Cards - Veteran */
+.story-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);padding:24px;transition:var(--transition);display:flex;gap:16px;align-items:flex-start}
+.story-card:hover{border-color:var(--card-hover-border);transform:translateY(-2px)}
+.story-card .story-avatar{width:60px;height:60px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--accent-gold-dim),var(--accent-cyan-dim));display:flex;align-items:center;justify-content:center;font-size:26px;border:2px solid rgba(212,175,55,0.2)}
+.story-card .story-body{flex:1}
+.story-card .story-body h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.story-card .story-body .story-title{font-size:12px;color:var(--accent-gold);margin-bottom:6px}
+.story-card .story-body p{font-size:13px;color:var(--text-secondary);line-height:1.6}
+/* Calendar */
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.calendar-header{text-align:center;font-size:12px;color:var(--text-muted);padding:8px 0;font-weight:600}
+.calendar-day{text-align:center;padding:10px 4px;border-radius:8px;font-size:13px;color:var(--text-secondary);background:rgba(255,255,255,0.02);border:1px solid transparent;transition:var(--transition);min-height:50px}
+.calendar-day.other{opacity:0.3}
+.calendar-day.today{border-color:var(--accent-cyan);background:var(--accent-cyan-dim);color:var(--accent-cyan);font-weight:700}
+.calendar-day.has-event{background:var(--accent-gold-dim);border-color:rgba(212,175,55,0.2);color:var(--accent-gold);cursor:pointer}
+.calendar-day.has-event:hover{background:rgba(212,175,55,0.2);transform:scale(1.05)}
+.calendar-day .event-dot{display:block;width:4px;height:4px;border-radius:50%;background:var(--accent-gold);margin:2px auto 0}
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery-item{position:relative;border-radius:var(--radius-md);overflow:hidden;cursor:pointer;aspect-ratio:4/3}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:var(--transition)}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-item .gallery-overlay{position:absolute;bottom:0;left:0;right:0;padding:30px 12px 12px;background:linear-gradient(transparent,rgba(0,0,0,0.8));font-size:12px;font-weight:600;color:#fff;opacity:0;transition:var(--transition)}
+.gallery-item:hover .gallery-overlay{opacity:1}
+/* Footer */
+footer{position:relative;z-index:1;background:rgba(10,22,40,0.9);border-top:1px solid rgba(255,255,255,0.04);padding:40px 0 20px;margin-top:40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px}
+.footer-brand .fb-icon{font-size:28px;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--text-muted);line-height:1.7}
+.footer-col h4{font-size:13px;font-weight:600;margin-bottom:12px;color:var(--text-primary);letter-spacing:1px}
+.footer-col a{display:block;font-size:12px;color:var(--text-muted);margin-bottom:6px}
+.footer-col a:hover{color:var(--accent-cyan)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--text-muted)}
+@media(max-width:992px){
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-title{font-size:2.2rem}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .mobile-toggle{display:block;order:10}
+  .mobile-toggle-close{display:flex !important}
+  .nav-wrapper{position:fixed;top:0;right:-100%;width:300px;max-width:85vw;height:100vh;background:rgba(8,16,32,0.98);backdrop-filter:blur(24px);border-left:1px solid rgba(255,255,255,0.06);z-index:2000;transition:right 0.35s cubic-bezier(0.4,0,0.2,1);padding:70px 16px 24px;overflow-y:auto;-webkit-mask-image:none;mask-image:none;box-shadow:-10px 0 40px rgba(0,0,0,0.5)}
+  .nav-wrapper.open{right:0}
+  .navbar{flex-direction:column;gap:2px;overflow:visible;padding:0}
+  .navbar a{padding:12px 14px;font-size:14px;border-radius:8px;border:1px solid transparent;gap:10px}
+  .navbar a i{font-size:16px;width:20px;text-align:center;opacity:1}
+  .navbar a:not(:last-child){border-bottom:1px solid rgba(255,255,255,0.03)}
+  .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1999;opacity:0;pointer-events:none;transition:opacity 0.3s}
+  .nav-overlay.show{opacity:1;pointer-events:auto}
+  .did-text,.login-text{display:none}
+  .mobile-toggle-close{position:fixed;top:12px;right:calc(300px + 12px);max-width:85vw;z-index:2001;font-size:24px;opacity:0;pointer-events:none;transition:opacity 0.3s}
+  .mobile-toggle-close.show{opacity:1;pointer-events:auto}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
+  .hero-metrics{gap:20px}
+  .hero-title{font-size:1.8rem}
+  .footer-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .story-card{flex-direction:column;align-items:center;text-align:center}
+}
+@media(max-width:480px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .hero-title{font-size:1.4rem}
+  .gallery-grid{grid-template-columns:1fr}
+  .nav-wrapper{width:100%;max-width:100%;border-left:none}
+  .mobile-toggle-close{right:16px}
+}
+  
+/* 面包屑 */
+.breadcrumb-bar{background:rgba(8,20,44,.92);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 16px;position:sticky;top:0;z-index:99;backdrop-filter:blur(8px);display:flex;align-items:center;gap:6px;font-size:11px;flex-wrap:wrap}
+.breadcrumb-bar a{color:#8896b0;text-decoration:none;transition:color .2s}
+.breadcrumb-bar a:hover{color:#00d4ff}
+.breadcrumb-bar .sep{color:#4a5568}
+.breadcrumb-bar .current{color:#00d4ff;font-weight:700}
+/* 延伸节点 */
+.extend-bar{background:rgba(16,24,36,.85);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 18px;margin:16px 0;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;border-top:2px solid rgba(0,212,255,.2)}
+.extend-bar .ext-title{font-size:11px;font-weight:700;color:#8896b0}
+.extend-bar a{display:inline-flex;align-items:center;gap:4px;padding:7px 16px;border-radius:20px;font-size:11px;font-weight:600;text-decoration:none;transition:all .2s}
+.ext-trace{background:rgba(0,212,255,.08);color:#00d4ff;border:1px solid rgba(0,212,255,.2)}
+.ext-trace:hover{background:rgba(0,212,255,.2);color:#fff}
+.ext-mall{background:transparent;color:#8896b0;border:1px dashed rgba(255,255,255,.1)}
+.ext-mall:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+<!-- [SEO] OpenGraph -- 2026-06-10 -->
+<meta property="og:title" content="军鸽云链数智·文化家园 | 退役军人食品安全服务平台">
+<meta property="og:site_name" content="军鸽云链数智">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://junge.中国/culture-home.html">
+<meta property="og:image" content="https://junge.中国/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://junge.中国/culture-home.html">
+</head>
+<body>
+<!-- 面包屑导航 -->
+<nav class="breadcrumb-bar">
+  <a href="/"><i class="fas fa-home"></i> 首页</a><span class="sep">▸</span>
+  <a href="/index.html">🏠 情怀首页</a><span class="sep">▸</span>
+  <span class="current">文化家园</span>
+</nav>
+  <canvas id="particle-canvas"></canvas>
+  <header id="site-header" role="banner">
+    <div class="container topbar">
+      <div class="brandbox">
+        <div class="brand-logo">&#x1F426;</div>
+        <div class="brand-title"><div class="cn">军鸽云链数智</div><div class="en">JunGe CloudLink DI</div></div>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="菜单"><i class="fas fa-bars"></i></button>
+      <div class="nav-wrapper" id="navWrapper">
+        <nav class="navbar" id="mainNav" aria-label="主导航">
+          <a href="/index.html"><i class="fas fa-home"></i> 首页</a>
+          <a href="junge-shuzhi.html"><i class="fas fa-crown"></i> junge数智</a>
+          <a href="shangcheng.html"><i class="fas fa-store"></i> 军创商城</a>
+          <a href="youpin.html"><i class="fas fa-star"></i> 军创优品</a>
+          <a href="cross-border.html"><i class="fas fa-globe"></i> 跨境电商</a>
+          <a href="zero-tariff.html"><i class="fas fa-tag"></i> 零关税</a>
+        <a href="game-center.html" class="nav-highlight" style="border-color:rgba(212,175,55,0.25);background:rgba(212,175,55,0.04)"><i class="fas fa-gamepad"></i> 🎮游戏池</a>
+          <a href="fenzhan.html"><i class="fas fa-sitemap"></i> 分站</a>
+          <a href="enterprise-cooperation.html"><i class="fas fa-building"></i> 企业合作</a>
+          <a href="employment-service.html"><i class="fas fa-briefcase"></i> 就业服务</a>
+          <a href="culture-home.html" class="active"><i class="fas fa-book-open"></i> 文化家园</a>
+          <a href="mission-system.html"><i class="fas fa-bullseye"></i> 任务系统</a>
+          <a href="party-public.html"><i class="fas fa-flag"></i> 党建公益</a>
+          <a href="about.html"><i class="fas fa-info-circle"></i> 关于我们</a>
+        </nav>
+      </div>
+      <div class="header-actions">
+        <a class="btn-cart" href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-badge">4</span></a>
+        <a class="btn-user" href="personal-center.html"><i class="fas fa-user-circle"></i></a>
+        <a class="btn-did" href="digital-id.html"><i class="fas fa-id-card"></i> <span class="did-text">数字ID</span></a>
+        <a class="btn-login" href="login.html"><i class="fas fa-sign-in-alt"></i> <span class="login-text">登录</span></a>
+        <button class="mobile-toggle-close" id="mobileClose" aria-label="关闭菜单" style="display:none"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div class="container policy-ticker-container">
+      <div class="policy-ticker"><div class="ticker-content">&#x1F4F0; 退役军人文化作品征集活动启动 · 军旅记忆馆线上展览开幕 · 老兵故事微电影大赛报名中 · 军事文化进校园活动通知</div></div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Hero -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-content">
+      <div class="hero-badge"><span class="dot"></span><span>文化家园 · 老兵精神家园</span></div>
+      <h1 class="hero-title">军鸽云链·文化家园</h1>
+      <p class="hero-subtitle">传承红色基因 · 弘扬军旅文化 · 记录老兵故事 · 凝聚精神力量</p>
+      <div class="hero-metrics">
+        <div class="hero-metric"><div class="num">12,680</div><div class="label">军事文化文章</div></div>
+        <div class="hero-metric"><div class="num">3,420</div><div class="label">老兵故事</div></div>
+        <div class="hero-metric"><div class="num">286</div><div class="label">文化活动</div></div>
+        <div class="hero-metric"><div class="num">56,800</div><div class="label">社区成员</div></div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn-hero primary" href="#articles"><i class="fas fa-newspaper"></i> 浏览文章</a>
+        <a class="btn-hero gold" href="#stories"><i class="fas fa-star"></i> 老兵故事</a>
+        <a class="btn-hero outline-cyan" href="#gallery"><i class="fas fa-images"></i> 图片画廊</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 军事文化文章 -->
+  <section class="section" id="articles">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-newspaper"></i> CULTURE ARTICLES</span>
+        <h2>军事文化 <span>文章精选</span></h2>
+        <p>传承军人精神 · 记录军旅岁月 · 弘扬国防文化</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="grid-4">
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1514912885225-3f28b5cf3f1a?q=80&w=400&h=300&fit=crop&auto=format" alt="军事文化" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag military">军旅文化</span>
+            <h3>铁血军魂：新时代军人精神的内涵与传承</h3>
+            <p>解析新时代革命军人精神的时代内涵，探讨如何在和平年代传承和发扬军人优良传统。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 3,286</span><span><i class="far fa-heart"></i> 482</span><span>2026-04-28</span></div>
+          </div>
+        </div>
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1575305303373-38d3e8a3e784?q=80&w=400&h=300&fit=crop&auto=format" alt="军事文化" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag military">国防教育</span>
+            <h3>全民国防教育日：筑牢国家安全的人民防线</h3>
+            <p>全面介绍全民国防教育的重要意义，各地开展国防教育的创新做法和典型案例。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 2,890</span><span><i class="far fa-heart"></i> 356</span><span>2026-04-25</span></div>
+          </div>
+        </div>
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1536566482680-fca31930a0bd?q=80&w=400&h=300&fit=crop&auto=format" alt="军事历史" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag culture">军史钩沉</span>
+            <h3>回望长征路：跨越时空的精神火炬</h3>
+            <p>重温长征历史，感受革命先烈坚定信念、艰苦奋斗的伟大精神，汲取前行力量。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 4,126</span><span><i class="far fa-heart"></i> 623</span><span>2026-04-22</span></div>
+          </div>
+        </div>
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1517242813236-4ad9c7c1f11e?q=80&w=400&h=300&fit=crop&auto=format" alt="军营文化" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag military">军营文化</span>
+            <h3>军营开放日：零距离感受强军脉动</h3>
+            <p>走进军营，体验现代化军事装备，感受军营文化魅力，增强全民国防意识。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 1,956</span><span><i class="far fa-heart"></i> 289</span><span>2026-04-20</span></div>
+          </div>
+        </div>
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1566385101041-1a0b587b2b86?q=80&w=400&h=300&fit=crop&auto=format" alt="军事科技" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag culture">军事科技</span>
+            <h3>中国军工：从跟跑到领跑的跨越之路</h3>
+            <p>盘点中国军工科技发展的里程碑事件，展现国防科技创新成就与未来发展方向。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 5,230</span><span><i class="far fa-heart"></i> 842</span><span>2026-04-18</span></div>
+          </div>
+        </div>
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1589758438368-0ad5310cfea0?q=80&w=400&h=300&fit=crop&auto=format" alt="老兵故事" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag story">老兵故事</span>
+            <h3>退伍不褪色：一位老兵的三次创业征程</h3>
+            <p>从军营到商海，他用军人品格书写创业传奇，带动300多名战友共同致富。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 6,840</span><span><i class="far fa-heart"></i> 1,256</span><span>2026-04-15</span></div>
+          </div>
+        </div>
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1559268950-2d5ce9e1d2d0?q=80&w=400&h=300&fit=crop&auto=format" alt="红色旅游" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag culture">红色旅游</span>
+            <h3>红色旅游精品线路：重走革命路，感悟初心使命</h3>
+            <p>精选全国十大红色旅游精品线路，感受革命圣地的历史厚重与时代新貌。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 3,420</span><span><i class="far fa-heart"></i> 534</span><span>2026-04-12</span></div>
+          </div>
+        </div>
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1523575708161-ad0fc2e9ea4b?q=80&w=400&h=300&fit=crop&auto=format" alt="双拥共建" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag activity">双拥共建</span>
+            <h3>新时代双拥工作：军地携手谱写鱼水深情新篇章</h3>
+            <p>深入报道新时代双拥工作的创新实践，展示军地融合发展的丰硕成果。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 2,160</span><span><i class="far fa-heart"></i> 312</span><span>2026-04-10</span></div>
+          </div>
+        </div>
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=400&h=300&fit=crop&auto=format" alt="退役军人" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag story">人物专访</span>
+            <h3>从维和战场到乡村振兴：一位女兵的大地情怀</h3>
+            <p>曾参加联合国维和行动的女军人，返乡创业带领村民发展生态农业的故事。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 4,580</span><span><i class="far fa-heart"></i> 718</span><span>2026-04-08</span></div>
+          </div>
+        </div>
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1461948573049-a5ab4a40e5db?q=80&w=400&h=300&fit=crop&auto=format" alt="军事演习" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag military">强军风采</span>
+            <h3>沙场点兵：年度联合军事演习全景回顾</h3>
+            <p>全方位回顾年度重大联合军事演习，展示人民军队实战化训练的最新成果。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 7,120</span><span><i class="far fa-heart"></i> 1,082</span><span>2026-04-05</span></div>
+          </div>
+        </div>
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?q=80&w=400&h=300&fit=crop&auto=format" alt="军旅文学" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag culture">军旅文学</span>
+            <h3>边关明月：一位哨所战士的诗歌集选</h3>
+            <p>收录边防哨所战士原创诗歌作品，用文字书写对祖国山河的深情与守护。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 1,830</span><span><i class="far fa-heart"></i> 426</span><span>2026-04-02</span></div>
+          </div>
+        </div>
+        <div class="article-card">
+          <img class="art-img" src="https://images.unsplash.com/photo-1577962917302-c3a7a5cf7e7f?q=80&w=400&h=300&fit=crop&auto=format" alt="军事博物馆" loading="lazy">
+          <div class="art-body">
+            <span class="art-tag activity">博物馆日</span>
+            <h3>军事博物馆数字展馆上线：足不出户览军史</h3>
+            <p>军事博物馆数字展馆正式上线，VR全景沉浸式体验，带你穿越百年军史。</p>
+            <div class="art-meta"><span><i class="far fa-eye"></i> 2,450</span><span><i class="far fa-heart"></i> 387</span><span>2026-03-30</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 老兵故事 -->
+  <section class="section alt" id="stories">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-star"></i> VETERAN STORIES</span>
+        <h2>老兵故事 <span class="gold">· 永不褪色的记忆</span></h2>
+        <p>每一位老兵都是一部活历史 · 每一个故事都值得被铭记</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="grid-2">
+        <div class="story-card">
+          <div class="story-avatar"><i class="fas fa-user-shield" style="color:var(--accent-gold)"></i></div>
+          <div class="story-body">
+            <h3>张建国 · 68岁</h3>
+            <div class="story-title"><i class="fas fa-medal"></i> 原某部侦察连指导员 · 三等功臣</div>
+            <p>"1979年我带领侦察连执行边境任务，在雨林里潜伏了七天七夜。现在虽然退役了，但军人的血性不能丢。去年我加入了军鸽平台，给年轻创业者做军事拓展培训，让更多年轻人感受真正的军人精神。"</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-avatar"><i class="fas fa-user-nurse" style="color:var(--accent-cyan)"></i></div>
+          <div class="story-body">
+            <h3>李红梅 · 42岁</h3>
+            <div class="story-title"><i class="fas fa-medal"></i> 原野战医院护士长 · 维和荣誉勋章</div>
+            <p>"在马里维和时，我们在40度高温下搭建野战医院，每天接诊上百名当地民众。回国后我创办了退役军人健康管理中心，用军队学到的医疗技能继续服务社会。"</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-avatar"><i class="fas fa-user-tie" style="color:var(--accent-gold)"></i></div>
+          <div class="story-body">
+            <h3>王铁军 · 52岁</h3>
+            <div class="story-title"><i class="fas fa-medal"></i> 原特种部队教官 · 全军比武冠军</div>
+            <p>"特种部队的16年教会我：没有完不成的任务，没有克服不了的困难。现在我是军鸽平台的特聘创业导师，帮助300多名退役军人找到创业方向。"</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-avatar"><i class="fas fa-user-astronaut" style="color:var(--accent-cyan)"></i></div>
+          <div class="story-body">
+            <h3>陈志远 · 35岁</h3>
+            <div class="story-title"><i class="fas fa-medal"></i> 原空军飞行员 · 优秀党员</div>
+            <p>"翱翔蓝天10年，我学会了精准与担当。退役后我创办了无人机植保公司，用航空技术助力智慧农业，带动32个村实现无人机植保全覆盖。"</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-avatar"><i class="fas fa-user-graduate" style="color:var(--accent-gold)"></i></div>
+          <div class="story-body">
+            <h3>刘芳华 · 46岁</h3>
+            <div class="story-title"><i class="fas fa-medal"></i> 原军事院校教授 · 国防教育专家</div>
+            <p>"在军校教了20年书，退休后我发起了'国防教育进校园'公益活动，已走进126所中小学，为8万多名学生讲授国防知识。让孩子们从小树立强国强军梦想。"</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-avatar"><i class="fas fa-user-secret" style="color:var(--accent-cyan)"></i></div>
+          <div class="story-body">
+            <h3>赵海峰 · 58岁</h3>
+            <div class="story-title"><i class="fas fa-medal"></i> 原边防巡逻队队长 · 戍边30年</div>
+            <p>"在西藏边境巡逻30年，走过10万公里边防线。现在我是军鸽平台'红色旅游'线路的顾问，为战友们设计最原汁原味的边防体验之旅。"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 文化活动日历 -->
+  <section class="section" id="calendar">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-calendar-alt"></i> ACTIVITY CALENDAR</span>
+        <h2>文化活动 <span>日历</span></h2>
+        <p>缤纷文化活动 · 丰富精神生活 · 共建文化家园</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="glass-card" style="margin-bottom:20px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <h3 style="font-size:16px;font-weight:700"><i class="fas fa-calendar" style="color:var(--accent-cyan)"></i> 2026年5月</h3>
+          <div>
+            <button class="btn-hero secondary" style="padding:6px 14px;font-size:12px"><i class="fas fa-chevron-left"></i></button>
+            <button class="btn-hero secondary" style="padding:6px 14px;font-size:12px;margin-left:4px"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <div class="calendar-grid">
+          <div class="calendar-header">日</div><div class="calendar-header">一</div><div class="calendar-header">二</div><div class="calendar-header">三</div><div class="calendar-header">四</div><div class="calendar-header">五</div><div class="calendar-header">六</div>
+          <div class="calendar-day other">27</div><div class="calendar-day other">28</div><div class="calendar-day other">29</div><div class="calendar-day other">30</div><div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div>
+          <div class="calendar-day">4</div><div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div><div class="calendar-day">8</div><div class="calendar-day">9</div><div class="calendar-day">10</div>
+          <div class="calendar-day">11</div><div class="calendar-day">12</div><div class="calendar-day">13</div><div class="calendar-day">14</div><div class="calendar-day">15</div><div class="calendar-day">16</div><div class="calendar-day">17</div>
+          <div class="calendar-day">18</div><div class="calendar-day">19</div><div class="calendar-day has-event" title="军事文化讲座">20<span class="event-dot"></span></div><div class="calendar-day">21</div><div class="calendar-day">22</div><div class="calendar-day has-event" title="老兵故事分享会">23<span class="event-dot"></span></div><div class="calendar-day">24</div>
+          <div class="calendar-day">25</div><div class="calendar-day">26</div><div class="calendar-day">27</div><div class="calendar-day has-event" title="国防教育开放日">28<span class="event-dot"></span></div><div class="calendar-day">29</div><div class="calendar-day">30</div><div class="calendar-day has-event" title="红色电影展播">31<span class="event-dot"></span></div>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent-gold)"></span> 有活动</div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary)"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent-cyan)"></span> 今天</div>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="glass-card">
+          <div class="card-icon gold"><i class="fas fa-microphone-alt"></i></div>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:4px">军事文化专题讲座</h3>
+          <p style="font-size:12px;color:var(--text-secondary)">5月20日 14:00-16:00 · 线上直播</p>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:6px">主题：新时代国防动员体系建设</p>
+          <div style="margin-top:10px;display:flex;gap:6px"><span class="art-tag military">报名中</span><span style="font-size:11px;color:var(--text-muted)">已报名 126人</span></div>
+        </div>
+        <div class="glass-card">
+          <div class="card-icon cyan"><i class="fas fa-hand-holding-heart"></i></div>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:4px">老兵故事分享会</h3>
+          <p style="font-size:12px;color:var(--text-secondary)">5月23日 15:00-17:00 · 线下/线上</p>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:6px">四位退役老兵分享创业经历</p>
+          <div style="margin-top:10px;display:flex;gap:6px"><span class="art-tag story">热门</span><span style="font-size:11px;color:var(--text-muted)">已报名 238人</span></div>
+        </div>
+        <div class="glass-card">
+          <div class="card-icon green"><i class="fas fa-school"></i></div>
+          <h3 style="font-size:15px;font-weight:700;margin-bottom:4px">国防教育开放日</h3>
+          <p style="font-size:12px;color:var(--text-secondary)">5月28日 09:00-17:00 · 国防教育基地</p>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:6px">装备展示 · 军事体验 · 爱国主义教育</p>
+          <div style="margin-top:10px;display:flex;gap:6px"><span class="art-tag activity">推荐</span><span style="font-size:11px;color:var(--text-muted)">已报名 456人</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 图片画廊 -->
+  <section class="section alt" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-images"></i> PHOTO GALLERY</span>
+        <h2>图片画廊 <span>· 军旅光影</span></h2>
+        <p>用镜头记录军旅岁月 · 用光影讲述军人故事</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1627556704290-2b1f585c53a9?q=80&w=600&h=450&fit=crop&auto=format" alt="阅兵仪式" loading="lazy">
+          <div class="gallery-overlay">国庆阅兵式 · 2025</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?q=80&w=600&h=450&fit=crop&auto=format" alt="军营训练" loading="lazy">
+          <div class="gallery-overlay">野外拉练训练</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1575311913714-9a79fa1b6495?q=80&w=600&h=450&fit=crop&auto=format" alt="边防巡逻" loading="lazy">
+          <div class="gallery-overlay">边防战士巡逻</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1535365761665-5babc96c4762?q=80&w=600&h=450&fit=crop&auto=format" alt="退伍仪式" loading="lazy">
+          <div class="gallery-overlay">退役士兵告别仪式</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?q=80&w=600&h=450&fit=crop&auto=format" alt="军事博物馆" loading="lazy">
+          <div class="gallery-overlay">军事博物馆展览</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1545167624-f2e7e4f2e9b8?q=80&w=600&h=450&fit=crop&auto=format" alt="军民共建" loading="lazy">
+          <div class="gallery-overlay">军民共建活动</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1574012877667-f4fd91e67a45?q=80&w=600&h=450&fit=crop&auto=format" alt="红色旅游" loading="lazy">
+          <div class="gallery-overlay">红色教育基地参观</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?q=80&w=600&h=450&fit=crop&auto=format" alt="军体运动会" loading="lazy">
+          <div class="gallery-overlay">军体运动会开幕式</div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1602774895110-41d7c167c7e2?q=80&w=600&h=450&fit=crop&auto=format" alt="维和部队" loading="lazy">
+          <div class="gallery-overlay">维和部队出征仪式</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 延伸节点区 -->
+<div class="extend-bar">
+  <span class="ext-title">🔗 继续探索：</span>
+  <a href="/traceability.html" class="ext-trace"><i class="fas fa-qrcode"></i> 区块链溯源</a>
+  <a href="/shangcheng.html" class="ext-mall"><i class="fas fa-store"></i> 返回商城</a>
+  <a href="/index.html" class="ext-mall"><i class="fas fa-home"></i> 返回首页</a>
+</div>
+
+<footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="fb-icon">&#x1F426;</div>
+          <p>军鸽云链数智 — 以军人精神守护民生底线，以商业创新激活社会价值。退役军人信用背书 + 区块链溯源 + AI智能调度，全国3000+分站联动运营。</p>
+        </div>
+        <div class="footer-col">
+          <h4>快速链接</h4>
+          <a href="shangcheng.html">军创商城</a>
+          <a href="cross-border.html">跨境电商</a>
+          <a href="zero-tariff.html">零关税专区</a>
+          <a href="fenzhan.html">分站系统</a>
+        </div>
+        <div class="footer-col">
+          <h4>服务支持</h4>
+          <a href="about.html">关于我们</a>
+          <a href="contact.html">联系我们</a>
+          <a href="join.html">加入军创</a>
+          <a href="help.html">帮助中心</a>
+        </div>
+        <div class="footer-col">
+          <h4>联系方式</h4>
+          <a href="#"><i class="fas fa-phone"></i> 400-888-8888</a>
+          <a href="#"><i class="fas fa-envelope"></i> service@junge.中国</a>
+          <a href="#"><i class="fas fa-map-marker-alt"></i> 中国·海南自贸港</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 军鸽云链数智 JunGe CloudLink DI. All rights reserved.</span>
+        <span><i class="fas fa-shield-alt"></i> 退役军人创业示范平台</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var canvas = document.getElementById('particle-canvas');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var PARTICLE_COUNT = 60;
+    function resize(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+    function Particle(){
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.size = Math.random() * 2 + 0.5;
+      this.alpha = Math.random() * 0.5 + 0.1;
+    }
+    Particle.prototype.update = function(){
+      this.x += this.vx; this.y += this.vy;
+      if(this.x < 0) this.x = canvas.width; if(this.x > canvas.width) this.x = 0;
+      if(this.y < 0) this.y = canvas.height; if(this.y > canvas.height) this.y = 0;
+    };
+    Particle.prototype.draw = function(){
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0, 212, 255, ' + this.alpha + ')';
+      ctx.fill();
+    };
+    for(var i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+    function animate(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for(var i = 0; i < particles.length; i++){
+        for(var j = i + 1; j < particles.length; j++){
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if(dist < 120){
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(0, 212, 255, ' + (0.06 * (1 - dist / 120)) + ')';
+            ctx.stroke();
+          }
+        }
+        particles[i].update();
+        particles[i].draw();
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var toggle = document.getElementById('mobileToggle');
+    var navWrap = document.getElementById('navWrapper');
+    var overlay = document.getElementById('navOverlay');
+    var closeBtn = document.getElementById('mobileClose');
+    function openNav(){ if(navWrap) navWrap.classList.add('open'); if(overlay) overlay.classList.add('show'); if(closeBtn) closeBtn.classList.add('show'); document.body.style.overflow = 'hidden'; }
+    function closeNav(){ if(navWrap) navWrap.classList.remove('open'); if(overlay) overlay.classList.remove('show'); if(closeBtn) closeBtn.classList.remove('show'); document.body.style.overflow = ''; }
+    if(toggle) toggle.addEventListener('click', openNav);
+    if(closeBtn) closeBtn.addEventListener('click', closeNav);
+    if(overlay) overlay.addEventListener('click', closeNav);
+    if(navWrap){ navWrap.querySelectorAll('a').forEach(function(link){ link.addEventListener('click', closeNav); }); }
+    var header = document.getElementById('site-header');
+    if(header){ window.addEventListener('scroll', function(){ if(window.scrollY > 50) header.classList.add('scrolled'); else header.classList.remove('scrolled'); }); }
+  });
+  </script>
+<!-- 停留分享奖励机制 -->
+<script src="/js/game-pool.js"></script>
+  <script src="/js/share-reward.js"></script>
+<nav class="bottom-nav">
+    <a href="/">🏠 军鸽云链</a>
+    <a href="/shangcheng.html">🛒 商业生态</a>
+    <a href="/taskforce.html">⚔ 数智中心</a>
+    <a href="/fenzhan.html">🌾 分站家园</a>
+    <a href="/junge-shuzhi.html">🧠 数智总部</a>
+</nav>
+</body>
+</html>
