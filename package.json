@@ -1,0 +1,15 @@
+{
+  "name": "junge-site",
+  "private": true,
+  "scripts": {
+    "fix:html": "prettier --write \"**/*.html\" && htmlhint \"**/*.html\"",
+    "fix:css": "prettier --write \"**/*.css\" && stylelint \"**/*.css\" --fix",
+    "fix:js": "eslint \"**/*.js\" --fix && prettier --write \"**/*.js\""
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0",
+    "eslint": "^9.0.0",
+    "stylelint": "^16.0.0",
+    "htmlhint": "^1.1.0"
+  }
+}
