@@ -231,6 +231,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Generate sitemap.xml
         run: |
@@ -242,10 +244,13 @@ jobs:
 
           find . -name "*.html" | sed 's|^\./||' | while read -r path; do
             url="$base/${path}"
-            echo "  <url><loc>${url}</loc></url>" >> "$out"
+            # 从 git 获取最后修改日期
+            lastmod=$(git log -1 --format="%cs" -- "$path" 2>/dev/null || date +%Y-%m-%d)
+            echo "  <url><loc>${url}</loc><lastmod>${lastmod}</lastmod></url>" >> "$out"
           done
 
           echo '</urlset>' >> "$out"
+          echo "Generated sitemap.xml with $(grep -c '<loc>' "$out") URLs"
 
       - name: Upload sitemap.xml
         uses: actions/upload-artifact@v4
