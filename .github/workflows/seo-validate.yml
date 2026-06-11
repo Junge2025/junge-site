@@ -1,0 +1,106 @@
+name: SEO Validate
+
+on:
+  push:
+    paths: ['**.html']
+  pull_request:
+    paths: ['**.html']
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: sudo apt-get update && sudo apt-get install -y jq libxml2-utils
+
+      - name: Check Essential Meta Tags
+        run: |
+          missing=0
+          MAIN_PAGES=("index.html" "shangcheng.html" "junge-shuzhi.html" "fenzhan.html")
+
+          for f in "${MAIN_PAGES[@]}"; do
+            [ ! -f "$f" ] && continue
+            echo "::group::$f"
+
+            declare -A TAGS=(
+              ["og:title"]='property="og:title"'
+              ["og:description"]='property="og:description"'
+              ["og:image"]='property="og:image"'
+              ["twitter:card"]='name="twitter:card"'
+              ["canonical"]='rel="canonical"'
+              ["description"]='<meta name="description"'
+              ["robots"]='<meta name="robots"'
+            )
+
+            for key in "${!TAGS[@]}"; do
+              if grep -q "${TAGS[$key]}" "$f"; then
+                echo "  ✅ $key"
+              else
+                echo "  ❌ MISSING: $key"
+                missing=$((missing+1))
+              fi
+            done
+
+            echo "::endgroup::"
+          done
+
+          echo "total_missing=$missing" >> $GITHUB_OUTPUT
+          if [ $missing -gt 0 ]; then
+            echo "::error::$missing essential meta tags missing across main pages"
+          fi
+
+      - name: Validate JSON-LD
+        run: |
+          errors=0
+          MAIN_PAGES=("index.html" "shangcheng.html" "junge-shuzhi.html" "fenzhan.html")
+
+          for f in *.html; do
+            count=$(grep -c 'application/ld+json' "$f" 2>/dev/null || true)
+            if [ "$count" = "0" ] || [ -z "$count" ]; then
+              echo "⚠️  $f: no JSON-LD"
+            else
+              # Extract and validate JSON-LD block
+              json=$(sed -n '/<script type="application\/ld+json">/,/<\/script>/p' "$f" | sed '1d;$d')
+              if [ -n "$json" ]; then
+                if echo "$json" | jq empty 2>/dev/null; then
+                  echo "  ✅ $f ($count blocks, valid JSON)"
+                else
+                  echo "::error::$f contains invalid JSON-LD"
+                  errors=$((errors+1))
+                fi
+              fi
+            fi
+          done
+
+          for f in "${MAIN_PAGES[@]}"; do
+            if [ -f "$f" ] && ! grep -q 'application/ld+json' "$f"; then
+              echo "::error::$f (main page) missing JSON-LD"
+              errors=$((errors+1))
+            fi
+          done
+
+          if [ $errors -gt 0 ]; then exit 1; fi
+
+      - name: Validate Sitemap
+        run: |
+          if [ -f sitemap.xml ]; then
+            urls=$(grep -c '<loc>' sitemap.xml)
+            echo "sitemap.xml: $urls URLs"
+            if xmllint --noout sitemap.xml 2>/dev/null; then
+              echo "✅ XML valid"
+            else
+              echo "::warning::sitemap.xml has XML errors"
+            fi
+          else
+            echo "::warning::sitemap.xml not found"
+          fi
+
+      - name: Upload Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-validate-report
+          path: /tmp/seo-*.txt
