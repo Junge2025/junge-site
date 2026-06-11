@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://junge.中国/sitemap.xml
