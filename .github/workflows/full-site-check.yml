@@ -26,9 +26,8 @@ jobs:
       - name: Check sitemap.xml
         run: |
           if [ ! -f sitemap.xml ]; then
-            echo "::warning::sitemap.xml 不存在，将由 sitemap-generate job 自动生成"
-          else
-            echo "✔ sitemap.xml 存在"
+            echo "❌ sitemap.xml 不存在"
+            exit 1
           fi
 
       - name: Check robots.txt
@@ -95,7 +94,9 @@ jobs:
 
       - name: Run html-validate
         run: |
-          html-validate "**/*.html" > /tmp/html-validate-report.txt || true
+          html-validate "**/*.html" > /tmp/html-validate-report.txt || exit_code=$?
+          echo "Exit code: ${exit_code:-0}"
+          exit ${exit_code:-0}
 
       - name: Upload HTML Validation Report
         if: always()
