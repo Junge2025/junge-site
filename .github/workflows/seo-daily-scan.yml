@@ -1,0 +1,70 @@
+# 军鸽云链数智 — 每日定时全站扫描 + Issue 报告
+name: SEO Daily Scan
+
+on:
+  schedule:
+    - cron: '30 22 * * *'  # UTC 22:30 = 北京时间 06:30 (凌晨低峰)
+  workflow_dispatch:
+
+jobs:
+  full-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Count and Audit All Pages
+        id: audit
+        run: |
+          total=$(ls *.html 2>/dev/null | wc -l)
+          with_og=$(grep -l 'og:title' *.html 2>/dev/null | wc -l)
+          with_title=$(grep -l '<title>' *.html 2>/dev/null | wc -l)
+          with_canonical=$(grep -l 'canonical' *.html 2>/dev/null | wc -l)
+          with_jsonld=$(grep -l 'application/ld+json' *.html 2>/dev/null | wc -l)
+
+          echo "total=$total" >> $GITHUB_OUTPUT
+          echo "og=$with_og" >> $GITHUB_OUTPUT
+          echo "title=$with_title" >> $GITHUB_OUTPUT
+          echo "canonical=$with_canonical" >> $GITHUB_OUTPUT
+          echo "jsonld=$with_jsonld" >> $GITHUB_OUTPUT
+
+          echo "📊 全站扫描 $(date +%Y-%m-%d)"
+          echo "  总页面: $total"
+          echo "  有OG:   $with_og / $total"
+          echo "  有title: $with_title / $total"
+          echo "  有canonical: $with_canonical / $total"
+          echo "  有JSON-LD: $with_jsonld / $total"
+
+          if [ "$with_og" -lt "$total" ]; then
+            echo "::warning::$((total - with_og)) pages missing OpenGraph"
+          fi
+
+      - name: Create Summary Issue
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const total = '${{ steps.audit.outputs.total }}';
+            const og = '${{ steps.audit.outputs.og }}';
+            const title = '${{ steps.audit.outputs.title }}';
+            const canonical = '${{ steps.audit.outputs.canonical }}';
+            const jsonld = '${{ steps.audit.outputs.jsonld }}';
+
+            const body = `## 📊 军鸽云链 SEO 每日扫描 — ${new Date().toISOString().slice(0,10)}
+
+            | 指标 | 覆盖 |
+            |------|------|
+            | 总页面 | ${total} |
+            | OpenGraph | ${og} / ${total} (${Math.round(og/total*100)}%) |
+            | Title | ${title} / ${total} (${Math.round(title/total*100)}%) |
+            | Canonical | ${canonical} / ${total} |
+            | JSON-LD | ${jsonld} / ${total} |
+
+            > 自动扫描，每日北京时间 06:30 执行。`;
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `📊 SEO 每日扫描 — ${new Date().toISOString().slice(0,10)}`,
+              body: body,
+              labels: ['seo', 'automated']
+            });
