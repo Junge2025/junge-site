@@ -1,0 +1,133 @@
+name: Full Site Quality Check
+
+on:
+  push:
+    paths: ['**.html', '**.htm', 'robots.txt', 'sitemap.xml']
+  schedule:
+    - cron: '0 0 * * *'  # UTC 00:00 = 北京时间 08:00
+  workflow_dispatch:
+
+jobs:
+  link-check:
+    name: Dead Link + Sitemap + Robots
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache Lychee
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/lychee
+          key: lychee-cache
+
+      - name: Check sitemap.xml
+        run: |
+          if [ ! -f sitemap.xml ]; then
+            echo "❌ sitemap.xml 不存在"
+            exit 1
+          fi
+          echo "✔ sitemap.xml 存在"
+
+      - name: Check robots.txt
+        run: |
+          if [ ! -f robots.txt ]; then
+            echo "❌ robots.txt 不存在"
+            exit 1
+          fi
+          echo "✔ robots.txt 存在"
+
+      - name: Lychee Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >
+            --base https://junge.中国
+            --no-progress
+            --max-concurrency 10
+            --timeout 20
+            --retry-wait-time 2
+            --max-retries 3
+            --accept 200,201,301,302,403,429
+            --exclude-mail
+            --exclude-file
+            --exclude-loopback
+            --exclude '^(https?://(localhost|127\.0\.0\.1|::1)|tel:)'
+            --exclude-path '**/node_modules/**'
+            '**/*.html'
+          format: markdown
+          output: /tmp/lychee-report.md
+
+      - name: Upload Link Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-report
+          path: /tmp/lychee-report.md
+
+      - name: Create Issue on Failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('/tmp/lychee-report.md', 'utf8');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🔗 死链检查失败',
+              body: report.slice(0, 60000),
+              labels: ['seo', 'bug']
+            });
+
+  lighthouse:
+    name: Lighthouse Performance Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            https://junge.中国
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  accessibility:
+    name: HTML Accessibility Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Pa11y
+        run: npm install -g pa11y
+
+      - name: Run Pa11y
+        run: pa11y https://junge.中国 --reporter markdown > /tmp/a11y-report.md
+
+      - name: Upload A11y Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-report
+          path: /tmp/a11y-report.md
+
+  auto-fix:
+    name: Auto Fix Dead Links (PR)
+    needs: link-check
+    if: failure()
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Auto Fix Common Dead Links
+        run: |
+          find . -name "*.html" -type f -exec sed -i 's/http:\/\//https:\/\//g' {} \;
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "🔧 自动修复部分死链"
+          title: "🔧 自动修复死链"
+          body: "本 PR 自动修复了部分死链（如 http→https）。请审核。"
+          labels: seo
