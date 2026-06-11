@@ -391,3 +391,115 @@ jobs:
         with:
           name: image-optimization-report
           path: /tmp/large-images.txt
+
+
+  # ═══════════════════════════════════════════════
+  # 13. WebP 自动生成
+  # ═══════════════════════════════════════════════
+  webp-generate:
+    name: "⑬ webp-generate (WebP 自动生成)"
+    runs-on: ubuntu-latest
+    needs: [image-optimization]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install cwebp
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y webp
+
+      - name: Generate WebP images
+        run: |
+          find . -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) \
+            -not -path "./.git/*" -not -path "./node_modules/*" -print0 | \
+            xargs -0 -I{} bash -c '
+              file="{}"
+              base=$(basename "$file")
+              name="${base%.*}"
+              dir=$(dirname "$file")
+              webp_file="${dir}/${name}.webp"
+              if [ ! -f "$webp_file" ]; then
+                cwebp -q 80 "$file" -o "$webp_file"
+                echo "Generated: $webp_file"
+              fi
+            '
+
+      - name: Create WebP PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: generate WebP images"
+          branch: chore/webp-auto-generate
+          title: "chore: WebP 自动生成"
+          body: |
+            - 自动扫描 jpg/png
+            - 生成对应 WebP
+          labels: webp, automation
+
+  # ═══════════════════════════════════════════════
+  # 14. HTML/CSS/JS 自动修复
+  # ═══════════════════════════════════════════════
+  code-auto-fix:
+    name: "⑭ code-auto-fix (HTML/CSS/JS 自动修复)"
+    runs-on: ubuntu-latest
+    needs: [html-lint, css-lint, js-lint]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run auto fixers
+        run: |
+          npm run fix:html
+          npm run fix:css
+          npm run fix:js
+
+      - name: Create auto-fix PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: auto fix HTML/CSS/JS"
+          branch: chore/code-auto-fix
+          title: "chore: HTML/CSS/JS 自动修复"
+          body: |
+            - Prettier/ESLint/stylelint/htmlhint 自动修复
+            - 与 ⑧ auto-fix 规则互补（URL/路径/域名层面）
+          labels: auto-fix, formatting
+
+  # ═══════════════════════════════════════════════
+  # 15. 手动一键推送 (仅 workflow_dispatch)
+  # ═══════════════════════════════════════════════
+  manual-auto-push:
+    name: "manual-auto-push (手动一键推送)"
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Push current branch
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "chore: manual auto push"
+            git push
+          else
+            echo "No changes to push."
+          fi
