@@ -2,14 +2,19 @@
   "name": "junge-site",
   "private": true,
   "scripts": {
-    "fix:html": "prettier --write \"**/*.html\" && htmlhint \"**/*.html\"",
+    "fix:html": "prettier --write \"**/*.html\" && htmlhint \"**/*.html\" --config .htmlhintrc",
     "fix:css": "prettier --write \"**/*.css\" && stylelint \"**/*.css\" --fix",
     "fix:js": "eslint \"**/*.js\" --fix && prettier --write \"**/*.js\""
   },
   "devDependencies": {
-    "prettier": "^3.0.0",
+    "prettier": "^3.2.5",
     "eslint": "^9.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-promise": "^6.1.1",
     "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0",
     "htmlhint": "^1.1.0"
   }
 }
