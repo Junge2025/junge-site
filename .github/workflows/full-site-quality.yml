@@ -227,6 +227,7 @@ jobs:
   # ═══════════════════════════════════════════════
   sitemap-generate:
     name: Generate sitemap.xml
+    needs: link-check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
