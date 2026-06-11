@@ -4,7 +4,15 @@
   "scripts": {
     "fix:html": "prettier --write \"**/*.html\" && htmlhint \"**/*.html\" --config .htmlhintrc",
     "fix:css": "prettier --write \"**/*.css\" && stylelint \"**/*.css\" --fix",
-    "fix:js": "eslint \"**/*.js\" --fix && prettier --write \"**/*.js\""
+    "fix:js": "eslint \"**/*.js\" --fix && prettier --write \"**/*.js\"",
+
+    "fix:html:strict": "htmlhint \"**/*.html\" --config .htmlhintrc",
+    "fix:css:strict": "stylelint \"**/*.css\"",
+    "fix:js:strict": "eslint \"**/*.js\"",
+
+    "fix:html:report": "mkdir -p reports && htmlhint \"**/*.html\" --config .htmlhintrc > reports/html-lint.txt || true",
+    "fix:css:report": "mkdir -p reports && stylelint \"**/*.css\" > reports/css-lint.txt || true",
+    "fix:js:report": "mkdir -p reports && eslint \"**/*.js\" > reports/js-lint.txt || true"
   },
   "devDependencies": {
     "prettier": "^3.2.5",
